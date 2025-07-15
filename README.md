@@ -1,8 +1,8 @@
 # oihana-php-files
 
-## Oihana PHP - Files library
+## Oihana PHP - System library
 
-Provides universal PHP utilities for handling filesystem operations and manipulating file and directory paths, independent of the platform in use.
+Provides a standard set of PHP tools to creates web and command applications.
 
 ## Installation and Usage
 
@@ -11,7 +11,7 @@ Provides universal PHP utilities for handling filesystem operations and manipula
 This library using [Composer](https://getcomposer.org):
 
 ```bash
-composer require oihana/php-files
+composer require oihana/php-system
 ```
 
 ## Unit tests
@@ -23,7 +23,7 @@ composer run-script test
 
 Run a unique unit test.
 ```bash
-composer run test ./tests/oihana/files/OpenSSLFileEncryptionTest.php
+composer run test ./tests/oihana/date/TimeIntervalTest.php
 ```
 
 ## Licences
