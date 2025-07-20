@@ -12,6 +12,8 @@ Thumbs.db
 # Php
 composer.lock
 composer-dev.lock
+/build/parser
+/.phpdoc/cache
 .php-cs-fixer.cache
 .phpunit.cache
 .phpunit.result.cache
