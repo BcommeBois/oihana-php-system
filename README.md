@@ -4,6 +4,11 @@
 
 Provides a standard set of PHP helpers and tools to creates web and command applications.
 
+## 📚 Documentation
+
+Full project documentation is available at:  
+👉 https://bcommebois.github.io/oihana-php-system
+
 ## 📦 Installation
 
 > **Requires [PHP 8.4+](https://php.net/releases/)**
