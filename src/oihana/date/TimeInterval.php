@@ -5,50 +5,52 @@ namespace oihana\date;
 use oihana\enums\Char;
 
 /**
- * The TimeInterval helper to format a duration.
- * @example
- * ```
- * $duration = new TimeInterval('7:31');
+ * Helper class to manipulate and format time intervals (durations).
  *
- * echo $duration->humanize();  // 7m 31s
- * echo $duration->formatted(); // 7:31
- * echo $duration->toSeconds(); // 451
- * echo $duration->toMinutes(); // 7.5166
+ * Supports various input formats:
+ * - Numeric values (int|float) as seconds
+ * - Colon-separated strings: "MM:SS" or "HH:MM:SS"
+ * - Human-readable units: "1.5d 3h 15m 12.5s"
+ *
+ * Useful for displaying or converting durations to readable forms,
+ * such as `"2h 5m"` or `"2:05:00"`, or for computing the total seconds or minutes.
+ *
+ * ### Basic usage:
+ * ```php
+ * $duration = new TimeInterval('7:31');
+ * echo $duration->humanize();     // 7m 31s
+ * echo $duration->formatted();    // 7:31
+ * echo $duration->toSeconds();    // 451
+ * echo $duration->toMinutes();    // 7.5166
  * echo $duration->toMinutes(null, 0); // 8
- * echo $duration->toMinutes(null, 2); // 7.52
  * ```
  *
- * ```
- * $duration = new TimeInterval('7:31');
+ * ### With hour/minute/second string:
+ * ```php
  * $duration = new TimeInterval('1h 2m 5s');
- *
- * echo $duration->humanize();  // 1h 2m 5s
- * echo $duration->formatted(); // 1:02:05
- * echo $duration->toSeconds(); // 3725
- * echo $duration->toMinutes(); // 62.0833
- * echo $duration->toMinutes(null, 0); // 62
+ * echo $duration->humanize();     // 1h 2m 5s
+ * echo $duration->formatted();    // 1:02:05
+ * echo $duration->toSeconds();    // 3725
  * ```
  *
- * ```
- * // Configured for 6 hours per day
+ * ### With days and custom hours/day:
+ * ```php
  * $duration = new TimeInterval('1.5d 1.5h 2m 5s', 6);
- *
- * echo $duration->humanize();  // 1d 4h 32m 5s
- * echo $duration->formatted(); // 10:32:05
- * echo $duration->toSeconds(); // 37925
- * echo $duration->toMinutes(); // 632.083333333
- * echo $duration->toMinutes(null, 0); // 632
+ * echo $duration->humanize();     // 1d 4h 32m 5s
+ * echo $duration->formatted();    // 10:32:05
+ * echo $duration->toMinutes();    // 632.083
  * ```
  *
+ * ### Raw seconds:
+ * ```php
+ * $duration = new TimeInterval(4293);
+ * echo $duration->humanize();     // 1h 11m 33s
+ * echo $duration->formatted();    // 1:11:33
  * ```
- * $duration = new TimeInterval('4293');
  *
- * echo $duration->humanize();  // 1h 11m 33s
- * echo $duration->formatted(); // 1:11:33
- * echo $duration->toSeconds(); // 4293
- * echo $duration->toMinutes(); // 71.55
- * echo $duration->toMinutes(null, 0); // 72
- * ```
+ * @package oihana\date
+ * @author  Marc Alcaraz (ekameleon)
+ * @since   1.0.0
  */
 class TimeInterval
 {

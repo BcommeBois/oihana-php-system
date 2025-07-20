@@ -3,7 +3,7 @@ Search.appendIndex(
                 {
             "fqsen": "\\oihana\\date\\TimeInterval",
             "name": "TimeInterval",
-            "summary": "The\u0020TimeInterval\u0020helper\u0020to\u0020format\u0020a\u0020duration.",
+            "summary": "Helper\u0020class\u0020to\u0020manipulate\u0020and\u0020format\u0020time\u0020intervals\u0020\u0028durations\u0029.",
             "url": "classes/oihana-date-TimeInterval.html"
         },                {
             "fqsen": "\\oihana\\date\\TimeInterval\u003A\u003A__construct\u0028\u0029",

@@ -140,13 +140,47 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/date/TimeInterval.php"><a href="files/src-oihana-date-timeinterval.html"><abbr title="src/oihana/date/TimeInterval.php">TimeInterval.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">53</span>
+    <span class="phpdocumentor-element-found-in__line">55</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">The TimeInterval helper to format a duration.</p>
+            <p class="phpdocumentor-summary">Helper class to manipulate and format time intervals (durations).</p>
 
 
+    <section class="phpdocumentor-description"><p>Supports various input formats:</p>
+<ul>
+<li>Numeric values (int|float) as seconds</li>
+<li>Colon-separated strings: &quot;MM:SS&quot; or &quot;HH:MM:SS&quot;</li>
+<li>Human-readable units: &quot;1.5d 3h 15m 12.5s&quot;</li>
+</ul>
+<p>Useful for displaying or converting durations to readable forms,
+such as <code class="prettyprint">&quot;2h 5m&quot;</code> or <code class="prettyprint">&quot;2:05:00&quot;</code>, or for computing the total seconds or minutes.</p>
+<h3>Basic usage:</h3>
+<pre class="prettyprint"><code class="language-php">$duration = new TimeInterval('7:31');
+echo $duration-&gt;humanize();     // 7m 31s
+echo $duration-&gt;formatted();    // 7:31
+echo $duration-&gt;toSeconds();    // 451
+echo $duration-&gt;toMinutes();    // 7.5166
+echo $duration-&gt;toMinutes(null, 0); // 8
+</code></pre>
+<h3>With hour/minute/second string:</h3>
+<pre class="prettyprint"><code class="language-php">$duration = new TimeInterval('1h 2m 5s');
+echo $duration-&gt;humanize();     // 1h 2m 5s
+echo $duration-&gt;formatted();    // 1:02:05
+echo $duration-&gt;toSeconds();    // 3725
+</code></pre>
+<h3>With days and custom hours/day:</h3>
+<pre class="prettyprint"><code class="language-php">$duration = new TimeInterval('1.5d 1.5h 2m 5s', 6);
+echo $duration-&gt;humanize();     // 1d 4h 32m 5s
+echo $duration-&gt;formatted();    // 10:32:05
+echo $duration-&gt;toMinutes();    // 632.083
+</code></pre>
+<h3>Raw seconds:</h3>
+<pre class="prettyprint"><code class="language-php">$duration = new TimeInterval(4293);
+echo $duration-&gt;humanize();     // 1h 11m 33s
+echo $duration-&gt;formatted();    // 1:11:33
+</code></pre>
+</section>
 
 
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
@@ -156,47 +190,21 @@
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">example</span>
+                    <span class="phpdocumentor-tag__name">author</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
-                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="prettyprint">$duration = new TimeInterval('7:31');
-
-echo $duration-&gt;humanize();  // 7m 31s
-echo $duration-&gt;formatted(); // 7:31
-echo $duration-&gt;toSeconds(); // 451
-echo $duration-&gt;toMinutes(); // 7.5166
-echo $duration-&gt;toMinutes(null, 0); // 8
-echo $duration-&gt;toMinutes(null, 2); // 7.52
-</code></pre>
-<pre class="prettyprint"><code class="prettyprint">$duration = new TimeInterval('7:31');
-$duration = new TimeInterval('1h 2m 5s');
-
-echo $duration-&gt;humanize();  // 1h 2m 5s
-echo $duration-&gt;formatted(); // 1:02:05
-echo $duration-&gt;toSeconds(); // 3725
-echo $duration-&gt;toMinutes(); // 62.0833
-echo $duration-&gt;toMinutes(null, 0); // 62
-</code></pre>
-<pre class="prettyprint"><code class="prettyprint">// Configured for 6 hours per day
-$duration = new TimeInterval('1.5d 1.5h 2m 5s', 6);
-
-echo $duration-&gt;humanize();  // 1d 4h 32m 5s
-echo $duration-&gt;formatted(); // 10:32:05
-echo $duration-&gt;toSeconds(); // 37925
-echo $duration-&gt;toMinutes(); // 632.083333333
-echo $duration-&gt;toMinutes(null, 0); // 632
-</code></pre>
-<pre class="prettyprint"><code class="prettyprint">$duration = new TimeInterval('4293');
-
-echo $duration-&gt;humanize();  // 1h 11m 33s
-echo $duration-&gt;formatted(); // 1:11:33
-echo $duration-&gt;toSeconds(); // 4293
-echo $duration-&gt;toMinutes(); // 71.55
-echo $duration-&gt;toMinutes(null, 0); // 72
-</code></pre>
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (ekameleon)</p>
 </section>
 
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
                                     </dd>
                                             </dl>
 
@@ -371,7 +379,7 @@ echo $duration-&gt;toMinutes(null, 0); // 72
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/date/TimeInterval.php"><a href="files/src-oihana-date-timeinterval.html"><abbr title="src/oihana/date/TimeInterval.php">TimeInterval.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">80</span>
+    <span class="phpdocumentor-element-found-in__line">82</span>
 
     </aside>
 
@@ -426,7 +434,7 @@ echo $duration-&gt;toMinutes(null, 0); // 72
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/date/TimeInterval.php"><a href="files/src-oihana-date-timeinterval.html"><abbr title="src/oihana/date/TimeInterval.php">TimeInterval.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">82</span>
+    <span class="phpdocumentor-element-found-in__line">84</span>
 
     </aside>
 
@@ -481,7 +489,7 @@ echo $duration-&gt;toMinutes(null, 0); // 72
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/date/TimeInterval.php"><a href="files/src-oihana-date-timeinterval.html"><abbr title="src/oihana/date/TimeInterval.php">TimeInterval.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">84</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 
     </aside>
 
@@ -536,7 +544,7 @@ echo $duration-&gt;toMinutes(null, 0); // 72
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/date/TimeInterval.php"><a href="files/src-oihana-date-timeinterval.html"><abbr title="src/oihana/date/TimeInterval.php">TimeInterval.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">86</span>
+    <span class="phpdocumentor-element-found-in__line">88</span>
 
     </aside>
 
@@ -591,7 +599,7 @@ echo $duration-&gt;toMinutes(null, 0); // 72
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/date/TimeInterval.php"><a href="files/src-oihana-date-timeinterval.html"><abbr title="src/oihana/date/TimeInterval.php">TimeInterval.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">88</span>
+    <span class="phpdocumentor-element-found-in__line">90</span>
 
     </aside>
 
@@ -646,7 +654,7 @@ echo $duration-&gt;toMinutes(null, 0); // 72
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/date/TimeInterval.php"><a href="files/src-oihana-date-timeinterval.html"><abbr title="src/oihana/date/TimeInterval.php">TimeInterval.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">352</span>
+    <span class="phpdocumentor-element-found-in__line">354</span>
 
     </aside>
 
@@ -684,7 +692,7 @@ echo $duration-&gt;toMinutes(null, 0); // 72
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/date/TimeInterval.php"><a href="files/src-oihana-date-timeinterval.html"><abbr title="src/oihana/date/TimeInterval.php">TimeInterval.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">357</span>
+    <span class="phpdocumentor-element-found-in__line">359</span>
 
     </aside>
 
@@ -722,7 +730,7 @@ echo $duration-&gt;toMinutes(null, 0); // 72
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/date/TimeInterval.php"><a href="files/src-oihana-date-timeinterval.html"><abbr title="src/oihana/date/TimeInterval.php">TimeInterval.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">362</span>
+    <span class="phpdocumentor-element-found-in__line">364</span>
 
     </aside>
 
@@ -760,7 +768,7 @@ echo $duration-&gt;toMinutes(null, 0); // 72
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/date/TimeInterval.php"><a href="files/src-oihana-date-timeinterval.html"><abbr title="src/oihana/date/TimeInterval.php">TimeInterval.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">367</span>
+    <span class="phpdocumentor-element-found-in__line">369</span>
 
     </aside>
 
@@ -803,7 +811,7 @@ echo $duration-&gt;toMinutes(null, 0); // 72
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/date/TimeInterval.php"><a href="files/src-oihana-date-timeinterval.html"><abbr title="src/oihana/date/TimeInterval.php">TimeInterval.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">70</span>
+    <span class="phpdocumentor-element-found-in__line">72</span>
 
     </aside>
 
@@ -869,7 +877,7 @@ in a day for calculations involving days (default is 24).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/date/TimeInterval.php"><a href="files/src-oihana-date-timeinterval.html"><abbr title="src/oihana/date/TimeInterval.php">TimeInterval.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">102</span>
+    <span class="phpdocumentor-element-found-in__line">104</span>
 
     </aside>
 
@@ -936,7 +944,7 @@ With $zeroFill to true :</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/date/TimeInterval.php"><a href="files/src-oihana-date-timeinterval.html"><abbr title="src/oihana/date/TimeInterval.php">TimeInterval.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">156</span>
+    <span class="phpdocumentor-element-found-in__line">158</span>
 
     </aside>
 
@@ -989,7 +997,7 @@ With $zeroFill to true :</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/date/TimeInterval.php"><a href="files/src-oihana-date-timeinterval.html"><abbr title="src/oihana/date/TimeInterval.php">TimeInterval.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">194</span>
+    <span class="phpdocumentor-element-found-in__line">196</span>
 
     </aside>
 
@@ -1044,7 +1052,7 @@ With $zeroFill to true :</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/date/TimeInterval.php"><a href="files/src-oihana-date-timeinterval.html"><abbr title="src/oihana/date/TimeInterval.php">TimeInterval.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">299</span>
+    <span class="phpdocumentor-element-found-in__line">301</span>
 
     </aside>
 
@@ -1095,7 +1103,7 @@ With $zeroFill to true :</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/date/TimeInterval.php"><a href="files/src-oihana-date-timeinterval.html"><abbr title="src/oihana/date/TimeInterval.php">TimeInterval.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">314</span>
+    <span class="phpdocumentor-element-found-in__line">316</span>
 
     </aside>
 
@@ -1157,7 +1165,7 @@ With $zeroFill to true :</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/date/TimeInterval.php"><a href="files/src-oihana-date-timeinterval.html"><abbr title="src/oihana/date/TimeInterval.php">TimeInterval.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">339</span>
+    <span class="phpdocumentor-element-found-in__line">341</span>
 
     </aside>
 
@@ -1219,7 +1227,7 @@ With $zeroFill to true :</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/date/TimeInterval.php"><a href="files/src-oihana-date-timeinterval.html"><abbr title="src/oihana/date/TimeInterval.php">TimeInterval.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">373</span>
+    <span class="phpdocumentor-element-found-in__line">375</span>
 
     </aside>
 
