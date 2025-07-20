@@ -2,13 +2,13 @@
 
 namespace oihana\traits;
 
+use oihana\enums\Param;
+
 /**
  * The command to manage an ArangoDB database.
  */
 trait IDTrait
 {
-    public const string ID = 'id' ;
-
     /**
      * The unique identifier of the command.
      * @var null|int|string
@@ -22,6 +22,6 @@ trait IDTrait
      */
     public function initializeID( array $init = [] ):void
     {
-        $this->id = $init[ self::ID ] ?? $this->id ;
+        $this->id = $init[ Param::ID ] ?? $this->id ;
     }
 }

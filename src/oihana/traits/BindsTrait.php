@@ -2,10 +2,10 @@
 
 namespace oihana\traits;
 
+use oihana\enums\Param;
+
 trait BindsTrait
 {
-    public const string BINDS = 'binds' ;
-
     /**
      * The default bind values definition of the model.
      * @var array|null
@@ -19,6 +19,6 @@ trait BindsTrait
      */
     public function prepareBindVars( array $init = [] ) :array
     {
-        return [ ...( $this->binds ?? [] ) , ...( $init[ self::BINDS ] ?? [] ) ] ;
+        return [ ...( $this->binds ?? [] ) , ...( $init[ Param::BINDS ] ?? [] ) ] ;
     }
 }

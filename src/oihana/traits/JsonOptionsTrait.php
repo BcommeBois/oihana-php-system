@@ -2,10 +2,10 @@
 
 namespace oihana\traits;
 
+use oihana\enums\Param;
+
 trait JsonOptionsTrait
 {
-    public const string JSON_OPTIONS = 'jsonOptions' ;
-
     /**
      * The json encode options value.
      * @var int
@@ -19,6 +19,6 @@ trait JsonOptionsTrait
      */
     protected function initializeJsonOptions( array $init = [] ) :void
     {
-        $this->jsonOptions = $init[ self::JSON_OPTIONS ] ?? $this->jsonOptions ;
+        $this->jsonOptions = $init[ Param::JSON_OPTIONS ] ?? $this->jsonOptions ;
     }
 }
