@@ -15,7 +15,7 @@ Full project documentation is available at:
 
 Install via [Composer](https://getcomposer.org):
 ```bash
-composer require oihana/php-files
+composer require oihana/php-system
 ```
 
 ## ✅ Running Unit Tests
