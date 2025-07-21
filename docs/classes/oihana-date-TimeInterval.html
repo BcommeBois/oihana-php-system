@@ -161,28 +161,28 @@
 such as <code class="prettyprint">&quot;2h 5m&quot;</code> or <code class="prettyprint">&quot;2:05:00&quot;</code>, or for computing the total seconds or minutes.</p>
 <h3>Basic usage:</h3>
 <pre class="prettyprint"><code class="language-php">$duration = new TimeInterval('7:31');
-echo $duration-&gt;humanize();     // 7m 31s
-echo $duration-&gt;formatted();    // 7:31
-echo $duration-&gt;toSeconds();    // 451
-echo $duration-&gt;toMinutes();    // 7.5166
+echo $duration-&gt;humanize();         // 7m 31s
+echo $duration-&gt;formatted();        // 7:31
+echo $duration-&gt;toSeconds();        // 451
+echo $duration-&gt;toMinutes();        // 7.5166
 echo $duration-&gt;toMinutes(null, 0); // 8
 </code></pre>
 <h3>With hour/minute/second string:</h3>
 <pre class="prettyprint"><code class="language-php">$duration = new TimeInterval('1h 2m 5s');
-echo $duration-&gt;humanize();     // 1h 2m 5s
-echo $duration-&gt;formatted();    // 1:02:05
-echo $duration-&gt;toSeconds();    // 3725
+echo $duration-&gt;humanize();  // 1h 2m 5s
+echo $duration-&gt;formatted(); // 1:02:05
+echo $duration-&gt;toSeconds(); // 3725
 </code></pre>
 <h3>With days and custom hours/day:</h3>
 <pre class="prettyprint"><code class="language-php">$duration = new TimeInterval('1.5d 1.5h 2m 5s', 6);
-echo $duration-&gt;humanize();     // 1d 4h 32m 5s
-echo $duration-&gt;formatted();    // 10:32:05
-echo $duration-&gt;toMinutes();    // 632.083
+echo $duration-&gt;humanize();  // 1d 4h 32m 5s
+echo $duration-&gt;formatted(); // 10:32:05
+echo $duration-&gt;toMinutes(); // 632.083
 </code></pre>
 <h3>Raw seconds:</h3>
 <pre class="prettyprint"><code class="language-php">$duration = new TimeInterval(4293);
-echo $duration-&gt;humanize();     // 1h 11m 33s
-echo $duration-&gt;formatted();    // 1:11:33
+echo $duration-&gt;humanize() ;  // 1h 11m 33s
+echo $duration-&gt;formatted() ; // 1:11:33
 </code></pre>
 </section>
 

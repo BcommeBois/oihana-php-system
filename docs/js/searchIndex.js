@@ -3206,10 +3206,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/oihana-reflections-attributes-HydrateWith.html#method___construct"
         },                {
-            "fqsen": "\\oihana\\reflections\\attributes\\HydrateWith\u003A\u003A\u0024class",
-            "name": "class",
+            "fqsen": "\\oihana\\reflections\\attributes\\HydrateWith\u003A\u003A\u0024classes",
+            "name": "classes",
             "summary": "",
-            "url": "classes/oihana-reflections-attributes-HydrateWith.html#property_class"
+            "url": "classes/oihana-reflections-attributes-HydrateWith.html#property_classes"
         },                {
             "fqsen": "\\oihana\\reflections\\exceptions\\ConstantException",
             "name": "ConstantException",
@@ -3260,6 +3260,16 @@ Search.appendIndex(
             "name": "shortName",
             "summary": "Returns\u0020the\u0020short\u0020\u0028unqualified\u0029\u0020name\u0020of\u0020the\u0020class.",
             "url": "classes/oihana-reflections-Reflection.html#method_shortName"
+        },                {
+            "fqsen": "\\oihana\\reflections\\Reflection\u003A\u003AdetermineArrayItemType\u0028\u0029",
+            "name": "determineArrayItemType",
+            "summary": "Determine\u0020the\u0020type\u0020of\u0020an\u0020array\u0020element",
+            "url": "classes/oihana-reflections-Reflection.html#method_determineArrayItemType"
+        },                {
+            "fqsen": "\\oihana\\reflections\\Reflection\u003A\u003AguessClassFromProperties\u0028\u0029",
+            "name": "guessClassFromProperties",
+            "summary": "Attempts\u0020to\u0020guess\u0020the\u0020most\u0020appropriate\u0020class\u0020from\u0020a\u0020list\u0020of\u0020possible\u0020classes\nbased\u0020on\u0020the\u0020presence\u0020of\u0020matching\u0020properties\u0020in\u0020the\u0020provided\u0020input\u0020array.",
+            "url": "classes/oihana-reflections-Reflection.html#method_guessClassFromProperties"
         },                {
             "fqsen": "\\oihana\\reflections\\Reflection\u003A\u003A\u0024reflections",
             "name": "reflections",

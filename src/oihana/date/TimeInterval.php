@@ -18,34 +18,34 @@ use oihana\enums\Char;
  * ### Basic usage:
  * ```php
  * $duration = new TimeInterval('7:31');
- * echo $duration->humanize();     // 7m 31s
- * echo $duration->formatted();    // 7:31
- * echo $duration->toSeconds();    // 451
- * echo $duration->toMinutes();    // 7.5166
+ * echo $duration->humanize();         // 7m 31s
+ * echo $duration->formatted();        // 7:31
+ * echo $duration->toSeconds();        // 451
+ * echo $duration->toMinutes();        // 7.5166
  * echo $duration->toMinutes(null, 0); // 8
  * ```
  *
  * ### With hour/minute/second string:
  * ```php
  * $duration = new TimeInterval('1h 2m 5s');
- * echo $duration->humanize();     // 1h 2m 5s
- * echo $duration->formatted();    // 1:02:05
- * echo $duration->toSeconds();    // 3725
+ * echo $duration->humanize();  // 1h 2m 5s
+ * echo $duration->formatted(); // 1:02:05
+ * echo $duration->toSeconds(); // 3725
  * ```
  *
  * ### With days and custom hours/day:
  * ```php
  * $duration = new TimeInterval('1.5d 1.5h 2m 5s', 6);
- * echo $duration->humanize();     // 1d 4h 32m 5s
- * echo $duration->formatted();    // 10:32:05
- * echo $duration->toMinutes();    // 632.083
+ * echo $duration->humanize();  // 1d 4h 32m 5s
+ * echo $duration->formatted(); // 10:32:05
+ * echo $duration->toMinutes(); // 632.083
  * ```
  *
  * ### Raw seconds:
  * ```php
  * $duration = new TimeInterval(4293);
- * echo $duration->humanize();     // 1h 11m 33s
- * echo $duration->formatted();    // 1:11:33
+ * echo $duration->humanize() ;  // 1h 11m 33s
+ * echo $duration->formatted() ; // 1:11:33
  * ```
  *
  * @package oihana\date
