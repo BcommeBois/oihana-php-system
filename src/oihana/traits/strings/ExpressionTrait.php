@@ -28,9 +28,9 @@ use function oihana\core\arrays\isIndexed;
  * $this->betweenParentheses(['a', 'b']); // '(a b)'
  * $this->betweenBraces("id: 1");         // '{ id: 1 }'
  * $this->betweenBrackets([1, 2, 3]);     // '[1 2 3]'
- * $this->betweenQuotes("hello");         / "'hello'"
- * $this->betweenDoubleQuotes("world");   / '"world"'
- * $this->betweenChars("x", "<", ">");    / '<x>'
+ * $this->betweenQuotes("hello");         // "'hello'"
+ * $this->betweenDoubleQuotes("world");   // '"world"'
+ * $this->betweenChars("x", "<", ">");    // '<x>'
  *
  * $this->compile(['x == 1', 'y == 2']);                // 'x == 1 y == 2'
  * $this->func('SUM', ['a', 'b']);                      // 'SUM(a,b)'
