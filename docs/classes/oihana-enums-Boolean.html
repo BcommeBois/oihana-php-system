@@ -147,15 +147,58 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/Boolean.php"><a href="files/src-oihana-enums-boolean.html"><abbr title="src/oihana/enums/Boolean.php">Boolean.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">The boolean enumeration.</p>
+            <p class="phpdocumentor-summary">Class Boolean</p>
 
 
+    <section class="phpdocumentor-description"><p>A simple enumeration of string representations for boolean values: <code class="prettyprint">&quot;true&quot;</code> and <code class="prettyprint">&quot;false&quot;</code>.</p>
+<p>This class is useful when working with systems that expect boolean values
+in string format (e.g. JSON, configuration files, XML, CLI flags, or external APIs).</p>
+<p>By providing symbolic constants instead of hardcoded strings, it improves
+code clarity, consistency, and reduces the risk of typos.</p>
+<h3>Example:</h3>
+<pre class="prettyprint"><code class="language-php">use oihana\enums\Boolean;
+
+$enabled = Boolean::TRUE;
+$disabled = Boolean::FALSE;
+
+echo $enabled;  // Outputs: true
+</code></pre>
+<h3>Features:</h3>
+<ul>
+<li>Uses <code class="prettyprint">ConstantsTrait</code> to support reflection and dynamic access to constants.</li>
+<li>Promotes semantic clarity in systems that serialize booleans as strings.</li>
+</ul>
+</section>
 
 
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-enums-Boolean.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (ekameleon)</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
 
 
 
@@ -292,7 +335,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/Boolean.php"><a href="files/src-oihana-enums-boolean.html"><abbr title="src/oihana/enums/Boolean.php">Boolean.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
     </aside>
 
@@ -323,7 +366,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/Boolean.php"><a href="files/src-oihana-enums-boolean.html"><abbr title="src/oihana/enums/Boolean.php">Boolean.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
     </aside>
 

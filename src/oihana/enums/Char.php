@@ -5,7 +5,34 @@ namespace oihana\enums;
 use oihana\reflections\traits\ConstantsTrait;
 
 /**
- * The enumeration of all basic chars.
+ * Class Char
+ *
+ * A comprehensive enumeration of commonly used single-character strings,
+ * including punctuation marks, mathematical symbols, whitespace characters,
+ * typographic signs, and Unicode superscript/subscript digits.
+ *
+ * This class is particularly useful when working with string manipulation,
+ * formatting, code generation, or when symbolic constants are preferred
+ * over raw string literals for better readability and maintainability.
+ *
+ * ### Features:
+ * - All constants are strings, representing a wide range of characters.
+ * - Includes ASCII, Unicode typographic, superscript, and subscript symbols.
+ * - Helps reduce the use of "magic characters" in your codebase.
+ * - Designed to be compatible with the `ConstantsTrait` for reflection or listing.
+ *
+ * ### Example:
+ * ```php
+ * use oihana\enums\Char;
+ *
+ * echo 'A' . Char::DOT . 'B';               // Outputs: A.B
+ * echo Char::SUPERSCRIPT_TWO;              // Outputs: ²
+ * echo implode(Char::COMMA . Char::SPACE, ['one', 'two', 'three']);
+ * ```
+ *
+ * @package oihana\enums
+ * @author  Marc Alcaraz (ekameleon)
+ * @since   1.0.0
  */
 class Char
 {

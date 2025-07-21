@@ -8,6 +8,9 @@ use oihana\exceptions\ExceptionTrait;
 
 /**
  * Throw an 'internal server error' (500).
+ * @package oihana\exceptions\http
+ * @author  Marc Alcaraz (ekameleon)
+ * @since   1.0.0
  */
 class Error500 extends Exception
 {

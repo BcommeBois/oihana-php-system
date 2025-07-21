@@ -6,8 +6,6 @@ use oihana\enums\Char;
 use oihana\interfaces\Equatable;
 
 /**
- * Class Version
- *
  * Represents a software version using four components: major, minor, build, and revision.
  * These components are internally encoded into a single 32-bit integer for compact storage and efficient comparison.
  *
@@ -21,7 +19,7 @@ use oihana\interfaces\Equatable;
  *
  * $version1->major = 3 ;
  *
- * echo('version   : ' . $version1 ) ;
+ * echo( 'version  : ' . $version1 ) ;
  * echo( 'major    : ' . $version1->major ) ;
  * echo( 'minor    : ' . $version1->minor ) ;
  * echo( 'build    : ' . $version1->build ) ;
@@ -46,11 +44,12 @@ use oihana\interfaces\Equatable;
 class Version implements Equatable
 {
     /**
-     * Creates a new Version instance.
-     * @param int $major
-     * @param int $minor
-     * @param int $build
-     * @param int $revision
+     * Creates a new Version instance from individual components.
+     *
+     * @param int $major    The major version number (4 bits).
+     * @param int $minor    The minor version number (4 bits).
+     * @param int $build    The build number (8 bits).
+     * @param int $revision The revision number (16 bits).
      */
     public function __construct( int $major = 0, int $minor = 0, int $build = 0, int $revision = 0 )
     {
@@ -58,22 +57,33 @@ class Version implements Equatable
     }
 
     /**
-     * The fields limit.
+     * Specifies how many version components should be included in the string representation.
+     * Values can range from 1 to 4. Defaults to 0, which means automatic trimming of trailing zeroes.
+     *
+     * @var int
      */
     public int $fields = 0 ;
 
     /**
-     * The separator expression.
+     * The string used to separate version components when casting to string.
+     *
+     * @var string
      */
     public string $separator = Char::DOT ;
 
     /**
-     * We don't really need an equals method as we override the valueOf, we can do something as
-     * <pre>
+     * Checks whether the current instance is equal to another version.
+     *
+     * @param mixed $value The value to compare to (typically another Version instance).
+     * @return bool True if both instances represent the same version; false otherwise.
+     *
+     * @example
+     * ```php
      * $v1 = new Version( 1,0,0,0 );
      * $v2 = new Version( 1,0,0,0 );
      * echo( json_encode( v1->equals( v2 ) ) ) ; //true
-     * </pre>
+     * ```
+     *
      * A cast to Number/int force the valueOf, not ideal but sufficient, and the same for any other operators.
      * But as we keep Equatable for now, then we have no reason to not use it.
      */
@@ -88,7 +98,7 @@ class Version implements Equatable
     }
 
     /**
-     * The build component value of this version.
+     * Gets or sets the build component (bits 16–23).
      * @var int
      */
     public int $build
@@ -101,7 +111,8 @@ class Version implements Equatable
     }
 
     /**
-     * The major component value of this version.
+     * Gets or sets the major version component (stored in the highest 4 bits).
+     * @var int
      */
     public int $major
     {
@@ -113,7 +124,8 @@ class Version implements Equatable
     }
 
     /**
-     * The minor component value of this version.
+     * Gets or sets the minor version component (bits 24–27).
+     * @var int
      */
     public int $minor
     {
@@ -125,7 +137,8 @@ class Version implements Equatable
     }
 
     /**
-     * The revision component value of this version.
+     * Gets or sets the revision component (lowest 16 bits).
+     * @var int
      */
     public int $revision
     {
@@ -137,10 +150,11 @@ class Version implements Equatable
     }
 
     /**
-     * Returns a version representation.
-     * @param string $value
-     * @param string $separator
-     * @return string|null
+     * Instantiates a Version from a formatted version string (e.g., "1.2.3.4").
+     *
+     * @param string $value     The string to parse.
+     * @param string $separator The separator to use (defaults to `.`).
+     * @return string|null      A stringified version object or null if parsing fails.
      */
     public static function fromString( string $value , string $separator = Char::DOT ) :?string
     {
@@ -194,8 +208,8 @@ class Version implements Equatable
 
 
     /**
-     * Returns the string representation of the object.
-     * @return string The string representation of the object.
+     * Returns the string representation of the version, respecting `fields` and `separator`.
+     * @return string The stringified version (e.g., "1.2.3").
      */
     public function __toString() :string
     {
@@ -225,8 +239,8 @@ class Version implements Equatable
     }
 
     /**
-     * Returns the primitive value of the object.
-     * @return int The primitive value of the object.
+     * Returns the internal 32-bit integer value representing the version.
+     * @return int The packed version number.
      */
     public function valueOf():int
     {
@@ -234,12 +248,18 @@ class Version implements Equatable
     }
 
     /**
+     * The internal integer that encodes the four version components.
+     *
      * @var int
      */
     private int $_value ;
 
     /**
-     * Emulates the >>> binary operator.
+     * Bitwise logical right shift (unsigned), emulates `>>>` operator.
+     *
+     * @param int $a The integer to shift.
+     * @param int $b The number of bits to shift.
+     * @return int The result of the shift.
      */
     private function RRR( int $a , int $b ) :int
     {

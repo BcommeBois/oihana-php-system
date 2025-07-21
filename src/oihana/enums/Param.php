@@ -4,6 +4,37 @@ namespace oihana\enums;
 
 use oihana\reflections\traits\ConstantsTrait;
 
+/**
+ * Centralized enumeration of parameter keys used across various parts of the application.
+ *
+ * This class defines a large set of constants to avoid hard-coded string keys,
+ * enabling safer and more consistent parameter usage throughout your codebase.
+ *
+ * Example usage:
+ * ```php
+ * use oihana\enums\Param;
+ *
+ * $options = [
+ *     Param::LIMIT   => 20,
+ *     Param::OFFSET  => 0,
+ *     Param::ORDER   => 'DESC',
+ *     Param::FILTER  => ['status' => 'active'],
+ * ];
+ * ```
+ *
+ * This enumeration can be used in:
+ * - HTTP request parsers
+ * - Configuration arrays
+ * - Filtering and sorting logic
+ * - CLI arguments
+ * - Custom annotations or metadata
+ *
+ * Optionally, you can group constants by context using a utility method like `groupByPrefix()`.
+ *
+ * @package oihana\enums
+ * @author  Marc Alcaraz (ekameleon)
+ * @since   1.0.0
+ */
 class Param
 {
     use ConstantsTrait ;
@@ -197,4 +228,32 @@ class Param
     public const string VALUES                    = 'values' ;
     public const string VERBOSE                   = 'verbose' ;
     public const string WITH                      = 'with' ;
+
+    /**
+     * Returns an associative array of constants whose names start with the given prefix.
+     *
+     * This is useful for grouping related parameters based on naming convention,
+     * such as all constants starting with "filter", "json", or "skin".
+     *
+     * The returned array preserves constant names as keys and their corresponding values.
+     *
+     * Example:
+     * ```php
+     * Param::groupByPrefix('FILTER_');
+     * // [
+     * //     'FILTER'                  => 'filter',
+     * //     'FILTER_KEYS'            => 'filterKeys',
+     * //     'FILTER_POST_KEYS'       => 'filterPostKeys',
+     * //     ...
+     * // ]
+     * ```
+     *
+     * @param string $prefix The prefix to match against constant names.
+     *
+     * @return array<string, mixed> An associative array of matching constant names and their values.
+     */
+    public static function groupByPrefix( string $prefix ): array
+    {
+        return array_filter( self::getAll() , fn( $key ) => str_starts_with( $key , $prefix ) , ARRAY_FILTER_USE_KEY ) ;
+    }
 }

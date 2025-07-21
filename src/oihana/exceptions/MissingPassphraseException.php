@@ -7,6 +7,10 @@ use Throwable;
 
 /**
  * The missing passphrase exception.
+ *
+ * @package oihana\exceptions
+ * @author  Marc Alcaraz (ekameleon)
+ * @since   1.0.0
  */
 class MissingPassphraseException extends Exception
 {

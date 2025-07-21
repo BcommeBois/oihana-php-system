@@ -108,7 +108,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\enums\\ArithmeticOperator",
             "name": "ArithmeticOperator",
-            "summary": "",
+            "summary": "Class\u0020ArithmeticOperator",
             "url": "classes/oihana-enums-ArithmeticOperator.html"
         },                {
             "fqsen": "\\oihana\\enums\\ArithmeticOperator\u003A\u003AADDITION",
@@ -143,7 +143,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\enums\\Boolean",
             "name": "Boolean",
-            "summary": "The\u0020boolean\u0020enumeration.",
+            "summary": "Class\u0020Boolean",
             "url": "classes/oihana-enums-Boolean.html"
         },                {
             "fqsen": "\\oihana\\enums\\Boolean\u003A\u003AFALSE",
@@ -158,7 +158,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\enums\\Char",
             "name": "Char",
-            "summary": "The\u0020enumeration\u0020of\u0020all\u0020basic\u0020chars.",
+            "summary": "Class\u0020Char",
             "url": "classes/oihana-enums-Char.html"
         },                {
             "fqsen": "\\oihana\\enums\\Char\u003A\u003AAMPERSAND",
@@ -623,7 +623,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\enums\\CharacterSet",
             "name": "CharacterSet",
-            "summary": "These\u0020are\u0020the\u0020official\u0020names\u0020for\u0020character\u0020sets\u0020that\u0020may\u0020be\u0020used\u0020in\u0020the\u0020Internet\u0020and\u0020may\u0020be\u0020referred\u0020to\u0020in\u0020Internet\u0020documentation.",
+            "summary": "Enumeration\u0020of\u0020official\u0020character\u0020set\u0020codes\u0020as\u0020assigned\u0020by\u0020IANA\u0020and\nused\u0020in\u0020Internet\u0020standards\u0020and\u0020documentation.",
             "url": "classes/oihana-enums-CharacterSet.html"
         },                {
             "fqsen": "\\oihana\\enums\\CharacterSet\u003A\u003AUTF8",
@@ -1108,8 +1108,18 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\enums\\JsonParam",
             "name": "JsonParam",
-            "summary": "",
+            "summary": "Enumeration\u0020of\u0020common\u0020parameter\u0020names\u0020used\u0020in\u0020JSON\u0020encoding\u0020and\u0020decoding\u0020operations.",
             "url": "classes/oihana-enums-JsonParam.html"
+        },                {
+            "fqsen": "\\oihana\\enums\\JsonParam\u003A\u003AgetDefaultValues\u0028\u0029",
+            "name": "getDefaultValues",
+            "summary": "Returns\u0020default\u0020values\u0020for\u0020JSON\u0020parameters.",
+            "url": "classes/oihana-enums-JsonParam.html#method_getDefaultValues"
+        },                {
+            "fqsen": "\\oihana\\enums\\JsonParam\u003A\u003AisValidFlags\u0028\u0029",
+            "name": "isValidFlags",
+            "summary": "Checks\u0020if\u0020the\u0020given\u0020flags\u0020value\u0020is\u0020valid\u0020JSON\u0020flag\u0020or\u0020combination\u0020of\u0020flags.",
+            "url": "classes/oihana-enums-JsonParam.html#method_isValidFlags"
         },                {
             "fqsen": "\\oihana\\enums\\JsonParam\u003A\u003AASSOCIATIVE",
             "name": "ASSOCIATIVE",
@@ -1128,8 +1138,18 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\enums\\MemcachedStats",
             "name": "MemcachedStats",
-            "summary": "Class\u0020MemcachedStats",
+            "summary": "Enumeration\u0020of\u0020string\u0020keys\u0020returned\u0020by\u0020the\u0020\u0060Memcached\u003A\u003AgetStats\u0028\u0029\u0060\u0020method.",
             "url": "classes/oihana-enums-MemcachedStats.html"
+        },                {
+            "fqsen": "\\oihana\\enums\\MemcachedStats\u003A\u003AgroupByCategory\u0028\u0029",
+            "name": "groupByCategory",
+            "summary": "Returns\u0020all\u0020stat\u0020keys\u0020grouped\u0020by\u0020category.",
+            "url": "classes/oihana-enums-MemcachedStats.html#method_groupByCategory"
+        },                {
+            "fqsen": "\\oihana\\enums\\MemcachedStats\u003A\u003AgetGroups\u0028\u0029",
+            "name": "getGroups",
+            "summary": "Returns\u0020the\u0020list\u0020of\u0020defined\u0020stat\u0020categories.",
+            "url": "classes/oihana-enums-MemcachedStats.html#method_getGroups"
         },                {
             "fqsen": "\\oihana\\enums\\MemcachedStats\u003A\u003APID",
             "name": "PID",
@@ -1328,8 +1348,13 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\enums\\Order",
             "name": "Order",
-            "summary": "",
+            "summary": "Enumeration\u0020of\u0020sorting\u0020direction\u0020values,\u0020often\u0020used\u0020in\u0020SQL,\u0020data\u0020queries,\u0020or\u0020collection\u0020sorting.",
             "url": "classes/oihana-enums-Order.html"
+        },                {
+            "fqsen": "\\oihana\\enums\\Order\u003A\u003Anormalize\u0028\u0029",
+            "name": "normalize",
+            "summary": "Returns\u0020the\u0020canonical\u0020order\u0020keyword\u0020\u0028\u0022ASC\u0022\u0020or\u0020\u0022DESC\u0022\u0029\u0020from\u0020a\u0020case\u002Dinsensitive\u0020input.",
+            "url": "classes/oihana-enums-Order.html#method_normalize"
         },                {
             "fqsen": "\\oihana\\enums\\Order\u003A\u003Aasc",
             "name": "asc",
@@ -1353,8 +1378,13 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\enums\\Param",
             "name": "Param",
-            "summary": "",
+            "summary": "Centralized\u0020enumeration\u0020of\u0020parameter\u0020keys\u0020used\u0020across\u0020various\u0020parts\u0020of\u0020the\u0020application.",
             "url": "classes/oihana-enums-Param.html"
+        },                {
+            "fqsen": "\\oihana\\enums\\Param\u003A\u003AgroupByPrefix\u0028\u0029",
+            "name": "groupByPrefix",
+            "summary": "Returns\u0020an\u0020associative\u0020array\u0020of\u0020constants\u0020whose\u0020names\u0020start\u0020with\u0020the\u0020given\u0020prefix.",
+            "url": "classes/oihana-enums-Param.html#method_groupByPrefix"
         },                {
             "fqsen": "\\oihana\\enums\\Param\u003A\u003AACTION",
             "name": "ACTION",
@@ -2303,7 +2333,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\exceptions\\ExceptionTrait",
             "name": "ExceptionTrait",
-            "summary": "",
+            "summary": "The\u0020exception\u0020trait\u0020helper.",
             "url": "classes/oihana-exceptions-ExceptionTrait.html"
         },                {
             "fqsen": "\\oihana\\exceptions\\ExceptionTrait\u003A\u003A__toString\u0028\u0029",
@@ -2353,7 +2383,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\exceptions\\ResponseException",
             "name": "ResponseException",
-            "summary": "An\u0020exception\u0020thrown\u0020when\u0020a\u0020validation\u0020failed.",
+            "summary": "An\u0020exception\u0020thrown\u0020when\u0020a\u0020http\u0020response\u0020failed.",
             "url": "classes/oihana-exceptions-ResponseException.html"
         },                {
             "fqsen": "\\oihana\\exceptions\\UnsupportedOperationException",
@@ -3333,72 +3363,72 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\reflections\\Version",
             "name": "Version",
-            "summary": "Class\u0020Version",
+            "summary": "Represents\u0020a\u0020software\u0020version\u0020using\u0020four\u0020components\u003A\u0020major,\u0020minor,\u0020build,\u0020and\u0020revision.",
             "url": "classes/oihana-reflections-Version.html"
         },                {
             "fqsen": "\\oihana\\reflections\\Version\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Creates\u0020a\u0020new\u0020Version\u0020instance.",
+            "summary": "Creates\u0020a\u0020new\u0020Version\u0020instance\u0020from\u0020individual\u0020components.",
             "url": "classes/oihana-reflections-Version.html#method___construct"
         },                {
             "fqsen": "\\oihana\\reflections\\Version\u003A\u003Aequals\u0028\u0029",
             "name": "equals",
-            "summary": "We\u0020don\u0027t\u0020really\u0020need\u0020an\u0020equals\u0020method\u0020as\u0020we\u0020override\u0020the\u0020valueOf,\u0020we\u0020can\u0020do\u0020something\u0020as\n\u003Cpre\u003E\n\u0024v1\u0020\u003D\u0020new\u0020Version\u0028\u00201,0,0,0\u0020\u0029\u003B\n\u0024v2\u0020\u003D\u0020new\u0020Version\u0028\u00201,0,0,0\u0020\u0029\u003B\necho\u0028\u0020json_encode\u0028\u0020v1\u002D\u003Eequals\u0028\u0020v2\u0020\u0029\u0020\u0029\u0020\u0029\u0020\u003B\u0020\/\/true\n\u003C\/pre\u003E\nA\u0020cast\u0020to\u0020Number\/int\u0020force\u0020the\u0020valueOf,\u0020not\u0020ideal\u0020but\u0020sufficient,\u0020and\u0020the\u0020same\u0020for\u0020any\u0020other\u0020operators.",
+            "summary": "Checks\u0020whether\u0020the\u0020current\u0020instance\u0020is\u0020equal\u0020to\u0020another\u0020version.",
             "url": "classes/oihana-reflections-Version.html#method_equals"
         },                {
             "fqsen": "\\oihana\\reflections\\Version\u003A\u003AfromString\u0028\u0029",
             "name": "fromString",
-            "summary": "Returns\u0020a\u0020version\u0020representation.",
+            "summary": "Instantiates\u0020a\u0020Version\u0020from\u0020a\u0020formatted\u0020version\u0020string\u0020\u0028e.g.,\u0020\u00221.2.3.4\u0022\u0029.",
             "url": "classes/oihana-reflections-Version.html#method_fromString"
         },                {
             "fqsen": "\\oihana\\reflections\\Version\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
-            "summary": "Returns\u0020the\u0020string\u0020representation\u0020of\u0020the\u0020object.",
+            "summary": "Returns\u0020the\u0020string\u0020representation\u0020of\u0020the\u0020version,\u0020respecting\u0020\u0060fields\u0060\u0020and\u0020\u0060separator\u0060.",
             "url": "classes/oihana-reflections-Version.html#method___toString"
         },                {
             "fqsen": "\\oihana\\reflections\\Version\u003A\u003AvalueOf\u0028\u0029",
             "name": "valueOf",
-            "summary": "Returns\u0020the\u0020primitive\u0020value\u0020of\u0020the\u0020object.",
+            "summary": "Returns\u0020the\u0020internal\u002032\u002Dbit\u0020integer\u0020value\u0020representing\u0020the\u0020version.",
             "url": "classes/oihana-reflections-Version.html#method_valueOf"
         },                {
             "fqsen": "\\oihana\\reflections\\Version\u003A\u003ARRR\u0028\u0029",
             "name": "RRR",
-            "summary": "Emulates\u0020the\u0020\u003E\u003E\u003E\u0020binary\u0020operator.",
+            "summary": "Bitwise\u0020logical\u0020right\u0020shift\u0020\u0028unsigned\u0029,\u0020emulates\u0020\u0060\u003E\u003E\u003E\u0060\u0020operator.",
             "url": "classes/oihana-reflections-Version.html#method_RRR"
         },                {
             "fqsen": "\\oihana\\reflections\\Version\u003A\u003A\u0024fields",
             "name": "fields",
-            "summary": "The\u0020fields\u0020limit.",
+            "summary": "Specifies\u0020how\u0020many\u0020version\u0020components\u0020should\u0020be\u0020included\u0020in\u0020the\u0020string\u0020representation.",
             "url": "classes/oihana-reflections-Version.html#property_fields"
         },                {
             "fqsen": "\\oihana\\reflections\\Version\u003A\u003A\u0024separator",
             "name": "separator",
-            "summary": "The\u0020separator\u0020expression.",
+            "summary": "The\u0020string\u0020used\u0020to\u0020separate\u0020version\u0020components\u0020when\u0020casting\u0020to\u0020string.",
             "url": "classes/oihana-reflections-Version.html#property_separator"
         },                {
             "fqsen": "\\oihana\\reflections\\Version\u003A\u003A\u0024build",
             "name": "build",
-            "summary": "The\u0020build\u0020component\u0020value\u0020of\u0020this\u0020version.",
+            "summary": "Gets\u0020or\u0020sets\u0020the\u0020build\u0020component\u0020\u0028bits\u002016\u201323\u0029.",
             "url": "classes/oihana-reflections-Version.html#property_build"
         },                {
             "fqsen": "\\oihana\\reflections\\Version\u003A\u003A\u0024major",
             "name": "major",
-            "summary": "The\u0020major\u0020component\u0020value\u0020of\u0020this\u0020version.",
+            "summary": "Gets\u0020or\u0020sets\u0020the\u0020major\u0020version\u0020component\u0020\u0028stored\u0020in\u0020the\u0020highest\u00204\u0020bits\u0029.",
             "url": "classes/oihana-reflections-Version.html#property_major"
         },                {
             "fqsen": "\\oihana\\reflections\\Version\u003A\u003A\u0024minor",
             "name": "minor",
-            "summary": "The\u0020minor\u0020component\u0020value\u0020of\u0020this\u0020version.",
+            "summary": "Gets\u0020or\u0020sets\u0020the\u0020minor\u0020version\u0020component\u0020\u0028bits\u002024\u201327\u0029.",
             "url": "classes/oihana-reflections-Version.html#property_minor"
         },                {
             "fqsen": "\\oihana\\reflections\\Version\u003A\u003A\u0024revision",
             "name": "revision",
-            "summary": "The\u0020revision\u0020component\u0020value\u0020of\u0020this\u0020version.",
+            "summary": "Gets\u0020or\u0020sets\u0020the\u0020revision\u0020component\u0020\u0028lowest\u002016\u0020bits\u0029.",
             "url": "classes/oihana-reflections-Version.html#property_revision"
         },                {
             "fqsen": "\\oihana\\reflections\\Version\u003A\u003A\u0024_value",
             "name": "_value",
-            "summary": "",
+            "summary": "The\u0020internal\u0020integer\u0020that\u0020encodes\u0020the\u0020four\u0020version\u0020components.",
             "url": "classes/oihana-reflections-Version.html#property__value"
         },                {
             "fqsen": "\\oihana\\traits\\BindsTrait",

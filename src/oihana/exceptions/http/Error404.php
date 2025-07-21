@@ -8,6 +8,9 @@ use oihana\exceptions\ExceptionTrait;
 
 /**
  * Throw an 'not found error' (404).
+ * @package oihana\exceptions\http
+ * @author  Marc Alcaraz (ekameleon)
+ * @since   1.0.0
  */
 class Error404 extends Exception
 {

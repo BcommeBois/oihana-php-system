@@ -147,14 +147,57 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/JsonParam.php"><a href="files/src-oihana-enums-jsonparam.html"><abbr title="src/oihana/enums/JsonParam.php">JsonParam.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
-        
+            <p class="phpdocumentor-summary">Enumeration of common parameter names used in JSON encoding and decoding operations.</p>
 
 
+    <section class="phpdocumentor-description"><p>This class defines string constants representing typical options passed to JSON
+functions such as <code class="prettyprint">json_encode()</code> and <code class="prettyprint">json_decode()</code> in PHP.</p>
+<p>These keys correspond to:</p>
+<ul>
+<li><code class="prettyprint">associative</code>: Determines if JSON objects should be decoded as associative arrays.</li>
+<li><code class="prettyprint">depth</code>: Sets the maximum recursion depth for encoding or decoding.</li>
+<li><code class="prettyprint">flags</code>: Defines bitmask flags to modify the behavior of JSON operations.</li>
+</ul>
+<p>Example usage:</p>
+<pre class="prettyprint"><code class="language-php">use oihana\enums\JsonParam;
 
+$option = [
+    JsonParam::ASSOCIATIVE =&gt; true,
+    JsonParam::DEPTH       =&gt; 512,
+    JsonParam::FLAGS       =&gt; JSON_PRETTY_PRINT,
+];
+</code></pre>
+</section>
+
+
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-enums-JsonParam.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (ekameleon)</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
 
 
 
@@ -256,11 +299,25 @@
 <dd>Returns the constant name(s) associated with the given value.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-enums-JsonParam.html#method_getDefaultValues">getDefaultValues()</a>
+    <span>
+                                &nbsp;: array&lt;string, mixed&gt;    </span>
+</dt>
+<dd>Returns default values for JSON parameters.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-reflections-traits-ConstantsTrait.html#method_includes">includes()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Checks if a given value is valid (exists as a constant in this class).</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-enums-JsonParam.html#method_isValidFlags">isValidFlags()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Checks if the given flags value is valid JSON flag or combination of flags.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-reflections-traits-ConstantsTrait.html#method_resetCaches">resetCaches()</a>
@@ -297,7 +354,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/JsonParam.php"><a href="files/src-oihana-enums-jsonparam.html"><abbr title="src/oihana/enums/JsonParam.php">JsonParam.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
@@ -328,7 +385,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/JsonParam.php"><a href="files/src-oihana-enums-jsonparam.html"><abbr title="src/oihana/enums/JsonParam.php">JsonParam.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
@@ -359,7 +416,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/JsonParam.php"><a href="files/src-oihana-enums-jsonparam.html"><abbr title="src/oihana/enums/JsonParam.php">JsonParam.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 
     </aside>
 
@@ -711,6 +768,45 @@ by one or more separators, it splits them accordingly before matching.</p>
             -public
                                     -static                    "
 >
+    <h4 class="phpdocumentor-element__name" id="method_getDefaultValues">
+        getDefaultValues()
+        <a href="classes/oihana-enums-JsonParam.html#method_getDefaultValues" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/JsonParam.php"><a href="files/src-oihana-enums-jsonparam.html"><abbr title="src/oihana/enums/JsonParam.php">JsonParam.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">46</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns default values for JSON parameters.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getDefaultValues</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string, mixed&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
     <h4 class="phpdocumentor-element__name" id="method_includes">
         includes()
         <a href="classes/oihana-reflections-traits-ConstantsTrait.html#method_includes" class="headerlink"><i class="fas fa-link"></i></a>
@@ -777,6 +873,57 @@ types of the needle in the haystack.</p>
                 <section class="phpdocumentor-description"><p>True if the value exist, False otherwise.</p>
 </section>
 
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isValidFlags">
+        isValidFlags()
+        <a href="classes/oihana-enums-JsonParam.html#method_isValidFlags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/JsonParam.php"><a href="files/src-oihana-enums-jsonparam.html"><abbr title="src/oihana/enums/JsonParam.php">JsonParam.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">63</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Checks if the given flags value is valid JSON flag or combination of flags.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">isValidFlags</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$flags</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>You may add more flags as needed.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$flags</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
             </section>
 
 </article>
@@ -1032,7 +1179,9 @@ types of the needle in the haystack.</p>
                                             <li class=""><a href="classes/oihana-reflections-traits-ConstantsTrait.html#method_get">get()</a></li>
                                             <li class=""><a href="classes/oihana-reflections-traits-ConstantsTrait.html#method_getAll">getAll()</a></li>
                                             <li class=""><a href="classes/oihana-reflections-traits-ConstantsTrait.html#method_getConstant">getConstant()</a></li>
+                                            <li class=""><a href="classes/oihana-enums-JsonParam.html#method_getDefaultValues">getDefaultValues()</a></li>
                                             <li class=""><a href="classes/oihana-reflections-traits-ConstantsTrait.html#method_includes">includes()</a></li>
+                                            <li class=""><a href="classes/oihana-enums-JsonParam.html#method_isValidFlags">isValidFlags()</a></li>
                                             <li class=""><a href="classes/oihana-reflections-traits-ConstantsTrait.html#method_resetCaches">resetCaches()</a></li>
                                             <li class=""><a href="classes/oihana-reflections-traits-ConstantsTrait.html#method_validate">validate()</a></li>
                                     </ul>

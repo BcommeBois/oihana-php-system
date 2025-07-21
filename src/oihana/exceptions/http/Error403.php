@@ -8,6 +8,9 @@ use oihana\exceptions\ExceptionTrait;
 
 /**
  * Throw an 'Forbidden error' (403).
+ * @package oihana\exceptions\http
+ * @author  Marc Alcaraz (ekameleon)
+ * @since   1.0.0
  */
 class Error403 extends Exception
 {

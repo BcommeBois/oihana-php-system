@@ -5,9 +5,36 @@ namespace oihana\enums;
 use oihana\reflections\traits\ConstantsTrait;
 
 /**
- * These are the official names for character sets that may be used in the Internet and may be referred to in Internet documentation.
- * The following table lists supported code page values for the IANAAppCodePage connection option.
- * @see Character Sets : https://www.iana.org/assignments/character-sets/character-sets.xhtml
+ * Enumeration of official character set codes as assigned by IANA and
+ * used in Internet standards and documentation.
+ *
+ * This class defines integer constants representing the numeric identifiers
+ * of various character encodings (code pages) commonly used in databases,
+ * networking, and application protocols.
+ *
+ * The constants correspond to values supported by connection options such as
+ * IANAAppCodePage, facilitating consistent charset handling in database drivers
+ * or other components interacting with textual data.
+ *
+ * See the official IANA character sets registry for full details:
+ * https://www.iana.org/assignments/character-sets/character-sets.xhtml
+ *
+ * Example usage:
+ * ```php
+ * use oihana\enums\CharacterSet;
+ *
+ * $charset = CharacterSet::UTF8;  // 106
+ * ```
+ *
+ * Notes:
+ * - The UTF8 constant represents passing Unicode data without conversion
+ * when the database is configured for Unicode.
+ * - Some values are specific to certain vendors or drivers (e.g. Progress DataDirect),
+ * and may not appear in the official IANA list.
+ *
+ * @package oihana\enums
+ * @author  Marc Alcaraz (ekameleon)
+ * @since   1.0.0
  */
 class CharacterSet
 {

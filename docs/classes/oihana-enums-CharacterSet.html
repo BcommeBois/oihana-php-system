@@ -147,14 +147,34 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">These are the official names for character sets that may be used in the Internet and may be referred to in Internet documentation.</p>
+            <p class="phpdocumentor-summary">Enumeration of official character set codes as assigned by IANA and
+used in Internet standards and documentation.</p>
 
 
-    <section class="phpdocumentor-description"><p>The following table lists supported code page values for the IANAAppCodePage connection option.</p>
+    <section class="phpdocumentor-description"><p>This class defines integer constants representing the numeric identifiers
+of various character encodings (code pages) commonly used in databases,
+networking, and application protocols.</p>
+<p>The constants correspond to values supported by connection options such as
+IANAAppCodePage, facilitating consistent charset handling in database drivers
+or other components interacting with textual data.</p>
+<p>See the official IANA character sets registry for full details:
+https://www.iana.org/assignments/character-sets/character-sets.xhtml</p>
+<p>Example usage:</p>
+<pre class="prettyprint"><code class="language-php">use oihana\enums\CharacterSet;
+
+$charset = CharacterSet::UTF8;  // 106
+</code></pre>
+<p>Notes:</p>
+<ul>
+<li>The UTF8 constant represents passing Unicode data without conversion
+when the database is configured for Unicode.</li>
+<li>Some values are specific to certain vendors or drivers (e.g. Progress DataDirect),
+and may not appear in the official IANA list.</li>
+</ul>
 </section>
 
 
@@ -165,14 +185,21 @@
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
+                    <span class="phpdocumentor-tag__name">author</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\oihana\enums\Character">Character</abbr></span>
-                                        
-                                                 <section class="phpdocumentor-description"><p>Sets : https://www.iana.org/assignments/character-sets/character-sets.xhtml</p>
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (ekameleon)</p>
 </section>
 
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
                                     </dd>
                                             </dl>
 
@@ -876,7 +903,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">55</span>
+    <span class="phpdocumentor-element-found-in__line">82</span>
 
     </aside>
 
@@ -907,7 +934,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">60</span>
 
     </aside>
 
@@ -938,7 +965,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">64</span>
 
     </aside>
 
@@ -969,7 +996,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">81</span>
 
     </aside>
 
@@ -1000,7 +1027,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">40</span>
+    <span class="phpdocumentor-element-found-in__line">67</span>
 
     </aside>
 
@@ -1031,7 +1058,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">46</span>
+    <span class="phpdocumentor-element-found-in__line">73</span>
 
     </aside>
 
@@ -1062,7 +1089,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">47</span>
+    <span class="phpdocumentor-element-found-in__line">74</span>
 
     </aside>
 
@@ -1093,7 +1120,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">85</span>
+    <span class="phpdocumentor-element-found-in__line">112</span>
 
     </aside>
 
@@ -1124,7 +1151,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">88</span>
+    <span class="phpdocumentor-element-found-in__line">115</span>
 
     </aside>
 
@@ -1155,7 +1182,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">89</span>
+    <span class="phpdocumentor-element-found-in__line">116</span>
 
     </aside>
 
@@ -1186,7 +1213,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">90</span>
+    <span class="phpdocumentor-element-found-in__line">117</span>
 
     </aside>
 
@@ -1217,7 +1244,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">91</span>
+    <span class="phpdocumentor-element-found-in__line">118</span>
 
     </aside>
 
@@ -1248,7 +1275,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">92</span>
+    <span class="phpdocumentor-element-found-in__line">119</span>
 
     </aside>
 
@@ -1279,7 +1306,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">93</span>
+    <span class="phpdocumentor-element-found-in__line">120</span>
 
     </aside>
 
@@ -1310,7 +1337,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">94</span>
+    <span class="phpdocumentor-element-found-in__line">121</span>
 
     </aside>
 
@@ -1341,7 +1368,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">95</span>
+    <span class="phpdocumentor-element-found-in__line">122</span>
 
     </aside>
 
@@ -1372,7 +1399,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">96</span>
+    <span class="phpdocumentor-element-found-in__line">123</span>
 
     </aside>
 
@@ -1403,7 +1430,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">97</span>
+    <span class="phpdocumentor-element-found-in__line">124</span>
 
     </aside>
 
@@ -1434,7 +1461,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">98</span>
+    <span class="phpdocumentor-element-found-in__line">125</span>
 
     </aside>
 
@@ -1465,7 +1492,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">57</span>
+    <span class="phpdocumentor-element-found-in__line">84</span>
 
     </aside>
 
@@ -1496,7 +1523,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">58</span>
+    <span class="phpdocumentor-element-found-in__line">85</span>
 
     </aside>
 
@@ -1527,7 +1554,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">83</span>
+    <span class="phpdocumentor-element-found-in__line">110</span>
 
     </aside>
 
@@ -1558,7 +1585,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">99</span>
+    <span class="phpdocumentor-element-found-in__line">126</span>
 
     </aside>
 
@@ -1589,7 +1616,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">59</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 
     </aside>
 
@@ -1620,7 +1647,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">60</span>
+    <span class="phpdocumentor-element-found-in__line">87</span>
 
     </aside>
 
@@ -1651,7 +1678,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">61</span>
+    <span class="phpdocumentor-element-found-in__line">88</span>
 
     </aside>
 
@@ -1682,7 +1709,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">62</span>
+    <span class="phpdocumentor-element-found-in__line">89</span>
 
     </aside>
 
@@ -1713,7 +1740,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">63</span>
+    <span class="phpdocumentor-element-found-in__line">90</span>
 
     </aside>
 
@@ -1744,7 +1771,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">64</span>
+    <span class="phpdocumentor-element-found-in__line">91</span>
 
     </aside>
 
@@ -1775,7 +1802,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">65</span>
+    <span class="phpdocumentor-element-found-in__line">92</span>
 
     </aside>
 
@@ -1806,7 +1833,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">66</span>
+    <span class="phpdocumentor-element-found-in__line">93</span>
 
     </aside>
 
@@ -1837,7 +1864,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">67</span>
+    <span class="phpdocumentor-element-found-in__line">94</span>
 
     </aside>
 
@@ -1868,7 +1895,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">68</span>
+    <span class="phpdocumentor-element-found-in__line">95</span>
 
     </aside>
 
@@ -1899,7 +1926,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">50</span>
+    <span class="phpdocumentor-element-found-in__line">77</span>
 
     </aside>
 
@@ -1930,7 +1957,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">69</span>
+    <span class="phpdocumentor-element-found-in__line">96</span>
 
     </aside>
 
@@ -1961,7 +1988,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">87</span>
+    <span class="phpdocumentor-element-found-in__line">114</span>
 
     </aside>
 
@@ -1992,7 +2019,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">48</span>
+    <span class="phpdocumentor-element-found-in__line">75</span>
 
     </aside>
 
@@ -2023,7 +2050,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">70</span>
+    <span class="phpdocumentor-element-found-in__line">97</span>
 
     </aside>
 
@@ -2054,7 +2081,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">76</span>
 
     </aside>
 
@@ -2085,7 +2112,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">71</span>
+    <span class="phpdocumentor-element-found-in__line">98</span>
 
     </aside>
 
@@ -2116,7 +2143,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">72</span>
+    <span class="phpdocumentor-element-found-in__line">99</span>
 
     </aside>
 
@@ -2147,7 +2174,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">73</span>
+    <span class="phpdocumentor-element-found-in__line">100</span>
 
     </aside>
 
@@ -2178,7 +2205,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">74</span>
+    <span class="phpdocumentor-element-found-in__line">101</span>
 
     </aside>
 
@@ -2209,7 +2236,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">51</span>
+    <span class="phpdocumentor-element-found-in__line">78</span>
 
     </aside>
 
@@ -2240,7 +2267,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">75</span>
+    <span class="phpdocumentor-element-found-in__line">102</span>
 
     </aside>
 
@@ -2271,7 +2298,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">76</span>
+    <span class="phpdocumentor-element-found-in__line">103</span>
 
     </aside>
 
@@ -2302,7 +2329,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">77</span>
+    <span class="phpdocumentor-element-found-in__line">104</span>
 
     </aside>
 
@@ -2333,7 +2360,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">86</span>
+    <span class="phpdocumentor-element-found-in__line">113</span>
 
     </aside>
 
@@ -2364,7 +2391,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">78</span>
+    <span class="phpdocumentor-element-found-in__line">105</span>
 
     </aside>
 
@@ -2395,7 +2422,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">79</span>
+    <span class="phpdocumentor-element-found-in__line">106</span>
 
     </aside>
 
@@ -2426,7 +2453,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">80</span>
+    <span class="phpdocumentor-element-found-in__line">107</span>
 
     </aside>
 
@@ -2457,7 +2484,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">81</span>
+    <span class="phpdocumentor-element-found-in__line">108</span>
 
     </aside>
 
@@ -2488,7 +2515,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">82</span>
+    <span class="phpdocumentor-element-found-in__line">109</span>
 
     </aside>
 
@@ -2519,7 +2546,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">115</span>
+    <span class="phpdocumentor-element-found-in__line">142</span>
 
     </aside>
 
@@ -2550,7 +2577,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">116</span>
+    <span class="phpdocumentor-element-found-in__line">143</span>
 
     </aside>
 
@@ -2581,7 +2608,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">117</span>
+    <span class="phpdocumentor-element-found-in__line">144</span>
 
     </aside>
 
@@ -2612,7 +2639,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">118</span>
+    <span class="phpdocumentor-element-found-in__line">145</span>
 
     </aside>
 
@@ -2643,7 +2670,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">113</span>
+    <span class="phpdocumentor-element-found-in__line">140</span>
 
     </aside>
 
@@ -2674,7 +2701,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">114</span>
+    <span class="phpdocumentor-element-found-in__line">141</span>
 
     </aside>
 
@@ -2705,7 +2732,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">79</span>
 
     </aside>
 
@@ -2736,7 +2763,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">68</span>
 
     </aside>
 
@@ -2767,7 +2794,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">69</span>
 
     </aside>
 
@@ -2798,7 +2825,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">38</span>
+    <span class="phpdocumentor-element-found-in__line">65</span>
 
     </aside>
 
@@ -2829,7 +2856,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">39</span>
+    <span class="phpdocumentor-element-found-in__line">66</span>
 
     </aside>
 
@@ -2860,7 +2887,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">36</span>
+    <span class="phpdocumentor-element-found-in__line">63</span>
 
     </aside>
 
@@ -2891,7 +2918,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">61</span>
 
     </aside>
 
@@ -2922,7 +2949,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">49</span>
 
     </aside>
 
@@ -2953,7 +2980,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">43</span>
+    <span class="phpdocumentor-element-found-in__line">70</span>
 
     </aside>
 
@@ -2984,7 +3011,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">44</span>
+    <span class="phpdocumentor-element-found-in__line">71</span>
 
     </aside>
 
@@ -3015,7 +3042,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">72</span>
 
     </aside>
 
@@ -3046,7 +3073,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">23</span>
+    <span class="phpdocumentor-element-found-in__line">50</span>
 
     </aside>
 
@@ -3077,7 +3104,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">24</span>
+    <span class="phpdocumentor-element-found-in__line">51</span>
 
     </aside>
 
@@ -3108,7 +3135,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">52</span>
 
     </aside>
 
@@ -3139,7 +3166,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">53</span>
 
     </aside>
 
@@ -3170,7 +3197,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">54</span>
 
     </aside>
 
@@ -3201,7 +3228,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">28</span>
+    <span class="phpdocumentor-element-found-in__line">55</span>
 
     </aside>
 
@@ -3232,7 +3259,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">29</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 
     </aside>
 
@@ -3263,7 +3290,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">30</span>
+    <span class="phpdocumentor-element-found-in__line">57</span>
 
     </aside>
 
@@ -3294,7 +3321,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 
     </aside>
 
@@ -3325,7 +3352,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">84</span>
+    <span class="phpdocumentor-element-found-in__line">111</span>
 
     </aside>
 
@@ -3356,7 +3383,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">62</span>
 
     </aside>
 
@@ -3387,7 +3414,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">56</span>
+    <span class="phpdocumentor-element-found-in__line">83</span>
 
     </aside>
 
@@ -3418,7 +3445,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">59</span>
 
     </aside>
 
@@ -3449,7 +3476,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">109</span>
+    <span class="phpdocumentor-element-found-in__line">136</span>
 
     </aside>
 
@@ -3480,7 +3507,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">48</span>
 
     </aside>
 
@@ -3511,7 +3538,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">19</span>
+    <span class="phpdocumentor-element-found-in__line">46</span>
 
     </aside>
 
@@ -3543,7 +3570,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">100</span>
+    <span class="phpdocumentor-element-found-in__line">127</span>
 
     </aside>
 
@@ -3574,7 +3601,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">101</span>
+    <span class="phpdocumentor-element-found-in__line">128</span>
 
     </aside>
 
@@ -3605,7 +3632,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">102</span>
+    <span class="phpdocumentor-element-found-in__line">129</span>
 
     </aside>
 
@@ -3636,7 +3663,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">103</span>
+    <span class="phpdocumentor-element-found-in__line">130</span>
 
     </aside>
 
@@ -3667,7 +3694,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">104</span>
+    <span class="phpdocumentor-element-found-in__line">131</span>
 
     </aside>
 
@@ -3698,7 +3725,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">105</span>
+    <span class="phpdocumentor-element-found-in__line">132</span>
 
     </aside>
 
@@ -3729,7 +3756,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">106</span>
+    <span class="phpdocumentor-element-found-in__line">133</span>
 
     </aside>
 
@@ -3760,7 +3787,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">107</span>
+    <span class="phpdocumentor-element-found-in__line">134</span>
 
     </aside>
 
@@ -3791,7 +3818,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">108</span>
+    <span class="phpdocumentor-element-found-in__line">135</span>
 
     </aside>
 
@@ -3822,7 +3849,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/enums/CharacterSet.php"><a href="files/src-oihana-enums-characterset.html"><abbr title="src/oihana/enums/CharacterSet.php">CharacterSet.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">53</span>
+    <span class="phpdocumentor-element-found-in__line">80</span>
 
     </aside>
 

@@ -5,11 +5,37 @@ namespace oihana\enums;
 use oihana\reflections\traits\ConstantsTrait;
 
 /**
- * Class MemcachedStats
+ * Enumeration of string keys returned by the `Memcached::getStats()` method.
  *
- * This class defines constants for the property names returned by the
- * Memcached::getStats() method. Using these constants improves code readability,
- * maintainability, and helps prevent typos when accessing Memcached statistics.
+ * This class defines constants that correspond to statistical property names reported
+ * by a Memcached server. These stats provide insight into server performance, memory usage,
+ * connection counts, command success rates, and more.
+ *
+ * ### Purpose:
+ * - Prevent typos when accessing stats via `$stats['some_key']`
+ * - Improve readability and IDE autocompletion
+ * - Facilitate filtering, logging, or reporting on selected metrics
+ *
+ * ### Example:
+ * ```php
+ * use oihana\enums\MemcachedStats;
+ *
+ * $stats = $memcached->getStats();
+ * $uptime = $stats['localhost:11211'][MemcachedStats::UPTIME] ?? 0;
+ * ```
+ *
+ * ### Categories:
+ * - General Server Info (e.g. PID, version, uptime)
+ * - Connection Stats (e.g. current/total connections)
+ * - Command Stats (e.g. get/set hits/misses)
+ * - Network I/O Stats (e.g. bytes read/written)
+ * - Memory & Storage (e.g. item count, evictions, memory limit)
+ *
+ * @see https://github.com/memcached/memcached/wiki/Commands#stats
+ *
+ * @package oihana\enums
+ * @author  Marc Alcaraz (ekameleon)
+ * @since   1.0.0
  */
 class MemcachedStats
 {
@@ -261,4 +287,95 @@ class MemcachedStats
      * @var string
      */
     public const string THREADS = 'threads';
+
+    /**
+     * Returns all stat keys grouped by category.
+     * @return array<string, string[]> An associative array where keys are category names and values are arrays of constant values.
+     */
+    public static function groupByCategory(): array
+    {
+        return
+        [
+            'general' =>
+            [
+                self::PID,
+                self::UPTIME,
+                self::TIME,
+                self::VERSION,
+                self::LIB_EVENT,
+                self::POINTER_SIZE,
+                self::RUSAGE_USER_SECONDS,
+                self::RUSAGE_USER_MICROSECONDS,
+                self::RUSAGE_SYSTEM_SECONDS,
+                self::RUSAGE_SYSTEM_MICROSECONDS,
+            ],
+            'connections' =>
+            [
+                self::CURR_CONNECTIONS,
+                self::TOTAL_CONNECTIONS,
+                self::CONNECTION_STRUCTURES,
+                self::RESERVED_FDS,
+            ],
+            'commands' =>
+            [
+                self::CMD_GET,
+                self::CMD_SET,
+                self::CMD_FLUSH,
+                self::CMD_TOUCH,
+                self::GET_HITS,
+                self::GET_MISSES,
+                self::DELETE_HITS,
+                self::DELETE_MISSES,
+                self::INCR_HITS,
+                self::INCR_MISSES,
+                self::DECR_HITS,
+                self::DECR_MISSES,
+                self::CAS_HITS,
+                self::CAS_MISSES,
+                self::CAS_BADVAL,
+            ],
+            'network' =>
+            [
+                self::BYTES_READ,
+                self::BYTES_WRITTEN,
+            ],
+            'memory' =>
+            [
+                self::LIMIT_MAX_BYTES,
+                self::CURR_ITEMS,
+                self::TOTAL_ITEMS,
+                self::BYTES,
+                self::EVICTIONS,
+                self::RECLAIMED,
+                self::SLABS_MOVED,
+            ],
+            'other' =>
+            [
+                self::THREADS,
+            ],
+        ];
+    }
+
+    /**
+     * Returns the list of defined stat categories.
+     *
+     * @return string[]
+     *
+     * @example
+     * ```php
+     * foreach (MemcachedStats::getGroups() as $group)
+     * {
+     *     echo strtoupper( $group ) . PHP_EOL;
+     *     foreach (MemcachedStats::groupByCategory()[$group] as $statKey)
+     *     {
+     *        echo "  • $statKey" . PHP_EOL;
+     *    }
+     * }
+     * ```
+     */
+    public static function getGroups(): array
+    {
+        return array_keys( self::groupByCategory() );
+    }
+
 }

@@ -147,15 +147,14 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">46</span>
+    <span class="phpdocumentor-element-found-in__line">44</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Class Version</p>
+            <p class="phpdocumentor-summary">Represents a software version using four components: major, minor, build, and revision.</p>
 
 
-    <section class="phpdocumentor-description"><p>Represents a software version using four components: major, minor, build, and revision.
-These components are internally encoded into a single 32-bit integer for compact storage and efficient comparison.</p>
+    <section class="phpdocumentor-description"><p>These components are internally encoded into a single 32-bit integer for compact storage and efficient comparison.</p>
 <h3>Usage Example:</h3>
 <pre class="prettyprint"><code class="language-php">use oihana\reflections\Version ;
 
@@ -165,7 +164,7 @@ $version3 = new Version( 1 , 2 , 3 , 4 ) ;
 
 $version1-&gt;major = 3 ;
 
-echo('version   : ' . $version1 ) ;
+echo( 'version  : ' . $version1 ) ;
 echo( 'major    : ' . $version1-&gt;major ) ;
 echo( 'minor    : ' . $version1-&gt;minor ) ;
 echo( 'build    : ' . $version1-&gt;build ) ;
@@ -227,48 +226,49 @@ echo( &quot;equals( $version3 ) : &quot; . ($version1-&gt;equals($version3) ? 't
     <span>
                         &nbsp;: int            </span>
 </dt>
-<dd>The build component value of this version.</dd>
+<dd>Gets or sets the build component (bits 16–23).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-reflections-Version.html#property_fields">$fields</a>
     <span>
                         &nbsp;: int            </span>
 </dt>
-<dd>The fields limit.</dd>
+<dd>Specifies how many version components should be included in the string representation.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-reflections-Version.html#property_major">$major</a>
     <span>
                         &nbsp;: int            </span>
 </dt>
-<dd>The major component value of this version.</dd>
+<dd>Gets or sets the major version component (stored in the highest 4 bits).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-reflections-Version.html#property_minor">$minor</a>
     <span>
                         &nbsp;: int            </span>
 </dt>
-<dd>The minor component value of this version.</dd>
+<dd>Gets or sets the minor version component (bits 24–27).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-reflections-Version.html#property_revision">$revision</a>
     <span>
                         &nbsp;: int            </span>
 </dt>
-<dd>The revision component value of this version.</dd>
+<dd>Gets or sets the revision component (lowest 16 bits).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-reflections-Version.html#property_separator">$separator</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
-<dd>The separator expression.</dd>
+<dd>The string used to separate version components when casting to string.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a class="" href="classes/oihana-reflections-Version.html#property__value">$_value</a>
     <span>
                         &nbsp;: int            </span>
 </dt>
+<dd>The internal integer that encodes the four version components.</dd>
 
     </dl>
 
@@ -283,48 +283,42 @@ echo( &quot;equals( $version3 ) : &quot; . ($version1-&gt;equals($version3) ? 't
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Creates a new Version instance.</dd>
+<dd>Creates a new Version instance from individual components.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-reflections-Version.html#method___toString">__toString()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Returns the string representation of the object.</dd>
+<dd>Returns the string representation of the version, respecting `fields` and `separator`.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-reflections-Version.html#method_equals">equals()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>We don&#039;t really need an equals method as we override the valueOf, we can do something as
-&lt;pre&gt;
-$v1 = new Version( 1,0,0,0 );
-$v2 = new Version( 1,0,0,0 );
-echo( json_encode( v1-&gt;equals( v2 ) ) ) ; //true
-&lt;/pre&gt;
-A cast to Number/int force the valueOf, not ideal but sufficient, and the same for any other operators.</dd>
+<dd>Checks whether the current instance is equal to another version.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-reflections-Version.html#method_fromString">fromString()</a>
     <span>
                                 &nbsp;: string|null    </span>
 </dt>
-<dd>Returns a version representation.</dd>
+<dd>Instantiates a Version from a formatted version string (e.g., &quot;1.2.3.4&quot;).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-reflections-Version.html#method_valueOf">valueOf()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
-<dd>Returns the primitive value of the object.</dd>
+<dd>Returns the internal 32-bit integer value representing the version.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -private">
     <a class="" href="classes/oihana-reflections-Version.html#method_RRR">RRR()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
-<dd>Emulates the &gt;&gt;&gt; binary operator.</dd>
+<dd>Bitwise logical right shift (unsigned), emulates `&gt;&gt;&gt;` operator.</dd>
 
     </dl>
 
@@ -356,11 +350,11 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">94</span>
+    <span class="phpdocumentor-element-found-in__line">104</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">The build component value of this version.</p>
+        <p class="phpdocumentor-summary">Gets or sets the build component (bits 16–23).</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
@@ -437,11 +431,11 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">63</span>
+    <span class="phpdocumentor-element-found-in__line">65</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">The fields limit.</p>
+        <p class="phpdocumentor-summary">Specifies how many version components should be included in the string representation.</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
@@ -450,7 +444,9 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <span class="phpdocumentor-signature__name">$fields</span>
      = <span class="phpdocumentor-signature__default-value">0</span></code>
 
-    
+        <section class="phpdocumentor-description"><p>Values can range from 1 to 4. Defaults to 0, which means automatic trimming of trailing zeroes.</p>
+</section>
+
     
     
 
@@ -476,11 +472,11 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">106</span>
+    <span class="phpdocumentor-element-found-in__line">117</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">The major component value of this version.</p>
+        <p class="phpdocumentor-summary">Gets or sets the major version component (stored in the highest 4 bits).</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
@@ -557,11 +553,11 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">118</span>
+    <span class="phpdocumentor-element-found-in__line">130</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">The minor component value of this version.</p>
+        <p class="phpdocumentor-summary">Gets or sets the minor version component (bits 24–27).</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
@@ -638,11 +634,11 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">130</span>
+    <span class="phpdocumentor-element-found-in__line">143</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">The revision component value of this version.</p>
+        <p class="phpdocumentor-summary">Gets or sets the revision component (lowest 16 bits).</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
@@ -719,11 +715,11 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">68</span>
+    <span class="phpdocumentor-element-found-in__line">72</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">The separator expression.</p>
+        <p class="phpdocumentor-summary">The string used to separate version components when casting to string.</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
@@ -758,11 +754,12 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">239</span>
+    <span class="phpdocumentor-element-found-in__line">255</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">The internal integer that encodes the four version components.</p>
+
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
         <span class="phpdocumentor-signature__visibility">private</span>
@@ -801,11 +798,11 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">55</span>
+    <span class="phpdocumentor-element-found-in__line">54</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Creates a new Version instance.</p>
+        <p class="phpdocumentor-summary">Creates a new Version instance from individual components.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -822,28 +819,36 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">0</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The major version number (4 bits).</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$minor</span>
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">0</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The minor version number (4 bits).</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$build</span>
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">0</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The build number (8 bits).</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$revision</span>
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">0</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The revision number (16 bits).</p>
+</section>
+
             </dd>
             </dl>
 
@@ -867,11 +872,11 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">200</span>
+    <span class="phpdocumentor-element-found-in__line">214</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns the string representation of the object.</p>
+        <p class="phpdocumentor-summary">Returns the string representation of the version, respecting `fields` and `separator`.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -890,7 +895,7 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>The string representation of the object.</p>
+                <section class="phpdocumentor-description"><p>The stringified version (e.g., &quot;1.2.3&quot;).</p>
 </section>
 
             </section>
@@ -910,17 +915,11 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">80</span>
+    <span class="phpdocumentor-element-found-in__line">90</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">We don&#039;t really need an equals method as we override the valueOf, we can do something as
-&lt;pre&gt;
-$v1 = new Version( 1,0,0,0 );
-$v2 = new Version( 1,0,0,0 );
-echo( json_encode( v1-&gt;equals( v2 ) ) ) ; //true
-&lt;/pre&gt;
-A cast to Number/int force the valueOf, not ideal but sufficient, and the same for any other operators.</p>
+        <p class="phpdocumentor-summary">Checks whether the current instance is equal to another version.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -929,9 +928,7 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <div class="phpdocumentor-label-line">
         </div>
     
-        <section class="phpdocumentor-description"><p>But as we keep Equatable for now, then we have no reason to not use it.</p>
-</section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -939,13 +936,34 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The value to evaluates.</p>
+                    <section class="phpdocumentor-description"><p>The value to compare to (typically another Version instance).</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-reflections-Version.html#method_equals#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$v1 = new Version( 1,0,0,0 );
+$v2 = new Version( 1,0,0,0 );
+echo( json_encode( v1-&gt;equals( v2 ) ) ) ; //true
+</code></pre>
+<p>A cast to Number/int force the valueOf, not ideal but sufficient, and the same for any other operators.
+But as we keep Equatable for now, then we have no reason to not use it.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 
@@ -953,7 +971,7 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p><code class="prettyprint">true</code> if the the specified object is equal with this object.</p>
+                <section class="phpdocumentor-description"><p>True if both instances represent the same version; false otherwise.</p>
 </section>
 
             </section>
@@ -973,11 +991,11 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">145</span>
+    <span class="phpdocumentor-element-found-in__line">159</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns a version representation.</p>
+        <p class="phpdocumentor-summary">Instantiates a Version from a formatted version string (e.g., &quot;1.2.3.4&quot;).</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -994,14 +1012,18 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The string to parse.</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$separator</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">Char::DOT</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The separator to use (defaults to <code class="prettyprint">.</code>).</p>
+</section>
+
             </dd>
             </dl>
 
@@ -1012,6 +1034,10 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string|null</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>A stringified version object or null if parsing fails.</p>
+</section>
+
             </section>
 
 </article>
@@ -1029,11 +1055,11 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">231</span>
+    <span class="phpdocumentor-element-found-in__line">245</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns the primitive value of the object.</p>
+        <p class="phpdocumentor-summary">Returns the internal 32-bit integer value representing the version.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1052,7 +1078,7 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">int</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>The primitive value of the object.</p>
+                <section class="phpdocumentor-description"><p>The packed version number.</p>
 </section>
 
             </section>
@@ -1072,11 +1098,11 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">244</span>
+    <span class="phpdocumentor-element-found-in__line">264</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Emulates the &gt;&gt;&gt; binary operator.</p>
+        <p class="phpdocumentor-summary">Bitwise logical right shift (unsigned), emulates `&gt;&gt;&gt;` operator.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">private</span>
@@ -1093,14 +1119,18 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The integer to shift.</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$b</span>
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The number of bits to shift.</p>
+</section>
+
             </dd>
             </dl>
 
@@ -1111,6 +1141,10 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">int</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The result of the shift.</p>
+</section>
+
             </section>
 
 </article>
