@@ -2,16 +2,19 @@
 
 namespace oihana\logging;
 
+use Stringable;
+
 use DI\DependencyException;
 use DI\NotFoundException;
 
-use oihana\enums\Char;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Log\LoggerAwareTrait;
 use Psr\Log\LoggerInterface;
-use Stringable;
+
+use oihana\enums\Char;
+use oihana\enums\Param;
 
 trait LoggerTrait
 {
@@ -147,7 +150,7 @@ trait LoggerTrait
      */
     protected function initLoggable( array $init = [] ) :bool
     {
-        return $init[ self::LOGGABLE ] ?? $this->loggable ;
+        return $init[ Param::LOGGABLE ] ?? $this->loggable ;
     }
 
     /**
@@ -162,7 +165,7 @@ trait LoggerTrait
      */
     protected function initLogger( array $init = [] , ?ContainerInterface $container = null ) :?LoggerInterface
     {
-        $logger = $init[ self::LOGGER ] ?? null ;
+        $logger = $init[ Param::LOGGER ] ?? null ;
 
         if( $logger instanceof LoggerInterface )
         {

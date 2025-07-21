@@ -3176,6 +3176,21 @@ Search.appendIndex(
             "summary": "Upsert\u0020a\u0020document\u0020into\u0020the\u0020collection.",
             "url": "classes/oihana-models-interfaces-UpsertModel.html#method_upsert"
         },                {
+            "fqsen": "\\oihana\\models\\PDOModel",
+            "name": "PDOModel",
+            "summary": "A\u0020base\u0020model\u0020class\u0020that\u0020integrates\u0020a\u0020PDO\u0020instance\u0020with\u0020dependency\u0020injection\u0020container\u0020support.",
+            "url": "classes/oihana-models-PDOModel.html"
+        },                {
+            "fqsen": "\\oihana\\models\\PDOModel\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020PDOModel\u0020instance.",
+            "url": "classes/oihana-models-PDOModel.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\models\\PDOModel\u003A\u003A\u0024container",
+            "name": "container",
+            "summary": "The\u0020DI\u0020container\u0020reference.",
+            "url": "classes/oihana-models-PDOModel.html#property_container"
+        },                {
             "fqsen": "\\oihana\\models\\traits\\DocumentsTrait",
             "name": "DocumentsTrait",
             "summary": "",

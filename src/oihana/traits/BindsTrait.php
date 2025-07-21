@@ -16,7 +16,7 @@ trait BindsTrait
      * The default bind values definition of the model.
      * @var array|null
      */
-    protected ?array $binds = [] ;
+    public ?array $binds = [] ;
 
     /**
      * Prepares the binding parameters to inject in a PDO statement.

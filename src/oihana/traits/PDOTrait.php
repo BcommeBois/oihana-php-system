@@ -12,7 +12,7 @@ use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
 use oihana\enums\Char;
-use oihana\enums\Param;;
+use oihana\enums\Param;
 
 /**
  * Provides methods for binding values, executing queries, and retrieving results using PDO.
@@ -32,6 +32,7 @@ trait PDOTrait
 {
     use AlterDocumentTrait ,
         BindsTrait ,
+        ContainerTrait ,
         DebugTrait ,
         ToStringTrait ;
 

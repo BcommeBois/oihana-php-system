@@ -132,7 +132,7 @@
     PDOTrait
             <span class="phpdocumentor-trait__extends">
             uses
-                            <a href="classes/oihana-traits-AlterDocumentTrait.html"><abbr title="\oihana\traits\AlterDocumentTrait">trait:short</abbr></a>,                             <a href="classes/oihana-traits-BindsTrait.html"><abbr title="\oihana\traits\BindsTrait">trait:short</abbr></a>,                             <a href="classes/oihana-traits-DebugTrait.html"><abbr title="\oihana\traits\DebugTrait">trait:short</abbr></a>,                             <a href="classes/oihana-traits-ToStringTrait.html"><abbr title="\oihana\traits\ToStringTrait">trait:short</abbr></a>                    </span>
+                            <a href="classes/oihana-traits-AlterDocumentTrait.html"><abbr title="\oihana\traits\AlterDocumentTrait">trait:short</abbr></a>,                             <a href="classes/oihana-traits-BindsTrait.html"><abbr title="\oihana\traits\BindsTrait">trait:short</abbr></a>,                             <a href="classes/oihana-traits-ContainerTrait.html"><abbr title="\oihana\traits\ContainerTrait">trait:short</abbr></a>,                             <a href="classes/oihana-traits-DebugTrait.html"><abbr title="\oihana\traits\DebugTrait">trait:short</abbr></a>,                             <a href="classes/oihana-traits-ToStringTrait.html"><abbr title="\oihana\traits\ToStringTrait">trait:short</abbr></a>                    </span>
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
@@ -213,6 +213,20 @@
 <dd>The enumeration of all definitions to alter on the array or object key/value properties.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
+    <a class="" href="classes/oihana-traits-BindsTrait.html#property_binds">$binds</a>
+    <span>
+                        &nbsp;: array&lt;string|int, mixed&gt;|null            </span>
+</dt>
+<dd>The default bind values definition of the model.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
+    <a class="" href="classes/oihana-traits-ContainerTrait.html#property_container">$container</a>
+    <span>
+                        &nbsp;: <abbr title="\DI\Container">Container</abbr>            </span>
+</dt>
+<dd>The DI container reference.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-traits-DebugTrait.html#property_debug">$debug</a>
     <span>
                         &nbsp;: bool            </span>
@@ -246,13 +260,6 @@
                         &nbsp;: string|mixed|null            </span>
 </dt>
 <dd>The internal schema to use in the PDO fetch processes.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a class="" href="classes/oihana-traits-BindsTrait.html#property_binds">$binds</a>
-    <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null            </span>
-</dt>
-<dd>The default bind values definition of the model.</dd>
 
     </dl>
 
@@ -420,6 +427,84 @@
             -public
                                                                     "
 >
+    <h4 class="phpdocumentor-element__name" id="property_binds">
+        $binds
+        <a href="classes/oihana-traits-BindsTrait.html#property_binds" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/BindsTrait.php"><a href="files/src-oihana-traits-bindstrait.html"><abbr title="src/oihana/traits/BindsTrait.php">BindsTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">19</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The default bind values definition of the model.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;|null</span>
+    <span class="phpdocumentor-signature__name">$binds</span>
+     = <span class="phpdocumentor-signature__default-value">[]</span></code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -public
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_container">
+        $container
+        <a href="classes/oihana-traits-ContainerTrait.html#property_container" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/ContainerTrait.php"><a href="files/src-oihana-traits-containertrait.html"><abbr title="src/oihana/traits/ContainerTrait.php">ContainerTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">13</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The DI container reference.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__type"><abbr title="\DI\Container">Container</abbr></span>
+    <span class="phpdocumentor-signature__name">$container</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -public
+                                                                    "
+>
     <h4 class="phpdocumentor-element__name" id="property_debug">
         $debug
         <a href="classes/oihana-traits-DebugTrait.html#property_debug" class="headerlink"><i class="fas fa-link"></i></a>
@@ -469,7 +554,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/PDOTrait.php"><a href="files/src-oihana-traits-pdotrait.html"><abbr title="src/oihana/traits/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">43</span>
+    <span class="phpdocumentor-element-found-in__line">44</span>
 
     </aside>
 
@@ -549,7 +634,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/PDOTrait.php"><a href="files/src-oihana-traits-pdotrait.html"><abbr title="src/oihana/traits/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">50</span>
 
     </aside>
 
@@ -588,7 +673,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/PDOTrait.php"><a href="files/src-oihana-traits-pdotrait.html"><abbr title="src/oihana/traits/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">55</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 
     </aside>
 
@@ -600,45 +685,6 @@
             <span class="phpdocumentor-signature__type">string|mixed|null</span>
     <span class="phpdocumentor-signature__name">$schema</span>
      = <span class="phpdocumentor-signature__default-value">null</span></code>
-
-    
-    
-    
-
-    
-
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -protected
-                                                                    "
->
-    <h4 class="phpdocumentor-element__name" id="property_binds">
-        $binds
-        <a href="classes/oihana-traits-BindsTrait.html#property_binds" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                            </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/BindsTrait.php"><a href="files/src-oihana-traits-bindstrait.html"><abbr title="src/oihana/traits/BindsTrait.php">BindsTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">19</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">The default bind values definition of the model.</p>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-        <span class="phpdocumentor-signature__visibility">protected</span>
-            <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;|null</span>
-    <span class="phpdocumentor-signature__name">$binds</span>
-     = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
     
     
@@ -1209,7 +1255,7 @@ $result = $this-&gt;alterProperty('price', $document, Alter::FLOAT, true);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/PDOTrait.php"><a href="files/src-oihana-traits-pdotrait.html"><abbr title="src/oihana/traits/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">66</span>
+    <span class="phpdocumentor-element-found-in__line">67</span>
 
     </aside>
 
@@ -1269,7 +1315,7 @@ $result = $this-&gt;alterProperty('price', $document, Alter::FLOAT, true);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/PDOTrait.php"><a href="files/src-oihana-traits-pdotrait.html"><abbr title="src/oihana/traits/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">98</span>
+    <span class="phpdocumentor-element-found-in__line">99</span>
 
     </aside>
 
@@ -1359,7 +1405,7 @@ Alteration is applied via AlterDocumentTrait.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/PDOTrait.php"><a href="files/src-oihana-traits-pdotrait.html"><abbr title="src/oihana/traits/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">137</span>
+    <span class="phpdocumentor-element-found-in__line">138</span>
 
     </aside>
 
@@ -1449,7 +1495,7 @@ Alteration is applied via AlterDocumentTrait.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/PDOTrait.php"><a href="files/src-oihana-traits-pdotrait.html"><abbr title="src/oihana/traits/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">175</span>
+    <span class="phpdocumentor-element-found-in__line">176</span>
 
     </aside>
 
@@ -1522,7 +1568,7 @@ Alteration is applied via AlterDocumentTrait.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/PDOTrait.php"><a href="files/src-oihana-traits-pdotrait.html"><abbr title="src/oihana/traits/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">229</span>
+    <span class="phpdocumentor-element-found-in__line">230</span>
 
     </aside>
 
@@ -1621,7 +1667,7 @@ if a schema class is defined and exists.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/PDOTrait.php"><a href="files/src-oihana-traits-pdotrait.html"><abbr title="src/oihana/traits/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">210</span>
+    <span class="phpdocumentor-element-found-in__line">211</span>
 
     </aside>
 
@@ -1907,12 +1953,13 @@ if a schema class is defined and exists.</p>
             <li>
                 <ul class="phpdocumentor-list -clean">
                                             <li class=""><a href="classes/oihana-traits-AlterDocumentTrait.html#property_alters">$alters</a></li>
+                                            <li class=""><a href="classes/oihana-traits-BindsTrait.html#property_binds">$binds</a></li>
+                                            <li class=""><a href="classes/oihana-traits-ContainerTrait.html#property_container">$container</a></li>
                                             <li class=""><a href="classes/oihana-traits-DebugTrait.html#property_debug">$debug</a></li>
                                             <li class=""><a href="classes/oihana-traits-PDOTrait.html#property_deferAssignment">$deferAssignment</a></li>
                                             <li class=""><a href="classes/oihana-traits-DebugTrait.html#property_mock">$mock</a></li>
                                             <li class=""><a href="classes/oihana-traits-PDOTrait.html#property_pdo">$pdo</a></li>
                                             <li class=""><a href="classes/oihana-traits-PDOTrait.html#property_schema">$schema</a></li>
-                                            <li class=""><a href="classes/oihana-traits-BindsTrait.html#property_binds">$binds</a></li>
                                     </ul>
             </li>
                                     <li class="phpdocumentor-on-this-page-section__title">Methods</li>
