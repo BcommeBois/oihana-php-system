@@ -33,6 +33,7 @@
     },
     "require": {
         "php": ">=8.4",
+        "ext-pdo" : "*" ,
         "oihana/php-core": "dev-main",
         "monolog/monolog": "^3.9",
         "php-di/php-di": "^7.0",

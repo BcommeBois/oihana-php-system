@@ -190,7 +190,7 @@ class AlterDocumentTraitTest extends TestCase
 
         $input = ['key' => 'value'];
         $output = $processor->process($input);
-    
+
         $this->assertSame($input, $output);
     }
 }

@@ -3811,6 +3811,56 @@ Search.appendIndex(
             "summary": "The\u0020lockable\u0020flag\u0020to\u0020indicates\u0020if\u0020the\u0020instance\u0020is\u0020lockable\u0020or\u0020not.",
             "url": "classes/oihana-traits-LockableTrait.html#property_lockable"
         },                {
+            "fqsen": "\\oihana\\traits\\PDOTrait",
+            "name": "PDOTrait",
+            "summary": "Provides\u0020methods\u0020for\u0020binding\u0020values,\u0020executing\u0020queries,\u0020and\u0020retrieving\u0020results\u0020using\u0020PDO.",
+            "url": "classes/oihana-traits-PDOTrait.html"
+        },                {
+            "fqsen": "\\oihana\\traits\\PDOTrait\u003A\u003AbindValues\u0028\u0029",
+            "name": "bindValues",
+            "summary": "Bind\u0020named\u0020parameters\u0020to\u0020a\u0020prepared\u0020PDO\u0020statement.",
+            "url": "classes/oihana-traits-PDOTrait.html#method_bindValues"
+        },                {
+            "fqsen": "\\oihana\\traits\\PDOTrait\u003A\u003Afetch\u0028\u0029",
+            "name": "fetch",
+            "summary": "Execute\u0020a\u0020SELECT\u0020query\u0020and\u0020fetch\u0020a\u0020single\u0020result.",
+            "url": "classes/oihana-traits-PDOTrait.html#method_fetch"
+        },                {
+            "fqsen": "\\oihana\\traits\\PDOTrait\u003A\u003AfetchAll\u0028\u0029",
+            "name": "fetchAll",
+            "summary": "Execute\u0020a\u0020SELECT\u0020query\u0020and\u0020fetch\u0020all\u0020results.",
+            "url": "classes/oihana-traits-PDOTrait.html#method_fetchAll"
+        },                {
+            "fqsen": "\\oihana\\traits\\PDOTrait\u003A\u003AfetchColumn\u0028\u0029",
+            "name": "fetchColumn",
+            "summary": "Execute\u0020a\u0020query\u0020and\u0020return\u0020the\u0020value\u0020of\u0020a\u0020single\u0020column\u0020from\u0020the\u0020first\u0020row.",
+            "url": "classes/oihana-traits-PDOTrait.html#method_fetchColumn"
+        },                {
+            "fqsen": "\\oihana\\traits\\PDOTrait\u003A\u003AinitPDO\u0028\u0029",
+            "name": "initPDO",
+            "summary": "Initialize\u0020the\u0020PDO\u0020instance\u0020from\u0020a\u0020config\u0020array\u0020or\u0020dependency\u0020injection\u0020container.",
+            "url": "classes/oihana-traits-PDOTrait.html#method_initPDO"
+        },                {
+            "fqsen": "\\oihana\\traits\\PDOTrait\u003A\u003AinitializeDefaultFetchMode\u0028\u0029",
+            "name": "initializeDefaultFetchMode",
+            "summary": "Set\u0020the\u0020default\u0020fetch\u0020mode\u0020on\u0020the\u0020statement.",
+            "url": "classes/oihana-traits-PDOTrait.html#method_initializeDefaultFetchMode"
+        },                {
+            "fqsen": "\\oihana\\traits\\PDOTrait\u003A\u003A\u0024deferAssignment",
+            "name": "deferAssignment",
+            "summary": "Indicates\u0020if\u0020the\u0020the\u0020constructor\u0020is\u0020called\u0020before\u0020setting\u0020properties.",
+            "url": "classes/oihana-traits-PDOTrait.html#property_deferAssignment"
+        },                {
+            "fqsen": "\\oihana\\traits\\PDOTrait\u003A\u003A\u0024pdo",
+            "name": "pdo",
+            "summary": "The\u0020PDO\u0020reference.",
+            "url": "classes/oihana-traits-PDOTrait.html#property_pdo"
+        },                {
+            "fqsen": "\\oihana\\traits\\PDOTrait\u003A\u003A\u0024schema",
+            "name": "schema",
+            "summary": "The\u0020internal\u0020schema\u0020to\u0020use\u0020in\u0020the\u0020PDO\u0020fetch\u0020processes.",
+            "url": "classes/oihana-traits-PDOTrait.html#property_schema"
+        },                {
             "fqsen": "\\oihana\\traits\\ToStringTrait",
             "name": "ToStringTrait",
             "summary": "Trait\u0020ToStringTrait",

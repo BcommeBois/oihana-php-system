@@ -4,6 +4,12 @@ namespace oihana\traits;
 
 use oihana\enums\Param;
 
+/**
+ *
+ * @package oihana\traits
+ * @author  Marc Alcaraz (ekameleon)
+ * @since   1.0.0
+ */
 trait BindsTrait
 {
     /**

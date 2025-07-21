@@ -24,6 +24,9 @@ namespace oihana\traits;
  *
  * $data = $this->setKeyValue($data, 'age', 30);
  * ```
+ * @package oihana\traits
+ * @author  Marc Alcaraz (ekameleon)
+ * @since   1.0.0
  */
 trait KeyValueTrait
 {

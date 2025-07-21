@@ -85,6 +85,10 @@ use function oihana\core\arrays\isAssociative;
  * @throws NotFoundExceptionInterface
  * @throws DependencyException
  * @throws NotFoundException
+ *
+ * @package oihana\traits
+ * @author  Marc Alcaraz (ekameleon)
+ * @since   1.0.0
  */
 trait AlterDocumentTrait
 {
