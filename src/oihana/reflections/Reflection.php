@@ -70,7 +70,7 @@ class Reflection
      * - Recursive hydration for nested objects (flat or array),
      * - Union types (e.g., `Type|null`),
      * - Custom source keys with `#[HydrateKey]`,
-     * - Array hydration via `#[HydrateWith]`, `#[HydrateAs]`, or PHPDoc `@var Type[]`,
+     * - Array hydration via `#[HydrateWith]`, `#[HydrateAs]`, or PHPDoc `@ var Type[]`,
      * - Public properties only (private/protected are ignored).
      *
      * @param array  $thing Associative array of data (keys must match public properties or be aliased via attributes).
@@ -147,7 +147,7 @@ class Reflection
      *
      * class Geo
      * {
-     *     / ** @var Address[] * /
+     *     / ** @ var Address[] * /
      *     public array $locations = [];
      * }
      *
@@ -165,7 +165,7 @@ class Reflection
      *
      * class Geo
      * {
-     *     / ** @var array<Address> * /
+     *     / ** @ var array<Address> * /
      *     public array $locations = [];
      * }
      * ```
@@ -175,8 +175,9 @@ class Reflection
      * class Profile {
      *     public ?string $bio = null;
      * }
+     *
      * $data = ['bio' => null];
-     * $profile = (new Reflection())->hydrate($data, Profile::class);
+     * $profile = ( new Reflection() )->hydrate( $data , Profile::class ) ;
      * var_dump($profile->bio); // null
      * ```
      */
@@ -184,7 +185,7 @@ class Reflection
     {
         if ( !class_exists( $class ) )
         {
-            throw new InvalidArgumentException("hydrate failed, the class '{$class}' does not exist.");
+            throw new InvalidArgumentException("hydrate failed, the class '$class' does not exist.");
         }
 
         $reflectionClass = $this->reflection( $class ) ;
@@ -235,31 +236,54 @@ class Reflection
                         $typeName = $hydrateAs[0]->newInstance()->class ;
                     }
 
-                    if ( $typeName === 'array' && is_array($value))
+                    if ( $typeName === 'array' && is_array( $value ) )
                     {
-                        // 1. #[HydrateWith(MyClass::class)]
+                        // 1. #[HydrateWith(MyClass::class, AnotherClass::class)]
                         $hydrateWith = $property->getAttributes(HydrateWith::class ) ;
                         if ( !empty( $hydrateWith ) )
                         {
-                            $itemClass = $hydrateWith[0]->newInstance()->class ;
-                            if ( class_exists( $itemClass ) )
+                            $possibleClasses = $hydrateWith[0]->newInstance()->classes ;
+                            $hydratedArray   = [];
+
+                            foreach ( $value as $item )
                             {
-                                $value = array_map(fn($v) => is_array($v) ? $this->hydrate($v, $itemClass) : $v, $value);
-                                $hydrated = true ;
-                                break;
+                                if ( is_array( $item ) )
+                                {
+                                    $itemClass = $this->determineArrayItemType($item, $possibleClasses) ;
+                                    if ( $itemClass && class_exists( $itemClass ) )
+                                    {
+                                        $hydratedArray[] = $this->hydrate($item, $itemClass);
+                                    }
+                                    else
+                                    {
+                                        $hydratedArray[] = $item ; // Do nothing
+                                    }
+                                }
+                                else
+                                {
+                                    $hydratedArray[] = $item ;
+                                }
                             }
+
+                            $value    = $hydratedArray;
+                            $hydrated = true;
+                            break;
                         }
 
-                        // 2. @var MyClass | @var \oihana\package\MyClass | @var array<MockAddress>
+                        // 2. DocComment analysis: @var MyClass | @var \oihana\package\MyClass | @var array<MockAddress>
                         $doc = $property->getDocComment() ;
-                        if ($doc && preg_match('/@var\s+(?:([\w\\\\]+)\[\]|array<([\w\\\\]+)>)/', $doc , $matches ) )
+                        if
+                        (
+                            $doc &&
+                            preg_match('/@var\s+((\w+(?:\\\\\w+)*)\[\]|array<(\w+(?:\\\\\w+)*)>)/' , $doc , $matches )
+                        )
                         {
-                            $itemClass = $matches[1] ;
+                            $itemClass = $matches[1] ?: $matches[2]; // Support both Type[] and array<Type>
                             if ( class_exists( $itemClass ) )
                             {
-                                $value    = array_map( fn($v) => is_array($v) ? $this->hydrate($v, $itemClass) : $v, $value ) ;
-                                $hydrated = true ;
-                                break ;
+                                $value    = array_map( fn( $v ) => is_array( $v ) ? $this->hydrate( $v , $itemClass ) : $v , $value );
+                                $hydrated = true;
+                                break;
                             }
                         }
                     }
@@ -296,7 +320,7 @@ class Reflection
      *
      * @param object|string $class The object or class name.
      * @param int $filter Method visibility filter (default: public).
-     * @return array<int, \ReflectionMethod> Array of reflection method objects.
+     * @return array<int, ReflectionMethod> Array of reflection method objects.
      * @throws ReflectionException If reflection fails.
      *
      * @example
@@ -324,7 +348,7 @@ class Reflection
      *
      * @param object|string $class The object or class name.
      * @param int $filter Property visibility filter (default: public).
-     * @return array<int, \ReflectionProperty> Array of reflection property objects.
+     * @return array<int, ReflectionProperty> Array of reflection property objects.
      * @throws ReflectionException If reflection fails.
      *
      * @example
@@ -341,7 +365,7 @@ class Reflection
      */
     public function properties( object|string $class , int $filter = ReflectionProperty::IS_PUBLIC ): array
     {
-        return $this->reflection( $class )->getProperties($filter);
+        return $this->reflection( $class )->getProperties( $filter ) ;
     }
 
     /**
@@ -392,4 +416,136 @@ class Reflection
      * @var array<string, ReflectionClass>
      */
     protected array $reflections = [] ;
+
+    /**
+     * Determine the type of an array element
+     * @param $item
+     * @param array $possibleClasses
+     * @return string|null
+     * @throws ReflectionException
+     */
+    private function determineArrayItemType($item, array $possibleClasses): ?string
+    {
+        if (!is_array($item)) {
+            return null;
+        }
+
+        // Strategy 1: Search for a discriminator (field ‘type’, ‘@type’, etc.)
+        if ( isset( $item[ '@type' ] ) )
+        {
+            $type = $item['@type'] ;
+            foreach ( $possibleClasses as $class )
+            {
+                if ( $this->shortName( $class ) === $type || $class === $type )
+                {
+                    return $class ;
+                }
+            }
+        }
+
+        if ( isset($item['type'] ) )
+        {
+            $type = $item['type'];
+            foreach ($possibleClasses as $class)
+            {
+                if ( strcasecmp( $this->shortName( $class ) , $type ) === 0 )
+                {
+                    return $class;
+                }
+            }
+        }
+
+        // Strategy 2: Analyze properties to guess the type
+        return $this->guessClassFromProperties($item, $possibleClasses);
+    }
+
+    /**
+     * Attempts to guess the most appropriate class from a list of possible classes
+     * based on the presence of matching properties in the provided input array.
+     *
+     * The score is computed by checking if each class property (or its alternative
+     * key defined by a `HydrateKey` attribute) exists in the `$item` array. The class
+     * with the highest normalized score (above 0.3) is returned.
+     *
+     * If no class scores high enough, the first class in the `$possibleClasses` list is
+     * returned as fallback (if provided), otherwise `null`.
+     *
+     * @param array $item             The associative array of input data to match against class properties.
+     * @param array $possibleClasses  A list of fully qualified class names to consider.
+     *
+     * @return string|null            The best matching class name or `null` if none found.
+     *
+     * @throws ReflectionException   If a class cannot be reflected upon.
+     *
+     * @example
+     * ```php
+     * class User
+     * {
+     *     #[HydrateKey('user_id')]
+     *     public string $id;
+     *     public string $name;
+     * }
+     *
+     * class Product
+     * {
+     *     public string $sku;
+     *     public string $name;
+     * }
+     *
+     * $item = ['user_id' => '123', 'name' => 'Alice'];
+     * $guessedClass = $this->guessClassFromProperties($item, [User::class, Product::class]);
+     *
+     * echo $guessedClass; // Outputs: "User"
+     * ```
+     */
+    private function guessClassFromProperties( array $item , array $possibleClasses ): ?string
+    {
+        $maxScore  = 0;
+        $bestMatch = null;
+
+        foreach ( $possibleClasses as $class )
+        {
+            if ( !class_exists( $class ) )
+            {
+                continue ;
+            }
+
+            $score      = 0 ;
+            $properties = $this->properties( $class );
+            $totalProps = count( $properties ) ;
+
+            foreach ( $properties as $property )
+            {
+                $propertyName = $property->getName();
+
+                if ( array_key_exists( $propertyName , $item ) )
+                {
+                    $score += 2 ; // Bonus for existing property
+                }
+
+                // Vérifier les attributs HydrateKey
+                $keyAttr = $property->getAttributes(HydrateKey::class ) ;
+                if ( !empty( $keyAttr ) )
+                {
+                    $alternativeKey = $keyAttr[0]->newInstance()->key ;
+                    if ( array_key_exists( $alternativeKey , $item ) )
+                    {
+                        $score += 2 ;
+                    }
+                }
+            }
+
+            // Calculate normalized score
+            $normalizedScore = $totalProps > 0 ? ($score / ($totalProps * 2)) : 0 ;
+
+            if ($normalizedScore > $maxScore)
+            {
+                $maxScore = $normalizedScore;
+                $bestMatch = $class;
+            }
+        }
+
+        // Return the best match if the score is sufficient
+        return $maxScore > 0.3 ? $bestMatch : $possibleClasses[0] ?? null;
+    }
 }

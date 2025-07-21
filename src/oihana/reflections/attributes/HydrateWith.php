@@ -54,8 +54,10 @@ use Attribute;
 #[Attribute(Attribute::TARGET_PROPERTY)]
 class HydrateWith
 {
-    public function __construct
-    (
-        public string $class
-    ) {}
+    public function __construct( ...$classes )
+    {
+        $this->classes = $classes;
+    }
+
+    public array $classes ;
 }

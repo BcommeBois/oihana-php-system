@@ -6,6 +6,7 @@ use InvalidArgumentException;
 use oihana\reflections\mocks\MockAddress;
 use oihana\reflections\mocks\MockEnum;
 use oihana\reflections\mocks\MockGeo;
+use oihana\reflections\mocks\MockPolymorphicContainer;
 use oihana\reflections\mocks\MockUser;
 use oihana\reflections\mocks\MockWithRenameKey;
 use PHPUnit\Framework\TestCase;
@@ -120,6 +121,26 @@ class ReflectionTest extends TestCase
         $geo = $this->reflection->hydrate($data, MockGeo::class);
         $this->assertCount(2, $geo->locations);
         $this->assertEquals('Berlin', $geo->locations[1]->city);
+    }
+
+    public function testHydrateArrayOfPolymorphicObjectsWithHydrateWith()
+    {
+        $data = [
+            'items' => [
+                [ '@type' => 'MockAddress', 'city' => 'Nice' ],
+                [ 'type' => 'MockUser', 'name' => 'Zoe' ],
+                [ 'city' => 'Unknown' ], // Should fallback to first class
+            ]
+        ];
+
+        $result = $this->reflection->hydrate($data, MockPolymorphicContainer::class);
+
+        $this->assertCount(3, $result->items);
+        $this->assertInstanceOf(MockAddress::class, $result->items[0]);
+        $this->assertEquals('Nice', $result->items[0]->city);
+        $this->assertInstanceOf(MockUser::class, $result->items[1]);
+        $this->assertEquals('Zoe', $result->items[1]->name);
+        $this->assertInstanceOf(MockAddress::class, $result->items[2]); // fallback to first class
     }
 
     /**
