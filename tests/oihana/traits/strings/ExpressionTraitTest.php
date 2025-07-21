@@ -10,7 +10,7 @@ class ExpressionTraitTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->trait = new class { use ExpressionTrait, BetweenTrait; };
+        $this->trait = new class { use ExpressionTrait ; };
     }
 
     public function testClean(): void

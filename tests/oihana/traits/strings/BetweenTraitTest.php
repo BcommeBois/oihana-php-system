@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 class BetweenTraitTest extends TestCase
 {
-    use BetweenTrait;
+    use ExpressionTrait;
 
     public function testBetweenCharsWithSimpleString(): void
     {
