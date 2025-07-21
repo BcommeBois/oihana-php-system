@@ -2391,6 +2391,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/oihana-enums-Param.html#constant_WITH"
         },                {
+            "fqsen": "\\oihana\\exceptions\\BindException",
+            "name": "BindException",
+            "summary": "Occurs\u0020when\u0020a\u0020bind\u0020variable\u0020is\u0020not\u0020valid\u0020or\u0020failed.",
+            "url": "classes/oihana-exceptions-BindException.html"
+        },                {
             "fqsen": "\\oihana\\exceptions\\ExceptionTrait",
             "name": "ExceptionTrait",
             "summary": "The\u0020exception\u0020trait\u0020helper.",
@@ -3876,6 +3881,111 @@ Search.appendIndex(
             "summary": "The\u0020internal\u0020schema\u0020to\u0020use\u0020in\u0020the\u0020PDO\u0020fetch\u0020processes.",
             "url": "classes/oihana-traits-PDOTrait.html#property_schema"
         },                {
+            "fqsen": "\\oihana\\traits\\QueryIDTrait",
+            "name": "QueryIDTrait",
+            "summary": "Provides\u0020a\u0020consistent\u0020mechanism\u0020for\u0020managing\u0020an\u0020internal\u0020query\u0020identifier\u0020\u0028\u0060queryId\u0060\u0029,\nwhich\u0020can\u0020be\u0020used\u0020in\u0020dynamically\u0020constructed\u0020queries\u0020\u0028e.g.,\u0020AQL\u0029,\u0020log\u0020tracing,\u0020or\u0020caching.",
+            "url": "classes/oihana-traits-QueryIDTrait.html"
+        },                {
+            "fqsen": "\\oihana\\traits\\QueryIDTrait\u003A\u003AgetQueryID\u0028\u0029",
+            "name": "getQueryID",
+            "summary": "Returns\u0020the\u0020internal\u0020query\u0020identifier.",
+            "url": "classes/oihana-traits-QueryIDTrait.html#method_getQueryID"
+        },                {
+            "fqsen": "\\oihana\\traits\\QueryIDTrait\u003A\u003AsetQueryID\u0028\u0029",
+            "name": "setQueryID",
+            "summary": "Sets\u0020the\u0020internal\u0020query\u0020identifier.",
+            "url": "classes/oihana-traits-QueryIDTrait.html#method_setQueryID"
+        },                {
+            "fqsen": "\\oihana\\traits\\QueryIDTrait\u003A\u003A\u0024queryId",
+            "name": "queryId",
+            "summary": "The\u0020internal\u0020query\u0020identifier.",
+            "url": "classes/oihana-traits-QueryIDTrait.html#property_queryId"
+        },                {
+            "fqsen": "\\oihana\\traits\\strings\\BetweenTrait",
+            "name": "BetweenTrait",
+            "summary": "Provides\u0020utility\u0020methods\u0020to\u0020wrap\u0020or\u0020encapsulate\u0020expressions\u0020between\u0020various\u0020types\u0020of\u0020characters,\nsuch\u0020as\u0020parentheses,\u0020braces,\u0020brackets,\u0020and\u0020quotes.",
+            "url": "classes/oihana-traits-strings-BetweenTrait.html"
+        },                {
+            "fqsen": "\\oihana\\traits\\strings\\BetweenTrait\u003A\u003AbetweenChars\u0028\u0029",
+            "name": "betweenChars",
+            "summary": "Encapsulates\u0020an\u0020expression\u0020between\u0020specific\u0020characters.",
+            "url": "classes/oihana-traits-strings-BetweenTrait.html#method_betweenChars"
+        },                {
+            "fqsen": "\\oihana\\traits\\strings\\BetweenTrait\u003A\u003AbetweenBraces\u0028\u0029",
+            "name": "betweenBraces",
+            "summary": "Encapsulates\u0020an\u0020expression\u0020between\u0020braces\u0020\u0028\u0060\u007B\u007D\u0060\u0029.",
+            "url": "classes/oihana-traits-strings-BetweenTrait.html#method_betweenBraces"
+        },                {
+            "fqsen": "\\oihana\\traits\\strings\\BetweenTrait\u003A\u003AbetweenBrackets\u0028\u0029",
+            "name": "betweenBrackets",
+            "summary": "Encapsulates\u0020an\u0020expression\u0020between\u0020brackets\u0020\u0028\u0060\u005B\u005D\u0060\u0029.",
+            "url": "classes/oihana-traits-strings-BetweenTrait.html#method_betweenBrackets"
+        },                {
+            "fqsen": "\\oihana\\traits\\strings\\BetweenTrait\u003A\u003AbetweenDoubleQuotes\u0028\u0029",
+            "name": "betweenDoubleQuotes",
+            "summary": "Encapsulates\u0020an\u0020expression\u0020between\u0020double\u0020quotes.",
+            "url": "classes/oihana-traits-strings-BetweenTrait.html#method_betweenDoubleQuotes"
+        },                {
+            "fqsen": "\\oihana\\traits\\strings\\BetweenTrait\u003A\u003AbetweenParentheses\u0028\u0029",
+            "name": "betweenParentheses",
+            "summary": "Encapsulates\u0020an\u0020expression\u0020between\u0020parentheses\u0020\u0028\u0060\u0028\u0029\u0060\u0029.",
+            "url": "classes/oihana-traits-strings-BetweenTrait.html#method_betweenParentheses"
+        },                {
+            "fqsen": "\\oihana\\traits\\strings\\BetweenTrait\u003A\u003AbetweenQuotes\u0028\u0029",
+            "name": "betweenQuotes",
+            "summary": "Encapsulates\u0020an\u0020expression\u0020between\u0020single\u0020quotes\u0020or\u0020custom\u0020characters.",
+            "url": "classes/oihana-traits-strings-BetweenTrait.html#method_betweenQuotes"
+        },                {
+            "fqsen": "\\oihana\\traits\\strings\\ExpressionTrait",
+            "name": "ExpressionTrait",
+            "summary": "A\u0020collection\u0020of\u0020utility\u0020methods\u0020for\u0020building\u0020and\u0020formatting\u0020string\u0020expressions\nused\u0020in\u0020dynamic\u0020query\u0020generation\u0020or\u0020structured\u0020output\u0020\u0028e.g.,\u0020AQL,\u0020JSON\u002Dlike\u0020formats\u0029.",
+            "url": "classes/oihana-traits-strings-ExpressionTrait.html"
+        },                {
+            "fqsen": "\\oihana\\traits\\strings\\ExpressionTrait\u003A\u003Aclean\u0028\u0029",
+            "name": "clean",
+            "summary": "Clean\u0020an\u0020array\u0020by\u0020removing\u0020null\u0020values\u0020and\u0020empty\u0020strings.",
+            "url": "classes/oihana-traits-strings-ExpressionTrait.html#method_clean"
+        },                {
+            "fqsen": "\\oihana\\traits\\strings\\ExpressionTrait\u003A\u003Acompile\u0028\u0029",
+            "name": "compile",
+            "summary": "Compile\u0020a\u0020list\u0020of\u0020expressions\u0020into\u0020a\u0020single\u0020string\u0020using\u0020a\u0020separator.",
+            "url": "classes/oihana-traits-strings-ExpressionTrait.html#method_compile"
+        },                {
+            "fqsen": "\\oihana\\traits\\strings\\ExpressionTrait\u003A\u003Afunc\u0028\u0029",
+            "name": "func",
+            "summary": "Build\u0020a\u0020function\u0020expression\u0020like\u0020\u0060NAME\u0028arg1,arg2\u0029\u0060.",
+            "url": "classes/oihana-traits-strings-ExpressionTrait.html#method_func"
+        },                {
+            "fqsen": "\\oihana\\traits\\strings\\ExpressionTrait\u003A\u003Akey\u0028\u0029",
+            "name": "key",
+            "summary": "Transform\u0020a\u0020key\u0020by\u0020optionally\u0020prefixing\u0020it.",
+            "url": "classes/oihana-traits-strings-ExpressionTrait.html#method_key"
+        },                {
+            "fqsen": "\\oihana\\traits\\strings\\ExpressionTrait\u003A\u003AkeyValue\u0028\u0029",
+            "name": "keyValue",
+            "summary": "Build\u0020a\u0020key\u002Dvalue\u0020expression\u0020like\u0020\u0060key\u003A\u0020value\u0060.",
+            "url": "classes/oihana-traits-strings-ExpressionTrait.html#method_keyValue"
+        },                {
+            "fqsen": "\\oihana\\traits\\strings\\ExpressionTrait\u003A\u003Aobject\u0028\u0029",
+            "name": "object",
+            "summary": "Create\u0020an\u0020object\u0020expression,\u0020e.g.,\u0020\u0060\u007B\u0020name\u003A\u0020\u0027Eka\u0027,\u0020age\u003A\u002048\u0020\u007D\u0060.",
+            "url": "classes/oihana-traits-strings-ExpressionTrait.html#method_object"
+        },                {
+            "fqsen": "\\oihana\\traits\\strings\\ExpressionTrait\u003A\u003Apredicate\u0028\u0029",
+            "name": "predicate",
+            "summary": "Generate\u0020a\u0020predicate\u0020expression.",
+            "url": "classes/oihana-traits-strings-ExpressionTrait.html#method_predicate"
+        },                {
+            "fqsen": "\\oihana\\traits\\strings\\ExpressionTrait\u003A\u003Apredicates\u0028\u0029",
+            "name": "predicates",
+            "summary": "Generate\u0020a\u0020complex\u0020logical\u0020expression\u0020with\u0020multiple\u0020predicates.",
+            "url": "classes/oihana-traits-strings-ExpressionTrait.html#method_predicates"
+        },                {
+            "fqsen": "\\oihana\\traits\\strings\\ExpressionTrait\u003A\u003Awrap\u0028\u0029",
+            "name": "wrap",
+            "summary": "Wrap\u0020a\u0020string\u0020in\u0020grave\u0020accent\u0020characters.",
+            "url": "classes/oihana-traits-strings-ExpressionTrait.html#method_wrap"
+        },                {
             "fqsen": "\\oihana\\traits\\ToStringTrait",
             "name": "ToStringTrait",
             "summary": "Trait\u0020ToStringTrait",
@@ -4005,5 +4115,10 @@ Search.appendIndex(
             "name": "alters",
             "summary": "",
             "url": "namespaces/oihana-traits-alters.html"
+        },                {
+            "fqsen": "\\oihana\\traits\\strings",
+            "name": "strings",
+            "summary": "",
+            "url": "namespaces/oihana-traits-strings.html"
         }            ]
 );
