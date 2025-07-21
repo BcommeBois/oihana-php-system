@@ -51,7 +51,7 @@ trait DocumentsTrait
             throw new Error404( 'The ' . $name . ' reference can\'t be found, ' .  $exception->getMessage() , 404 ) ;
         }
 
-        throw new Error404( 'The ' . $name . ' reference not exist with a invalid document : ' .  json_encode( $document ) , 404 ) ;
+        throw new Error404( 'The ' . $name . ' reference not exist with a invalid document : ' .  json_encode( $document , JSON_UNESCAPED_SLASHES ) , 404 ) ;
     }
 
     /**

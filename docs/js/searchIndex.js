@@ -3101,21 +3101,6 @@ Search.appendIndex(
             "summary": "Returns\u0020a\u0020Documents\u0020Model\u0020instance\u0020directly\u0020or\u0020with\u0020the\u0020DI\u0020container.",
             "url": "classes/oihana-models-traits-DocumentsTrait.html#method_getDocumentsModel"
         },                {
-            "fqsen": "\\oihana\\models\\traits\\InitModel",
-            "name": "InitModel",
-            "summary": "",
-            "url": "classes/oihana-models-traits-InitModel.html"
-        },                {
-            "fqsen": "\\oihana\\models\\traits\\InitModel\u003A\u003AinitializeModel\u0028\u0029",
-            "name": "initializeModel",
-            "summary": "Initialize\u0020the\u0020openEdge\u0020model.",
-            "url": "classes/oihana-models-traits-InitModel.html#method_initializeModel"
-        },                {
-            "fqsen": "\\oihana\\models\\traits\\InitModel\u003A\u003A\u0024model",
-            "name": "model",
-            "summary": "The\u0020model\u0020reference.",
-            "url": "classes/oihana-models-traits-InitModel.html#property_model"
-        },                {
             "fqsen": "\\oihana\\models\\traits\\ListModelTrait",
             "name": "ListModelTrait",
             "summary": "",
@@ -3136,6 +3121,66 @@ Search.appendIndex(
             "summary": "The\u0020product\u0020sources\u0020reference.",
             "url": "classes/oihana-models-traits-ListModelTrait.html#property_list"
         },                {
+            "fqsen": "\\oihana\\models\\traits\\ModelTrait",
+            "name": "ModelTrait",
+            "summary": "",
+            "url": "classes/oihana-models-traits-ModelTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\ModelTrait\u003A\u003AinitializeModel\u0028\u0029",
+            "name": "initializeModel",
+            "summary": "Initialize\u0020the\u0020openEdge\u0020model.",
+            "url": "classes/oihana-models-traits-ModelTrait.html#method_initializeModel"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\ModelTrait\u003A\u003A\u0024model",
+            "name": "model",
+            "summary": "The\u0020model\u0020reference.",
+            "url": "classes/oihana-models-traits-ModelTrait.html#property_model"
+        },                {
+            "fqsen": "\\oihana\\reflections\\attributes\\HydrateAs",
+            "name": "HydrateAs",
+            "summary": "Specifies\u0020the\u0020class\u0020to\u0020use\u0020when\u0020hydrating\u0020a\u0020property,\u0020overriding\u0020the\u0020declared\u0020type\u0020hint.",
+            "url": "classes/oihana-reflections-attributes-HydrateAs.html"
+        },                {
+            "fqsen": "\\oihana\\reflections\\attributes\\HydrateAs\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/oihana-reflections-attributes-HydrateAs.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\reflections\\attributes\\HydrateAs\u003A\u003A\u0024class",
+            "name": "class",
+            "summary": "",
+            "url": "classes/oihana-reflections-attributes-HydrateAs.html#property_class"
+        },                {
+            "fqsen": "\\oihana\\reflections\\attributes\\HydrateKey",
+            "name": "HydrateKey",
+            "summary": "Overrides\u0020the\u0020expected\u0020array\u0020key\u0020used\u0020to\u0020hydrate\u0020a\u0020property.",
+            "url": "classes/oihana-reflections-attributes-HydrateKey.html"
+        },                {
+            "fqsen": "\\oihana\\reflections\\attributes\\HydrateKey\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/oihana-reflections-attributes-HydrateKey.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\reflections\\attributes\\HydrateKey\u003A\u003A\u0024key",
+            "name": "key",
+            "summary": "",
+            "url": "classes/oihana-reflections-attributes-HydrateKey.html#property_key"
+        },                {
+            "fqsen": "\\oihana\\reflections\\attributes\\HydrateWith",
+            "name": "HydrateWith",
+            "summary": "Specifies\u0020the\u0020class\u0020to\u0020use\u0020when\u0020hydrating\u0020each\u0020element\u0020of\u0020an\u0020array\u0020property.",
+            "url": "classes/oihana-reflections-attributes-HydrateWith.html"
+        },                {
+            "fqsen": "\\oihana\\reflections\\attributes\\HydrateWith\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/oihana-reflections-attributes-HydrateWith.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\reflections\\attributes\\HydrateWith\u003A\u003A\u0024class",
+            "name": "class",
+            "summary": "",
+            "url": "classes/oihana-reflections-attributes-HydrateWith.html#property_class"
+        },                {
             "fqsen": "\\oihana\\reflections\\exceptions\\ConstantException",
             "name": "ConstantException",
             "summary": "An\u0020exception\u0020thrown\u0020when\u0020a\u0020constant\u0020validation\u0020failed.",
@@ -3153,42 +3198,42 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\reflections\\Reflection\u003A\u003AclassName\u0028\u0029",
             "name": "className",
-            "summary": "Returns\u0020the\u0020short\u0020class\u0020name\u0020of\u0020the\u0020given\u0020object\u0020or\u0020class.",
+            "summary": "Returns\u0020the\u0020short\u0020class\u0020name\u0020\u0028without\u0020namespace\u0029\u0020of\u0020the\u0020given\u0020object.",
             "url": "classes/oihana-reflections-Reflection.html#method_className"
         },                {
             "fqsen": "\\oihana\\reflections\\Reflection\u003A\u003Aconstants\u0028\u0029",
             "name": "constants",
-            "summary": "Returns\u0020an\u0020array\u0020of\u0020constants\u0020for\u0020the\u0020given\u0020object\u0020or\u0020class.",
+            "summary": "Returns\u0020an\u0020array\u0020of\u0020constants\u0020defined\u0020in\u0020the\u0020given\u0020class.",
             "url": "classes/oihana-reflections-Reflection.html#method_constants"
         },                {
             "fqsen": "\\oihana\\reflections\\Reflection\u003A\u003Ahydrate\u0028\u0029",
             "name": "hydrate",
-            "summary": "Hydrates\u0020an\u0020object\u0020of\u0020the\u0020specified\u0020class\u0020from\u0020an\u0020associative\u0020array\u0020of\u0020data.",
+            "summary": "Instantiates\u0020and\u0020hydrates\u0020an\u0020object\u0020of\u0020a\u0020given\u0020class\u0020using\u0020associative\u0020array\u0020data.",
             "url": "classes/oihana-reflections-Reflection.html#method_hydrate"
         },                {
             "fqsen": "\\oihana\\reflections\\Reflection\u003A\u003Amethods\u0028\u0029",
             "name": "methods",
-            "summary": "Returns\u0020an\u0020array\u0020of\u0020methods\u0020for\u0020the\u0020given\u0020object\u0020or\u0020class.",
+            "summary": "Returns\u0020an\u0020array\u0020of\u0020methods\u0020for\u0020the\u0020given\u0020class\u0020or\u0020object.",
             "url": "classes/oihana-reflections-Reflection.html#method_methods"
         },                {
             "fqsen": "\\oihana\\reflections\\Reflection\u003A\u003Aproperties\u0028\u0029",
             "name": "properties",
-            "summary": "Returns\u0020an\u0020array\u0020of\u0020properties\u0020for\u0020the\u0020given\u0020object\u0020or\u0020class.",
+            "summary": "Returns\u0020an\u0020array\u0020of\u0020properties\u0020for\u0020the\u0020given\u0020class\u0020or\u0020object.",
             "url": "classes/oihana-reflections-Reflection.html#method_properties"
         },                {
             "fqsen": "\\oihana\\reflections\\Reflection\u003A\u003Areflection\u0028\u0029",
             "name": "reflection",
-            "summary": "Returns\u0020the\u0020reflection\u0020class\u0020for\u0020the\u0020given\u0020object\u0020or\u0020class.",
+            "summary": "Returns\u0020a\u0020cached\u0020ReflectionClass\u0020instance\u0020for\u0020the\u0020given\u0020class\u0020or\u0020object.",
             "url": "classes/oihana-reflections-Reflection.html#method_reflection"
         },                {
             "fqsen": "\\oihana\\reflections\\Reflection\u003A\u003AshortName\u0028\u0029",
             "name": "shortName",
-            "summary": "Returns\u0020the\u0020class\u0020short\u0020name.",
+            "summary": "Returns\u0020the\u0020short\u0020\u0028unqualified\u0029\u0020name\u0020of\u0020the\u0020class.",
             "url": "classes/oihana-reflections-Reflection.html#method_shortName"
         },                {
             "fqsen": "\\oihana\\reflections\\Reflection\u003A\u003A\u0024reflections",
             "name": "reflections",
-            "summary": "",
+            "summary": "Internal\u0020cache\u0020of\u0020reflection\u0020instances.",
             "url": "classes/oihana-reflections-Reflection.html#property_reflections"
         },                {
             "fqsen": "\\oihana\\reflections\\traits\\ConstantsTrait",
@@ -3640,6 +3685,11 @@ Search.appendIndex(
             "name": "traits",
             "summary": "",
             "url": "namespaces/oihana-models-traits.html"
+        },                {
+            "fqsen": "\\oihana\\reflections\\attributes",
+            "name": "attributes",
+            "summary": "",
+            "url": "namespaces/oihana-reflections-attributes.html"
         },                {
             "fqsen": "\\oihana\\reflections\\exceptions",
             "name": "exceptions",

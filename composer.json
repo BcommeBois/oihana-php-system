@@ -16,6 +16,10 @@
     "support": {
         "email": "marc@ooop.fr"
     },
+    "scripts": {
+        "doc": "rm -rf docs && mkdir docs && cp -r assets docs/assets && ./vendor/bin/phpdoc -c phpdoc.xml -v" ,
+        "test": "./vendor/bin/phpunit"
+    },
     "autoload": {
         "psr-4" :
         {
@@ -34,10 +38,6 @@
         "php-di/php-di": "^7.0",
         "psr/log": "^3.0",
         "psr/simple-cache": "^3.0"
-    },
-    "scripts": {
-        "doc": "rm -rf docs && mkdir docs && cp -r assets docs/assets && ./vendor/bin/phpdoc -c phpdoc.xml -v" ,
-        "test": "./vendor/bin/phpunit"
     },
     "require-dev": {
         "phpunit/phpunit": "^12",

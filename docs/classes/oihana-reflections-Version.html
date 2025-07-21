@@ -147,7 +147,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">46</span>
 
     </aside>
 
@@ -157,24 +157,28 @@
     <section class="phpdocumentor-description"><p>Represents a software version using four components: major, minor, build, and revision.
 These components are internally encoded into a single 32-bit integer for compact storage and efficient comparison.</p>
 <h3>Usage Example:</h3>
-<code class="prettyprint">
-use oihana\reflections\Version ;
-<p>$version1 = new Version( 2 , 1 , 1 , 110 ) ;
+<pre class="prettyprint"><code class="language-php">use oihana\reflections\Version ;
+
+$version1 = new Version( 2 , 1 , 1 , 110 ) ;
 $version2 = new Version( 3 , 1 , 1 , 110 ) ;
-$version3 = new Version( 1 , 2 , 3 , 4 ) ;</p>
-<p>$version1-&gt;major = 3 ;</p>
-<p>echo('version   : ' . $version1 ) ;
+$version3 = new Version( 1 , 2 , 3 , 4 ) ;
+
+$version1-&gt;major = 3 ;
+
+echo('version   : ' . $version1 ) ;
 echo( 'major    : ' . $version1-&gt;major ) ;
 echo( 'minor    : ' . $version1-&gt;minor ) ;
 echo( 'build    : ' . $version1-&gt;build ) ;
-echo( 'revision : ' . $version1-&gt;revision ) ;</p>
-<p>echo( 'version 1 : ' . $version1-&gt;valueOf() ) ;
+echo( 'revision : ' . $version1-&gt;revision ) ;
+
+echo( 'version 1 : ' . $version1-&gt;valueOf() ) ;
 echo( 'version 2 : ' . $version2-&gt;valueOf() ) ;
-echo( 'version 3 : ' . $version3-&gt;valueOf() ) ;</p>
-<p>echo( &quot;equals( 'toto' )    : &quot; . ($version1-&gt;equals('toto')    ? 'true' : 'false' )) ;
+echo( 'version 3 : ' . $version3-&gt;valueOf() ) ;
+
+echo( &quot;equals( 'toto' )    : &quot; . ($version1-&gt;equals('toto')    ? 'true' : 'false' )) ;
 echo( &quot;equals( $version2 ) : &quot; . ($version1-&gt;equals($version2) ? 'true' : 'false' )) ;
 echo( &quot;equals( $version3 ) : &quot; . ($version1-&gt;equals($version3) ? 'true' : 'false' )) ;
-</code></p>
+</code></pre>
 <h3>Key Features:</h3>
 <ul>
 <li>Supports dynamic property access (<code class="prettyprint">$version-&gt;major</code>, <code class="prettyprint">$version-&gt;minor</code>, etc.) through magic methods.</li>
@@ -352,7 +356,7 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">93</span>
+    <span class="phpdocumentor-element-found-in__line">94</span>
 
     </aside>
 
@@ -433,7 +437,7 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">62</span>
+    <span class="phpdocumentor-element-found-in__line">63</span>
 
     </aside>
 
@@ -472,7 +476,7 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">105</span>
+    <span class="phpdocumentor-element-found-in__line">106</span>
 
     </aside>
 
@@ -553,7 +557,7 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">117</span>
+    <span class="phpdocumentor-element-found-in__line">118</span>
 
     </aside>
 
@@ -634,7 +638,7 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">129</span>
+    <span class="phpdocumentor-element-found-in__line">130</span>
 
     </aside>
 
@@ -715,7 +719,7 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">67</span>
+    <span class="phpdocumentor-element-found-in__line">68</span>
 
     </aside>
 
@@ -754,7 +758,7 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">238</span>
+    <span class="phpdocumentor-element-found-in__line">239</span>
 
     </aside>
 
@@ -797,7 +801,7 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">55</span>
 
     </aside>
 
@@ -863,7 +867,7 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">199</span>
+    <span class="phpdocumentor-element-found-in__line">200</span>
 
     </aside>
 
@@ -906,7 +910,7 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">79</span>
+    <span class="phpdocumentor-element-found-in__line">80</span>
 
     </aside>
 
@@ -969,7 +973,7 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">144</span>
+    <span class="phpdocumentor-element-found-in__line">145</span>
 
     </aside>
 
@@ -1025,7 +1029,7 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">230</span>
+    <span class="phpdocumentor-element-found-in__line">231</span>
 
     </aside>
 
@@ -1068,7 +1072,7 @@ A cast to Number/int force the valueOf, not ideal but sufficient, and the same f
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Version.php"><a href="files/src-oihana-reflections-version.html"><abbr title="src/oihana/reflections/Version.php">Version.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">243</span>
+    <span class="phpdocumentor-element-found-in__line">244</span>
 
     </aside>
 

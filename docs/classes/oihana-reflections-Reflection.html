@@ -144,7 +144,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
@@ -180,8 +180,9 @@
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a class="" href="classes/oihana-reflections-Reflection.html#property_reflections">$reflections</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
+                        &nbsp;: array&lt;string, <abbr title="\ReflectionClass">ReflectionClass</abbr>&gt;            </span>
 </dt>
+<dd>Internal cache of reflection instances.</dd>
 
     </dl>
 
@@ -196,49 +197,49 @@
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Returns the short class name of the given object or class.</dd>
+<dd>Returns the short class name (without namespace) of the given object.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-reflections-Reflection.html#method_constants">constants()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                                &nbsp;: array&lt;string, mixed&gt;    </span>
 </dt>
-<dd>Returns an array of constants for the given object or class.</dd>
+<dd>Returns an array of constants defined in the given class.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-reflections-Reflection.html#method_hydrate">hydrate()</a>
     <span>
                                 &nbsp;: object    </span>
 </dt>
-<dd>Hydrates an object of the specified class from an associative array of data.</dd>
+<dd>Instantiates and hydrates an object of a given class using associative array data.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-reflections-Reflection.html#method_methods">methods()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                                &nbsp;: array&lt;int, <abbr title="\ReflectionMethod">ReflectionMethod</abbr>&gt;    </span>
 </dt>
-<dd>Returns an array of methods for the given object or class.</dd>
+<dd>Returns an array of methods for the given class or object.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-reflections-Reflection.html#method_properties">properties()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                                &nbsp;: array&lt;int, <abbr title="\ReflectionProperty">ReflectionProperty</abbr>&gt;    </span>
 </dt>
-<dd>Returns an array of properties for the given object or class.</dd>
+<dd>Returns an array of properties for the given class or object.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-reflections-Reflection.html#method_reflection">reflection()</a>
     <span>
                                 &nbsp;: <abbr title="\ReflectionClass">ReflectionClass</abbr>    </span>
 </dt>
-<dd>Returns the reflection class for the given object or class.</dd>
+<dd>Returns a cached ReflectionClass instance for the given class or object.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-reflections-Reflection.html#method_shortName">shortName()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Returns the class short name.</dd>
+<dd>Returns the short (unqualified) name of the class.</dd>
 
     </dl>
 
@@ -270,15 +271,16 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">197</span>
+    <span class="phpdocumentor-element-found-in__line">394</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Internal cache of reflection instances.</p>
+
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
         <span class="phpdocumentor-signature__visibility">protected</span>
-            <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+            <span class="phpdocumentor-signature__type">array&lt;string, <abbr title="\ReflectionClass">ReflectionClass</abbr>&gt;</span>
     <span class="phpdocumentor-signature__name">$reflections</span>
      = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
@@ -313,11 +315,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns the short class name of the given object or class.</p>
+        <p class="phpdocumentor-summary">Returns the short class name (without namespace) of the given object.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -334,17 +336,41 @@
                 : <span class="phpdocumentor-signature__argument__return-type">object</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The object to reflect.</p>
+</section>
+
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-reflections-Reflection.html#method_className#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">echo (new Reflection())-&gt;className(new \App\Entity\User());
+// Output: 'User'
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The short class name.</p>
+</section>
+
             </section>
 
 </article>
@@ -362,15 +388,15 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">61</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns an array of constants for the given object or class.</p>
+        <p class="phpdocumentor-summary">Returns an array of constants defined in the given class.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">constants</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filter</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">ReflectionClassConstant::IS_PUBLIC</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">constants</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filter</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">ReflectionClassConstant::IS_PUBLIC</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string, mixed&gt;</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -383,7 +409,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">object|string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The object or class to reflect upon.</p>
+                    <section class="phpdocumentor-description"><p>The object or class name.</p>
 </section>
 
             </dd>
@@ -392,7 +418,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">ReflectionClassConstant::IS_PUBLIC</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The filter to apply to the constants (default is ReflectionClassConstant::IS_PUBLIC).</p>
+                    <section class="phpdocumentor-description"><p>A bitmask of constant visibility (default: public).</p>
 </section>
 
             </dd>
@@ -411,7 +437,24 @@
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If the reflection class cannot be created.</p>
+                                                 <section class="phpdocumentor-description"><p>If reflection fails.</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">class MyStatus {
+    public const ACTIVE = 'active';
+    private const SECRET = 'hidden';
+}
+
+$constants = (new Reflection())-&gt;constants(MyStatus::class);
+print_r($constants);
+// Output: ['ACTIVE' =&gt; 'active']
+</code></pre>
 </section>
 
                                     </dd>
@@ -421,9 +464,9 @@
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+        <span class="phpdocumentor-signature__response_type">array&lt;string, mixed&gt;</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>The array of constants.</p>
+                <section class="phpdocumentor-description"><p>Associative array of constant names and values.</p>
 </section>
 
             </section>
@@ -443,11 +486,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">64</span>
+    <span class="phpdocumentor-element-found-in__line">183</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Hydrates an object of the specified class from an associative array of data.</p>
+        <p class="phpdocumentor-summary">Instantiates and hydrates an object of a given class using associative array data.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -456,10 +499,14 @@
     <div class="phpdocumentor-label-line">
         </div>
     
-        <section class="phpdocumentor-description"><p>This method attempts to map array keys to public properties of the target object.
-It supports recursive hydration for nested objects, provided that the nested
-properties have type hints (e.g., <code class="prettyprint">public ?GeoCoordinates $geo;</code>).</p>
-<p>Special handling is included for PHP 8.0+ union types (e.g., <code class="prettyprint">Type|null</code>).</p>
+        <section class="phpdocumentor-description"><p>It supports:</p>
+<ul>
+<li>Recursive hydration for nested objects (flat or array),</li>
+<li>Union types (e.g., <code class="prettyprint">Type|null</code>),</li>
+<li>Custom source keys with <code class="prettyprint">#[HydrateKey]</code>,</li>
+<li>Array hydration via <code class="prettyprint">#[HydrateWith]</code>, <code class="prettyprint">#[HydrateAs]</code>, or PHPDoc <code class="prettyprint">@var Type[]</code>,</li>
+<li>Public properties only (private/protected are ignored).</li>
+</ul>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -469,8 +516,7 @@ properties have type hints (e.g., <code class="prettyprint">public ?GeoCoordinat
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>An associative array containing the data to hydrate the object.
-Keys should ideally match the public property names of the <code class="prettyprint">$class</code>.</p>
+                    <section class="phpdocumentor-description"><p>Associative array of data (keys must match public properties or be aliased via attributes).</p>
 </section>
 
             </dd>
@@ -479,9 +525,7 @@ Keys should ideally match the public property names of the <code class="prettypr
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The fully qualified class name of the object to be instantiated and hydrated (e.g., <code class="prettyprint">App\Entity\User::class</code>).
-This can be passed to optimize performance by avoiding re-instantiation
-during recursive calls. If not provided, it will be created internally.</p>
+                    <section class="phpdocumentor-description"><p>Fully qualified class name of the object to instantiate.</p>
 </section>
 
             </dd>
@@ -500,7 +544,7 @@ during recursive calls. If not provided, it will be created internally.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\InvalidArgumentException">InvalidArgumentException</abbr></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If the provided <code class="prettyprint">$class</code> does not exist or is not a valid class.</p>
+                                                 <section class="phpdocumentor-description"><p>If the class does not exist or required non-nullable property is null.</p>
 </section>
 
                                     </dd>
@@ -510,9 +554,148 @@ during recursive calls. If not provided, it will be created internally.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If a property reflection fails (e.g., due to an invalid property name, though unlikely with <code class="prettyprint">hasProperty</code> check).
-This is explicitly tagged as per your request, even if direct <code class="prettyprint">ReflectionException</code>
-throws aren't immediately visible in the provided snippet.</p>
+                                                 <section class="phpdocumentor-description"><p>If property introspection fails.</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Flat object hydration</p>
+<pre class="prettyprint"><code class="language-php">class User {
+    public string $name;
+}
+
+$data = ['name' =&gt; 'Alice'];
+$user = (new Reflection())-&gt;hydrate($data, User::class);
+echo $user-&gt;name; // &quot;Alice&quot;
+</code></pre>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Nested object hydration</p>
+<pre class="prettyprint"><code class="language-php">class Address {
+    public string $city;
+}
+class User {
+    public string $name;
+    public ?Address $address = null;
+}
+
+$data = ['name' =&gt; 'Alice', 'address' =&gt; ['city' =&gt; 'Paris']];
+$user = (new Reflection())-&gt;hydrate($data, User::class);
+echo $user-&gt;address-&gt;city; // &quot;Paris&quot;
+</code></pre>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Hydration with <code class="prettyprint">#[HydrateKey]</code></p>
+<pre class="prettyprint"><code class="language-php">use oihana\reflections\attributes\HydrateKey;
+
+class User {
+    #[HydrateKey('user_name')]
+    public string $name;
+}
+
+$data = ['user_name' =&gt; 'Bob'];
+$user = (new Reflection())-&gt;hydrate($data, User::class);
+echo $user-&gt;name; // &quot;Bob&quot;
+</code></pre>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Hydration of array of objects via <code class="prettyprint">#[HydrateWith]</code></p>
+<pre class="prettyprint"><code class="language-php">use oihana\reflections\attributes\HydrateWith;
+
+class Address {
+    public string $city;
+}
+class Geo {
+    #[HydrateWith(Address::class)]
+    public array $locations = [];
+}
+
+$data = ['locations' =&gt; [['city' =&gt; 'Paris'], ['city' =&gt; 'Berlin']]];
+$geo = (new Reflection())-&gt;hydrate($data, Geo::class);
+echo $geo-&gt;locations[1]-&gt;city; // &quot;Berlin&quot;
+</code></pre>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Hydration of array via <code class="prettyprint">@var Type[]</code></p>
+<pre class="prettyprint"><code class="language-php">class Address
+{
+    public string $city;
+}
+
+class Geo
+{
+    / ** @var Address[] * /
+    public array $locations = [];
+}
+
+$data = ['locations' =&gt; [['city' =&gt; 'Lyon'], ['city' =&gt; 'Nice']]];
+$geo = (new Reflection())-&gt;hydrate($data, Geo::class);
+echo $geo-&gt;locations[0]-&gt;city; // &quot;Lyon&quot;
+</code></pre>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Hydration of array via <code class="prettyprint">@var array&lt;Address&gt;</code></p>
+<pre class="prettyprint"><code class="language-php">class Address
+{
+    public string $city;
+}
+
+class Geo
+{
+    / ** @var array&lt;Address&gt; * /
+    public array $locations = [];
+}
+</code></pre>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Union types</p>
+<pre class="prettyprint"><code class="language-php">class Profile {
+    public ?string $bio = null;
+}
+$data = ['bio' =&gt; null];
+$profile = (new Reflection())-&gt;hydrate($data, Profile::class);
+var_dump($profile-&gt;bio); // null
+</code></pre>
 </section>
 
                                     </dd>
@@ -524,7 +707,7 @@ throws aren't immediately visible in the provided snippet.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">object</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>The newly instantiated and hydrated object of type <code class="prettyprint">$class</code>.</p>
+                <section class="phpdocumentor-description"><p>The hydrated object instance.</p>
 </section>
 
             </section>
@@ -544,15 +727,15 @@ throws aren't immediately visible in the provided snippet.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">147</span>
+    <span class="phpdocumentor-element-found-in__line">317</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns an array of methods for the given object or class.</p>
+        <p class="phpdocumentor-summary">Returns an array of methods for the given class or object.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">methods</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filter</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">ReflectionMethod::IS_PUBLIC</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">methods</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filter</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">ReflectionMethod::IS_PUBLIC</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;int, <abbr title="\ReflectionMethod">ReflectionMethod</abbr>&gt;</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -565,7 +748,7 @@ throws aren't immediately visible in the provided snippet.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">object|string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The object or class to reflect upon.</p>
+                    <section class="phpdocumentor-description"><p>The object or class name.</p>
 </section>
 
             </dd>
@@ -574,7 +757,7 @@ throws aren't immediately visible in the provided snippet.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">ReflectionMethod::IS_PUBLIC</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The filter to apply to the methods (default is ReflectionMethod::IS_PUBLIC).</p>
+                    <section class="phpdocumentor-description"><p>Method visibility filter (default: public).</p>
 </section>
 
             </dd>
@@ -593,7 +776,27 @@ throws aren't immediately visible in the provided snippet.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If the reflection class cannot be created.</p>
+                                                 <section class="phpdocumentor-description"><p>If reflection fails.</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">class MyClass
+{
+    public function foo() }
+    protected function bar() }
+}
+
+$methods = (new Reflection())-&gt;methods(MyClass::class);
+foreach ($methods as $method)
+{
+    echo $method-&gt;getName(); // 'foo'
+}
+</code></pre>
 </section>
 
                                     </dd>
@@ -603,9 +806,9 @@ throws aren't immediately visible in the provided snippet.</p>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+        <span class="phpdocumentor-signature__response_type">array&lt;int, <abbr title="\ReflectionMethod">ReflectionMethod</abbr>&gt;</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>The array of methods.</p>
+                <section class="phpdocumentor-description"><p>Array of reflection method objects.</p>
 </section>
 
             </section>
@@ -625,15 +828,15 @@ throws aren't immediately visible in the provided snippet.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">159</span>
+    <span class="phpdocumentor-element-found-in__line">342</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns an array of properties for the given object or class.</p>
+        <p class="phpdocumentor-summary">Returns an array of properties for the given class or object.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">properties</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filter</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">ReflectionProperty::IS_PUBLIC</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">properties</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$filter</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">ReflectionProperty::IS_PUBLIC</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;int, <abbr title="\ReflectionProperty">ReflectionProperty</abbr>&gt;</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -646,7 +849,7 @@ throws aren't immediately visible in the provided snippet.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">object|string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The object or class to reflect upon.</p>
+                    <section class="phpdocumentor-description"><p>The object or class name.</p>
 </section>
 
             </dd>
@@ -655,7 +858,7 @@ throws aren't immediately visible in the provided snippet.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">ReflectionProperty::IS_PUBLIC</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The filter to apply to the properties (default is ReflectionProperty::IS_PUBLIC).</p>
+                    <section class="phpdocumentor-description"><p>Property visibility filter (default: public).</p>
 </section>
 
             </dd>
@@ -674,7 +877,24 @@ throws aren't immediately visible in the provided snippet.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If the reflection class cannot be created.</p>
+                                                 <section class="phpdocumentor-description"><p>If reflection fails.</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">class Item {
+    public string $name;
+    private int $id;
+}
+$props = (new Reflection())-&gt;properties(Item::class);
+foreach ($props as $prop) {
+    echo $prop-&gt;getName(); // 'name'
+}
+</code></pre>
 </section>
 
                                     </dd>
@@ -684,9 +904,9 @@ throws aren't immediately visible in the provided snippet.</p>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+        <span class="phpdocumentor-signature__response_type">array&lt;int, <abbr title="\ReflectionProperty">ReflectionProperty</abbr>&gt;</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>The array of properties.</p>
+                <section class="phpdocumentor-description"><p>Array of reflection property objects.</p>
 </section>
 
             </section>
@@ -706,11 +926,11 @@ throws aren't immediately visible in the provided snippet.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">171</span>
+    <span class="phpdocumentor-element-found-in__line">360</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns the reflection class for the given object or class.</p>
+        <p class="phpdocumentor-summary">Returns a cached ReflectionClass instance for the given class or object.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -727,7 +947,7 @@ throws aren't immediately visible in the provided snippet.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">object|string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The object or class to reflect upon.</p>
+                    <section class="phpdocumentor-description"><p>The object or class name.</p>
 </section>
 
             </dd>
@@ -746,7 +966,18 @@ throws aren't immediately visible in the provided snippet.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If the reflection class cannot be created.</p>
+                                                 <section class="phpdocumentor-description"><p>If reflection fails.</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$reflectionClass = (new Reflection())-&gt;reflection(\App\Entity\User::class);
+echo $reflectionClass-&gt;getName(); // 'App\Entity\User'
+</code></pre>
 </section>
 
                                     </dd>
@@ -778,11 +1009,11 @@ throws aren't immediately visible in the provided snippet.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">189</span>
+    <span class="phpdocumentor-element-found-in__line">385</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns the class short name.</p>
+        <p class="phpdocumentor-summary">Returns the short (unqualified) name of the class.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -799,7 +1030,7 @@ throws aren't immediately visible in the provided snippet.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">object|string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The object or class to reflect upon.</p>
+                    <section class="phpdocumentor-description"><p>The object or class name.</p>
 </section>
 
             </dd>
@@ -818,7 +1049,18 @@ throws aren't immediately visible in the provided snippet.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If the reflection class cannot be created.</p>
+                                                 <section class="phpdocumentor-description"><p>If reflection fails.</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">echo (new Reflection())-&gt;shortName(\App\Models\Product::class);
+// Output: 'Product'
+</code></pre>
 </section>
 
                                     </dd>
@@ -829,6 +1071,10 @@ throws aren't immediately visible in the provided snippet.</p>
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The short name of the class.</p>
+</section>
+
             </section>
 
 </article>

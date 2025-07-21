@@ -3,6 +3,7 @@
 namespace oihana\reflections;
 
 use InvalidArgumentException;
+
 use ReflectionClass;
 use ReflectionClassConstant;
 use ReflectionException;
@@ -10,14 +11,25 @@ use ReflectionMethod;
 use ReflectionProperty;
 use ReflectionUnionType;
 
+use oihana\reflections\attributes\HydrateAs;
+use oihana\reflections\attributes\HydrateKey;
+use oihana\reflections\attributes\HydrateWith;
+
 use function oihana\core\arrays\isAssociative;
 
 class Reflection
 {
     /**
-     * Returns the short class name of the given object or class.
-     * @param object $object
-     * @return string
+     * Returns the short class name (without namespace) of the given object.
+     *
+     * @param object $object The object to reflect.
+     * @return string The short class name.
+     *
+     * @example
+     * ```php
+     * echo (new Reflection())->className(new \App\Entity\User());
+     * // Output: 'User'
+     * ```
      */
     public function className( object $object ) :string
     {
@@ -27,12 +39,24 @@ class Reflection
     }
 
     /**
-     * Returns an array of constants for the given object or class.
+     * Returns an array of constants defined in the given class.
      *
-     * @param object|string $class The object or class to reflect upon.
-     * @param int $filter The filter to apply to the constants (default is ReflectionClassConstant::IS_PUBLIC).
-     * @return array The array of constants.
-     * @throws ReflectionException If the reflection class cannot be created.
+     * @param object|string $class The object or class name.
+     * @param int $filter A bitmask of constant visibility (default: public).
+     * @return array<string, mixed> Associative array of constant names and values.
+     * @throws ReflectionException If reflection fails.
+     *
+     * @example
+     * ```php
+     * class MyStatus {
+     *     public const ACTIVE = 'active';
+     *     private const SECRET = 'hidden';
+     * }
+     *
+     * $constants = (new Reflection())->constants(MyStatus::class);
+     * print_r($constants);
+     * // Output: ['ACTIVE' => 'active']
+     * ```
      */
     public function constants( object|string $class, int $filter = ReflectionClassConstant::IS_PUBLIC ): array
     {
@@ -40,26 +64,121 @@ class Reflection
     }
 
     /**
-     * Hydrates an object of the specified class from an associative array of data.
+     * Instantiates and hydrates an object of a given class using associative array data.
      *
-     * This method attempts to map array keys to public properties of the target object.
-     * It supports recursive hydration for nested objects, provided that the nested
-     * properties have type hints (e.g., `public ?GeoCoordinates $geo;`).
+     * It supports:
+     * - Recursive hydration for nested objects (flat or array),
+     * - Union types (e.g., `Type|null`),
+     * - Custom source keys with `#[HydrateKey]`,
+     * - Array hydration via `#[HydrateWith]`, `#[HydrateAs]`, or PHPDoc `@var Type[]`,
+     * - Public properties only (private/protected are ignored).
      *
-     * Special handling is included for PHP 8.0+ union types (e.g., `Type|null`).
+     * @param array  $thing Associative array of data (keys must match public properties or be aliased via attributes).
+     * @param string $class Fully qualified class name of the object to instantiate.
      *
-     * @param array $thing An associative array containing the data to hydrate the object.
-     * Keys should ideally match the public property names of the `$class`.
-     * @param string $class The fully qualified class name of the object to be instantiated and hydrated (e.g., `App\Entity\User::class`).
-     * This can be passed to optimize performance by avoiding re-instantiation
-     * during recursive calls. If not provided, it will be created internally.
+     * @return object The hydrated object instance.
      *
-     * @return object The newly instantiated and hydrated object of type `$class`.
+     * @throws InvalidArgumentException If the class does not exist or required non-nullable property is null.
+     * @throws ReflectionException If property introspection fails.
      *
-     * @throws InvalidArgumentException If the provided `$class` does not exist or is not a valid class.
-     * @throws ReflectionException If a property reflection fails (e.g., due to an invalid property name, though unlikely with `hasProperty` check).
-     * This is explicitly tagged as per your request, even if direct `ReflectionException`
-     * throws aren't immediately visible in the provided snippet.
+     * @example Flat object hydration
+     * ```php
+     * class User {
+     *     public string $name;
+     * }
+     *
+     * $data = ['name' => 'Alice'];
+     * $user = (new Reflection())->hydrate($data, User::class);
+     * echo $user->name; // "Alice"
+     * ```
+     *
+     * @example Nested object hydration
+     * ```php
+     * class Address {
+     *     public string $city;
+     * }
+     * class User {
+     *     public string $name;
+     *     public ?Address $address = null;
+     * }
+     *
+     * $data = ['name' => 'Alice', 'address' => ['city' => 'Paris']];
+     * $user = (new Reflection())->hydrate($data, User::class);
+     * echo $user->address->city; // "Paris"
+     * ```
+     *
+     * @example Hydration with `#[HydrateKey]`
+     * ```php
+     * use oihana\reflections\attributes\HydrateKey;
+     *
+     * class User {
+     *     #[HydrateKey('user_name')]
+     *     public string $name;
+     * }
+     *
+     * $data = ['user_name' => 'Bob'];
+     * $user = (new Reflection())->hydrate($data, User::class);
+     * echo $user->name; // "Bob"
+     * ```
+     *
+     * @example Hydration of array of objects via `#[HydrateWith]`
+     * ```php
+     * use oihana\reflections\attributes\HydrateWith;
+     *
+     * class Address {
+     *     public string $city;
+     * }
+     * class Geo {
+     *     #[HydrateWith(Address::class)]
+     *     public array $locations = [];
+     * }
+     *
+     * $data = ['locations' => [['city' => 'Paris'], ['city' => 'Berlin']]];
+     * $geo = (new Reflection())->hydrate($data, Geo::class);
+     * echo $geo->locations[1]->city; // "Berlin"
+     * ```
+     *
+     * @example Hydration of array via `@var Type[]`
+     * ```php
+     * class Address
+     * {
+     *     public string $city;
+     * }
+     *
+     * class Geo
+     * {
+     *     / ** @var Address[] * /
+     *     public array $locations = [];
+     * }
+     *
+     * $data = ['locations' => [['city' => 'Lyon'], ['city' => 'Nice']]];
+     * $geo = (new Reflection())->hydrate($data, Geo::class);
+     * echo $geo->locations[0]->city; // "Lyon"
+     * ```
+     *
+     * @example Hydration of array via `@var array<Address>`
+     * ```php
+     * class Address
+     * {
+     *     public string $city;
+     * }
+     *
+     * class Geo
+     * {
+     *     / ** @var array<Address> * /
+     *     public array $locations = [];
+     * }
+     * ```
+     *
+     * @example Union types
+     * ```php
+     * class Profile {
+     *     public ?string $bio = null;
+     * }
+     * $data = ['bio' => null];
+     * $profile = (new Reflection())->hydrate($data, Profile::class);
+     * var_dump($profile->bio); // null
+     * ```
      */
     public function hydrate( array $thing , string $class ): object
     {
@@ -69,67 +188,103 @@ class Reflection
         }
 
         $reflectionClass = $this->reflection( $class ) ;
+        $object          = new $class() ;
+        $properties      = $reflectionClass->getProperties() ;
 
-        $object = new $class() ;
-
-        foreach ( $thing as $key => $value )
+        foreach ( $properties as $property)
         {
-            if ( $reflectionClass->hasProperty( $key ) )
+            // Determines the key to be used in $thing (via #[HydrateKey])
+            $propertyKey = $property->getName() ;
+            $keyAttr     = $property->getAttributes(HydrateKey::class ) ;
+
+            if ( !empty( $keyAttr ) )
             {
-                $property = $reflectionClass->getProperty( $key ) ;
+                $propertyKey = $keyAttr[0]->newInstance()->key ;
+            }
 
-                if ( $property->hasType() )
+            if ( !array_key_exists( $propertyKey , $thing ) )
+            {
+                continue;
+            }
+
+            $value = $thing[ $propertyKey ] ;
+
+            if ( $property->hasType() )
+            {
+                $propertyType = $property->getType() ;
+
+                $types = $propertyType instanceof ReflectionUnionType
+                       ? $propertyType->getTypes()
+                       : [ $propertyType ] ;
+
+                $hydrated = false ;
+
+                foreach ( $types as $type )
                 {
-                    $propertyType = $property->getType() ;
-                    $types        = [] ;
+                    $typeName = $type->getName();
 
-                    if ( $propertyType instanceof ReflectionUnionType )
+                    if ( $typeName === 'null' && $value === null )
                     {
-                        foreach ($propertyType->getTypes() as $type)
-                        {
-                            $types[] = $type ;
-                        }
-                    }
-                    else
-                    {
-                        $types[] = $propertyType ;
+                        break;
                     }
 
-                    foreach ( $types as $type )
+                    // Attribut #[HydrateAs(Foo::class)]
+                    $hydrateAs = $property->getAttributes(HydrateAs::class ) ;
+                    if ( !empty( $hydrateAs ) )
                     {
-                        $typeName = $type->getName() ;
+                        $typeName = $hydrateAs[0]->newInstance()->class ;
+                    }
 
-                        if ( $typeName === 'null' && $value === null )
+                    if ( $typeName === 'array' && is_array($value))
+                    {
+                        // 1. #[HydrateWith(MyClass::class)]
+                        $hydrateWith = $property->getAttributes(HydrateWith::class ) ;
+                        if ( !empty( $hydrateWith ) )
                         {
-                            break;
-                        }
-
-                        if ( class_exists( $typeName ) )
-                        {
-                            if ( is_array($value ) )
+                            $itemClass = $hydrateWith[0]->newInstance()->class ;
+                            if ( class_exists( $itemClass ) )
                             {
-                                if ( isAssociative( $value ) )
-                                {
-                                    $value = $this->hydrate( $value , $typeName ) ;
-                                }
-                                else {
-                                    $value = array_map( fn($v) => $this->hydrate( $v , $typeName ) , $value ) ;
-                                }
+                                $value = array_map(fn($v) => is_array($v) ? $this->hydrate($v, $itemClass) : $v, $value);
+                                $hydrated = true ;
+                                break;
                             }
-                            break;
                         }
 
-                        if ( $typeName === 'array' && is_array($value) )
+                        // 2. @var MyClass | @var \oihana\package\MyClass | @var array<MockAddress>
+                        $doc = $property->getDocComment() ;
+                        if ($doc && preg_match('/@var\s+(?:([\w\\\\]+)\[\]|array<([\w\\\\]+)>)/', $doc , $matches ) )
                         {
+                            $itemClass = $matches[1] ;
+                            if ( class_exists( $itemClass ) )
+                            {
+                                $value    = array_map( fn($v) => is_array($v) ? $this->hydrate($v, $itemClass) : $v, $value ) ;
+                                $hydrated = true ;
+                                break ;
+                            }
+                        }
+                    }
+                    else if ( class_exists( $typeName ) )
+                    {
+                        if ( is_array( $value ) )
+                        {
+                            $value = isAssociative( $value )
+                                   ? $this->hydrate( $value , $typeName )
+                                   : array_map( fn( $v ) => $this->hydrate( $v , $typeName ) , $value ) ;
+                            $hydrated = true ;
                             break;
                         }
                     }
                 }
 
-                if ( $property->isPublic() )
+                if ( !$hydrated && $value === null && !$property->getType()->allowsNull() )
                 {
-                    $object->{ $key } = $value ;
+                    throw new InvalidArgumentException("Property {$property->getName()} does not allow null" ) ;
                 }
+            }
+
+            if ( $property->isPublic() )
+            {
+                $object->{ $property->getName() } = $value;
             }
         }
 
@@ -137,12 +292,27 @@ class Reflection
     }
 
     /**
-     * Returns an array of methods for the given object or class.
+     * Returns an array of methods for the given class or object.
      *
-     * @param object|string $class The object or class to reflect upon.
-     * @param int $filter The filter to apply to the methods (default is ReflectionMethod::IS_PUBLIC).
-     * @return array The array of methods.
-     * @throws ReflectionException If the reflection class cannot be created.
+     * @param object|string $class The object or class name.
+     * @param int $filter Method visibility filter (default: public).
+     * @return array<int, \ReflectionMethod> Array of reflection method objects.
+     * @throws ReflectionException If reflection fails.
+     *
+     * @example
+     * ```php
+     * class MyClass
+     * {
+     *     public function foo() {}
+     *     protected function bar() {}
+     * }
+     *
+     * $methods = (new Reflection())->methods(MyClass::class);
+     * foreach ($methods as $method)
+     * {
+     *     echo $method->getName(); // 'foo'
+     * }
+     * ```
      */
     public function methods( object|string $class, int $filter = ReflectionMethod::IS_PUBLIC ) : array
     {
@@ -150,11 +320,24 @@ class Reflection
     }
 
     /**
-     * Returns an array of properties for the given object or class.
-     * @param object|string $class The object or class to reflect upon.
-     * @param int $filter The filter to apply to the properties (default is ReflectionProperty::IS_PUBLIC).
-     * @return array The array of properties.
-     * @throws ReflectionException If the reflection class cannot be created.
+     * Returns an array of properties for the given class or object.
+     *
+     * @param object|string $class The object or class name.
+     * @param int $filter Property visibility filter (default: public).
+     * @return array<int, \ReflectionProperty> Array of reflection property objects.
+     * @throws ReflectionException If reflection fails.
+     *
+     * @example
+     * ```php
+     * class Item {
+     *     public string $name;
+     *     private int $id;
+     * }
+     * $props = (new Reflection())->properties(Item::class);
+     * foreach ($props as $prop) {
+     *     echo $prop->getName(); // 'name'
+     * }
+     * ```
      */
     public function properties( object|string $class , int $filter = ReflectionProperty::IS_PUBLIC ): array
     {
@@ -162,11 +345,17 @@ class Reflection
     }
 
     /**
-     * Returns the reflection class for the given object or class.
+     * Returns a cached ReflectionClass instance for the given class or object.
      *
-     * @param object|string $class The object or class to reflect upon.
+     * @param object|string $class The object or class name.
      * @return ReflectionClass The reflection class.
-     * @throws ReflectionException If the reflection class cannot be created.
+     * @throws ReflectionException If reflection fails.
+     *
+     * @example
+     * ```php
+     * $reflectionClass = (new Reflection())->reflection(\App\Entity\User::class);
+     * echo $reflectionClass->getName(); // 'App\Entity\User'
+     * ```
      */
     public function reflection( object|string $class ): ReflectionClass
     {
@@ -181,10 +370,17 @@ class Reflection
     }
 
     /**
-     * Returns the class short name.
-     * @param object|string $class The object or class to reflect upon.
-     * @return string
-     * @throws ReflectionException If the reflection class cannot be created.
+     * Returns the short (unqualified) name of the class.
+     *
+     * @param object|string $class The object or class name.
+     * @return string The short name of the class.
+     * @throws ReflectionException If reflection fails.
+     *
+     * @example
+     * ```php
+     * echo (new Reflection())->shortName(\App\Models\Product::class);
+     * // Output: 'Product'
+     * ```
      */
     public function shortName( object|string $class ): string
     {
@@ -192,7 +388,8 @@ class Reflection
     }
 
     /**
-     * @var array
+     * Internal cache of reflection instances.
+     * @var array<string, ReflectionClass>
      */
     protected array $reflections = [] ;
 }

@@ -16,7 +16,7 @@ use oihana\models\interfaces\DocumentsModel;
  * @author  Marc Alcaraz (ekameleon)
  * @since   1.0.0
  */
-trait InitModel
+trait ModelTrait
 {
     use DocumentsTrait ;
 

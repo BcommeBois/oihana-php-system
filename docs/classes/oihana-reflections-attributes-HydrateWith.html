@@ -124,16 +124,124 @@
                                 <section>
                                         <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana.html">oihana</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-models.html">models</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-reflections.html">reflections</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-reflections-attributes.html">attributes</a></li>
     </ul>
 
-    <article class="phpdocumentor-element -namespace">
-        <h2 class="phpdocumentor-content__title">traits</h2>
+    <article class="phpdocumentor-element -class">
+        <h2 class="phpdocumentor-content__title">
+    HydrateWith
 
-        
+    
+    
+    
+    </h2>
+
+<div class="phpdocumentor-label-line">
+
+
+</div>
+
+        <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/attributes/HydrateWith.php"><a href="files/src-oihana-reflections-attributes-hydratewith.html"><abbr title="src/oihana/reflections/attributes/HydrateWith.php">HydrateWith.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">54</span>
+
+    </aside>
+
+            <p class="phpdocumentor-summary">Specifies the class to use when hydrating each element of an array property.</p>
+
+
+    <section class="phpdocumentor-description"><p>This attribute is used by the <code class="prettyprint">Reflection::hydrate()</code> method to determine the class to instantiate
+for each element in an array when the property type is simply <code class="prettyprint">array</code> or the type hint lacks precision.</p>
+<p>It is particularly useful for collections of objects where the target class cannot be inferred directly
+from the property type or PHPDoc.</p>
+</section>
+
+
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-reflections-attributes-HydrateWith.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Hydrate an array of objects</p>
+<pre class="prettyprint"><code class="language-php">class Comment
+{
+    public string $text;
+}
+
+class Post
+{
+    #[HydrateWith(Comment::class)]
+    public array $comments;
+}
+
+$data = ['comments' =&gt; [['text' =&gt; 'Hello'], ['text' =&gt; 'World']]];
+$post = (new Reflection())-&gt;hydrate($data, Post::class);
+echo $post-&gt;comments[1]-&gt;text; // &quot;World&quot;
+</code></pre>
+<p>Hydrate an array of DTOs when type is ambiguous</p>
+<pre class="prettyprint"><code class="language-php">class Metric
+{
+    public string $label;
+}
+
+class Dashboard
+{
+    /** @var Metric *\/
+    #[HydrateWith(Metric::class)]
+    public array $metrics;
+}
+</code></pre>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
+
+
+    <section class="phpdocumentor-attributes">
+        <h5 class="phpdocumentor-elements__header" id="attributes">
+            Attributes <a href="classes/oihana-reflections-attributes-HydrateWith.html#attributes" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h5>
+                    <dl class="phpdocumentor-argument-list">
+    <dt class="phpdocumentor-argument-list__entry">
+        #[<abbr title="\Attribute">Attribute</abbr>]
+    </dt>
+        <dd class="phpdocumentor-argument-list__entry">
+        \Attribute::TARGET_PROPERTY
+    </dd>
+    </dl>
+            </section>
+
+
+
 <h3 id="toc">
     Table of Contents
-    <a href="namespaces/oihana-models-traits.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-reflections-attributes-HydrateWith.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -141,28 +249,146 @@
 
 
 
-    <h4 id="toc-traits">
-        Traits
-        <a href="namespaces/oihana-models-traits.html#toc-traits" class="headerlink"><i class="fas fa-link"></i></a>
+
+
+
+
+<h4 id="toc-properties">
+    Properties
+    <a href="classes/oihana-reflections-attributes-HydrateWith.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
+    <a class="" href="classes/oihana-reflections-attributes-HydrateWith.html#property_class">$class</a>
+    <span>
+                        &nbsp;: string            </span>
+</dt>
+
+    </dl>
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/oihana-reflections-attributes-HydrateWith.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-reflections-attributes-HydrateWith.html#method___construct">__construct()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+
+    </dl>
+
+
+
+        
+
+        
+    <section class="phpdocumentor-properties">
+        <h3 class="phpdocumentor-elements__header" id="properties">
+            Properties
+            <a href="classes/oihana-reflections-attributes-HydrateWith.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -public
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_class">
+        $class
+        <a href="classes/oihana-reflections-attributes-HydrateWith.html#property_class" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/attributes/HydrateWith.php"><a href="files/src-oihana-reflections-attributes-hydratewith.html"><abbr title="src/oihana/reflections/attributes/HydrateWith.php">HydrateWith.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">59</span>
+
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$class</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+            </section>
+
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/oihana-reflections-attributes-HydrateWith.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method___construct">
+        __construct()
+        <a href="classes/oihana-reflections-attributes-HydrateWith.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
-    <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/oihana-models-traits-DocumentsTrait.html"><abbr title="\oihana\models\traits\DocumentsTrait">DocumentsTrait</abbr></a></dt>        <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/oihana-models-traits-ListModelTrait.html"><abbr title="\oihana\models\traits\ListModelTrait">ListModelTrait</abbr></a></dt>        <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/oihana-models-traits-ModelTrait.html"><abbr title="\oihana\models\traits\ModelTrait">ModelTrait</abbr></a></dt>    </dl>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/attributes/HydrateWith.php"><a href="files/src-oihana-reflections-attributes-hydratewith.html"><abbr title="src/oihana/reflections/attributes/HydrateWith.php">HydrateWith.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">57</span>
 
+    </aside>
 
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$class</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
 
+    
 
+    
 
+    
+</article>
+            </section>
 
-        
-
-        
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/reflections/attributes/HydrateWith.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -253,7 +479,7 @@
     </article>
                                 </section>
                 <section class="phpdocumentor-on-this-page__sidebar">
-                            
+                                
     <section class="phpdocumentor-on-this-page__content">
         <strong class="phpdocumentor-on-this-page__title">On this page</strong>
 
@@ -261,11 +487,24 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                                                                        <li><a href="namespaces/oihana-models-traits.html#toc-traits">Traits</a></li>
-                                                                                                </ul>
+                                                            <li><a href="classes/oihana-reflections-attributes-HydrateWith.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/oihana-reflections-attributes-HydrateWith.html#toc-methods">Methods</a></li>
+                                    </ul>
             </li>
-
             
+                            <li class="phpdocumentor-on-this-page-section__title">Properties</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/oihana-reflections-attributes-HydrateWith.html#property_class">$class</a></li>
+                                            </ul>
+                </li>
+            
+                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/oihana-reflections-attributes-HydrateWith.html#method___construct">__construct()</a></li>
+                                    </ul>
+            </li>
                     </ul>
     </section>
 
@@ -283,7 +522,7 @@
     </section>
 </section>
         </div>
-        <a href="namespaces/oihana-models-traits.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/oihana-reflections-attributes-HydrateWith.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

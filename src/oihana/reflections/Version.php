@@ -12,7 +12,7 @@ use oihana\interfaces\Equatable;
  * These components are internally encoded into a single 32-bit integer for compact storage and efficient comparison.
  *
  * ### Usage Example:
- * <code>
+ * ```php
  * use oihana\reflections\Version ;
  *
  * $version1 = new Version( 2 , 1 , 1 , 110 ) ;
@@ -34,7 +34,8 @@ use oihana\interfaces\Equatable;
  * echo( "equals( 'toto' )    : " . ($version1->equals('toto')    ? 'true' : 'false' )) ;
  * echo( "equals( $version2 ) : " . ($version1->equals($version2) ? 'true' : 'false' )) ;
  * echo( "equals( $version3 ) : " . ($version1->equals($version3) ? 'true' : 'false' )) ;
- * </code>
+ * ```
+ *
  * ### Key Features:
  * - Supports dynamic property access (`$version->major`, `$version->minor`, etc.) through magic methods.
  * - Efficiently encodes and decodes version components using bitwise operations.
