@@ -4,6 +4,10 @@ namespace oihana\interfaces;
 
 /**
  * This interface is implemented by all equatable objects.
+ *
+ * @package oihana\interfaces
+ * @author  Marc Alcaraz (ekameleon)
+ * @since   1.0.0
  */
 interface Equatable
 {
