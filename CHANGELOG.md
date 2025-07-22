@@ -9,17 +9,22 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## [0.0.0] - 2025-07-15 (alpha)
 
 ### Added
+- Adds oihana\abstracts\Options
+
 - Adds oihana\date\TimeInterval
 - Adds oihana\date\traits\DateTrait
  
+- Adds oihana\enums\Alter
 - Adds oihana\enums\ArithmeticOperator
 - Adds oihana\enums\Boolean
 - Adds oihana\enums\Char
 - Adds oihana\enums\CharacterSet
 - Adds oihana\enums\JsonParam
-- Adds oihana\enums\MemcacheStats
+- Adds oihana\enums\MemcachedStats
 - Adds oihana\enums\Order
+- Adds oihana\enums\Param
 
+- Adds oihana\exceptions\BindException
 - Adds oihana\exceptions\ExceptionTrait
 - Adds oihana\exceptions\MissingPassphraseException
 - Adds oihana\exceptions\ResponseException
@@ -28,8 +33,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Adds oihana\exceptions\http\Error403
 - Adds oihana\exceptions\http\Error404
 - Adds oihana\exceptions\http\Error500
-- 
+
 - Adds oihana\interfaces\Equatable
+- Adds oihana\interfaces\Optionable
 
 - Adds oihana\logging\Logger
 - Adds oihana\logging\LoggerConfig
@@ -46,15 +52,33 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Adds oihana\reflections\exceptions\ConstantException
 - Adds oihana\reflections\traits\ConstantTrait
 - Adds oihana\reflections\traits\ReflectionTrait
+- Adds oihana\reflections\attributes\HydrateAs
+- Adds oihana\reflections\attributes\HydrateKey
+- Adds oihana\reflections\attributes\HydrateWith
 
+- Adds oihana\traits\AlterDocumentTrait
 - Adds oihana\traits\BindTrait
 - Adds oihana\traits\CacheableTrait
 - Adds oihana\traits\ConfigTrait
+- Adds oihana\traits\ContainerTrait
 - Adds oihana\traits\DebugTrait
 - Adds oihana\traits\IDTrait
 - Adds oihana\traits\JsonOptionsTrait
 - Adds oihana\traits\KeyValueTrait
 - Adds oihana\traits\LockableTrait
+- Adds oihana\traits\PDOTrait
+- Adds oihana\traits\QueryIDTrait
 - Adds oihana\traits\ToStringTrait
 - Adds oihana\traits\UnsupportedTrait
 - Adds oihana\traits\UriTrait
+- Adds oihana\traits\alters\AlterArrayCleanPropertyTrait
+- Adds oihana\traits\alters\AlterArrayProperty
+- Adds oihana\traits\alters\AlterCallablePropertyTrait
+- Adds oihana\traits\alters\AlterFloatPropertyTrait
+- Adds oihana\traits\alters\AlterGetDocumentPropertyTrait
+- Adds oihana\traits\alters\AlterIntPropertyTrait
+- Adds oihana\traits\alters\AlterJSONParsePropertyTrait
+- Adds oihana\traits\alters\AlterJsonStringifyPropertyTrait
+- Adds oihana\traits\alters\AlterUrlPropertyTrait
+- Adds oihana\traits\strings\ExpressionTrait
+

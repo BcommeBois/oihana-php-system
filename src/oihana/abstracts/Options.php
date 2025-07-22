@@ -1,6 +1,6 @@
 <?php
 
-namespace oihana\helpers;
+namespace oihana\abstracts;
 
 use InvalidArgumentException;
 use ReflectionException;

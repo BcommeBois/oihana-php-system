@@ -1,6 +1,36 @@
 Search.appendIndex(
     [
                 {
+            "fqsen": "\\oihana\\abstracts\\Options",
+            "name": "Options",
+            "summary": "Base\u0020class\u0020for\u0020options\u0020definitions.",
+            "url": "classes/oihana-abstracts-Options.html"
+        },                {
+            "fqsen": "\\oihana\\abstracts\\Options\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Initializes\u0020options\u0020from\u0020an\u0020array\u0020or\u0020object.",
+            "url": "classes/oihana-abstracts-Options.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\abstracts\\Options\u003A\u003Acreate\u0028\u0029",
+            "name": "create",
+            "summary": "Creates\u0020a\u0020new\u0020instance\u0020of\u0020the\u0020called\u0020class\u0020with\u0020optional\u0020options.",
+            "url": "classes/oihana-abstracts-Options.html#method_create"
+        },                {
+            "fqsen": "\\oihana\\abstracts\\Options\u003A\u003AgetOptions\u0028\u0029",
+            "name": "getOptions",
+            "summary": "Returns\u0020the\u0020full\u0020options\u0020expression\u0020with\u0020the\u0020specific\u0020constant\u0020definitions.",
+            "url": "classes/oihana-abstracts-Options.html#method_getOptions"
+        },                {
+            "fqsen": "\\oihana\\abstracts\\Options\u003A\u003A__toString\u0028\u0029",
+            "name": "__toString",
+            "summary": "Returns\u0020the\u0020string\u0020expression\u0020of\u0020the\u0020object.",
+            "url": "classes/oihana-abstracts-Options.html#method___toString"
+        },                {
+            "fqsen": "\\oihana\\abstracts\\Options\u003A\u003A\u0024prefix",
+            "name": "prefix",
+            "summary": "The\u0020default\u0020prefix\u0020of\u0020the\u0020options\u0020\u0028by\u0020default\u0020\u0022\u002D\u002D\u0022\u0029.",
+            "url": "classes/oihana-abstracts-Options.html#property_prefix"
+        },                {
             "fqsen": "\\oihana\\date\\TimeInterval",
             "name": "TimeInterval",
             "summary": "Helper\u0020class\u0020to\u0020manipulate\u0020and\u0020format\u0020time\u0020intervals\u0020\u0028durations\u0029.",
@@ -2476,6 +2506,16 @@ Search.appendIndex(
             "summary": "Compares\u0020the\u0020specified\u0020values\u0020for\u0020equality.",
             "url": "classes/oihana-interfaces-Equatable.html#method_equals"
         },                {
+            "fqsen": "\\oihana\\interfaces\\Optionable",
+            "name": "Optionable",
+            "summary": "This\u0020interface\u0020is\u0020implemented\u0020by\u0020the\u0020optionable\u0020enumerations.",
+            "url": "classes/oihana-interfaces-Optionable.html"
+        },                {
+            "fqsen": "\\oihana\\interfaces\\Optionable\u003A\u003AgetOption\u0028\u0029",
+            "name": "getOption",
+            "summary": "Returns\u0020the\u0020option\u0020value\u0020with\u0020the\u0020specific\u0020option\u0020property\u0020name.",
+            "url": "classes/oihana-interfaces-Optionable.html#method_getOption"
+        },                {
             "fqsen": "\\oihana\\logging\\Logger",
             "name": "Logger",
             "summary": "A\u0020simple\u0020PSR\u002D3\u002Dcompliant\u0020file\u002Dbased\u0020logger.",
@@ -4016,15 +4056,20 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/default.html"
         },                {
-            "fqsen": "\\oihana\\date",
-            "name": "date",
+            "fqsen": "\\oihana\\abstracts",
+            "name": "abstracts",
             "summary": "",
-            "url": "namespaces/oihana-date.html"
+            "url": "namespaces/oihana-abstracts.html"
         },                {
             "fqsen": "\\oihana",
             "name": "oihana",
             "summary": "",
             "url": "namespaces/oihana.html"
+        },                {
+            "fqsen": "\\oihana\\date",
+            "name": "date",
+            "summary": "",
+            "url": "namespaces/oihana-date.html"
         },                {
             "fqsen": "\\oihana\\date\\traits",
             "name": "traits",
