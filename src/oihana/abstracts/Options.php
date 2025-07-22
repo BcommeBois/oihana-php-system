@@ -41,6 +41,12 @@ abstract class Options
     public static string $prefix = Char::DOUBLE_HYPHEN ;
 
     /**
+     * The option class to use in the __toString() method.
+     * @var string
+     */
+    public static string $optionClass ;
+
+    /**
      * Creates a new instance of the called class with optional options.
      *
      * @param array|Options|null $options
@@ -113,6 +119,6 @@ abstract class Options
      */
     public function __toString() : string
     {
-        return $this->getOptions( static::class ) ;
+        return class_exists( static::$optionClass) ? $this->getOptions( static::$optionClass ) : Char::EMPTY ;
     }
 }
