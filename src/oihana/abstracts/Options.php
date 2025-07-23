@@ -2,11 +2,11 @@
 
 namespace oihana\abstracts;
 
+use inu\wp\commands\wp\enums\core\CheckUpdateOption;
 use InvalidArgumentException;
 use ReflectionException;
 
 use oihana\enums\Char;
-use oihana\interfaces\Optionable;
 use oihana\reflections\traits\ReflectionTrait;
 use ReflectionProperty;
 
@@ -107,5 +107,14 @@ abstract class Options
         }
 
         return implode( Char::SPACE , $expression ) ;
+    }
+
+    /**
+     * Returns the string expression of the object.
+     * @return string
+     */
+    public function __toString() : string
+    {
+        return Char::EMPTY ;
     }
 }
