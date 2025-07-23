@@ -281,6 +281,26 @@ class MysqlModel extends PDOModel
     }
 
     /**
+     * Lists all tables in the current database.
+     *
+     * @return array<int, string>  Array of table names.
+     */
+    public function listCurrentTables(): array
+    {
+        $query = "SHOW TABLES";
+
+        try
+        {
+            $stmt = $this->pdo?->query($query);
+            return $stmt ? $stmt->fetchAll(PDO::FETCH_COLUMN) : [];
+        }
+        catch ( PDOException $e )
+        {
+            return [];
+        }
+    }
+
+    /**
      * Lists parsed privileges granted to a user.
      *
      * @param string $username  The MySQL user.
