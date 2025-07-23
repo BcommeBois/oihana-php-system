@@ -64,7 +64,7 @@ abstract class Options
         {
             throw new InvalidArgumentException( sprintf
             (
-                __METHOD__ . " failed, the passed-in class %s must implement the Optionable interface." ,
+                __METHOD__ . " failed, the passed-in class %s must inherit the Option class." ,
                 $clazz
             )) ;
         }
