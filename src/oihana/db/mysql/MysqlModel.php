@@ -285,7 +285,7 @@ class MysqlModel extends PDOModel
      *
      * @return array<int, string>  Array of table names.
      */
-    public function listCurrentTables(): array
+    public function listCurrentTables( bool $throwable = false ): array
     {
         $query = "SHOW TABLES";
 
@@ -296,6 +296,10 @@ class MysqlModel extends PDOModel
         }
         catch ( PDOException $e )
         {
+            if( $throwable )
+            {
+                throw $e ;
+            }
             return [];
         }
     }
