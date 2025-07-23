@@ -2,8 +2,9 @@
 
 namespace oihana\abstracts;
 
-use oihana\enums\Char;
 use oihana\reflections\traits\ConstantsTrait;
+
+use function oihana\core\strings\hyphenate;
 
 /**
  * Base class for options definitions.
@@ -19,6 +20,6 @@ abstract class Option
      */
     public static function getCommandOption( string $option ):string
     {
-        return Char::EMPTY ;
+        return hyphenate( $option ) ;
     }
 }
