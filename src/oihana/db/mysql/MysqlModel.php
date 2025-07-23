@@ -61,25 +61,6 @@ use Psr\Container\NotFoundExceptionInterface;
 class MysqlModel extends PDOModel
 {
     /**
-     * Creates a new MysqlModel instance.
-     *
-     * @param Container $container The DI container to retrieve services like PDO and logger.
-     * @param array $init Optional initialization array with keys:
-     * - Param::ALTERS: array of alterations to apply
-     * - Param::BINDS: array of binds for queries
-     * - Param::DEFER_ASSIGNMENT: bool whether to defer property assignment on fetch
-     * - Param::SCHEMA: string class name of schema for fetch mode
-     * - Param::PDO: PDO instance or service name in container
-     *
-     * @throws ContainerExceptionInterface
-     * @throws NotFoundExceptionInterface
-     */
-    public function __construct( Container $container , array $init = [] )
-    {
-        parent::__construct( $container , $init ) ;
-    }
-
-    /**
      * Creates a new MySQL database with given charset and collation.
      *
      * @param string $name       The name of the database.
