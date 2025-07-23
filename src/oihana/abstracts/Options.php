@@ -79,7 +79,7 @@ abstract class Options
         foreach( $properties as $property )
         {
             $name  = $property->getName() ;
-            $value = $property->getValue() ;
+            $value = $this->{ $name } ?? null ;
             if( isset( $value ) )
             {
                 $option = $clazz::getCommandOption( $name ) ;
