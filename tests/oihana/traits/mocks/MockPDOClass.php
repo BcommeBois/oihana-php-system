@@ -2,8 +2,7 @@
 
 namespace oihana\traits\mocks;
 
-use oihana\traits\PDOTrait;
-use Psr\Log\LoggerInterface;
+use oihana\models\pdo\PDOTrait;
 
 class MockPDOClass
 {

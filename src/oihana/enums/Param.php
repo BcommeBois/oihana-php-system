@@ -182,6 +182,7 @@ class Param
     public const string PROPS                     = 'props' ;
     public const string PARAMS                    = 'params' ;
     public const string PARAMS_STRATEGY           = 'paramsStrategy' ;
+    public const string PASSWORD                  = 'password' ;
     public const string QUANTITY                  = 'quantity' ;
     public const string QUERY                     = 'query' ;
     public const string QUERY_BUILDER             = 'queryBuilder' ;
@@ -221,9 +222,11 @@ class Param
     public const string UNIQUE                    = 'unique' ;
     public const string UPDATE                    = 'update' ;
     public const string URL                       = 'url' ;
+    public const string USERNAME                  = 'username' ;
     public const string VALIDATOR                 = 'validator' ;
     public const string VAR_NAME                  = 'varName' ;
     public const string VAL                       = 'val' ;
+    public const string VALIDATE                  = 'validate' ;
     public const string VALUE                     = 'value' ;
     public const string VALUES                    = 'values' ;
     public const string VERBOSE                   = 'verbose' ;

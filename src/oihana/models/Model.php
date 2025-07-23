@@ -2,13 +2,15 @@
 
 namespace oihana\models;
 
-use DI\Container;
-
+use oihana\traits\ToStringTrait;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
+use Psr\Log\LoggerInterface;
+
+use DI\Container;
 
 use oihana\enums\Param;
-use oihana\traits\PDOTrait;
+use oihana\traits\DebugTrait;
 
 /**
  * A base model class that integrates a PDO instance with dependency injection container support.
@@ -57,37 +59,30 @@ use oihana\traits\PDOTrait;
  * @author  Marc Alcaraz (ekameleon)
  * @since   1.0.0
  */
-class PDOModel
+class Model
 {
     /**
-     * Creates a new PDOModel instance.
-     *
-     * Sets internal properties from the provided configuration array and initializes logger, mock, and PDO.
+     * Creates a new Model instance.
      *
      * @param Container $container The DI container to retrieve services like PDO and logger.
-     * @param array $init Optional initialization array with keys:
-     *                    - Param::ALTERS: array of alterations to apply
-     *                    - Param::BINDS: array of binds for queries
-     *                    - Param::DEFER_ASSIGNMENT: bool whether to defer property assignment on fetch
-     *                    - Param::SCHEMA: string class name of schema for fetch mode
-     *                    - Param::PDO: PDO instance or service name in container
+     * @param array{ debug:bool|null , logger:LoggerInterface|string|null , mock:bool|null } $init Optional initialization array with keys:
+     *  - **debug** : Indicates if the debug mode is active (Default false).
+     *  - **logger** : The optional PSR3 LoggerInterface reference or the name of the reference in the DI Container.
+     *  - **mock** : Indicates if the model use a mock process (Default false).
      *
      * @throws ContainerExceptionInterface If container service retrieval fails.
      * @throws NotFoundExceptionInterface If container service not found.
      */
     public function __construct( Container $container , array $init = [] )
     {
-        $this->container       = $container;
-        $this->alters          = $init[ Param::ALTERS ] ?? $this->alters ;
-        $this->binds           = $init[ Param::BINDS  ] ?? $this->binds ;
-        $this->deferAssignment = $init[ Param::DEFER_ASSIGNMENT ] ?? $this->deferAssignment ;
-        $this->schema          = $init[ Param::SCHEMA ] ?? $this->schema ;
-        $this->logger          = $this->initLogger( $init , $container ) ;
-        $this->mock            = $this->initializeMock( $init ) ;
-        $this->pdo             = $this->initPDO( $init , $container ) ;
+        $this->container = $container ;
+        $this->debug     = $init[ Param::DEBUG  ] ?? $this->debug ;
+        $this->logger    = $this->initLogger( $init , $container ) ;
+        $this->mock      = $this->initializeMock( $init ) ;
     }
 
-    use PDOTrait ;
+    use DebugTrait ,
+        ToStringTrait ;
 
     /**
      * The DI container reference.

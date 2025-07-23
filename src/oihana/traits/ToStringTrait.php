@@ -7,8 +7,6 @@ use oihana\reflections\traits\ReflectionTrait;
 use ReflectionException;
 
 /**
- * Trait ToStringTrait
- *
  * Provides a basic string representation for an object by returning its class name
  * wrapped in square brackets or other defined characters.
  *
@@ -40,10 +38,6 @@ trait ToStringTrait
      */
     public function __toString():string
     {
-        if( !isset( $__className ) )
-        {
-            $this->__className = $this->getShortName( $this ) ;
-        }
-        return Char::LEFT_BRACKET . $this->__className . Char::RIGHT_BRACKET ;
+        return Char::LEFT_BRACKET . $this->getShortName( $this ) . Char::RIGHT_BRACKET ;
     }
 }

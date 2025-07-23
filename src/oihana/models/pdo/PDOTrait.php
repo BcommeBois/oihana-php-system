@@ -1,6 +1,6 @@
 <?php
 
-namespace oihana\traits;
+namespace oihana\models\pdo;
 
 use Exception;
 use PDO;
@@ -13,6 +13,9 @@ use Psr\Container\NotFoundExceptionInterface;
 
 use oihana\enums\Char;
 use oihana\enums\Param;
+use oihana\traits\AlterDocumentTrait;
+use oihana\traits\BindsTrait;
+use oihana\traits\ContainerTrait;
 
 /**
  * Provides methods for binding values, executing queries, and retrieving results using PDO.
@@ -32,9 +35,7 @@ trait PDOTrait
 {
     use AlterDocumentTrait ,
         BindsTrait ,
-        ContainerTrait ,
-        DebugTrait ,
-        ToStringTrait ;
+        ContainerTrait ;
 
     /**
      * Indicates if the the constructor is called before setting properties.
@@ -196,6 +197,38 @@ trait PDOTrait
         }
         $statement = null ;
         return 0 ;
+    }
+
+    /**
+     * Fetch a list of single-column results.
+     *
+     * @param string $query   The SQL query to execute.
+     * @param array $bindVars Optional bindings for the query.
+     * @return array<int, string>
+     */
+    public function fetchColumnArray( string $query , array $bindVars = [] ): array
+    {
+        $statement = $this->pdo?->prepare( $query ) ;
+        if( $statement instanceof PDOStatement )
+        {
+            try
+            {
+                $this->bindValues( $statement , $bindVars ) ;
+                if( $statement->execute() )
+                {
+                    $result = $statement->fetchAll( PDO::FETCH_COLUMN ) ;
+                    $statement->closeCursor() ;
+                    $statement = null ;
+                    return $result ;
+                }
+            }
+            catch ( Exception $exception )
+            {
+                $this->logger->warning( __METHOD__ . ' failed, ' . $exception->getMessage() ) ;
+            }
+        }
+        $statement = null ;
+        return [] ;
     }
 
     /**

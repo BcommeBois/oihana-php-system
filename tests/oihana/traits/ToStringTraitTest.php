@@ -19,7 +19,7 @@ class ToStringTraitTest extends TestCase
         $obj = new TestToStringDummyClass();
 
         $expected = Char::LEFT_BRACKET . 'TestToStringDummyClass' . Char::RIGHT_BRACKET;
-        $this->assertSame($expected, (string)$obj);
+        $this->assertSame( $expected , (string) $obj ) ;
     }
 
     public function testToStringCachesClassName()

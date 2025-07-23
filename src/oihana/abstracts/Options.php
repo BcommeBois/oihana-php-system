@@ -2,13 +2,11 @@
 
 namespace oihana\abstracts;
 
-use inu\wp\commands\wp\enums\core\CheckUpdateOption;
 use InvalidArgumentException;
 use ReflectionException;
 
 use oihana\enums\Char;
 use oihana\reflections\traits\ReflectionTrait;
-use ReflectionProperty;
 
 /**
  * Base class for options definitions.
@@ -73,9 +71,6 @@ abstract class Options
 
         $properties = $this->getPublicProperties( static::class ) ;
 
-        /**
-         * @var ReflectionProperty $property
-         */
         foreach( $properties as $property )
         {
             $name  = $property->getName() ;

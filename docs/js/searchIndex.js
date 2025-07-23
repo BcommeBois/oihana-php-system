@@ -1,6 +1,16 @@
 Search.appendIndex(
     [
                 {
+            "fqsen": "\\oihana\\abstracts\\Option",
+            "name": "Option",
+            "summary": "Base\u0020class\u0020for\u0020options\u0020definitions.",
+            "url": "classes/oihana-abstracts-Option.html"
+        },                {
+            "fqsen": "\\oihana\\abstracts\\Option\u003A\u003AgetCommandOption\u0028\u0029",
+            "name": "getCommandOption",
+            "summary": "Returns\u0020the\u0020command\u0020line\u0020option\u0020expression\u0020from\u0020a\u0020specific\u0020option.",
+            "url": "classes/oihana-abstracts-Option.html#method_getCommandOption"
+        },                {
             "fqsen": "\\oihana\\abstracts\\Options",
             "name": "Options",
             "summary": "Base\u0020class\u0020for\u0020options\u0020definitions.",
@@ -18,18 +28,13 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\abstracts\\Options\u003A\u003AgetOptions\u0028\u0029",
             "name": "getOptions",
-            "summary": "Returns\u0020the\u0020full\u0020options\u0020expression\u0020with\u0020the\u0020specific\u0020constant\u0020definitions.",
+            "summary": "Returns\u0020the\u0020full\u0020command\u0020line\u0020options\u0020expression\u0020with\u0020the\u0020specific\u0020definition.",
             "url": "classes/oihana-abstracts-Options.html#method_getOptions"
         },                {
             "fqsen": "\\oihana\\abstracts\\Options\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
             "summary": "Returns\u0020the\u0020string\u0020expression\u0020of\u0020the\u0020object.",
             "url": "classes/oihana-abstracts-Options.html#method___toString"
-        },                {
-            "fqsen": "\\oihana\\abstracts\\Options\u003A\u003A\u0024prefix",
-            "name": "prefix",
-            "summary": "The\u0020default\u0020prefix\u0020of\u0020the\u0020options\u0020\u0028by\u0020default\u0020\u0022\u002D\u002D\u0022\u0029.",
-            "url": "classes/oihana-abstracts-Options.html#property_prefix"
         },                {
             "fqsen": "\\oihana\\date\\TimeInterval",
             "name": "TimeInterval",
@@ -135,6 +140,241 @@ Search.appendIndex(
             "name": "timezone",
             "summary": "The\u0020timezone\u0020of\u0020the\u0020date\u0020to\u0020backup\u0020the\u0020database.",
             "url": "classes/oihana-date-traits-DateTrait.html#property_timezone"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlDSN",
+            "name": "MysqlDSN",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-MysqlDSN.html"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020OpenEdgeDSN\u0020instance.",
+            "url": "classes/oihana-db-mysql-MysqlDSN.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003AtoArray\u0028\u0029",
+            "name": "toArray",
+            "summary": "Converts\u0020the\u0020DSN\u0020object\u0020to\u0020an\u0020associative\u0020array.",
+            "url": "classes/oihana-db-mysql-MysqlDSN.html#method_toArray"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003A__toString\u0028\u0029",
+            "name": "__toString",
+            "summary": "Converts\u0020the\u0020object\u0020to\u0020its\u0020DSN\u0020string\u0020representation.",
+            "url": "classes/oihana-db-mysql-MysqlDSN.html#method___toString"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003AHOST",
+            "name": "HOST",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-MysqlDSN.html#constant_HOST"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003APORT",
+            "name": "PORT",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-MysqlDSN.html#constant_PORT"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003ADBNAME",
+            "name": "DBNAME",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-MysqlDSN.html#constant_DBNAME"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003ACHARSET",
+            "name": "CHARSET",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-MysqlDSN.html#constant_CHARSET"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003AUNIX_SOCKET",
+            "name": "UNIX_SOCKET",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-MysqlDSN.html#constant_UNIX_SOCKET"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003A\u0024charset",
+            "name": "charset",
+            "summary": "Character\u0020set.",
+            "url": "classes/oihana-db-mysql-MysqlDSN.html#property_charset"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003A\u0024dbname",
+            "name": "dbname",
+            "summary": "Database\u0020name.",
+            "url": "classes/oihana-db-mysql-MysqlDSN.html#property_dbname"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003A\u0024host",
+            "name": "host",
+            "summary": "Hostname\u0020or\u0020IP\u0020of\u0020the\u0020MySQL\u0020server.",
+            "url": "classes/oihana-db-mysql-MysqlDSN.html#property_host"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003A\u0024port",
+            "name": "port",
+            "summary": "Port\u0020number\u0020to\u0020connect\u0020to.",
+            "url": "classes/oihana-db-mysql-MysqlDSN.html#property_port"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003A\u0024unixSocket",
+            "name": "unixSocket",
+            "summary": "Optional\u0020Unix\u0020socket\u0020path.",
+            "url": "classes/oihana-db-mysql-MysqlDSN.html#property_unixSocket"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlModel",
+            "name": "MysqlModel",
+            "summary": "MysqlModel\u0020provides\u0020high\u002Dlevel\u0020MySQL\u0020administrative\u0020operations\u0020using\u0020PDO.",
+            "url": "classes/oihana-db-mysql-MysqlModel.html"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020MysqlModel\u0020instance.",
+            "url": "classes/oihana-db-mysql-MysqlModel.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AcreateDatabase\u0028\u0029",
+            "name": "createDatabase",
+            "summary": "Creates\u0020a\u0020new\u0020MySQL\u0020database\u0020with\u0020given\u0020charset\u0020and\u0020collation.",
+            "url": "classes/oihana-db-mysql-MysqlModel.html#method_createDatabase"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AcreateUser\u0028\u0029",
+            "name": "createUser",
+            "summary": "Creates\u0020a\u0020new\u0020MySQL\u0020user\u0020with\u0020a\u0020password.",
+            "url": "classes/oihana-db-mysql-MysqlModel.html#method_createUser"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AdatabaseExists\u0028\u0029",
+            "name": "databaseExists",
+            "summary": "Checks\u0020if\u0020a\u0020MySQL\u0020database\u0020exists.",
+            "url": "classes/oihana-db-mysql-MysqlModel.html#method_databaseExists"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AdropDatabase\u0028\u0029",
+            "name": "dropDatabase",
+            "summary": "Drops\u0020a\u0020database\u0020if\u0020it\u0020exists.",
+            "url": "classes/oihana-db-mysql-MysqlModel.html#method_dropDatabase"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AdropUser\u0028\u0029",
+            "name": "dropUser",
+            "summary": "Drops\u0020a\u0020MySQL\u0020user\u0020if\u0020it\u0020exists.",
+            "url": "classes/oihana-db-mysql-MysqlModel.html#method_dropUser"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AgrantPrivileges\u0028\u0029",
+            "name": "grantPrivileges",
+            "summary": "Grants\u0020all\u0020privileges\u0020on\u0020a\u0020database\u0020to\u0020a\u0020user.",
+            "url": "classes/oihana-db-mysql-MysqlModel.html#method_grantPrivileges"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AhasPrivilege\u0028\u0029",
+            "name": "hasPrivilege",
+            "summary": "Checks\u0020whether\u0020a\u0020user\u0020has\u0020a\u0020specific\u0020privilege\u0020on\u0020a\u0020database\u0020or\u0020table.",
+            "url": "classes/oihana-db-mysql-MysqlModel.html#method_hasPrivilege"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AflushPrivileges\u0028\u0029",
+            "name": "flushPrivileges",
+            "summary": "Flushes\u0020MySQL\u0020privileges.",
+            "url": "classes/oihana-db-mysql-MysqlModel.html#method_flushPrivileges"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AgetGrants\u0028\u0029",
+            "name": "getGrants",
+            "summary": "Retrieves\u0020all\u0020GRANT\u0020statements\u0020for\u0020a\u0020given\u0020user.",
+            "url": "classes/oihana-db-mysql-MysqlModel.html#method_getGrants"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AlistPrivileges\u0028\u0029",
+            "name": "listPrivileges",
+            "summary": "Lists\u0020parsed\u0020privileges\u0020granted\u0020to\u0020a\u0020user.",
+            "url": "classes/oihana-db-mysql-MysqlModel.html#method_listPrivileges"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003ArenameUser\u0028\u0029",
+            "name": "renameUser",
+            "summary": "Renames\u0020an\u0020existing\u0020MySQL\u0020user.",
+            "url": "classes/oihana-db-mysql-MysqlModel.html#method_renameUser"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003ArevokePrivilege\u0028\u0029",
+            "name": "revokePrivilege",
+            "summary": "Revokes\u0020specific\u0020privileges\u0020from\u0020a\u0020user\u0020on\u0020a\u0020database\u0020or\u0020table.",
+            "url": "classes/oihana-db-mysql-MysqlModel.html#method_revokePrivilege"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003ArevokePrivileges\u0028\u0029",
+            "name": "revokePrivileges",
+            "summary": "Revokes\u0020all\u0020privileges\u0020from\u0020a\u0020user\u0020on\u0020a\u0020specific\u0020database.",
+            "url": "classes/oihana-db-mysql-MysqlModel.html#method_revokePrivileges"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AtoArray\u0028\u0029",
+            "name": "toArray",
+            "summary": "Dumps\u0020current\u0020users\u0020and\u0020databases\u0020into\u0020a\u0020structured\u0020array.",
+            "url": "classes/oihana-db-mysql-MysqlModel.html#method_toArray"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AuserExists\u0028\u0029",
+            "name": "userExists",
+            "summary": "Checks\u0020if\u0020a\u0020MySQL\u0020user\u0020exists.",
+            "url": "classes/oihana-db-mysql-MysqlModel.html#method_userExists"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AassertIdentifier\u0028\u0029",
+            "name": "assertIdentifier",
+            "summary": "Validates\u0020a\u0020database\/user\u0020identifier\u0020\u0028letters,\u0020numbers,\u0020underscores\u0020only\u0029.",
+            "url": "classes/oihana-db-mysql-MysqlModel.html#method_assertIdentifier"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AassertHost\u0028\u0029",
+            "name": "assertHost",
+            "summary": "Validates\u0020a\u0020host\u0020string\u0020\u0028letters,\u0020numbers,\u0020dots,\u0020hyphens\u0029.",
+            "url": "classes/oihana-db-mysql-MysqlModel.html#method_assertHost"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder",
+            "name": "MysqlPDOBuilder",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020MySQLPDOBuilder\u0020instance.",
+            "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003A__invoke\u0028\u0029",
+            "name": "__invoke",
+            "summary": "Returns\u0020a\u0020PDO\u0020instance.",
+            "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#method___invoke"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003AtoArray\u0028\u0029",
+            "name": "toArray",
+            "summary": "Returns\u0020the\u0020full\u0020configuration\u0020as\u0020array\u0020\u0028dsn\u0020\u002B\u0020credentials\u0020\u002B\u0020options\u0029.",
+            "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#method_toArray"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003A\u0024validate",
+            "name": "validate",
+            "summary": "If\u0020true,\u0020the\u0020connection\u0020will\u0020be\u0020validated\u0020before\u0020use.",
+            "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#property_validate"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003AUSERNAME",
+            "name": "USERNAME",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#constant_USERNAME"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003APASSWORD",
+            "name": "PASSWORD",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#constant_PASSWORD"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003AOPTIONS",
+            "name": "OPTIONS",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#constant_OPTIONS"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003AVALIDATE",
+            "name": "VALIDATE",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#constant_VALIDATE"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003ADEFAULT_OPTIONS",
+            "name": "DEFAULT_OPTIONS",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#constant_DEFAULT_OPTIONS"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003A\u0024dsn",
+            "name": "dsn",
+            "summary": "The\u0020DSN\u0020wrapper.",
+            "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#property_dsn"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003A\u0024options",
+            "name": "options",
+            "summary": "Additional\u0020PDO\u0020options.",
+            "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#property_options"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003A\u0024password",
+            "name": "password",
+            "summary": "The\u0020user\u0020password.",
+            "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#property_password"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003A\u0024username",
+            "name": "username",
+            "summary": "The\u0020database\u0020user.",
+            "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#property_username"
         },                {
             "fqsen": "\\oihana\\enums\\Alter",
             "name": "Alter",
@@ -2191,6 +2431,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/oihana-enums-Param.html#constant_PARAMS_STRATEGY"
         },                {
+            "fqsen": "\\oihana\\enums\\Param\u003A\u003APASSWORD",
+            "name": "PASSWORD",
+            "summary": "",
+            "url": "classes/oihana-enums-Param.html#constant_PASSWORD"
+        },                {
             "fqsen": "\\oihana\\enums\\Param\u003A\u003AQUANTITY",
             "name": "QUANTITY",
             "summary": "",
@@ -2386,6 +2631,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/oihana-enums-Param.html#constant_URL"
         },                {
+            "fqsen": "\\oihana\\enums\\Param\u003A\u003AUSERNAME",
+            "name": "USERNAME",
+            "summary": "",
+            "url": "classes/oihana-enums-Param.html#constant_USERNAME"
+        },                {
             "fqsen": "\\oihana\\enums\\Param\u003A\u003AVALIDATOR",
             "name": "VALIDATOR",
             "summary": "",
@@ -2400,6 +2650,11 @@ Search.appendIndex(
             "name": "VAL",
             "summary": "",
             "url": "classes/oihana-enums-Param.html#constant_VAL"
+        },                {
+            "fqsen": "\\oihana\\enums\\Param\u003A\u003AVALIDATE",
+            "name": "VALIDATE",
+            "summary": "",
+            "url": "classes/oihana-enums-Param.html#constant_VALIDATE"
         },                {
             "fqsen": "\\oihana\\enums\\Param\u003A\u003AVALUE",
             "name": "VALUE",
@@ -3221,20 +3476,85 @@ Search.appendIndex(
             "summary": "Upsert\u0020a\u0020document\u0020into\u0020the\u0020collection.",
             "url": "classes/oihana-models-interfaces-UpsertModel.html#method_upsert"
         },                {
-            "fqsen": "\\oihana\\models\\PDOModel",
-            "name": "PDOModel",
+            "fqsen": "\\oihana\\models\\Model",
+            "name": "Model",
             "summary": "A\u0020base\u0020model\u0020class\u0020that\u0020integrates\u0020a\u0020PDO\u0020instance\u0020with\u0020dependency\u0020injection\u0020container\u0020support.",
-            "url": "classes/oihana-models-PDOModel.html"
+            "url": "classes/oihana-models-Model.html"
         },                {
-            "fqsen": "\\oihana\\models\\PDOModel\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\oihana\\models\\Model\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Creates\u0020a\u0020new\u0020PDOModel\u0020instance.",
-            "url": "classes/oihana-models-PDOModel.html#method___construct"
+            "summary": "Creates\u0020a\u0020new\u0020Model\u0020instance.",
+            "url": "classes/oihana-models-Model.html#method___construct"
         },                {
-            "fqsen": "\\oihana\\models\\PDOModel\u003A\u003A\u0024container",
+            "fqsen": "\\oihana\\models\\Model\u003A\u003A\u0024container",
             "name": "container",
             "summary": "The\u0020DI\u0020container\u0020reference.",
-            "url": "classes/oihana-models-PDOModel.html#property_container"
+            "url": "classes/oihana-models-Model.html#property_container"
+        },                {
+            "fqsen": "\\oihana\\models\\pdo\\PDOModel",
+            "name": "PDOModel",
+            "summary": "A\u0020base\u0020model\u0020class\u0020that\u0020integrates\u0020a\u0020PDO\u0020instance\u0020with\u0020dependency\u0020injection\u0020container\u0020support.",
+            "url": "classes/oihana-models-pdo-PDOModel.html"
+        },                {
+            "fqsen": "\\oihana\\models\\pdo\\PDOModel\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020PDOModel\u0020instance.",
+            "url": "classes/oihana-models-pdo-PDOModel.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\models\\pdo\\PDOTrait",
+            "name": "PDOTrait",
+            "summary": "Provides\u0020methods\u0020for\u0020binding\u0020values,\u0020executing\u0020queries,\u0020and\u0020retrieving\u0020results\u0020using\u0020PDO.",
+            "url": "classes/oihana-models-pdo-PDOTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\pdo\\PDOTrait\u003A\u003AbindValues\u0028\u0029",
+            "name": "bindValues",
+            "summary": "Bind\u0020named\u0020parameters\u0020to\u0020a\u0020prepared\u0020PDO\u0020statement.",
+            "url": "classes/oihana-models-pdo-PDOTrait.html#method_bindValues"
+        },                {
+            "fqsen": "\\oihana\\models\\pdo\\PDOTrait\u003A\u003Afetch\u0028\u0029",
+            "name": "fetch",
+            "summary": "Execute\u0020a\u0020SELECT\u0020query\u0020and\u0020fetch\u0020a\u0020single\u0020result.",
+            "url": "classes/oihana-models-pdo-PDOTrait.html#method_fetch"
+        },                {
+            "fqsen": "\\oihana\\models\\pdo\\PDOTrait\u003A\u003AfetchAll\u0028\u0029",
+            "name": "fetchAll",
+            "summary": "Execute\u0020a\u0020SELECT\u0020query\u0020and\u0020fetch\u0020all\u0020results.",
+            "url": "classes/oihana-models-pdo-PDOTrait.html#method_fetchAll"
+        },                {
+            "fqsen": "\\oihana\\models\\pdo\\PDOTrait\u003A\u003AfetchColumn\u0028\u0029",
+            "name": "fetchColumn",
+            "summary": "Execute\u0020a\u0020query\u0020and\u0020return\u0020the\u0020value\u0020of\u0020a\u0020single\u0020column\u0020from\u0020the\u0020first\u0020row.",
+            "url": "classes/oihana-models-pdo-PDOTrait.html#method_fetchColumn"
+        },                {
+            "fqsen": "\\oihana\\models\\pdo\\PDOTrait\u003A\u003AfetchColumnArray\u0028\u0029",
+            "name": "fetchColumnArray",
+            "summary": "Fetch\u0020a\u0020list\u0020of\u0020single\u002Dcolumn\u0020results.",
+            "url": "classes/oihana-models-pdo-PDOTrait.html#method_fetchColumnArray"
+        },                {
+            "fqsen": "\\oihana\\models\\pdo\\PDOTrait\u003A\u003AinitPDO\u0028\u0029",
+            "name": "initPDO",
+            "summary": "Initialize\u0020the\u0020PDO\u0020instance\u0020from\u0020a\u0020config\u0020array\u0020or\u0020dependency\u0020injection\u0020container.",
+            "url": "classes/oihana-models-pdo-PDOTrait.html#method_initPDO"
+        },                {
+            "fqsen": "\\oihana\\models\\pdo\\PDOTrait\u003A\u003AinitializeDefaultFetchMode\u0028\u0029",
+            "name": "initializeDefaultFetchMode",
+            "summary": "Set\u0020the\u0020default\u0020fetch\u0020mode\u0020on\u0020the\u0020statement.",
+            "url": "classes/oihana-models-pdo-PDOTrait.html#method_initializeDefaultFetchMode"
+        },                {
+            "fqsen": "\\oihana\\models\\pdo\\PDOTrait\u003A\u003A\u0024deferAssignment",
+            "name": "deferAssignment",
+            "summary": "Indicates\u0020if\u0020the\u0020the\u0020constructor\u0020is\u0020called\u0020before\u0020setting\u0020properties.",
+            "url": "classes/oihana-models-pdo-PDOTrait.html#property_deferAssignment"
+        },                {
+            "fqsen": "\\oihana\\models\\pdo\\PDOTrait\u003A\u003A\u0024pdo",
+            "name": "pdo",
+            "summary": "The\u0020PDO\u0020reference.",
+            "url": "classes/oihana-models-pdo-PDOTrait.html#property_pdo"
+        },                {
+            "fqsen": "\\oihana\\models\\pdo\\PDOTrait\u003A\u003A\u0024schema",
+            "name": "schema",
+            "summary": "The\u0020internal\u0020schema\u0020to\u0020use\u0020in\u0020the\u0020PDO\u0020fetch\u0020processes.",
+            "url": "classes/oihana-models-pdo-PDOTrait.html#property_schema"
         },                {
             "fqsen": "\\oihana\\models\\traits\\DocumentsTrait",
             "name": "DocumentsTrait",
@@ -3346,11 +3666,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/oihana-reflections-Reflection.html"
         },                {
-            "fqsen": "\\oihana\\reflections\\Reflection\u003A\u003AclassName\u0028\u0029",
-            "name": "className",
-            "summary": "Returns\u0020the\u0020short\u0020class\u0020name\u0020\u0028without\u0020namespace\u0029\u0020of\u0020the\u0020given\u0020object.",
-            "url": "classes/oihana-reflections-Reflection.html#method_className"
-        },                {
             "fqsen": "\\oihana\\reflections\\Reflection\u003A\u003Aconstants\u0028\u0029",
             "name": "constants",
             "summary": "Returns\u0020an\u0020array\u0020of\u0020constants\u0020defined\u0020in\u0020the\u0020given\u0020class.",
@@ -3451,11 +3766,6 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/oihana-reflections-traits-ReflectionTrait.html"
         },                {
-            "fqsen": "\\oihana\\reflections\\traits\\ReflectionTrait\u003A\u003AgetClassName\u0028\u0029",
-            "name": "getClassName",
-            "summary": "Returns\u0020the\u0020short\u0020class\u0020name\u0020of\u0020the\u0020given\u0020object\/class.",
-            "url": "classes/oihana-reflections-traits-ReflectionTrait.html#method_getClassName"
-        },                {
             "fqsen": "\\oihana\\reflections\\traits\\ReflectionTrait\u003A\u003AgetConstants\u0028\u0029",
             "name": "getConstants",
             "summary": "Returns\u0020the\u0020list\u0020of\u0020all\u0020constants\u0020of\u0020the\u0020given\u0020object\/class.",
@@ -3481,10 +3791,10 @@ Search.appendIndex(
             "summary": "Invoked\u0020to\u0020generates\u0020the\u0020json\u0020array\u0020serializer\u0020array\u0020representation\u0020from\u0020the\u0020public\u0020properties\u0020of\u0020the\u0020object.",
             "url": "classes/oihana-reflections-traits-ReflectionTrait.html#method_jsonSerializeFromPublicProperties"
         },                {
-            "fqsen": "\\oihana\\reflections\\traits\\ReflectionTrait\u003A\u003A\u0024__className",
-            "name": "__className",
+            "fqsen": "\\oihana\\reflections\\traits\\ReflectionTrait\u003A\u003A\u0024__shortName",
+            "name": "__shortName",
             "summary": "",
-            "url": "classes/oihana-reflections-traits-ReflectionTrait.html#property___className"
+            "url": "classes/oihana-reflections-traits-ReflectionTrait.html#property___shortName"
         },                {
             "fqsen": "\\oihana\\reflections\\traits\\ReflectionTrait\u003A\u003A\u0024__reflection",
             "name": "__reflection",
@@ -3871,56 +4181,6 @@ Search.appendIndex(
             "summary": "The\u0020lockable\u0020flag\u0020to\u0020indicates\u0020if\u0020the\u0020instance\u0020is\u0020lockable\u0020or\u0020not.",
             "url": "classes/oihana-traits-LockableTrait.html#property_lockable"
         },                {
-            "fqsen": "\\oihana\\traits\\PDOTrait",
-            "name": "PDOTrait",
-            "summary": "Provides\u0020methods\u0020for\u0020binding\u0020values,\u0020executing\u0020queries,\u0020and\u0020retrieving\u0020results\u0020using\u0020PDO.",
-            "url": "classes/oihana-traits-PDOTrait.html"
-        },                {
-            "fqsen": "\\oihana\\traits\\PDOTrait\u003A\u003AbindValues\u0028\u0029",
-            "name": "bindValues",
-            "summary": "Bind\u0020named\u0020parameters\u0020to\u0020a\u0020prepared\u0020PDO\u0020statement.",
-            "url": "classes/oihana-traits-PDOTrait.html#method_bindValues"
-        },                {
-            "fqsen": "\\oihana\\traits\\PDOTrait\u003A\u003Afetch\u0028\u0029",
-            "name": "fetch",
-            "summary": "Execute\u0020a\u0020SELECT\u0020query\u0020and\u0020fetch\u0020a\u0020single\u0020result.",
-            "url": "classes/oihana-traits-PDOTrait.html#method_fetch"
-        },                {
-            "fqsen": "\\oihana\\traits\\PDOTrait\u003A\u003AfetchAll\u0028\u0029",
-            "name": "fetchAll",
-            "summary": "Execute\u0020a\u0020SELECT\u0020query\u0020and\u0020fetch\u0020all\u0020results.",
-            "url": "classes/oihana-traits-PDOTrait.html#method_fetchAll"
-        },                {
-            "fqsen": "\\oihana\\traits\\PDOTrait\u003A\u003AfetchColumn\u0028\u0029",
-            "name": "fetchColumn",
-            "summary": "Execute\u0020a\u0020query\u0020and\u0020return\u0020the\u0020value\u0020of\u0020a\u0020single\u0020column\u0020from\u0020the\u0020first\u0020row.",
-            "url": "classes/oihana-traits-PDOTrait.html#method_fetchColumn"
-        },                {
-            "fqsen": "\\oihana\\traits\\PDOTrait\u003A\u003AinitPDO\u0028\u0029",
-            "name": "initPDO",
-            "summary": "Initialize\u0020the\u0020PDO\u0020instance\u0020from\u0020a\u0020config\u0020array\u0020or\u0020dependency\u0020injection\u0020container.",
-            "url": "classes/oihana-traits-PDOTrait.html#method_initPDO"
-        },                {
-            "fqsen": "\\oihana\\traits\\PDOTrait\u003A\u003AinitializeDefaultFetchMode\u0028\u0029",
-            "name": "initializeDefaultFetchMode",
-            "summary": "Set\u0020the\u0020default\u0020fetch\u0020mode\u0020on\u0020the\u0020statement.",
-            "url": "classes/oihana-traits-PDOTrait.html#method_initializeDefaultFetchMode"
-        },                {
-            "fqsen": "\\oihana\\traits\\PDOTrait\u003A\u003A\u0024deferAssignment",
-            "name": "deferAssignment",
-            "summary": "Indicates\u0020if\u0020the\u0020the\u0020constructor\u0020is\u0020called\u0020before\u0020setting\u0020properties.",
-            "url": "classes/oihana-traits-PDOTrait.html#property_deferAssignment"
-        },                {
-            "fqsen": "\\oihana\\traits\\PDOTrait\u003A\u003A\u0024pdo",
-            "name": "pdo",
-            "summary": "The\u0020PDO\u0020reference.",
-            "url": "classes/oihana-traits-PDOTrait.html#property_pdo"
-        },                {
-            "fqsen": "\\oihana\\traits\\PDOTrait\u003A\u003A\u0024schema",
-            "name": "schema",
-            "summary": "The\u0020internal\u0020schema\u0020to\u0020use\u0020in\u0020the\u0020PDO\u0020fetch\u0020processes.",
-            "url": "classes/oihana-traits-PDOTrait.html#property_schema"
-        },                {
             "fqsen": "\\oihana\\traits\\QueryIDTrait",
             "name": "QueryIDTrait",
             "summary": "Provides\u0020a\u0020consistent\u0020mechanism\u0020for\u0020managing\u0020an\u0020internal\u0020query\u0020identifier\u0020\u0028\u0060queryId\u0060\u0029,\nwhich\u0020can\u0020be\u0020used\u0020in\u0020dynamically\u0020constructed\u0020queries\u0020\u0028e.g.,\u0020AQL\u0029,\u0020log\u0020tracing,\u0020or\u0020caching.",
@@ -4023,7 +4283,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\traits\\ToStringTrait",
             "name": "ToStringTrait",
-            "summary": "Trait\u0020ToStringTrait",
+            "summary": "Provides\u0020a\u0020basic\u0020string\u0020representation\u0020for\u0020an\u0020object\u0020by\u0020returning\u0020its\u0020class\u0020name\nwrapped\u0020in\u0020square\u0020brackets\u0020or\u0020other\u0020defined\u0020characters.",
             "url": "classes/oihana-traits-ToStringTrait.html"
         },                {
             "fqsen": "\\oihana\\traits\\ToStringTrait\u003A\u003A__toString\u0028\u0029",
@@ -4076,6 +4336,16 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/oihana-date-traits.html"
         },                {
+            "fqsen": "\\oihana\\db\\mysql",
+            "name": "mysql",
+            "summary": "",
+            "url": "namespaces/oihana-db-mysql.html"
+        },                {
+            "fqsen": "\\oihana\\db",
+            "name": "db",
+            "summary": "",
+            "url": "namespaces/oihana-db.html"
+        },                {
             "fqsen": "\\oihana\\enums",
             "name": "enums",
             "summary": "",
@@ -4120,6 +4390,11 @@ Search.appendIndex(
             "name": "models",
             "summary": "",
             "url": "namespaces/oihana-models.html"
+        },                {
+            "fqsen": "\\oihana\\models\\pdo",
+            "name": "pdo",
+            "summary": "",
+            "url": "namespaces/oihana-models-pdo.html"
         },                {
             "fqsen": "\\oihana\\models\\traits",
             "name": "traits",

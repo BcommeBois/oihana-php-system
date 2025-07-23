@@ -3,24 +3,15 @@
 namespace oihana\abstracts\mocks;
 
 use oihana\abstracts\Options;
-use oihana\interfaces\Optionable;
 
-class MockOptions extends Options implements Optionable
+class MockOptions extends Options
 {
-    public string $name  = '';
-    public int    $count = 0;
-    public array  $tags  = [];
-    public bool   $force = false;
+    public string $foo = '' ;
+    public bool   $bar = false ;
+    public array  $baz = [] ;
 
-    public static function getOption( string $name, string $prefix = '--' ) : ?string
+    public function __toString(): string
     {
-        return match( $name )
-        {
-            'name'  => $prefix . 'name',
-            'count' => $prefix . 'count',
-            'tags'  => $prefix . 'tag',
-            'force' => $prefix . 'force',
-            default => null,
-        };
+        return 'OptionsToString';
     }
 }

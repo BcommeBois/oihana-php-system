@@ -2,85 +2,57 @@
 
 namespace oihana\abstracts;
 
-use InvalidArgumentException;
-use ReflectionException;
-
+use oihana\abstracts\mocks\MockOption;
+use oihana\abstracts\mocks\MockOptions;
 use PHPUnit\Framework\TestCase;
-
-use oihana\abstracts\mocks\MockOptions ;
+use ReflectionException;
 
 class OptionsTest extends TestCase
 {
-    public function testConstructorInitializesProperties(): void
+    public function getConcreteOptionsInstance(array|object|null $init = null): Options
     {
-        $options = new MockOptions
-        ([
-            'name'  => 'backup',
-            'count' => 3,
-            'tags'  => ['dev', 'test'],
-            'force' => true,
-        ]);
-
-        $this->assertSame('backup', $options->name);
-        $this->assertSame(3, $options->count);
-        $this->assertSame(['dev', 'test'], $options->tags);
-        $this->assertTrue($options->force);
+        return new MockOptions( $init ) ;
     }
 
-    public function testCreateWithArray(): void
+    public function testCreateWithArrayReturnsInstance()
     {
-        $options = MockOptions::create([
-            'name'  => 'sync',
-            'count' => 5,
-        ]);
-
-        $this->assertSame('sync', $options->name);
-        $this->assertSame(5, $options->count);
-    }
-
-    public function testCreateWithInstance(): void
-    {
-        $original = new MockOptions(['name' => 'import']);
-        $copy = MockOptions::create($original);
-
-        $this->assertSame($original, $copy);
-    }
-
-    public function testCreateWithNull(): void
-    {
-        $options = MockOptions::create();
-
-        $this->assertSame('', $options->name);
-    }
-
-    public function testToStringGeneratesExpectedOutput(): void
-    {
-        $options = new MockOptions([
-            'name'  => 'run',
-            'count' => 2,
-            'tags'  => ['prod', 'logs'],
-            'force' => true,
-        ]);
-
-        $expected = '--name "run" --count 2 --tag "prod" --tag "logs" --force';
-        $this->assertSame($expected, (string)$options);
+        $arr = ['foo' => 'val'];
+        $instance = MockOptions::create($arr);
+        $this->assertSame('val', $instance->foo);
     }
 
     /**
      * @throws ReflectionException
      */
-    public function testGetOptionsThrowsOnInvalidClass(): void
+    public function testGetOptionsReturnsCorrectString()
     {
-        $this->expectException(InvalidArgumentException::class);
-        $this->expectExceptionMessageMatches('/must implement the Optionable interface/');
+        $options = $this->getConcreteOptionsInstance([
+            'foo' => 'value',
+            'bar' => true,
+            'baz' => ['item1', 'item2'],
+        ]);
 
-        $class = new class {
-            public string $dummy = 'test';
-        };
+        $result = $options->getOptions(MockOption::class );
 
-        // simulate a call to getOptions() with a non-Optionable class
-        $options = new MockOptions();
-        /** @noinspection PhpParamsInspection */
-        $options->getOptions($class::class);
+        $this->assertStringContainsString('--foo "value"', $result);
+        $this->assertStringContainsString('--bar', $result);
+        $this->assertStringContainsString('--baz "item1"', $result);
+        $this->assertStringContainsString('--baz "item2"', $result);
+    }
+
+    /**
+     * @throws ReflectionException
+     */
+    public function testGetOptionsWithPrefix()
+    {
+        $options = $this->getConcreteOptionsInstance([
+            'foo' => 'value',
+            'bar' => true,
+        ]);
+
+        $result = $options->getOptions(MockOption::class, 'PREFIX_');
+
+        $this->assertStringContainsString('PREFIX_--foo "value"', $result);
+        $this->assertStringContainsString('PREFIX_--bar', $result);
     }
 }

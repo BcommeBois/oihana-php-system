@@ -2,42 +2,24 @@
 
 namespace oihana\reflections\traits ;
 
-use function oihana\core\arrays\compress;
+use ReflectionException;
+use ReflectionProperty;
 
 use oihana\reflections\Reflection;
-use ReflectionException;
+
+use function oihana\core\arrays\compress;
 
 trait ReflectionTrait
 {
     /**
      * @var string|null
      */
-    private ?string $__className = null ;
+    private ?string $__shortName = null ;
 
     /**
      * @var ?Reflection
      */
     private ?Reflection $__reflection = null ;
-
-    /**
-     * Returns the short class name of the given object/class.
-     * @param object|string $class The object or the classname reference.
-     * @return string
-     */
-    public function getClassName( object|string $class ) : string
-    {
-        if( !isset( $this->__reflection ) )
-        {
-            $this->__reflection = new Reflection() ;
-        }
-
-        if( !isset( $this->__className ) )
-        {
-            $this->__className = $this->__reflection->className( $class ) ;
-        }
-
-        return $this->__className ;
-    }
 
     /**
      * Returns the list of all constants of the given object/class.
@@ -77,11 +59,16 @@ trait ReflectionTrait
      */
     public function getShortName( object|string $class ) : string
     {
-        if( !isset( $this->__reflection ) )
+        if( !isset( $this->shortName ) )
         {
-            $this->__reflection = new Reflection() ;
+            if( !isset( $this->__reflection ) )
+            {
+                $this->__reflection = new Reflection() ;
+            }
+            $this->__shortName = $this->__reflection->shortName( $class ) ;
         }
-        return $this->__reflection->shortName( $class ) ;
+
+        return $this->__shortName ;
     }
 
     /**

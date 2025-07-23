@@ -80,6 +80,10 @@
                 
             </li>
                     <li>
+                <a href="namespaces/oihana-db.html" class="">db</a>
+                
+            </li>
+                    <li>
                 <a href="namespaces/oihana-enums.html" class="">enums</a>
                 
             </li>
@@ -153,7 +157,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">14</span>
 
     </aside>
 
@@ -187,23 +191,16 @@
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/oihana-abstracts-Options.html#property_prefix">$prefix</a>
-    <span>
-                        &nbsp;: string            </span>
-</dt>
-<dd>The default prefix of the options (by default &quot;--&quot;).</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -private">
-    <a class="" href="classes/oihana-reflections-traits-ReflectionTrait.html#property___className">$__className</a>
-    <span>
-                        &nbsp;: string|null            </span>
-</dt>
-
             <dt class="phpdocumentor-table-of-contents__entry -property -private">
     <a class="" href="classes/oihana-reflections-traits-ReflectionTrait.html#property___reflection">$__reflection</a>
     <span>
                         &nbsp;: <a href="classes/oihana-reflections-Reflection.html"><abbr title="\oihana\reflections\Reflection">Reflection</abbr></a>|null            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -private">
+    <a class="" href="classes/oihana-reflections-traits-ReflectionTrait.html#property___shortName">$__shortName</a>
+    <span>
+                        &nbsp;: string|null            </span>
 </dt>
 
     </dl>
@@ -236,13 +233,6 @@
 <dd>Creates a new instance of the called class with optional options.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-reflections-traits-ReflectionTrait.html#method_getClassName">getClassName()</a>
-    <span>
-                                &nbsp;: string    </span>
-</dt>
-<dd>Returns the short class name of the given object/class.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-reflections-traits-ReflectionTrait.html#method_getConstants">getConstants()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
@@ -254,12 +244,12 @@
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Returns the full options expression with the specific constant definitions.</dd>
+<dd>Returns the full command line options expression with the specific definition.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-reflections-traits-ReflectionTrait.html#method_getPublicProperties">getPublicProperties()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                                &nbsp;: array&lt;string|int, <abbr title="\ReflectionProperty">ReflectionProperty</abbr>&gt;    </span>
 </dt>
 <dd>Internal methods to get the public</dd>
 
@@ -301,51 +291,12 @@
         class="
             phpdocumentor-element
             -property
-            -public
-            -static                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_prefix">
-        $prefix
-        <a href="classes/oihana-abstracts-Options.html#property_prefix" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                            </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">41</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">The default prefix of the options (by default &quot;--&quot;).</p>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-        <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">string</span>
-    <span class="phpdocumentor-signature__name">$prefix</span>
-     = <span class="phpdocumentor-signature__default-value">\oihana\enums\Char::DOUBLE_HYPHEN</span></code>
-
-    
-    
-    
-
-    
-
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
             -private
                                                                     "
 >
-    <h4 class="phpdocumentor-element__name" id="property___className">
-        $__className
-        <a href="classes/oihana-reflections-traits-ReflectionTrait.html#property___className" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property___reflection">
+        $__reflection
+        <a href="classes/oihana-reflections-traits-ReflectionTrait.html#property___reflection" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                             </span>
@@ -353,7 +304,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/traits/ReflectionTrait.php"><a href="files/src-oihana-reflections-traits-reflectiontrait.html"><abbr title="src/oihana/reflections/traits/ReflectionTrait.php">ReflectionTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 
     </aside>
 
@@ -361,8 +312,8 @@
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
         <span class="phpdocumentor-signature__visibility">private</span>
-            <span class="phpdocumentor-signature__type">string|null</span>
-    <span class="phpdocumentor-signature__name">$__className</span>
+            <span class="phpdocumentor-signature__type"><a href="classes/oihana-reflections-Reflection.html"><abbr title="\oihana\reflections\Reflection">Reflection</abbr></a>|null</span>
+    <span class="phpdocumentor-signature__name">$__reflection</span>
      = <span class="phpdocumentor-signature__default-value">null</span></code>
 
     
@@ -381,9 +332,9 @@
             -private
                                                                     "
 >
-    <h4 class="phpdocumentor-element__name" id="property___reflection">
-        $__reflection
-        <a href="classes/oihana-reflections-traits-ReflectionTrait.html#property___reflection" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property___shortName">
+        $__shortName
+        <a href="classes/oihana-reflections-traits-ReflectionTrait.html#property___shortName" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                             </span>
@@ -391,7 +342,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/traits/ReflectionTrait.php"><a href="files/src-oihana-reflections-traits-reflectiontrait.html"><abbr title="src/oihana/reflections/traits/ReflectionTrait.php">ReflectionTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">17</span>
 
     </aside>
 
@@ -399,8 +350,8 @@
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
         <span class="phpdocumentor-signature__visibility">private</span>
-            <span class="phpdocumentor-signature__type"><a href="classes/oihana-reflections-Reflection.html"><abbr title="\oihana\reflections\Reflection">Reflection</abbr></a>|null</span>
-    <span class="phpdocumentor-signature__name">$__reflection</span>
+            <span class="phpdocumentor-signature__type">string|null</span>
+    <span class="phpdocumentor-signature__name">$__shortName</span>
      = <span class="phpdocumentor-signature__default-value">null</span></code>
 
     
@@ -434,7 +385,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
@@ -479,7 +430,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">114</span>
+    <span class="phpdocumentor-element-found-in__line">111</span>
 
     </aside>
 
@@ -495,21 +446,6 @@
     
     
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/oihana-abstracts-Options.html#method___toString#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                                            </dl>
 
     
 
@@ -533,7 +469,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">42</span>
 
     </aside>
 
@@ -574,57 +510,6 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getClassName">
-        getClassName()
-        <a href="classes/oihana-reflections-traits-ReflectionTrait.html#method_getClassName" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/traits/ReflectionTrait.php"><a href="files/src-oihana-reflections-traits-reflectiontrait.html"><abbr title="src/oihana/reflections/traits/ReflectionTrait.php">ReflectionTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">27</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Returns the short class name of the given object/class.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getClassName</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$class</span>
-                : <span class="phpdocumentor-signature__argument__return-type">object|string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The object or the classname reference.</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">string</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="method_getConstants">
         getConstants()
         <a href="classes/oihana-reflections-traits-ReflectionTrait.html#method_getConstants" class="headerlink"><i class="fas fa-link"></i></a>
@@ -633,7 +518,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/traits/ReflectionTrait.php"><a href="files/src-oihana-reflections-traits-reflectiontrait.html"><abbr title="src/oihana/reflections/traits/ReflectionTrait.php">ReflectionTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">48</span>
+    <span class="phpdocumentor-element-found-in__line">30</span>
 
     </aside>
 
@@ -699,15 +584,15 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">65</span>
+    <span class="phpdocumentor-element-found-in__line">59</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns the full options expression with the specific constant definitions.</p>
+        <p class="phpdocumentor-summary">Returns the full command line options expression with the specific definition.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getOptions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$clazz</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                    <span class="phpdocumentor-signature__name">getOptions</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$clazz</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$prefix</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -720,7 +605,18 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The enumeration of options.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$prefix</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The optional prefix to prepend before the option expression.</p>
+</section>
+
             </dd>
             </dl>
 
@@ -771,7 +667,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/traits/ReflectionTrait.php"><a href="files/src-oihana-reflections-traits-reflectiontrait.html"><abbr title="src/oihana/reflections/traits/ReflectionTrait.php">ReflectionTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">63</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
@@ -779,7 +675,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getPublicProperties</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">getPublicProperties</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <abbr title="\ReflectionProperty">ReflectionProperty</abbr>&gt;</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -819,7 +715,11 @@
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, <abbr title="\ReflectionProperty">ReflectionProperty</abbr>&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>An array of reflection property objects.</p>
+</section>
+
             </section>
 
 </article>
@@ -837,7 +737,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/traits/ReflectionTrait.php"><a href="files/src-oihana-reflections-traits-reflectiontrait.html"><abbr title="src/oihana/reflections/traits/ReflectionTrait.php">ReflectionTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">78</span>
+    <span class="phpdocumentor-element-found-in__line">60</span>
 
     </aside>
 
@@ -903,7 +803,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/traits/ReflectionTrait.php"><a href="files/src-oihana-reflections-traits-reflectiontrait.html"><abbr title="src/oihana/reflections/traits/ReflectionTrait.php">ReflectionTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">94</span>
+    <span class="phpdocumentor-element-found-in__line">81</span>
 
     </aside>
 
@@ -982,7 +882,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/traits/ReflectionTrait.php"><a href="files/src-oihana-reflections-traits-reflectiontrait.html"><abbr title="src/oihana/reflections/traits/ReflectionTrait.php">ReflectionTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">110</span>
+    <span class="phpdocumentor-element-found-in__line">97</span>
 
     </aside>
 
@@ -1156,9 +1056,8 @@
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li class=""><a href="classes/oihana-abstracts-Options.html#property_prefix">$prefix</a></li>
-                                                    <li class=""><a href="classes/oihana-reflections-traits-ReflectionTrait.html#property___className">$__className</a></li>
                                                     <li class=""><a href="classes/oihana-reflections-traits-ReflectionTrait.html#property___reflection">$__reflection</a></li>
+                                                    <li class=""><a href="classes/oihana-reflections-traits-ReflectionTrait.html#property___shortName">$__shortName</a></li>
                                             </ul>
                 </li>
             
@@ -1168,7 +1067,6 @@
                                             <li class=""><a href="classes/oihana-abstracts-Options.html#method___construct">__construct()</a></li>
                                             <li class=""><a href="classes/oihana-abstracts-Options.html#method___toString">__toString()</a></li>
                                             <li class=""><a href="classes/oihana-abstracts-Options.html#method_create">create()</a></li>
-                                            <li class=""><a href="classes/oihana-reflections-traits-ReflectionTrait.html#method_getClassName">getClassName()</a></li>
                                             <li class=""><a href="classes/oihana-reflections-traits-ReflectionTrait.html#method_getConstants">getConstants()</a></li>
                                             <li class=""><a href="classes/oihana-abstracts-Options.html#method_getOptions">getOptions()</a></li>
                                             <li class=""><a href="classes/oihana-reflections-traits-ReflectionTrait.html#method_getPublicProperties">getPublicProperties()</a></li>

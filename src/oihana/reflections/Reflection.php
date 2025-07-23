@@ -20,25 +20,6 @@ use function oihana\core\arrays\isAssociative;
 class Reflection
 {
     /**
-     * Returns the short class name (without namespace) of the given object.
-     *
-     * @param object $object The object to reflect.
-     * @return string The short class name.
-     *
-     * @example
-     * ```php
-     * echo (new Reflection())->className(new \App\Entity\User());
-     * // Output: 'User'
-     * ```
-     */
-    public function className( object $object ) :string
-    {
-        $class = get_class( $object ) ;
-        $parts = explode('\\',  $class ) ;
-        return end( $parts ) ;
-    }
-
-    /**
      * Returns an array of constants defined in the given class.
      *
      * @param object|string $class The object or class name.
@@ -408,7 +389,7 @@ class Reflection
      */
     public function shortName( object|string $class ): string
     {
-        return $this->reflection( $class )->getShortName();
+        return $this->reflection( $class )->getShortName() ;
     }
 
     /**

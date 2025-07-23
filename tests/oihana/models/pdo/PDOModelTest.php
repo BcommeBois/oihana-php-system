@@ -1,17 +1,15 @@
 <?php
 
-namespace oihana\models;
+namespace oihana\models\pdo;
 
+use DI\Container;
 use oihana\enums\Param;
+use PDO;
+use PDOStatement;
 use PHPUnit\Framework\MockObject\Exception;
 use PHPUnit\Framework\TestCase;
-use DI\Container;
-
-use PDO;
-
-use PDOStatement;
-use Psr\Container\NotFoundExceptionInterface;
 use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use stdClass;
 
 class PDOModelTest extends TestCase
@@ -48,8 +46,8 @@ class PDOModelTest extends TestCase
 
         $model = new PDOModel( $this->container, $init );
 
-        $this->assertSame($this->container, $model->container);
-        $this->assertTrue($model->deferAssignment);
+        $this->assertSame( $this->container, $model->container);
+        $this->assertTrue( $model->deferAssignment );
         $this->assertSame( stdClass::class, $model->schema);
         $this->assertEquals(['foo' => 'bar'], $model->alters);
         $this->assertEquals(['baz' => 'qux'], $model->binds);

@@ -23,12 +23,6 @@ class ReflectionTest extends TestCase
         $this->reflection = new Reflection();
     }
 
-    public function testClassName()
-    {
-        $object = new MockUser();
-        $this->assertEquals('MockUser', $this->reflection->className($object));
-    }
-
     /**
      * @throws ReflectionException
      */
@@ -173,10 +167,13 @@ class ReflectionTest extends TestCase
         $this->assertEquals('Charlie' , $user->name ) ;
     }
 
+    /**
+     * @throws ReflectionException
+     */
     public function testClassNameAnonymousClass()
     {
         $anon = new class {};
-        $name = $this->reflection->className($anon);
+        $name = $this->reflection->shortName($anon);
         $this->assertIsString($name);
         $this->assertNotEmpty($name);
     }
