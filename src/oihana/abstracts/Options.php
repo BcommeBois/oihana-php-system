@@ -60,7 +60,7 @@ abstract class Options
      */
     public function getOptions( string $clazz , ?string $prefix = null ):string
     {
-        if ( !is_a( $clazz, Optionable::class , true ) )
+        if ( !is_a( $clazz, Option::class , true ) )
         {
             throw new InvalidArgumentException( sprintf
             (
@@ -82,29 +82,26 @@ abstract class Options
             $value = $property->getValue() ;
             if( isset( $value ) )
             {
-                $option = $clazz::getOption( $name , $prefix ) ;
-                if( isset( $option ) )
+                $option = $clazz::getCommandOption( $name ) ;
+                if( isset( $prefix ) )
                 {
-                    if( isset( $prefix ) )
-                    {
-                        $option = $prefix . $option ;
-                    }
+                    $option = $prefix . $option ;
+                }
 
-                    if( is_array( $value ) && count( $value ) > 0 )
+                if( is_array( $value ) && count( $value ) > 0 )
+                {
+                    foreach ( $value as $item )
                     {
-                        foreach ( $value as $item )
-                        {
-                            $expression[] = $option . Char::SPACE . json_encode( $item , JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) ;
-                        }
+                        $expression[] = $option . Char::SPACE . json_encode( $item , JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) ;
                     }
-                    elseif ( is_bool ( $value ) )
-                    {
-                        $expression[] = $option ;
-                    }
-                    else
-                    {
-                        $expression[] = $option . Char::SPACE . json_encode( $value , JSON_UNESCAPED_SLASHES ) ;
-                    }
+                }
+                elseif ( is_bool ( $value ) )
+                {
+                    $expression[] = $option ;
+                }
+                else
+                {
+                    $expression[] = $option . Char::SPACE . json_encode( $value , JSON_UNESCAPED_SLASHES ) ;
                 }
             }
         }
