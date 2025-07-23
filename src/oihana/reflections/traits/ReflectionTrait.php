@@ -57,7 +57,7 @@ trait ReflectionTrait
     /**
      * Internal methods to get the public
      * @param object|string $class The object or the classname reference.
-     * @return array
+     * @return ReflectionProperty[] An array of reflection property objects.
      * @throws ReflectionException
      */
     public function getPublicProperties( object|string $class ) : array

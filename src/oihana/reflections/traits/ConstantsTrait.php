@@ -100,7 +100,7 @@ trait ConstantsTrait
             static::$CONSTANTS = [] ;
         }
 
-        if( is_array($separator) )
+        if( is_array( $separator ) )
         {
             sort($separator ) ;
             $key = implode('|' , $separator ) ;
@@ -110,7 +110,7 @@ trait ConstantsTrait
             $key = $separator ?? '__null__';
         }
 
-        if( !isset(static::$CONSTANTS[ $key ] ) )
+        if( !isset( static::$CONSTANTS[ $key ] ) )
         {
             static::$CONSTANTS[ $key ] = [] ;
 

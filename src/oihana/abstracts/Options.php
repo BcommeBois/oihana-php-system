@@ -8,6 +8,7 @@ use ReflectionException;
 use oihana\enums\Char;
 use oihana\interfaces\Optionable;
 use oihana\reflections\traits\ReflectionTrait;
+use ReflectionProperty;
 
 /**
  * Base class for options definitions.
@@ -35,18 +36,6 @@ abstract class Options
     use ReflectionTrait ;
 
     /**
-     * The default prefix of the options (by default "--").
-     * @var string
-     */
-    public static string $prefix = Char::DOUBLE_HYPHEN ;
-
-    /**
-     * The option class to use in the __toString() method.
-     * @var string
-     */
-    public static string $optionClass ;
-
-    /**
      * Creates a new instance of the called class with optional options.
      *
      * @param array|Options|null $options
@@ -62,13 +51,14 @@ abstract class Options
     }
 
     /**
-     * Returns the full options expression with the specific constant definitions.
-     * @param string $clazz
+     * Returns the full command line options expression with the specific definition.
+     * @param string $clazz The enumeration of options.
+     * @param ?string $prefix The optional prefix to prepend before the option expression.
      * @return string
      * @throws InvalidArgumentException
      * @throws ReflectionException
      */
-    public function getOptions( string $clazz ):string
+    public function getOptions( string $clazz , ?string $prefix = null ):string
     {
         if ( !is_a( $clazz, Optionable::class , true ) )
         {
@@ -80,16 +70,26 @@ abstract class Options
         }
 
         $expression = [] ;
+
         $properties = $this->getPublicProperties( static::class ) ;
+
+        /**
+         * @var ReflectionProperty $property
+         */
         foreach( $properties as $property )
         {
             $name  = $property->getName() ;
-            $value = $this->{ $name } ?? null ;
+            $value = $property->getValue() ;
             if( isset( $value ) )
             {
-                $option = $clazz::getOption( $name , static::$prefix ) ;
+                $option = $clazz::getOption( $name , $prefix ) ;
                 if( isset( $option ) )
                 {
+                    if( isset( $prefix ) )
+                    {
+                        $option = $prefix . $option ;
+                    }
+
                     if( is_array( $value ) && count( $value ) > 0 )
                     {
                         foreach ( $value as $item )
@@ -110,15 +110,5 @@ abstract class Options
         }
 
         return implode( Char::SPACE , $expression ) ;
-    }
-
-    /**
-     * Returns the string expression of the object.
-     * @return string
-     * @throws ReflectionException
-     */
-    public function __toString() : string
-    {
-        return class_exists( static::$optionClass) ? $this->getOptions( static::$optionClass ) : Char::EMPTY ;
     }
 }

@@ -348,7 +348,7 @@ class Reflection
      *
      * @param object|string $class The object or class name.
      * @param int $filter Property visibility filter (default: public).
-     * @return array<int, ReflectionProperty> Array of reflection property objects.
+     * @return ReflectionProperty[] An array of reflection property objects.
      * @throws ReflectionException If reflection fails.
      *
      * @example
