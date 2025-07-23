@@ -16,17 +16,19 @@ class MysqlPDOBuilder
      */
     public function __construct( array $init = [] )
     {
-        $this->dsn      = new MySQLDSN( $init ) ;
-        $this->username = $init[ self::USERNAME ] ?? null ;
-        $this->password = $init[ self::PASSWORD ] ?? null ;
-        $this->options  = [ ...self::DEFAULT_OPTIONS , ...( $init[ self::OPTIONS  ] ?? [] ) ] ;
-        $this->validate = $init[ self::VALIDATE ] ?? true ;
+        $this->dsn        = new MySQLDSN( $init ) ;
+        $this->username   = $init[ self::USERNAME ] ?? null ;
+        $this->password   = $init[ self::PASSWORD ] ?? null ;
+        $this->skipDbName = $init[ self::SKIP_DB_NAME ] ?? false ;
+        $this->options    = [ ...self::DEFAULT_OPTIONS , ...( $init[ self::OPTIONS  ] ?? [] ) ] ;
+        $this->validate   = $init[ self::VALIDATE ] ?? true ;
     }
 
-    public const string USERNAME = 'username' ;
-    public const string PASSWORD = 'password' ;
-    public const string OPTIONS  = 'options' ;
-    public const string VALIDATE = 'validate' ;
+    public const string OPTIONS      = 'options' ;
+    public const string PASSWORD     = 'password' ;
+    public const string SKIP_DB_NAME = 'skipDbName' ;
+    public const string USERNAME     = 'username' ;
+    public const string VALIDATE     = 'validate' ;
 
     public const array DEFAULT_OPTIONS =
     [
@@ -56,6 +58,12 @@ class MysqlPDOBuilder
      * @var ?string
      */
     public ?string $password ;
+
+    /**
+     * Indicates if the validation of the dbname is skipped.
+     * @var bool
+     */
+    public bool $skipDbName = false ;
 
     /**
      * The database user.
@@ -116,7 +124,7 @@ class MysqlPDOBuilder
             throw new InvalidArgumentException('MySQL DSN is missing the host.' ) ;
         }
 
-        if ( !$this->dsn->dbname )
+        if ( !$this->dsn->dbname && !$this->skipDbName )
         {
             throw new InvalidArgumentException('MySQL DSN is missing the database name.' ) ;
         }
