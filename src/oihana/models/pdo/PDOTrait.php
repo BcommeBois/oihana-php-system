@@ -4,6 +4,7 @@ namespace oihana\models\pdo;
 
 use Exception;
 use PDO;
+use PDOException;
 use PDOStatement;
 
 use DI\Container;
@@ -274,6 +275,27 @@ trait PDOTrait
         else
         {
             $statement->setFetchMode( PDO::FETCH_ASSOC ) ;
+        }
+    }
+
+    /**
+     * Indicates if the PDO is connected.
+     * @return bool
+     */
+    public function isConnected(): bool
+    {
+        if ( !$this->pdo instanceof PDO )
+        {
+            return false ;
+        }
+
+        try
+        {
+            return $this->pdo->getAttribute(PDO::ATTR_CONNECTION_STATUS ) !== null ;
+        }
+        catch ( PDOException $e )
+        {
+            return false;
         }
     }
 }
