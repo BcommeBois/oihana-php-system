@@ -3,6 +3,7 @@
 namespace oihana\abstracts;
 
 use InvalidArgumentException;
+use oihana\interfaces\Cloneable;
 use ReflectionException;
 
 use oihana\enums\Char;
@@ -14,7 +15,7 @@ use oihana\reflections\traits\ReflectionTrait;
  * Provides automatic hydration from arrays or objects,
  * reflective property listing, and command-line formatting.
  */
-abstract class Options
+abstract class Options implements Cloneable
 {
     /**
      * Initializes options from an associative array or object.
@@ -39,6 +40,20 @@ abstract class Options
     }
 
     use ReflectionTrait ;
+
+    /**
+     * Creates a deep copy of the current instance.
+     *
+     * This method clones the current object and its properties.
+     * Useful when you want to duplicate options without affecting
+     * the original reference.
+     *
+     * @return static A new instance.
+     */
+    public function clone(): static
+    {
+        return unserialize( serialize( $this ) );
+    }
 
     /**
      * Instantiates the class from an array or another Options instance.

@@ -21,6 +21,11 @@ Search.appendIndex(
             "summary": "Initializes\u0020options\u0020from\u0020an\u0020associative\u0020array\u0020or\u0020object.",
             "url": "classes/oihana-abstracts-Options.html#method___construct"
         },                {
+            "fqsen": "\\oihana\\abstracts\\Options\u003A\u003Aclone\u0028\u0029",
+            "name": "clone",
+            "summary": "Creates\u0020a\u0020deep\u0020copy\u0020of\u0020the\u0020current\u0020instance.",
+            "url": "classes/oihana-abstracts-Options.html#method_clone"
+        },                {
             "fqsen": "\\oihana\\abstracts\\Options\u003A\u003Acreate\u0028\u0029",
             "name": "create",
             "summary": "Instantiates\u0020the\u0020class\u0020from\u0020an\u0020array\u0020or\u0020another\u0020Options\u0020instance.",
@@ -591,10 +596,10 @@ Search.appendIndex(
             "summary": "Grants\u0020specific\u0020privileges\u0020on\u0020a\u0020database\u0020or\u0020table\u0020to\u0020a\u0020user.",
             "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_grantPrivilege"
         },                {
-            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003AhasAllPrivileges\u0028\u0029",
-            "name": "hasAllPrivileges",
-            "summary": "Checks\u0020whether\u0020the\u0020given\u0020user\u0020has\u0020ALL\u0020PRIVILEGES\u0020on\u0020\u002A.\u002A\u0020\u0028global\u0020privileges\u0029.",
-            "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasAllPrivileges"
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003AhasGlobalAllPrivileges\u0028\u0029",
+            "name": "hasGlobalAllPrivileges",
+            "summary": "Checks\u0020whether\u0020the\u0020given\u0020user\u0020has\u0020ALL\u0020PRIVILEGES\u0020globally\u0020\u0028i.e.,\u0020ON\u0020\u002A.\u002A\u0029.",
+            "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasGlobalAllPrivileges"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003AhasAllPrivilegesOnDatabase\u0028\u0029",
             "name": "hasAllPrivilegesOnDatabase",
@@ -3095,6 +3100,16 @@ Search.appendIndex(
             "name": "__toString",
             "summary": "Returns\u0020a\u0020string\u0020representation\u0020of\u0020the\u0020exception",
             "url": "classes/oihana-exceptions-ValidationException.html#method___toString"
+        },                {
+            "fqsen": "\\oihana\\interfaces\\Cloneable",
+            "name": "Cloneable",
+            "summary": "This\u0020interface\u0020is\u0020implemented\u0020by\u0020all\u0020cloneable\u0020objects.",
+            "url": "classes/oihana-interfaces-Cloneable.html"
+        },                {
+            "fqsen": "\\oihana\\interfaces\\Cloneable\u003A\u003Aclone\u0028\u0029",
+            "name": "clone",
+            "summary": "Creates\u0020a\u0020deep\u0020copy\u0020of\u0020the\u0020current\u0020instance.",
+            "url": "classes/oihana-interfaces-Cloneable.html#method_clone"
         },                {
             "fqsen": "\\oihana\\interfaces\\Equatable",
             "name": "Equatable",
