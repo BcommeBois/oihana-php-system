@@ -153,14 +153,48 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlDSN.php"><a href="files/src-oihana-db-mysql-mysqldsn.html"><abbr title="src/oihana/db/mysql/MysqlDSN.php">MysqlDSN.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">8</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
     </aside>
 
-        
+            <p class="phpdocumentor-summary">Represents a MySQL DSN (Data Source Name) configuration object.</p>
 
 
+    <section class="phpdocumentor-description"><p>This class provides a convenient and structured way to build MySQL DSN strings
+used in PDO connections. It supports common connection parameters such as
+host, port, database name, charset, and optional Unix socket path.</p>
+</section>
 
+
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-db-mysql-MysqlDSN.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">use oihana\db\mysql\MysqlDSN;
+
+$dsn = new MysqlDSN
+([
+    MysqlDSN::HOST        =&gt; '127.0.0.1',
+    MysqlDSN::PORT        =&gt; 3306,
+    MysqlDSN::DBNAME      =&gt; 'my_database',
+    MysqlDSN::CHARSET     =&gt; 'utf8mb4',
+    MysqlDSN::UNIX_SOCKET =&gt; '/tmp/mysql.sock',
+]);
+
+echo (string) $dsn;
+// Output: mysql:host=127.0.0.1;port=3306;dbname=my_database;charset=utf8mb4;unix_socket=/tmp/mysql.sock
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
 
 
@@ -209,6 +243,12 @@
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-db-mysql-MysqlDSN.html#constant_PREFIX">PREFIX</a>
+    <span>
+        &nbsp;= &#039;mysql:&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a class="" href="classes/oihana-db-mysql-MysqlDSN.html#constant_UNIX_SOCKET">UNIX_SOCKET</a>
     <span>
         &nbsp;= &#039;unixSocket&#039;                            </span>
@@ -228,35 +268,35 @@
     <span>
                         &nbsp;: string            </span>
 </dt>
-<dd>Character set.</dd>
+<dd>Character set used for the connection.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-db-mysql-MysqlDSN.html#property_dbname">$dbname</a>
     <span>
                         &nbsp;: string|null            </span>
 </dt>
-<dd>Database name.</dd>
+<dd>Name of the database to connect to.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-db-mysql-MysqlDSN.html#property_host">$host</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
-<dd>Hostname or IP of the MySQL server.</dd>
+<dd>Hostname or IP address of the MySQL server.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-db-mysql-MysqlDSN.html#property_port">$port</a>
     <span>
                         &nbsp;: int            </span>
 </dt>
-<dd>Port number to connect to.</dd>
+<dd>Port number on which the MySQL server is listening.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-db-mysql-MysqlDSN.html#property_unixSocket">$unixSocket</a>
     <span>
                         &nbsp;: string|null            </span>
 </dt>
-<dd>Optional Unix socket path.</dd>
+<dd>Optional Unix socket path for local MySQL connections.</dd>
 
     </dl>
 
@@ -271,21 +311,21 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Creates a new OpenEdgeDSN instance.</dd>
+<dd>Constructs a new MysqlDSN instance.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-db-mysql-MysqlDSN.html#method___toString">__toString()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Converts the object to its DSN string representation.</dd>
+<dd>Builds and returns the DSN string for use with PDO.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-db-mysql-MysqlDSN.html#method_toArray">toArray()</a>
     <span>
                                 &nbsp;: array&lt;string, mixed&gt;    </span>
 </dt>
-<dd>Converts the DSN object to an associative array.</dd>
+<dd>Converts the DSN configuration to an associative array.</dd>
 
     </dl>
 
@@ -308,7 +348,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlDSN.php"><a href="files/src-oihana-db-mysql-mysqldsn.html"><abbr title="src/oihana/db/mysql/MysqlDSN.php">MysqlDSN.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">59</span>
 
     </aside>
 
@@ -339,7 +379,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlDSN.php"><a href="files/src-oihana-db-mysql-mysqldsn.html"><abbr title="src/oihana/db/mysql/MysqlDSN.php">MysqlDSN.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 
     </aside>
 
@@ -370,7 +410,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlDSN.php"><a href="files/src-oihana-db-mysql-mysqldsn.html"><abbr title="src/oihana/db/mysql/MysqlDSN.php">MysqlDSN.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">23</span>
+    <span class="phpdocumentor-element-found-in__line">60</span>
 
     </aside>
 
@@ -401,7 +441,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlDSN.php"><a href="files/src-oihana-db-mysql-mysqldsn.html"><abbr title="src/oihana/db/mysql/MysqlDSN.php">MysqlDSN.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">24</span>
+    <span class="phpdocumentor-element-found-in__line">61</span>
 
     </aside>
 
@@ -423,6 +463,37 @@
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PREFIX">
+        PREFIX
+        <a href="classes/oihana-db-mysql-MysqlDSN.html#constant_PREFIX" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlDSN.php"><a href="files/src-oihana-db-mysql-mysqldsn.html"><abbr title="src/oihana/db/mysql/MysqlDSN.php">MysqlDSN.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">62</span>
+
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PREFIX</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;mysql:&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_UNIX_SOCKET">
         UNIX_SOCKET
         <a href="classes/oihana-db-mysql-MysqlDSN.html#constant_UNIX_SOCKET" class="headerlink"><i class="fas fa-link"></i></a>
@@ -432,7 +503,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlDSN.php"><a href="files/src-oihana-db-mysql-mysqldsn.html"><abbr title="src/oihana/db/mysql/MysqlDSN.php">MysqlDSN.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">63</span>
 
     </aside>
 
@@ -479,11 +550,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlDSN.php"><a href="files/src-oihana-db-mysql-mysqldsn.html"><abbr title="src/oihana/db/mysql/MysqlDSN.php">MysqlDSN.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">69</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Character set.</p>
+        <p class="phpdocumentor-summary">Character set used for the connection.</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
@@ -518,11 +589,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlDSN.php"><a href="files/src-oihana-db-mysql-mysqldsn.html"><abbr title="src/oihana/db/mysql/MysqlDSN.php">MysqlDSN.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">39</span>
+    <span class="phpdocumentor-element-found-in__line">75</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Database name.</p>
+        <p class="phpdocumentor-summary">Name of the database to connect to.</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
@@ -557,11 +628,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlDSN.php"><a href="files/src-oihana-db-mysql-mysqldsn.html"><abbr title="src/oihana/db/mysql/MysqlDSN.php">MysqlDSN.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">81</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Hostname or IP of the MySQL server.</p>
+        <p class="phpdocumentor-summary">Hostname or IP address of the MySQL server.</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
@@ -596,11 +667,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlDSN.php"><a href="files/src-oihana-db-mysql-mysqldsn.html"><abbr title="src/oihana/db/mysql/MysqlDSN.php">MysqlDSN.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">51</span>
+    <span class="phpdocumentor-element-found-in__line">87</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Port number to connect to.</p>
+        <p class="phpdocumentor-summary">Port number on which the MySQL server is listening.</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
@@ -635,11 +706,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlDSN.php"><a href="files/src-oihana-db-mysql-mysqldsn.html"><abbr title="src/oihana/db/mysql/MysqlDSN.php">MysqlDSN.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">57</span>
+    <span class="phpdocumentor-element-found-in__line">93</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Optional Unix socket path.</p>
+        <p class="phpdocumentor-summary">Optional Unix socket path for local MySQL connections.</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
@@ -679,15 +750,15 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlDSN.php"><a href="files/src-oihana-db-mysql-mysqldsn.html"><abbr title="src/oihana/db/mysql/MysqlDSN.php">MysqlDSN.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14</span>
+    <span class="phpdocumentor-element-found-in__line">49</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Creates a new OpenEdgeDSN instance.</p>
+        <p class="phpdocumentor-summary">Constructs a new MysqlDSN instance.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array{charset: string|null, dbname: string|null, host: string|null, port: string|null, unixSocket: string|null}&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -697,16 +768,37 @@
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$init</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array{charset: string|null, dbname: string|null, host: string|null, port: string|null, unixSocket: string|null}</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The init object to defines the DSN expression.</p>
+                    <section class="phpdocumentor-description"><p>An associative array of parameters to initialize the DSN.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-db-mysql-MysqlDSN.html#method___construct#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$dsn = new MysqlDSN
+([
+    MysqlDSN::DBNAME =&gt; 'example_db',
+    MysqlDSN::HOST   =&gt; 'localhost',
+]);
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 
@@ -726,11 +818,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlDSN.php"><a href="files/src-oihana-db-mysql-mysqldsn.html"><abbr title="src/oihana/db/mysql/MysqlDSN.php">MysqlDSN.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">79</span>
+    <span class="phpdocumentor-element-found-in__line">136</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Converts the object to its DSN string representation.</p>
+        <p class="phpdocumentor-summary">Builds and returns the DSN string for use with PDO.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -742,12 +834,41 @@
     
     
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-db-mysql-MysqlDSN.html#method___toString#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$dsn = new MysqlDSN
+([
+    MysqlDSN::DBNAME  =&gt; 'test',
+    MysqlDSN::HOST    =&gt; 'localhost',
+    MysqlDSN::PORT    =&gt; 3307,
+]);
+
+echo (string) $dsn ;
+// mysql:host=localhost;port=3307;dbname=test;charset=utf8mb4
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The DSN string.</p>
+</section>
+
             </section>
 
 </article>
@@ -765,11 +886,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlDSN.php"><a href="files/src-oihana-db-mysql-mysqldsn.html"><abbr title="src/oihana/db/mysql/MysqlDSN.php">MysqlDSN.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">63</span>
+    <span class="phpdocumentor-element-found-in__line">106</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Converts the DSN object to an associative array.</p>
+        <p class="phpdocumentor-summary">Converts the DSN configuration to an associative array.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -781,12 +902,34 @@
     
     
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-db-mysql-MysqlDSN.html#method_toArray#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$dsn = new MysqlDSN([ MysqlDSN::DBNAME =&gt; 'test' ]);
+print_r( $dsn-&gt;toArray() ) ;
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The configuration as an associative array.</p>
+</section>
+
             </section>
 
 </article>
@@ -907,6 +1050,7 @@
                                                     <li class=""><a href="classes/oihana-db-mysql-MysqlDSN.html#constant_DBNAME">DBNAME</a></li>
                                                     <li class=""><a href="classes/oihana-db-mysql-MysqlDSN.html#constant_HOST">HOST</a></li>
                                                     <li class=""><a href="classes/oihana-db-mysql-MysqlDSN.html#constant_PORT">PORT</a></li>
+                                                    <li class=""><a href="classes/oihana-db-mysql-MysqlDSN.html#constant_PREFIX">PREFIX</a></li>
                                                     <li class=""><a href="classes/oihana-db-mysql-MysqlDSN.html#constant_UNIX_SOCKET">UNIX_SOCKET</a></li>
                                             </ul>
                 </li>

@@ -143,33 +143,23 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlDSN",
             "name": "MysqlDSN",
-            "summary": "",
+            "summary": "Represents\u0020a\u0020MySQL\u0020DSN\u0020\u0028Data\u0020Source\u0020Name\u0029\u0020configuration\u0020object.",
             "url": "classes/oihana-db-mysql-MysqlDSN.html"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Creates\u0020a\u0020new\u0020OpenEdgeDSN\u0020instance.",
+            "summary": "Constructs\u0020a\u0020new\u0020MysqlDSN\u0020instance.",
             "url": "classes/oihana-db-mysql-MysqlDSN.html#method___construct"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003AtoArray\u0028\u0029",
             "name": "toArray",
-            "summary": "Converts\u0020the\u0020DSN\u0020object\u0020to\u0020an\u0020associative\u0020array.",
+            "summary": "Converts\u0020the\u0020DSN\u0020configuration\u0020to\u0020an\u0020associative\u0020array.",
             "url": "classes/oihana-db-mysql-MysqlDSN.html#method_toArray"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
-            "summary": "Converts\u0020the\u0020object\u0020to\u0020its\u0020DSN\u0020string\u0020representation.",
+            "summary": "Builds\u0020and\u0020returns\u0020the\u0020DSN\u0020string\u0020for\u0020use\u0020with\u0020PDO.",
             "url": "classes/oihana-db-mysql-MysqlDSN.html#method___toString"
-        },                {
-            "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003AHOST",
-            "name": "HOST",
-            "summary": "",
-            "url": "classes/oihana-db-mysql-MysqlDSN.html#constant_HOST"
-        },                {
-            "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003APORT",
-            "name": "PORT",
-            "summary": "",
-            "url": "classes/oihana-db-mysql-MysqlDSN.html#constant_PORT"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003ADBNAME",
             "name": "DBNAME",
@@ -181,6 +171,21 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/oihana-db-mysql-MysqlDSN.html#constant_CHARSET"
         },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003AHOST",
+            "name": "HOST",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-MysqlDSN.html#constant_HOST"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003APORT",
+            "name": "PORT",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-MysqlDSN.html#constant_PORT"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003APREFIX",
+            "name": "PREFIX",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-MysqlDSN.html#constant_PREFIX"
+        },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003AUNIX_SOCKET",
             "name": "UNIX_SOCKET",
             "summary": "",
@@ -188,27 +193,27 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003A\u0024charset",
             "name": "charset",
-            "summary": "Character\u0020set.",
+            "summary": "Character\u0020set\u0020used\u0020for\u0020the\u0020connection.",
             "url": "classes/oihana-db-mysql-MysqlDSN.html#property_charset"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003A\u0024dbname",
             "name": "dbname",
-            "summary": "Database\u0020name.",
+            "summary": "Name\u0020of\u0020the\u0020database\u0020to\u0020connect\u0020to.",
             "url": "classes/oihana-db-mysql-MysqlDSN.html#property_dbname"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003A\u0024host",
             "name": "host",
-            "summary": "Hostname\u0020or\u0020IP\u0020of\u0020the\u0020MySQL\u0020server.",
+            "summary": "Hostname\u0020or\u0020IP\u0020address\u0020of\u0020the\u0020MySQL\u0020server.",
             "url": "classes/oihana-db-mysql-MysqlDSN.html#property_host"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003A\u0024port",
             "name": "port",
-            "summary": "Port\u0020number\u0020to\u0020connect\u0020to.",
+            "summary": "Port\u0020number\u0020on\u0020which\u0020the\u0020MySQL\u0020server\u0020is\u0020listening.",
             "url": "classes/oihana-db-mysql-MysqlDSN.html#property_port"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlDSN\u003A\u003A\u0024unixSocket",
             "name": "unixSocket",
-            "summary": "Optional\u0020Unix\u0020socket\u0020path.",
+            "summary": "Optional\u0020Unix\u0020socket\u0020path\u0020for\u0020local\u0020MySQL\u0020connections.",
             "url": "classes/oihana-db-mysql-MysqlDSN.html#property_unixSocket"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlModel",
@@ -216,110 +221,35 @@ Search.appendIndex(
             "summary": "MysqlModel\u0020provides\u0020high\u002Dlevel\u0020MySQL\u0020administrative\u0020operations\u0020using\u0020PDO.",
             "url": "classes/oihana-db-mysql-MysqlModel.html"
         },                {
-            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Creates\u0020a\u0020new\u0020MysqlModel\u0020instance.",
-            "url": "classes/oihana-db-mysql-MysqlModel.html#method___construct"
-        },                {
-            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AcreateDatabase\u0028\u0029",
-            "name": "createDatabase",
-            "summary": "Creates\u0020a\u0020new\u0020MySQL\u0020database\u0020with\u0020given\u0020charset\u0020and\u0020collation.",
-            "url": "classes/oihana-db-mysql-MysqlModel.html#method_createDatabase"
-        },                {
-            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AcreateUser\u0028\u0029",
-            "name": "createUser",
-            "summary": "Creates\u0020a\u0020new\u0020MySQL\u0020user\u0020with\u0020a\u0020password.",
-            "url": "classes/oihana-db-mysql-MysqlModel.html#method_createUser"
-        },                {
-            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AdatabaseExists\u0028\u0029",
-            "name": "databaseExists",
-            "summary": "Checks\u0020if\u0020a\u0020MySQL\u0020database\u0020exists.",
-            "url": "classes/oihana-db-mysql-MysqlModel.html#method_databaseExists"
-        },                {
-            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AdropDatabase\u0028\u0029",
-            "name": "dropDatabase",
-            "summary": "Drops\u0020a\u0020database\u0020if\u0020it\u0020exists.",
-            "url": "classes/oihana-db-mysql-MysqlModel.html#method_dropDatabase"
-        },                {
-            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AdropUser\u0028\u0029",
-            "name": "dropUser",
-            "summary": "Drops\u0020a\u0020MySQL\u0020user\u0020if\u0020it\u0020exists.",
-            "url": "classes/oihana-db-mysql-MysqlModel.html#method_dropUser"
-        },                {
-            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AgrantPrivileges\u0028\u0029",
-            "name": "grantPrivileges",
-            "summary": "Grants\u0020all\u0020privileges\u0020on\u0020a\u0020database\u0020to\u0020a\u0020user.",
-            "url": "classes/oihana-db-mysql-MysqlModel.html#method_grantPrivileges"
-        },                {
-            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AhasPrivilege\u0028\u0029",
-            "name": "hasPrivilege",
-            "summary": "Checks\u0020whether\u0020a\u0020user\u0020has\u0020a\u0020specific\u0020privilege\u0020on\u0020a\u0020database\u0020or\u0020table.",
-            "url": "classes/oihana-db-mysql-MysqlModel.html#method_hasPrivilege"
-        },                {
-            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AflushPrivileges\u0028\u0029",
-            "name": "flushPrivileges",
-            "summary": "Flushes\u0020MySQL\u0020privileges.",
-            "url": "classes/oihana-db-mysql-MysqlModel.html#method_flushPrivileges"
-        },                {
-            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AgetGrants\u0028\u0029",
-            "name": "getGrants",
-            "summary": "Retrieves\u0020all\u0020GRANT\u0020statements\u0020for\u0020a\u0020given\u0020user.",
-            "url": "classes/oihana-db-mysql-MysqlModel.html#method_getGrants"
-        },                {
-            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AlistPrivileges\u0028\u0029",
-            "name": "listPrivileges",
-            "summary": "Lists\u0020parsed\u0020privileges\u0020granted\u0020to\u0020a\u0020user.",
-            "url": "classes/oihana-db-mysql-MysqlModel.html#method_listPrivileges"
-        },                {
-            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003ArenameUser\u0028\u0029",
-            "name": "renameUser",
-            "summary": "Renames\u0020an\u0020existing\u0020MySQL\u0020user.",
-            "url": "classes/oihana-db-mysql-MysqlModel.html#method_renameUser"
-        },                {
-            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003ArevokePrivilege\u0028\u0029",
-            "name": "revokePrivilege",
-            "summary": "Revokes\u0020specific\u0020privileges\u0020from\u0020a\u0020user\u0020on\u0020a\u0020database\u0020or\u0020table.",
-            "url": "classes/oihana-db-mysql-MysqlModel.html#method_revokePrivilege"
-        },                {
-            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003ArevokePrivileges\u0028\u0029",
-            "name": "revokePrivileges",
-            "summary": "Revokes\u0020all\u0020privileges\u0020from\u0020a\u0020user\u0020on\u0020a\u0020specific\u0020database.",
-            "url": "classes/oihana-db-mysql-MysqlModel.html#method_revokePrivileges"
-        },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AtoArray\u0028\u0029",
             "name": "toArray",
             "summary": "Dumps\u0020current\u0020users\u0020and\u0020databases\u0020into\u0020a\u0020structured\u0020array.",
             "url": "classes/oihana-db-mysql-MysqlModel.html#method_toArray"
         },                {
-            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AuserExists\u0028\u0029",
-            "name": "userExists",
-            "summary": "Checks\u0020if\u0020a\u0020MySQL\u0020user\u0020exists.",
-            "url": "classes/oihana-db-mysql-MysqlModel.html#method_userExists"
-        },                {
-            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AassertIdentifier\u0028\u0029",
-            "name": "assertIdentifier",
-            "summary": "Validates\u0020a\u0020database\/user\u0020identifier\u0020\u0028letters,\u0020numbers,\u0020underscores\u0020only\u0029.",
-            "url": "classes/oihana-db-mysql-MysqlModel.html#method_assertIdentifier"
-        },                {
-            "fqsen": "\\oihana\\db\\mysql\\MysqlModel\u003A\u003AassertHost\u0028\u0029",
-            "name": "assertHost",
-            "summary": "Validates\u0020a\u0020host\u0020string\u0020\u0028letters,\u0020numbers,\u0020dots,\u0020hyphens\u0029.",
-            "url": "classes/oihana-db-mysql-MysqlModel.html#method_assertHost"
-        },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder",
             "name": "MysqlPDOBuilder",
-            "summary": "",
+            "summary": "Builds\u0020and\u0020configures\u0020a\u0020PDO\u0020connection\u0020to\u0020a\u0020MySQL\u0020database.",
             "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Creates\u0020a\u0020new\u0020MySQLPDOBuilder\u0020instance.",
+            "summary": "Initializes\u0020the\u0020builder\u0020with\u0020given\u0020configuration.",
             "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#method___construct"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003A__invoke\u0028\u0029",
             "name": "__invoke",
-            "summary": "Returns\u0020a\u0020PDO\u0020instance.",
+            "summary": "Creates\u0020and\u0020returns\u0020a\u0020new\u0020PDO\u0020instance.",
             "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#method___invoke"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003AcreatePDO\u0028\u0029",
+            "name": "createPDO",
+            "summary": "The\u0020internal\u0020PDO\u0020maker\u0020method.",
+            "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#method_createPDO"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003Aset\u0028\u0029",
+            "name": "set",
+            "summary": "Sets\u0020the\u0020builder\u0020with\u0020given\u0020configuration.",
+            "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#method_set"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003AtoArray\u0028\u0029",
             "name": "toArray",
@@ -328,23 +258,28 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003A\u0024validate",
             "name": "validate",
-            "summary": "If\u0020true,\u0020the\u0020connection\u0020will\u0020be\u0020validated\u0020before\u0020use.",
+            "summary": "Whether\u0020to\u0020perform\u0020validation\u0020before\u0020establishing\u0020connection.",
             "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#property_validate"
         },                {
-            "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003AUSERNAME",
-            "name": "USERNAME",
+            "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003AOPTIONS",
+            "name": "OPTIONS",
             "summary": "",
-            "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#constant_USERNAME"
+            "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#constant_OPTIONS"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003APASSWORD",
             "name": "PASSWORD",
             "summary": "",
             "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#constant_PASSWORD"
         },                {
-            "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003AOPTIONS",
-            "name": "OPTIONS",
+            "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003ASKIP_DB_NAME",
+            "name": "SKIP_DB_NAME",
             "summary": "",
-            "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#constant_OPTIONS"
+            "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#constant_SKIP_DB_NAME"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003AUSERNAME",
+            "name": "USERNAME",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#constant_USERNAME"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003AVALIDATE",
             "name": "VALIDATE",
@@ -358,7 +293,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003A\u0024dsn",
             "name": "dsn",
-            "summary": "The\u0020DSN\u0020wrapper.",
+            "summary": "The\u0020DSN\u0020configuration\u0020object.",
             "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#property_dsn"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003A\u0024options",
@@ -368,13 +303,183 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003A\u0024password",
             "name": "password",
-            "summary": "The\u0020user\u0020password.",
+            "summary": "The\u0020user\u0020password\u0020for\u0020connection.",
             "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#property_password"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003A\u0024skipDbName",
+            "name": "skipDbName",
+            "summary": "Whether\u0020to\u0020skip\u0020validation\u0020of\u0020the\u0020database\u0020name.",
+            "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#property_skipDbName"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlPDOBuilder\u003A\u003A\u0024username",
             "name": "username",
-            "summary": "The\u0020database\u0020user.",
+            "summary": "Username\u0020used\u0020for\u0020the\u0020PDO\u0020connection.",
             "url": "classes/oihana-db-mysql-MysqlPDOBuilder.html#property_username"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlAssertionsTrait",
+            "name": "MysqlAssertionsTrait",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-traits-MysqlAssertionsTrait.html"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlAssertionsTrait\u003A\u003AassertIdentifier\u0028\u0029",
+            "name": "assertIdentifier",
+            "summary": "Validates\u0020a\u0020database\/user\u0020identifier\u0020\u0028letters,\u0020numbers,\u0020underscores\u0020only\u0029.",
+            "url": "classes/oihana-db-mysql-traits-MysqlAssertionsTrait.html#method_assertIdentifier"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlAssertionsTrait\u003A\u003AassertHost\u0028\u0029",
+            "name": "assertHost",
+            "summary": "Validates\u0020a\u0020host\u0020string\u0020\u0028letters,\u0020numbers,\u0020dots,\u0020hyphens\u0029.",
+            "url": "classes/oihana-db-mysql-traits-MysqlAssertionsTrait.html#method_assertHost"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlDatabaseTrait",
+            "name": "MysqlDatabaseTrait",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlDatabaseTrait\u003A\u003AcreateDatabase\u0028\u0029",
+            "name": "createDatabase",
+            "summary": "Creates\u0020a\u0020new\u0020MySQL\u0020database\u0020with\u0020given\u0020charset\u0020and\u0020collation.",
+            "url": "classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_createDatabase"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlDatabaseTrait\u003A\u003AdatabaseExists\u0028\u0029",
+            "name": "databaseExists",
+            "summary": "Checks\u0020if\u0020a\u0020MySQL\u0020database\u0020exists.",
+            "url": "classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_databaseExists"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlDatabaseTrait\u003A\u003AdropDatabase\u0028\u0029",
+            "name": "dropDatabase",
+            "summary": "Drops\u0020a\u0020database\u0020if\u0020it\u0020exists.",
+            "url": "classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_dropDatabase"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlDatabaseTrait\u003A\u003AgetDatabaseCharset\u0028\u0029",
+            "name": "getDatabaseCharset",
+            "summary": "Returns\u0020the\u0020default\u0020character\u0020set\u0020and\u0020collation\u0020of\u0020a\u0020database.",
+            "url": "classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_getDatabaseCharset"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlDatabaseTrait\u003A\u003AgetDatabaseSize\u0028\u0029",
+            "name": "getDatabaseSize",
+            "summary": "Returns\u0020the\u0020size\u0020of\u0020a\u0020database\u0020in\u0020bytes.",
+            "url": "classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_getDatabaseSize"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlDatabaseTrait\u003A\u003AlistDatabases\u0028\u0029",
+            "name": "listDatabases",
+            "summary": "Lists\u0020all\u0020available\u0020databases.",
+            "url": "classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_listDatabases"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlDatabaseTrait\u003A\u003AoptimizeDatabase\u0028\u0029",
+            "name": "optimizeDatabase",
+            "summary": "Optimizes\u0020all\u0020tables\u0020in\u0020a\u0020database.",
+            "url": "classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_optimizeDatabase"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlDatabaseTrait\u003A\u003ArepairDatabase\u0028\u0029",
+            "name": "repairDatabase",
+            "summary": "Repairs\u0020all\u0020tables\u0020in\u0020a\u0020database.",
+            "url": "classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_repairDatabase"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait",
+            "name": "MysqlPrivilegeTrait",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003AgrantPrivileges\u0028\u0029",
+            "name": "grantPrivileges",
+            "summary": "Grants\u0020all\u0020privileges\u0020on\u0020a\u0020database\u0020to\u0020a\u0020user.",
+            "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_grantPrivileges"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003AhasPrivilege\u0028\u0029",
+            "name": "hasPrivilege",
+            "summary": "Checks\u0020whether\u0020a\u0020user\u0020has\u0020a\u0020specific\u0020privilege\u0020on\u0020a\u0020database\u0020or\u0020table.",
+            "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasPrivilege"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003AgetGrants\u0028\u0029",
+            "name": "getGrants",
+            "summary": "Retrieves\u0020all\u0020GRANT\u0020statements\u0020for\u0020a\u0020given\u0020user.",
+            "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_getGrants"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003AflushPrivileges\u0028\u0029",
+            "name": "flushPrivileges",
+            "summary": "Flushes\u0020MySQL\u0020privileges.",
+            "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_flushPrivileges"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003AlistPrivileges\u0028\u0029",
+            "name": "listPrivileges",
+            "summary": "Lists\u0020parsed\u0020privileges\u0020granted\u0020to\u0020a\u0020user.",
+            "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_listPrivileges"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003ArevokePrivilege\u0028\u0029",
+            "name": "revokePrivilege",
+            "summary": "Revokes\u0020specific\u0020privileges\u0020from\u0020a\u0020user\u0020on\u0020a\u0020database\u0020or\u0020table.",
+            "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_revokePrivilege"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003ArevokePrivileges\u0028\u0029",
+            "name": "revokePrivileges",
+            "summary": "Revokes\u0020all\u0020privileges\u0020from\u0020a\u0020user\u0020on\u0020a\u0020specific\u0020database.",
+            "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_revokePrivileges"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlTableTrait",
+            "name": "MysqlTableTrait",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-traits-MysqlTableTrait.html"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlTableTrait\u003A\u003AdropTable\u0028\u0029",
+            "name": "dropTable",
+            "summary": "Drops\u0020a\u0020table\u0020in\u0020the\u0020current\u0020database.",
+            "url": "classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_dropTable"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlTableTrait\u003A\u003AlistCurrentTables\u0028\u0029",
+            "name": "listCurrentTables",
+            "summary": "Lists\u0020all\u0020tables\u0020in\u0020the\u0020current\u0020database.",
+            "url": "classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_listCurrentTables"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlTableTrait\u003A\u003AtableExists\u0028\u0029",
+            "name": "tableExists",
+            "summary": "Checks\u0020if\u0020a\u0020table\u0020exists\u0020in\u0020the\u0020current\u0020database.",
+            "url": "classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_tableExists"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlTableTrait\u003A\u003AgetTableSize\u0028\u0029",
+            "name": "getTableSize",
+            "summary": "Returns\u0020the\u0020size\u0020of\u0020a\u0020table\u0020in\u0020bytes.",
+            "url": "classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_getTableSize"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlTableTrait\u003A\u003AoptimizeTable\u0028\u0029",
+            "name": "optimizeTable",
+            "summary": "Optimizes\u0020a\u0020table.",
+            "url": "classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_optimizeTable"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlTableTrait\u003A\u003ArenameTable\u0028\u0029",
+            "name": "renameTable",
+            "summary": "Renames\u0020a\u0020table\u0020in\u0020the\u0020current\u0020database.",
+            "url": "classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_renameTable"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlTableTrait\u003A\u003ArepairTable\u0028\u0029",
+            "name": "repairTable",
+            "summary": "Repairs\u0020a\u0020table.",
+            "url": "classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_repairTable"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlUserTrait",
+            "name": "MysqlUserTrait",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-traits-MysqlUserTrait.html"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlUserTrait\u003A\u003AcreateUser\u0028\u0029",
+            "name": "createUser",
+            "summary": "Creates\u0020a\u0020new\u0020MySQL\u0020user\u0020with\u0020a\u0020password.",
+            "url": "classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_createUser"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlUserTrait\u003A\u003ArenameUser\u0028\u0029",
+            "name": "renameUser",
+            "summary": "Renames\u0020an\u0020existing\u0020MySQL\u0020user.",
+            "url": "classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_renameUser"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlUserTrait\u003A\u003AuserDrop\u0028\u0029",
+            "name": "userDrop",
+            "summary": "Drops\u0020a\u0020MySQL\u0020user\u0020if\u0020it\u0020exists.",
+            "url": "classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_userDrop"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlUserTrait\u003A\u003AuserExists\u0028\u0029",
+            "name": "userExists",
+            "summary": "Checks\u0020if\u0020a\u0020MySQL\u0020user\u0020exists.",
+            "url": "classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_userExists"
         },                {
             "fqsen": "\\oihana\\enums\\Alter",
             "name": "Alter",
@@ -3541,6 +3646,11 @@ Search.appendIndex(
             "summary": "Set\u0020the\u0020default\u0020fetch\u0020mode\u0020on\u0020the\u0020statement.",
             "url": "classes/oihana-models-pdo-PDOTrait.html#method_initializeDefaultFetchMode"
         },                {
+            "fqsen": "\\oihana\\models\\pdo\\PDOTrait\u003A\u003AisConnected\u0028\u0029",
+            "name": "isConnected",
+            "summary": "Indicates\u0020if\u0020the\u0020PDO\u0020is\u0020connected.",
+            "url": "classes/oihana-models-pdo-PDOTrait.html#method_isConnected"
+        },                {
             "fqsen": "\\oihana\\models\\pdo\\PDOTrait\u003A\u003A\u0024deferAssignment",
             "name": "deferAssignment",
             "summary": "Indicates\u0020if\u0020the\u0020the\u0020constructor\u0020is\u0020called\u0020before\u0020setting\u0020properties.",
@@ -4345,6 +4455,11 @@ Search.appendIndex(
             "name": "db",
             "summary": "",
             "url": "namespaces/oihana-db.html"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits",
+            "name": "traits",
+            "summary": "",
+            "url": "namespaces/oihana-db-mysql-traits.html"
         },                {
             "fqsen": "\\oihana\\enums",
             "name": "enums",

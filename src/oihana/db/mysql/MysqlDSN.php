@@ -5,11 +5,46 @@ namespace oihana\db\mysql;
 use oihana\enums\Char;
 use function oihana\core\strings\snake;
 
+/**
+ * Represents a MySQL DSN (Data Source Name) configuration object.
+ *
+ * This class provides a convenient and structured way to build MySQL DSN strings
+ * used in PDO connections. It supports common connection parameters such as
+ * host, port, database name, charset, and optional Unix socket path.
+ *
+ * @example
+ * ```php
+ * use oihana\db\mysql\MysqlDSN;
+ *
+ * $dsn = new MysqlDSN
+ * ([
+ *     MysqlDSN::HOST        => '127.0.0.1',
+ *     MysqlDSN::PORT        => 3306,
+ *     MysqlDSN::DBNAME      => 'my_database',
+ *     MysqlDSN::CHARSET     => 'utf8mb4',
+ *     MysqlDSN::UNIX_SOCKET => '/tmp/mysql.sock',
+ * ]);
+ *
+ * echo (string) $dsn;
+ * // Output: mysql:host=127.0.0.1;port=3306;dbname=my_database;charset=utf8mb4;unix_socket=/tmp/mysql.sock
+ * ```
+ */
 class MysqlDSN
 {
     /**
-     * Creates a new OpenEdgeDSN instance.
-     * @param array $init The init object to defines the DSN expression.
+     * Constructs a new MysqlDSN instance.
+     *
+     * @param array{ charset : string|null , dbname : string|null , host : string|null , port : string|null , unixSocket : string|null } $init
+     *  An associative array of parameters to initialize the DSN.
+     *
+     * @example
+     * ```php
+     * $dsn = new MysqlDSN
+     * ([
+     *     MysqlDSN::DBNAME => 'example_db',
+     *     MysqlDSN::HOST   => 'localhost',
+     * ]);
+     * ```
      */
     public function __construct( array $init = [] )
     {
@@ -20,45 +55,53 @@ class MysqlDSN
         $this->unixSocket = $init[ self::UNIX_SOCKET ] ?? null ;
     }
 
-    const string HOST        = 'host' ;
-    const string PORT        = 'port' ;
     const string DBNAME      = 'dbname' ;
     const string CHARSET     = 'charset' ;
+    const string HOST        = 'host' ;
+    const string PORT        = 'port' ;
+    const string PREFIX      = 'mysql:' ;
     const string UNIX_SOCKET = 'unixSocket' ;
 
     /**
-     * Character set.
+     * Character set used for the connection.
      * @var string
      */
     public string $charset ;
 
     /**
-     * Database name.
+     * Name of the database to connect to.
      * @var ?string
      */
     public ?string $dbname ;
 
     /**
-     * Hostname or IP of the MySQL server.
+     * Hostname or IP address of the MySQL server.
      * @var string
      */
     public string $host ;
 
     /**
-     * Port number to connect to.
+     * Port number on which the MySQL server is listening.
      * @var int
      */
     public int $port ;
 
     /**
-     * Optional Unix socket path.
+     * Optional Unix socket path for local MySQL connections.
      * @var ?string
      */
     public ?string $unixSocket ;
 
     /**
-     * Converts the DSN object to an associative array.
-     * @return array<string, mixed>
+     * Converts the DSN configuration to an associative array.
+     *
+     * @return array<string, mixed> The configuration as an associative array.
+     *
+     * @example
+     * ```php
+     * $dsn = new MysqlDSN([ MysqlDSN::DBNAME => 'test' ]);
+     * print_r( $dsn->toArray() ) ;
+     * ```
      */
     public function toArray(): array
     {
@@ -73,27 +116,41 @@ class MysqlDSN
     }
 
     /**
-     * Converts the object to its DSN string representation.
-     * @return string
+     * Builds and returns the DSN string for use with PDO.
+     *
+     * @return string The DSN string.
+     *
+     * @example
+     * ```php
+     * $dsn = new MysqlDSN
+     * ([
+     *     MysqlDSN::DBNAME  => 'test',
+     *     MysqlDSN::HOST    => 'localhost',
+     *     MysqlDSN::PORT    => 3307,
+     * ]);
+     *
+     * echo (string) $dsn ;
+     * // mysql:host=localhost;port=3307;dbname=test;charset=utf8mb4
+     * ```
      */
     public function __toString(): string
     {
-        $dsn = "mysql:" ;
+        $dsn    = static::PREFIX ;
         $params = [];
 
-        $params[] = self::HOST . Char::EQUAL . $this->host ;
-        $params[] = self::PORT . Char::EQUAL . $this->port ;
+        $params[] = static::HOST . Char::EQUAL . $this->host ;
+        $params[] = static::PORT . Char::EQUAL . $this->port ;
 
         if ( $this->dbname !== null )
         {
-            $params[] = self::DBNAME . Char::EQUAL . $this->dbname ;
+            $params[] = static::DBNAME . Char::EQUAL . $this->dbname ;
         }
 
-        $params[] = self::CHARSET . Char::EQUAL . $this->charset ;
+        $params[] = static::CHARSET . Char::EQUAL . $this->charset ;
 
         if ( $this->unixSocket !== null )
         {
-            $params[] = snake( self::UNIX_SOCKET ) . Char::EQUAL . $this->unixSocket ;
+            $params[] = snake( static::UNIX_SOCKET ) . Char::EQUAL . $this->unixSocket ;
         }
 
         return $dsn . implode( Char::SEMI_COLON, $params );

@@ -132,63 +132,30 @@
                                 <section>
                                         <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana.html">oihana</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-models.html">models</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-models-pdo.html">pdo</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-db.html">db</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-db-mysql.html">mysql</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-db-mysql-traits.html">traits</a></li>
     </ul>
 
     <article class="phpdocumentor-element -trait">
         <h2 class="phpdocumentor-content__title">
-    PDOTrait
+    MysqlUserTrait
             <span class="phpdocumentor-trait__extends">
             uses
-                            <a href="classes/oihana-traits-AlterDocumentTrait.html"><abbr title="\oihana\traits\AlterDocumentTrait">trait:short</abbr></a>,                             <a href="classes/oihana-traits-BindsTrait.html"><abbr title="\oihana\traits\BindsTrait">trait:short</abbr></a>,                             <a href="classes/oihana-traits-ContainerTrait.html"><abbr title="\oihana\traits\ContainerTrait">trait:short</abbr></a>                    </span>
+                            <a href="classes/oihana-db-mysql-traits-MysqlAssertionsTrait.html"><abbr title="\oihana\db\mysql\traits\MysqlAssertionsTrait">trait:short</abbr></a>,                             <a href="classes/oihana-models-pdo-PDOTrait.html"><abbr title="\oihana\models\pdo\PDOTrait">trait:short</abbr></a>                    </span>
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlUserTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlusertrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlUserTrait.php">MysqlUserTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">8</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Provides methods for binding values, executing queries, and retrieving results using PDO.</p>
+        
 
 
-    <section class="phpdocumentor-description"><p>Supports schema-based result mapping and integration with dependency injection.</p>
-<p>Requires the following traits:</p>
-<ul>
-<li>AlterDocumentTrait</li>
-<li>BindsTrait</li>
-<li>DebugTrait</li>
-<li>ToStringTrait</li>
-</ul>
-</section>
 
-
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/oihana-models-pdo-PDOTrait.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">author</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (ekameleon)</p>
-</section>
-
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">since</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                            <span class="phpdocumentor-tag-link">1.0.0</span>
-                                                                                
-                                             
-                                    </dd>
-                                            </dl>
 
 
 
@@ -196,7 +163,7 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/oihana-models-pdo-PDOTrait.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -210,31 +177,10 @@
 
 <h4 id="toc-properties">
     Properties
-    <a href="classes/oihana-models-pdo-PDOTrait.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/oihana-traits-AlterDocumentTrait.html#property_alters">$alters</a>
-    <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
-</dt>
-<dd>The enumeration of all definitions to alter on the array or object key/value properties.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/oihana-traits-BindsTrait.html#property_binds">$binds</a>
-    <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null            </span>
-</dt>
-<dd>The default bind values definition of the model.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/oihana-traits-ContainerTrait.html#property_container">$container</a>
-    <span>
-                        &nbsp;: <abbr title="\DI\Container">Container</abbr>            </span>
-</dt>
-<dd>The DI container reference.</dd>
-
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-models-pdo-PDOTrait.html#property_deferAssignment">$deferAssignment</a>
     <span>
@@ -260,44 +206,23 @@
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/oihana-models-pdo-PDOTrait.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-traits-AlterDocumentTrait.html#method_alter">alter()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-<dd>Alters the given document (array or object) based on the configured `$alters` definitions.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-traits-AlterDocumentTrait.html#method_alterAssociativeArray">alterAssociativeArray()</a>
-    <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
-</dt>
-<dd>Alter the passed-in array.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-traits-AlterDocumentTrait.html#method_alterObject">alterObject()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-<dd>Alter the passed-in object.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-traits-AlterDocumentTrait.html#method_alterProperty">alterProperty()</a>
-    <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;|object    </span>
-</dt>
-<dd>Alters a specific property of the given document (array or object) using a defined transformation rule.</dd>
-
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-models-pdo-PDOTrait.html#method_bindValues">bindValues()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Bind named parameters to a prepared PDO statement.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_createUser">createUser()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Creates a new MySQL user with a password.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-models-pdo-PDOTrait.html#method_fetch">fetch()</a>
@@ -349,11 +274,39 @@
 <dd>Indicates if the PDO is connected.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-traits-BindsTrait.html#method_prepareBindVars">prepareBindVars()</a>
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_renameUser">renameUser()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                                &nbsp;: bool    </span>
 </dt>
-<dd>Prepares the binding parameters to inject in a PDO statement.</dd>
+<dd>Renames an existing MySQL user.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_userDrop">userDrop()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Drops a MySQL user if it exists.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_userExists">userExists()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Checks if a MySQL user exists.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlAssertionsTrait.html#method_assertHost">assertHost()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Validates a host string (letters, numbers, dots, hyphens).</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlAssertionsTrait.html#method_assertIdentifier">assertIdentifier()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Validates a database/user identifier (letters, numbers, underscores only).</dd>
 
     </dl>
 
@@ -366,126 +319,9 @@
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/oihana-models-pdo-PDOTrait.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -public
-                                                                    "
->
-    <h4 class="phpdocumentor-element__name" id="property_alters">
-        $alters
-        <a href="classes/oihana-traits-AlterDocumentTrait.html#property_alters" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                            </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/AlterDocumentTrait.php"><a href="files/src-oihana-traits-alterdocumenttrait.html"><abbr title="src/oihana/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">110</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">The enumeration of all definitions to alter on the array or object key/value properties.</p>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-        <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
-    <span class="phpdocumentor-signature__name">$alters</span>
-     = <span class="phpdocumentor-signature__default-value">[]</span></code>
-
-    
-    
-    
-
-    
-
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -public
-                                                                    "
->
-    <h4 class="phpdocumentor-element__name" id="property_binds">
-        $binds
-        <a href="classes/oihana-traits-BindsTrait.html#property_binds" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                            </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/BindsTrait.php"><a href="files/src-oihana-traits-bindstrait.html"><abbr title="src/oihana/traits/BindsTrait.php">BindsTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">19</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">The default bind values definition of the model.</p>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-        <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;|null</span>
-    <span class="phpdocumentor-signature__name">$binds</span>
-     = <span class="phpdocumentor-signature__default-value">[]</span></code>
-
-    
-    
-    
-
-    
-
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -public
-                                                                    "
->
-    <h4 class="phpdocumentor-element__name" id="property_container">
-        $container
-        <a href="classes/oihana-traits-ContainerTrait.html#property_container" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                            </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/ContainerTrait.php"><a href="files/src-oihana-traits-containertrait.html"><abbr title="src/oihana/traits/ContainerTrait.php">ContainerTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">13</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">The DI container reference.</p>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-        <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__type"><abbr title="\DI\Container">Container</abbr></span>
-    <span class="phpdocumentor-signature__name">$container</span>
-    </code>
-
-    
-    
-    
-
-    
-
-    
-
-</article>
                     <article
         class="
             phpdocumentor-element
@@ -610,489 +446,9 @@
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/oihana-models-pdo-PDOTrait.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_alter">
-        alter()
-        <a href="classes/oihana-traits-AlterDocumentTrait.html#method_alter" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/AlterDocumentTrait.php"><a href="files/src-oihana-traits-alterdocumenttrait.html"><abbr title="src/oihana/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">158</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Alters the given document (array or object) based on the configured `$alters` definitions.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">alter</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$document</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-        <section class="phpdocumentor-description"><p>This method determines the structure of the document and applies the appropriate transformation logic:</p>
-<ul>
-<li>If the document is an <strong>associative array</strong>, each key listed in <code class="prettyprint">$alters</code> is processed using <code class="prettyprint">alterAssociativeArray()</code>.</li>
-<li>If the document is a <strong>sequential array</strong> (i.e., a list of items), the alteration is recursively applied to each item.</li>
-<li>If the document is an <strong>object</strong>, its public properties are altered using <code class="prettyprint">alterObject()</code>.</li>
-<li>If <code class="prettyprint">$alters</code> is empty or no matching keys/properties are found, the document is returned unchanged.</li>
-</ul>
-</section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$document</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The input to alter. Can be an associative array, object, or a list of items.</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/oihana-traits-AlterDocumentTrait.html#method_alter#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\DI\DependencyException">DependencyException</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\DI\NotFoundException">NotFoundException</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">example</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">class Example
-{
-    use AlterDocumentTrait;
-
-    public function __construct()
-    {
-        $this-&gt;alters =
-        [
-           'price' =&gt; Alter::FLOAT,
-           'tags'  =&gt; [ Alter::ARRAY , Alter::CLEAN ],
-        ];
-    }
-}
-
-$input = [ 'price' =&gt; '19.99', 'tags'  =&gt; 'foo,bar' ];
-
-$processor = new Example();
-$output = $processor-&gt;alter($input);
-
-// $output:
-// [
-//     'price' =&gt; 19.99,
-//     'tags'  =&gt; ['foo', 'bar'],
-// ]
-</code></pre>
-</section>
-
-                                    </dd>
-                                            </dl>
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">mixed</span>
-                    &mdash;
-                <section class="phpdocumentor-description"><p>The altered document, same structure as input.</p>
-</section>
-
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_alterAssociativeArray">
-        alterAssociativeArray()
-        <a href="classes/oihana-traits-AlterDocumentTrait.html#method_alterAssociativeArray" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/AlterDocumentTrait.php"><a href="files/src-oihana-traits-alterdocumenttrait.html"><abbr title="src/oihana/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">190</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Alter the passed-in array.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">alterAssociativeArray</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$document</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$document</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/oihana-traits-AlterDocumentTrait.html#method_alterAssociativeArray#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\DI\DependencyException">DependencyException</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\DI\NotFoundException">NotFoundException</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                                            </dl>
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_alterObject">
-        alterObject()
-        <a href="classes/oihana-traits-AlterDocumentTrait.html#method_alterObject" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/AlterDocumentTrait.php"><a href="files/src-oihana-traits-alterdocumenttrait.html"><abbr title="src/oihana/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">211</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Alter the passed-in object.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">alterObject</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object&nbsp;</span><span class="phpdocumentor-signature__argument__name">$document</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$document</span>
-                : <span class="phpdocumentor-signature__argument__return-type">object</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/oihana-traits-AlterDocumentTrait.html#method_alterObject#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\DI\DependencyException">DependencyException</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\DI\NotFoundException">NotFoundException</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                                            </dl>
-
-    
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_alterProperty">
-        alterProperty()
-        <a href="classes/oihana-traits-AlterDocumentTrait.html#method_alterProperty" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/AlterDocumentTrait.php"><a href="files/src-oihana-traits-alterdocumenttrait.html"><abbr title="src/oihana/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">283</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Alters a specific property of the given document (array or object) using a defined transformation rule.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">alterProperty</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|object&nbsp;</span><span class="phpdocumentor-signature__argument__name">$document</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$definition</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$isArray</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|object</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-        <section class="phpdocumentor-description"><p>The transformation is defined by the <code class="prettyprint">$definition</code> argument, which can be either:</p>
-<ul>
-<li>A string representing a single <code class="prettyprint">Alter::</code> constant (e.g. <code class="prettyprint">Alter::FLOAT</code>)</li>
-<li>An array, where the first element is an <code class="prettyprint">Alter::</code> constant and the rest are parameters for that transformation</li>
-</ul>
-<p>If the alteration modifies the value, the altered value is set back into the document.
-Otherwise, the original document is returned unmodified.</p>
-<p>Supported alter types:</p>
-<ul>
-<li>Alter::ARRAY          — Explodes a string into an array (using <code class="prettyprint">;</code>) and applies sub-alters</li>
-<li>Alter::CALL           — Calls a user-defined callable on the value</li>
-<li>Alter::CLEAN          — Removes empty (<code class="prettyprint">&quot;&quot;</code>) or null elements from arrays</li>
-<li>Alter::FLOAT          — Casts the value to float</li>
-<li>Alter::GET            — Resolves a document by ID using a model</li>
-<li>Alter::INT            — Casts the value to integer</li>
-<li>Alter::JSON_PARSE     — Parses a JSON string into a PHP value</li>
-<li>Alter::JSON_STRINGIFY — Encodes a value into a JSON string</li>
-<li>Alter::URL            — Generates a URL based on document properties</li>
-<li>Alter::VALUE          — Replaces the value with a fixed constant</li>
-</ul>
-</section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$key</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The name of the property to alter (e.g. 'price', 'tags')</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$document</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|object</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The document (array or object) passed by reference</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$definition</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, mixed&gt;</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The alteration definition: either a string (<code class="prettyprint">Alter::</code>) or an array (<code class="prettyprint">[ Alter::X , ...args ]</code>)</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$isArray</span>
-                : <span class="phpdocumentor-signature__argument__return-type">bool|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Optional flag to indicate the type of document. If null, it will be inferred automatically.</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/oihana-traits-AlterDocumentTrait.html#method_alterProperty#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\DI\DependencyException">DependencyException</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\DI\NotFoundException">NotFoundException</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">example</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$this-&gt;alters =
-[
-    'price'    =&gt; Alter::FLOAT,                         // Casts 'price' to float
-    'tags'     =&gt; [ Alter::ARRAY , Alter::CLEAN ],      // Splits and cleans 'tags'
-    'meta'     =&gt; [ Alter::JSON_PARSE ],                // Parses 'meta' JSON string
-    'url'      =&gt; [ Alter::URL , '/product/' ],         // Generates a product URL
-    'discount' =&gt; [ Alter::CALL , fn($v) =&gt; $v * 0.9 ], // Applies a callable
-    'rating'   =&gt; [ Alter::VALUE , 5 ]                  // Fixed value replacement
-];
-
-$document =
-[
-    'price'    =&gt; '29.90',
-    'tags'     =&gt; 'a;;b;',
-    'meta'     =&gt; '{&quot;active&quot;:true}',
-    'url'      =&gt; '123',
-    'discount' =&gt; 100,
-    'rating'   =&gt; 0,
-];
-
-$result = $this-&gt;alterProperty('price', $document, Alter::FLOAT, true);
-// Returns the document with 'price' casted to float (29.9)
-</code></pre>
-</section>
-
-                                    </dd>
-                                            </dl>
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|object</span>
-                    &mdash;
-                <section class="phpdocumentor-description"><p>The altered document (same reference type as input)</p>
-</section>
-
-            </section>
-
-</article>
                     <article
         class="phpdocumentor-element
             -method
@@ -1152,6 +508,79 @@ $result = $this-&gt;alterProperty('price', $document, Alter::FLOAT, true);
     
 
     
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_createUser">
+        createUser()
+        <a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_createUser" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlUserTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlusertrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlUserTrait.php">MysqlUserTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">21</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Creates a new MySQL user with a password.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">createUser</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$username</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$host</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$password</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$username</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The username to create.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$host</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The host (default: 'localhost').</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$password</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The password for the user.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True on success, false otherwise.</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1648,23 +1077,23 @@ if a schema class is defined and exists.</p>
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_prepareBindVars">
-        prepareBindVars()
-        <a href="classes/oihana-traits-BindsTrait.html#method_prepareBindVars" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_renameUser">
+        renameUser()
+        <a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_renameUser" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/BindsTrait.php"><a href="files/src-oihana-traits-bindstrait.html"><abbr title="src/oihana/traits/BindsTrait.php">BindsTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlUserTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlusertrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlUserTrait.php">MysqlUserTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">47</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Prepares the binding parameters to inject in a PDO statement.</p>
+        <p class="phpdocumentor-summary">Renames an existing MySQL user.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">prepareBindVars</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">renameUser</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$fromUser</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$fromHost</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$toUser</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$toHost</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1673,11 +1102,38 @@ if a schema class is defined and exists.</p>
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$init</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+                <span class="phpdocumentor-signature__argument__name">$fromUser</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The binding parameters to push in the default binds associative array definition.</p>
+                    <section class="phpdocumentor-description"><p>Current username.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$fromHost</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Current host.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$toUser</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>New username.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$toHost</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>New host.</p>
 </section>
 
             </dd>
@@ -1689,9 +1145,265 @@ if a schema class is defined and exists.</p>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True on success, false otherwise.</p>
+</section>
+
             </section>
 
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_userDrop">
+        userDrop()
+        <a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_userDrop" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlUserTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlusertrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlUserTrait.php">MysqlUserTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">66</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Drops a MySQL user if it exists.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">userDrop</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$username</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$host</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$username</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The username to drop.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$host</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The host (default: 'localhost').</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True on success, false otherwise.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_userExists">
+        userExists()
+        <a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_userExists" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlUserTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlusertrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlUserTrait.php">MysqlUserTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">80</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Checks if a MySQL user exists.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">userExists</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$username</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$host</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$username</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Username to check.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$host</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Host (default: 'localhost').</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if the user exists.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_assertHost">
+        assertHost()
+        <a href="classes/oihana-db-mysql-traits-MysqlAssertionsTrait.html#method_assertHost" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlAssertionsTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlassertionstrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlAssertionsTrait.php">MysqlAssertionsTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">31</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Validates a host string (letters, numbers, dots, hyphens).</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">assertHost</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$host</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$host</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-db-mysql-traits-MysqlAssertionsTrait.html#method_assertHost#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\InvalidArgumentException">InvalidArgumentException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>if invalid</p>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_assertIdentifier">
+        assertIdentifier()
+        <a href="classes/oihana-db-mysql-traits-MysqlAssertionsTrait.html#method_assertIdentifier" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlAssertionsTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlassertionstrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlAssertionsTrait.php">MysqlAssertionsTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">16</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Validates a database/user identifier (letters, numbers, underscores only).</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">assertIdentifier</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-db-mysql-traits-MysqlAssertionsTrait.html#method_assertIdentifier#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\InvalidArgumentException">InvalidArgumentException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>if invalid</p>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+    
 </article>
             </section>
 
@@ -1699,7 +1411,7 @@ if a schema class is defined and exists.</p>
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/models/pdo/PDOTrait.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/db/mysql/traits/MysqlUserTrait.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -1798,16 +1510,13 @@ if a schema class is defined and exists.</p>
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                            <li><a href="classes/oihana-models-pdo-PDOTrait.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/oihana-models-pdo-PDOTrait.html#toc-methods">Methods</a></li>
+                                                            <li><a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
                                     <li class="phpdocumentor-on-this-page-section__title">Properties</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-traits-AlterDocumentTrait.html#property_alters">$alters</a></li>
-                                            <li class=""><a href="classes/oihana-traits-BindsTrait.html#property_binds">$binds</a></li>
-                                            <li class=""><a href="classes/oihana-traits-ContainerTrait.html#property_container">$container</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#property_deferAssignment">$deferAssignment</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#property_pdo">$pdo</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#property_schema">$schema</a></li>
@@ -1816,11 +1525,8 @@ if a schema class is defined and exists.</p>
                                     <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-traits-AlterDocumentTrait.html#method_alter">alter()</a></li>
-                                            <li class=""><a href="classes/oihana-traits-AlterDocumentTrait.html#method_alterAssociativeArray">alterAssociativeArray()</a></li>
-                                            <li class=""><a href="classes/oihana-traits-AlterDocumentTrait.html#method_alterObject">alterObject()</a></li>
-                                            <li class=""><a href="classes/oihana-traits-AlterDocumentTrait.html#method_alterProperty">alterProperty()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_bindValues">bindValues()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_createUser">createUser()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_fetch">fetch()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_fetchAll">fetchAll()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_fetchColumn">fetchColumn()</a></li>
@@ -1828,7 +1534,11 @@ if a schema class is defined and exists.</p>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_initializeDefaultFetchMode">initializeDefaultFetchMode()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_initPDO">initPDO()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_isConnected">isConnected()</a></li>
-                                            <li class=""><a href="classes/oihana-traits-BindsTrait.html#method_prepareBindVars">prepareBindVars()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_renameUser">renameUser()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_userDrop">userDrop()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_userExists">userExists()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlAssertionsTrait.html#method_assertHost">assertHost()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlAssertionsTrait.html#method_assertIdentifier">assertIdentifier()</a></li>
                                     </ul>
             </li>
                     </ul>
@@ -1848,7 +1558,7 @@ if a schema class is defined and exists.</p>
     </section>
 </section>
         </div>
-        <a href="classes/oihana-models-pdo-PDOTrait.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

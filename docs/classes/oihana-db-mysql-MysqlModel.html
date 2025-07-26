@@ -146,6 +146,9 @@
     
     
     
+            <span class="phpdocumentor-element__extends">
+            uses
+                            <a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html"><abbr title="\oihana\db\mysql\traits\MysqlDatabaseTrait">MysqlDatabaseTrait</abbr></a>,                             <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html"><abbr title="\oihana\db\mysql\traits\MysqlPrivilegeTrait">MysqlPrivilegeTrait</abbr></a>,                             <a href="classes/oihana-db-mysql-traits-MysqlTableTrait.html"><abbr title="\oihana\db\mysql\traits\MysqlTableTrait">MysqlTableTrait</abbr></a>,                             <a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html"><abbr title="\oihana\db\mysql\traits\MysqlUserTrait">MysqlUserTrait</abbr></a>                    </span>
     </h2>
 
 <div class="phpdocumentor-label-line">
@@ -308,11 +311,11 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-db-mysql-MysqlModel.html#method___construct">__construct()</a>
+    <a class="" href="classes/oihana-models-pdo-PDOModel.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Creates a new MysqlModel instance.</dd>
+<dd>Creates a new PDOModel instance.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-traits-ToStringTrait.html#method___toString">__toString()</a>
@@ -329,39 +332,39 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
 <dd>Bind named parameters to a prepared PDO statement.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-db-mysql-MysqlModel.html#method_createDatabase">createDatabase()</a>
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_createDatabase">createDatabase()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Creates a new MySQL database with given charset and collation.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-db-mysql-MysqlModel.html#method_createUser">createUser()</a>
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_createUser">createUser()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Creates a new MySQL user with a password.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-db-mysql-MysqlModel.html#method_databaseExists">databaseExists()</a>
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_databaseExists">databaseExists()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Checks if a MySQL database exists.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-db-mysql-MysqlModel.html#method_dropDatabase">dropDatabase()</a>
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_dropDatabase">dropDatabase()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Drops a database if it exists.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-db-mysql-MysqlModel.html#method_dropUser">dropUser()</a>
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_dropTable">dropTable()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Drops a MySQL user if it exists.</dd>
+<dd>Drops a table in the current database.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-models-pdo-PDOModel.html#method_fetch">fetch()</a>
@@ -389,28 +392,49 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
 <dd>Fetch a list of single-column results.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-db-mysql-MysqlModel.html#method_flushPrivileges">flushPrivileges()</a>
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_flushPrivileges">flushPrivileges()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Flushes MySQL privileges.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-db-mysql-MysqlModel.html#method_getGrants">getGrants()</a>
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_getDatabaseCharset">getDatabaseCharset()</a>
+    <span>
+                                &nbsp;: array{Charset: string, Collation: string}|null    </span>
+</dt>
+<dd>Returns the default character set and collation of a database.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_getDatabaseSize">getDatabaseSize()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+<dd>Returns the size of a database in bytes.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_getGrants">getGrants()</a>
     <span>
                                 &nbsp;: array&lt;int, string&gt;    </span>
 </dt>
 <dd>Retrieves all GRANT statements for a given user.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-db-mysql-MysqlModel.html#method_grantPrivileges">grantPrivileges()</a>
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_getTableSize">getTableSize()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+<dd>Returns the size of a table in bytes.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_grantPrivileges">grantPrivileges()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Grants all privileges on a database to a user.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-db-mysql-MysqlModel.html#method_hasPrivilege">hasPrivilege()</a>
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasPrivilege">hasPrivilege()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
@@ -438,6 +462,13 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
 <dd>Initialize the PDO instance from a config array or dependency injection container.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-models-pdo-PDOTrait.html#method_isConnected">isConnected()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Indicates if the PDO is connected.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-traits-DebugTrait.html#method_isMock">isMock()</a>
     <span>
                                 &nbsp;: bool    </span>
@@ -445,32 +476,88 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
 <dd>Indicates if the document use the mock mode.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-db-mysql-MysqlModel.html#method_listPrivileges">listPrivileges()</a>
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_listCurrentTables">listCurrentTables()</a>
+    <span>
+                                &nbsp;: array&lt;int, string&gt;    </span>
+</dt>
+<dd>Lists all tables in the current database.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_listDatabases">listDatabases()</a>
+    <span>
+                                &nbsp;: array&lt;int, string&gt;    </span>
+</dt>
+<dd>Lists all available databases.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_listPrivileges">listPrivileges()</a>
     <span>
                                 &nbsp;: array&lt;string, array&lt;string|int, string&gt;&gt;    </span>
 </dt>
 <dd>Lists parsed privileges granted to a user.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-db-mysql-MysqlModel.html#method_renameUser">renameUser()</a>
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_optimizeDatabase">optimizeDatabase()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Optimizes all tables in a database.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_optimizeTable">optimizeTable()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Optimizes a table.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_renameTable">renameTable()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Renames a table in the current database.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_renameUser">renameUser()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Renames an existing MySQL user.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-db-mysql-MysqlModel.html#method_revokePrivilege">revokePrivilege()</a>
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_repairDatabase">repairDatabase()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Repairs all tables in a database.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_repairTable">repairTable()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Repairs a table.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_revokePrivilege">revokePrivilege()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Revokes specific privileges from a user on a database or table.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-db-mysql-MysqlModel.html#method_revokePrivileges">revokePrivileges()</a>
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_revokePrivileges">revokePrivileges()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Revokes all privileges from a user on a specific database.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_tableExists">tableExists()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Checks if a table exists in the current database.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-db-mysql-MysqlModel.html#method_toArray">toArray()</a>
@@ -480,25 +567,18 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
 <dd>Dumps current users and databases into a structured array.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-db-mysql-MysqlModel.html#method_userExists">userExists()</a>
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_userDrop">userDrop()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Drops a MySQL user if it exists.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_userExists">userExists()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Checks if a MySQL user exists.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a class="" href="classes/oihana-db-mysql-MysqlModel.html#method_assertHost">assertHost()</a>
-    <span>
-                                &nbsp;: void    </span>
-</dt>
-<dd>Validates a host string (letters, numbers, dots, hyphens).</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a class="" href="classes/oihana-db-mysql-MysqlModel.html#method_assertIdentifier">assertIdentifier()</a>
-    <span>
-                                &nbsp;: void    </span>
-</dt>
-<dd>Validates a database/user identifier (letters, numbers, underscores only).</dd>
 
     </dl>
 
@@ -610,7 +690,7 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">46</span>
 
     </aside>
 
@@ -690,7 +770,7 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">51</span>
+    <span class="phpdocumentor-element-found-in__line">52</span>
 
     </aside>
 
@@ -729,7 +809,7 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">57</span>
+    <span class="phpdocumentor-element-found-in__line">58</span>
 
     </aside>
 
@@ -767,26 +847,28 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
 >
     <h4 class="phpdocumentor-element__name" id="method___construct">
         __construct()
-        <a href="classes/oihana-db-mysql-MysqlModel.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-models-pdo-PDOModel.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlModel.php"><a href="files/src-oihana-db-mysql-mysqlmodel.html"><abbr title="src/oihana/db/mysql/MysqlModel.php">MysqlModel.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOModel.php"><a href="files/src-oihana-models-pdo-pdomodel.html"><abbr title="src/oihana/models/pdo/PDOModel.php">PDOModel.php</abbr></a></abbr>
     :
     <span class="phpdocumentor-element-found-in__line">77</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Creates a new MysqlModel instance.</p>
+        <p class="phpdocumentor-summary">Creates a new PDOModel instance.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DI\Container">Container</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DI\Container">Container</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="array{alters: array|null, binds: array|null, deferAssignment: bool|null, schema: string|null, pdo: \PDO|string|null}">PDO|string|null}</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>Sets internal properties from the provided configuration array and initializes logger, mock, and PDO.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -800,7 +882,7 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$init</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="array{alters: array|null, binds: array|null, deferAssignment: bool|null, schema: string|null, pdo: \PDO|string|null}">PDO|string|null}</abbr></span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>Optional initialization array with keys:</p>
@@ -819,7 +901,7 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-db-mysql-MysqlModel.html#method___construct#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-models-pdo-PDOModel.html#method___construct#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -829,7 +911,9 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
                                                             
-                                             
+                                                 <section class="phpdocumentor-description"><p>If container service retrieval fails.</p>
+</section>
+
                                     </dd>
                             <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">throws</span>
@@ -837,7 +921,9 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
                                                             
-                                             
+                                                 <section class="phpdocumentor-description"><p>If container service not found.</p>
+</section>
+
                                     </dd>
                                             </dl>
 
@@ -917,7 +1003,7 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">68</span>
+    <span class="phpdocumentor-element-found-in__line">69</span>
 
     </aside>
 
@@ -971,13 +1057,13 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
 >
     <h4 class="phpdocumentor-element__name" id="method_createDatabase">
         createDatabase()
-        <a href="classes/oihana-db-mysql-MysqlModel.html#method_createDatabase" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_createDatabase" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlModel.php"><a href="files/src-oihana-db-mysql-mysqlmodel.html"><abbr title="src/oihana/db/mysql/MysqlModel.php">MysqlModel.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">90</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 
     </aside>
 
@@ -1044,13 +1130,13 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
 >
     <h4 class="phpdocumentor-element__name" id="method_createUser">
         createUser()
-        <a href="classes/oihana-db-mysql-MysqlModel.html#method_createUser" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_createUser" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlModel.php"><a href="files/src-oihana-db-mysql-mysqlmodel.html"><abbr title="src/oihana/db/mysql/MysqlModel.php">MysqlModel.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlUserTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlusertrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlUserTrait.php">MysqlUserTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">111</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 
     </aside>
 
@@ -1117,13 +1203,13 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
 >
     <h4 class="phpdocumentor-element__name" id="method_databaseExists">
         databaseExists()
-        <a href="classes/oihana-db-mysql-MysqlModel.html#method_databaseExists" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_databaseExists" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlModel.php"><a href="files/src-oihana-db-mysql-mysqlmodel.html"><abbr title="src/oihana/db/mysql/MysqlModel.php">MysqlModel.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">138</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
     </aside>
 
@@ -1172,13 +1258,13 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
 >
     <h4 class="phpdocumentor-element__name" id="method_dropDatabase">
         dropDatabase()
-        <a href="classes/oihana-db-mysql-MysqlModel.html#method_dropDatabase" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_dropDatabase" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlModel.php"><a href="files/src-oihana-db-mysql-mysqlmodel.html"><abbr title="src/oihana/db/mysql/MysqlModel.php">MysqlModel.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">161</span>
+    <span class="phpdocumentor-element-found-in__line">64</span>
 
     </aside>
 
@@ -1225,23 +1311,23 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_dropUser">
-        dropUser()
-        <a href="classes/oihana-db-mysql-MysqlModel.html#method_dropUser" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_dropTable">
+        dropTable()
+        <a href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_dropTable" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlModel.php"><a href="files/src-oihana-db-mysql-mysqlmodel.html"><abbr title="src/oihana/db/mysql/MysqlModel.php">MysqlModel.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlTableTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqltabletrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlTableTrait.php">MysqlTableTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">174</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Drops a MySQL user if it exists.</p>
+        <p class="phpdocumentor-summary">Drops a table in the current database.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">dropUser</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$username</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$host</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+                    <span class="phpdocumentor-signature__name">dropTable</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$table</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1250,20 +1336,11 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$username</span>
+                <span class="phpdocumentor-signature__argument__name">$table</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The username to drop.</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$host</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The host (default: 'localhost').</p>
+                    <section class="phpdocumentor-description"><p>Table name.</p>
 </section>
 
             </dd>
@@ -1277,7 +1354,7 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>True on success, false otherwise.</p>
+                <section class="phpdocumentor-description"><p>True on success.</p>
 </section>
 
             </section>
@@ -1467,7 +1544,7 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">209</span>
+    <span class="phpdocumentor-element-found-in__line">210</span>
 
     </aside>
 
@@ -1521,13 +1598,13 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
 >
     <h4 class="phpdocumentor-element__name" id="method_flushPrivileges">
         flushPrivileges()
-        <a href="classes/oihana-db-mysql-MysqlModel.html#method_flushPrivileges" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_flushPrivileges" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlModel.php"><a href="files/src-oihana-db-mysql-mysqlmodel.html"><abbr title="src/oihana/db/mysql/MysqlModel.php">MysqlModel.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlprivilegetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php">MysqlPrivilegeTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">253</span>
+    <span class="phpdocumentor-element-found-in__line">113</span>
 
     </aside>
 
@@ -1564,15 +1641,140 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getGrants">
-        getGrants()
-        <a href="classes/oihana-db-mysql-MysqlModel.html#method_getGrants" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_getDatabaseCharset">
+        getDatabaseCharset()
+        <a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_getDatabaseCharset" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlModel.php"><a href="files/src-oihana-db-mysql-mysqlmodel.html"><abbr title="src/oihana/db/mysql/MysqlModel.php">MysqlModel.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">265</span>
+    <span class="phpdocumentor-element-found-in__line">78</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the default character set and collation of a database.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getDatabaseCharset</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dbname</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array{Charset: string, Collation: string}|null</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$dbname</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_getDatabaseCharset#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array{Charset: string, Collation: string}|null</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getDatabaseSize">
+        getDatabaseSize()
+        <a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_getDatabaseSize" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">97</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the size of a database in bytes.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getDatabaseSize</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dbname</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$dbname</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">int</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Size in bytes.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getGrants">
+        getGrants()
+        <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_getGrants" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlprivilegetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php">MysqlPrivilegeTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">88</span>
 
     </aside>
 
@@ -1628,15 +1830,70 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_grantPrivileges">
-        grantPrivileges()
-        <a href="classes/oihana-db-mysql-MysqlModel.html#method_grantPrivileges" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_getTableSize">
+        getTableSize()
+        <a href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_getTableSize" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlModel.php"><a href="files/src-oihana-db-mysql-mysqlmodel.html"><abbr title="src/oihana/db/mysql/MysqlModel.php">MysqlModel.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlTableTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqltabletrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlTableTrait.php">MysqlTableTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">189</span>
+    <span class="phpdocumentor-element-found-in__line">85</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the size of a table in bytes.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getTableSize</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$table</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$table</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Table name.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">int</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Table size in bytes.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_grantPrivileges">
+        grantPrivileges()
+        <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_grantPrivileges" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlprivilegetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php">MysqlPrivilegeTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">22</span>
 
     </aside>
 
@@ -1703,13 +1960,13 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
 >
     <h4 class="phpdocumentor-element__name" id="method_hasPrivilege">
         hasPrivilege()
-        <a href="classes/oihana-db-mysql-MysqlModel.html#method_hasPrivilege" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasPrivilege" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlModel.php"><a href="files/src-oihana-db-mysql-mysqlmodel.html"><abbr title="src/oihana/db/mysql/MysqlModel.php">MysqlModel.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlprivilegetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php">MysqlPrivilegeTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">208</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
     </aside>
 
@@ -1800,7 +2057,7 @@ $model-&gt;createUser('admin', 'localhost', 'strongpass');
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">263</span>
+    <span class="phpdocumentor-element-found-in__line">264</span>
 
     </aside>
 
@@ -1899,7 +2156,7 @@ if a schema class is defined and exists.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">244</span>
+    <span class="phpdocumentor-element-found-in__line">245</span>
 
     </aside>
 
@@ -1978,6 +2235,45 @@ if a schema class is defined and exists.</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_isConnected">
+        isConnected()
+        <a href="classes/oihana-models-pdo-PDOTrait.html#method_isConnected" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">285</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Indicates if the PDO is connected.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">isConnected</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_isMock">
         isMock()
         <a href="classes/oihana-traits-DebugTrait.html#method_isMock" class="headerlink"><i class="fas fa-link"></i></a>
@@ -2027,15 +2323,123 @@ if a schema class is defined and exists.</p>
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_listPrivileges">
-        listPrivileges()
-        <a href="classes/oihana-db-mysql-MysqlModel.html#method_listPrivileges" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_listCurrentTables">
+        listCurrentTables()
+        <a href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_listCurrentTables" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlModel.php"><a href="files/src-oihana-db-mysql-mysqlmodel.html"><abbr title="src/oihana/db/mysql/MysqlModel.php">MysqlModel.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlTableTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqltabletrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlTableTrait.php">MysqlTableTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">309</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Lists all tables in the current database.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">listCurrentTables</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$throwable</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;int, string&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$throwable</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;int, string&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Array of table names.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_listDatabases">
+        listDatabases()
+        <a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_listDatabases" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">114</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Lists all available databases.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">listDatabases</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$excludeSystem</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;int, string&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$excludeSystem</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Exclude system databases like 'information_schema', 'mysql', etc.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;int, string&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>List of database names.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_listPrivileges">
+        listPrivileges()
+        <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_listPrivileges" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlprivilegetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php">MysqlPrivilegeTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">144</span>
 
     </aside>
 
@@ -2074,7 +2478,7 @@ if a schema class is defined and exists.</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-db-mysql-MysqlModel.html#method_listPrivileges#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_listPrivileges#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -2122,15 +2526,187 @@ foreach ( $list as $scope =&gt; $rights)
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_renameUser">
-        renameUser()
-        <a href="classes/oihana-db-mysql-MysqlModel.html#method_renameUser" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_optimizeDatabase">
+        optimizeDatabase()
+        <a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_optimizeDatabase" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlModel.php"><a href="files/src-oihana-db-mysql-mysqlmodel.html"><abbr title="src/oihana/db/mysql/MysqlModel.php">MysqlModel.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">352</span>
+    <span class="phpdocumentor-element-found-in__line">139</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Optimizes all tables in a database.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">optimizeDatabase</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dbname</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$dbname</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if all tables optimized successfully.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_optimizeTable">
+        optimizeTable()
+        <a href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_optimizeTable" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlTableTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqltabletrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlTableTrait.php">MysqlTableTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">102</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Optimizes a table.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">optimizeTable</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$table</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$table</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Table name.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True on success.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_renameTable">
+        renameTable()
+        <a href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_renameTable" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlTableTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqltabletrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlTableTrait.php">MysqlTableTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">116</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Renames a table in the current database.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">renameTable</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$from</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$to</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$from</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Current table name.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$to</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>New table name.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if renamed successfully.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_renameUser">
+        renameUser()
+        <a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_renameUser" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlUserTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlusertrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlUserTrait.php">MysqlUserTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">47</span>
 
     </aside>
 
@@ -2185,28 +2761,6 @@ foreach ( $list as $scope =&gt; $rights)
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/oihana-db-mysql-MysqlModel.html#method_renameUser#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">example</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$grants = $model-&gt;getGrants('user1', 'localhost');
-
-foreach ( $grants as $grant )
-{
-    echo $grant . PHP_EOL;
-}
-</code></pre>
-</section>
-
-                                    </dd>
-                                            </dl>
 
     
 
@@ -2226,15 +2780,123 @@ foreach ( $grants as $grant )
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_revokePrivilege">
-        revokePrivilege()
-        <a href="classes/oihana-db-mysql-MysqlModel.html#method_revokePrivilege" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_repairDatabase">
+        repairDatabase()
+        <a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_repairDatabase" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlModel.php"><a href="files/src-oihana-db-mysql-mysqlmodel.html"><abbr title="src/oihana/db/mysql/MysqlModel.php">MysqlModel.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">385</span>
+    <span class="phpdocumentor-element-found-in__line">163</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Repairs all tables in a database.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">repairDatabase</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dbname</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$dbname</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if all tables repaired successfully.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_repairTable">
+        repairTable()
+        <a href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_repairTable" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlTableTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqltabletrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlTableTrait.php">MysqlTableTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">131</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Repairs a table.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">repairTable</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$table</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$table</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Table name.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True on success.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_revokePrivilege">
+        revokePrivilege()
+        <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_revokePrivilege" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlprivilegetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php">MysqlPrivilegeTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">190</span>
 
     </aside>
 
@@ -2300,7 +2962,7 @@ foreach ( $grants as $grant )
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-db-mysql-MysqlModel.html#method_revokePrivilege#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_revokePrivilege#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -2344,13 +3006,13 @@ foreach ( $grants as $grant )
 >
     <h4 class="phpdocumentor-element__name" id="method_revokePrivileges">
         revokePrivileges()
-        <a href="classes/oihana-db-mysql-MysqlModel.html#method_revokePrivileges" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_revokePrivileges" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlModel.php"><a href="files/src-oihana-db-mysql-mysqlmodel.html"><abbr title="src/oihana/db/mysql/MysqlModel.php">MysqlModel.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlprivilegetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php">MysqlPrivilegeTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">425</span>
+    <span class="phpdocumentor-element-found-in__line">230</span>
 
     </aside>
 
@@ -2415,6 +3077,61 @@ foreach ( $grants as $grant )
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_tableExists">
+        tableExists()
+        <a href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_tableExists" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlTableTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqltabletrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlTableTrait.php">MysqlTableTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">58</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Checks if a table exists in the current database.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">tableExists</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$table</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$table</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Table name.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if the table exists.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_toArray">
         toArray()
         <a href="classes/oihana-db-mysql-MysqlModel.html#method_toArray" class="headerlink"><i class="fas fa-link"></i></a>
@@ -2423,7 +3140,7 @@ foreach ( $grants as $grant )
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlModel.php"><a href="files/src-oihana-db-mysql-mysqlmodel.html"><abbr title="src/oihana/db/mysql/MysqlModel.php">MysqlModel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">443</span>
+    <span class="phpdocumentor-element-found-in__line">75</span>
 
     </aside>
 
@@ -2477,15 +3194,79 @@ foreach ( $grants as $grant )
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_userExists">
-        userExists()
-        <a href="classes/oihana-db-mysql-MysqlModel.html#method_userExists" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_userDrop">
+        userDrop()
+        <a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_userDrop" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlModel.php"><a href="files/src-oihana-db-mysql-mysqlmodel.html"><abbr title="src/oihana/db/mysql/MysqlModel.php">MysqlModel.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlUserTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlusertrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlUserTrait.php">MysqlUserTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">459</span>
+    <span class="phpdocumentor-element-found-in__line">66</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Drops a MySQL user if it exists.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">userDrop</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$username</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$host</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$username</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The username to drop.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$host</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The host (default: 'localhost').</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True on success, false otherwise.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_userExists">
+        userExists()
+        <a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_userExists" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlUserTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlusertrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlUserTrait.php">MysqlUserTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">80</span>
 
     </aside>
 
@@ -2534,130 +3315,6 @@ foreach ( $grants as $grant )
 
             </section>
 
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_assertHost">
-        assertHost()
-        <a href="classes/oihana-db-mysql-MysqlModel.html#method_assertHost" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlModel.php"><a href="files/src-oihana-db-mysql-mysqlmodel.html"><abbr title="src/oihana/db/mysql/MysqlModel.php">MysqlModel.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">505</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Validates a host string (letters, numbers, dots, hyphens).</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">assertHost</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$host</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$host</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/oihana-db-mysql-MysqlModel.html#method_assertHost#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\InvalidArgumentException">InvalidArgumentException</abbr></span>
-                                                            
-                                                 <section class="phpdocumentor-description"><p>if invalid</p>
-</section>
-
-                                    </dd>
-                                            </dl>
-
-    
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_assertIdentifier">
-        assertIdentifier()
-        <a href="classes/oihana-db-mysql-MysqlModel.html#method_assertIdentifier" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/MysqlModel.php"><a href="files/src-oihana-db-mysql-mysqlmodel.html"><abbr title="src/oihana/db/mysql/MysqlModel.php">MysqlModel.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">490</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Validates a database/user identifier (letters, numbers, underscores only).</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">assertIdentifier</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$name</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/oihana-db-mysql-MysqlModel.html#method_assertIdentifier#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\InvalidArgumentException">InvalidArgumentException</abbr></span>
-                                                            
-                                                 <section class="phpdocumentor-description"><p>if invalid</p>
-</section>
-
-                                    </dd>
-                                            </dl>
-
-    
-
-    
 </article>
             </section>
 
@@ -2784,34 +3441,45 @@ foreach ( $grants as $grant )
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-db-mysql-MysqlModel.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/oihana-models-pdo-PDOModel.html#method___construct">__construct()</a></li>
                                             <li class=""><a href="classes/oihana-traits-ToStringTrait.html#method___toString">__toString()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_bindValues">bindValues()</a></li>
-                                            <li class=""><a href="classes/oihana-db-mysql-MysqlModel.html#method_createDatabase">createDatabase()</a></li>
-                                            <li class=""><a href="classes/oihana-db-mysql-MysqlModel.html#method_createUser">createUser()</a></li>
-                                            <li class=""><a href="classes/oihana-db-mysql-MysqlModel.html#method_databaseExists">databaseExists()</a></li>
-                                            <li class=""><a href="classes/oihana-db-mysql-MysqlModel.html#method_dropDatabase">dropDatabase()</a></li>
-                                            <li class=""><a href="classes/oihana-db-mysql-MysqlModel.html#method_dropUser">dropUser()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_createDatabase">createDatabase()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_createUser">createUser()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_databaseExists">databaseExists()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_dropDatabase">dropDatabase()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_dropTable">dropTable()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOModel.html#method_fetch">fetch()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOModel.html#method_fetchAll">fetchAll()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOModel.html#method_fetchColumn">fetchColumn()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_fetchColumnArray">fetchColumnArray()</a></li>
-                                            <li class=""><a href="classes/oihana-db-mysql-MysqlModel.html#method_flushPrivileges">flushPrivileges()</a></li>
-                                            <li class=""><a href="classes/oihana-db-mysql-MysqlModel.html#method_getGrants">getGrants()</a></li>
-                                            <li class=""><a href="classes/oihana-db-mysql-MysqlModel.html#method_grantPrivileges">grantPrivileges()</a></li>
-                                            <li class=""><a href="classes/oihana-db-mysql-MysqlModel.html#method_hasPrivilege">hasPrivilege()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_flushPrivileges">flushPrivileges()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_getDatabaseCharset">getDatabaseCharset()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_getDatabaseSize">getDatabaseSize()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_getGrants">getGrants()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_getTableSize">getTableSize()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_grantPrivileges">grantPrivileges()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasPrivilege">hasPrivilege()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_initializeDefaultFetchMode">initializeDefaultFetchMode()</a></li>
                                             <li class=""><a href="classes/oihana-traits-DebugTrait.html#method_initializeMock">initializeMock()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_initPDO">initPDO()</a></li>
+                                            <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_isConnected">isConnected()</a></li>
                                             <li class=""><a href="classes/oihana-traits-DebugTrait.html#method_isMock">isMock()</a></li>
-                                            <li class=""><a href="classes/oihana-db-mysql-MysqlModel.html#method_listPrivileges">listPrivileges()</a></li>
-                                            <li class=""><a href="classes/oihana-db-mysql-MysqlModel.html#method_renameUser">renameUser()</a></li>
-                                            <li class=""><a href="classes/oihana-db-mysql-MysqlModel.html#method_revokePrivilege">revokePrivilege()</a></li>
-                                            <li class=""><a href="classes/oihana-db-mysql-MysqlModel.html#method_revokePrivileges">revokePrivileges()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_listCurrentTables">listCurrentTables()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_listDatabases">listDatabases()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_listPrivileges">listPrivileges()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_optimizeDatabase">optimizeDatabase()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_optimizeTable">optimizeTable()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_renameTable">renameTable()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_renameUser">renameUser()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_repairDatabase">repairDatabase()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_repairTable">repairTable()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_revokePrivilege">revokePrivilege()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_revokePrivileges">revokePrivileges()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_tableExists">tableExists()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-MysqlModel.html#method_toArray">toArray()</a></li>
-                                            <li class=""><a href="classes/oihana-db-mysql-MysqlModel.html#method_userExists">userExists()</a></li>
-                                            <li class=""><a href="classes/oihana-db-mysql-MysqlModel.html#method_assertHost">assertHost()</a></li>
-                                            <li class=""><a href="classes/oihana-db-mysql-MysqlModel.html#method_assertIdentifier">assertIdentifier()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_userDrop">userDrop()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_userExists">userExists()</a></li>
                                     </ul>
             </li>
                     </ul>

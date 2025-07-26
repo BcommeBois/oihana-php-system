@@ -8,20 +8,76 @@ use PDO;
 
 use oihana\traits\ToStringTrait;
 
+/**
+ * Builds and configures a PDO connection to a MySQL database.
+ *
+ * This class simplifies the creation of a configured `PDO` instance by wrapping
+ * the DSN, authentication credentials, options, and validation logic.
+ *
+ * @example
+ * Basic usage:
+ * ```php
+ * use oihana\db\mysql\MysqlPDOBuilder;
+ *
+ * $pdoBuilder = new MysqlPDOBuilder([
+ *     'host'     => 'localhost',
+ *     'dbname'   => 'test_db',
+ *     'username' => 'root',
+ *     'password' => 'secret',
+ * ]);
+ *
+ * $pdo = $pdoBuilder(); // Returns a configured PDO instance
+ * ```
+ *
+ * Skipping database validation:
+ * ```php
+ * $pdoBuilder = new MysqlPDOBuilder([
+ *     'host'         => 'localhost',
+ *     'username'     => 'admin',
+ *     'skipDbName'   => true,
+ *     'validate'     => false,
+ * ]);
+ *
+ * $pdo = $pdoBuilder(); // No validation performed
+ * ```
+ */
 class MysqlPDOBuilder
 {
+
     /**
-     * Creates a new MySQLPDOBuilder instance.
-     * @param array $init Configuration parameters.
+     * Initializes the builder with given configuration.
+     *
+     * @param array{
+     *     charset    : string|null ,
+     *     dbname     : string|null ,
+     *     host       : string|null ,
+     *     options    : array|null  ,
+     *     password   : string|null ,
+     *     port       : string|null ,
+     *     skipDbName : bool|null   ,
+     *     unixSocket : string|null ,
+     *     username   : string|null ,
+     *     validate   : bool|null
+     * } $init Associative array of connection parameters:
+     * - `host`, `port`, `dbname`, `charset`, `unixSocket` (for DSN)
+     * - `username`, `password` (for credentials)
+     * - `options` (PDO options)
+     * - `skipDbName` (bool)
+     * - `validate` (bool)
+     *
+     * @example
+     * ```php
+     * $builder = new MysqlPDOBuilder([
+     *     'host'     => '127.0.0.1',
+     *     'dbname'   => 'shop',
+     *     'username' => 'admin',
+     *     'password' => '1234',
+     * ]);
+     * ```
      */
     public function __construct( array $init = [] )
     {
-        $this->dsn        = new MySQLDSN( $init ) ;
-        $this->username   = $init[ self::USERNAME ] ?? null ;
-        $this->password   = $init[ self::PASSWORD ] ?? null ;
-        $this->skipDbName = $init[ self::SKIP_DB_NAME ] ?? false ;
-        $this->options    = [ ...self::DEFAULT_OPTIONS , ...( $init[ self::OPTIONS  ] ?? [] ) ] ;
-        $this->validate   = $init[ self::VALIDATE ] ?? true ;
+        $this->set( $init ) ;
     }
 
     public const string OPTIONS      = 'options' ;
@@ -42,8 +98,8 @@ class MysqlPDOBuilder
     use ToStringTrait ;
 
     /**
-     * The DSN wrapper.
-     * @var MySQLDSN
+     * The DSN configuration object.
+     * @var MysqlDSN
      */
     public MySQLDSN $dsn ;
 
@@ -54,32 +110,48 @@ class MysqlPDOBuilder
     public array $options = [];
 
     /**
-     * The user password.
+     * The user password for connection.
      * @var ?string
      */
     public ?string $password ;
 
     /**
-     * Indicates if the validation of the dbname is skipped.
+     * Whether to skip validation of the database name.
      * @var bool
      */
     public bool $skipDbName = false ;
 
     /**
-     * The database user.
+     * Username used for the PDO connection.
      * @var ?string
      */
     public ?string $username ;
 
     /**
-     * If true, the connection will be validated before use.
+     * Whether to perform validation before establishing connection.
      * @var bool
      */
-    public bool $validate = true;
+    public bool $validate = true ;
 
     /**
-     * Returns a PDO instance.
-     * @return ?PDO
+     * Creates and returns a new PDO instance.
+     *
+     * @return ?PDO The PDO connection, or null if validation fails.
+     *
+     * @throws InvalidArgumentException If validation fails.
+     *
+     * @example
+     * ```php
+     * $builder = new MysqlPDOBuilder
+     * ([
+     *     'host'     => 'localhost',
+     *     'dbname'   => 'demo',
+     *     'username' => 'root',
+     *     'password' => 'root',
+     * ]);
+     *
+     * $pdo = $builder();
+     * ```
      */
     public function __invoke(): ?PDO
     {
@@ -87,14 +159,64 @@ class MysqlPDOBuilder
         {
             $this->validate();
         }
+        return $this->createPDO( (string) $this->dsn , $this->username , $this->password , $this->options ) ;
+    }
 
-        return new PDO
-        (
-            (string) $this->dsn,
-            $this->username ,
-            $this->password ,
-            $this->options  ,
-        ) ;
+    /**
+     * The internal PDO maker method.
+     * @param string $dsn
+     * @param string|null $user
+     * @param string|null $pass
+     * @param array $options
+     * @return PDO
+     */
+    protected function createPDO( string $dsn, ?string $user, ?string $pass, array $options ): PDO
+    {
+        return new PDO( $dsn , $user , $pass , $options ) ;
+    }
+
+    /**
+     * Sets the builder with given configuration.
+     *
+     * @param array{
+     *     charset    : string|null ,
+     *     dbname     : string|null ,
+     *     host       : string|null ,
+     *     options    : array|null  ,
+     *     password   : string|null ,
+     *     port       : string|null ,
+     *     skipDbName : bool|null   ,
+     *     unixSocket : string|null ,
+     *     username   : string|null ,
+     *     validate   : bool|null
+     * } $init Associative array of connection parameters:
+     * - `host`, `port`, `dbname`, `charset`, `unixSocket` (for DSN)
+     * - `username`, `password` (for credentials)
+     * - `options` (PDO options)
+     * - `skipDbName` (bool)
+     * - `validate` (bool)
+     *
+     * @example
+     * ```php
+     * $builder = new MysqlPDOBuilder();
+     *
+     * $builder->set
+     * ([
+     *      'host'     => '127.0.0.1',
+     *      'dbname'   => 'shop',
+     *      'username' => 'admin',
+     *      'password' => '1234',
+     *  ]);
+     * ```
+     */
+    public function set( array $init = [] ):void
+    {
+        $this->dsn        = new MySQLDSN( $init ) ;
+        $this->options    = [ ...self::DEFAULT_OPTIONS , ...( $init[ self::OPTIONS  ] ?? [] ) ] ;
+        $this->password   = $init[ self::PASSWORD ] ?? null ;
+        $this->skipDbName = $init[ self::SKIP_DB_NAME ] ?? false ;
+        $this->username   = $init[ self::USERNAME ] ?? null ;
+        $this->validate   = $init[ self::VALIDATE ] ?? true ;
     }
 
     /**
@@ -103,12 +225,13 @@ class MysqlPDOBuilder
      */
     public function toArray(): array
     {
-        return [
+        return
+        [
             'dsn'      => $this->dsn->toArray(),
             'username' => $this->username,
             'password' => str_repeat(Char::ASTERISK , strlen( ( string ) $this->password ) ), // Hidden
-            'options'  => $this->options,
-            'validate' => $this->validate,
+            'options'  => $this->options ,
+            'validate' => $this->validate ,
         ];
     }
 
