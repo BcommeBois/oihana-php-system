@@ -141,6 +141,16 @@ Search.appendIndex(
             "summary": "The\u0020timezone\u0020of\u0020the\u0020date\u0020to\u0020backup\u0020the\u0020database.",
             "url": "classes/oihana-date-traits-DateTrait.html#property_timezone"
         },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlParam",
+            "name": "MysqlParam",
+            "summary": "The\u0020mysql\u0020specific\u0020parameters.",
+            "url": "classes/oihana-db-mysql-enums-MysqlParam.html"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlParamTrait",
+            "name": "MysqlParamTrait",
+            "summary": "The\u0020mysql\u0020specific\u0020parameters.",
+            "url": "classes/oihana-db-mysql-enums-MysqlParamTrait.html"
+        },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlDSN",
             "name": "MysqlDSN",
             "summary": "Represents\u0020a\u0020MySQL\u0020DSN\u0020\u0028Data\u0020Source\u0020Name\u0029\u0020configuration\u0020object.",
@@ -318,22 +328,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlAssertionsTrait",
             "name": "MysqlAssertionsTrait",
-            "summary": "",
+            "summary": "Provides\u0020assertion\u0020methods\u0020to\u0020validate\u0020MySQL\u002Drelated\u0020identifiers\u0020and\u0020hostnames.",
             "url": "classes/oihana-db-mysql-traits-MysqlAssertionsTrait.html"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlAssertionsTrait\u003A\u003AassertIdentifier\u0028\u0029",
             "name": "assertIdentifier",
-            "summary": "Validates\u0020a\u0020database\/user\u0020identifier\u0020\u0028letters,\u0020numbers,\u0020underscores\u0020only\u0029.",
+            "summary": "Validates\u0020a\u0020MySQL\u0020identifier\u0020such\u0020as\u0020a\u0020database\u0020name,\u0020user\u0020name,\u0020or\u0020table\u0020name.",
             "url": "classes/oihana-db-mysql-traits-MysqlAssertionsTrait.html#method_assertIdentifier"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlAssertionsTrait\u003A\u003AassertHost\u0028\u0029",
             "name": "assertHost",
-            "summary": "Validates\u0020a\u0020host\u0020string\u0020\u0028letters,\u0020numbers,\u0020dots,\u0020hyphens\u0029.",
+            "summary": "Validates\u0020a\u0020MySQL\u0020host\u0020string.",
             "url": "classes/oihana-db-mysql-traits-MysqlAssertionsTrait.html#method_assertHost"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlDatabaseTrait",
             "name": "MysqlDatabaseTrait",
-            "summary": "",
+            "summary": "Provides\u0020high\u002Dlevel\u0020operations\u0020for\u0020managing\u0020MySQL\u0020databases.",
             "url": "classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlDatabaseTrait\u003A\u003AcreateDatabase\u0028\u0029",
@@ -378,7 +388,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait",
             "name": "MysqlPrivilegeTrait",
-            "summary": "",
+            "summary": "Provides\u0020methods\u0020to\u0020manage\u0020MySQL\u0020privileges\u0020for\u0020users\u0020on\u0020databases\u0020and\u0020tables.",
             "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003AgrantPrivileges\u0028\u0029",
@@ -416,9 +426,24 @@ Search.appendIndex(
             "summary": "Revokes\u0020all\u0020privileges\u0020from\u0020a\u0020user\u0020on\u0020a\u0020specific\u0020database.",
             "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_revokePrivileges"
         },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlRootTrait",
+            "name": "MysqlRootTrait",
+            "summary": "Provides\u0020support\u0020for\u0020accessing\u0020and\u0020initializing\u0020a\u0020root\u002Dlevel\u0020MySQL\u0020administrative\u0020model,\ntypically\u0020used\u0020to\u0020perform\u0020high\u002Dprivilege\u0020operations\u0020via\u0020a\u0020separate\u0020\u0060MysqlModel\u0060\u0020instance.",
+            "url": "classes/oihana-db-mysql-traits-MysqlRootTrait.html"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlRootTrait\u003A\u003AinitializeMysqlRoot\u0028\u0029",
+            "name": "initializeMysqlRoot",
+            "summary": "Initialize\u0020the\u0020Mysql\u0020model\u0020reference.",
+            "url": "classes/oihana-db-mysql-traits-MysqlRootTrait.html#method_initializeMysqlRoot"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlRootTrait\u003A\u003A\u0024mysqlRoot",
+            "name": "mysqlRoot",
+            "summary": "The\u0020mysql\u0020root\u0020model\u0020reference.",
+            "url": "classes/oihana-db-mysql-traits-MysqlRootTrait.html#property_mysqlRoot"
+        },                {
             "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlTableTrait",
             "name": "MysqlTableTrait",
-            "summary": "",
+            "summary": "Provides\u0020operations\u0020for\u0020managing\u0020and\u0020inspecting\u0020MySQL\u0020tables\u0020in\u0020the\u0020current\u0020database.",
             "url": "classes/oihana-db-mysql-traits-MysqlTableTrait.html"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlTableTrait\u003A\u003AdropTable\u0028\u0029",
@@ -458,12 +483,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlUserTrait",
             "name": "MysqlUserTrait",
-            "summary": "",
+            "summary": "Provides\u0020methods\u0020to\u0020manage\u0020MySQL\u0020users\u0020using\u0020PDO.",
             "url": "classes/oihana-db-mysql-traits-MysqlUserTrait.html"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlUserTrait\u003A\u003AcreateUser\u0028\u0029",
             "name": "createUser",
-            "summary": "Creates\u0020a\u0020new\u0020MySQL\u0020user\u0020with\u0020a\u0020password.",
+            "summary": "Creates\u0020a\u0020new\u0020MySQL\u0020user\u0020with\u0020the\u0020given\u0020username,\u0020host,\u0020and\u0020password.",
             "url": "classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_createUser"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlUserTrait\u003A\u003ArenameUser\u0028\u0029",
@@ -4058,7 +4083,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\traits\\alters\\AlterGetDocumentPropertyTrait",
             "name": "AlterGetDocumentPropertyTrait",
-            "summary": "",
+            "summary": "Provides\u0020logic\u0020to\u0020retrieve\u0020a\u0020document\u0020using\u0020a\u0020Documents\u0020model\u0020based\u0020on\u0020a\u0020given\u0020value\u0020and\u0020definition.",
             "url": "classes/oihana-traits-alters-AlterGetDocumentPropertyTrait.html"
         },                {
             "fqsen": "\\oihana\\traits\\alters\\AlterGetDocumentPropertyTrait\u003A\u003AalterGetDocument\u0028\u0029",
@@ -4108,7 +4133,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\traits\\BindsTrait",
             "name": "BindsTrait",
-            "summary": "",
+            "summary": "Provides\u0020logic\u0020for\u0020managing\u0020bind\u0020parameters\u0020used\u0020in\u0020PDO\u0020statements.",
             "url": "classes/oihana-traits-BindsTrait.html"
         },                {
             "fqsen": "\\oihana\\traits\\BindsTrait\u003A\u003AprepareBindVars\u0028\u0029",
@@ -4445,6 +4470,11 @@ Search.appendIndex(
             "name": "traits",
             "summary": "",
             "url": "namespaces/oihana-date-traits.html"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums",
+            "name": "enums",
+            "summary": "",
+            "url": "namespaces/oihana-db-mysql-enums.html"
         },                {
             "fqsen": "\\oihana\\db\\mysql",
             "name": "mysql",

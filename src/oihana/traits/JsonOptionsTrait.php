@@ -2,8 +2,6 @@
 
 namespace oihana\traits;
 
-use oihana\enums\Param;
-
 trait JsonOptionsTrait
 {
     /**
@@ -13,12 +11,17 @@ trait JsonOptionsTrait
     public int $jsonOptions = JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT ;
 
     /**
+     * The 'jsonOptions' parameter constant.
+     */
+    public const string JSON_OPTIONS = 'jsonOptions' ;
+
+    /**
      * Initialize the documents reference.
      * @param array $init
      * @return void
      */
     protected function initializeJsonOptions( array $init = [] ) :void
     {
-        $this->jsonOptions = $init[ Param::JSON_OPTIONS ] ?? $this->jsonOptions ;
+        $this->jsonOptions = $init[ static::JSON_OPTIONS ] ?? $this->jsonOptions ;
     }
 }

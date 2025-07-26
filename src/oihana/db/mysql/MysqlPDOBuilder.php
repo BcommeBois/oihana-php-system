@@ -40,6 +40,10 @@ use oihana\traits\ToStringTrait;
  *
  * $pdo = $pdoBuilder(); // No validation performed
  * ```
+ *
+ * @package oihana\db\mysql
+ * @author  Marc Alcaraz (ekameleon)
+ * @since   1.0.0
  */
 class MysqlPDOBuilder
 {

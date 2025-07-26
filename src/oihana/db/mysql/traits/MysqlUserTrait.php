@@ -5,18 +5,30 @@ namespace oihana\db\mysql\traits;
 use oihana\models\pdo\PDOTrait;
 use PDOStatement;
 
+/**
+ * Provides methods to manage MySQL users using PDO.
+ * Includes operations for creating, renaming, deleting, and checking the existence of users.
+ *
+ * Requires a connected PDO instance and uses `MysqlAssertionsTrait` for input validation.
+ *
+ * @package oihana\db\mysql\traits
+ * @author  Marc Alcaraz (ekameleon)
+ * @since   1.0.0
+ */
 trait MysqlUserTrait
 {
     use MysqlAssertionsTrait ,
         PDOTrait ;
 
     /**
-     * Creates a new MySQL user with a password.
+     * Creates a new MySQL user with the given username, host, and password.
+     * If the user already exists, the operation has no effect.
      *
-     * @param string $username  The username to create.
-     * @param string $host      The host (default: 'localhost').
-     * @param string $password  The password for the user.
-     * @return bool             True on success, false otherwise.
+     * @param string $username The username to create.
+     * @param string $host     The host from which the user connects (default: 'localhost').
+     * @param string $password The password for the user.
+     *
+     * @return bool True on success, false otherwise.
      */
     public function createUser(string $username , string $host = 'localhost' , string $password = '' ): bool
     {
@@ -38,11 +50,12 @@ trait MysqlUserTrait
     /**
      * Renames an existing MySQL user.
      *
-     * @param string $fromUser  Current username.
-     * @param string $fromHost  Current host.
-     * @param string $toUser    New username.
-     * @param string $toHost    New host.
-     * @return bool             True on success, false otherwise.
+     * @param string $fromUser Current username.
+     * @param string $fromHost Current host.
+     * @param string $toUser   New username.
+     * @param string $toHost   New host.
+     *
+     * @return bool True if the rename operation was successful, false otherwise.
      */
     public function renameUser( string $fromUser , string $fromHost , string $toUser , string $toHost ): bool
     {

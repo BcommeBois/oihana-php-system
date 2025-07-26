@@ -2,12 +2,14 @@
 
 namespace oihana\models\pdo;
 
-use DI\Container;
-use oihana\enums\Param;
-use oihana\models\Model;
 use PDO;
+
+use DI\Container;
+
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
+
+use oihana\models\Model;
 
 /**
  * A base model class that integrates a PDO instance with dependency injection container support.
@@ -77,10 +79,10 @@ class PDOModel extends Model
     public function __construct( Container $container , array $init = [] )
     {
         parent::__construct( $container , $init ) ;
-        $this->alters          = $init[ Param::ALTERS ] ?? $this->alters ;
-        $this->binds           = $init[ Param::BINDS  ] ?? $this->binds ;
-        $this->deferAssignment = $init[ Param::DEFER_ASSIGNMENT ] ?? $this->deferAssignment ;
-        $this->schema          = $init[ Param::SCHEMA ] ?? $this->schema ;
+        $this->alters          = $init[ static::ALTERS ] ?? $this->alters ;
+        $this->binds           = $init[ static::BINDS  ] ?? $this->binds ;
+        $this->deferAssignment = $init[ static::DEFER_ASSIGNMENT ] ?? $this->deferAssignment ;
+        $this->schema          = $init[ static::SCHEMA ] ?? $this->schema ;
         $this->pdo             = $this->initPDO( $init , $container ) ;
     }
 

@@ -6,6 +6,17 @@ use oihana\models\pdo\PDOTrait;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
+/**
+ * Provides high-level operations for managing MySQL databases.
+ * Includes methods to create, drop, inspect, and maintain databases,
+ * as well as retrieve metadata like charset, collation, and size.
+ *
+ * Requires a connected PDO instance and uses helper traits for assertions and bindings.
+ *
+ * @package oihana\db\mysql\traits
+ * @author  Marc Alcaraz (ekameleon)
+ * @since   1.0.0
+ */
 trait MysqlDatabaseTrait
 {
     use MysqlAssertionsTrait ,

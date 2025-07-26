@@ -6,6 +6,16 @@ use oihana\models\pdo\PDOTrait;
 use PDO;
 use PDOException;
 
+/**
+ * Provides methods to manage MySQL privileges for users on databases and tables.
+ * Includes operations to grant, revoke, inspect, and flush privileges, and parse GRANT statements.
+ *
+ * Requires a connected PDO instance and uses `MysqlAssertionsTrait` for input validation.
+ *
+ * @package oihana\db\mysql\traits
+ * @author  Marc Alcaraz (ekameleon)
+ * @since   1.0.0
+ */
 trait MysqlPrivilegeTrait
 {
     use MysqlAssertionsTrait ,

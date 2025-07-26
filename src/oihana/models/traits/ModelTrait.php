@@ -8,7 +8,6 @@ use DI\NotFoundException;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
-use oihana\enums\Param;
 use oihana\models\interfaces\DocumentsModel;
 
 /**
@@ -26,6 +25,11 @@ trait ModelTrait
     public ?DocumentsModel $model = null ;
 
     /**
+     * The 'model' parameter constant.
+     */
+    public const string MODEL = 'model' ;
+
+    /**
      * Initialize the openEdge model.
      * @param array $init
      * @return void
@@ -36,6 +40,6 @@ trait ModelTrait
      */
     protected function initializeModel( array $init = [] ):void
     {
-        $this->model = $this->getDocumentsModel( $init[ Param::MODEL ] ?? $this->model ) ;
+        $this->model = $this->getDocumentsModel( $init[ static::MODEL ] ?? $this->model ) ;
     }
 }

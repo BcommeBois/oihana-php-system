@@ -110,6 +110,11 @@ trait AlterDocumentTrait
     public array $alters = [] ;
 
     /**
+     * The 'alters' constant parameter.
+     */
+    public const string ALTERS = 'alters' ;
+
+    /**
      * Alters the given document (array or object) based on the configured `$alters` definitions.
      *
      * This method determines the structure of the document and applies the appropriate transformation logic:

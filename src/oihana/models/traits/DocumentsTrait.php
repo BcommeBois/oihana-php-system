@@ -7,7 +7,6 @@ use Exception;
 use DI\DependencyException;
 use DI\NotFoundException;
 
-use oihana\enums\Param;
 use oihana\traits\ContainerTrait;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -28,6 +27,21 @@ trait DocumentsTrait
     use ContainerTrait ;
 
     /**
+     * The 'binds' parameter constant.
+     */
+    public const string BINDS = 'binds' ;
+
+    /**
+     * The 'id' constant.
+     */
+    public const string ID = 'id' ;
+
+    /**
+     * The 'key' constant.
+     */
+    public const string KEY = 'key' ;
+
+    /**
      * Assert the existence of a specific property value in a Document model.
      * @param object|string|int|null $document The document to validate.
      * @param ExistModel $model The OpenEdge model reference.
@@ -41,7 +55,7 @@ trait DocumentsTrait
         try
         {
             $id = is_object( $document ) ? $document->{ $key } : $document ;
-            if( ( ( is_string( $id ) && $id != Char::EMPTY ) || is_int( $id ) ) && $model->exist( [ Param::BINDS => [ $key => $id ] ] ) )
+            if( ( ( is_string( $id ) && $id != Char::EMPTY ) || is_int( $id ) ) && $model->exist( [ static::BINDS => [ $key => $id ] ] ) )
             {
                 return ; // exist
             }

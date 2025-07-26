@@ -6,6 +6,16 @@ use oihana\models\pdo\PDOTrait;
 use PDO;
 use PDOException;
 
+/**
+ * Provides operations for managing and inspecting MySQL tables in the current database.
+ * Includes methods for listing, dropping, renaming, optimizing, repairing, and sizing tables.
+ *
+ * Requires a connected PDO instance and uses `MysqlAssertionsTrait` for input validation.
+ *
+ * @package oihana\db\mysql\traits
+ * @author  Marc Alcaraz (ekameleon)
+ * @since   1.0.0
+ */
 trait MysqlTableTrait
 {
     use MysqlAssertionsTrait ,

@@ -23,10 +23,6 @@ use Psr\Container\NotFoundExceptionInterface;
  *
  * Requires a properly connected PDO instance with sufficient privileges.
  *
- * @package oihana\db\mysql
- * @author  Marc Alcaraz (ekameleon)
- * @since   1.0.0
- *
  * @example
  * ```php
  * $model = new MysqlModel();
@@ -46,7 +42,6 @@ use Psr\Container\NotFoundExceptionInterface;
  *
  * // Export the database informations.
  * print_r( $model->toArray() ) ;
- * ```
  *
  * if (!$model->databaseExists('myapp'))
  * {
@@ -57,6 +52,11 @@ use Psr\Container\NotFoundExceptionInterface;
  * {
  *      $model->createUser('admin', 'localhost', 'strongpass');
  * }
+ * ```
+ *
+ * @package oihana\db\mysql
+ * @author  Marc Alcaraz (ekameleon)
+ * @since   1.0.0
  */
 class MysqlModel extends PDOModel
 {

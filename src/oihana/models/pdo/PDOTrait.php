@@ -13,7 +13,6 @@ use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
 use oihana\enums\Char;
-use oihana\enums\Param;
 use oihana\traits\AlterDocumentTrait;
 use oihana\traits\BindsTrait;
 use oihana\traits\ContainerTrait;
@@ -56,6 +55,21 @@ trait PDOTrait
      * @var string|mixed|null
      */
     public ?string $schema = null ;
+
+    /**
+     * The 'deferAssignment' parameter constant.
+     */
+    public const string DEFER_ASSIGNMENT = 'deferAssignment' ;
+
+    /**
+     * The 'pdo' parameter constant.
+     */
+    public const string PDO = 'pdo' ;
+
+    /**
+     * The 'schema' parameter constant.
+     */
+    public const string SCHEMA = 'schema' ;
 
     /**
      * Bind named parameters to a prepared PDO statement.
@@ -235,7 +249,7 @@ trait PDOTrait
     /**
      * Initialize the PDO instance from a config array or dependency injection container.
      *
-     * @param array         $init      Configuration array. Expects Param::PDO as key.
+     * @param array         $init       Configuration array. Expects Param::PDO as key.
      * @param Container|null $container Optional DI container to resolve the PDO service.
      *
      * @return PDO|null                 The resolved PDO instance or null.
@@ -244,7 +258,7 @@ trait PDOTrait
      */
     public function initPDO( array $init = [] , ?Container $container = null ) :?PDO
     {
-        $pdo = $init[ Param::PDO ] ?? null  ;
+        $pdo = $init[ static::PDO ] ?? null  ;
         if( isset( $container ) && is_string( $pdo ) && $container->has( $pdo ) )
         {
             $pdo = $container->get( $pdo ) ;

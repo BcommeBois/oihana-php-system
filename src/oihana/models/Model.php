@@ -9,7 +9,6 @@ use Psr\Log\LoggerInterface;
 
 use DI\Container;
 
-use oihana\enums\Param;
 use oihana\traits\DebugTrait;
 
 /**
@@ -76,7 +75,7 @@ class Model
     public function __construct( Container $container , array $init = [] )
     {
         $this->container = $container ;
-        $this->debug     = $init[ Param::DEBUG  ] ?? $this->debug ;
+        $this->debug     = $init[ static::DEBUG  ] ?? $this->debug ;
         $this->logger    = $this->initLogger( $init , $container ) ;
         $this->mock      = $this->initializeMock( $init ) ;
     }

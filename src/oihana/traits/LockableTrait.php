@@ -2,8 +2,6 @@
 
 namespace oihana\traits;
 
-use oihana\enums\Param;
-
 /**
  * Provides functionality for managing a lockable state within a class.
  * This trait defines a constant and uses a flag to determine whether an instance can be locked.
@@ -16,13 +14,18 @@ trait LockableTrait
     public bool $lockable = false ;
 
     /**
+     * The 'lockable' parameter constant.
+     */
+    public const string LOCKABLE = 'lockable' ;
+
+    /**
      * Initialize the lockable flag.
      * @param array $init
      * @return bool
      */
     protected function initLockable( array $init = [] ) :bool
     {
-        $lockable = $init[ Param::LOCKABLE ] ?? $this->lockable ?? false ;
+        $lockable = $init[ static::LOCKABLE ] ?? $this->lockable ?? false ;
         return is_bool( $lockable ) ? $lockable : false ;
     }
 }

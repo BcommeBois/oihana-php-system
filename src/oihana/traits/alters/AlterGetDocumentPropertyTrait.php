@@ -9,8 +9,33 @@ use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
 use oihana\models\traits\DocumentsTrait;
-use oihana\enums\Param;
 
+/**
+ * Provides logic to retrieve a document using a Documents model based on a given value and definition.
+ * This trait depends on the `DocumentsTrait` to access the document model.
+ *
+ * The main method `alterGetDocument()` is typically used as part of a data transformation or hydration process
+ * where a scalar or identifier is replaced by a fully loaded document instance.
+ *
+ * ### Usage example:
+ *
+ * ```php
+ * class MyMapper {
+ *     use AlterGetDocumentPropertyTrait;
+ * }
+ *
+ * $mapper = new MyMapper();
+ * $doc = $mapper->alterGetDocument(42, ['UserModel', 'id'], $modified);
+ *
+ * if ($modified) {
+ *     echo "Document was loaded successfully.";
+ * }
+ * ```
+ *
+ * @package oihana\traits\alters
+ * @author  Marc Alcaraz (ekameleon)
+ * @since   1.0.0
+ */
 trait AlterGetDocumentPropertyTrait
 {
     use DocumentsTrait ;
@@ -34,7 +59,8 @@ trait AlterGetDocumentPropertyTrait
             if( isset( $model ) )
             {
                 $modified = true ;
-                return $model->get( [ Param::BINDS => [ Param::ID => $value ] ] ) ; // Add the options like Param::CACHEABLE ...
+                $key = $definition[1] ?? static::ID ;
+                return $model->get( [ static::BINDS => [ $key => $value ] ] ) ; // Add the options like Param::CACHEABLE ...
             }
             return $value ;
         }

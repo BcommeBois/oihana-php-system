@@ -14,14 +14,13 @@ use Psr\Log\LoggerAwareTrait;
 use Psr\Log\LoggerInterface;
 
 use oihana\enums\Char;
-use oihana\enums\Param;
 
 trait LoggerTrait
 {
     use LoggerAwareTrait ;
 
     /**
-     * The logger parameter constant.
+     * The 'logger' parameter constant.
      */
     public const string LOGGER = 'logger' ;
 
@@ -150,7 +149,7 @@ trait LoggerTrait
      */
     protected function initLoggable( array $init = [] ) :bool
     {
-        return $init[ Param::LOGGABLE ] ?? $this->loggable ;
+        return $init[ static::LOGGABLE ] ?? $this->loggable ;
     }
 
     /**
@@ -165,7 +164,7 @@ trait LoggerTrait
      */
     protected function initLogger( array $init = [] , ?ContainerInterface $container = null ) :?LoggerInterface
     {
-        $logger = $init[ Param::LOGGER ] ?? null ;
+        $logger = $init[ static::LOGGER ] ?? null ;
 
         if( $logger instanceof LoggerInterface )
         {

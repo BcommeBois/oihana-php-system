@@ -2,9 +2,32 @@
 
 namespace oihana\traits;
 
-use oihana\enums\Param;
-
 /**
+ * Provides logic for managing bind parameters used in PDO statements.
+ * Allows defining a default set of bind values and dynamically merging them
+ * with runtime-provided parameters via the `prepareBindVars()` method.
+ *
+ * ### Usage example:
+ *
+ * ```php
+ * class MyModel {
+ *     use BindsTrait;
+ * }
+ *
+ * $model = new MyModel();
+ * $model->binds = [ ':id' => 42 ];
+ *
+ * $params = $model->prepareBindVars([
+ *     'binds' => [ ':status' => 'active' ]
+ * ]);
+ *
+ * print_r($params);
+ * // Output:
+ * // [
+ * //     ':id'     => 42,
+ * //     ':status' => 'active'
+ * // ]
+ * ```
  *
  * @package oihana\traits
  * @author  Marc Alcaraz (ekameleon)
@@ -19,12 +42,17 @@ trait BindsTrait
     public ?array $binds = [] ;
 
     /**
+     * The 'binds' parameter constant.
+     */
+    public const string BINDS = 'binds' ;
+
+    /**
      * Prepares the binding parameters to inject in a PDO statement.
      * @param array $init The binding parameters to push in the default binds associative array definition.
      * @return array
      */
     public function prepareBindVars( array $init = [] ) :array
     {
-        return [ ...( $this->binds ?? [] ) , ...( $init[ Param::BINDS ] ?? [] ) ] ;
+        return [ ...( $this->binds ?? [] ) , ...( $init[ static::BINDS ] ?? [] ) ] ;
     }
 }

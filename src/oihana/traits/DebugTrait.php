@@ -2,7 +2,6 @@
 
 namespace oihana\traits;
 
-use oihana\enums\Param;
 use oihana\logging\LoggerTrait;
 
 /**
@@ -25,13 +24,23 @@ trait DebugTrait
     public bool $mock = false ;
 
     /**
+     * The 'debug' parameter constant.
+     */
+    public const string DEBUG = 'debug' ;
+
+    /**
+     * The 'mock' parameter constant.
+     */
+    public const string MOCK = 'mock' ;
+
+    /**
      * Initialize the mock flag.
      * @param array $init
      * @return bool
      */
     public function initializeMock( array $init = [] ):bool
     {
-        return $init[ Param::MOCK ] ?? $this->mock ;
+        return $init[ static::MOCK ] ?? $this->mock ;
     }
 
     /**
@@ -41,6 +50,6 @@ trait DebugTrait
      */
     public function isMock( array $init = [] ) :bool
     {
-        return $this->debug && ( $init[ Param::MOCK ] ?? $this->mock ) ;
+        return $this->debug && ( $init[ static::MOCK ] ?? $this->mock ) ;
     }
 }

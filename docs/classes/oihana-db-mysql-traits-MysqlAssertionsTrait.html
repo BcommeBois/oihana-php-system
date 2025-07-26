@@ -145,14 +145,43 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlAssertionsTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlassertionstrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlAssertionsTrait.php">MysqlAssertionsTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7</span>
+    <span class="phpdocumentor-element-found-in__line">18</span>
 
     </aside>
 
-        
+            <p class="phpdocumentor-summary">Provides assertion methods to validate MySQL-related identifiers and hostnames.</p>
 
 
+    <section class="phpdocumentor-description"><p>Ensures that database names, table names, user names, and host strings conform to
+expected syntax constraints before they are used in queries.</p>
+<p>Intended to be reused across traits or models that manage MySQL operations.</p>
+</section>
 
+
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-db-mysql-traits-MysqlAssertionsTrait.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (ekameleon)</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
 
 
 
@@ -184,14 +213,14 @@
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Validates a host string (letters, numbers, dots, hyphens).</dd>
+<dd>Validates a MySQL host string.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a class="" href="classes/oihana-db-mysql-traits-MysqlAssertionsTrait.html#method_assertIdentifier">assertIdentifier()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Validates a database/user identifier (letters, numbers, underscores only).</dd>
+<dd>Validates a MySQL identifier such as a database name, user name, or table name.</dd>
 
     </dl>
 
@@ -222,11 +251,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlAssertionsTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlassertionstrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlAssertionsTrait.php">MysqlAssertionsTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Validates a host string (letters, numbers, dots, hyphens).</p>
+        <p class="phpdocumentor-summary">Validates a MySQL host string.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -235,7 +264,16 @@
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>A valid host string may contain:</p>
+<ul>
+<li>letters (a–z, A–Z)</li>
+<li>digits (0–9)</li>
+<li>dots (.)</li>
+<li>hyphens (-)</li>
+<li>underscores (_) and percent signs (%) for wildcards</li>
+</ul>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -243,7 +281,9 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The host name or IP to validate (e.g., 'localhost', '127.0.0.1', '%.example.com').</p>
+</section>
+
             </dd>
             </dl>
 
@@ -260,7 +300,7 @@
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\InvalidArgumentException">InvalidArgumentException</abbr></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>if invalid</p>
+                                                 <section class="phpdocumentor-description"><p>If the host string contains disallowed characters.</p>
 </section>
 
                                     </dd>
@@ -284,11 +324,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlAssertionsTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlassertionstrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlAssertionsTrait.php">MysqlAssertionsTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">16</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Validates a database/user identifier (letters, numbers, underscores only).</p>
+        <p class="phpdocumentor-summary">Validates a MySQL identifier such as a database name, user name, or table name.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
@@ -297,7 +337,10 @@
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>A valid identifier consists of letters (a–z, A–Z), digits (0–9), and underscores (_).
+This ensures safe usage in SQL queries without risk of injection or syntax errors.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -305,7 +348,9 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The identifier to validate.</p>
+</section>
+
             </dd>
             </dl>
 
@@ -322,7 +367,7 @@
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\InvalidArgumentException">InvalidArgumentException</abbr></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>if invalid</p>
+                                                 <section class="phpdocumentor-description"><p>If the identifier contains invalid characters.</p>
 </section>
 
                                     </dd>

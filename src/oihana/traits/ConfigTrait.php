@@ -5,8 +5,6 @@ namespace oihana\traits;
 use DI\DependencyException;
 use DI\NotFoundException;
 
-use oihana\enums\Param;
-
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -22,6 +20,11 @@ trait ConfigTrait
     public array $config = [] ;
 
     /**
+     * The 'config' parameter constant.
+     */
+    public const string CONFIG = 'config' ;
+
+    /**
      * Initialize the configuration definition.
      * @param array $init
      * @param ContainerInterface|null $container
@@ -33,7 +36,7 @@ trait ConfigTrait
      */
     protected function initConfig( array $init = [] , ?ContainerInterface $container = null ) :array
     {
-        $config = $init[ Param::CONFIG ] ?? null ;
+        $config = $init[ static::CONFIG ] ?? null ;
 
         if( is_string( $config ) && isset( $container ) && $container->has( $config ) )
         {

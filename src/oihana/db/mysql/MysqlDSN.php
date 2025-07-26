@@ -28,6 +28,10 @@ use function oihana\core\strings\snake;
  * echo (string) $dsn;
  * // Output: mysql:host=127.0.0.1;port=3306;dbname=my_database;charset=utf8mb4;unix_socket=/tmp/mysql.sock
  * ```
+ *
+ * @package oihana\db\mysql
+ * @author  Marc Alcaraz (ekameleon)
+ * @since   1.0.0
  */
 class MysqlDSN
 {

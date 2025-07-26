@@ -3,7 +3,6 @@
 namespace oihana\traits;
 
 use oihana\enums\Char;
-use oihana\enums\Param;
 use oihana\traits\strings\ExpressionTrait;
 
 /**
@@ -27,12 +26,14 @@ use oihana\traits\strings\ExpressionTrait;
  * ```php
  * use oihana\traits\QueryIDTrait;
  *
- * class MyQueryBuilder {
- * use QueryIDTrait;
+ * class MyQueryBuilder
+ * {
+ *    use QueryIDTrait;
  *
- * public function __construct(array $options = []) {
- * $this->setQueryID($options);
- * }
+ *    public function __construct(array $options = [])
+ *    {
+ *        $this->setQueryID($options);
+ *    }
  * }
  *
  * $builder = new MyQueryBuilder(['queryId' => 'custom_query']);
@@ -57,6 +58,16 @@ trait QueryIDTrait
      * @var string
      */
     protected string $queryId ;
+
+    /**
+     * The 'query' parameter constant.
+     */
+    public const string QUERY = 'query' ;
+
+    /**
+     * The 'queryId' parameter constant.
+     */
+    public const string QUERY_ID = 'queryId' ;
 
     /**
      * Returns the internal query identifier.
@@ -95,8 +106,8 @@ trait QueryIDTrait
     {
         if( is_array( $init ) )
         {
-            $init = $init[ Param::QUERY_ID ] ?? null ;
+            $init = $init[ static::QUERY_ID ] ?? null ;
         }
-        $this->queryId = is_null( $init ) ? Param::QUERY . Char::UNDERLINE . mt_rand() : $init ;
+        $this->queryId = is_null( $init ) ? static::QUERY . Char::UNDERLINE . mt_rand() : $init ;
     }
 }
