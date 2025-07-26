@@ -3,6 +3,8 @@
 namespace oihana\db\mysql\traits;
 
 use oihana\models\pdo\PDOTrait;
+use PDO;
+use PDOException;
 use PDOStatement;
 
 /**
@@ -30,7 +32,7 @@ trait MysqlUserTrait
      *
      * @return bool True on success, false otherwise.
      */
-    public function createUser(string $username , string $host = 'localhost' , string $password = '' ): bool
+    public function createUser( string $username , string $host = 'localhost' , string $password = '' ): bool
     {
         $this->assertIdentifier ( $username ) ;
         $this->assertHost       ( $host     ) ;
@@ -59,6 +61,71 @@ trait MysqlUserTrait
         $this->assertIdentifier ( $username ) ;
         $this->assertHost       ( $host     ) ;
         return $this->pdo?->exec( sprintf("DROP USER IF EXISTS '%s'@'%s'" , $username , $host ) ) !== false;
+    }
+
+    /**
+     * Returns a list of MySQL users with their associated hosts.
+     *
+     * @param string|null $like      Optional SQL pattern to filter users (e.g. 'wp%').
+     * @param bool        $grouped   Whether to group hosts under each username.
+     * @param bool        $throwable Indicates if the method is throwable.
+     *
+     * @return array  If grouped, returns array<string, string[]> (user => [hosts]).
+     *               Otherwise, returns array<int, array{user: string, host: string}>.
+     */
+    public function listUsers( ?string $like = null, bool $grouped = false , bool $throwable = false ): array
+    {
+        $params = [];
+
+        $query = "SELECT User AS user, Host AS host FROM mysql.user ORDER BY User, Host";
+
+        if ( isset($like) )
+        {
+            $query .= " WHERE User LIKE :like";
+            $params['like'] = $like;
+        }
+
+        $query .= " ORDER BY User, Host" ;
+
+        try
+        {
+
+            $statement = $this->pdo?->prepare( $query ) ;
+
+            if ( !$statement )
+            {
+                return [] ;
+            }
+
+            $statement->execute( $params );
+
+            $results   = $statement->fetchAll( PDO::FETCH_ASSOC ) ?: [] ;
+            $statement = null ;
+
+            if ( !$grouped )
+            {
+                return $results;
+            }
+
+            $groups = [] ;
+
+            foreach ( $results as $row )
+            {
+                $user = $row[ 'user' ] ;
+                $host = $row[ 'host' ] ;
+                $groups[ $user ][] = $host ;
+            }
+
+            return $groups ;
+        }
+        catch ( PDOException $exception )
+        {
+            if( $throwable )
+            {
+                throw $exception ;
+            }
+            return [] ;
+        }
     }
 
     /**

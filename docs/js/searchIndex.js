@@ -501,6 +501,11 @@ Search.appendIndex(
             "summary": "Drops\u0020a\u0020MySQL\u0020user\u0020if\u0020it\u0020exists.",
             "url": "classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_dropUser"
         },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlUserTrait\u003A\u003AlistUsers\u0028\u0029",
+            "name": "listUsers",
+            "summary": "Returns\u0020a\u0020list\u0020of\u0020MySQL\u0020users\u0020with\u0020their\u0020associated\u0020hosts.",
+            "url": "classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_listUsers"
+        },                {
             "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlUserTrait\u003A\u003ArenameUser\u0028\u0029",
             "name": "renameUser",
             "summary": "Renames\u0020an\u0020existing\u0020MySQL\u0020user.",

@@ -548,6 +548,13 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
 <dd>Lists parsed privileges granted to a user.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_listUsers">listUsers()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Returns a list of MySQL users with their associated hosts.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_optimizeDatabase">optimizeDatabase()</a>
     <span>
                                 &nbsp;: bool    </span>
@@ -1354,7 +1361,7 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlUserTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlusertrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlUserTrait.php">MysqlUserTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
     </aside>
 
@@ -1594,7 +1601,7 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlUserTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlusertrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlUserTrait.php">MysqlUserTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">57</span>
+    <span class="phpdocumentor-element-found-in__line">59</span>
 
     </aside>
 
@@ -2810,6 +2817,80 @@ foreach ( $list as $scope =&gt; $rights)
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_listUsers">
+        listUsers()
+        <a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_listUsers" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlUserTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlusertrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlUserTrait.php">MysqlUserTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">76</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns a list of MySQL users with their associated hosts.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">listUsers</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$like</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$grouped</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$throwable</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$like</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional SQL pattern to filter users (e.g. 'wp%').</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$grouped</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Whether to group hosts under each username.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$throwable</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Indicates if the method is throwable.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>If grouped, returns array&lt;string, string[]&gt; (user =&gt; [hosts]).
+Otherwise, returns array&lt;int, array{user: string, host: string}&gt;.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_optimizeDatabase">
         optimizeDatabase()
         <a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_optimizeDatabase" class="headerlink"><i class="fas fa-link"></i></a>
@@ -2990,7 +3071,7 @@ foreach ( $list as $scope =&gt; $rights)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlUserTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlusertrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlUserTrait.php">MysqlUserTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">74</span>
+    <span class="phpdocumentor-element-found-in__line">141</span>
 
     </aside>
 
@@ -3486,7 +3567,7 @@ foreach ( $list as $scope =&gt; $rights)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlUserTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlusertrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlUserTrait.php">MysqlUserTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">93</span>
+    <span class="phpdocumentor-element-found-in__line">160</span>
 
     </aside>
 
@@ -3749,6 +3830,7 @@ foreach ( $list as $scope =&gt; $rights)
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_listCurrentTables">listCurrentTables()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_listDatabases">listDatabases()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_listPrivileges">listPrivileges()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_listUsers">listUsers()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_optimizeDatabase">optimizeDatabase()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_optimizeTable">optimizeTable()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_renameTable">renameTable()</a></li>
