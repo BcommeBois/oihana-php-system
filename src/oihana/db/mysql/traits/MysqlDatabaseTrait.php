@@ -2,7 +2,9 @@
 
 namespace oihana\db\mysql\traits;
 
+use oihana\enums\Char;
 use oihana\models\pdo\PDOTrait;
+use PDO;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
@@ -26,18 +28,21 @@ trait MysqlDatabaseTrait
      * Creates a new MySQL database with given charset and collation.
      *
      * @param string $name       The name of the database.
-     * @param string $charset    The character set (default: 'utf8').
-     * @param string $collation  The collation (default: 'utf8_general_ci').
+     * @param string|null $charset The character set to use (default: 'utf8mb4').
+     * @param string|null $collation The collation to use (auto-selected if null).
      * @return bool              True on success, false otherwise.
      */
-    public function createDatabase( string $name , string $charset = 'utf8' , string $collation = 'utf8_general_ci' ): bool
+    public function createDatabase( string $name , ?string $charset = null , ?string $collation = null ): bool
     {
         $this->assertIdentifier( $name ) ;
 
+        $charset   ??= 'utf8mb4';
+        $collation ??= $this->getRecommendedCollation( $charset ) ;
+
         $query = sprintf
         (
-            "CREATE DATABASE IF NOT EXISTS `%s` DEFAULT CHARACTER SET %s DEFAULT COLLATE %s",
-            $name, $charset, $collation
+            "CREATE DATABASE IF NOT EXISTS `%s` DEFAULT CHARACTER SET %s DEFAULT COLLATE %s" ,
+            $name , $charset , $collation
         );
 
         return $this->pdo?->exec( $query ) !== false;
@@ -187,5 +192,34 @@ trait MysqlDatabaseTrait
         }
 
         return true;
+    }
+
+
+    /**
+     * Returns the recommended collation for the given charset and server version.
+     *
+     * @param string $charset
+     * @return string
+     */
+    protected function getRecommendedCollation( string $charset ): string
+    {
+        if ( strtolower($charset) !== 'utf8mb4' )
+        {
+            return $charset . '_general_ci';
+        }
+
+        $version = $this->pdo?->getAttribute( PDO::ATTR_SERVER_VERSION ) ?? Char::EMPTY ;
+
+        if ( str_starts_with($version, '8.') )
+        {
+            return 'utf8mb4_0900_ai_ci'; // MySQL 8.0+
+        }
+
+        if ( preg_match( '/^5\.7\./', $version ) )
+        {
+            return 'utf8mb4_unicode_520_ci'; // MySQL 5.7+
+        }
+
+        return 'utf8mb4_unicode_ci'; // Fallback
     }
 }
