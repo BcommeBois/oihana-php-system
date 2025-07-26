@@ -162,20 +162,16 @@ trait MysqlUserTrait
         $this->assertIdentifier( $username ) ;
         $this->assertHost( $host );
 
-        $query = "SELECT 1 FROM mysql.user WHERE User = :user AND Host = :host";
-        $stmt  = $this->pdo?->prepare($query);
+        $query     = "SELECT 1 FROM mysql.user WHERE User = :user AND Host = :host" ;
+        $statement = $this->pdo?->prepare( $query );
 
-        if (! $stmt )
+        if (! $statement )
         {
             return false ;
         }
 
-        $this->bindValues( $stmt ,
-            [
-                'user' => $username ,
-                'host' => $host     ,
-            ]);
+        $this->bindValues( $statement , [ 'user' => $username , 'host' => $host ] );
 
-        return $stmt->execute() && $stmt->fetchColumn() !== false ;
+        return $statement->execute() && $statement->fetchColumn() !== false ;
     }
 }
