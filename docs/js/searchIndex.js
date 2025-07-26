@@ -386,6 +386,11 @@ Search.appendIndex(
             "summary": "Repairs\u0020all\u0020tables\u0020in\u0020a\u0020database.",
             "url": "classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_repairDatabase"
         },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlDatabaseTrait\u003A\u003AgetRecommendedCollation\u0028\u0029",
+            "name": "getRecommendedCollation",
+            "summary": "Returns\u0020the\u0020recommended\u0020collation\u0020for\u0020the\u0020given\u0020charset\u0020and\u0020server\u0020version.",
+            "url": "classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_getRecommendedCollation"
+        },                {
             "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait",
             "name": "MysqlPrivilegeTrait",
             "summary": "Provides\u0020methods\u0020to\u0020manage\u0020MySQL\u0020privileges\u0020for\u0020users\u0020on\u0020databases\u0020and\u0020tables.",
@@ -491,15 +496,15 @@ Search.appendIndex(
             "summary": "Creates\u0020a\u0020new\u0020MySQL\u0020user\u0020with\u0020the\u0020given\u0020username,\u0020host,\u0020and\u0020password.",
             "url": "classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_createUser"
         },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlUserTrait\u003A\u003AdropUser\u0028\u0029",
+            "name": "dropUser",
+            "summary": "Drops\u0020a\u0020MySQL\u0020user\u0020if\u0020it\u0020exists.",
+            "url": "classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_dropUser"
+        },                {
             "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlUserTrait\u003A\u003ArenameUser\u0028\u0029",
             "name": "renameUser",
             "summary": "Renames\u0020an\u0020existing\u0020MySQL\u0020user.",
             "url": "classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_renameUser"
-        },                {
-            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlUserTrait\u003A\u003AuserDrop\u0028\u0029",
-            "name": "userDrop",
-            "summary": "Drops\u0020a\u0020MySQL\u0020user\u0020if\u0020it\u0020exists.",
-            "url": "classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_userDrop"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlUserTrait\u003A\u003AuserExists\u0028\u0029",
             "name": "userExists",

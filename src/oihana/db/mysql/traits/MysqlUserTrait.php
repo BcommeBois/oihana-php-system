@@ -48,6 +48,20 @@ trait MysqlUserTrait
     }
 
     /**
+     * Drops a MySQL user if it exists.
+     *
+     * @param string $username  The username to drop.
+     * @param string $host      The host (default: 'localhost').
+     * @return bool             True on success, false otherwise.
+     */
+    public function dropUser( string $username , string $host = 'localhost' ): bool
+    {
+        $this->assertIdentifier ( $username ) ;
+        $this->assertHost       ( $host     ) ;
+        return $this->pdo?->exec( sprintf("DROP USER IF EXISTS '%s'@'%s'" , $username , $host ) ) !== false;
+    }
+
+    /**
      * Renames an existing MySQL user.
      *
      * @param string $fromUser Current username.
@@ -67,20 +81,6 @@ trait MysqlUserTrait
         $query = sprintf( "RENAME USER '%s'@'%s' TO '%s'@'%s'" , $fromUser , $fromHost , $toUser , $toHost );
 
         return $this->pdo->exec( $query ) !== false ;
-    }
-
-    /**
-     * Drops a MySQL user if it exists.
-     *
-     * @param string $username  The username to drop.
-     * @param string $host      The host (default: 'localhost').
-     * @return bool             True on success, false otherwise.
-     */
-    public function userDrop( string $username , string $host = 'localhost' ): bool
-    {
-        $this->assertIdentifier ( $username ) ;
-        $this->assertHost       ( $host     ) ;
-        return $this->pdo?->exec( sprintf("DROP USER IF EXISTS '%s'@'%s'" , $username , $host ) ) !== false;
     }
 
     /**

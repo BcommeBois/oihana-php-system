@@ -411,6 +411,13 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
 <dd>Drops a table in the current database.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_dropUser">dropUser()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Drops a MySQL user if it exists.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-models-pdo-PDOModel.html#method_fetch">fetch()</a>
     <span>
                                 &nbsp;: mixed    </span>
@@ -611,18 +618,18 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
 <dd>Dumps current users and databases into a structured array.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_userDrop">userDrop()</a>
-    <span>
-                                &nbsp;: bool    </span>
-</dt>
-<dd>Drops a MySQL user if it exists.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_userExists">userExists()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Checks if a MySQL user exists.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_getRecommendedCollation">getRecommendedCollation()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Returns the recommended collation for the given charset and server version.</dd>
 
     </dl>
 
@@ -1274,7 +1281,7 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
     </aside>
 
@@ -1282,7 +1289,7 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">createDatabase</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$charset</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;utf8&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collation</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;utf8_general_ci&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+                    <span class="phpdocumentor-signature__name">createDatabase</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$charset</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collation</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1301,19 +1308,19 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$charset</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">&#039;utf8&#039;</span>            </dt>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The character set (default: 'utf8').</p>
+                    <section class="phpdocumentor-description"><p>The character set to use (default: 'utf8mb4').</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$collation</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">&#039;utf8_general_ci&#039;</span>            </dt>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The collation (default: 'utf8_general_ci').</p>
+                    <section class="phpdocumentor-description"><p>The collation to use (auto-selected if null).</p>
 </section>
 
             </dd>
@@ -1422,7 +1429,7 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">57</span>
 
     </aside>
 
@@ -1477,7 +1484,7 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">75</span>
+    <span class="phpdocumentor-element-found-in__line">80</span>
 
     </aside>
 
@@ -1568,6 +1575,70 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
                 <section class="phpdocumentor-description"><p>True on success.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_dropUser">
+        dropUser()
+        <a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_dropUser" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlUserTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlusertrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlUserTrait.php">MysqlUserTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">57</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Drops a MySQL user if it exists.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">dropUser</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$username</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$host</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$username</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The username to drop.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$host</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The host (default: 'localhost').</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True on success, false otherwise.</p>
 </section>
 
             </section>
@@ -1862,7 +1933,7 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">89</span>
+    <span class="phpdocumentor-element-found-in__line">94</span>
 
     </aside>
 
@@ -1934,7 +2005,7 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">108</span>
+    <span class="phpdocumentor-element-found-in__line">113</span>
 
     </aside>
 
@@ -2597,7 +2668,7 @@ if a schema class is defined and exists.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">125</span>
+    <span class="phpdocumentor-element-found-in__line">130</span>
 
     </aside>
 
@@ -2747,7 +2818,7 @@ foreach ( $list as $scope =&gt; $rights)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">150</span>
+    <span class="phpdocumentor-element-found-in__line">155</span>
 
     </aside>
 
@@ -2919,7 +2990,7 @@ foreach ( $list as $scope =&gt; $rights)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlUserTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlusertrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlUserTrait.php">MysqlUserTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">60</span>
+    <span class="phpdocumentor-element-found-in__line">74</span>
 
     </aside>
 
@@ -3001,7 +3072,7 @@ foreach ( $list as $scope =&gt; $rights)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">174</span>
+    <span class="phpdocumentor-element-found-in__line">179</span>
 
     </aside>
 
@@ -3407,70 +3478,6 @@ foreach ( $list as $scope =&gt; $rights)
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_userDrop">
-        userDrop()
-        <a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_userDrop" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlUserTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlusertrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlUserTrait.php">MysqlUserTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">79</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Drops a MySQL user if it exists.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">userDrop</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$username</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$host</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$username</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The username to drop.</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$host</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The host (default: 'localhost').</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">bool</span>
-                    &mdash;
-                <section class="phpdocumentor-description"><p>True on success, false otherwise.</p>
-</section>
-
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="method_userExists">
         userExists()
         <a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_userExists" class="headerlink"><i class="fas fa-link"></i></a>
@@ -3526,6 +3533,55 @@ foreach ( $list as $scope =&gt; $rights)
                 <section class="phpdocumentor-description"><p>True if the user exists.</p>
 </section>
 
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getRecommendedCollation">
+        getRecommendedCollation()
+        <a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_getRecommendedCollation" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">204</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the recommended collation for the given charset and server version.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">getRecommendedCollation</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$charset</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$charset</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
             </section>
 
 </article>
@@ -3673,6 +3729,7 @@ foreach ( $list as $scope =&gt; $rights)
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_databaseExists">databaseExists()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_dropDatabase">dropDatabase()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_dropTable">dropTable()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_dropUser">dropUser()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOModel.html#method_fetch">fetch()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOModel.html#method_fetchAll">fetchAll()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOModel.html#method_fetchColumn">fetchColumn()</a></li>
@@ -3702,8 +3759,8 @@ foreach ( $list as $scope =&gt; $rights)
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_revokePrivileges">revokePrivileges()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_tableExists">tableExists()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-MysqlModel.html#method_toArray">toArray()</a></li>
-                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_userDrop">userDrop()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_userExists">userExists()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_getRecommendedCollation">getRecommendedCollation()</a></li>
                                     </ul>
             </li>
                     </ul>

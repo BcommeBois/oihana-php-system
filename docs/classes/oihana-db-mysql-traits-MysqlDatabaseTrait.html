@@ -148,7 +148,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">22</span>
 
     </aside>
 
@@ -392,6 +392,13 @@ as well as retrieve metadata like charset, collation, and size.</p>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Validates a MySQL identifier such as a database name, user name, or table name.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_getRecommendedCollation">getRecommendedCollation()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Returns the recommended collation for the given charset and server version.</dd>
 
     </dl>
 
@@ -711,7 +718,7 @@ as well as retrieve metadata like charset, collation, and size.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
     </aside>
 
@@ -719,7 +726,7 @@ as well as retrieve metadata like charset, collation, and size.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">createDatabase</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$charset</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;utf8&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collation</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;utf8_general_ci&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+                    <span class="phpdocumentor-signature__name">createDatabase</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$charset</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collation</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -738,19 +745,19 @@ as well as retrieve metadata like charset, collation, and size.</p>
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$charset</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">&#039;utf8&#039;</span>            </dt>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The character set (default: 'utf8').</p>
+                    <section class="phpdocumentor-description"><p>The character set to use (default: 'utf8mb4').</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$collation</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">&#039;utf8_general_ci&#039;</span>            </dt>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The collation (default: 'utf8_general_ci').</p>
+                    <section class="phpdocumentor-description"><p>The collation to use (auto-selected if null).</p>
 </section>
 
             </dd>
@@ -784,7 +791,7 @@ as well as retrieve metadata like charset, collation, and size.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">57</span>
 
     </aside>
 
@@ -839,7 +846,7 @@ as well as retrieve metadata like charset, collation, and size.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">75</span>
+    <span class="phpdocumentor-element-found-in__line">80</span>
 
     </aside>
 
@@ -1207,7 +1214,7 @@ Alteration is applied via AlterDocumentTrait.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">89</span>
+    <span class="phpdocumentor-element-found-in__line">94</span>
 
     </aside>
 
@@ -1279,7 +1286,7 @@ Alteration is applied via AlterDocumentTrait.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">108</span>
+    <span class="phpdocumentor-element-found-in__line">113</span>
 
     </aside>
 
@@ -1508,7 +1515,7 @@ if a schema class is defined and exists.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">125</span>
+    <span class="phpdocumentor-element-found-in__line">130</span>
 
     </aside>
 
@@ -1563,7 +1570,7 @@ if a schema class is defined and exists.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">150</span>
+    <span class="phpdocumentor-element-found-in__line">155</span>
 
     </aside>
 
@@ -1616,7 +1623,7 @@ if a schema class is defined and exists.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">174</span>
+    <span class="phpdocumentor-element-found-in__line">179</span>
 
     </aside>
 
@@ -1795,6 +1802,55 @@ This ensures safe usage in SQL queries without risk of injection or syntax error
 
     
 </article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getRecommendedCollation">
+        getRecommendedCollation()
+        <a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_getRecommendedCollation" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">204</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the recommended collation for the given charset and server version.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">getRecommendedCollation</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$charset</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$charset</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
             </section>
 
         <div class="phpdocumentor-modal" id="source-view">
@@ -1942,6 +1998,7 @@ This ensures safe usage in SQL queries without risk of injection or syntax error
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_repairDatabase">repairDatabase()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlAssertionsTrait.html#method_assertHost">assertHost()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlAssertionsTrait.html#method_assertIdentifier">assertIdentifier()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_getRecommendedCollation">getRecommendedCollation()</a></li>
                                     </ul>
             </li>
                     </ul>
