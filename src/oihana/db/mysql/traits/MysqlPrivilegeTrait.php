@@ -94,11 +94,11 @@ trait MysqlPrivilegeTrait
      * Grants all privileges on a database to a user.
      *
      * @param string $username  The user to grant privileges to.
-     * @param string $host      The user's host (usually 'localhost').
      * @param string $dbname    The database to grant access to.
+     * @param string $host      The user's host (usually 'localhost').
      * @return bool             True on success, false otherwise.
      */
-    public function grantAllPrivileges( string $username , string $host , string $dbname ): bool
+    public function grantAllPrivileges( string $username , string $dbname , string $host ): bool
     {
         $this->assertIdentifier ( $dbname   ) ;
         $this->assertIdentifier ( $username ) ;
