@@ -103,8 +103,16 @@ trait MysqlPrivilegeTrait
         $this->assertIdentifier ( $dbname   ) ;
         $this->assertIdentifier ( $username ) ;
         $this->assertHost       ( $host     ) ;
-        $query = sprintf( "GRANT ALL PRIVILEGES ON `%s`.* TO '%s'@'%s'", $dbname , $username , $host ) ;
-        return $this->pdo->exec( $query ) !== false;
+
+        $query  = sprintf( "GRANT ALL PRIVILEGES ON `%s`.* TO '%s'@'%s'", $dbname , $username , $host ) ;
+        $result = $this->pdo->exec( $query ) ;
+
+        if ( $result !== false )
+        {
+            return $this->flushPrivileges() ;
+        }
+
+        return false;
     }
 
     /**
@@ -158,25 +166,53 @@ trait MysqlPrivilegeTrait
     /**
      * Checks whether the given user has ALL PRIVILEGES on *.* (global privileges).
      *
-     * @param string $username  The MySQL username.
-     * @param string $host      The associated host (default: 'localhost').
-     * @return bool             True if the user has ALL PRIVILEGES globally.
+     * @param string $username The MySQL username.
+     * @param string $host     The associated host (default: 'localhost').
+     * @return bool            True if the user has ALL PRIVILEGES globally.
      */
     public function hasAllPrivileges( string $username, string $host = 'localhost' ): bool
     {
-        $grants = $this->getGrants( $username, $host );
+        $grants = $this->getGrants($username, $host);
 
         foreach ( $grants as $grant )
         {
             $grant = strtoupper( $grant ) ;
-
-            if ( str_starts_with( $grant, 'GRANT ALL PRIVILEGES' ) && str_contains( $grant, ' ON *.* ' ) )
+            if ( str_starts_with($grant, 'GRANT ALL PRIVILEGES') && str_contains($grant, ' ON *.* ') )
             {
-                return true ;
+                return true;
             }
         }
 
-        return false ;
+        return false;
+    }
+
+    /**
+     * Checks if the given user has ALL PRIVILEGES on a specific database.
+     *
+     * This method parses the user's GRANT statements and looks for a
+     * "GRANT ALL PRIVILEGES ON `database`.* TO ..." entry.
+     *
+     * @param string $username  The MySQL username to check.
+     * @param string $database  The database name to check privileges for.
+     * @param string $host      The host part of the MySQL user (default: 'localhost').
+     *
+     * @return bool             True if the user has ALL PRIVILEGES on the database, false otherwise.
+     */
+    public function hasAllPrivilegesOnDatabase( string $username, string $database, string $host = 'localhost' ): bool
+    {
+        $grants  = $this->getGrants( $username , $host ) ;
+        $pattern = strtoupper( sprintf( ' ON `%s`.* ' , $database ) ) ;
+
+        foreach ($grants as $grant)
+        {
+            $grant = strtoupper( $grant ) ;
+            if ( str_starts_with( $grant, 'GRANT ALL PRIVILEGES' ) && str_contains( $grant , $pattern ) )
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**

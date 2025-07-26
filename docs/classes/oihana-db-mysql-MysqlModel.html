@@ -471,6 +471,13 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
 <dd>Retrieves all GRANT statements for a given user.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_getPrivilegesSummary">getPrivilegesSummary()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Returns a human-readable summary of privileges granted to a user.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_getTableSize">getTableSize()</a>
     <span>
                                 &nbsp;: int    </span>
@@ -478,11 +485,39 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
 <dd>Returns the size of a table in bytes.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_grantPrivileges">grantPrivileges()</a>
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_grantAllPrivileges">grantAllPrivileges()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Grants all privileges on a database to a user.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_grantPrivilege">grantPrivilege()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Grants specific privileges on a database or table to a user.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasAllPrivileges">hasAllPrivileges()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Checks whether the given user has ALL PRIVILEGES on *.* (global privileges).</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasAllPrivilegesOnDatabase">hasAllPrivilegesOnDatabase()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Checks if the given user has ALL PRIVILEGES on a specific database.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasAnyPrivilege">hasAnyPrivilege()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Checks whether the user has at least one privilege on a given database or table.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasPrivilege">hasPrivilege()</a>
@@ -541,6 +576,13 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
 <dd>Lists all available databases.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_listDatabasesWithPrivileges">listDatabasesWithPrivileges()</a>
+    <span>
+                                &nbsp;: array&lt;int, string&gt;    </span>
+</dt>
+<dd>Lists all databases on which a user has at least one privilege.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_listPrivileges">listPrivileges()</a>
     <span>
                                 &nbsp;: array&lt;string, array&lt;string|int, string&gt;&gt;    </span>
@@ -595,6 +637,13 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Repairs a table.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_revokeAllPrivileges">revokeAllPrivileges()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Revokes all privileges from a user at the global level (*.*).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_revokePrivilege">revokePrivilege()</a>
@@ -1895,7 +1944,7 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlprivilegetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php">MysqlPrivilegeTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">123</span>
+    <span class="phpdocumentor-element-found-in__line">31</span>
 
     </aside>
 
@@ -2065,7 +2114,7 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlprivilegetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php">MysqlPrivilegeTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">98</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 
     </aside>
 
@@ -2110,6 +2159,95 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
         <span class="phpdocumentor-signature__response_type">array&lt;int, string&gt;</span>
                     &mdash;
                 <section class="phpdocumentor-description"><p>Array of GRANT statements (or empty if none/failure).</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getPrivilegesSummary">
+        getPrivilegesSummary()
+        <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_getPrivilegesSummary" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlprivilegetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php">MysqlPrivilegeTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">81</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns a human-readable summary of privileges granted to a user.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getPrivilegesSummary</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$username</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$host</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>This method parses and formats the privileges returned by <code class="prettyprint">SHOW GRANTS</code>
+into a simple multi-line string, with each line showing the scope
+(database.table or <code class="prettyprint">ALL</code>) and the list of privileges.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$username</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The MySQL username.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$host</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The host associated with the user (default: 'localhost').</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_getPrivilegesSummary#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">echo $model-&gt;getPrivilegesSummary('user1');
+// Output:
+// mydb.*: SELECT, INSERT
+// mydb.products: SELECT
+// ALL: USAGE
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>A formatted summary string.</p>
 </section>
 
             </section>
@@ -2176,15 +2314,15 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_grantPrivileges">
-        grantPrivileges()
-        <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_grantPrivileges" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_grantAllPrivileges">
+        grantAllPrivileges()
+        <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_grantAllPrivileges" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlprivilegetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php">MysqlPrivilegeTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">101</span>
 
     </aside>
 
@@ -2192,7 +2330,7 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">grantPrivileges</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$username</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$host</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dbname</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+                    <span class="phpdocumentor-signature__name">grantAllPrivileges</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$username</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$host</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dbname</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -2249,6 +2387,356 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_grantPrivilege">
+        grantPrivilege()
+        <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_grantPrivilege" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlprivilegetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php">MysqlPrivilegeTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">134</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Grants specific privileges on a database or table to a user.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">grantPrivilege</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$privileges</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dbname</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$username</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$host</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$table</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$privileges</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>A comma-separated list of privileges (e.g. 'SELECT, INSERT').</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$dbname</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Database name.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$username</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The MySQL user.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$host</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Host (default: 'localhost').</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$table</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional table name. If null, grants privileges on the entire database.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_grantPrivilege#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$model-&gt;grantPrivilege('SELECT, INSERT', 'mydb', 'user1');
+$model-&gt;grantPrivilege('UPDATE', 'mydb', 'user1', 'localhost', 'products');
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if the grant statement executed successfully.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_hasAllPrivileges">
+        hasAllPrivileges()
+        <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasAllPrivileges" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlprivilegetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php">MysqlPrivilegeTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">173</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Checks whether the given user has ALL PRIVILEGES on *.* (global privileges).</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">hasAllPrivileges</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$username</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$host</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$username</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The MySQL username.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$host</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The associated host (default: 'localhost').</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if the user has ALL PRIVILEGES globally.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_hasAllPrivilegesOnDatabase">
+        hasAllPrivilegesOnDatabase()
+        <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasAllPrivilegesOnDatabase" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlprivilegetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php">MysqlPrivilegeTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">201</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Checks if the given user has ALL PRIVILEGES on a specific database.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">hasAllPrivilegesOnDatabase</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$username</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$database</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$host</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>This method parses the user's GRANT statements and looks for a
+&quot;GRANT ALL PRIVILEGES ON <code class="prettyprint">database</code>.* TO ...&quot; entry.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$username</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The MySQL username to check.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$database</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The database name to check privileges for.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$host</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The host part of the MySQL user (default: 'localhost').</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if the user has ALL PRIVILEGES on the database, false otherwise.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_hasAnyPrivilege">
+        hasAnyPrivilege()
+        <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasAnyPrivilege" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlprivilegetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php">MysqlPrivilegeTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">234</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Checks whether the user has at least one privilege on a given database or table.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">hasAnyPrivilege</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$username</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dbname</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$table</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$host</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$username</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The MySQL user.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$dbname</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The database name.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$table</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional table name. If null, checks privileges on the database.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$host</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The host (default: 'localhost').</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasAnyPrivilege#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">if ($model-&gt;hasAnyPrivilege('user1', 'mydb')) {
+    echo &quot;User has privileges on the database.&quot;;
+}
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if the user has any privilege on the specified scope.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_hasPrivilege">
         hasPrivilege()
         <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasPrivilege" class="headerlink"><i class="fas fa-link"></i></a>
@@ -2257,7 +2745,7 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlprivilegetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php">MysqlPrivilegeTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">51</span>
+    <span class="phpdocumentor-element-found-in__line">267</span>
 
     </aside>
 
@@ -2722,6 +3210,92 @@ if a schema class is defined and exists.</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_listDatabasesWithPrivileges">
+        listDatabasesWithPrivileges()
+        <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_listDatabasesWithPrivileges" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlprivilegetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php">MysqlPrivilegeTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">324</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Lists all databases on which a user has at least one privilege.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">listDatabasesWithPrivileges</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$username</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$host</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;int, string&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>This method analyzes the output of <code class="prettyprint">SHOW GRANTS</code> and extracts database-level
+or table-level scopes from the privilege definitions. It returns a unique list
+of database names, including <code class="prettyprint">*</code> if the user has global privileges.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$username</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The MySQL username.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$host</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The host associated with the user (default: 'localhost').</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_listDatabasesWithPrivileges#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$databases = $model-&gt;listDatabasesWithPrivileges('user1');
+// Result: ['mydb', 'test'] or ['*'] if global privileges
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;int, string&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>List of database names (e.g. ['mydb', 'test', '*']).</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_listPrivileges">
         listPrivileges()
         <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_listPrivileges" class="headerlink"><i class="fas fa-link"></i></a>
@@ -2730,7 +3304,7 @@ if a schema class is defined and exists.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlprivilegetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php">MysqlPrivilegeTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">154</span>
+    <span class="phpdocumentor-element-found-in__line">370</span>
 
     </aside>
 
@@ -3253,6 +3827,87 @@ Otherwise, returns array&lt;int, array{user: string, host: string}&gt;.</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_revokeAllPrivileges">
+        revokeAllPrivileges()
+        <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_revokeAllPrivileges" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlprivilegetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php">MysqlPrivilegeTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">410</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Revokes all privileges from a user at the global level (*.*).</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">revokeAllPrivileges</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$username</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$host</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$username</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The MySQL username.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$host</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The user's host (default: 'localhost').</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_revokeAllPrivileges#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$model-&gt;revokeAllPrivileges('user1');
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True on success, false otherwise.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_revokePrivilege">
         revokePrivilege()
         <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_revokePrivilege" class="headerlink"><i class="fas fa-link"></i></a>
@@ -3261,7 +3916,7 @@ Otherwise, returns array&lt;int, array{user: string, host: string}&gt;.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlprivilegetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php">MysqlPrivilegeTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">200</span>
+    <span class="phpdocumentor-element-found-in__line">441</span>
 
     </aside>
 
@@ -3377,7 +4032,7 @@ Otherwise, returns array&lt;int, array{user: string, host: string}&gt;.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlprivilegetrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlPrivilegeTrait.php">MysqlPrivilegeTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">240</span>
+    <span class="phpdocumentor-element-found-in__line">481</span>
 
     </aside>
 
@@ -3819,8 +4474,13 @@ Otherwise, returns array&lt;int, array{user: string, host: string}&gt;.</p>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_getDatabaseCharset">getDatabaseCharset()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_getDatabaseSize">getDatabaseSize()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_getGrants">getGrants()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_getPrivilegesSummary">getPrivilegesSummary()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_getTableSize">getTableSize()</a></li>
-                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_grantPrivileges">grantPrivileges()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_grantAllPrivileges">grantAllPrivileges()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_grantPrivilege">grantPrivilege()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasAllPrivileges">hasAllPrivileges()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasAllPrivilegesOnDatabase">hasAllPrivilegesOnDatabase()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasAnyPrivilege">hasAnyPrivilege()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasPrivilege">hasPrivilege()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_initializeDefaultFetchMode">initializeDefaultFetchMode()</a></li>
                                             <li class=""><a href="classes/oihana-traits-DebugTrait.html#method_initializeMock">initializeMock()</a></li>
@@ -3829,6 +4489,7 @@ Otherwise, returns array&lt;int, array{user: string, host: string}&gt;.</p>
                                             <li class=""><a href="classes/oihana-traits-DebugTrait.html#method_isMock">isMock()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_listCurrentTables">listCurrentTables()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_listDatabases">listDatabases()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_listDatabasesWithPrivileges">listDatabasesWithPrivileges()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_listPrivileges">listPrivileges()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_listUsers">listUsers()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_optimizeDatabase">optimizeDatabase()</a></li>
@@ -3837,6 +4498,7 @@ Otherwise, returns array&lt;int, array{user: string, host: string}&gt;.</p>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_renameUser">renameUser()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlDatabaseTrait.html#method_repairDatabase">repairDatabase()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_repairTable">repairTable()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_revokeAllPrivileges">revokeAllPrivileges()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_revokePrivilege">revokePrivilege()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_revokePrivileges">revokePrivileges()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_tableExists">tableExists()</a></li>

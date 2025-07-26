@@ -151,6 +151,176 @@ Search.appendIndex(
             "summary": "The\u0020mysql\u0020specific\u0020parameters.",
             "url": "classes/oihana-db-mysql-enums-MysqlParamTrait.html"
         },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges",
+            "name": "MysqlPrivileges",
+            "summary": "MySQL\u0020Privilege\u0020Constants.",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003AallDescriptions\u0028\u0029",
+            "name": "allDescriptions",
+            "summary": "Get\u0020all\u0020privileges\u0020with\u0020their\u0020description.",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#method_allDescriptions"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003Adescribe\u0028\u0029",
+            "name": "describe",
+            "summary": "Get\u0020a\u0020human\u002Dreadable\u0020description\u0020for\u0020a\u0020given\u0020privilege.",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#method_describe"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003AALL_PRIVILEGES",
+            "name": "ALL_PRIVILEGES",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_ALL_PRIVILEGES"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003ADELETE",
+            "name": "DELETE",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_DELETE"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003AINSERT",
+            "name": "INSERT",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_INSERT"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003ASELECT",
+            "name": "SELECT",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_SELECT"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003AUPDATE",
+            "name": "UPDATE",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_UPDATE"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003AALTER",
+            "name": "ALTER",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_ALTER"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003ACREATE",
+            "name": "CREATE",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_CREATE"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003ADROP",
+            "name": "DROP",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_DROP"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003AINDEX",
+            "name": "INDEX",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_INDEX"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003ALOCK_TABLES",
+            "name": "LOCK_TABLES",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_LOCK_TABLES"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003AREFERENCES",
+            "name": "REFERENCES",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_REFERENCES"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003ATRIGGER",
+            "name": "TRIGGER",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_TRIGGER"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003AALTER_ROUTINE",
+            "name": "ALTER_ROUTINE",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_ALTER_ROUTINE"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003AEXECUTE",
+            "name": "EXECUTE",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_EXECUTE"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003ACREATE_ROUTINE",
+            "name": "CREATE_ROUTINE",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_CREATE_ROUTINE"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003ACREATE_VIEW",
+            "name": "CREATE_VIEW",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_CREATE_VIEW"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003ASHOW_VIEW",
+            "name": "SHOW_VIEW",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_SHOW_VIEW"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003ACREATE_USER",
+            "name": "CREATE_USER",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_CREATE_USER"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003ACREATE_TEMPORARY_TABLES",
+            "name": "CREATE_TEMPORARY_TABLES",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_CREATE_TEMPORARY_TABLES"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003AEVENT",
+            "name": "EVENT",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_EVENT"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003AFILE",
+            "name": "FILE",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_FILE"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003AGRANT_OPTION",
+            "name": "GRANT_OPTION",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_GRANT_OPTION"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003APROCESS",
+            "name": "PROCESS",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_PROCESS"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003ARELOAD",
+            "name": "RELOAD",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_RELOAD"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003ASHOW_DATABASES",
+            "name": "SHOW_DATABASES",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_SHOW_DATABASES"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003ASHUTDOWN",
+            "name": "SHUTDOWN",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_SHUTDOWN"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003ASUPER",
+            "name": "SUPER",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_SUPER"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003AREPLICATION_CLIENT",
+            "name": "REPLICATION_CLIENT",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_REPLICATION_CLIENT"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003AREPLICATION_SLAVE",
+            "name": "REPLICATION_SLAVE",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_REPLICATION_SLAVE"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003AUSAGE",
+            "name": "USAGE",
+            "summary": "",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_USAGE"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\enums\\MysqlPrivileges\u003A\u003ADESCRIPTIONS",
+            "name": "DESCRIPTIONS",
+            "summary": "Human\u002Dreadable\u0020description\u0020for\u0020each\u0020MySQL\u0020privilege.",
+            "url": "classes/oihana-db-mysql-enums-MysqlPrivileges.html#constant_DESCRIPTIONS"
+        },                {
             "fqsen": "\\oihana\\db\\mysql\\MysqlDSN",
             "name": "MysqlDSN",
             "summary": "Represents\u0020a\u0020MySQL\u0020DSN\u0020\u0028Data\u0020Source\u0020Name\u0029\u0020configuration\u0020object.",
@@ -396,30 +566,65 @@ Search.appendIndex(
             "summary": "Provides\u0020methods\u0020to\u0020manage\u0020MySQL\u0020privileges\u0020for\u0020users\u0020on\u0020databases\u0020and\u0020tables.",
             "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html"
         },                {
-            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003AgrantPrivileges\u0028\u0029",
-            "name": "grantPrivileges",
-            "summary": "Grants\u0020all\u0020privileges\u0020on\u0020a\u0020database\u0020to\u0020a\u0020user.",
-            "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_grantPrivileges"
-        },                {
-            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003AhasPrivilege\u0028\u0029",
-            "name": "hasPrivilege",
-            "summary": "Checks\u0020whether\u0020a\u0020user\u0020has\u0020a\u0020specific\u0020privilege\u0020on\u0020a\u0020database\u0020or\u0020table.",
-            "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasPrivilege"
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003AflushPrivileges\u0028\u0029",
+            "name": "flushPrivileges",
+            "summary": "Flushes\u0020MySQL\u0020privileges.",
+            "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_flushPrivileges"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003AgetGrants\u0028\u0029",
             "name": "getGrants",
             "summary": "Retrieves\u0020all\u0020GRANT\u0020statements\u0020for\u0020a\u0020given\u0020user.",
             "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_getGrants"
         },                {
-            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003AflushPrivileges\u0028\u0029",
-            "name": "flushPrivileges",
-            "summary": "Flushes\u0020MySQL\u0020privileges.",
-            "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_flushPrivileges"
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003AgetPrivilegesSummary\u0028\u0029",
+            "name": "getPrivilegesSummary",
+            "summary": "Returns\u0020a\u0020human\u002Dreadable\u0020summary\u0020of\u0020privileges\u0020granted\u0020to\u0020a\u0020user.",
+            "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_getPrivilegesSummary"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003AgrantAllPrivileges\u0028\u0029",
+            "name": "grantAllPrivileges",
+            "summary": "Grants\u0020all\u0020privileges\u0020on\u0020a\u0020database\u0020to\u0020a\u0020user.",
+            "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_grantAllPrivileges"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003AgrantPrivilege\u0028\u0029",
+            "name": "grantPrivilege",
+            "summary": "Grants\u0020specific\u0020privileges\u0020on\u0020a\u0020database\u0020or\u0020table\u0020to\u0020a\u0020user.",
+            "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_grantPrivilege"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003AhasAllPrivileges\u0028\u0029",
+            "name": "hasAllPrivileges",
+            "summary": "Checks\u0020whether\u0020the\u0020given\u0020user\u0020has\u0020ALL\u0020PRIVILEGES\u0020on\u0020\u002A.\u002A\u0020\u0028global\u0020privileges\u0029.",
+            "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasAllPrivileges"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003AhasAllPrivilegesOnDatabase\u0028\u0029",
+            "name": "hasAllPrivilegesOnDatabase",
+            "summary": "Checks\u0020if\u0020the\u0020given\u0020user\u0020has\u0020ALL\u0020PRIVILEGES\u0020on\u0020a\u0020specific\u0020database.",
+            "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasAllPrivilegesOnDatabase"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003AhasAnyPrivilege\u0028\u0029",
+            "name": "hasAnyPrivilege",
+            "summary": "Checks\u0020whether\u0020the\u0020user\u0020has\u0020at\u0020least\u0020one\u0020privilege\u0020on\u0020a\u0020given\u0020database\u0020or\u0020table.",
+            "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasAnyPrivilege"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003AhasPrivilege\u0028\u0029",
+            "name": "hasPrivilege",
+            "summary": "Checks\u0020whether\u0020a\u0020user\u0020has\u0020a\u0020specific\u0020privilege\u0020on\u0020a\u0020database\u0020or\u0020table.",
+            "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasPrivilege"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003AlistDatabasesWithPrivileges\u0028\u0029",
+            "name": "listDatabasesWithPrivileges",
+            "summary": "Lists\u0020all\u0020databases\u0020on\u0020which\u0020a\u0020user\u0020has\u0020at\u0020least\u0020one\u0020privilege.",
+            "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_listDatabasesWithPrivileges"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003AlistPrivileges\u0028\u0029",
             "name": "listPrivileges",
             "summary": "Lists\u0020parsed\u0020privileges\u0020granted\u0020to\u0020a\u0020user.",
             "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_listPrivileges"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003ArevokeAllPrivileges\u0028\u0029",
+            "name": "revokeAllPrivileges",
+            "summary": "Revokes\u0020all\u0020privileges\u0020from\u0020a\u0020user\u0020at\u0020the\u0020global\u0020level\u0020\u0028\u002A.\u002A\u0029.",
+            "url": "classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_revokeAllPrivileges"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlPrivilegeTrait\u003A\u003ArevokePrivilege\u0028\u0029",
             "name": "revokePrivilege",
