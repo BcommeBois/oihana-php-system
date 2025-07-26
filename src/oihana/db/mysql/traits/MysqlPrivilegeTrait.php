@@ -164,13 +164,13 @@ trait MysqlPrivilegeTrait
     }
 
     /**
-     * Checks whether the given user has ALL PRIVILEGES on *.* (global privileges).
+     * Checks whether the given user has ALL PRIVILEGES globally (i.e., ON *.*).
      *
      * @param string $username The MySQL username.
      * @param string $host     The associated host (default: 'localhost').
      * @return bool            True if the user has ALL PRIVILEGES globally.
      */
-    public function hasAllPrivileges( string $username, string $host = 'localhost' ): bool
+    public function hasGlobalAllPrivileges( string $username, string $host = 'localhost' ): bool
     {
         $grants = $this->getGrants($username, $host);
 
