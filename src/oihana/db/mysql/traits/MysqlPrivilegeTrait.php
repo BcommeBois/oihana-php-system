@@ -287,7 +287,7 @@ trait MysqlPrivilegeTrait
      */
     public function listDatabasesWithPrivileges( string $username , string $host = 'localhost' ): array
     {
-        $privileges = $this->listPrivileges($username, $host);
+        $privileges = $this->listPrivileges( $username , $host ) ;
         $databases = [];
 
         foreach ( array_keys( $privileges ) as $scope )
@@ -331,7 +331,7 @@ trait MysqlPrivilegeTrait
      * // - USAGE
      * ```
      */
-    public function listPrivileges(string $username, string $host = 'localhost') :array
+    public function listPrivileges( string $username , string $host = 'localhost' ) :array
     {
         $this->assertIdentifier ( $username ) ;
         $this->assertHost       ( $host     ) ;
