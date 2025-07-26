@@ -3,7 +3,7 @@ Search.appendIndex(
                 {
             "fqsen": "\\oihana\\abstracts\\Option",
             "name": "Option",
-            "summary": "Base\u0020class\u0020for\u0020options\u0020definitions.",
+            "summary": "Abstract\u0020base\u0020class\u0020for\u0020mapping\u0020property\u0020names\u0020to\u0020command\u002Dline\u0020option\u0020names.",
             "url": "classes/oihana-abstracts-Option.html"
         },                {
             "fqsen": "\\oihana\\abstracts\\Option\u003A\u003AgetCommandOption\u0028\u0029",
@@ -13,27 +13,27 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\abstracts\\Options",
             "name": "Options",
-            "summary": "Base\u0020class\u0020for\u0020options\u0020definitions.",
+            "summary": "Abstract\u0020base\u0020class\u0020for\u0020defining\u0020configurable\u0020options.",
             "url": "classes/oihana-abstracts-Options.html"
         },                {
             "fqsen": "\\oihana\\abstracts\\Options\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Initializes\u0020options\u0020from\u0020an\u0020array\u0020or\u0020object.",
+            "summary": "Initializes\u0020options\u0020from\u0020an\u0020associative\u0020array\u0020or\u0020object.",
             "url": "classes/oihana-abstracts-Options.html#method___construct"
         },                {
             "fqsen": "\\oihana\\abstracts\\Options\u003A\u003Acreate\u0028\u0029",
             "name": "create",
-            "summary": "Creates\u0020a\u0020new\u0020instance\u0020of\u0020the\u0020called\u0020class\u0020with\u0020optional\u0020options.",
+            "summary": "Instantiates\u0020the\u0020class\u0020from\u0020an\u0020array\u0020or\u0020another\u0020Options\u0020instance.",
             "url": "classes/oihana-abstracts-Options.html#method_create"
         },                {
             "fqsen": "\\oihana\\abstracts\\Options\u003A\u003AgetOptions\u0028\u0029",
             "name": "getOptions",
-            "summary": "Returns\u0020the\u0020full\u0020command\u0020line\u0020options\u0020expression\u0020with\u0020the\u0020specific\u0020definition.",
+            "summary": "Builds\u0020a\u0020command\u002Dline\u0020string\u0020of\u0020options\u0020based\u0020on\u0020the\u0020current\u0020object\u0020state.",
             "url": "classes/oihana-abstracts-Options.html#method_getOptions"
         },                {
             "fqsen": "\\oihana\\abstracts\\Options\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
-            "summary": "Returns\u0020the\u0020string\u0020expression\u0020of\u0020the\u0020object.",
+            "summary": "Returns\u0020a\u0020string\u0020representation\u0020of\u0020the\u0020object.",
             "url": "classes/oihana-abstracts-Options.html#method___toString"
         },                {
             "fqsen": "\\oihana\\date\\TimeInterval",

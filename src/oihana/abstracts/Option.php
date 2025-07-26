@@ -7,7 +7,10 @@ use oihana\reflections\traits\ConstantsTrait;
 use function oihana\core\strings\hyphenate;
 
 /**
- * Base class for options definitions.
+ * Abstract base class for mapping property names to command-line option names.
+ *
+ * Typically used with {@see Options::getOptions()} to convert property keys
+ * into hyphenated command-line flags (e.g. "dryRun" → "dry-run").
  */
 abstract class Option
 {
