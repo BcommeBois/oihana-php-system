@@ -84,13 +84,14 @@ abstract class Options implements Cloneable
      * @param string      $clazz     Fully qualified class name extending the Option enum.
      * @param string|null $prefix    Optional prefix to prepend before each option (e.g. "--").
      * @param array|null  $excludes  List of property names to exclude from the output.
+     * @param string      $separator The separator between the option's name and value (Default " ").
      *
      * @return string                The formatted command-line options string.
      *
      * @throws InvalidArgumentException If $clazz is not a subclass of Option.
      * @throws ReflectionException      If property reflection fails.
      */
-    public function getOptions( string $clazz , ?string $prefix = null , ?array $excludes = null ):string
+    public function getOptions( string $clazz , ?string $prefix = null , ?array $excludes = null , string $separator = Char::SPACE ):string
     {
         if ( !is_a( $clazz, Option::class , true ) )
         {
@@ -127,7 +128,7 @@ abstract class Options implements Cloneable
                 {
                     foreach ( $value as $item )
                     {
-                        $expression[] = $option . Char::SPACE . json_encode( $item , JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) ;
+                        $expression[] = $option . $separator . json_encode( $item , JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) ;
                     }
                 }
                 elseif ( is_bool ( $value ) )
@@ -136,7 +137,7 @@ abstract class Options implements Cloneable
                 }
                 else
                 {
-                    $expression[] = $option . Char::SPACE . json_encode( $value , JSON_UNESCAPED_SLASHES ) ;
+                    $expression[] = $option . $separator . json_encode( $value , JSON_UNESCAPED_SLASHES ) ;
                 }
             }
         }
