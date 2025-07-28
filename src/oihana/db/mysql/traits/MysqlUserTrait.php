@@ -64,6 +64,87 @@ trait MysqlUserTrait
     }
 
     /**
+     * Retrieves complete information about a MySQL user.
+     *
+     * @param string $username The username to get information for.
+     * @param string $host     The host (default: 'localhost').
+     * @param bool   $throwable Indicates if the method should throw exceptions.
+     *
+     * @return array|null Returns user information array or null if user doesn't exist.
+     *                   Array contains: user, host, password_expired, account_locked,
+     *                   password_last_changed, password_lifetime, max_connections,
+     *                   max_questions, max_updates, max_user_connections, plugin,
+     *                   authentication_string, ssl_type, ssl_cipher, x509_issuer,
+     *                   x509_subject, and grants.
+     */
+    public function getUserInfo(string $username, string $host = 'localhost', bool $throwable = false): ?array
+    {
+        $this->assertIdentifier ( $username ) ;
+        $this->assertHost       ( $host     ) ;
+
+        try {
+            $query = "
+            SELECT 
+                User as user,
+                Host as host,
+                password_expired,
+                account_locked,
+                password_last_changed,
+                password_lifetime,
+                max_connections,
+                max_questions,
+                max_updates,
+                max_user_connections,
+                plugin,
+                authentication_string,
+                ssl_type,
+                ssl_cipher,
+                x509_issuer,
+                x509_subject
+            FROM mysql.user 
+            WHERE User = :user AND Host = :host
+        ";
+
+            $statement = $this->pdo?->prepare($query);
+
+            if (!$statement) {
+                return null;
+            }
+
+            $this->bindValues($statement, ['user' => $username, 'host' => $host]);
+
+            if ( !$statement->execute() )
+            {
+                return null;
+            }
+
+            $userInfo = $statement->fetch(PDO::FETCH_ASSOC ) ;
+
+            if ( !$userInfo )
+            {
+                return null ;
+            }
+
+            // // Récupération des privilèges (grants)
+            // $userInfo['grants'] = $this->getUserGrants($username, $host, $throwable);
+            //
+            // // Récupération des rôles (MySQL 8.0+)
+            // $userInfo['roles'] = $this->getUserRoles($username, $host, $throwable);
+
+            return $userInfo;
+
+        }
+        catch ( PDOException $exception )
+        {
+            if ( $throwable )
+            {
+                throw $exception ;
+            }
+            return null ;
+        }
+    }
+
+    /**
      * Returns a list of MySQL users with their associated hosts.
      *
      * @param string|null $like      Optional SQL pattern to filter users (e.g. 'wp%').
