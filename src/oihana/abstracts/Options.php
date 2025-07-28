@@ -131,7 +131,7 @@ abstract class Options implements Cloneable
                         $expression[] = $option . $separator . json_encode( $item , JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) ;
                     }
                 }
-                elseif ( is_bool ( $value ) )
+                elseif ( $value === true )
                 {
                     $expression[] = $option ;
                 }
