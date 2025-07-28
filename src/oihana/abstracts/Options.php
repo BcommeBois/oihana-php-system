@@ -75,7 +75,6 @@ abstract class Options implements Cloneable
         return $options instanceof Options ? $options : new static() ;
     }
 
-
     /**
      * Formats a template string by replacing placeholders like `{{property}}` with
      * the corresponding public property values of the current object.
