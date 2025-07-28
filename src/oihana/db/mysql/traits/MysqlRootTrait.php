@@ -39,10 +39,12 @@ trait MysqlRootTrait
 
     /**
      * Initialize the Mysql model reference.
+     * @param array $init
+     * @return static
      * @throws DependencyException
      * @throws NotFoundException
      */
-    public function initializeMysqlRoot( array $init = [] ):void
+    public function initializeMysqlRoot( array $init = [] ) :static
     {
         $mysqlRoot = $init[ static::MYSQL_ROOT ] ?? $this->mysqlRoot ;
         if( is_string( $mysqlRoot ) && $this->container->has( $mysqlRoot ) )
@@ -50,5 +52,6 @@ trait MysqlRootTrait
             $mysqlRoot = $this->container->get( $mysqlRoot ) ;
         }
         $this->mysqlRoot = $mysqlRoot instanceof MysqlModel ? $mysqlRoot : null ;
+        return $this ;
     }
 }
