@@ -18,7 +18,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\abstracts\\Options\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Initializes\u0020options\u0020from\u0020an\u0020associative\u0020array\u0020or\u0020object.",
+            "summary": "Initializes\u0020the\u0020object\u0020using\u0020an\u0020associative\u0020array\u0020or\u0020an\u0020object.",
             "url": "classes/oihana-abstracts-Options.html#method___construct"
         },                {
             "fqsen": "\\oihana\\abstracts\\Options\u003A\u003Aclone\u0028\u0029",
@@ -30,6 +30,16 @@ Search.appendIndex(
             "name": "create",
             "summary": "Instantiates\u0020the\u0020class\u0020from\u0020an\u0020array\u0020or\u0020another\u0020Options\u0020instance.",
             "url": "classes/oihana-abstracts-Options.html#method_create"
+        },                {
+            "fqsen": "\\oihana\\abstracts\\Options\u003A\u003Aformat\u0028\u0029",
+            "name": "format",
+            "summary": "Formats\u0020a\u0020template\u0020string\u0020by\u0020replacing\u0020placeholders\u0020like\u0020\u0060\u007B\u007Bproperty\u007D\u007D\u0060\u0020with\nthe\u0020corresponding\u0020public\u0020property\u0020values\u0020of\u0020the\u0020current\u0020object.",
+            "url": "classes/oihana-abstracts-Options.html#method_format"
+        },                {
+            "fqsen": "\\oihana\\abstracts\\Options\u003A\u003AformatArray\u0028\u0029",
+            "name": "formatArray",
+            "summary": "Recursively\u0020formats\u0020all\u0020string\u0020values\u0020in\u0020an\u0020array\u0020using\u0020the\u0020current\u0020object\u0027s\u0020properties.",
+            "url": "classes/oihana-abstracts-Options.html#method_formatArray"
         },                {
             "fqsen": "\\oihana\\abstracts\\Options\u003A\u003AgetOptions\u0028\u0029",
             "name": "getOptions",
@@ -710,6 +720,11 @@ Search.appendIndex(
             "name": "dropUser",
             "summary": "Drops\u0020a\u0020MySQL\u0020user\u0020if\u0020it\u0020exists.",
             "url": "classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_dropUser"
+        },                {
+            "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlUserTrait\u003A\u003AgetUserInfo\u0028\u0029",
+            "name": "getUserInfo",
+            "summary": "Retrieves\u0020complete\u0020information\u0020about\u0020a\u0020MySQL\u0020user.",
+            "url": "classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_getUserInfo"
         },                {
             "fqsen": "\\oihana\\db\\mysql\\traits\\MysqlUserTrait\u003A\u003AlistUsers\u0028\u0029",
             "name": "listUsers",

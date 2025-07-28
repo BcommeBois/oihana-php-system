@@ -10,6 +10,9 @@ class MockOptions extends Options
     public bool   $bar = false ;
     public array  $baz = [] ;
 
+    public ?string $domain ;
+    public ?string $subdomain ;
+
     public function __toString(): string
     {
         return 'OptionsToString';

@@ -485,6 +485,13 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
 <dd>Returns the size of a table in bytes.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_getUserInfo">getUserInfo()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+</dt>
+<dd>Retrieves complete information about a MySQL user.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_grantAllPrivileges">grantAllPrivileges()</a>
     <span>
                                 &nbsp;: bool    </span>
@@ -2314,6 +2321,84 @@ into a simple multi-line string, with each line showing the scope
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_getUserInfo">
+        getUserInfo()
+        <a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_getUserInfo" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlUserTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlusertrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlUserTrait.php">MysqlUserTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">80</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Retrieves complete information about a MySQL user.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getUserInfo</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$username</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$host</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$throwable</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$username</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The username to get information for.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$host</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;localhost&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The host (default: 'localhost').</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$throwable</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Indicates if the method should throw exceptions.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Returns user information array or null if user doesn't exist.
+Array contains: user, host, password_expired, account_locked,
+password_last_changed, password_lifetime, max_connections,
+max_questions, max_updates, max_user_connections, plugin,
+authentication_string, ssl_type, ssl_cipher, x509_issuer,
+x509_subject, and grants.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_grantAllPrivileges">
         grantAllPrivileges()
         <a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_grantAllPrivileges" class="headerlink"><i class="fas fa-link"></i></a>
@@ -3399,7 +3484,7 @@ foreach ( $list as $scope =&gt; $rights)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlUserTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlusertrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlUserTrait.php">MysqlUserTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">76</span>
+    <span class="phpdocumentor-element-found-in__line">157</span>
 
     </aside>
 
@@ -3645,7 +3730,7 @@ Otherwise, returns array&lt;int, array{user: string, host: string}&gt;.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlUserTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlusertrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlUserTrait.php">MysqlUserTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">141</span>
+    <span class="phpdocumentor-element-found-in__line">222</span>
 
     </aside>
 
@@ -4222,7 +4307,7 @@ Otherwise, returns array&lt;int, array{user: string, host: string}&gt;.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/db/mysql/traits/MysqlUserTrait.php"><a href="files/src-oihana-db-mysql-traits-mysqlusertrait.html"><abbr title="src/oihana/db/mysql/traits/MysqlUserTrait.php">MysqlUserTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">160</span>
+    <span class="phpdocumentor-element-found-in__line">241</span>
 
     </aside>
 
@@ -4476,6 +4561,7 @@ Otherwise, returns array&lt;int, array{user: string, host: string}&gt;.</p>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_getGrants">getGrants()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_getPrivilegesSummary">getPrivilegesSummary()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlTableTrait.html#method_getTableSize">getTableSize()</a></li>
+                                            <li class=""><a href="classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_getUserInfo">getUserInfo()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_grantAllPrivileges">grantAllPrivileges()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_grantPrivilege">grantPrivilege()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasAllPrivilegesOnDatabase">hasAllPrivilegesOnDatabase()</a></li>

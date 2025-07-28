@@ -12,18 +12,20 @@ use oihana\reflections\traits\ReflectionTrait;
 /**
  * Abstract base class for defining configurable options.
  *
- * Provides automatic hydration from arrays or objects,
- * reflective property listing, and command-line formatting.
+ * Provides:
+ * - Automatic hydration from arrays or objects.
+ * - Reflection-based property listing.
+ * - String and command-line formatting utilities.
  */
 abstract class Options implements Cloneable
 {
     /**
-     * Initializes options from an associative array or object.
+     * Initializes the object using an associative array or an object.
      *
-     * Properties in the input must match public properties defined on the class.
-     * Unknown properties are silently ignored.
+     * Only public properties declared on the class will be set.
+     * Unknown or non-public properties are silently ignored.
      *
-     * @param array|object|null $init  Initial values to populate the instance.
+     * @param array|object|null $init Initial values to populate the instance.
      */
     public function __construct( array|object|null $init = null )
     {
@@ -44,11 +46,10 @@ abstract class Options implements Cloneable
     /**
      * Creates a deep copy of the current instance.
      *
-     * This method clones the current object and its properties.
-     * Useful when you want to duplicate options without affecting
-     * the original reference.
+     * This performs a full deep copy by serializing and unserializing the object.
+     * Useful when duplicating options to avoid shared references.
      *
-     * @return static A new instance.
+     * @return static A new cloned instance.
      */
     public function clone(): static
     {
@@ -72,6 +73,117 @@ abstract class Options implements Cloneable
             return new static( $options ) ;
         }
         return $options instanceof Options ? $options : new static() ;
+    }
+
+
+    /**
+     * Formats a template string by replacing placeholders like `{{property}}` with
+     * the corresponding public property values of the current object.
+     *
+     * Supports custom placeholder delimiters. If a referenced property is not defined
+     * or is null, it is replaced with an empty string.
+     *
+     * @param string|null $template The template string. Placeholders must match the format `{{property}}` or a custom format.
+     * @param string       $prefix   The prefix that begins a placeholder (default: `{{`).
+     * @param string       $suffix   The suffix that ends a placeholder (default: `}}`).
+     *
+     * @return string|null The formatted string, or `null` if the template is invalid.
+     *
+     * @example
+     * ```php
+     * $opts = new ServerOptions();
+     * $opts->domain    = 'example.com';
+     * $opts->subdomain = 'www';
+     *
+     * echo $opts->format('https://{{subdomain}}.{{domain}}');
+     * // → https://www.example.com
+     *
+     * echo $opts->format('Hello %%domain%%!', '%%', '%%');
+     * // → Hello example.com!
+     *
+     * echo $opts->format('Missing: {{nonexistent}}');
+     * // → Missing:
+     * ```
+     */
+    public function format( ?string $template = null , string $prefix = '{{' , string $suffix = '}}' ): ?string
+    {
+        if ( !is_string( $template ) || $template === Char::EMPTY )
+        {
+            return null;
+        }
+
+        $escapedPrefix = preg_quote( $prefix , '/' ) ;
+        $escapedSuffix = preg_quote( $suffix , '/' ) ;
+        $pattern       = '/' . $escapedPrefix . '(\w+)' . $escapedSuffix . '/' ;
+
+        preg_match_all( $pattern , $template , $matches ) ;
+        $properties = $matches[1] ?? [];
+
+        $placeholders = [] ;
+        $replacements = [] ;
+
+        foreach ( $properties as $prop )
+        {
+            if( property_exists( $this , $prop ) )
+            {
+                $placeholders[] = $prefix . $prop . $suffix;
+                $value = $this->{ $prop } ?? Char::EMPTY ;
+                if( is_array( $value ) )
+                {
+                    $value = json_encode( $value , JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) ;
+                }
+                $replacements[] = $value ;
+            }
+        }
+
+        return str_replace( $placeholders , $replacements , $template ) ;
+    }
+
+    /**
+     * Recursively formats all string values in an array using the current object's properties.
+     *
+     * Placeholders like `{{property}}` in any string value are replaced using the `format()` method.
+     * Non-string values are left unchanged. Nested arrays are processed recursively.
+     *
+     * @param array  &$data    The array to format (by reference).
+     * @param string  $prefix   Placeholder prefix (default: `{{`).
+     * @param string  $suffix   Placeholder suffix (default: `}}`).
+     *
+     * @return array The formatted array.
+     *
+     * @example
+     * ```php
+     * $opts = new ServerOptions();
+     * $opts->domain    = 'example.com';
+     * $opts->subdomain = 'admin';
+     *
+     * $tpl = [
+     *     'url' => 'https://{{subdomain}}.{{domain}}',
+     *     'api' => [
+     *         'endpoint' => 'https://api.{{domain}}/v1',
+     *         'doc'      => 'https://docs.{{domain}}',
+     *     ],
+     *     'static' => 'https://cdn.{{domain}}/assets'
+     * ];
+     *
+     * $formatted = $opts->formatArray($tpl);
+     * print_r($formatted);
+     * ```
+     */
+    public function formatArray( array &$data , string $prefix = '{{' , string $suffix = '}}' ): array
+    {
+        foreach ( $data as $key => $value )
+        {
+            if ( is_array( $value ) )
+            {
+                $data[ $key ] = $this->formatArray( $value , $prefix , $suffix ); ;
+            }
+            elseif ( is_string( $value ) )
+            {
+                $data[ $key ] = $this->format( $value , $prefix , $suffix );
+            }
+        }
+        return $data ;
     }
 
     /**
