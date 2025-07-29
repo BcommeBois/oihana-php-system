@@ -3,6 +3,7 @@
 namespace oihana\abstracts;
 
 use InvalidArgumentException;
+use JsonSerializable;
 use oihana\interfaces\Cloneable;
 use ReflectionException;
 
@@ -17,7 +18,7 @@ use oihana\reflections\traits\ReflectionTrait;
  * - Reflection-based property listing.
  * - String and command-line formatting utilities.
  */
-abstract class Options implements Cloneable
+abstract class Options implements Cloneable, JsonSerializable
 {
     /**
      * Initializes the object using an associative array or an object.
@@ -259,6 +260,78 @@ abstract class Options implements Cloneable
         }
 
         return implode( Char::SPACE , $expression ) ;
+    }
+
+    /**
+     * Returns data to be serialized by json_encode().
+     *
+     * This implementation returns a cleaned associative array of public properties
+     * by delegating to `toArray(true)`. Only meaningful values are kept (non-null,
+     * non-empty string, non-empty array).
+     *
+     * @return array<string, mixed>
+     *
+     * @throws ReflectionException
+     * @example
+     * ```php
+     * $options = new ServerOptions
+     * ([
+     *     'host' => 'localhost',
+     *     'port' => 8080,
+     *     'debug' => null,
+     * ]);
+     *
+     * echo json_encode($options, JSON_PRETTY_PRINT);
+     * // → {
+     * //     "host": "localhost",
+     * //     "port": 8080
+     * //   }
+     * ```
+     */
+    public function jsonSerialize(): array
+    {
+        return $this->toArray(true ) ;
+    }
+
+    /**
+     * Converts the current object to an associative array.
+     *
+     * Only public properties defined on the class are included.
+     * Useful for serialization, debugging, or exporting the object state.
+     *
+     * @param bool $clear If true, removes entries with null values. Default: false.
+     *
+     * @return array<string, mixed> The associative array representation of the object.
+     *
+     * @throws ReflectionException
+     * @example
+     * ```php
+     * $options = new ServerOptions([
+     *     'host' => 'localhost',
+     *     'port' => 8080,
+     *     'debug' => null,
+     * ]);
+     *
+     * print_r($options->toArray());
+     * // → [ 'host' => 'localhost', 'port' => 8080, 'debug' => null ]
+     *
+     * print_r($options->toArray(true));
+     * // → [ 'host' => 'localhost', 'port' => 8080 ]
+     * ```
+     */
+    public function toArray( bool $clear = false ): array
+    {
+        $data = [];
+        foreach ( $this->getPublicProperties(static::class ) as $property )
+        {
+            $name  = $property->getName() ;
+            $value = $this->{ $name } ;
+            if (!$clear || $value !== null)
+            {
+                $data[ $name ] = $value ;
+            }
+        }
+        return $data ;
     }
 
     /**

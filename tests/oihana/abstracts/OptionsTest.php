@@ -5,6 +5,7 @@ namespace oihana\abstracts;
 use InvalidArgumentException;
 use oihana\abstracts\mocks\MockOption;
 use oihana\abstracts\mocks\MockOptions;
+use oihana\abstracts\mocks\TestOptions;
 use PHPUnit\Framework\TestCase;
 use ReflectionException;
 
@@ -160,5 +161,75 @@ class OptionsTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessageMatches('/must inherit the Option class/');
         $options->getOptions(\stdClass::class);
+    }
+
+    /**
+     * @throws ReflectionException
+     */
+    public function testToArrayWithValues(): void
+    {
+        $opts = new TestOptions
+        ([
+            'host'  => 'localhost',
+            'port'  => 8080,
+            'flags' => ['a', 'b'],
+            'debug' => true,
+        ]);
+
+        $array = $opts->toArray();
+
+        $this->assertEquals([
+            'host'  => 'localhost',
+            'port'  => 8080,
+            'flags' => ['a', 'b'],
+            'debug' => true,
+        ], $array);
+    }
+
+    /**
+     * @throws ReflectionException
+     */
+    public function testToArrayWithClear(): void
+    {
+        $opts = new TestOptions
+        ([
+            'host'  => 'localhost',
+            'port'  => null,
+            'flags' => [],
+            'debug' => null,
+        ]);
+
+        $array = $opts->toArray(clear: true);
+
+        $this->assertEquals([
+            'host' => 'localhost',
+            'flags' => [],
+        ], $array);
+    }
+
+
+    public function testJsonSerialize(): void
+    {
+        $opts = new TestOptions([
+            'host'  => 'localhost',
+            'port'  => 80,
+            'flags' => [],
+            'debug' => null,
+        ]);
+
+        $json = json_encode($opts, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        $this->assertJson($json);
+        $this->assertSame('{"host":"localhost","port":80,"flags":[]}', $json);
+    }
+
+    public function testJsonSerializeWithEmptyValues(): void
+    {
+        $opts = new TestOptions([
+            'host'  => null,
+            'port'  => null,
+            'flags' => [],
+            'debug' => null,
+        ]);
+        $this->assertEquals('{"flags":[]}', json_encode( $opts ) );
     }
 }

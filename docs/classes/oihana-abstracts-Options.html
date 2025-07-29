@@ -143,7 +143,7 @@
     
             <span class="phpdocumentor-element__implements">
             implements
-                            <a href="classes/oihana-interfaces-Cloneable.html"><abbr title="\oihana\interfaces\Cloneable">Cloneable</abbr></a>                    </span>
+                            <a href="classes/oihana-interfaces-Cloneable.html"><abbr title="\oihana\interfaces\Cloneable">Cloneable</abbr></a>,                             <abbr title="\JsonSerializable">JsonSerializable</abbr>                    </span>
     
             <span class="phpdocumentor-element__extends">
             uses
@@ -160,7 +160,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 
     </aside>
 
@@ -195,7 +195,7 @@
 
     </h4>
     <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/oihana-interfaces-Cloneable.html"><abbr title="\oihana\interfaces\Cloneable">Cloneable</abbr></a></dt><dd>This interface is implemented by all cloneable objects.</dd>    </dl>
+                    <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/oihana-interfaces-Cloneable.html"><abbr title="\oihana\interfaces\Cloneable">Cloneable</abbr></a></dt><dd>This interface is implemented by all cloneable objects.</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><abbr title="\JsonSerializable">JsonSerializable</abbr></dt>    </dl>
 
 
 
@@ -307,11 +307,25 @@ the corresponding public property values of the current object.</dd>
 <dd>Populates an object of the given class with data from the provided array.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-abstracts-Options.html#method_jsonSerialize">jsonSerialize()</a>
+    <span>
+                                &nbsp;: array&lt;string, mixed&gt;    </span>
+</dt>
+<dd>Returns data to be serialized by json_encode().</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-reflections-traits-ReflectionTrait.html#method_jsonSerializeFromPublicProperties">jsonSerializeFromPublicProperties()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Invoked to generates the json array serializer array representation from the public properties of the object.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-abstracts-Options.html#method_toArray">toArray()</a>
+    <span>
+                                &nbsp;: array&lt;string, mixed&gt;    </span>
+</dt>
+<dd>Converts the current object to an associative array.</dd>
 
     </dl>
 
@@ -424,7 +438,7 @@ the corresponding public property values of the current object.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">30</span>
+    <span class="phpdocumentor-element-found-in__line">31</span>
 
     </aside>
 
@@ -474,7 +488,7 @@ Unknown or non-public properties are silently ignored.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">271</span>
+    <span class="phpdocumentor-element-found-in__line">344</span>
 
     </aside>
 
@@ -519,7 +533,7 @@ Unknown or non-public properties are silently ignored.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">55</span>
 
     </aside>
 
@@ -565,7 +579,7 @@ Useful when duplicating options to avoid shared references.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">69</span>
+    <span class="phpdocumentor-element-found-in__line">70</span>
 
     </aside>
 
@@ -626,7 +640,7 @@ Useful when duplicating options to avoid shared references.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">107</span>
+    <span class="phpdocumentor-element-found-in__line">108</span>
 
     </aside>
 
@@ -731,7 +745,7 @@ echo $opts-&gt;format('Missing: {{nonexistent}}');
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">172</span>
+    <span class="phpdocumentor-element-found-in__line">173</span>
 
     </aside>
 
@@ -904,7 +918,7 @@ print_r($formatted);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">205</span>
+    <span class="phpdocumentor-element-found-in__line">206</span>
 
     </aside>
 
@@ -1224,6 +1238,85 @@ The name of each property must match an option defined in the <code class="prett
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_jsonSerialize">
+        jsonSerialize()
+        <a href="classes/oihana-abstracts-Options.html#method_jsonSerialize" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">291</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns data to be serialized by json_encode().</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">jsonSerialize</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>This implementation returns a cleaned associative array of public properties
+by delegating to <code class="prettyprint">toArray(true)</code>. Only meaningful values are kept (non-null,
+non-empty string, non-empty array).</p>
+</section>
+
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-abstracts-Options.html#method_jsonSerialize#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$options = new ServerOptions
+([
+    'host' =&gt; 'localhost',
+    'port' =&gt; 8080,
+    'debug' =&gt; null,
+]);
+
+echo json_encode($options, JSON_PRETTY_PRINT);
+// → {
+//     &quot;host&quot;: &quot;localhost&quot;,
+//     &quot;port&quot;: 8080
+//   }
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string, mixed&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_jsonSerializeFromPublicProperties">
         jsonSerializeFromPublicProperties()
         <a href="classes/oihana-reflections-traits-ReflectionTrait.html#method_jsonSerializeFromPublicProperties" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1290,6 +1383,99 @@ The name of each property must match an option defined in the <code class="prett
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_toArray">
+        toArray()
+        <a href="classes/oihana-abstracts-Options.html#method_toArray" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">322</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Converts the current object to an associative array.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">toArray</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$clear</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Only public properties defined on the class are included.
+Useful for serialization, debugging, or exporting the object state.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$clear</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>If true, removes entries with null values. Default: false.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-abstracts-Options.html#method_toArray#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$options = new ServerOptions([
+    'host' =&gt; 'localhost',
+    'port' =&gt; 8080,
+    'debug' =&gt; null,
+]);
+
+print_r($options-&gt;toArray());
+// → [ 'host' =&gt; 'localhost', 'port' =&gt; 8080, 'debug' =&gt; null ]
+
+print_r($options-&gt;toArray(true));
+// → [ 'host' =&gt; 'localhost', 'port' =&gt; 8080 ]
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The associative array representation of the object.</p>
+</section>
+
             </section>
 
 </article>
@@ -1427,7 +1613,9 @@ The name of each property must match an option defined in the <code class="prett
                                             <li class=""><a href="classes/oihana-reflections-traits-ReflectionTrait.html#method_getPublicProperties">getPublicProperties()</a></li>
                                             <li class=""><a href="classes/oihana-reflections-traits-ReflectionTrait.html#method_getShortName">getShortName()</a></li>
                                             <li class=""><a href="classes/oihana-reflections-traits-ReflectionTrait.html#method_hydrate">hydrate()</a></li>
+                                            <li class=""><a href="classes/oihana-abstracts-Options.html#method_jsonSerialize">jsonSerialize()</a></li>
                                             <li class=""><a href="classes/oihana-reflections-traits-ReflectionTrait.html#method_jsonSerializeFromPublicProperties">jsonSerializeFromPublicProperties()</a></li>
+                                            <li class=""><a href="classes/oihana-abstracts-Options.html#method_toArray">toArray()</a></li>
                                     </ul>
             </li>
                     </ul>

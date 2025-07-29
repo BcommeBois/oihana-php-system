@@ -46,6 +46,16 @@ Search.appendIndex(
             "summary": "Builds\u0020a\u0020command\u002Dline\u0020string\u0020of\u0020options\u0020based\u0020on\u0020the\u0020current\u0020object\u0020state.",
             "url": "classes/oihana-abstracts-Options.html#method_getOptions"
         },                {
+            "fqsen": "\\oihana\\abstracts\\Options\u003A\u003AjsonSerialize\u0028\u0029",
+            "name": "jsonSerialize",
+            "summary": "Returns\u0020data\u0020to\u0020be\u0020serialized\u0020by\u0020json_encode\u0028\u0029.",
+            "url": "classes/oihana-abstracts-Options.html#method_jsonSerialize"
+        },                {
+            "fqsen": "\\oihana\\abstracts\\Options\u003A\u003AtoArray\u0028\u0029",
+            "name": "toArray",
+            "summary": "Converts\u0020the\u0020current\u0020object\u0020to\u0020an\u0020associative\u0020array.",
+            "url": "classes/oihana-abstracts-Options.html#method_toArray"
+        },                {
             "fqsen": "\\oihana\\abstracts\\Options\u003A\u003A__toString\u0028\u0029",
             "name": "__toString",
             "summary": "Returns\u0020a\u0020string\u0020representation\u0020of\u0020the\u0020object.",
