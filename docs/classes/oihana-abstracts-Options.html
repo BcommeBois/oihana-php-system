@@ -160,18 +160,19 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 
             <p class="phpdocumentor-summary">Abstract base class for defining configurable options.</p>
 
 
-    <section class="phpdocumentor-description"><p>Provides:</p>
+    <section class="phpdocumentor-description"><p>Features:</p>
 <ul>
 <li>Automatic hydration from arrays or objects.</li>
-<li>Reflection-based property listing.</li>
-<li>String and command-line formatting utilities.</li>
+<li>Reflection-based listing of public properties.</li>
+<li>Template string formatting with placeholders.</li>
+<li>CLI-compatible string generation from object state.</li>
 </ul>
 </section>
 
@@ -233,7 +234,7 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Initializes the object using an associative array or an object.</dd>
+<dd>Initializes the object using an associative array or object.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-abstracts-Options.html#method___toString">__toString()</a>
@@ -269,7 +270,21 @@ the corresponding public property values of the current object.</dd>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd>Recursively formats all string values in an array using the current object&#039;s properties.</dd>
+<dd>Recursively formats all string values in an array using the current object properties.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-abstracts-Options.html#method_formatFromDocument">formatFromDocument()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Formats all public string properties using external data instead of internal values.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-abstracts-Options.html#method_formatProperties">formatProperties()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Formats all public string properties using the object’s own values.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-reflections-traits-ReflectionTrait.html#method_getConstants">getConstants()</a>
@@ -438,11 +453,11 @@ the corresponding public property values of the current object.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Initializes the object using an associative array or an object.</p>
+        <p class="phpdocumentor-summary">Initializes the object using an associative array or object.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -488,7 +503,7 @@ Unknown or non-public properties are silently ignored.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">344</span>
+    <span class="phpdocumentor-element-found-in__line">387</span>
 
     </aside>
 
@@ -533,7 +548,7 @@ Unknown or non-public properties are silently ignored.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">55</span>
+    <span class="phpdocumentor-element-found-in__line">57</span>
 
     </aside>
 
@@ -579,7 +594,7 @@ Useful when duplicating options to avoid shared references.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">70</span>
+    <span class="phpdocumentor-element-found-in__line">72</span>
 
     </aside>
 
@@ -640,7 +655,7 @@ Useful when duplicating options to avoid shared references.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">108</span>
+    <span class="phpdocumentor-element-found-in__line">110</span>
 
     </aside>
 
@@ -745,11 +760,11 @@ echo $opts-&gt;format('Missing: {{nonexistent}}');
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">173</span>
+    <span class="phpdocumentor-element-found-in__line">153</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Recursively formats all string values in an array using the current object&#039;s properties.</p>
+        <p class="phpdocumentor-summary">Recursively formats all string values in an array using the current object properties.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -758,10 +773,7 @@ echo $opts-&gt;format('Missing: {{nonexistent}}');
     <div class="phpdocumentor-label-line">
         </div>
     
-        <section class="phpdocumentor-description"><p>Placeholders like <code class="prettyprint">{{property}}</code> in any string value are replaced using the <code class="prettyprint">format()</code> method.
-Non-string values are left unchanged. Nested arrays are processed recursively.</p>
-</section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -769,7 +781,7 @@ Non-string values are left unchanged. Nested arrays are processed recursively.</
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The array to format (by reference).</p>
+                    <section class="phpdocumentor-description"><p>The input array (modified by reference).</p>
 </section>
 
             </dd>
@@ -778,7 +790,7 @@ Non-string values are left unchanged. Nested arrays are processed recursively.</
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;{{&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Placeholder prefix (default: <code class="prettyprint">{{</code>).</p>
+                    <section class="phpdocumentor-description"><p>Placeholder prefix.</p>
 </section>
 
             </dd>
@@ -787,44 +799,13 @@ Non-string values are left unchanged. Nested arrays are processed recursively.</
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;}}&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Placeholder suffix (default: <code class="prettyprint">}}</code>).</p>
+                    <section class="phpdocumentor-description"><p>Placeholder suffix.</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/oihana-abstracts-Options.html#method_formatArray#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">example</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$opts = new ServerOptions();
-$opts-&gt;domain    = 'example.com';
-$opts-&gt;subdomain = 'admin';
-
-$tpl = [
-    'url' =&gt; 'https://{{subdomain}}.{{domain}}',
-    'api' =&gt; [
-        'endpoint' =&gt; 'https://api.{{domain}}/v1',
-        'doc'      =&gt; 'https://docs.{{domain}}',
-    ],
-    'static' =&gt; 'https://cdn.{{domain}}/assets'
-];
-
-$formatted = $opts-&gt;formatArray($tpl);
-print_r($formatted);
-</code></pre>
-</section>
-
-                                    </dd>
-                                            </dl>
 
     
 
@@ -837,6 +818,182 @@ print_r($formatted);
 
             </section>
 
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_formatFromDocument">
+        formatFromDocument()
+        <a href="classes/oihana-abstracts-Options.html#method_formatFromDocument" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">218</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Formats all public string properties using external data instead of internal values.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">formatFromDocument</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|object&nbsp;</span><span class="phpdocumentor-signature__argument__name">$document</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$prefix</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;{{&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$suffix</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;}}&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$document</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|object</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Associative array or an object of placeholder values.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$prefix</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;{{&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Placeholder prefix (default <code class="prettyprint">{{</code>).</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$suffix</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;}}&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Placeholder suffix (default <code class="prettyprint">}}</code>).</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-abstracts-Options.html#method_formatFromDocument#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$opts-&gt;url = 'https://{{host}}/{{path}}';
+$opts-&gt;formatFromDocument(['host' =&gt; 'example.com', 'path' =&gt; 'docs']);
+echo $opts-&gt;url; // → https://example.com/docs
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_formatProperties">
+        formatProperties()
+        <a href="classes/oihana-abstracts-Options.html#method_formatProperties" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">187</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Formats all public string properties using the object’s own values.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">formatProperties</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$prefix</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;{{&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$suffix</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;}}&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$prefix</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;{{&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Placeholder prefix (default <code class="prettyprint">{{</code>).</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$suffix</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;}}&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Placeholder suffix (default <code class="prettyprint">}}</code>).</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-abstracts-Options.html#method_formatProperties#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$opts-&gt;url = 'https://{{host}}';
+$opts-&gt;host = 'example.com';
+$opts-&gt;formatProperties();
+echo $opts-&gt;url; // → https://example.com
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -918,7 +1075,7 @@ print_r($formatted);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">206</span>
+    <span class="phpdocumentor-element-found-in__line">249</span>
 
     </aside>
 
@@ -1246,7 +1403,7 @@ The name of each property must match an option defined in the <code class="prett
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">291</span>
+    <span class="phpdocumentor-element-found-in__line">334</span>
 
     </aside>
 
@@ -1400,7 +1557,7 @@ echo json_encode($options, JSON_PRETTY_PRINT);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">322</span>
+    <span class="phpdocumentor-element-found-in__line">365</span>
 
     </aside>
 
@@ -1608,6 +1765,8 @@ print_r($options-&gt;toArray(true));
                                             <li class=""><a href="classes/oihana-abstracts-Options.html#method_create">create()</a></li>
                                             <li class=""><a href="classes/oihana-abstracts-Options.html#method_format">format()</a></li>
                                             <li class=""><a href="classes/oihana-abstracts-Options.html#method_formatArray">formatArray()</a></li>
+                                            <li class=""><a href="classes/oihana-abstracts-Options.html#method_formatFromDocument">formatFromDocument()</a></li>
+                                            <li class=""><a href="classes/oihana-abstracts-Options.html#method_formatProperties">formatProperties()</a></li>
                                             <li class=""><a href="classes/oihana-reflections-traits-ReflectionTrait.html#method_getConstants">getConstants()</a></li>
                                             <li class=""><a href="classes/oihana-abstracts-Options.html#method_getOptions">getOptions()</a></li>
                                             <li class=""><a href="classes/oihana-reflections-traits-ReflectionTrait.html#method_getPublicProperties">getPublicProperties()</a></li>

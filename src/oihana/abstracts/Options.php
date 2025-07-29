@@ -9,20 +9,22 @@ use ReflectionException;
 
 use oihana\enums\Char;
 use oihana\reflections\traits\ReflectionTrait;
+use function oihana\core\strings\formatFromDocument;
 
 /**
  * Abstract base class for defining configurable options.
  *
- * Provides:
+ * Features:
  * - Automatic hydration from arrays or objects.
- * - Reflection-based property listing.
- * - String and command-line formatting utilities.
+ * - Reflection-based listing of public properties.
+ * - Template string formatting with placeholders.
+ * - CLI-compatible string generation from object state.
  */
 abstract class Options implements Cloneable, JsonSerializable
 {
     /**
-     * Initializes the object using an associative array or an object.
-     *
+     * Initializes the object using an associative array or object.
+ *
      * Only public properties declared on the class will be set.
      * Unknown or non-public properties are silently ignored.
      *
@@ -140,35 +142,13 @@ abstract class Options implements Cloneable, JsonSerializable
     }
 
     /**
-     * Recursively formats all string values in an array using the current object's properties.
+     * Recursively formats all string values in an array using the current object properties.
      *
-     * Placeholders like `{{property}}` in any string value are replaced using the `format()` method.
-     * Non-string values are left unchanged. Nested arrays are processed recursively.
-     *
-     * @param array  &$data    The array to format (by reference).
-     * @param string  $prefix   Placeholder prefix (default: `{{`).
-     * @param string  $suffix   Placeholder suffix (default: `}}`).
+     * @param array  &$data  The input array (modified by reference).
+     * @param string $prefix Placeholder prefix.
+     * @param string $suffix Placeholder suffix.
      *
      * @return array The formatted array.
-     *
-     * @example
-     * ```php
-     * $opts = new ServerOptions();
-     * $opts->domain    = 'example.com';
-     * $opts->subdomain = 'admin';
-     *
-     * $tpl = [
-     *     'url' => 'https://{{subdomain}}.{{domain}}',
-     *     'api' => [
-     *         'endpoint' => 'https://api.{{domain}}/v1',
-     *         'doc'      => 'https://docs.{{domain}}',
-     *     ],
-     *     'static' => 'https://cdn.{{domain}}/assets'
-     * ];
-     *
-     * $formatted = $opts->formatArray($tpl);
-     * print_r($formatted);
-     * ```
      */
     public function formatArray( array &$data , string $prefix = '{{' , string $suffix = '}}' ): array
     {
@@ -184,6 +164,69 @@ abstract class Options implements Cloneable, JsonSerializable
             }
         }
         return $data ;
+    }
+
+    /**
+     * Formats all public string properties using the object’s own values.
+     *
+     * @param string $prefix Placeholder prefix (default `{{`).
+     * @param string $suffix Placeholder suffix (default `}}`).
+     *
+     * @return void
+     *
+     * @throws ReflectionException
+     *
+     * @example
+     * ```php
+     * $opts->url = 'https://{{host}}';
+     * $opts->host = 'example.com';
+     * $opts->formatProperties();
+     * echo $opts->url; // → https://example.com
+     * ```
+     */
+    public function formatProperties( string $prefix = '{{', string $suffix = '}}' ): void
+    {
+        foreach ( $this->getPublicProperties( static::class ) as $property )
+        {
+            $name  = $property->getName() ;
+            $value = $this->{ $name } ;
+
+            if ( is_string( $value ) && str_contains( $value, $prefix ) && str_contains( $value, $suffix ) )
+            {
+                $this->{ $name } = $this->format( $value , $prefix , $suffix ) ;
+            }
+        }
+    }
+
+    /**
+     * Formats all public string properties using external data instead of internal values.
+     *
+     * @param array|object $document Associative array or an object of placeholder values.
+     * @param string       $prefix   Placeholder prefix (default `{{`).
+     * @param string       $suffix   Placeholder suffix (default `}}`).
+     *
+     * @return void
+     *
+     * @throws ReflectionException
+     * @example
+     * ```php
+     * $opts->url = 'https://{{host}}/{{path}}';
+     * $opts->formatFromDocument(['host' => 'example.com', 'path' => 'docs']);
+     * echo $opts->url; // → https://example.com/docs
+     * ```
+     */
+    public function formatFromDocument( array|object $document , string $prefix = '{{' , string $suffix = '}}' ): void
+    {
+        foreach ( $this->getPublicProperties( static::class ) as $property )
+        {
+            $name     = $property->getName() ;
+            $template = $this->{ $name } ?? null ;
+
+            if ( is_string( $template ) && str_contains( $template , $prefix ) && str_contains( $template , $suffix ) )
+            {
+                $this->{ $name } = formatFromDocument( $template , $document , $prefix , $suffix );
+            }
+        }
     }
 
     /**

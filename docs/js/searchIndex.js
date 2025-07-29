@@ -18,7 +18,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\abstracts\\Options\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Initializes\u0020the\u0020object\u0020using\u0020an\u0020associative\u0020array\u0020or\u0020an\u0020object.",
+            "summary": "Initializes\u0020the\u0020object\u0020using\u0020an\u0020associative\u0020array\u0020or\u0020object.",
             "url": "classes/oihana-abstracts-Options.html#method___construct"
         },                {
             "fqsen": "\\oihana\\abstracts\\Options\u003A\u003Aclone\u0028\u0029",
@@ -38,8 +38,18 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\abstracts\\Options\u003A\u003AformatArray\u0028\u0029",
             "name": "formatArray",
-            "summary": "Recursively\u0020formats\u0020all\u0020string\u0020values\u0020in\u0020an\u0020array\u0020using\u0020the\u0020current\u0020object\u0027s\u0020properties.",
+            "summary": "Recursively\u0020formats\u0020all\u0020string\u0020values\u0020in\u0020an\u0020array\u0020using\u0020the\u0020current\u0020object\u0020properties.",
             "url": "classes/oihana-abstracts-Options.html#method_formatArray"
+        },                {
+            "fqsen": "\\oihana\\abstracts\\Options\u003A\u003AformatProperties\u0028\u0029",
+            "name": "formatProperties",
+            "summary": "Formats\u0020all\u0020public\u0020string\u0020properties\u0020using\u0020the\u0020object\u2019s\u0020own\u0020values.",
+            "url": "classes/oihana-abstracts-Options.html#method_formatProperties"
+        },                {
+            "fqsen": "\\oihana\\abstracts\\Options\u003A\u003AformatFromDocument\u0028\u0029",
+            "name": "formatFromDocument",
+            "summary": "Formats\u0020all\u0020public\u0020string\u0020properties\u0020using\u0020external\u0020data\u0020instead\u0020of\u0020internal\u0020values.",
+            "url": "classes/oihana-abstracts-Options.html#method_formatFromDocument"
         },                {
             "fqsen": "\\oihana\\abstracts\\Options\u003A\u003AgetOptions\u0028\u0029",
             "name": "getOptions",
