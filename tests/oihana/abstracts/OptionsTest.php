@@ -115,6 +115,24 @@ class OptionsTest extends TestCase
         $this->assertStringContainsString('--baz "item2"', $result);
     }
 
+
+    /**
+     * @throws ReflectionException
+     */
+    public function testGetOptionsWithNullClazzReturnsAnEmptyString()
+    {
+        $options = $this->getConcreteOptionsInstance
+        ([
+            'foo' => 'value',
+            'bar' => true,
+            'baz' => ['item1', 'item2'],
+        ]);
+
+        $result = $options->getOptions(null );
+
+        $this->assertEquals('', $result);
+    }
+
     /**
      * @throws ReflectionException
      */

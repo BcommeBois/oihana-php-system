@@ -192,18 +192,23 @@ abstract class Options implements Cloneable
      * unless explicitly excluded via the `$excludes` parameter.
      * The name of each property must match an option defined in the `$clazz` enumeration.
      *
-     * @param string      $clazz     Fully qualified class name extending the Option enum.
+     * @param string|null $clazz     Fully qualified class name extending the Option enum.
      * @param string|null $prefix    Optional prefix to prepend before each option (e.g. "--").
      * @param array|null  $excludes  List of property names to exclude from the output.
      * @param string      $separator The separator between the option's name and value (Default " ").
      *
-     * @return string                The formatted command-line options string.
+     * @return string                The formatted command-line options string or an empty string if the clazz parameter is null.
      *
      * @throws InvalidArgumentException If $clazz is not a subclass of Option.
      * @throws ReflectionException      If property reflection fails.
      */
-    public function getOptions( string $clazz , ?string $prefix = null , ?array $excludes = null , string $separator = Char::SPACE ):string
+    public function getOptions( ?string $clazz = null , ?string $prefix = null , ?array $excludes = null , string $separator = Char::SPACE ):string
     {
+        if( !isset( $clazz ) )
+        {
+            return Char::EMPTY ;
+        }
+
         if ( !is_a( $clazz, Option::class , true ) )
         {
             throw new InvalidArgumentException( sprintf
