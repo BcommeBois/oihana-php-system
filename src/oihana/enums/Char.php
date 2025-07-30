@@ -54,6 +54,7 @@ class Char
     public const string DEGREE            = '°' ;
     public const string DOLLAR            = '$' ;
     public const string DOT               = '.' ;
+    public const string DOUBLE_BACK_SLASH = '\\\\' ;
     public const string DOUBLE_COLON      = '::' ;
     public const string DOUBLE_DOT        = '..' ;
     public const string DOUBLE_EQUAL      = '==' ;
