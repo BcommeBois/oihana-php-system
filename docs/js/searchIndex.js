@@ -956,6 +956,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/oihana-enums-Char.html#constant_DOT"
         },                {
+            "fqsen": "\\oihana\\enums\\Char\u003A\u003ADOUBLE_BACK_SLASH",
+            "name": "DOUBLE_BACK_SLASH",
+            "summary": "",
+            "url": "classes/oihana-enums-Char.html#constant_DOUBLE_BACK_SLASH"
+        },                {
             "fqsen": "\\oihana\\enums\\Char\u003A\u003ADOUBLE_COLON",
             "name": "DOUBLE_COLON",
             "summary": "",

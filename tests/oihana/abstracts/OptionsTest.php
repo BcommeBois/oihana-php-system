@@ -197,16 +197,13 @@ class OptionsTest extends TestCase
             'port'  => null,
             'flags' => [],
             'debug' => null,
+            'empty' => '',
         ]);
 
         $array = $opts->toArray(clear: true);
 
-        $this->assertEquals([
-            'host' => 'localhost',
-            'flags' => [],
-        ], $array);
+        $this->assertEquals( [ 'host' => 'localhost' ], $array);
     }
-
 
     public function testJsonSerialize(): void
     {
@@ -215,21 +212,26 @@ class OptionsTest extends TestCase
             'port'  => 80,
             'flags' => [],
             'debug' => null,
+            'empty' => '',
         ]);
 
-        $json = json_encode($opts, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-        $this->assertJson($json);
-        $this->assertSame('{"host":"localhost","port":80,"flags":[]}', $json);
+        $json = json_encode( $opts , JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        $this->assertJson( $json );
+        $this->assertSame('{"host":"localhost","port":80}', $json );
     }
 
     public function testJsonSerializeWithEmptyValues(): void
     {
         $opts = new TestOptions([
-            'host'  => null,
+            'host'  => '',
             'port'  => null,
             'flags' => [],
             'debug' => null,
+            'empty' => '',
         ]);
-        $this->assertEquals('{"flags":[]}', json_encode( $opts ) );
+
+        $json = json_encode($opts, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        $this->assertJson( $json );
+        $this->assertEquals('{}', $json );
     }
 }

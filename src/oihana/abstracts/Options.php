@@ -308,13 +308,14 @@ abstract class Options implements Cloneable, JsonSerializable
     /**
      * Returns data to be serialized by json_encode().
      *
-     * This implementation returns a cleaned associative array of public properties
-     * by delegating to `toArray(true)`. Only meaningful values are kept (non-null,
-     * non-empty string, non-empty array).
+     * This implementation converts the cleaned public properties of the object
+     * to an object representation, ensuring that json_encode always returns
+     * a JSON object (e.g. `{}` instead of `[]` when empty).
      *
-     * @return array<string, mixed>
+     * @return object An object representing the public non-empty properties.
      *
      * @throws ReflectionException
+     * @example
      * @example
      * ```php
      * $options = new ServerOptions
@@ -324,16 +325,16 @@ abstract class Options implements Cloneable, JsonSerializable
      *     'debug' => null,
      * ]);
      *
-     * echo json_encode($options, JSON_PRETTY_PRINT);
-     * // → {
-     * //     "host": "localhost",
-     * //     "port": 8080
-     * //   }
-     * ```
+     * echo json_encode($options);
+     * // → {"host":"localhost","port":8080}
+     *
+     * $options = new ServerOptions([ 'host' => '' , 'debug' => null ]);
+     *
+     * echo json_encode($options); // → {}
      */
-    public function jsonSerialize(): array
+    public function jsonSerialize(): object
     {
-        return $this->toArray(true ) ;
+        return (object) $this->toArray(true) ;
     }
 
     /**
@@ -353,10 +354,12 @@ abstract class Options implements Cloneable, JsonSerializable
      *     'host' => 'localhost',
      *     'port' => 8080,
      *     'debug' => null,
+     *     'empty' => '',
+     *     'values' => [],
      * ]);
      *
      * print_r($options->toArray());
-     * // → [ 'host' => 'localhost', 'port' => 8080, 'debug' => null ]
+     * // → [ 'host' => 'localhost', 'port' => 8080, 'debug' => null , 'empty' => '' , 'values' => [] ]
      *
      * print_r($options->toArray(true));
      * // → [ 'host' => 'localhost', 'port' => 8080 ]
@@ -368,8 +371,14 @@ abstract class Options implements Cloneable, JsonSerializable
         foreach ( $this->getPublicProperties(static::class ) as $property )
         {
             $name  = $property->getName() ;
-            $value = $this->{ $name } ;
-            if (!$clear || $value !== null)
+            $value = $this->{ $name } ?? null ;
+
+            if( ( is_string( $value ) && trim($value) === Char::EMPTY ) || $value === [] )
+            {
+                $value = null ;
+            }
+
+            if ( !$clear || $value !== null )
             {
                 $data[ $name ] = $value ;
             }
