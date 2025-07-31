@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Adds oihana\enums\CharacterSet
 - Adds oihana\enums\JsonParam
 - Adds oihana\enums\MemcachedStats
+- Adds oihana\enums\Method
 - Adds oihana\enums\Order
 - Adds oihana\enums\Param
 
@@ -33,6 +34,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Adds oihana\exceptions\http\Error403
 - Adds oihana\exceptions\http\Error404
 - Adds oihana\exceptions\http\Error500
+
+- Adds oihana\http\Headers
+- Adds oihana\http\HttpMethod
+- Adds oihana\http\HttpParamStrategy
 
 - Adds oihana\interfaces\Equatable
 - Adds oihana\interfaces\Optionable

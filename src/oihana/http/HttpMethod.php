@@ -1,0 +1,40 @@
+<?php
+
+namespace oihana\http;
+
+use oihana\reflections\traits\ConstantsTrait;
+
+/**
+ * Defines constants for common HTTP request methods.
+ */
+class HttpMethod
+{
+    use ConstantsTrait ;
+
+    public const string DELETE = 'DELETE';
+    public const string delete = 'delete';
+
+    public const string HEAD = 'HEAD';
+    public const string head = 'head';
+
+    public const string GET = 'GET';
+    public const string get = 'get';
+
+    public const string OPTIONS = 'OPTIONS';
+    public const string options = 'options';
+
+    public const string PATCH = 'PATCH';
+    public const string patch = 'patch';
+
+    public const string POST = 'POST';
+    public const string post = 'post';
+
+    public const string PURGE = 'PURGE';
+    public const string purge = 'purge';
+
+    public const string PUT = 'PUT';
+    public const string put = 'put';
+
+    public const string TRACE = 'TRACE';
+    public const string trace = 'trace';
+}
