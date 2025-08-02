@@ -9,6 +9,8 @@ use ReflectionException;
 
 use oihana\enums\Char;
 use oihana\reflections\traits\ReflectionTrait;
+
+use function oihana\core\documents\formatDocument;
 use function oihana\core\strings\formatFromDocument;
 
 /**
@@ -86,10 +88,13 @@ abstract class Options implements Cloneable, JsonSerializable
      * or is null, it is replaced with an empty string.
      *
      * @param string|null $template The template string. Placeholders must match the format `{{property}}` or a custom format.
-     * @param string       $prefix   The prefix that begins a placeholder (default: `{{`).
-     * @param string       $suffix   The suffix that ends a placeholder (default: `}}`).
+     * @param string $prefix The prefix that begins a placeholder (default: `{{`).
+     * @param string $suffix The suffix that ends a placeholder (default: `}}`).
+     * @param string|null $pattern Optional full regex pattern to match placeholders (including delimiters).
      *
      * @return string|null The formatted string, or `null` if the template is invalid.
+     *
+     * @throws ReflectionException
      *
      * @example
      * ```php
@@ -107,95 +112,53 @@ abstract class Options implements Cloneable, JsonSerializable
      * // → Missing:
      * ```
      */
-    public function format( ?string $template = null , string $prefix = '{{' , string $suffix = '}}' ): ?string
+    public function format( ?string $template = null , string $prefix = '{{' , string $suffix = '}}' , ?string $pattern = null ): ?string
     {
         if ( !is_string( $template ) || $template === Char::EMPTY )
         {
             return null;
         }
-
-        $escapedPrefix = preg_quote( $prefix , '/' ) ;
-        $escapedSuffix = preg_quote( $suffix , '/' ) ;
-        $pattern       = '/' . $escapedPrefix . '(\w+)' . $escapedSuffix . '/' ;
-
-        preg_match_all( $pattern , $template , $matches ) ;
-        $properties = $matches[1] ?? [];
-
-        $placeholders = [] ;
-        $replacements = [] ;
-
-        foreach ( $properties as $prop )
-        {
-            if( property_exists( $this , $prop ) )
-            {
-                $placeholders[] = $prefix . $prop . $suffix;
-                $value = $this->{ $prop } ?? Char::EMPTY ;
-                if( is_array( $value ) )
-                {
-                    $value = json_encode( $value , JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) ;
-                }
-                $replacements[] = $value ;
-            }
-        }
-
-        return str_replace( $placeholders , $replacements , $template ) ;
+        return formatFromDocument( $template , $this->toArray() , $prefix , $suffix , pattern: $pattern ) ;
     }
 
     /**
-     * Recursively formats all string values in an array using the current object properties.
+     * Recursively formats all string values in an array using internal or external values.
      *
-     * @param array  &$data  The input array (modified by reference).
-     * @param string $prefix Placeholder prefix.
-     * @param string $suffix Placeholder suffix.
+     * - If $source is null, the object itself is used as the placeholder provider (via `$this->format()`).
+     * - If $source is provided (array or object), it is used via `formatFromDocument()`.
+     *
+     * @param array             &$data     The input array to be formatted (by reference).
+     * @param array|object|null $source    External document used to resolve placeholders. If null, use `$this`.
+     * @param string            $prefix    Placeholder prefix (default `{{`).
+     * @param string            $suffix    Placeholder suffix (default `}}`).
+     * @param string            $separator Separator used in keys (default `.`).
+     * @param string|null       $pattern   Optional custom placeholder regex.
      *
      * @return array The formatted array.
      */
-    public function formatArray( array &$data , string $prefix = '{{' , string $suffix = '}}' ): array
+    public function formatArray(
+        array &$data,
+        array|object|null $source = null,
+        string $prefix = '{{',
+        string $suffix = '}}',
+        string $separator = '.',
+        ?string $pattern = null
+    ): array
     {
-        foreach ( $data as $key => $value )
-        {
-            if ( is_array( $value ) )
-            {
-                $data[ $key ] = $this->formatArray( $value , $prefix , $suffix ); ;
-            }
-            elseif ( is_string( $value ) )
-            {
-                $data[ $key ] = $this->format( $value , $prefix , $suffix );
-            }
-        }
-        return $data ;
-    }
+        $formatter = $source === null
+            ? fn(
+                mixed $val,
+                array|object $root,
+                string $prefix,
+                string $suffix,
+                string $separator,
+                ?string $pattern
+            ) => $this->format($val, $prefix, $suffix)
+            : null;
 
-    /**
-     * Formats all public string properties using the object’s own values.
-     *
-     * @param string $prefix Placeholder prefix (default `{{`).
-     * @param string $suffix Placeholder suffix (default `}}`).
-     *
-     * @return void
-     *
-     * @throws ReflectionException
-     *
-     * @example
-     * ```php
-     * $opts->url = 'https://{{host}}';
-     * $opts->host = 'example.com';
-     * $opts->formatProperties();
-     * echo $opts->url; // → https://example.com
-     * ```
-     */
-    public function formatProperties( string $prefix = '{{', string $suffix = '}}' ): void
-    {
-        foreach ( $this->getPublicProperties( static::class ) as $property )
-        {
-            $name  = $property->getName() ;
-            $value = $this->{ $name } ;
-
-            if ( is_string( $value ) && str_contains( $value, $prefix ) && str_contains( $value, $suffix ) )
-            {
-                $this->{ $name } = $this->format( $value , $prefix , $suffix ) ;
-            }
-        }
+        $formatted = formatDocument( $data, $prefix, $suffix, $separator, $pattern, $formatter ) ;
+        $data = is_array( $formatted ) ? $formatted : (array) $formatted;
+        return $data;
     }
 
     /**

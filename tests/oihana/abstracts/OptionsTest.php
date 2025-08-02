@@ -43,7 +43,7 @@ class OptionsTest extends TestCase
         $template = 'Prefix: {{foo}}, Flag: {{bar}}, Missing: {{baz}}';
         $result = $options->format($template);
 
-        $this->assertSame('Prefix: hello, Flag: 1, Missing: []', $result);
+        $this->assertSame('Prefix: hello, Flag: 1, Missing: ', $result);
     }
 
     public function testFormatWithCustomDelimiters()
