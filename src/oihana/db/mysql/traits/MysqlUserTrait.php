@@ -5,7 +5,6 @@ namespace oihana\db\mysql\traits;
 use oihana\models\pdo\PDOTrait;
 use PDO;
 use PDOException;
-use PDOStatement;
 
 /**
  * Provides methods to manage MySQL users using PDO.
@@ -36,24 +35,12 @@ trait MysqlUserTrait
     {
         $this->assertIdentifier ( $username ) ;
         $this->assertHost       ( $host     ) ;
-
         if( $this->pdo !== null )
         {
-            $query = sprintf
-            (
-                "CREATE USER IF NOT EXISTS '%s'@'%s' IDENTIFIED BY %s" ,
-                $username ,
-                $host ,
-                $this->pdo->quote( $password )
-            ) ;
-
-            return $this->pdo->exec( $query )  !== false ;
+            $password = $this->pdo->quote( $password ) ;
+            $query    = "CREATE USER IF NOT EXISTS '{$username}'@'{$host}' IDENTIFIED BY {$password}";
+            return $this->pdo->exec($query) !== false;
         }
-        else
-        {
-            echo PHP_EOL . 'createUser failed, the pdo reference is null' . PHP_EOL ;
-        }
-
         return false ;
     }
 
