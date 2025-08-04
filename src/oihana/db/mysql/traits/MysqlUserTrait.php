@@ -37,16 +37,15 @@ trait MysqlUserTrait
         $this->assertIdentifier ( $username ) ;
         $this->assertHost       ( $host     ) ;
 
-        $query = sprintf("CREATE USER IF NOT EXISTS '%s'@'%s' IDENTIFIED BY :password", $username , $host ) ;
-        $statement = $this->pdo?->prepare( $query ) ;
+        $query = sprintf
+        (
+            "CREATE USER IF NOT EXISTS '%s'@'%s' IDENTIFIED BY %s" ,
+            $username ,
+            $host ,
+            $this->pdo->quote( $password )
+        ) ;
 
-        if ( $statement instanceof PDOStatement )
-        {
-            $this->bindValues( $statement , [ 'password' => $password ] ) ;
-            return $statement->execute() ;
-        }
-
-        return false;
+        return $this->pdo?->exec( $query )  !== false ;
     }
 
     /**
@@ -77,7 +76,7 @@ trait MysqlUserTrait
      *                   authentication_string, ssl_type, ssl_cipher, x509_issuer,
      *                   x509_subject, and grants.
      */
-    public function getUserInfo(string $username, string $host = 'localhost', bool $throwable = false): ?array
+    public function getUserInfo( string $username, string $host = 'localhost', bool $throwable = false ): ?array
     {
         $this->assertIdentifier ( $username ) ;
         $this->assertHost       ( $host     ) ;
