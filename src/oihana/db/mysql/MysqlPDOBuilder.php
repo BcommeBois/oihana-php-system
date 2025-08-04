@@ -177,7 +177,7 @@ class MysqlPDOBuilder
     protected function createPDO( string $dsn, ?string $username , ?string $password , array $options ): PDO
     {
         echo 'createPDO dsn: ' . $dsn . PHP_EOL;
-        echo 'createPDO options: ' . json_encode( $options , JSON_PRETTY_PRINT ) . PHP_EOL;
+        echo 'createPDO options: ' . json_encode( (object) $options , JSON_PRETTY_PRINT ) . PHP_EOL;
 
         return new PDO( $dsn , $username , $password , $options ) ;
     }
