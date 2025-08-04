@@ -154,12 +154,11 @@ trait MysqlUserTrait
     {
         $params = [];
 
-        $query = "SELECT User AS user, Host AS host FROM mysql.user ORDER BY User, Host";
+        $query = "SELECT User AS user, Host AS host FROM mysql.user" ;
 
-        if ( isset($like) )
+        if ( isset( $like ) )
         {
-            $query .= " WHERE User LIKE :like";
-            $params['like'] = $like;
+            $query .= " WHERE User LIKE :like" ;
         }
 
         $query .= " ORDER BY User, Host" ;
