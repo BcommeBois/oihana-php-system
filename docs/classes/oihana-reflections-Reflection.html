@@ -156,7 +156,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 
@@ -212,6 +212,20 @@
 <dd>Returns an array of constants defined in the given class.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-reflections-Reflection.html#method_describeCallableParameters">describeCallableParameters()</a>
+    <span>
+                                &nbsp;: array&lt;int, array&lt;string, mixed&gt;&gt;    </span>
+</dt>
+<dd>Returns a detailed description of parameters for any valid PHP callable.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-reflections-Reflection.html#method_hasParameter">hasParameter()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Checks if the specified method has a parameter with the given name.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-reflections-Reflection.html#method_hydrate">hydrate()</a>
     <span>
                                 &nbsp;: object    </span>
@@ -219,11 +233,53 @@
 <dd>Instantiates and hydrates an object of a given class using associative array data.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-reflections-Reflection.html#method_isParameterNullable">isParameterNullable()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Checks if a parameter is nullable (has ?Type or union with null).</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-reflections-Reflection.html#method_isParameterOptional">isParameterOptional()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Checks if a given parameter in a method is optional (has a default value or is nullable).</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-reflections-Reflection.html#method_isParameterVariadic">isParameterVariadic()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Checks if a given parameter in a method is variadic (e.g., ...$args).</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-reflections-Reflection.html#method_methods">methods()</a>
     <span>
                                 &nbsp;: array&lt;int, <abbr title="\ReflectionMethod">ReflectionMethod</abbr>&gt;    </span>
 </dt>
 <dd>Returns an array of methods for the given class or object.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-reflections-Reflection.html#method_parameterDefaultValue">parameterDefaultValue()</a>
+    <span>
+                                &nbsp;: mixed|null    </span>
+</dt>
+<dd>Returns the default value of a parameter, if defined.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-reflections-Reflection.html#method_parameters">parameters()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, <abbr title="\ReflectionParameter">ReflectionParameter</abbr>&gt;    </span>
+</dt>
+<dd>Returns an array of parameters for a given method of a class.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-reflections-Reflection.html#method_parameterType">parameterType()</a>
+    <span>
+                                &nbsp;: string|null    </span>
+</dt>
+<dd>Returns the type name of a specific parameter of a method, if declared.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-reflections-Reflection.html#method_properties">properties()</a>
@@ -291,7 +347,7 @@ based on the presence of matching properties in the provided input array.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">399</span>
+    <span class="phpdocumentor-element-found-in__line">740</span>
 
     </aside>
 
@@ -335,7 +391,7 @@ based on the presence of matching properties in the provided input array.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
@@ -425,6 +481,216 @@ print_r($constants);
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_describeCallableParameters">
+        describeCallableParameters()
+        <a href="classes/oihana-reflections-Reflection.html#method_describeCallableParameters" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">83</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns a detailed description of parameters for any valid PHP callable.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">describeCallableParameters</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">callable|string|array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$callable</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;int, array&lt;string, mixed&gt;&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$callable</span>
+                : <span class="phpdocumentor-signature__argument__return-type">callable|string|array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Any valid PHP callable (Closure, function name, method array, etc.).</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-reflections-Reflection.html#method_describeCallableParameters#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\InvalidArgumentException">InvalidArgumentException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the callable is invalid.</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="prettyprint">$ref = new \oihana\reflections\Reflection();
+print_r($ref-&gt;describeCallableParameters([MyClass::class, 'doSomething']));
+
+print_r($ref-&gt;describeCallableParameters('array_map'));
+
+$fn = fn(string $name, int $age = 42) =&gt; &quot;$name is $age&quot;;
+print_r($ref-&gt;describeCallableParameters($fn));
+
+class Greeter
+{
+    public function __invoke(string $name) }
+}
+print_r($ref-&gt;describeCallableParameters(new Greeter()));
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;int, array&lt;string, mixed&gt;&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Each entry contains:</p>
+<ul>
+<li>name      : string</li>
+<li>type      : string|null</li>
+<li>optional  : bool</li>
+<li>nullable  : bool</li>
+<li>variadic  : bool</li>
+<li>default   : mixed|null (if available)</li>
+</ul>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_hasParameter">
+        hasParameter()
+        <a href="classes/oihana-reflections-Reflection.html#method_hasParameter" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">173</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Checks if the specified method has a parameter with the given name.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">hasParameter</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$method</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$param</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$class</span>
+                : <span class="phpdocumentor-signature__argument__return-type">object|string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The class name or object.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$method</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The method name.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$param</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The parameter name to check.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-reflections-Reflection.html#method_hasParameter#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the method cannot be reflected.</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$has = (new Reflection())-&gt;hasParameter(MyClass::class, 'myMethod', 'input');
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if the parameter exists, false otherwise.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_hydrate">
         hydrate()
         <a href="classes/oihana-reflections-Reflection.html#method_hydrate" class="headerlink"><i class="fas fa-link"></i></a>
@@ -433,7 +699,7 @@ print_r($constants);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">165</span>
+    <span class="phpdocumentor-element-found-in__line">297</span>
 
     </aside>
 
@@ -667,6 +933,328 @@ var_dump($profile-&gt;bio); // null
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_isParameterNullable">
+        isParameterNullable()
+        <a href="classes/oihana-reflections-Reflection.html#method_isParameterNullable" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">453</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Checks if a parameter is nullable (has ?Type or union with null).</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">isParameterNullable</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$method</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$param</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$class</span>
+                : <span class="phpdocumentor-signature__argument__return-type">object|string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The class name or object instance.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$method</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The method name.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$param</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The parameter name to check.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-reflections-Reflection.html#method_isParameterNullable#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the method does not exist or reflection fails.</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">class Example {
+    public function demo(?string $name, int $age) }
+}
+
+$ref = new \oihana\reflections\Reflection();
+
+var_dump($ref-&gt;isParameterNullable(Example::class, 'demo', 'name')); // bool(true)
+var_dump($ref-&gt;isParameterNullable(Example::class, 'demo', 'age'));  // bool(false)
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if the parameter type allows null, false otherwise.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isParameterOptional">
+        isParameterOptional()
+        <a href="classes/oihana-reflections-Reflection.html#method_isParameterOptional" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">489</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Checks if a given parameter in a method is optional (has a default value or is nullable).</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">isParameterOptional</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$method</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$param</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$class</span>
+                : <span class="phpdocumentor-signature__argument__return-type">object|string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The class name or object instance.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$method</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The method name.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$param</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The parameter name to check.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-reflections-Reflection.html#method_isParameterOptional#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the method does not exist or reflection fails.</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">class Example {
+    public function demo(string $name, int $age = 30, ?string $nickname = null) }
+}
+
+$ref = new \oihana\reflections\Reflection();
+
+var_dump($ref-&gt;isParameterOptional(Example::class, 'demo', 'name'));     // bool(false)
+var_dump($ref-&gt;isParameterOptional(Example::class, 'demo', 'age'));      // bool(true)
+var_dump($ref-&gt;isParameterOptional(Example::class, 'demo', 'nickname')); // bool(true)
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if the parameter is optional, false otherwise.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isParameterVariadic">
+        isParameterVariadic()
+        <a href="classes/oihana-reflections-Reflection.html#method_isParameterVariadic" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">524</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Checks if a given parameter in a method is variadic (e.g., ...$args).</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">isParameterVariadic</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$method</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$param</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$class</span>
+                : <span class="phpdocumentor-signature__argument__return-type">object|string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The class name or object instance.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$method</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The method name.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$param</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The parameter name to check.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-reflections-Reflection.html#method_isParameterVariadic#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the method does not exist or reflection fails.</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">class Example {
+    public function demo(string $name, ...$tags) }
+}
+
+$ref = new \oihana\reflections\Reflection();
+
+var_dump($ref-&gt;isParameterVariadic(Example::class, 'demo', 'name')); // bool(false)
+var_dump($ref-&gt;isParameterVariadic(Example::class, 'demo', 'tags')); // bool(true)
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if the parameter is variadic, false otherwise.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_methods">
         methods()
         <a href="classes/oihana-reflections-Reflection.html#method_methods" class="headerlink"><i class="fas fa-link"></i></a>
@@ -675,7 +1263,7 @@ var_dump($profile-&gt;bio); // null
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">322</span>
+    <span class="phpdocumentor-element-found-in__line">560</span>
 
     </aside>
 
@@ -768,6 +1356,318 @@ foreach ($methods as $method)
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_parameterDefaultValue">
+        parameterDefaultValue()
+        <a href="classes/oihana-reflections-Reflection.html#method_parameterDefaultValue" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">588</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the default value of a parameter, if defined.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">parameterDefaultValue</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$method</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$param</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed|null</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$class</span>
+                : <span class="phpdocumentor-signature__argument__return-type">object|string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The class name or object instance.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$method</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The method name.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$param</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The parameter name to retrieve the default value for.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-reflections-Reflection.html#method_parameterDefaultValue#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the method does not exist or reflection fails.</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">class Example {
+    public function testMethod(string $name, int $age = 30, $misc = null) }
+}
+
+$ref = new \oihana\reflections\Reflection();
+
+var_dump($ref-&gt;parameterDefaultValue(Example::class, 'testMethod', 'name')); // null (no default)
+var_dump($ref-&gt;parameterDefaultValue(Example::class, 'testMethod', 'age'));  // int(30)
+var_dump($ref-&gt;parameterDefaultValue(Example::class, 'testMethod', 'misc')); // null (explicit default)
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">mixed|null</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The default value of the parameter, or null if no default is defined.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_parameters">
+        parameters()
+        <a href="classes/oihana-reflections-Reflection.html#method_parameters" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">619</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns an array of parameters for a given method of a class.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">parameters</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$method</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <abbr title="\ReflectionParameter">ReflectionParameter</abbr>&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$class</span>
+                : <span class="phpdocumentor-signature__argument__return-type">object|string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The class name or object.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$method</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The method name.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-reflections-Reflection.html#method_parameters#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the method does not exist or cannot be reflected.</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$params = (new Reflection())-&gt;parameters(MyClass::class, 'myMethod');
+foreach ($params as $param)
+{
+    echo $param-&gt;getName(); // e.g. 'input'
+}
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, <abbr title="\ReflectionParameter">ReflectionParameter</abbr>&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>An array of ReflectionParameter instances.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_parameterType">
+        parameterType()
+        <a href="classes/oihana-reflections-Reflection.html#method_parameterType" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">655</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the type name of a specific parameter of a method, if declared.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">parameterType</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$class</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$method</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$param</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$class</span>
+                : <span class="phpdocumentor-signature__argument__return-type">object|string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The class name or an object instance.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$method</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The method name.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$param</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The parameter name to get the type for.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-reflections-Reflection.html#method_parameterType#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the method does not exist or reflection fails.</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">class Example
+{
+    public function testMethod(string $name, int $age = 30, $misc) }
+}
+
+$ref = new \oihana\reflections\Reflection();
+
+echo $ref-&gt;parameterType(Example::class, 'testMethod', 'name'); // outputs: string
+echo $ref-&gt;parameterType(Example::class, 'testMethod', 'age');  // outputs: int
+var_dump($ref-&gt;parameterType(Example::class, 'testMethod', 'misc')); // outputs: null
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string|null</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Type name as string or null if the parameter is not typed.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_properties">
         properties()
         <a href="classes/oihana-reflections-Reflection.html#method_properties" class="headerlink"><i class="fas fa-link"></i></a>
@@ -776,7 +1676,7 @@ foreach ($methods as $method)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">347</span>
+    <span class="phpdocumentor-element-found-in__line">688</span>
 
     </aside>
 
@@ -874,7 +1774,7 @@ foreach ($props as $prop) {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">365</span>
+    <span class="phpdocumentor-element-found-in__line">706</span>
 
     </aside>
 
@@ -957,7 +1857,7 @@ echo $reflectionClass-&gt;getName(); // 'App\Entity\User'
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">390</span>
+    <span class="phpdocumentor-element-found-in__line">731</span>
 
     </aside>
 
@@ -1040,7 +1940,7 @@ echo $reflectionClass-&gt;getName(); // 'App\Entity\User'
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">408</span>
+    <span class="phpdocumentor-element-found-in__line">749</span>
 
     </aside>
 
@@ -1111,7 +2011,7 @@ echo $reflectionClass-&gt;getName(); // 'App\Entity\User'
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/reflections/Reflection.php"><a href="files/src-oihana-reflections-reflection.html"><abbr title="src/oihana/reflections/Reflection.php">Reflection.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">482</span>
+    <span class="phpdocumentor-element-found-in__line">823</span>
 
     </aside>
 
@@ -1334,8 +2234,16 @@ echo $guessedClass; // Outputs: &quot;User&quot;
             <li>
                 <ul class="phpdocumentor-list -clean">
                                             <li class=""><a href="classes/oihana-reflections-Reflection.html#method_constants">constants()</a></li>
+                                            <li class=""><a href="classes/oihana-reflections-Reflection.html#method_describeCallableParameters">describeCallableParameters()</a></li>
+                                            <li class=""><a href="classes/oihana-reflections-Reflection.html#method_hasParameter">hasParameter()</a></li>
                                             <li class=""><a href="classes/oihana-reflections-Reflection.html#method_hydrate">hydrate()</a></li>
+                                            <li class=""><a href="classes/oihana-reflections-Reflection.html#method_isParameterNullable">isParameterNullable()</a></li>
+                                            <li class=""><a href="classes/oihana-reflections-Reflection.html#method_isParameterOptional">isParameterOptional()</a></li>
+                                            <li class=""><a href="classes/oihana-reflections-Reflection.html#method_isParameterVariadic">isParameterVariadic()</a></li>
                                             <li class=""><a href="classes/oihana-reflections-Reflection.html#method_methods">methods()</a></li>
+                                            <li class=""><a href="classes/oihana-reflections-Reflection.html#method_parameterDefaultValue">parameterDefaultValue()</a></li>
+                                            <li class=""><a href="classes/oihana-reflections-Reflection.html#method_parameters">parameters()</a></li>
+                                            <li class=""><a href="classes/oihana-reflections-Reflection.html#method_parameterType">parameterType()</a></li>
                                             <li class=""><a href="classes/oihana-reflections-Reflection.html#method_properties">properties()</a></li>
                                             <li class=""><a href="classes/oihana-reflections-Reflection.html#method_reflection">reflection()</a></li>
                                             <li class=""><a href="classes/oihana-reflections-Reflection.html#method_shortName">shortName()</a></li>

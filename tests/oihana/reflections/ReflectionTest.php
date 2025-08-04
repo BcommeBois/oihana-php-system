@@ -203,4 +203,81 @@ class ReflectionTest extends TestCase
         $this->expectException(ReflectionException::class);
         $this->reflection->shortName('NonExistentClass');
     }
+
+    public function testDescribeCallableParametersFromClosure()
+    {
+        $fn = fn(string $name, int $age = 42, ...$tags) => null;
+
+        $params = $this->reflection->describeCallableParameters($fn);
+
+        $this->assertCount(3, $params);
+        $this->assertEquals('name', $params[0]['name']);
+        $this->assertEquals('string', $params[0]['type']);
+        $this->assertFalse($params[0]['optional']);
+        $this->assertTrue($params[2]['variadic']);
+    }
+
+    /**
+     * @throws ReflectionException
+     */
+    public function testHasParameterReturnsTrue()
+    {
+        $this->assertTrue
+        (
+            $this->reflection->hasParameter(MockUser::class, 'setName', 'name')
+        );
+    }
+
+    /**
+     * @throws ReflectionException
+     */
+    public function testHasParameterReturnsFalse()
+    {
+        $this->assertFalse
+        (
+            $this->reflection->hasParameter(MockUser::class, 'setName', 'unknown')
+        );
+    }
+
+    /**
+     * @throws ReflectionException
+     */
+    public function testParameterType()
+    {
+        $type = $this->reflection->parameterType(MockUser::class, 'setName', 'name');
+        $this->assertEquals('string', $type);
+    }
+
+    /**
+     * @throws ReflectionException
+     */
+    public function testParameterDefaultValue()
+    {
+        $default = $this->reflection->parameterDefaultValue(MockUser::class, 'setAge', 'age');
+        $this->assertEquals(30, $default); // supposons que setAge($age = 30)
+    }
+
+    /**
+     * @throws ReflectionException
+     */
+    public function testIsParameterNullable()
+    {
+        $nullable = $this->reflection->isParameterNullable(MockUser::class, 'setNickname', 'nickname');
+        $this->assertTrue($nullable); // supposons ?string $nickname
+    }
+
+    /**
+     * @throws ReflectionException
+     */
+    public function testIsParameterOptional()
+    {
+        $optional = $this->reflection->isParameterOptional(MockUser::class, 'setAge', 'age');
+        $this->assertTrue($optional);
+    }
+
+    public function testIsParameterVariadic()
+    {
+        $variadic = $this->reflection->isParameterVariadic(MockUser::class, 'addTags', 'tags');
+        $this->assertTrue($variadic); // supposons addTags(...$tags)
+    }
 }

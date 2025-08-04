@@ -4351,15 +4351,55 @@ Search.appendIndex(
             "summary": "Returns\u0020an\u0020array\u0020of\u0020constants\u0020defined\u0020in\u0020the\u0020given\u0020class.",
             "url": "classes/oihana-reflections-Reflection.html#method_constants"
         },                {
+            "fqsen": "\\oihana\\reflections\\Reflection\u003A\u003AdescribeCallableParameters\u0028\u0029",
+            "name": "describeCallableParameters",
+            "summary": "Returns\u0020a\u0020detailed\u0020description\u0020of\u0020parameters\u0020for\u0020any\u0020valid\u0020PHP\u0020callable.",
+            "url": "classes/oihana-reflections-Reflection.html#method_describeCallableParameters"
+        },                {
+            "fqsen": "\\oihana\\reflections\\Reflection\u003A\u003AhasParameter\u0028\u0029",
+            "name": "hasParameter",
+            "summary": "Checks\u0020if\u0020the\u0020specified\u0020method\u0020has\u0020a\u0020parameter\u0020with\u0020the\u0020given\u0020name.",
+            "url": "classes/oihana-reflections-Reflection.html#method_hasParameter"
+        },                {
             "fqsen": "\\oihana\\reflections\\Reflection\u003A\u003Ahydrate\u0028\u0029",
             "name": "hydrate",
             "summary": "Instantiates\u0020and\u0020hydrates\u0020an\u0020object\u0020of\u0020a\u0020given\u0020class\u0020using\u0020associative\u0020array\u0020data.",
             "url": "classes/oihana-reflections-Reflection.html#method_hydrate"
         },                {
+            "fqsen": "\\oihana\\reflections\\Reflection\u003A\u003AisParameterNullable\u0028\u0029",
+            "name": "isParameterNullable",
+            "summary": "Checks\u0020if\u0020a\u0020parameter\u0020is\u0020nullable\u0020\u0028has\u0020\u003FType\u0020or\u0020union\u0020with\u0020null\u0029.",
+            "url": "classes/oihana-reflections-Reflection.html#method_isParameterNullable"
+        },                {
+            "fqsen": "\\oihana\\reflections\\Reflection\u003A\u003AisParameterOptional\u0028\u0029",
+            "name": "isParameterOptional",
+            "summary": "Checks\u0020if\u0020a\u0020given\u0020parameter\u0020in\u0020a\u0020method\u0020is\u0020optional\u0020\u0028has\u0020a\u0020default\u0020value\u0020or\u0020is\u0020nullable\u0029.",
+            "url": "classes/oihana-reflections-Reflection.html#method_isParameterOptional"
+        },                {
+            "fqsen": "\\oihana\\reflections\\Reflection\u003A\u003AisParameterVariadic\u0028\u0029",
+            "name": "isParameterVariadic",
+            "summary": "Checks\u0020if\u0020a\u0020given\u0020parameter\u0020in\u0020a\u0020method\u0020is\u0020variadic\u0020\u0028e.g.,\u0020...\u0024args\u0029.",
+            "url": "classes/oihana-reflections-Reflection.html#method_isParameterVariadic"
+        },                {
             "fqsen": "\\oihana\\reflections\\Reflection\u003A\u003Amethods\u0028\u0029",
             "name": "methods",
             "summary": "Returns\u0020an\u0020array\u0020of\u0020methods\u0020for\u0020the\u0020given\u0020class\u0020or\u0020object.",
             "url": "classes/oihana-reflections-Reflection.html#method_methods"
+        },                {
+            "fqsen": "\\oihana\\reflections\\Reflection\u003A\u003AparameterDefaultValue\u0028\u0029",
+            "name": "parameterDefaultValue",
+            "summary": "Returns\u0020the\u0020default\u0020value\u0020of\u0020a\u0020parameter,\u0020if\u0020defined.",
+            "url": "classes/oihana-reflections-Reflection.html#method_parameterDefaultValue"
+        },                {
+            "fqsen": "\\oihana\\reflections\\Reflection\u003A\u003Aparameters\u0028\u0029",
+            "name": "parameters",
+            "summary": "Returns\u0020an\u0020array\u0020of\u0020parameters\u0020for\u0020a\u0020given\u0020method\u0020of\u0020a\u0020class.",
+            "url": "classes/oihana-reflections-Reflection.html#method_parameters"
+        },                {
+            "fqsen": "\\oihana\\reflections\\Reflection\u003A\u003AparameterType\u0028\u0029",
+            "name": "parameterType",
+            "summary": "Returns\u0020the\u0020type\u0020name\u0020of\u0020a\u0020specific\u0020parameter\u0020of\u0020a\u0020method,\u0020if\u0020declared.",
+            "url": "classes/oihana-reflections-Reflection.html#method_parameterType"
         },                {
             "fqsen": "\\oihana\\reflections\\Reflection\u003A\u003Aproperties\u0028\u0029",
             "name": "properties",

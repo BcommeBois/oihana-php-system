@@ -2,12 +2,15 @@
 
 namespace oihana\reflections;
 
+use Closure;
 use InvalidArgumentException;
 
 use ReflectionClass;
 use ReflectionClassConstant;
 use ReflectionException;
+use ReflectionFunction;
 use ReflectionMethod;
+use ReflectionParameter;
 use ReflectionProperty;
 use ReflectionUnionType;
 
@@ -42,6 +45,135 @@ class Reflection
     public function constants( object|string $class, int $filter = ReflectionClassConstant::IS_PUBLIC ): array
     {
         return $this->reflection( $class )->getConstants( $filter );
+    }
+
+    /**
+     * Returns a detailed description of parameters for any valid PHP callable.
+     *
+     * @param callable|string|array $callable Any valid PHP callable (Closure, function name, method array, etc.).
+     *
+     * @return array<int, array<string, mixed>> Each entry contains:
+     *         - name      : string
+     *         - type      : string|null
+     *         - optional  : bool
+     *         - nullable  : bool
+     *         - variadic  : bool
+     *         - default   : mixed|null (if available)
+     *
+     * @throws ReflectionException
+     * @throws InvalidArgumentException If the callable is invalid.
+     *
+     * @example
+     * ```
+     * $ref = new \oihana\reflections\Reflection();
+     * print_r($ref->describeCallableParameters([MyClass::class, 'doSomething']));
+     *
+     * print_r($ref->describeCallableParameters('array_map'));
+     *
+     * $fn = fn(string $name, int $age = 42) => "$name is $age";
+     * print_r($ref->describeCallableParameters($fn));
+     *
+     * class Greeter
+     * {
+     *     public function __invoke(string $name) {}
+     * }
+     * print_r($ref->describeCallableParameters(new Greeter()));
+     * ```
+     */
+    public function describeCallableParameters( callable|string|array $callable ): array
+    {
+        if ( is_array( $callable ) )
+        {
+            $reflection = new ReflectionMethod( $callable[0], $callable[1] );
+        }
+        elseif ( is_string( $callable ) && str_contains( $callable , '::' ) )
+        {
+            [ $class, $method ] = explode( '::', $callable );
+            $reflection = new ReflectionMethod( $class, $method );
+        }
+        elseif ( is_string( $callable ) )
+        {
+            $reflection = new ReflectionFunction( $callable );
+        }
+        elseif ( $callable instanceof Closure )
+        {
+            $reflection = new ReflectionFunction( $callable );
+        }
+        elseif ( is_object( $callable ) && method_exists( $callable, '__invoke' ) )
+        {
+            $reflection = new ReflectionMethod( $callable, '__invoke' );
+        }
+        else
+        {
+            throw new InvalidArgumentException('Unsupported callable type.');
+        }
+
+        $result = [];
+
+        foreach ( $reflection->getParameters() as $p )
+        {
+            $type      = $p->getType();
+            $typeName  = null;
+            $nullable  = false;
+
+            if ( $type instanceof ReflectionUnionType )
+            {
+                $types = [];
+                foreach ( $type->getTypes() as $t )
+                {
+                    $types[] = $t->getName();
+                    if ( $t->getName() === 'null' )
+                    {
+                        $nullable = true;
+                    }
+                }
+                $typeName = implode('|', $types);
+            }
+            elseif ( $type instanceof \ReflectionNamedType )
+            {
+                $typeName = $type->getName();
+                $nullable = $type->allowsNull();
+            }
+
+            $paramData =
+            [
+                'name'     => $p->getName(),
+                'type'     => $typeName,
+                'optional' => $p->isOptional(),
+                'nullable' => $nullable,
+                'variadic' => $p->isVariadic(),
+            ];
+
+            if ( $p->isDefaultValueAvailable() )
+            {
+                $paramData['default'] = $p->getDefaultValue();
+            }
+
+            $result[] = $paramData;
+        }
+
+        return $result;
+    }
+
+    /**
+     * Checks if the specified method has a parameter with the given name.
+     *
+     * @param object|string $class  The class name or object.
+     * @param string        $method The method name.
+     * @param string        $param  The parameter name to check.
+     *
+     * @return bool True if the parameter exists, false otherwise.
+     * @throws ReflectionException If the method cannot be reflected.
+     *
+     * @example
+     * ```php
+     * $has = (new Reflection())->hasParameter(MyClass::class, 'myMethod', 'input');
+     * ```
+     */
+    public function hasParameter( object|string $class, string $method, string $param ): bool
+    {
+        $parameters = $this->parameters( $class , $method ) ;
+        return array_any( $parameters , fn( $p ) => $p->getName() === $param );
     }
 
     /**
@@ -297,6 +429,112 @@ class Reflection
     }
 
     /**
+     * Checks if a parameter is nullable (has ?Type or union with null).
+     *
+     * @param object|string $class  The class name or object instance.
+     * @param string        $method The method name.
+     * @param string        $param  The parameter name to check.
+     *
+     * @return bool True if the parameter type allows null, false otherwise.
+     * @throws ReflectionException If the method does not exist or reflection fails.
+     *
+     * @example
+     * ```php
+     * class Example {
+     *     public function demo(?string $name, int $age) {}
+     * }
+     *
+     * $ref = new \oihana\reflections\Reflection();
+     *
+     * var_dump($ref->isParameterNullable(Example::class, 'demo', 'name')); // bool(true)
+     * var_dump($ref->isParameterNullable(Example::class, 'demo', 'age'));  // bool(false)
+     * ```
+     */
+    public function isParameterNullable( object|string $class, string $method, string $param ): bool
+    {
+        $parameters = $this->parameters( $class , $method ) ;
+        foreach ( $parameters as $p )
+        {
+            if ( $p->getName() === $param && $p->hasType() )
+            {
+                return $p->getType()->allowsNull();
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Checks if a given parameter in a method is optional (has a default value or is nullable).
+     *
+     * @param object|string $class  The class name or object instance.
+     * @param string        $method The method name.
+     * @param string        $param  The parameter name to check.
+     *
+     * @return bool True if the parameter is optional, false otherwise.
+     * @throws ReflectionException If the method does not exist or reflection fails.
+     *
+     * @example
+     * ```php
+     * class Example {
+     *     public function demo(string $name, int $age = 30, ?string $nickname = null) {}
+     * }
+     *
+     * $ref = new \oihana\reflections\Reflection();
+     *
+     * var_dump($ref->isParameterOptional(Example::class, 'demo', 'name'));     // bool(false)
+     * var_dump($ref->isParameterOptional(Example::class, 'demo', 'age'));      // bool(true)
+     * var_dump($ref->isParameterOptional(Example::class, 'demo', 'nickname')); // bool(true)
+     * ```
+     */
+    public function isParameterOptional( object|string $class, string $method, string $param ): bool
+    {
+        $parameters = $this->parameters( $class , $method ) ;
+        foreach ( $parameters as $p )
+        {
+            if ( $p->getName() === $param )
+            {
+                return $p->isOptional();
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Checks if a given parameter in a method is variadic (e.g., ...$args).
+     *
+     * @param object|string $class  The class name or object instance.
+     * @param string        $method The method name.
+     * @param string        $param  The parameter name to check.
+     *
+     * @return bool True if the parameter is variadic, false otherwise.
+     * @throws ReflectionException If the method does not exist or reflection fails.
+     *
+     * @example
+     * ```php
+     * class Example {
+     *     public function demo(string $name, ...$tags) {}
+     * }
+     *
+     * $ref = new \oihana\reflections\Reflection();
+     *
+     * var_dump($ref->isParameterVariadic(Example::class, 'demo', 'name')); // bool(false)
+     * var_dump($ref->isParameterVariadic(Example::class, 'demo', 'tags')); // bool(true)
+     * ```
+     */
+    public function isParameterVariadic( object|string $class, string $method, string $param ): bool
+    {
+        $parameters = $this->parameters( $class , $method ) ;
+        foreach ( $parameters as $p )
+        {
+            if ( $p->getName() === $param )
+            {
+                return $p->isVariadic();
+            }
+        }
+        return false;
+    }
+
+    /**
      * Returns an array of methods for the given class or object.
      *
      * @param object|string $class The object or class name.
@@ -322,6 +560,109 @@ class Reflection
     public function methods( object|string $class, int $filter = ReflectionMethod::IS_PUBLIC ) : array
     {
         return $this->reflection( $class )->getMethods( $filter );
+    }
+
+    /**
+     * Returns the default value of a parameter, if defined.
+     *
+     * @param object|string $class  The class name or object instance.
+     * @param string        $method The method name.
+     * @param string        $param  The parameter name to retrieve the default value for.
+     *
+     * @return mixed|null The default value of the parameter, or null if no default is defined.
+     * @throws ReflectionException If the method does not exist or reflection fails.
+     *
+     * @example
+     * ```php
+     * class Example {
+     *     public function testMethod(string $name, int $age = 30, $misc = null) {}
+     * }
+     *
+     * $ref = new \oihana\reflections\Reflection();
+     *
+     * var_dump($ref->parameterDefaultValue(Example::class, 'testMethod', 'name')); // null (no default)
+     * var_dump($ref->parameterDefaultValue(Example::class, 'testMethod', 'age'));  // int(30)
+     * var_dump($ref->parameterDefaultValue(Example::class, 'testMethod', 'misc')); // null (explicit default)
+     * ```
+     */
+    public function parameterDefaultValue( object|string $class, string $method, string $param ): mixed
+    {
+        $parameters = $this->parameters( $class , $method ) ;
+        foreach ( $parameters as $p )
+        {
+            if ( $p->getName() === $param && $p->isDefaultValueAvailable() )
+            {
+                return $p->getDefaultValue();
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Returns an array of parameters for a given method of a class.
+     *
+     * @param object|string $class  The class name or object.
+     * @param string        $method The method name.
+     *
+     * @return ReflectionParameter[] An array of ReflectionParameter instances.
+     * @throws ReflectionException If the method does not exist or cannot be reflected.
+     *
+     * @example
+     * ```php
+     * $params = (new Reflection())->parameters(MyClass::class, 'myMethod');
+     * foreach ($params as $param)
+     * {
+     *     echo $param->getName(); // e.g. 'input'
+     * }
+     * ```
+     */
+    public function parameters( object|string $class, string $method ): array
+    {
+        $reflection = $this->reflection( $class ) ;
+
+        if ( !$reflection->hasMethod( $method ) )
+        {
+            throw new ReflectionException("Method $method does not exist in class $class.");
+        }
+
+        return $reflection->getMethod( $method )->getParameters() ;
+    }
+
+    /**
+     * Returns the type name of a specific parameter of a method, if declared.
+     *
+     * @param object|string $class The class name or an object instance.
+     * @param string $method The method name.
+     * @param string $param The parameter name to get the type for.
+     *
+     * @return string|null Type name as string or null if the parameter is not typed.
+     * @throws ReflectionException If the method does not exist or reflection fails.
+     *
+     * @example
+     * ```php
+     * class Example
+     * {
+     *     public function testMethod(string $name, int $age = 30, $misc) {}
+     * }
+     *
+     * $ref = new \oihana\reflections\Reflection();
+     *
+     * echo $ref->parameterType(Example::class, 'testMethod', 'name'); // outputs: string
+     * echo $ref->parameterType(Example::class, 'testMethod', 'age');  // outputs: int
+     * var_dump($ref->parameterType(Example::class, 'testMethod', 'misc')); // outputs: null
+     * ```
+     */
+    public function parameterType( object|string $class, string $method, string $param ): ?string
+    {
+        $parameters = $this->parameters( $class , $method ) ;
+        foreach ( $parameters as $p )
+        {
+            if ( $p->getName() === $param && $p->hasType() )
+            {
+                return $p->getType()->getName() ;
+            }
+        }
+        return null ;
     }
 
     /**
