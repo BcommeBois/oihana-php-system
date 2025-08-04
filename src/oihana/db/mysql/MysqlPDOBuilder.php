@@ -215,7 +215,7 @@ class MysqlPDOBuilder
      */
     public function set( array $init = [] ):void
     {
-        $this->dsn        = new MySQLDSN( $init ) ;
+        $this->dsn        = new MysqlDSN( $init ) ;
         $this->options    = [ ...self::DEFAULT_OPTIONS , ...( $init[ self::OPTIONS  ] ?? [] ) ] ;
         $this->password   = $init[ self::PASSWORD ] ?? null ;
         $this->skipDbName = $init[ self::SKIP_DB_NAME ] ?? false ;
