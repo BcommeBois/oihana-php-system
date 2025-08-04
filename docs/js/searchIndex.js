@@ -4501,6 +4501,41 @@ Search.appendIndex(
             "summary": "Returns\u0020the\u0020class\u0020short\u0020name.",
             "url": "classes/oihana-reflections-traits-ReflectionTrait.html#method_getShortName"
         },                {
+            "fqsen": "\\oihana\\reflections\\traits\\ReflectionTrait\u003A\u003AgetMethodParameters\u0028\u0029",
+            "name": "getMethodParameters",
+            "summary": "Returns\u0020the\u0020list\u0020of\u0020method\u0020parameters\u0020as\u0020ReflectionParameter\u005B\u005D.",
+            "url": "classes/oihana-reflections-traits-ReflectionTrait.html#method_getMethodParameters"
+        },                {
+            "fqsen": "\\oihana\\reflections\\traits\\ReflectionTrait\u003A\u003AgetParameterType\u0028\u0029",
+            "name": "getParameterType",
+            "summary": "Returns\u0020the\u0020type\u0020name\u0020of\u0020the\u0020given\u0020parameter\u0020in\u0020a\u0020method,\u0020or\u0020null.",
+            "url": "classes/oihana-reflections-traits-ReflectionTrait.html#method_getParameterType"
+        },                {
+            "fqsen": "\\oihana\\reflections\\traits\\ReflectionTrait\u003A\u003AgetParameterDefaultValue\u0028\u0029",
+            "name": "getParameterDefaultValue",
+            "summary": "Returns\u0020the\u0020default\u0020value\u0020of\u0020the\u0020given\u0020parameter\u0020in\u0020a\u0020method,\u0020or\u0020null.",
+            "url": "classes/oihana-reflections-traits-ReflectionTrait.html#method_getParameterDefaultValue"
+        },                {
+            "fqsen": "\\oihana\\reflections\\traits\\ReflectionTrait\u003A\u003AhasParameter\u0028\u0029",
+            "name": "hasParameter",
+            "summary": "Returns\u0020true\u0020if\u0020the\u0020given\u0020method\u0020has\u0020the\u0020specified\u0020parameter.",
+            "url": "classes/oihana-reflections-traits-ReflectionTrait.html#method_hasParameter"
+        },                {
+            "fqsen": "\\oihana\\reflections\\traits\\ReflectionTrait\u003A\u003AisParameterNullable\u0028\u0029",
+            "name": "isParameterNullable",
+            "summary": "Returns\u0020true\u0020if\u0020the\u0020given\u0020parameter\u0020in\u0020a\u0020method\u0020is\u0020nullable.",
+            "url": "classes/oihana-reflections-traits-ReflectionTrait.html#method_isParameterNullable"
+        },                {
+            "fqsen": "\\oihana\\reflections\\traits\\ReflectionTrait\u003A\u003AisParameterOptional\u0028\u0029",
+            "name": "isParameterOptional",
+            "summary": "Returns\u0020true\u0020if\u0020the\u0020given\u0020parameter\u0020in\u0020a\u0020method\u0020is\u0020optional.",
+            "url": "classes/oihana-reflections-traits-ReflectionTrait.html#method_isParameterOptional"
+        },                {
+            "fqsen": "\\oihana\\reflections\\traits\\ReflectionTrait\u003A\u003AisParameterVariadic\u0028\u0029",
+            "name": "isParameterVariadic",
+            "summary": "Returns\u0020true\u0020if\u0020the\u0020given\u0020parameter\u0020in\u0020a\u0020method\u0020is\u0020variadic.",
+            "url": "classes/oihana-reflections-traits-ReflectionTrait.html#method_isParameterVariadic"
+        },                {
             "fqsen": "\\oihana\\reflections\\traits\\ReflectionTrait\u003A\u003Ahydrate\u0028\u0029",
             "name": "hydrate",
             "summary": "Populates\u0020an\u0020object\u0020of\u0020the\u0020given\u0020class\u0020with\u0020data\u0020from\u0020the\u0020provided\u0020array.",
@@ -4511,15 +4546,20 @@ Search.appendIndex(
             "summary": "Invoked\u0020to\u0020generates\u0020the\u0020json\u0020array\u0020serializer\u0020array\u0020representation\u0020from\u0020the\u0020public\u0020properties\u0020of\u0020the\u0020object.",
             "url": "classes/oihana-reflections-traits-ReflectionTrait.html#method_jsonSerializeFromPublicProperties"
         },                {
+            "fqsen": "\\oihana\\reflections\\traits\\ReflectionTrait\u003A\u003A\u0024__reflection",
+            "name": "__reflection",
+            "summary": "",
+            "url": "classes/oihana-reflections-traits-ReflectionTrait.html#property___reflection"
+        },                {
             "fqsen": "\\oihana\\reflections\\traits\\ReflectionTrait\u003A\u003A\u0024__shortName",
             "name": "__shortName",
             "summary": "",
             "url": "classes/oihana-reflections-traits-ReflectionTrait.html#property___shortName"
         },                {
-            "fqsen": "\\oihana\\reflections\\traits\\ReflectionTrait\u003A\u003A\u0024__reflection",
-            "name": "__reflection",
-            "summary": "",
-            "url": "classes/oihana-reflections-traits-ReflectionTrait.html#property___reflection"
+            "fqsen": "\\oihana\\reflections\\traits\\ReflectionTrait\u003A\u003A\u0024reflection",
+            "name": "reflection",
+            "summary": "The\u0020internal\u0020Reflection\u0020reference.",
+            "url": "classes/oihana-reflections-traits-ReflectionTrait.html#property_reflection"
         },                {
             "fqsen": "\\oihana\\reflections\\Version",
             "name": "Version",
