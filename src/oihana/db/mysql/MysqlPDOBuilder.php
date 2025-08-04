@@ -105,7 +105,7 @@ class MysqlPDOBuilder
      * The DSN configuration object.
      * @var MysqlDSN
      */
-    public MySQLDSN $dsn ;
+    public MysqlDSN $dsn ;
 
     /**
      * Additional PDO options.

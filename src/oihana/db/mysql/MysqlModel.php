@@ -7,8 +7,6 @@ use oihana\db\mysql\traits\MysqlPrivilegeTrait;
 use oihana\db\mysql\traits\MysqlTableTrait;
 use oihana\db\mysql\traits\MysqlUserTrait;
 use oihana\models\pdo\PDOModel;
-use PDO;
-use PDOException;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
