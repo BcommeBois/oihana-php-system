@@ -39,6 +39,9 @@ trait MysqlUserTrait
         {
             $password = $this->pdo->quote( $password ) ;
             $query    = "CREATE USER IF NOT EXISTS '{$username}'@'{$host}' IDENTIFIED BY {$password}";
+
+            echo 'createUser query: ' . $query . PHP_EOL;
+
             return $this->pdo->exec($query) !== false;
         }
         return false ;
