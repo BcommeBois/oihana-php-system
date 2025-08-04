@@ -37,15 +37,24 @@ trait MysqlUserTrait
         $this->assertIdentifier ( $username ) ;
         $this->assertHost       ( $host     ) ;
 
-        $query = sprintf
-        (
-            "CREATE USER IF NOT EXISTS '%s'@'%s' IDENTIFIED BY %s" ,
-            $username ,
-            $host ,
-            $this->pdo->quote( $password )
-        ) ;
+        if( $this->pdo !== null )
+        {
+            $query = sprintf
+            (
+                "CREATE USER IF NOT EXISTS '%s'@'%s' IDENTIFIED BY %s" ,
+                $username ,
+                $host ,
+                $this->pdo->quote( $password )
+            ) ;
 
-        return $this->pdo?->exec( $query )  !== false ;
+            return $this->pdo->exec( $query )  !== false ;
+        }
+        else
+        {
+            echo PHP_EOL . 'createUser failed, the pdo reference is null' . PHP_EOL ;
+        }
+
+        return false ;
     }
 
     /**
@@ -110,7 +119,7 @@ trait MysqlUserTrait
                 return null;
             }
 
-            $this->bindValues($statement, ['user' => $username, 'host' => $host]);
+            $this->bindValues($statement, ['user' => $username, 'host' => $host] ) ;
 
             if ( !$statement->execute() )
             {
