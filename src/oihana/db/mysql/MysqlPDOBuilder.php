@@ -169,14 +169,17 @@ class MysqlPDOBuilder
     /**
      * The internal PDO maker method.
      * @param string $dsn
-     * @param string|null $user
-     * @param string|null $pass
+     * @param string|null $username
+     * @param string|null $password
      * @param array $options
      * @return PDO
      */
-    protected function createPDO( string $dsn, ?string $user, ?string $pass, array $options ): PDO
+    protected function createPDO( string $dsn, ?string $username , ?string $password , array $options ): PDO
     {
-        return new PDO( $dsn , $user , $pass , $options ) ;
+        echo 'createPDO dsn: ' . $dsn . PHP_EOL;
+        echo 'createPDO options: ' . json_encode( $options , JSON_PRETTY_PRINT ) . PHP_EOL;
+
+        return new PDO( $dsn , $username , $password , $options ) ;
     }
 
     /**
