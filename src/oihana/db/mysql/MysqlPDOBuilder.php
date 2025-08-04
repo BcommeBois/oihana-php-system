@@ -176,9 +176,6 @@ class MysqlPDOBuilder
      */
     protected function createPDO( string $dsn, ?string $username , ?string $password , array $options ): PDO
     {
-        echo 'createPDO dsn: ' . $dsn . PHP_EOL;
-        echo 'createPDO options: ' . var_export($options, true) . PHP_EOL . PHP_EOL ;
-
         return new PDO( $dsn , $username , $password , $options ) ;
     }
 
@@ -219,7 +216,7 @@ class MysqlPDOBuilder
     public function set( array $init = [] ):void
     {
         $this->dsn        = new MysqlDSN( $init ) ;
-        $this->options    = [ ...self::DEFAULT_OPTIONS , ...( $init[ self::OPTIONS  ] ?? [] ) ] ;
+        $this->options    = array_replace(self::DEFAULT_OPTIONS , $init[ self::OPTIONS ] ?? [] );
         $this->password   = $init[ self::PASSWORD ] ?? null ;
         $this->skipDbName = $init[ self::SKIP_DB_NAME ] ?? false ;
         $this->username   = $init[ self::USERNAME ] ?? null ;
