@@ -21,10 +21,11 @@ trait IDTrait
     /**
      * Initialize the unique identifier of the command.
      * @param array $init
-     * @return void
+     * @return static
      */
-    public function initializeID( array $init = [] ):void
+    public function initializeID( array $init = [] ) :static
     {
         $this->id = $init[ static::ID ] ?? $this->id ;
+        return $this ;
     }
 }

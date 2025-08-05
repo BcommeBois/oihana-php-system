@@ -18,10 +18,11 @@ trait JsonOptionsTrait
     /**
      * Initialize the documents reference.
      * @param array $init
-     * @return void
+     * @return static
      */
-    protected function initializeJsonOptions( array $init = [] ) :void
+    protected function initializeJsonOptions( array $init = [] ) :static
     {
         $this->jsonOptions = $init[ static::JSON_OPTIONS ] ?? $this->jsonOptions ;
+        return $this ;
     }
 }

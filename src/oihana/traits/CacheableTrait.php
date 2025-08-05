@@ -130,11 +130,11 @@ trait CacheableTrait
      * Initialize the cache reference.
      * @param array $init
      * @param Container|null $container
-     * @return void
+     * @return static
      * @throws DependencyException
      * @throws NotFoundException
      */
-    protected function initializeCache(  array $init = [] , ?Container $container = null  ):void
+    protected function initializeCache(  array $init = [] , ?Container $container = null  ):static
     {
         $cache = $init[ self::CACHE ] ?? $this->cache ;
 
@@ -144,15 +144,18 @@ trait CacheableTrait
         }
 
         $this->cache = $cache instanceof CacheInterface ? $cache : null ;
+
+        return $this;
     }
 
     /**
      * Initialize the cacheable property.
      * @param array $init
-     * @return void
+     * @return static
      */
-    protected function initializeCacheable( array $init = [] ) :void
+    protected function initializeCacheable( array $init = [] ) :static
     {
         $this->cacheable = $init[ self::CACHEABLE ] ?? $this->cacheable ;
+        return $this;
     }
 }
