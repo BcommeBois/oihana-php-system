@@ -1,8 +1,8 @@
 <?php
 
-namespace oihana\abstracts\mocks;
+namespace oihana\options\mocks;
 
-use oihana\abstracts\Option;
+use oihana\options\Option;
 
 class MockOption extends Option
 {

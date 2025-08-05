@@ -1,6 +1,6 @@
 <?php
 
-namespace oihana\abstracts;
+namespace oihana\options;
 
 use oihana\reflections\traits\ConstantsTrait;
 

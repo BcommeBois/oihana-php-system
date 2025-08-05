@@ -72,10 +72,6 @@
 </h4>
     <ul class="phpdocumentor-list">
                     <li>
-                <a href="namespaces/oihana-abstracts.html" class="">abstracts</a>
-                
-            </li>
-                    <li>
                 <a href="namespaces/oihana-date.html" class="">date</a>
                 
             </li>
@@ -108,6 +104,10 @@
                 
             </li>
                     <li>
+                <a href="namespaces/oihana-options.html" class="">options</a>
+                
+            </li>
+                    <li>
                 <a href="namespaces/oihana-reflections.html" class="">reflections</a>
                 
             </li>
@@ -136,7 +136,7 @@
                                 <section>
                                         <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana.html">oihana</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-abstracts.html">abstracts</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-options.html">options</a></li>
     </ul>
 
     <article class="phpdocumentor-element -class">
@@ -147,7 +147,7 @@
     
             <span class="phpdocumentor-element__implements">
             implements
-                            <a href="classes/oihana-interfaces-Cloneable.html"><abbr title="\oihana\interfaces\Cloneable">Cloneable</abbr></a>,                             <abbr title="\JsonSerializable">JsonSerializable</abbr>                    </span>
+                            <a href="classes/oihana-interfaces-ClearableArrayable.html"><abbr title="\oihana\interfaces\ClearableArrayable">ClearableArrayable</abbr></a>,                             <a href="classes/oihana-interfaces-Cloneable.html"><abbr title="\oihana\interfaces\Cloneable">Cloneable</abbr></a>,                             <abbr title="\JsonSerializable">JsonSerializable</abbr>                    </span>
     
             <span class="phpdocumentor-element__extends">
             uses
@@ -162,9 +162,9 @@
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/options/Options.php"><a href="files/src-oihana-options-options.html"><abbr title="src/oihana/options/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">27</span>
 
     </aside>
 
@@ -188,7 +188,7 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/oihana-abstracts-Options.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-options-Options.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -196,11 +196,12 @@
 
     <h4 id="toc-interfaces">
         Interfaces
-        <a href="classes/oihana-abstracts-Options.html#toc-interfaces" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-options-Options.html#toc-interfaces" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/oihana-interfaces-Cloneable.html"><abbr title="\oihana\interfaces\Cloneable">Cloneable</abbr></a></dt><dd>This interface is implemented by all cloneable objects.</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><abbr title="\JsonSerializable">JsonSerializable</abbr></dt>    </dl>
+                    <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/oihana-interfaces-ClearableArrayable.html"><abbr title="\oihana\interfaces\ClearableArrayable">ClearableArrayable</abbr></a></dt><dd>Interface for objects that can be converted to an array,
+with an option to remove empty or null values.</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><a href="classes/oihana-interfaces-Cloneable.html"><abbr title="\oihana\interfaces\Cloneable">Cloneable</abbr></a></dt><dd>This interface is implemented by all cloneable objects.</dd>            <dt class="phpdocumentor-table-of-contents__entry -interface"><abbr title="\JsonSerializable">JsonSerializable</abbr></dt>    </dl>
 
 
 
@@ -209,7 +210,7 @@
 
 <h4 id="toc-properties">
     Properties
-    <a href="classes/oihana-abstracts-Options.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-options-Options.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
@@ -236,40 +237,40 @@
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/oihana-abstracts-Options.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-options-Options.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-abstracts-Options.html#method___construct">__construct()</a>
+    <a class="" href="classes/oihana-options-Options.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Initializes the object using an associative array or object.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-abstracts-Options.html#method___toString">__toString()</a>
+    <a class="" href="classes/oihana-options-Options.html#method___toString">__toString()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Returns a string representation of the object.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-abstracts-Options.html#method_clone">clone()</a>
+    <a class="" href="classes/oihana-options-Options.html#method_clone">clone()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
 <dd>Creates a deep copy of the current instance.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-abstracts-Options.html#method_create">create()</a>
+    <a class="" href="classes/oihana-options-Options.html#method_create">create()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
 <dd>Instantiates the class from an array or another Options instance.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-abstracts-Options.html#method_format">format()</a>
+    <a class="" href="classes/oihana-options-Options.html#method_format">format()</a>
     <span>
                                 &nbsp;: string|null    </span>
 </dt>
@@ -277,14 +278,14 @@
 the corresponding public property values of the current object.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-abstracts-Options.html#method_formatArray">formatArray()</a>
+    <a class="" href="classes/oihana-options-Options.html#method_formatArray">formatArray()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
 <dd>Recursively formats all string values in an array using internal or external values.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-abstracts-Options.html#method_formatFromDocument">formatFromDocument()</a>
+    <a class="" href="classes/oihana-options-Options.html#method_formatFromDocument">formatFromDocument()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
@@ -305,7 +306,7 @@ the corresponding public property values of the current object.</dd>
 <dd>Returns the list of method parameters as ReflectionParameter[].</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-abstracts-Options.html#method_getOptions">getOptions()</a>
+    <a class="" href="classes/oihana-options-Options.html#method_getOptions">getOptions()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
@@ -375,7 +376,7 @@ the corresponding public property values of the current object.</dd>
 <dd>Returns true if the given parameter in a method is variadic.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-abstracts-Options.html#method_jsonSerialize">jsonSerialize()</a>
+    <a class="" href="classes/oihana-options-Options.html#method_jsonSerialize">jsonSerialize()</a>
     <span>
                                 &nbsp;: object    </span>
 </dt>
@@ -389,7 +390,14 @@ the corresponding public property values of the current object.</dd>
 <dd>Invoked to generates the json array serializer array representation from the public properties of the object.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-abstracts-Options.html#method_toArray">toArray()</a>
+    <a class="" href="classes/oihana-options-Options.html#method_resolve">resolve()</a>
+    <span>
+                                &nbsp;: static    </span>
+</dt>
+<dd>Resolves options by merging multiple configuration sources.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-options-Options.html#method_toArray">toArray()</a>
     <span>
                                 &nbsp;: array&lt;string, mixed&gt;    </span>
 </dt>
@@ -405,7 +413,7 @@ the corresponding public property values of the current object.</dd>
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/oihana-abstracts-Options.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/oihana-options-Options.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -545,7 +553,7 @@ the corresponding public property values of the current object.</dd>
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/oihana-abstracts-Options.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/oihana-options-Options.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -556,13 +564,13 @@ the corresponding public property values of the current object.</dd>
 >
     <h4 class="phpdocumentor-element__name" id="method___construct">
         __construct()
-        <a href="classes/oihana-abstracts-Options.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-options-Options.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/options/Options.php"><a href="files/src-oihana-options-options.html"><abbr title="src/oihana/options/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
@@ -606,13 +614,13 @@ Unknown or non-public properties are silently ignored.</p>
 >
     <h4 class="phpdocumentor-element__name" id="method___toString">
         __toString()
-        <a href="classes/oihana-abstracts-Options.html#method___toString" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-options-Options.html#method___toString" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/options/Options.php"><a href="files/src-oihana-options-options.html"><abbr title="src/oihana/options/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">359</span>
+    <span class="phpdocumentor-element-found-in__line">443</span>
 
     </aside>
 
@@ -651,13 +659,13 @@ Unknown or non-public properties are silently ignored.</p>
 >
     <h4 class="phpdocumentor-element__name" id="method_clone">
         clone()
-        <a href="classes/oihana-abstracts-Options.html#method_clone" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-options-Options.html#method_clone" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/options/Options.php"><a href="files/src-oihana-options-options.html"><abbr title="src/oihana/options/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">59</span>
+    <span class="phpdocumentor-element-found-in__line">61</span>
 
     </aside>
 
@@ -697,13 +705,13 @@ Useful when duplicating options to avoid shared references.</p>
 >
     <h4 class="phpdocumentor-element__name" id="method_create">
         create()
-        <a href="classes/oihana-abstracts-Options.html#method_create" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-options-Options.html#method_create" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/options/Options.php"><a href="files/src-oihana-options-options.html"><abbr title="src/oihana/options/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">74</span>
+    <span class="phpdocumentor-element-found-in__line">76</span>
 
     </aside>
 
@@ -711,7 +719,7 @@ Useful when duplicating options to avoid shared references.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">create</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|<a href="classes/oihana-abstracts-Options.html"><abbr title="\oihana\abstracts\Options">Options</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">create</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|<a href="classes/oihana-options-Options.html"><abbr title="\oihana\options\Options">Options</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -727,7 +735,7 @@ Useful when duplicating options to avoid shared references.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$options</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|<a href="classes/oihana-abstracts-Options.html"><abbr title="\oihana\abstracts\Options">Options</abbr></a>|null</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|<a href="classes/oihana-options-Options.html"><abbr title="\oihana\options\Options">Options</abbr></a>|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The initial values or existing options instance.</p>
@@ -758,13 +766,13 @@ Useful when duplicating options to avoid shared references.</p>
 >
     <h4 class="phpdocumentor-element__name" id="method_format">
         format()
-        <a href="classes/oihana-abstracts-Options.html#method_format" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-options-Options.html#method_format" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/options/Options.php"><a href="files/src-oihana-options-options.html"><abbr title="src/oihana/options/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">115</span>
+    <span class="phpdocumentor-element-found-in__line">117</span>
 
     </aside>
 
@@ -825,7 +833,7 @@ or is null, it is replaced with an empty string.</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-abstracts-Options.html#method_format#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-options-Options.html#method_format#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -880,13 +888,13 @@ echo $opts-&gt;format('Missing: {{nonexistent}}');
 >
     <h4 class="phpdocumentor-element__name" id="method_formatArray">
         formatArray()
-        <a href="classes/oihana-abstracts-Options.html#method_formatArray" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-options-Options.html#method_formatArray" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/options/Options.php"><a href="files/src-oihana-options-options.html"><abbr title="src/oihana/options/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">139</span>
+    <span class="phpdocumentor-element-found-in__line">141</span>
 
     </aside>
 
@@ -985,13 +993,13 @@ echo $opts-&gt;format('Missing: {{nonexistent}}');
 >
     <h4 class="phpdocumentor-element__name" id="method_formatFromDocument">
         formatFromDocument()
-        <a href="classes/oihana-abstracts-Options.html#method_formatFromDocument" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-options-Options.html#method_formatFromDocument" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/options/Options.php"><a href="files/src-oihana-options-options.html"><abbr title="src/oihana/options/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">181</span>
+    <span class="phpdocumentor-element-found-in__line">184</span>
 
     </aside>
 
@@ -1039,7 +1047,7 @@ echo $opts-&gt;format('Missing: {{nonexistent}}');
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-abstracts-Options.html#method_formatFromDocument#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-options-Options.html#method_formatFromDocument#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -1239,13 +1247,13 @@ $trait-&gt;getMethodParameters(Foo::class, 'bar');
 >
     <h4 class="phpdocumentor-element__name" id="method_getOptions">
         getOptions()
-        <a href="classes/oihana-abstracts-Options.html#method_getOptions" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-options-Options.html#method_getOptions" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/options/Options.php"><a href="files/src-oihana-options-options.html"><abbr title="src/oihana/options/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">212</span>
+    <span class="phpdocumentor-element-found-in__line">215</span>
 
     </aside>
 
@@ -1306,7 +1314,7 @@ The name of each property must match an option defined in the <code class="prett
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-abstracts-Options.html#method_getOptions#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-options-Options.html#method_getOptions#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -2136,13 +2144,13 @@ $trait-&gt;isParameterVariadic(Foo::class, 'bar', 'x'); // true
 >
     <h4 class="phpdocumentor-element__name" id="method_jsonSerialize">
         jsonSerialize()
-        <a href="classes/oihana-abstracts-Options.html#method_jsonSerialize" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-options-Options.html#method_jsonSerialize" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/options/Options.php"><a href="files/src-oihana-options-options.html"><abbr title="src/oihana/options/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">298</span>
+    <span class="phpdocumentor-element-found-in__line">301</span>
 
     </aside>
 
@@ -2164,7 +2172,7 @@ a JSON object (e.g. <code class="prettyprint">}</code> instead of <code class="p
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-abstracts-Options.html#method_jsonSerialize#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-options-Options.html#method_jsonSerialize#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -2310,17 +2318,123 @@ $trait-&gt;jsonSerializeFromPublicProperties(Product::class, true); // ['name' =
         class="phpdocumentor-element
             -method
             -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_resolve">
+        resolve()
+        <a href="classes/oihana-options-Options.html#method_resolve" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/options/Options.php"><a href="files/src-oihana-options-options.html"><abbr title="src/oihana/options/Options.php">Options.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">344</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Resolves options by merging multiple configuration sources.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">resolve</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__variadic-operator">...</span><span class="phpdocumentor-signature__argument__name">$sources</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>This method accepts multiple sources of configuration and merges them in order to create a final options object.</p>
+<p>Sources can be:</p>
+<ul>
+<li>Associative arrays</li>
+<li>Options classes, and generally ClearableArrayable or Arrayable classes ( which will be converted to arrays via toArray() ).</li>
+<li>null values (which will be ignored).</li>
+</ul>
+<p>The sources are merged in the order they are provided, with later sources
+overriding earlier ones for conflicting keys.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$sources</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Variable number of configuration sources.
+Each can be an array, Options instance, or null.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-options-Options.html#method_resolve#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\InvalidArgumentException">InvalidArgumentException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If a source is not a valid type.</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">// Merge multiple arrays
+$options = MyOptions::resolve
+(
+    [ 'host' =&gt; 'localhost', 'port' =&gt; 8080],
+    [ 'debug' =&gt; true ],
+    [ 'port' =&gt; 9000  ] // This will override the previous port value
+);
+
+// Merge arrays and Options instances
+$defaultOptions = new MyOptions( ['host' =&gt; 'localhost'] ) ;
+$userOptions    = ['port' =&gt; 8080 , 'debug' =&gt; true ] ;
+$overrides      = new MyOptions( [ 'debug' =&gt; false ] ) ;
+
+$finalOptions = MyOptions::resolve( $defaultOptions , $userOptions , $overrides ) ;
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">static</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>An instance of the calling Options class with merged configuration.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
                                                         "
 >
     <h4 class="phpdocumentor-element__name" id="method_toArray">
         toArray()
-        <a href="classes/oihana-abstracts-Options.html#method_toArray" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-options-Options.html#method_toArray" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/abstracts/Options.php"><a href="files/src-oihana-abstracts-options.html"><abbr title="src/oihana/abstracts/Options.php">Options.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/options/Options.php"><a href="files/src-oihana-options-options.html"><abbr title="src/oihana/options/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">331</span>
+    <span class="phpdocumentor-element-found-in__line">415</span>
 
     </aside>
 
@@ -2353,7 +2467,7 @@ Useful for serialization, debugging, or exporting the object state.</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-abstracts-Options.html#method_toArray#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-options-Options.html#method_toArray#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -2407,7 +2521,7 @@ print_r($options-&gt;toArray(true));
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/abstracts/Options.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/options/Options.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -2508,8 +2622,8 @@ print_r($options-&gt;toArray(true));
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                            <li><a href="classes/oihana-abstracts-Options.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/oihana-abstracts-Options.html#toc-methods">Methods</a></li>
+                                                            <li><a href="classes/oihana-options-Options.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/oihana-options-Options.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
             
@@ -2525,16 +2639,16 @@ print_r($options-&gt;toArray(true));
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-abstracts-Options.html#method___construct">__construct()</a></li>
-                                            <li class=""><a href="classes/oihana-abstracts-Options.html#method___toString">__toString()</a></li>
-                                            <li class=""><a href="classes/oihana-abstracts-Options.html#method_clone">clone()</a></li>
-                                            <li class=""><a href="classes/oihana-abstracts-Options.html#method_create">create()</a></li>
-                                            <li class=""><a href="classes/oihana-abstracts-Options.html#method_format">format()</a></li>
-                                            <li class=""><a href="classes/oihana-abstracts-Options.html#method_formatArray">formatArray()</a></li>
-                                            <li class=""><a href="classes/oihana-abstracts-Options.html#method_formatFromDocument">formatFromDocument()</a></li>
+                                            <li class=""><a href="classes/oihana-options-Options.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/oihana-options-Options.html#method___toString">__toString()</a></li>
+                                            <li class=""><a href="classes/oihana-options-Options.html#method_clone">clone()</a></li>
+                                            <li class=""><a href="classes/oihana-options-Options.html#method_create">create()</a></li>
+                                            <li class=""><a href="classes/oihana-options-Options.html#method_format">format()</a></li>
+                                            <li class=""><a href="classes/oihana-options-Options.html#method_formatArray">formatArray()</a></li>
+                                            <li class=""><a href="classes/oihana-options-Options.html#method_formatFromDocument">formatFromDocument()</a></li>
                                             <li class=""><a href="classes/oihana-reflections-traits-ReflectionTrait.html#method_getConstants">getConstants()</a></li>
                                             <li class=""><a href="classes/oihana-reflections-traits-ReflectionTrait.html#method_getMethodParameters">getMethodParameters()</a></li>
-                                            <li class=""><a href="classes/oihana-abstracts-Options.html#method_getOptions">getOptions()</a></li>
+                                            <li class=""><a href="classes/oihana-options-Options.html#method_getOptions">getOptions()</a></li>
                                             <li class=""><a href="classes/oihana-reflections-traits-ReflectionTrait.html#method_getParameterDefaultValue">getParameterDefaultValue()</a></li>
                                             <li class=""><a href="classes/oihana-reflections-traits-ReflectionTrait.html#method_getParameterType">getParameterType()</a></li>
                                             <li class=""><a href="classes/oihana-reflections-traits-ReflectionTrait.html#method_getPublicProperties">getPublicProperties()</a></li>
@@ -2544,9 +2658,10 @@ print_r($options-&gt;toArray(true));
                                             <li class=""><a href="classes/oihana-reflections-traits-ReflectionTrait.html#method_isParameterNullable">isParameterNullable()</a></li>
                                             <li class=""><a href="classes/oihana-reflections-traits-ReflectionTrait.html#method_isParameterOptional">isParameterOptional()</a></li>
                                             <li class=""><a href="classes/oihana-reflections-traits-ReflectionTrait.html#method_isParameterVariadic">isParameterVariadic()</a></li>
-                                            <li class=""><a href="classes/oihana-abstracts-Options.html#method_jsonSerialize">jsonSerialize()</a></li>
+                                            <li class=""><a href="classes/oihana-options-Options.html#method_jsonSerialize">jsonSerialize()</a></li>
                                             <li class=""><a href="classes/oihana-reflections-traits-ReflectionTrait.html#method_jsonSerializeFromPublicProperties">jsonSerializeFromPublicProperties()</a></li>
-                                            <li class=""><a href="classes/oihana-abstracts-Options.html#method_toArray">toArray()</a></li>
+                                            <li class=""><a href="classes/oihana-options-Options.html#method_resolve">resolve()</a></li>
+                                            <li class=""><a href="classes/oihana-options-Options.html#method_toArray">toArray()</a></li>
                                     </ul>
             </li>
                     </ul>
@@ -2566,7 +2681,7 @@ print_r($options-&gt;toArray(true));
     </section>
 </section>
         </div>
-        <a href="classes/oihana-abstracts-Options.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/oihana-options-Options.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

@@ -9,7 +9,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## [0.0.0] - 2025-07-15 (alpha)
 
 ### Added
-- Adds oihana\abstracts\Options
 
 - Adds oihana\date\TimeInterval
 - Adds oihana\date\traits\DateTrait
@@ -51,6 +50,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Adds oihana\logging\MonoLogManager
 - Adds oihana\logging\monolog\processors\EmojiProcessor
 - Adds oihana\logging\monolog\processors\SymbolProcessor
+
+- Adds oihana\options\Option
+- Adds oihana\options\Options
 
 - Adds oihana\reflections\Reflection
 - Adds oihana\reflections\Version

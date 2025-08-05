@@ -1,9 +1,11 @@
 <?php
 
-namespace oihana\abstracts;
+namespace oihana\options;
 
 use InvalidArgumentException;
 use JsonSerializable;
+use oihana\interfaces\Arrayable;
+use oihana\interfaces\ClearableArrayable;
 use oihana\interfaces\Cloneable;
 use ReflectionException;
 
@@ -22,7 +24,7 @@ use function oihana\core\strings\formatFromDocument;
  * - Template string formatting with placeholders.
  * - CLI-compatible string generation from object state.
  */
-abstract class Options implements Cloneable, JsonSerializable
+abstract class Options implements ClearableArrayable , Cloneable , JsonSerializable
 {
     /**
      * Initializes the object using an associative array or object.
@@ -136,7 +138,8 @@ abstract class Options implements Cloneable, JsonSerializable
      *
      * @return array The formatted array.
      */
-    public function formatArray(
+    public function formatArray
+    (
         array &$data,
         array|object|null $source = null,
         string $prefix = '{{',
@@ -298,6 +301,87 @@ abstract class Options implements Cloneable, JsonSerializable
     public function jsonSerialize(): object
     {
         return (object) $this->toArray(true) ;
+    }
+
+    /**
+     * Resolves options by merging multiple configuration sources.
+     *
+     * This method accepts multiple sources of configuration and merges them in order to create a final options object.
+     *
+     * Sources can be:
+     * - Associative arrays
+     * - Options classes, and generally ClearableArrayable or Arrayable classes ( which will be converted to arrays via toArray() ).
+     * - null values (which will be ignored).
+     *
+     * The sources are merged in the order they are provided, with later sources
+     * overriding earlier ones for conflicting keys.
+     *
+     * @param mixed ...$sources Variable number of configuration sources.
+     *                                      Each can be an array, Options instance, or null.
+     *
+     * @return static An instance of the calling Options class with merged configuration.
+     *
+     * @throws InvalidArgumentException If a source is not a valid type.
+     *
+     * @example
+     * ```php
+     * // Merge multiple arrays
+     * $options = MyOptions::resolve
+     * (
+     *     [ 'host' => 'localhost', 'port' => 8080],
+     *     [ 'debug' => true ],
+     *     [ 'port' => 9000  ] // This will override the previous port value
+     * );
+     *
+     * // Merge arrays and Options instances
+     * $defaultOptions = new MyOptions( ['host' => 'localhost'] ) ;
+     * $userOptions    = ['port' => 8080 , 'debug' => true ] ;
+     * $overrides      = new MyOptions( [ 'debug' => false ] ) ;
+     *
+     * $finalOptions = MyOptions::resolve( $defaultOptions , $userOptions , $overrides ) ;
+     * ```
+     */
+    public static function resolve( mixed ...$sources ) :static
+    {
+        $options = [] ;
+
+        if ( empty( $sources ) )
+        {
+            return new static() ;
+        }
+
+        $sources = array_filter( $sources , fn( $value ) => $value !== null ) ;
+
+        foreach ( $sources as $source )
+        {
+            $overrides = null ;
+
+            if ( is_array( $source ) )
+            {
+                $overrides = $source ;
+            }
+            elseif ( $source instanceof Arrayable )
+            {
+                $overrides = $source->toArray() ;
+            }
+            elseif ( $source instanceof ClearableArrayable )
+            {
+                $overrides = $source->toArray( true ) ;
+            }
+            else
+            {
+                throw new InvalidArgumentException( sprintf
+                (
+                    'Invalid source type provided to %s::resolve(). Expected array, Options instance, or null, got %s.' ,
+                    static::class ,
+                    get_debug_type( $source )
+                ) ) ;
+            }
+
+            $options = array_merge( $options , $overrides ) ;
+        }
+
+        return static::create( $options ) ;
     }
 
     /**

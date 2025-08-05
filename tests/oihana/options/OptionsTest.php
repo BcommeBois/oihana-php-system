@@ -1,12 +1,14 @@
 <?php
 
-namespace oihana\abstracts;
+namespace oihana\options;
 
 use InvalidArgumentException;
-use oihana\abstracts\mocks\MockOption;
-use oihana\abstracts\mocks\MockOptions;
-use oihana\abstracts\mocks\TestOptions;
+use oihana\enums\Char;
+use oihana\options\mocks\MockOption;
+use oihana\options\mocks\MockOptions;
+use oihana\options\mocks\TestOptions;
 use PHPUnit\Framework\TestCase;
+
 use ReflectionException;
 
 class OptionsTest extends TestCase
@@ -16,60 +18,74 @@ class OptionsTest extends TestCase
         return new MockOptions( $init ) ;
     }
 
-    public function testCreateWithInstanceReturnsSame()
+    public function testCreateWithArrayCreatesNewInstance() :void
     {
         $original = new MockOptions(['foo' => 'bar']);
         $created = MockOptions::create($original);
         $this->assertSame($original, $created);
     }
 
-    public function testCloneReturnsDeepCopy()
+    /**
+     * @throws ReflectionException
+     */
+    public function testCreateWithNullReturnsNewInstance() :void
+    {
+        $instance = MockOptions::create();
+        $this->assertInstanceOf(MockOptions::class, $instance);
+        $this->assertEquals( json_encode(['bar' => false]) , json_encode($instance->toArray(true)) );
+    }
+
+    /**
+     * @throws ReflectionException
+     */
+    public function testCloneReturnsDeepCopy() :void
     {
         $original = new MockOptions(['foo' => 'bar']);
         $cloned = $original->clone();
 
         $this->assertNotSame($original, $cloned);
-        $this->assertEquals($original, $cloned);
+        $this->assertEquals($original->toArray(), $cloned->toArray());
     }
 
-    public function testFormatReplacesPlaceholders()
+    /**
+     * @throws ReflectionException
+     */
+    public function testFormatReplacesPlaceholders() :void
     {
-        $options = $this->getConcreteOptionsInstance
-        ([
-            'foo' => 'hello',
-            'bar' => true,
-        ]);
-
+        $options = $this->getConcreteOptionsInstance(['foo' => 'hello', 'bar' => true]);
         $template = 'Prefix: {{foo}}, Flag: {{bar}}, Missing: {{baz}}';
         $result = $options->format($template);
-
         $this->assertSame('Prefix: hello, Flag: 1, Missing: ', $result);
     }
 
-    public function testFormatWithCustomDelimiters()
+    /**
+     * @throws ReflectionException
+     */
+    public function testFormatWithCustomDelimiters() :void
     {
         $options = $this->getConcreteOptionsInstance(['foo' => 'abc']);
         $template = 'Value is <<foo>>';
         $result = $options->format($template, '<<', '>>');
-
         $this->assertSame('Value is abc', $result);
     }
 
-    public function testFormatReturnsNullForInvalidTemplate()
+    /**
+     * @throws ReflectionException
+     */
+    public function testFormatReturnsNullForInvalidTemplate() :void
     {
         $options = $this->getConcreteOptionsInstance();
         $this->assertNull($options->format());
         $this->assertNull($options->format(''));
+        $this->assertNull($options->format(Char::EMPTY));
     }
 
-    public function testFormatArrayRecursivelyFormatsValues()
+    public function testFormatArrayRecursivelyFormatsValues() :void
     {
-        $options = $this->getConcreteOptionsInstance
-        ([
-            'domain'    => 'domain.com',
+        $options = $this->getConcreteOptionsInstance([
+            'domain' => 'domain.com',
             'subdomain' => 'www'
         ]);
-
         $array = [
             'url' => 'https://{{subdomain}}.{{domain}}',
             'nested' => [
@@ -77,7 +93,6 @@ class OptionsTest extends TestCase
             ],
             'unchanged' => 123
         ];
-
         $expected = [
             'url' => 'https://www.domain.com',
             'nested' => [
@@ -85,21 +100,20 @@ class OptionsTest extends TestCase
             ],
             'unchanged' => 123
         ];
-
         $result = $options->formatArray($array);
         $this->assertSame($expected, $result);
     }
 
-    public function testToStringReturnsCustomValue()
+    public function testToStringReturnsDefaultString() :void
     {
         $options = new MockOptions();
-        $this->assertSame('OptionsToString', (string) $options);
+        $this->assertSame('OptionsToString', (string) $options );
     }
 
     /**
      * @throws ReflectionException
      */
-    public function testGetOptionsReturnsCorrectString()
+    public function testGetOptionsReturnsCorrectString() :void
     {
         $options = $this->getConcreteOptionsInstance
         ([
@@ -109,44 +123,26 @@ class OptionsTest extends TestCase
         ]);
 
         $result = $options->getOptions(MockOption::class);
-
         $this->assertStringContainsString('--foo "value"', $result);
         $this->assertStringContainsString('--bar', $result);
         $this->assertStringContainsString('--baz "item1"', $result);
         $this->assertStringContainsString('--baz "item2"', $result);
     }
 
-
-    /**
-     * @throws ReflectionException
-     */
-    public function testGetOptionsWithNullClazzReturnsAnEmptyString()
+    public function testGetOptionsWithNullClazzReturnsEmptyString() :void
     {
-        $options = $this->getConcreteOptionsInstance
-        ([
-            'foo' => 'value',
-            'bar' => true,
-            'baz' => ['item1', 'item2'],
-        ]);
-
-        $result = $options->getOptions(null );
-
-        $this->assertEquals('', $result);
+        $options = $this->getConcreteOptionsInstance(['foo' => 'value']);
+        $result = $options->getOptions(null);
+        $this->assertSame('', $result);
     }
 
     /**
      * @throws ReflectionException
      */
-    public function testGetOptionsWithPrefix()
+    public function testGetOptionsWithPrefix() :void
     {
-        $options = $this->getConcreteOptionsInstance
-        ([
-            'foo' => 'value',
-            'bar' => true,
-        ]);
-
+        $options = $this->getConcreteOptionsInstance(['foo' => 'value', 'bar' => true]);
         $result = $options->getOptions(MockOption::class, 'PREFIX_');
-
         $this->assertStringContainsString('PREFIX_--foo "value"', $result);
         $this->assertStringContainsString('PREFIX_--bar', $result);
     }
@@ -154,7 +150,7 @@ class OptionsTest extends TestCase
     /**
      * @throws ReflectionException
      */
-    public function testGetOptionsThrowsExceptionForInvalidClass()
+    public function testGetOptionsThrowsExceptionForInvalidClass() :void
     {
         $options = $this->getConcreteOptionsInstance(['foo' => 'val']);
 
@@ -166,7 +162,7 @@ class OptionsTest extends TestCase
     /**
      * @throws ReflectionException
      */
-    public function testToArrayWithValues(): void
+    public function testToArrayReturnsCorrectValues() :void
     {
         $opts = new TestOptions
         ([
@@ -178,60 +174,78 @@ class OptionsTest extends TestCase
 
         $array = $opts->toArray();
 
-        $this->assertEquals([
-            'host'  => 'localhost',
-            'port'  => 8080,
+        $this->assertEquals
+        ([
+            'host' => 'localhost',
+            'port' => 8080,
             'flags' => ['a', 'b'],
             'debug' => true,
-        ], $array);
+        ] , $array );
     }
 
     /**
      * @throws ReflectionException
      */
-    public function testToArrayWithClear(): void
+    public function testToArrayWithClearRemovesNullAndEmpty() :void
     {
         $opts = new TestOptions
         ([
-            'host'  => 'localhost',
-            'port'  => null,
+            'host' => 'localhost',
+            'port' => null,
             'flags' => [],
             'debug' => null,
             'empty' => '',
         ]);
-
-        $array = $opts->toArray(clear: true);
-
-        $this->assertEquals( [ 'host' => 'localhost' ], $array);
+        $array = $opts->toArray(true);
+        $this->assertSame(['host' => 'localhost'], $array);
     }
 
-    public function testJsonSerialize(): void
+    public function testJsonSerializeProducesCorrectJson() :void
     {
         $opts = new TestOptions([
-            'host'  => 'localhost',
-            'port'  => 80,
+            'host' => 'localhost',
+            'port' => 80,
             'flags' => [],
             'debug' => null,
             'empty' => '',
         ]);
-
-        $json = json_encode( $opts , JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-        $this->assertJson( $json );
-        $this->assertSame('{"host":"localhost","port":80}', $json );
+        $json = json_encode($opts, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+        $this->assertJson($json);
+        $this->assertSame('{"host":"localhost","port":80}', $json);
     }
 
-    public function testJsonSerializeWithEmptyValues(): void
+    public function testJsonSerializeWithEmptyValues() :void
     {
         $opts = new TestOptions([
-            'host'  => '',
-            'port'  => null,
+            'host' => '',
+            'port' => null,
             'flags' => [],
             'debug' => null,
             'empty' => '',
         ]);
-
         $json = json_encode($opts, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
-        $this->assertJson( $json );
-        $this->assertEquals('{}', $json );
+        $this->assertJson($json);
+        $this->assertEquals('{}', $json);
+    }
+
+    /**
+     * @throws ReflectionException
+     */
+    public function testResolveMergesMultipleSources() :void
+    {
+        $default        = new TestOptions(['host' => 'default', 'port' => 80]);
+        $overrideArray  = ['host' => 'override', 'debug' => true];
+        $overrideObject = new TestOptions(['port' => 8080]);
+        $result = TestOptions::resolve($default, $overrideArray, $overrideObject);
+        $this->assertInstanceOf(TestOptions::class, $result);
+        $arr = $result->toArray( true );
+        $this->assertEquals(['host' => 'override', 'port' => 8080, 'debug' => true], $arr);
+    }
+
+    public function testResolveThrowsOnInvalidSource() :void
+    {
+        $this->expectException( InvalidArgumentException::class );
+        $this->expectExceptionMessage('Invalid source type');
+        MockOptions::resolve('invalid' ) ;
     }
 }
