@@ -345,14 +345,12 @@ class OptionsTest extends TestCase
             order: ['baz', 'foo']
         );
 
-        // Vérifie que 'baz' vient avant 'foo'
         $this->assertGreaterThan(
             strpos($result, '--baz "one"'),
             strpos($result, '--foo "value"'),
             "Expected --baz to appear before --foo"
         );
 
-        // Vérifie que 'bar', 'alpha', 'zeta' sont présents
         $this->assertStringContainsString('--bar', $result);
         $this->assertStringContainsString('--alpha "a"', $result);
         $this->assertStringContainsString('--zeta "z"', $result);
