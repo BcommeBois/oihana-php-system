@@ -325,4 +325,66 @@ class OptionsTest extends TestCase
         $this->assertStringContainsString('--baz:"one"'   , $result ) ; // → séparateur ':'
         $this->assertStringContainsString('--baz:"two"'   , $result ) ;
     }
+
+    /**
+     * @throws ReflectionException
+     */
+    public function testGetOptionsWithOrder()
+    {
+        $options = new MockOptions();
+        $options->foo = 'value';
+        $options->bar = true;
+        $options->baz = ['one', 'two'];
+        $options->alpha = 'a';
+        $options->zeta = 'z';
+
+        $result = $options->getOptions
+        (
+            MockOption::class,
+            prefix: '--',
+            order: ['baz', 'foo']
+        );
+
+        // Vérifie que 'baz' vient avant 'foo'
+        $this->assertGreaterThan(
+            strpos($result, '--baz "one"'),
+            strpos($result, '--foo "value"'),
+            "Expected --baz to appear before --foo"
+        );
+
+        // Vérifie que 'bar', 'alpha', 'zeta' sont présents
+        $this->assertStringContainsString('--bar', $result);
+        $this->assertStringContainsString('--alpha "a"', $result);
+        $this->assertStringContainsString('--zeta "z"', $result);
+    }
+
+    /**
+     * @throws ReflectionException
+     */
+    public function testGetOptionsWithOrderAndReverse()
+    {
+        $options = new MockOptions();
+        $options->foo = 'value';
+        $options->bar = true;
+        $options->baz = ['one', 'two'];
+        $options->alpha = 'a';
+        $options->zeta = 'z';
+
+        $result = $options->getOptions(
+            MockOption::class,
+            prefix: '--',
+            order: ['foo', 'baz'],
+            reverseOrder: true
+        );
+
+        $this->assertLessThan(
+            strpos($result, '--baz "one"'),
+            strpos($result, '--foo "value"'),
+            "Expected --baz to appear before --foo due to reverseOrder"
+        );
+
+        $this->assertStringContainsString('--bar', $result);
+        $this->assertStringContainsString('--alpha "a"', $result);
+        $this->assertStringContainsString('--zeta "z"', $result);
+    }
 }

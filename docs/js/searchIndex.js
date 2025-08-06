@@ -4251,6 +4251,11 @@ Search.appendIndex(
             "summary": "Returns\u0020the\u0020command\u0020line\u0020option\u0020expression\u0020from\u0020a\u0020specific\u0020option.",
             "url": "classes/oihana-options-Option.html#method_getCommandOption"
         },                {
+            "fqsen": "\\oihana\\options\\Option\u003A\u003AgetCommandPrefix\u0028\u0029",
+            "name": "getCommandPrefix",
+            "summary": "Returns\u0020the\u0020prefix\u0020from\u0020a\u0020specific\u0020option.",
+            "url": "classes/oihana-options-Option.html#method_getCommandPrefix"
+        },                {
             "fqsen": "\\oihana\\options\\Options",
             "name": "Options",
             "summary": "Abstract\u0020base\u0020class\u0020for\u0020defining\u0020configurable\u0020options.",

@@ -203,10 +203,12 @@ abstract class Options implements ClearableArrayable , Cloneable , JsonSerializa
      *
      * You can pass a string or a callable to dynamically generate prefixes or separators based on the property name.
      *
-     * @param class-string         $clazz     Class implementing the getCommandOption(string $property): string method.
-     * @param null|callable|string $prefix    Prefix for each option (e.g. '--', '-', '/opt:'), or a callable (string $property): string.
-     * @param array<string>        $excludes  Optional list of property names to exclude from the output.
-     * @param callable|string      $separator Separator between option and value (default is a space), or a callable (string $property): string.
+     * @param class-string         $clazz         Class implementing the getCommandOption(string $property): string method.
+     * @param null|callable|string $prefix        Prefix for each option (e.g. '--', '-', '/opt:'), or a callable (string $property): string.
+     * @param array<string>        $excludes      Optional list of property names to exclude from the output.
+     * @param callable|string      $separator     Separator between option and value (default is a space), or a callable (string $property): string.
+     * @param array<string>        $order         Optional list of property names to force order.
+     * @param bool                 $reverseOrder  If true, ordered properties are placed at the end instead of the beginning.
      *
      * @return string CLI-formatted options string, e.g. '--foo "bar" -v --list "one" --list "two"'
      *
@@ -250,13 +252,33 @@ abstract class Options implements ClearableArrayable , Cloneable , JsonSerializa
      * // Output:
      * // --foo "value" -verbose /opt:list="a" /opt:list="b"
      * ```
+     *
+     * Use the order parameter :
+     * ```php
+     * $options->getOptions
+     * (
+     *    MyOption::class,
+     *    prefix: fn($name) => match ($name)
+     *    {
+     *       'foo' => '--',
+     *       'verbose' => '-',
+     *        default => '/opt:'
+     *    },
+     *    excludes  : ['internal'],
+     *    separator : fn($name) => $name === 'list' ? '=' : ' ',
+     *    order: ['verbose', 'foo'],
+     *    reverseOrder: false // Place these first
+     * );
+     * ```
      */
     public function getOptions
     (
-        ?string              $clazz     = null ,
-        callable|string|null $prefix    = Char::DOUBLE_HYPHEN ,
-        ?array               $excludes  = null ,
-        callable|string      $separator = Char::SPACE
+        ?string              $clazz        = null ,
+        callable|string|null $prefix       = Char::DOUBLE_HYPHEN ,
+        ?array               $excludes     = null ,
+        callable|string      $separator    = Char::SPACE ,
+        ?array               $order        = null ,
+        bool                 $reverseOrder = false
     )
     :string
     {
@@ -278,9 +300,23 @@ abstract class Options implements ClearableArrayable , Cloneable , JsonSerializa
 
         $properties = $this->getPublicProperties( static::class ) ;
 
+        if( is_array( $order ) && !empty( $order ) )
+        {
+            usort($properties, function( $a , $b ) use ( $order , $reverseOrder )
+            {
+                $aIndex = array_search( $a->getName() , $order ) ;
+                $bIndex = array_search( $b->getName() , $order ) ;
+
+                $aIndex = $aIndex === false ? ( $reverseOrder ? -1 : PHP_INT_MAX ) : $aIndex ;
+                $bIndex = $bIndex === false ? ( $reverseOrder ? -1 : PHP_INT_MAX ) : $bIndex ;
+
+                return $aIndex <=> $bIndex;
+            });
+        }
+
         foreach( $properties as $property )
         {
-            $name  = $property->getName() ;
+            $name = $property->getName() ;
 
             if ( is_array( $excludes ) && in_array( $name , $excludes , true ) )
             {
@@ -295,7 +331,6 @@ abstract class Options implements ClearableArrayable , Cloneable , JsonSerializa
             }
 
             $option = $clazz::getCommandOption( $name ) ;
-
             $prefix = $clazz::getCommandPrefix( $name ) ?? $prefix ;
 
             if( isset( $prefix ) )
