@@ -8,6 +8,6 @@ class MockOption extends Option
 {
     public static function getCommandOption(string $option): string
     {
-        return '--' . str_replace('_', '-', $option);
+        return str_replace('_', '-', $option);
     }
 }

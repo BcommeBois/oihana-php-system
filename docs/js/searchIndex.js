@@ -4288,7 +4288,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\options\\Options\u003A\u003AgetOptions\u0028\u0029",
             "name": "getOptions",
-            "summary": "Builds\u0020a\u0020command\u002Dline\u0020string\u0020of\u0020options\u0020based\u0020on\u0020the\u0020current\u0020object\u0020state.",
+            "summary": "Returns\u0020a\u0020string\u0020representing\u0020the\u0020current\u0020options\u0020formatted\u0020as\u0020CLI\u0020arguments.",
             "url": "classes/oihana-options-Options.html#method_getOptions"
         },                {
             "fqsen": "\\oihana\\options\\Options\u003A\u003AjsonSerialize\u0028\u0029",

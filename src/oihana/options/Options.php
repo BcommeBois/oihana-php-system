@@ -196,23 +196,58 @@ abstract class Options implements ClearableArrayable , Cloneable , JsonSerializa
     }
 
     /**
-     * Builds a command-line string of options based on the current object state.
+     * Returns a string representing the current options formatted as CLI arguments.
      *
-     * Only public properties with a non-null value will be considered,
-     * unless explicitly excluded via the `$excludes` parameter.
-     * The name of each property must match an option defined in the `$clazz` enumeration.
+     * This method converts the properties of the current options object into a list of
+     * command-line arguments, using a configurable prefix and separator for each property.
      *
-     * @param string|null $clazz     Fully qualified class name extending the Option enum.
-     * @param string|null $prefix    Optional prefix to prepend before each option (e.g. "--").
-     * @param array|null  $excludes  List of property names to exclude from the output.
-     * @param string      $separator The separator between the option's name and value (Default " ").
+     * You can pass a string or a callable to dynamically generate prefixes or separators based on the property name.
      *
-     * @return string                The formatted command-line options string or an empty string if the clazz parameter is null.
+     * @param class-string         $clazz     Class implementing the getCommandOption(string $property): string method.
+     * @param null|callable|string $prefix    Prefix for each option (e.g. '--', '-', '/opt:'), or a callable (string $property): string.
+     * @param array<string>        $excludes  Optional list of property names to exclude from the output.
+     * @param callable|string      $separator Separator between option and value (default is a space), or a callable (string $property): string.
      *
-     * @throws InvalidArgumentException If $clazz is not a subclass of Option.
-     * @throws ReflectionException      If property reflection fails.
+     * @return string CLI-formatted options string, e.g. '--foo "bar" -v --list "one" --list "two"'
+     *
+     * @throws ReflectionException
+     *
+     * @example
+     * ```php
+     * class MyOptions extends Options
+     * {
+     *     public string $foo = 'value';
+     *     public bool $verbose = true;
+     *     public array $list = ['a', 'b'];
+     * }
+     *
+     * $options = new MyOptions();
+     *
+     * $result = $options->getOptions(
+     *     MyOptions::class,
+     *     prefix: fn(string $name) => match($name) {
+     *         'foo' => '--',
+     *         'verbose' => '-',
+     *         'list' => '/opt:',
+     *         default => '',
+     *     },
+     *     excludes: ['internalFlag'],
+     *     separator: fn(string $name) => $name === 'list' ? '=' : ' '
+     * );
+     *
+     * echo $result;
+     * // Output:
+     * // --foo "value" -verbose /opt:list="a" /opt:list="b"
+     * ```
      */
-    public function getOptions( ?string $clazz = null , ?string $prefix = null , ?array $excludes = null , string $separator = Char::SPACE ):string
+    public function getOptions
+    (
+        ?string              $clazz     = null ,
+        callable|string|null $prefix    = Char::DOUBLE_HYPHEN ,
+        ?array               $excludes  = null ,
+        callable|string      $separator = Char::SPACE
+    )
+    :string
     {
         if( !isset( $clazz ) )
         {
@@ -242,29 +277,43 @@ abstract class Options implements ClearableArrayable , Cloneable , JsonSerializa
             }
 
             $value = $this->{ $name } ?? null ;
-            if( isset( $value ) )
-            {
-                $option = $clazz::getCommandOption( $name ) ;
-                if( isset( $prefix ) )
-                {
-                    $option = $prefix . $option ;
-                }
 
-                if( is_array( $value ) && count( $value ) > 0 )
+            if ( !isset( $value ) )
+            {
+                continue;
+            }
+
+            $option = $clazz::getCommandOption( $name ) ;
+
+            if( isset( $prefix ) )
+            {
+                $resolvedPrefix = is_callable( $prefix ) ? $prefix($name) : $prefix;
+                if( is_string( $resolvedPrefix ) && $resolvedPrefix !== Char::EMPTY )
                 {
-                    foreach ( $value as $item )
-                    {
-                        $expression[] = $option . $separator . json_encode( $item , JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) ;
-                    }
+                    $option = $resolvedPrefix . $option ;
                 }
-                elseif ( $value === true )
+            }
+
+            $resolvedSeparator = is_callable( $separator ) ? $separator( $name ) : $separator ;
+            if ( !is_string( $resolvedSeparator ) )
+            {
+                $resolvedSeparator = Char::SPACE;
+            }
+
+            if( is_array( $value ) && count( $value ) > 0 )
+            {
+                foreach ( $value as $item )
                 {
-                    $expression[] = $option ;
+                    $expression[] = $option . $resolvedSeparator . json_encode( $item , JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) ;
                 }
-                else
-                {
-                    $expression[] = $option . $separator . json_encode( $value , JSON_UNESCAPED_SLASHES ) ;
-                }
+            }
+            elseif ( $value === true )
+            {
+                $expression[] = $option ;
+            }
+            else
+            {
+                $expression[] = $option . $resolvedSeparator . json_encode( $value , JSON_UNESCAPED_SLASHES ) ;
             }
         }
 

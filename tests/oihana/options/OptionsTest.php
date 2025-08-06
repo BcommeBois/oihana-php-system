@@ -3,13 +3,15 @@
 namespace oihana\options;
 
 use InvalidArgumentException;
+use ReflectionException;
+
+use PHPUnit\Framework\TestCase;
+
 use oihana\enums\Char;
 use oihana\options\mocks\MockOption;
 use oihana\options\mocks\MockOptions;
 use oihana\options\mocks\TestOptions;
-use PHPUnit\Framework\TestCase;
 
-use ReflectionException;
 
 class OptionsTest extends TestCase
 {
@@ -143,8 +145,8 @@ class OptionsTest extends TestCase
     {
         $options = $this->getConcreteOptionsInstance(['foo' => 'value', 'bar' => true]);
         $result = $options->getOptions(MockOption::class, 'PREFIX_');
-        $this->assertStringContainsString('PREFIX_--foo "value"', $result);
-        $this->assertStringContainsString('PREFIX_--bar', $result);
+        $this->assertStringContainsString('PREFIX_foo "value"', $result);
+        $this->assertStringContainsString('PREFIX_bar', $result);
     }
 
     /**
@@ -216,7 +218,8 @@ class OptionsTest extends TestCase
 
     public function testJsonSerializeWithEmptyValues() :void
     {
-        $opts = new TestOptions([
+        $opts = new TestOptions
+        ([
             'host' => '',
             'port' => null,
             'flags' => [],
@@ -247,5 +250,79 @@ class OptionsTest extends TestCase
         $this->expectException( InvalidArgumentException::class );
         $this->expectExceptionMessage('Invalid source type');
         MockOptions::resolve('invalid' ) ;
+    }
+
+    /**
+     * @throws ReflectionException
+     */
+    public function testGetOptionsWithCallablePrefix() :void
+    {
+        $options = $this->getConcreteOptionsInstance
+        ([
+            'foo' => 'value',
+            'bar' => true,
+            'baz' => ['one', 'two'],
+        ]);
+
+        $callablePrefix = function (string $property): string
+        {
+            return match( $property )
+            {
+                'foo'   => '--',
+                'bar'   => '-',
+                'baz'   => '/opt:',
+                default => '',
+            };
+        };
+
+        $result = $options->getOptions(MockOption::class, $callablePrefix );
+
+        $this->assertStringContainsString('--foo "value"'    , $result ) ;
+        $this->assertStringContainsString('-bar'             , $result ) ;
+        $this->assertStringContainsString('/opt:baz "one"' , $result ) ;
+        $this->assertStringContainsString('/opt:baz "two"' , $result ) ;
+    }
+
+    /**
+     * @throws ReflectionException
+     */
+    public function testGetOptionsWithCustomSeparator(): void
+    {
+        $options = $this->getConcreteOptionsInstance
+        ([
+            'foo' => 'value',
+            'bar' => true,
+        ]);
+
+        $result = $options->getOptions(MockOption::class, '--', excludes: [] , separator: '=' ) ;
+
+        $this->assertStringContainsString('--foo="value"', $result);
+        $this->assertStringContainsString('--bar', $result); // Pas de separator car booléen true
+    }
+
+    /**
+     * @throws ReflectionException
+     */
+    public function testGetOptionsWithCallableSeparator(): void
+    {
+        $options = $this->getConcreteOptionsInstance([
+            'foo' => 'value',
+            'bar' => true,
+            'baz' => ['one', 'two'],
+        ]);
+
+        $separatorCallable = fn(string $name): string => match($name)
+        {
+            'foo' => '=',
+            'baz' => ':',
+            default => Char::SPACE,
+        };
+
+        $result = $options->getOptions(MockOption::class, '--', excludes: [], separator: $separatorCallable);
+
+        $this->assertStringContainsString('--foo="value"' , $result ) ; // → séparateur '='
+        $this->assertStringContainsString('--bar'         , $result ) ; // → booléen → pas de séparateur
+        $this->assertStringContainsString('--baz:"one"'   , $result ) ; // → séparateur ':'
+        $this->assertStringContainsString('--baz:"two"'   , $result ) ;
     }
 }

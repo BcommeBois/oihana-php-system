@@ -310,7 +310,7 @@ the corresponding public property values of the current object.</dd>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Builds a command-line string of options based on the current object state.</dd>
+<dd>Returns a string representing the current options formatted as CLI arguments.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-reflections-traits-ReflectionTrait.html#method_getParameterDefaultValue">getParameterDefaultValue()</a>
@@ -620,7 +620,7 @@ Unknown or non-public properties are silently ignored.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/options/Options.php"><a href="files/src-oihana-options-options.html"><abbr title="src/oihana/options/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">443</span>
+    <span class="phpdocumentor-element-found-in__line">492</span>
 
     </aside>
 
@@ -1253,59 +1253,59 @@ $trait-&gt;getMethodParameters(Foo::class, 'bar');
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/options/Options.php"><a href="files/src-oihana-options-options.html"><abbr title="src/oihana/options/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">215</span>
+    <span class="phpdocumentor-element-found-in__line">243</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Builds a command-line string of options based on the current object state.</p>
+        <p class="phpdocumentor-summary">Returns a string representing the current options formatted as CLI arguments.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getOptions</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$clazz</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$prefix</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$excludes</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$separator</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">Char::SPACE</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                    <span class="phpdocumentor-signature__name">getOptions</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">class-string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$clazz</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">null|callable|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$prefix</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">Char::DOUBLE_HYPHEN</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$excludes</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$separator</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">Char::SPACE</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
-        <section class="phpdocumentor-description"><p>Only public properties with a non-null value will be considered,
-unless explicitly excluded via the <code class="prettyprint">$excludes</code> parameter.
-The name of each property must match an option defined in the <code class="prettyprint">$clazz</code> enumeration.</p>
+        <section class="phpdocumentor-description"><p>This method converts the properties of the current options object into a list of
+command-line arguments, using a configurable prefix and separator for each property.</p>
+<p>You can pass a string or a callable to dynamically generate prefixes or separators based on the property name.</p>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$clazz</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                : <span class="phpdocumentor-signature__argument__return-type">class-string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Fully qualified class name extending the Option enum.</p>
+                    <section class="phpdocumentor-description"><p>Class implementing the getCommandOption(string $property): string method.</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$prefix</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+                : <span class="phpdocumentor-signature__argument__return-type">null|callable|string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">Char::DOUBLE_HYPHEN</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Optional prefix to prepend before each option (e.g. &quot;--&quot;).</p>
+                    <section class="phpdocumentor-description"><p>Prefix for each option (e.g. '--', '-', '/opt:'), or a callable (string $property): string.</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$excludes</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>List of property names to exclude from the output.</p>
+                    <section class="phpdocumentor-description"><p>Optional list of property names to exclude from the output.</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$separator</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">callable|string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">Char::SPACE</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The separator between the option's name and value (Default &quot; &quot;).</p>
+                    <section class="phpdocumentor-description"><p>Separator between option and value (default is a space), or a callable (string $property): string.</p>
 </section>
 
             </dd>
@@ -1322,19 +1322,40 @@ The name of each property must match an option defined in the <code class="prett
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\InvalidArgumentException">InvalidArgumentException</abbr></span>
-                                                            
-                                                 <section class="phpdocumentor-description"><p>If $clazz is not a subclass of Option.</p>
-</section>
-
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If property reflection fails.</p>
+                                             
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">class MyOptions extends Options
+{
+    public string $foo = 'value';
+    public bool $verbose = true;
+    public array $list = ['a', 'b'];
+}
+
+$options = new MyOptions();
+
+$result = $options-&gt;getOptions(
+    MyOptions::class,
+    prefix: fn(string $name) =&gt; match($name) {
+        'foo' =&gt; '--',
+        'verbose' =&gt; '-',
+        'list' =&gt; '/opt:',
+        default =&gt; '',
+    },
+    excludes: ['internalFlag'],
+    separator: fn(string $name) =&gt; $name === 'list' ? '=' : ' '
+);
+
+echo $result;
+// Output:
+// --foo &quot;value&quot; -verbose /opt:list=&quot;a&quot; /opt:list=&quot;b&quot;
+</code></pre>
 </section>
 
                                     </dd>
@@ -1346,7 +1367,7 @@ The name of each property must match an option defined in the <code class="prett
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>The formatted command-line options string or an empty string if the clazz parameter is null.</p>
+                <section class="phpdocumentor-description"><p>CLI-formatted options string, e.g. '--foo &quot;bar&quot; -v --list &quot;one&quot; --list &quot;two&quot;'</p>
 </section>
 
             </section>
@@ -2150,7 +2171,7 @@ $trait-&gt;isParameterVariadic(Foo::class, 'bar', 'x'); // true
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/options/Options.php"><a href="files/src-oihana-options-options.html"><abbr title="src/oihana/options/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">301</span>
+    <span class="phpdocumentor-element-found-in__line">350</span>
 
     </aside>
 
@@ -2328,7 +2349,7 @@ $trait-&gt;jsonSerializeFromPublicProperties(Product::class, true); // ['name' =
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/options/Options.php"><a href="files/src-oihana-options-options.html"><abbr title="src/oihana/options/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">344</span>
+    <span class="phpdocumentor-element-found-in__line">393</span>
 
     </aside>
 
@@ -2434,7 +2455,7 @@ $finalOptions = MyOptions::resolve( $defaultOptions , $userOptions , $overrides 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/options/Options.php"><a href="files/src-oihana-options-options.html"><abbr title="src/oihana/options/Options.php">Options.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">415</span>
+    <span class="phpdocumentor-element-found-in__line">464</span>
 
     </aside>
 
