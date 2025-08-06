@@ -214,25 +214,36 @@ abstract class Options implements ClearableArrayable , Cloneable , JsonSerializa
      *
      * @example
      * ```php
+     * class MyOption extends Option
+     * {
+     *     public const string FOO     = 'foo' ;
+     *     public const string LIST    = 'list' ;
+     *     public const string VERBOSE = 'verbose' ;
+     * }
+     *
      * class MyOptions extends Options
      * {
-     *     public string $foo = 'value';
-     *     public bool $verbose = true;
-     *     public array $list = ['a', 'b'];
+     *     public string $foo     = 'value';
+     *     public bool   $verbose = true;
+     *     public array  $list    = ['a', 'b'];
+     *
+     *     public string $internalFlag = 'hello' ;
      * }
      *
      * $options = new MyOptions();
      *
-     * $result = $options->getOptions(
-     *     MyOptions::class,
-     *     prefix: fn(string $name) => match($name) {
-     *         'foo' => '--',
-     *         'verbose' => '-',
-     *         'list' => '/opt:',
-     *         default => '',
+     * $result = $options->getOptions
+     * (
+     *     MyOption::class ,
+     *     prefix : fn( string $name ) => match($name)
+     *    {
+     *         MyOption::FOO     => '--' ,
+     *         MyOption::VERBOSE => '-' ,
+     *         MyOption::LIST    => '/opt:' ,
+     *         default           => '' ,
      *     },
-     *     excludes: ['internalFlag'],
-     *     separator: fn(string $name) => $name === 'list' ? '=' : ' '
+     *     excludes : [ 'internalFlag' ] ,
+     *     separator : fn( string $name ) => $name === 'list' ? '=' : ' '
      * );
      *
      * echo $result;
@@ -284,6 +295,8 @@ abstract class Options implements ClearableArrayable , Cloneable , JsonSerializa
             }
 
             $option = $clazz::getCommandOption( $name ) ;
+
+            $prefix = $clazz::getCommandPrefix( $name ) ?? $prefix ;
 
             if( isset( $prefix ) )
             {

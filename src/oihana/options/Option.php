@@ -2,6 +2,7 @@
 
 namespace oihana\options;
 
+use oihana\enums\Char;
 use oihana\reflections\traits\ConstantsTrait;
 
 use function oihana\core\strings\hyphenate;
@@ -18,11 +19,21 @@ abstract class Option
 
     /**
      * Returns the command line option expression from a specific option.
-     * @param string $option
+     * @param string $option The name of the option to modify.
      * @return string
      */
     public static function getCommandOption( string $option ):string
     {
         return hyphenate( $option ) ;
+    }
+
+    /**
+     * Returns the prefix from a specific option.
+     * @param string $option The name of the option.
+     * @return ?string The prefix of the given option.
+     */
+    public static function getCommandPrefix( string $option ):?string
+    {
+        return null ;
     }
 }
