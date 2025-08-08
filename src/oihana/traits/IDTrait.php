@@ -2,8 +2,12 @@
 
 namespace oihana\traits;
 
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\ContainerInterface;
+use Psr\Container\NotFoundExceptionInterface;
+
 /**
- * The command to manage an ArangoDB database.
+ * Initialize the unique identifier (id) of the object.
  */
 trait IDTrait
 {
@@ -21,11 +25,22 @@ trait IDTrait
     /**
      * Initialize the unique identifier of the command.
      * @param array $init
+     * @param ContainerInterface|null $container
      * @return static
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
-    public function initializeID( array $init = [] ) :static
+    public function initializeID( array $init = [] , ?ContainerInterface $container = null ) :static
     {
-        $this->id = $init[ static::ID ] ?? $this->id ;
+        $id = $init[ static::ID ] ?? $this->id ;
+
+        if( is_string( $id ) && isset( $container ) && $container->has( $id ) )
+        {
+            $id = $container->get( $id ) ;
+        }
+
+        $this->id = $id ?? $this->id ;
+
         return $this ;
     }
 }

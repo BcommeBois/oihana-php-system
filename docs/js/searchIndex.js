@@ -4923,7 +4923,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\traits\\IDTrait",
             "name": "IDTrait",
-            "summary": "The\u0020command\u0020to\u0020manage\u0020an\u0020ArangoDB\u0020database.",
+            "summary": "Initialize\u0020the\u0020unique\u0020identifier\u0020\u0028id\u0029\u0020of\u0020the\u0020object.",
             "url": "classes/oihana-traits-IDTrait.html"
         },                {
             "fqsen": "\\oihana\\traits\\IDTrait\u003A\u003AinitializeID\u0028\u0029",

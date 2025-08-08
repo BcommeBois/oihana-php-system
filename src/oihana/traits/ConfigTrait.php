@@ -45,9 +45,9 @@ trait ConfigTrait
      * @throws DependencyException
      * @throws NotFoundException
      * @throws NotFoundExceptionInterface
-     * @return void
+     * @return static
      */
-    protected function initConfig( array $init = [] , ?ContainerInterface $container = null ) :void
+    protected function initConfig( array $init = [] , ?ContainerInterface $container = null ) :static
     {
         $config = $init[ static::CONFIG ] ?? null ;
 
@@ -57,6 +57,8 @@ trait ConfigTrait
         }
 
         $this->config = is_array( $config ) ? $config : $this->config ;
+
+        return $this ;
     }
 
     /**
@@ -67,9 +69,9 @@ trait ConfigTrait
      * @throws DependencyException
      * @throws NotFoundException
      * @throws NotFoundExceptionInterface
-     * @return void
+     * @return static
      */
-    protected function initConfigPath( array $init = [] , ?ContainerInterface $container = null ) :void
+    protected function initConfigPath( array $init = [] , ?ContainerInterface $container = null ) :static
     {
         $config = $init[ static::CONFIG_PATH ] ?? null ;
 
@@ -79,5 +81,7 @@ trait ConfigTrait
         }
 
         $this->configPath = $config ?? $this->config ;
+
+        return $this ;
     }
 }
