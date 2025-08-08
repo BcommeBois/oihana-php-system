@@ -73,14 +73,14 @@ trait ConfigTrait
      */
     protected function initConfigPath( array $init = [] , ?ContainerInterface $container = null ) :static
     {
-        $config = $init[ static::CONFIG_PATH ] ?? null ;
+        $path = $init[ static::CONFIG_PATH ] ?? null ;
 
-        if( is_string( $config ) && isset( $container ) && $container->has( $config ) )
+        if( is_string( $path ) && isset( $container ) && $container->has( $path ) )
         {
-            $config = $container->get( $config ) ;
+            $path = $container->get( $path ) ;
         }
 
-        $this->configPath = $config ?? $this->config ;
+        $this->configPath = is_string( $path ) ? $path : $this->configPath ;
 
         return $this ;
     }
