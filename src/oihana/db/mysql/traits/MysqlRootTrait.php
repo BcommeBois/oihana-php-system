@@ -35,7 +35,7 @@ trait MysqlRootTrait
      * The mysql root model reference.
      * @var ?MysqlModel
      */
-    public ?MysqlModel $mysqlRoot ;
+    public ?MysqlModel $mysqlRoot = null ;
 
     /**
      * Initialize the Mysql model reference.
