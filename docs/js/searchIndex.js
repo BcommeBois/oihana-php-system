@@ -4868,13 +4868,23 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\traits\\ConfigTrait\u003A\u003AinitConfig\u0028\u0029",
             "name": "initConfig",
-            "summary": "Initialize\u0020the\u0020configuration\u0020definition.",
+            "summary": "Initialize\u0020the\u0020config\u0020definition.",
             "url": "classes/oihana-traits-ConfigTrait.html#method_initConfig"
+        },                {
+            "fqsen": "\\oihana\\traits\\ConfigTrait\u003A\u003AinitConfigPath\u0028\u0029",
+            "name": "initConfigPath",
+            "summary": "Initialize\u0020the\u0020config\u0020path.",
+            "url": "classes/oihana-traits-ConfigTrait.html#method_initConfigPath"
         },                {
             "fqsen": "\\oihana\\traits\\ConfigTrait\u003A\u003A\u0024config",
             "name": "config",
             "summary": "The\u0020config\u0020reference.",
             "url": "classes/oihana-traits-ConfigTrait.html#property_config"
+        },                {
+            "fqsen": "\\oihana\\traits\\ConfigTrait\u003A\u003A\u0024configPath",
+            "name": "configPath",
+            "summary": "The\u0020base\u0020path\u0020of\u0020the\u0020file\u0020to\u0020load\u0020an\u0020external\u0020config.",
+            "url": "classes/oihana-traits-ConfigTrait.html#property_configPath"
         },                {
             "fqsen": "\\oihana\\traits\\ContainerTrait",
             "name": "ContainerTrait",
