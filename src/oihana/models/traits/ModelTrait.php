@@ -9,8 +9,10 @@ use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
 use oihana\models\interfaces\DocumentsModel;
+use UnexpectedValueException;
 
 /**
+ * Defines a Document model properties in your class.
  * @package oihana\models\traits
  * @author  Marc Alcaraz (ekameleon)
  * @since   1.0.0
@@ -28,6 +30,19 @@ trait ModelTrait
      * The 'model' parameter constant.
      */
     public const string MODEL = 'model' ;
+
+    /**
+     * Asserts the existence of the `model` property.
+     * @return void
+     * @throws UnexpectedValueException If the 'model' property is not set.
+     */
+    protected function assertModel():void
+    {
+        if( !isset( $this->model ) )
+        {
+            throw new UnexpectedValueException( 'The `model` property is not set.' ) ;
+        }
+    }
 
     /**
      * Initialize the openEdge model.

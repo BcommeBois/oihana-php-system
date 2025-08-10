@@ -13,6 +13,7 @@ use oihana\enums\Char;
 use oihana\models\interfaces\ListModel;
 
 /**
+ * Defines a ListModel properties in your class.
  * @package oihana\models\traits
  * @author  Marc Alcaraz (ekameleon)
  * @since   1.0.0
@@ -31,9 +32,9 @@ trait ListModelTrait
     public const string LIST = 'list' ;
 
     /**
-     * Asserts the existence of the 'list' property.
+     * Asserts the existence of the `list` property.
      * @return void
-     * @throws UnexpectedValueException If the 'list' property is not set.
+     * @throws UnexpectedValueException If the `list` property is not set.
      */
     protected function assertListModel():void
     {

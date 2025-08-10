@@ -135,11 +135,12 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/ModelTrait.php"><a href="files/src-oihana-models-traits-modeltrait.html"><abbr title="src/oihana/models/traits/ModelTrait.php">ModelTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
-        
+            <p class="phpdocumentor-summary">Defines a Document model properties in your class.</p>
+
 
 
 
@@ -255,6 +256,13 @@
                                 &nbsp;: <a href="classes/oihana-models-interfaces-DocumentsModel.html"><abbr title="\oihana\models\interfaces\DocumentsModel">DocumentsModel</abbr></a>|null    </span>
 </dt>
 <dd>Returns a Documents Model instance directly or with the DI container.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a class="" href="classes/oihana-models-traits-ModelTrait.html#method_assertModel">assertModel()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Asserts the existence of the `model` property.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a class="" href="classes/oihana-models-traits-ModelTrait.html#method_initializeModel">initializeModel()</a>
@@ -381,7 +389,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/ModelTrait.php"><a href="files/src-oihana-models-traits-modeltrait.html"><abbr title="src/oihana/models/traits/ModelTrait.php">ModelTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">30</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
     </aside>
 
@@ -429,7 +437,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/ModelTrait.php"><a href="files/src-oihana-models-traits-modeltrait.html"><abbr title="src/oihana/models/traits/ModelTrait.php">ModelTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">27</span>
 
     </aside>
 
@@ -640,6 +648,58 @@
             -protected
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_assertModel">
+        assertModel()
+        <a href="classes/oihana-models-traits-ModelTrait.html#method_assertModel" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/ModelTrait.php"><a href="files/src-oihana-models-traits-modeltrait.html"><abbr title="src/oihana/models/traits/ModelTrait.php">ModelTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">39</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Asserts the existence of the `model` property.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">assertModel</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-models-traits-ModelTrait.html#method_assertModel#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\UnexpectedValueException">UnexpectedValueException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the 'model' property is not set.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_initializeModel">
         initializeModel()
         <a href="classes/oihana-models-traits-ModelTrait.html#method_initializeModel" class="headerlink"><i class="fas fa-link"></i></a>
@@ -648,7 +708,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/ModelTrait.php"><a href="files/src-oihana-models-traits-modeltrait.html"><abbr title="src/oihana/models/traits/ModelTrait.php">ModelTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 
     </aside>
 
@@ -850,6 +910,7 @@
                 <ul class="phpdocumentor-list -clean">
                                             <li class=""><a href="classes/oihana-models-traits-DocumentsTrait.html#method_assertExistInModel">assertExistInModel()</a></li>
                                             <li class=""><a href="classes/oihana-models-traits-DocumentsTrait.html#method_getDocumentsModel">getDocumentsModel()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-ModelTrait.html#method_assertModel">assertModel()</a></li>
                                             <li class=""><a href="classes/oihana-models-traits-ModelTrait.html#method_initializeModel">initializeModel()</a></li>
                                     </ul>
             </li>

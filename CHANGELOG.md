@@ -13,10 +13,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Adds oihana\date\TimeInterval
 - Adds oihana\date\traits\DateTrait
 
-- Adds oihana\http\Headers
+- Adds oihana\http\HttpHeaders
 - Adds oihana\http\HttpMethod
 - Adds oihana\http\HttpParamStrategy
-
 
 - Adds oihana\init\initConfig
 - Adds oihana\init\initContainer
@@ -36,6 +35,25 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Adds oihana\logging\monolog\processors\EmojiProcessor
 - Adds oihana\logging\monolog\processors\SymbolProcessor
 
+- Adds oihana\models\Model
+- Adds oihana\models\interfaces\CountModel
+- Adds oihana\models\interfaces\DeleteAllModel
+- Adds oihana\models\interfaces\DeleteModel
+- Adds oihana\models\interfaces\DocumentsModel
+- Adds oihana\models\interfaces\ExistModel
+- Adds oihana\models\interfaces\GetModel
+- Adds oihana\models\interfaces\InsertModel
+- Adds oihana\models\interfaces\ListModel
+- Adds oihana\models\interfaces\ReplaceModel
+- Adds oihana\models\interfaces\TruncateModel
+- Adds oihana\models\interfaces\UpdateModel
+- Adds oihana\models\interfaces\UpsertModel
+- Adds oihana\models\pdo\PDOModel
+- Adds oihana\models\pdo\PDOTrait
+- Adds oihana\models\traits\DocumentsTrait
+- Adds oihana\models\traits\ListModelTrait
+- Adds oihana\models\traits\ModelTrait
+
 - Adds oihana\options\Option
 - Adds oihana\options\Options
 
@@ -54,6 +72,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Adds oihana\traits\ToStringTrait
 - Adds oihana\traits\UnsupportedTrait
 - Adds oihana\traits\UriTrait
+- 
 - Adds oihana\traits\alters\AlterArrayCleanPropertyTrait
 - Adds oihana\traits\alters\AlterArrayProperty
 - Adds oihana\traits\alters\AlterCallablePropertyTrait
@@ -63,5 +82,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Adds oihana\traits\alters\AlterJSONParsePropertyTrait
 - Adds oihana\traits\alters\AlterJsonStringifyPropertyTrait
 - Adds oihana\traits\alters\AlterUrlPropertyTrait
+- 
 - Adds oihana\traits\strings\ExpressionTrait
 
