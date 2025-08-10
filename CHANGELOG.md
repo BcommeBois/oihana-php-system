@@ -72,7 +72,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Adds oihana\traits\ToStringTrait
 - Adds oihana\traits\UnsupportedTrait
 - Adds oihana\traits\UriTrait
-- 
+
 - Adds oihana\traits\alters\AlterArrayCleanPropertyTrait
 - Adds oihana\traits\alters\AlterArrayProperty
 - Adds oihana\traits\alters\AlterCallablePropertyTrait
@@ -82,6 +82,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Adds oihana\traits\alters\AlterJSONParsePropertyTrait
 - Adds oihana\traits\alters\AlterJsonStringifyPropertyTrait
 - Adds oihana\traits\alters\AlterUrlPropertyTrait
-- 
+
 - Adds oihana\traits\strings\ExpressionTrait
 
