@@ -891,6 +891,41 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/oihana-http-HttpParamStrategy.html#constant_QUERY"
         },                {
+            "fqsen": "\\oihana\\init\\initConfig\u0028\u0029",
+            "name": "initConfig",
+            "summary": "Load\u0020a\u0020toml\u0020configuration\u0020and\u0020initialize\u0020it.",
+            "url": "namespaces/oihana-init.html#function_initConfig"
+        },                {
+            "fqsen": "\\oihana\\init\\initContainer\u0028\u0029",
+            "name": "initContainer",
+            "summary": "Initialize\u0020and\u0020build\u0020a\u0020PHP\u002DDI\u0020container\u0020for\u0020the\u0020application.",
+            "url": "namespaces/oihana-init.html#function_initContainer"
+        },                {
+            "fqsen": "\\oihana\\init\\initDefaultTimezone\u0028\u0029",
+            "name": "initDefaultTimezone",
+            "summary": "Initialize\u0020the\u0020application\u0027s\u0020default\u0020timezone.",
+            "url": "namespaces/oihana-init.html#function_initDefaultTimezone"
+        },                {
+            "fqsen": "\\oihana\\init\\initDefinitions\u0028\u0029",
+            "name": "initDefinitions",
+            "summary": "Initialize\u0020all\u0020DI\u0020container\u0020definitions\u0020by\u0020loading\u0020and\u0020merging\u0020PHP\u0020definition\u0020files.",
+            "url": "namespaces/oihana-init.html#function_initDefinitions"
+        },                {
+            "fqsen": "\\oihana\\init\\initErrors\u0028\u0029",
+            "name": "initErrors",
+            "summary": "Initialize\u0020the\u0020global\u0020PHP\u0020error\u0020settings.",
+            "url": "namespaces/oihana-init.html#function_initErrors"
+        },                {
+            "fqsen": "\\oihana\\init\\initMemoryLimit\u0028\u0029",
+            "name": "initMemoryLimit",
+            "summary": "Initialize\u0020the\u0020default\u0020memory\u0020limit\u0020of\u0020the\u0020PHP\u0020application.",
+            "url": "namespaces/oihana-init.html#function_initMemoryLimit"
+        },                {
+            "fqsen": "\\oihana\\init\\setIniIfExists\u0028\u0029",
+            "name": "setIniIfExists",
+            "summary": "Set\u0020a\u0020PHP\u0020ini\u0020directive\u0020from\u0020a\u0020scalar\u0020or\u0020from\u0020a\u0020config\u0020array\u0020if\u0020the\u0020value\u0020exists\u0020and\u0020is\u0020not\u0020empty.",
+            "url": "namespaces/oihana-init.html#function_setIniIfExists"
+        },                {
             "fqsen": "\\oihana\\logging\\Logger",
             "name": "Logger",
             "summary": "A\u0020simple\u0020PSR\u002D3\u002Dcompliant\u0020file\u002Dbased\u0020logger.",
@@ -2225,6 +2260,11 @@ Search.appendIndex(
             "name": "http",
             "summary": "",
             "url": "namespaces/oihana-http.html"
+        },                {
+            "fqsen": "\\oihana\\init",
+            "name": "init",
+            "summary": "",
+            "url": "namespaces/oihana-init.html"
         },                {
             "fqsen": "\\oihana\\logging",
             "name": "logging",

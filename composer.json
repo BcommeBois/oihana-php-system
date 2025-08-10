@@ -24,7 +24,17 @@
         "psr-4" :
         {
             "oihana\\" : "src/oihana"
-        }
+        },
+        "files":
+        [
+            "src/oihana/init/initConfig.php",
+            "src/oihana/init/initContainer.php",
+            "src/oihana/init/initDefaultTimezone.php",
+            "src/oihana/init/initDefinitions.php",
+            "src/oihana/init/initErrors.php",
+            "src/oihana/init/initMemoryLimit.php",
+            "src/oihana/init/setIniIfExists.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -35,6 +45,7 @@
         "php": ">=8.4",
         "ext-pdo": "*",
         "oihana/php-core": "dev-main",
+        "oihana/php-files": "dev-main",
         "monolog/monolog": "^3.9",
         "php-di/php-di": "^7.0",
         "psr/log": "^3.0",

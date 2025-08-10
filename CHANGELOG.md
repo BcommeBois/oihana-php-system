@@ -12,34 +12,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 - Adds oihana\date\TimeInterval
 - Adds oihana\date\traits\DateTrait
- 
-- Adds oihana\enums\Alter
-- Adds oihana\enums\ArithmeticOperator
-- Adds oihana\enums\Boolean
-- Adds oihana\enums\Char
-- Adds oihana\enums\CharacterSet
-- Adds oihana\enums\JsonParam
-- Adds oihana\enums\MemcachedStats
-- Adds oihana\enums\Method
-- Adds oihana\enums\Order
-- Adds oihana\enums\Param
-
-- Adds oihana\exceptions\BindException
-- Adds oihana\exceptions\ExceptionTrait
-- Adds oihana\exceptions\MissingPassphraseException
-- Adds oihana\exceptions\ResponseException
-- Adds oihana\exceptions\UnsupportedOperationException
-- Adds oihana\exceptions\ValidationException
-- Adds oihana\exceptions\http\Error403
-- Adds oihana\exceptions\http\Error404
-- Adds oihana\exceptions\http\Error500
 
 - Adds oihana\http\Headers
 - Adds oihana\http\HttpMethod
 - Adds oihana\http\HttpParamStrategy
 
-- Adds oihana\interfaces\Equatable
-- Adds oihana\interfaces\Optionable
+
+- Adds oihana\init\initConfig
+- Adds oihana\init\initContainer
+- Adds oihana\init\initDefaultTimezone
+- Adds oihana\init\initDefinitions
+- Adds oihana\init\initErrors
+- Adds oihana\init\initMemoryLimit
+- Adds oihana\init\setIniIfExists
 
 - Adds oihana\logging\Logger
 - Adds oihana\logging\LoggerConfig
@@ -53,15 +38,6 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 - Adds oihana\options\Option
 - Adds oihana\options\Options
-
-- Adds oihana\reflections\Reflection
-- Adds oihana\reflections\Version
-- Adds oihana\reflections\exceptions\ConstantException
-- Adds oihana\reflections\traits\ConstantTrait
-- Adds oihana\reflections\traits\ReflectionTrait
-- Adds oihana\reflections\attributes\HydrateAs
-- Adds oihana\reflections\attributes\HydrateKey
-- Adds oihana\reflections\attributes\HydrateWith
 
 - Adds oihana\traits\AlterDocumentTrait
 - Adds oihana\traits\BindTrait
