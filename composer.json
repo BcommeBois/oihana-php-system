@@ -4,7 +4,7 @@
     "description" : "The Oihana PHP System library" ,
     "keywords" : [ "php" , "date" , "logging" , "reflections" , "helpers" ] ,
     "homepage" : "https://github.com/BcommeBois/oihana-php-files" ,
-    "license" : [ "MPL-2.0" ] ,
+    "license" : "MPL-2.0" ,
     "authors" : [
         {
             "name" : "Marc Alcaraz" ,
