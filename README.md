@@ -186,3 +186,9 @@ We use [phpDocumentor](https://phpdoc.org/) to generate the documentation into t
 ```bash
 composer doc
 ```
+## 🔗 Related packages
+
+- `oihana/php-core` – core helpers and utilities used by this library: `https://github.com/BcommeBois/oihana-php-core`
+- `oihana/php-reflect` – reflection and hydration utilities: `https://github.com/BcommeBois/oihana-php-reflect`
+- `oihana/php-enums` – a collection of strongly-typed constant enumerations for PHP: `https://github.com/BcommeBois/oihana-php-enums`
+- `oihana/php-files` – a versatile PHP library for seamless and portable file and path handling: `https://github.com/BcommeBois/oihana-php-files`
