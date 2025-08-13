@@ -2,7 +2,7 @@
 
 namespace oihana\http;
 
-use oihana\reflections\traits\ConstantsTrait;
+use oihana\reflect\traits\ConstantsTrait;
 
 /**
  * Enumeration of standard HTTP header names (request and response).

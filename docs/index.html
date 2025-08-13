@@ -120,7 +120,7 @@
                                     <section class="phpdocumentor-section">
 
 <a href="https://github.com/BcommeBois/oihana-php-system" class="phpdocumentor-title__link">
-    <img src="assets/images/oihana-php-system-logo-inline-512x160.png" alt="Oihana PHP Files" style="width: 256px; height: 80px;"/>
+    <img src="assets/images/oihana-php-system-logo-inline-512x160.png" alt="Oihana PHP System" style="width: 256px; height: 80px;"/>
 </a>
 
 </br>
@@ -133,16 +133,121 @@
     </a>
 </p>
 
+<h3>✨ Features</h3>
+<ul>
+    <li>Bootstrap helpers: initialize timezone, memory limit, error handling, and safe <code>ini_set</code> helpers</li>
+    <li>Configuration: load TOML configuration files with sensible fallbacks</li>
+    <li>Dependency Injection: convenience functions for building a PHP-DI container and loading definitions</li>
+    <li>Logging: PSR-3 compatible lightweight file logger, plus Monolog config enums</li>
+    <li>HTTP helpers: constants for methods, headers and parameter strategies</li>
+    <li>MySQL utilities: DSN builder and a robust <code>PDO</code> connection builder with safe defaults</li>
+    <li>Date utilities: <code>TimeInterval</code> to parse, format and convert durations</li>
+  </ul>
+
+<h3>🚀 Quick start</h3>
+<pre class="language-php prettyprint">
+require __DIR__ . '/vendor/autoload.php';
+
+use function oihana\init\{ initDefaultTimezone, initMemoryLimit, initErrors, initConfig, initDefinitions, initContainer };
+use oihana\logging\Logger;
+use oihana\db\mysql\MysqlPDOBuilder;
+
+// Bootstrap
+initDefaultTimezone('UTC');
+initMemoryLimit('256M');
+initErrors([
+    'display_errors' => '1',
+    'error_log'      => 'var/logs/php_errors.log',
+], __DIR__);
+
+// Load config and build the DI container
+$config       = initConfig(__DIR__ . '/config', 'app.toml');
+$definitions  = initDefinitions(__DIR__ . '/definitions');
+$container    = initContainer($definitions, ['config' => $config]);
+
+// Logger
+$logger = new Logger(__DIR__ . '/var/logs', Logger::DEBUG);
+$logger->info('Application started');
+
+// MySQL PDO
+$pdo = (new MysqlPDOBuilder([
+    'host'     => '127.0.0.1',
+    'dbname'   => 'demo',
+    'username' => 'root',
+    'password' => 'secret',
+]))();</pre>
+
 <h3>📦 Installation</h3>
 <p>This library requires <a href="https://php.net/releases/" target="_blank">PHP 8.4+</a> and is installed via <a href="https://getcomposer.org/" target="_blank">Composer</a>:</p>
 <pre class="language-bash prettyprint">composer require oihana/php-system</pre>
+
+<h3>🧰 Usage</h3>
+
+<h4>Init helpers</h4>
+<pre class="language-php prettyprint">use function oihana\init\{ initDefaultTimezone, initMemoryLimit, initErrors, setIniIfExists };
+
+initDefaultTimezone('UTC');
+initMemoryLimit('512M');
+initErrors([
+    'display_errors'         => '1',
+    'display_startup_errors' => '1',
+    'error_log'              => 'var/logs/php_errors.log',
+], __DIR__);
+
+// Safe ini_set wrapper (no-op on empty values)
+setIniIfExists('upload_max_filesize', '64M');</pre>
+
+<h4>Configuration and DI container</h4>
+<pre class="language-php prettyprint">use function oihana\init\{ initConfig, initDefinitions, initContainer };
+
+$config      = initConfig(__DIR__ . '/config', 'app.toml');
+$definitions = initDefinitions(__DIR__ . '/definitions');
+$container   = initContainer($definitions, ['config' => $config]);</pre>
+
+<h4>Logging (PSR-3)</h4>
+<pre class="language-php prettyprint">use oihana\logging\Logger;
+
+$logger = new Logger(__DIR__ . '/var/logs', Logger::INFO);
+$logger->info('App started');
+$logger->error('An error occurred: {error}', ['error' => 'boom']);
+
+// Optional helpers
+$logger->clear();
+$files = $logger->getLogFiles();</pre>
+
+<h4>MySQL PDO builder</h4>
+<pre class="language-php prettyprint">use oihana\db\mysql\MysqlPDOBuilder;
+
+$pdo = (new MysqlPDOBuilder([
+    'host'     => 'localhost',
+    'dbname'   => 'test_db',
+    'username' => 'user',
+    'password' => 'secret',
+    // 'validate'   => false, // disable validation if needed
+    // 'skipDbName' => true,  // build DSN without dbname
+]))();</pre>
+
+<h4>HTTP helpers</h4>
+<pre class="language-php prettyprint">use oihana\http\{ HttpMethod, HttpHeaders, HttpParamStrategy };
+
+$method   = HttpMethod::POST;
+$header   = HttpHeaders::CONTENT_TYPE;
+$strategy = HttpParamStrategy::BOTH; // read from body and query</pre>
+
+<h4>TimeInterval (durations)</h4>
+<pre class="language-php prettyprint">use oihana\date\TimeInterval;
+
+$d = new TimeInterval('1h 2m 5s');
+echo $d->humanize();   // 1h 2m 5s
+echo $d->formatted();  // 1:02:05
+echo $d->toSeconds();  // 3725</pre>
 
 <h3>✅ Running Unit Tests</h3>
 <p>Run all unit tests:</p>
 <pre class="language-bash prettyprint">composer run-script test</pre>
 
 <p>Run a specific test:</p>
-<pre class="language-bash prettyprint">composer run test ./tests/oihana/data/TimeIntervalTest</pre>
+<pre class="language-bash prettyprint">composer run test ./tests/oihana/date/TimeIntervalTest.php</pre>
 
 <h3>📄 License</h3>
 <p>This project is licensed under the <strong><a href="https://www.mozilla.org/en-US/MPL/2.0/" target="_blank">Mozilla Public License 2.0 (MPL-2.0)</a></strong>.</p>

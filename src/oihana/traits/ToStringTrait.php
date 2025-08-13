@@ -3,7 +3,7 @@
 namespace oihana\traits;
 
 use oihana\enums\Char;
-use oihana\reflections\traits\ReflectionTrait;
+use oihana\reflect\traits\ReflectionTrait;
 use ReflectionException;
 
 /**

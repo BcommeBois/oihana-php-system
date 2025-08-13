@@ -2,7 +2,7 @@
 
 namespace oihana\logging;
 
-use oihana\reflections\traits\ConstantsTrait;
+use oihana\reflect\traits\ConstantsTrait;
 
 class LoggerConfig
 {

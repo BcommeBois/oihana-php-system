@@ -3,7 +3,7 @@
 namespace oihana\init;
 
 use oihana\enums\IniOptions;
-use oihana\reflections\exceptions\ConstantException;
+use oihana\reflect\exceptions\ConstantException;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -34,6 +34,9 @@ class SetIniIfExistsTest extends TestCase
         }
     }
 
+    /**
+     * @throws ConstantException
+     */
     public function testSetsIniFromScalarValue(): void
     {
         $current = ini_get($this->key);

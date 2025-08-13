@@ -2,7 +2,7 @@
 
 namespace oihana\http;
 
-use oihana\reflections\traits\ConstantsTrait;
+use oihana\reflect\traits\ConstantsTrait;
 
 /**
  * Defines the strategy to retrieves parameters in http request (body, query or both).

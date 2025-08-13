@@ -3,7 +3,7 @@
 namespace oihana\init;
 
 use oihana\enums\IniOptions;
-use oihana\reflections\exceptions\ConstantException;
+use oihana\reflect\exceptions\ConstantException;
 
 /**
  * Set a PHP ini directive from a scalar or from a config array if the value exists and is not empty.

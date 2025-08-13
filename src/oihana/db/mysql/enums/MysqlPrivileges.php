@@ -2,7 +2,7 @@
 
 namespace oihana\db\mysql\enums;
 
-use oihana\reflections\traits\ConstantsTrait;
+use oihana\reflect\traits\ConstantsTrait;
 
 /**
  * MySQL Privilege Constants.

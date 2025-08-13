@@ -6,7 +6,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
-## [0.0.0] - 2025-07-15 (alpha)
+## [0.0.0] - 2025-08-13 (alpha)
 
 ### Added
 

@@ -3,7 +3,7 @@
 namespace oihana\init;
 
 use oihana\enums\IniOptions;
-use oihana\reflections\exceptions\ConstantException;
+use oihana\reflect\exceptions\ConstantException;
 
 /**
  * Initialize the global PHP error settings.
