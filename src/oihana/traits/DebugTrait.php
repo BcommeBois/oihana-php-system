@@ -34,13 +34,25 @@ trait DebugTrait
     public const string MOCK = 'mock' ;
 
     /**
+     * Initialize the debug flag.
+     * @param array $init
+     * @return static
+     */
+    public function initializeDebug( array $init = [] ):static
+    {
+        $this->debug = $init[ static::DEBUG ] ?? $this->debug ;
+        return $this ;
+    }
+
+    /**
      * Initialize the mock flag.
      * @param array $init
-     * @return bool
+     * @return static
      */
-    public function initializeMock( array $init = [] ):bool
+    public function initializeMock( array $init = [] ):static
     {
-        return $init[ static::MOCK ] ?? $this->mock ;
+        $this->mock = $init[ static::MOCK ] ?? $this->mock ;
+        return $this ;
     }
 
     /**

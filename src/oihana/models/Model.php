@@ -76,8 +76,9 @@ class Model
     {
         $this->container = $container ;
         $this->debug     = $init[ static::DEBUG  ] ?? $this->debug ;
-        $this->logger    = $this->initLogger( $init , $container ) ;
-        $this->mock      = $this->initializeMock( $init ) ;
+        $this->initializeDebug( $init ) ;
+        $this->initializeLogger( $init , $container ) ;
+        $this->initializeMock( $init ) ;
     }
 
     use DebugTrait ,
