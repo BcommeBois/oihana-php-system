@@ -1618,7 +1618,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\logging\\LoggerTrait",
             "name": "LoggerTrait",
-            "summary": "",
+            "summary": "Provides\u0020PSR\u002D3\u0020logging\u0020capabilities\u0020to\u0020any\u0020class\u0020via\u0020\u007B\u0040see\u0020LoggerAwareTrait\u007D.",
             "url": "classes/oihana-logging-LoggerTrait.html"
         },                {
             "fqsen": "\\oihana\\logging\\LoggerTrait\u003A\u003Aemergency\u0028\u0029",
@@ -1641,6 +1641,11 @@ Search.appendIndex(
             "summary": "Runtime\u0020errors\u0020that\u0020do\u0020not\u0020require\u0020immediate\u0020action\u0020but\u0020should\u0020typically\nbe\u0020logged\u0020and\u0020monitored.",
             "url": "classes/oihana-logging-LoggerTrait.html#method_error"
         },                {
+            "fqsen": "\\oihana\\logging\\LoggerTrait\u003A\u003AgetLogger\u0028\u0029",
+            "name": "getLogger",
+            "summary": "Returns\u0020the\u0020logger\u0020reference.",
+            "url": "classes/oihana-logging-LoggerTrait.html#method_getLogger"
+        },                {
             "fqsen": "\\oihana\\logging\\LoggerTrait\u003A\u003Awarning\u0028\u0029",
             "name": "warning",
             "summary": "Exceptional\u0020occurrences\u0020that\u0020are\u0020not\u0020errors.",
@@ -1656,6 +1661,16 @@ Search.appendIndex(
             "summary": "Interesting\u0020events.",
             "url": "classes/oihana-logging-LoggerTrait.html#method_info"
         },                {
+            "fqsen": "\\oihana\\logging\\LoggerTrait\u003A\u003AinitializeLoggable\u0028\u0029",
+            "name": "initializeLoggable",
+            "summary": "Initialize\u0020the\u0020loggable\u0020flag.",
+            "url": "classes/oihana-logging-LoggerTrait.html#method_initializeLoggable"
+        },                {
+            "fqsen": "\\oihana\\logging\\LoggerTrait\u003A\u003AinitializeLogger\u0028\u0029",
+            "name": "initializeLogger",
+            "summary": "Initializes\u0020the\u0020logger\u0020reference\u0020for\u0020the\u0020current\u0020instance.",
+            "url": "classes/oihana-logging-LoggerTrait.html#method_initializeLogger"
+        },                {
             "fqsen": "\\oihana\\logging\\LoggerTrait\u003A\u003Adebug\u0028\u0029",
             "name": "debug",
             "summary": "Detailed\u0020debug\u0020information.",
@@ -1665,16 +1680,6 @@ Search.appendIndex(
             "name": "log",
             "summary": "Logs\u0020with\u0020an\u0020arbitrary\u0020level.",
             "url": "classes/oihana-logging-LoggerTrait.html#method_log"
-        },                {
-            "fqsen": "\\oihana\\logging\\LoggerTrait\u003A\u003AinitLoggable\u0028\u0029",
-            "name": "initLoggable",
-            "summary": "Initialize\u0020the\u0020loggable\u0020flag.",
-            "url": "classes/oihana-logging-LoggerTrait.html#method_initLoggable"
-        },                {
-            "fqsen": "\\oihana\\logging\\LoggerTrait\u003A\u003AinitLogger\u0028\u0029",
-            "name": "initLogger",
-            "summary": "Initialize\u0020the\u0020logger\u0020reference.",
-            "url": "classes/oihana-logging-LoggerTrait.html#method_initLogger"
         },                {
             "fqsen": "\\oihana\\logging\\LoggerTrait\u003A\u003A\u0024loggable",
             "name": "loggable",
@@ -2283,27 +2288,27 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\traits\\ConfigTrait",
             "name": "ConfigTrait",
-            "summary": "Provides\u0020functionality\u0020for\u0020managing\u0020a\u0020configuration\u0020setup.",
+            "summary": "Trait\u0020ConfigTrait",
             "url": "classes/oihana-traits-ConfigTrait.html"
         },                {
             "fqsen": "\\oihana\\traits\\ConfigTrait\u003A\u003AinitConfig\u0028\u0029",
             "name": "initConfig",
-            "summary": "Initialize\u0020the\u0020config\u0020definition.",
+            "summary": "Initialize\u0020the\u0020configuration\u0020from\u0020an\u0020array\u0020or\u0020a\u0020DI\u0020container.",
             "url": "classes/oihana-traits-ConfigTrait.html#method_initConfig"
         },                {
             "fqsen": "\\oihana\\traits\\ConfigTrait\u003A\u003AinitConfigPath\u0028\u0029",
             "name": "initConfigPath",
-            "summary": "Initialize\u0020the\u0020config\u0020path.",
+            "summary": "Initialize\u0020the\u0020configuration\u0020path\u0020from\u0020an\u0020array\u0020or\u0020a\u0020DI\u0020container.",
             "url": "classes/oihana-traits-ConfigTrait.html#method_initConfigPath"
         },                {
             "fqsen": "\\oihana\\traits\\ConfigTrait\u003A\u003A\u0024config",
             "name": "config",
-            "summary": "The\u0020config\u0020reference.",
+            "summary": "",
             "url": "classes/oihana-traits-ConfigTrait.html#property_config"
         },                {
             "fqsen": "\\oihana\\traits\\ConfigTrait\u003A\u003A\u0024configPath",
             "name": "configPath",
-            "summary": "The\u0020base\u0020path\u0020of\u0020the\u0020file\u0020to\u0020load\u0020an\u0020external\u0020config.",
+            "summary": "",
             "url": "classes/oihana-traits-ConfigTrait.html#property_configPath"
         },                {
             "fqsen": "\\oihana\\traits\\ContainerTrait",
@@ -2320,6 +2325,11 @@ Search.appendIndex(
             "name": "DebugTrait",
             "summary": "Provides\u0020debugging\u0020and\u0020mock\u002Drelated\u0020functionality.",
             "url": "classes/oihana-traits-DebugTrait.html"
+        },                {
+            "fqsen": "\\oihana\\traits\\DebugTrait\u003A\u003AinitializeDebug\u0028\u0029",
+            "name": "initializeDebug",
+            "summary": "Initialize\u0020the\u0020debug\u0020flag.",
+            "url": "classes/oihana-traits-DebugTrait.html#method_initializeDebug"
         },                {
             "fqsen": "\\oihana\\traits\\DebugTrait\u003A\u003AinitializeMock\u0028\u0029",
             "name": "initializeMock",

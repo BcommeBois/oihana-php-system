@@ -131,13 +131,15 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/ConfigTrait.php"><a href="files/src-oihana-traits-configtrait.html"><abbr title="src/oihana/traits/ConfigTrait.php">ConfigTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">17</span>
+    <span class="phpdocumentor-element-found-in__line">57</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Provides functionality for managing a configuration setup.</p>
+            <p class="phpdocumentor-summary">Trait ConfigTrait</p>
 
 
+    <section class="phpdocumentor-description"><p>Provides functionality for managing a configuration setup.</p>
+</section>
 
 
 
@@ -168,14 +170,14 @@
     <span>
         &nbsp;= &#039;config&#039;                            </span>
 </dt>
-<dd>The &#039;config&#039; parameter constant.</dd>
+<dd>The &#039;config&#039; key for initialization arrays.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a class="" href="classes/oihana-traits-ConfigTrait.html#constant_CONFIG_PATH">CONFIG_PATH</a>
     <span>
         &nbsp;= &#039;configPath&#039;                            </span>
 </dt>
-<dd>The &#039;configPath&#039; parameter constant.</dd>
+<dd>The &#039;configPath&#039; key for initialization arrays.</dd>
 
     </dl>
 
@@ -191,14 +193,12 @@
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
-<dd>The config reference.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-traits-ConfigTrait.html#property_configPath">$configPath</a>
     <span>
-                        &nbsp;: string|mixed            </span>
+                        &nbsp;: string            </span>
 </dt>
-<dd>The base path of the file to load an external config.</dd>
 
     </dl>
 
@@ -208,19 +208,19 @@
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-traits-ConfigTrait.html#method_initConfig">initConfig()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
-<dd>Initialize the config definition.</dd>
+<dd>Initialize the configuration from an array or a DI container.</dd>
 
-            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-traits-ConfigTrait.html#method_initConfigPath">initConfigPath()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
-<dd>Initialize the config path.</dd>
+<dd>Initialize the configuration path from an array or a DI container.</dd>
 
     </dl>
 
@@ -244,11 +244,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/ConfigTrait.php"><a href="files/src-oihana-traits-configtrait.html"><abbr title="src/oihana/traits/ConfigTrait.php">ConfigTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">72</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">The &#039;config&#039; parameter constant.</p>
+        <p class="phpdocumentor-summary">The &#039;config&#039; key for initialization arrays.</p>
 
     
     <code class="phpdocumentor-signature phpdocumentor-code ">
@@ -276,11 +276,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/ConfigTrait.php"><a href="files/src-oihana-traits-configtrait.html"><abbr title="src/oihana/traits/ConfigTrait.php">ConfigTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">38</span>
+    <span class="phpdocumentor-element-found-in__line">77</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">The &#039;configPath&#039; parameter constant.</p>
+        <p class="phpdocumentor-summary">The &#039;configPath&#039; key for initialization arrays.</p>
 
     
     <code class="phpdocumentor-signature phpdocumentor-code ">
@@ -324,12 +324,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/ConfigTrait.php"><a href="files/src-oihana-traits-configtrait.html"><abbr title="src/oihana/traits/ConfigTrait.php">ConfigTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">62</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">The config reference.</p>
-
+    
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
         <span class="phpdocumentor-signature__visibility">public</span>
@@ -338,7 +337,9 @@
      = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
     
-    
+        <section class="phpdocumentor-description"><p>The config reference.</p>
+</section>
+
     
 
     
@@ -363,21 +364,22 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/ConfigTrait.php"><a href="files/src-oihana-traits-configtrait.html"><abbr title="src/oihana/traits/ConfigTrait.php">ConfigTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">28</span>
+    <span class="phpdocumentor-element-found-in__line">67</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">The base path of the file to load an external config.</p>
-
+    
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
         <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__type">string|mixed</span>
+            <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$configPath</span>
      = <span class="phpdocumentor-signature__default-value">\oihana\enums\Char::EMPTY</span></code>
 
     
-    
+        <section class="phpdocumentor-description"><p>The base path of the file to load an external config.</p>
+</section>
+
     
 
     
@@ -396,7 +398,7 @@
                     <article
         class="phpdocumentor-element
             -method
-            -protected
+            -public
                                                         "
 >
     <h4 class="phpdocumentor-element__name" id="method_initConfig">
@@ -407,20 +409,30 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/ConfigTrait.php"><a href="files/src-oihana-traits-configtrait.html"><abbr title="src/oihana/traits/ConfigTrait.php">ConfigTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">50</span>
+    <span class="phpdocumentor-element-found-in__line">103</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Initialize the config definition.</p>
+        <p class="phpdocumentor-summary">Initialize the configuration from an array or a DI container.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">initConfig</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>Example usage:</p>
+<pre class="prettyprint"><code class="language-php">$this-&gt;initConfig( ['config' =&gt; ['db_host' =&gt; 'localhost']] ) ;
+echo $this-&gt;config['db_host'] ; // 'localhost'
+
+// Using a DI container
+$container-&gt;set( 'my_config' , ['db_name' =&gt; 'prod'] ) ;
+$this-&gt;initConfig( ['config' =&gt; 'my_config' ] , $container ) ;
+echo $this-&gt;config[ 'db_name' ] ; // 'prod'
+</code></pre>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -428,14 +440,18 @@
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Initialization array that may contain 'config' key.</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$container</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Optional DI container to resolve config entries.</p>
+</section>
+
             </dd>
             </dl>
 
@@ -450,14 +466,6 @@
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\DI\DependencyException">DependencyException</abbr></span>
                                                             
                                              
@@ -478,6 +486,14 @@
                                                             
                                              
                                     </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
+                                                            
+                                             
+                                    </dd>
                                             </dl>
 
     
@@ -485,13 +501,17 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">static</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Returns the current instance for method chaining.</p>
+</section>
+
             </section>
 
 </article>
                     <article
         class="phpdocumentor-element
             -method
-            -protected
+            -public
                                                         "
 >
     <h4 class="phpdocumentor-element__name" id="method_initConfigPath">
@@ -502,20 +522,30 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/ConfigTrait.php"><a href="files/src-oihana-traits-configtrait.html"><abbr title="src/oihana/traits/ConfigTrait.php">ConfigTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">74</span>
+    <span class="phpdocumentor-element-found-in__line">155</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Initialize the config path.</p>
+        <p class="phpdocumentor-summary">Initialize the configuration path from an array or a DI container.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
+    <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">initConfigPath</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>Example usage:</p>
+<pre class="prettyprint"><code class="language-php">$this-&gt;initConfigPath(['configPath' =&gt; '/etc/myservice/config']);
+echo $this-&gt;configPath; // '/etc/myservice/config'
+
+// Using a DI container
+$container-&gt;set('configPath', '/etc/prod/config');
+$this-&gt;initConfigPath([], $container);
+echo $this-&gt;configPath; // '/etc/prod/config'
+</code></pre>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -523,14 +553,18 @@
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Initialization array that may contain 'configPath' key.</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$container</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Optional DI container to resolve path entries.</p>
+</section>
+
             </dd>
             </dl>
 
@@ -545,14 +579,6 @@
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\DI\DependencyException">DependencyException</abbr></span>
                                                             
                                              
@@ -573,6 +599,14 @@
                                                             
                                              
                                     </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
+                                                            
+                                             
+                                    </dd>
                                             </dl>
 
     
@@ -580,6 +614,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">static</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Returns the current instance for method chaining.</p>
+</section>
+
             </section>
 
 </article>

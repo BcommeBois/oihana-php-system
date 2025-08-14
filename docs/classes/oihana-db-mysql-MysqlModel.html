@@ -522,6 +522,13 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
 <dd>Checks whether a user has a specific privilege on a database or table.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-traits-DebugTrait.html#method_initializeDebug">initializeDebug()</a>
+    <span>
+                                &nbsp;: static    </span>
+</dt>
+<dd>Initialize the debug flag.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-models-pdo-PDOTrait.html#method_initializeDefaultFetchMode">initializeDefaultFetchMode()</a>
     <span>
                                 &nbsp;: void    </span>
@@ -531,7 +538,7 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-traits-DebugTrait.html#method_initializeMock">initializeMock()</a>
     <span>
-                                &nbsp;: bool    </span>
+                                &nbsp;: static    </span>
 </dt>
 <dd>Initialize the mock flag.</dd>
 
@@ -2901,6 +2908,55 @@ $model-&gt;grantPrivilege('UPDATE', 'mydb', 'user1', 'localhost', 'products');
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_initializeDebug">
+        initializeDebug()
+        <a href="classes/oihana-traits-DebugTrait.html#method_initializeDebug" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/DebugTrait.php"><a href="files/src-oihana-traits-debugtrait.html"><abbr title="src/oihana/traits/DebugTrait.php">DebugTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">41</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Initialize the debug flag.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">initializeDebug</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$init</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">static</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_initializeDefaultFetchMode">
         initializeDefaultFetchMode()
         <a href="classes/oihana-models-pdo-PDOTrait.html#method_initializeDefaultFetchMode" class="headerlink"><i class="fas fa-link"></i></a>
@@ -2959,7 +3015,7 @@ if a schema class is defined and exists.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/DebugTrait.php"><a href="files/src-oihana-traits-debugtrait.html"><abbr title="src/oihana/traits/DebugTrait.php">DebugTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">52</span>
 
     </aside>
 
@@ -2967,7 +3023,7 @@ if a schema class is defined and exists.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">initializeMock</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+                    <span class="phpdocumentor-signature__name">initializeMock</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -2990,7 +3046,7 @@ if a schema class is defined and exists.</p>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">bool</span>
+        <span class="phpdocumentor-signature__response_type">static</span>
             </section>
 
 </article>
@@ -3134,7 +3190,7 @@ if a schema class is defined and exists.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/DebugTrait.php"><a href="files/src-oihana-traits-debugtrait.html"><abbr title="src/oihana/traits/DebugTrait.php">DebugTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">51</span>
+    <span class="phpdocumentor-element-found-in__line">63</span>
 
     </aside>
 
@@ -4558,6 +4614,7 @@ Otherwise, returns array&lt;int, array{user: string, host: string}&gt;.</p>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasAnyPrivilege">hasAnyPrivilege()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasGlobalAllPrivileges">hasGlobalAllPrivileges()</a></li>
                                             <li class=""><a href="classes/oihana-db-mysql-traits-MysqlPrivilegeTrait.html#method_hasPrivilege">hasPrivilege()</a></li>
+                                            <li class=""><a href="classes/oihana-traits-DebugTrait.html#method_initializeDebug">initializeDebug()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_initializeDefaultFetchMode">initializeDefaultFetchMode()</a></li>
                                             <li class=""><a href="classes/oihana-traits-DebugTrait.html#method_initializeMock">initializeMock()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_initPDO">initPDO()</a></li>

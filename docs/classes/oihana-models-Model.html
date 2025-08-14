@@ -338,9 +338,16 @@ $records = $model-&gt;fetchAll('SELECT * FROM users');
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-traits-DebugTrait.html#method_initializeDebug">initializeDebug()</a>
+    <span>
+                                &nbsp;: static    </span>
+</dt>
+<dd>Initialize the debug flag.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-traits-DebugTrait.html#method_initializeMock">initializeMock()</a>
     <span>
-                                &nbsp;: bool    </span>
+                                &nbsp;: static    </span>
 </dt>
 <dd>Initialize the mock flag.</dd>
 
@@ -452,7 +459,7 @@ $records = $model-&gt;fetchAll('SELECT * FROM users');
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/Model.php"><a href="files/src-oihana-models-model.html"><abbr title="src/oihana/models/Model.php">Model.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">90</span>
+    <span class="phpdocumentor-element-found-in__line">91</span>
 
     </aside>
 
@@ -882,9 +889,9 @@ $records = $model-&gt;fetchAll('SELECT * FROM users');
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_initializeMock">
-        initializeMock()
-        <a href="classes/oihana-traits-DebugTrait.html#method_initializeMock" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_initializeDebug">
+        initializeDebug()
+        <a href="classes/oihana-traits-DebugTrait.html#method_initializeDebug" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
@@ -894,11 +901,11 @@ $records = $model-&gt;fetchAll('SELECT * FROM users');
 
     </aside>
 
-        <p class="phpdocumentor-summary">Initialize the mock flag.</p>
+        <p class="phpdocumentor-summary">Initialize the debug flag.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">initializeMock</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+                    <span class="phpdocumentor-signature__name">initializeDebug</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -921,7 +928,56 @@ $records = $model-&gt;fetchAll('SELECT * FROM users');
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">bool</span>
+        <span class="phpdocumentor-signature__response_type">static</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_initializeMock">
+        initializeMock()
+        <a href="classes/oihana-traits-DebugTrait.html#method_initializeMock" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/DebugTrait.php"><a href="files/src-oihana-traits-debugtrait.html"><abbr title="src/oihana/traits/DebugTrait.php">DebugTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">52</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Initialize the mock flag.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">initializeMock</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$init</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">static</span>
             </section>
 
 </article>
@@ -939,7 +995,7 @@ $records = $model-&gt;fetchAll('SELECT * FROM users');
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/DebugTrait.php"><a href="files/src-oihana-traits-debugtrait.html"><abbr title="src/oihana/traits/DebugTrait.php">DebugTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">51</span>
+    <span class="phpdocumentor-element-found-in__line">63</span>
 
     </aside>
 
@@ -1111,6 +1167,7 @@ $records = $model-&gt;fetchAll('SELECT * FROM users');
                                             <li class=""><a href="classes/oihana-models-Model.html#method_fetch">fetch()</a></li>
                                             <li class=""><a href="classes/oihana-models-Model.html#method_fetchAll">fetchAll()</a></li>
                                             <li class=""><a href="classes/oihana-models-Model.html#method_fetchColumn">fetchColumn()</a></li>
+                                            <li class=""><a href="classes/oihana-traits-DebugTrait.html#method_initializeDebug">initializeDebug()</a></li>
                                             <li class=""><a href="classes/oihana-traits-DebugTrait.html#method_initializeMock">initializeMock()</a></li>
                                             <li class=""><a href="classes/oihana-traits-DebugTrait.html#method_isMock">isMock()</a></li>
                                     </ul>

@@ -11,76 +11,164 @@ use Psr\Container\NotFoundExceptionInterface;
 
 use oihana\enums\Char;
 
+
 /**
+ * Trait ConfigTrait
+ *
  * Provides functionality for managing a configuration setup.
+ *
+ * @property array  $config     The configuration array.
+ * @property string $configPath The base path to load an external configuration file.
+ *
+ * Example usage:
+ * ```php
+ * class MyService
+ * {
+ *     use ConfigTrait;
+ * }
+ *
+ * $service = new MyService();
+ *
+ * // Initialize directly from an array
+ * $service->initConfig
+ * ([
+ *     'config' =>
+ *     [
+ *         'db_host' => 'localhost',
+ *         'db_name' => 'test'
+ *     ],
+ *     'configPath' => '/etc/myservice/config.php'
+ * ]);
+ *
+ * echo $service->config['db_name']; // 'test'
+ * echo $service->configPath;        // '/etc/myservice/config.php'
+ *
+ * // Initialize using a DI container
+ * $container = new DI\Container() ;
+ * $container->set('my_config',
+ * [
+ *     'db_host' => '127.0.0.1',
+ *     'db_name' => 'prod'
+ * ]);
+ *
+ * $service->initConfig( ['config' => 'my_config'] , $container ) ;
+ * echo
  */
 trait ConfigTrait
 {
     /**
-     * The config reference.
+     * @var array The config reference.
      */
     public array $config = [] ;
 
     /**
-     * The base path of the file to load an external config.
-     * @var string|mixed
+     * @var string The base path of the file to load an external config.
      */
     public string $configPath = Char::EMPTY ;
 
     /**
-     * The 'config' parameter constant.
+     * The 'config' key for initialization arrays.
      */
     public const string CONFIG = 'config' ;
 
     /**
-     * The 'configPath' parameter constant.
+     * The 'configPath' key for initialization arrays.
      */
     public const string CONFIG_PATH = 'configPath' ;
 
     /**
-     * Initialize the config definition.
-     * @param array $init
-     * @param ContainerInterface|null $container
-     * @throws ContainerExceptionInterface
-     * @throws DependencyException
+     * Initialize the configuration from an array or a DI container.
+     *
+     * Example usage:
+     * ```php
+     * $this->initConfig( ['config' => ['db_host' => 'localhost']] ) ;
+     * echo $this->config['db_host'] ; // 'localhost'
+     *
+     * // Using a DI container
+     * $container->set( 'my_config' , ['db_name' => 'prod'] ) ;
+     * $this->initConfig( ['config' => 'my_config' ] , $container ) ;
+     * echo $this->config[ 'db_name' ] ; // 'prod'
+     * ```
+     *
+     * @param array                   $init      Initialization array that may contain 'config' key.
+     * @param ContainerInterface|null $container Optional DI container to resolve config entries.
+     *
+     * @return static Returns the current instance for method chaining.
+     *@throws DependencyException
      * @throws NotFoundException
      * @throws NotFoundExceptionInterface
-     * @return static
+     *
+     * @throws ContainerExceptionInterface
      */
-    protected function initConfig( array $init = [] , ?ContainerInterface $container = null ) :static
+    public function initConfig( array $init = [] , ?ContainerInterface $container = null ) :static
     {
         $config = $init[ static::CONFIG ] ?? null ;
-
-        if( is_string( $config ) && isset( $container ) && $container->has( $config ) )
+        if( is_array( $config ) )
         {
-            $config = $container->get( $config ) ;
+            $this->config = $config ;
         }
+        else if( $container instanceof ContainerInterface )
+        {
+            $entry = null ;
 
-        $this->config = is_array( $config ) ? $config : $this->config ;
+            if( is_string( $config ) && $container->has( $config )  )
+            {
+                $entry = $container->get( $config ) ;
+            }
+            else if ( $container->has( static::CONFIG ) )
+            {
+                $entry = $container->get( static::CONFIG  ) ;
+            }
 
+            if ( is_array( $entry ) )
+            {
+                $this->config = $entry ;
+            }
+        }
         return $this ;
     }
 
     /**
-     * Initialize the config path.
-     * @param array $init
-     * @param ContainerInterface|null $container
-     * @throws ContainerExceptionInterface
+     * Initialize the configuration path from an array or a DI container.
+     *
+     * Example usage:
+     * ```php
+     * $this->initConfigPath(['configPath' => '/etc/myservice/config']);
+     * echo $this->configPath; // '/etc/myservice/config'
+     *
+     * // Using a DI container
+     * $container->set('configPath', '/etc/prod/config');
+     * $this->initConfigPath([], $container);
+     * echo $this->configPath; // '/etc/prod/config'
+     * ```
+     *
+     * @param array $init      Initialization array that may contain 'configPath' key.
+     * @param ContainerInterface|null $container Optional DI container to resolve path entries.
+     *
+     * @return static Returns the current instance for method chaining.
      * @throws DependencyException
      * @throws NotFoundException
      * @throws NotFoundExceptionInterface
-     * @return static
+     *
+     * @throws ContainerExceptionInterface
      */
-    protected function initConfigPath( array $init = [] , ?ContainerInterface $container = null ) :static
+    public function initConfigPath( array $init = [] , ?ContainerInterface $container = null ) :static
     {
         $path = $init[ static::CONFIG_PATH ] ?? null ;
 
-        if( is_string( $path ) && isset( $container ) && $container->has( $path ) )
+        if( $container instanceof ContainerInterface )
         {
-            $path = $container->get( $path ) ;
+            if( is_string( $path ) && $container->has( $path ) )
+            {
+                $path = $container->get( $path ) ;
+            }
+            else if ( $container->has( static::CONFIG_PATH ) )
+            {
+                $path = $container->get( static::CONFIG_PATH ) ;
+            }
         }
 
-        $this->configPath = is_string( $path ) ? $path : $this->configPath ;
+        $this->configPath = is_string( $path ) ? $path : Char::EMPTY ;
 
         return $this ;
     }
