@@ -51,10 +51,10 @@ class LoggerTraitTest extends TestCase
 
     public function testInitLoggableSetsFlag(): void
     {
-        $this->testObj->initLoggable(['loggable' => true]);
+        $this->testObj->initializeLoggable(['loggable' => true]);
         $this->assertTrue($this->testObj->loggable);
 
-        $this->testObj->initLoggable(['loggable' => false]);
+        $this->testObj->initializeLoggable(['loggable' => false]);
         $this->assertFalse($this->testObj->loggable);
     }
 

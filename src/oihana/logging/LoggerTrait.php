@@ -194,7 +194,7 @@ trait LoggerTrait
      * @param bool|array|null $defaultValue The default value if the $init argument is not defined.
      * @return static
      */
-    public function initLoggable( bool|array|null $init = null , bool $defaultValue = false ) :static
+    public function initializeLoggable( bool|array|null $init = null , bool $defaultValue = false ) :static
     {
         $this->loggable = match( true )
         {
