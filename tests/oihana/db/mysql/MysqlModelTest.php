@@ -1,8 +1,9 @@
 <?php
 
-namespace oihana\db\mysql;
+namespace tests\oihana\db\mysql;
 
 use DI\Container;
+use oihana\db\mysql\MysqlModel;
 use PDO;
 use PHPUnit\Framework\MockObject\Exception;
 use PHPUnit\Framework\MockObject\MockObject;

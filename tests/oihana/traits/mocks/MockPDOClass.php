@@ -1,15 +1,12 @@
 <?php
 
-namespace oihana\traits\mocks;
+namespace tests\oihana\traits\mocks;
 
 use oihana\models\pdo\PDOTrait;
 
 class MockPDOClass
 {
-    public function __construct()
-    {
-
-    }
+    use PDOTrait;
 
     /**
      * To allow altering results (no operation here).
@@ -18,7 +15,4 @@ class MockPDOClass
     {
         return $document;
     }
-
-    use PDOTrait;
-
 }

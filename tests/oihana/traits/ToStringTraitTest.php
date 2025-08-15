@@ -1,8 +1,9 @@
 <?php
 
-namespace oihana\traits ;
+namespace tests\oihana\traits ;
 
 use oihana\enums\Char;
+use oihana\traits\ToStringTrait;
 use PHPUnit\Framework\TestCase;
 
 class TestToStringDummyClass

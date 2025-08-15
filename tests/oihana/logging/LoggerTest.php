@@ -1,8 +1,9 @@
 <?php
 
-namespace oihana\logging;
+namespace tests\oihana\logging;
 
 use oihana\enums\Char;
+use oihana\logging\Logger;
 use PHPUnit\Framework\TestCase;
 use RuntimeException;
 

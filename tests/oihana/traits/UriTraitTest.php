@@ -1,9 +1,10 @@
 <?php
 
-namespace oihana\traits ;
+namespace tests\oihana\traits ;
 
 use InvalidArgumentException;
 use oihana\enums\Char;
+use oihana\traits\UriTrait;
 use PHPUnit\Framework\TestCase;
 
 class UriTraitTest extends TestCase

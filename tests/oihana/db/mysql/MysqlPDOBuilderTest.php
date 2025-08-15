@@ -1,8 +1,9 @@
 <?php
 
-namespace oihana\db\mysql;
+namespace tests\oihana\db\mysql;
 
 use InvalidArgumentException;
+use oihana\db\mysql\MysqlPDOBuilder;
 use PDO;
 use PHPUnit\Framework\TestCase;
 
@@ -20,7 +21,8 @@ class MysqlPDOBuilderTest extends TestCase
 {
     public function testBuilderWithValidConfiguration(): void
     {
-        $builder = new MysqlPDOBuilder([
+        $builder = new MysqlPDOBuilder
+        ([
             'host'     => 'localhost',
             'dbname'   => 'test',
             'username' => 'root',
@@ -36,7 +38,8 @@ class MysqlPDOBuilderTest extends TestCase
 
     public function testToArrayMasksPassword(): void
     {
-        $builder = new MysqlPDOBuilder([
+        $builder = new MysqlPDOBuilder
+        ([
             'host'     => 'localhost',
             'dbname'   => 'test',
             'username' => 'user',
@@ -53,7 +56,7 @@ class MysqlPDOBuilderTest extends TestCase
 
     public function testThrowsIfMissingHost(): void
     {
-        $this->expectException(InvalidArgumentException::class);
+        $this->expectException( InvalidArgumentException::class );
         $this->expectExceptionMessage('MySQL DSN is missing the host.');
 
         $builder = new MysqlPDOBuilder
@@ -72,7 +75,8 @@ class MysqlPDOBuilderTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('MySQL DSN is missing the database name.');
 
-        $builder = new MysqlPDOBuilder([
+        $builder = new MysqlPDOBuilder
+        ([
             'host'     => 'localhost',
             'username' => 'user',
             'validate' => true,
@@ -86,7 +90,8 @@ class MysqlPDOBuilderTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('MySQL connection requires a username.');
 
-        $builder = new MysqlPDOBuilder([
+        $builder = new MysqlPDOBuilder
+        ([
             'host'     => 'localhost',
             'dbname'   => 'test',
             'validate' => true,
@@ -114,7 +119,8 @@ class MysqlPDOBuilderTest extends TestCase
 
     public function testSkipDbNameAllowsMissingDbname(): void
     {
-        $builder = new MysqlPDOBuilder([
+        $builder = new MysqlPDOBuilder
+        ([
             'host'        => 'localhost',
             'username'    => 'user',
             'skipDbName'  => true,

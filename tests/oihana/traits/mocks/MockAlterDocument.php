@@ -1,6 +1,6 @@
 <?php
 
-namespace oihana\traits\mocks;
+namespace tests\oihana\traits\mocks;
 
 use DI\DependencyException;
 use DI\NotFoundException;

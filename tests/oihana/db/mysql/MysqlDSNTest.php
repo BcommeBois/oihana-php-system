@@ -1,7 +1,8 @@
 <?php
 
-namespace oihana\db\mysql;
+namespace tests\oihana\db\mysql;
 
+use oihana\db\mysql\MysqlDSN;
 use PHPUnit\Framework\TestCase;
 
 final class MysqlDSNTest extends TestCase

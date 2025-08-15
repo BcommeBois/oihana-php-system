@@ -29,7 +29,8 @@ use oihana\exceptions\UnsupportedOperationException;
  * class ReadOnlyRepository {
  *     use UnsupportedTrait;
  *
- *     public function save($item) {
+ *     public function save($item)
+ *     {
  *         $this->unsupported(__FUNCTION__); // Will throw exception
  *     }
  * }

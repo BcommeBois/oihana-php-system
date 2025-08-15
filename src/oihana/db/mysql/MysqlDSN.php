@@ -38,8 +38,13 @@ class MysqlDSN
     /**
      * Constructs a new MysqlDSN instance.
      *
-     * @param array{ charset : string|null , dbname : string|null , host : string|null , port : string|null , unixSocket : string|null } $init
-     *  An associative array of parameters to initialize the DSN.
+     * @param array{
+     *     charset?    : string|null ,
+     *     dbname?     : string|null ,
+     *     host?       : string|null ,
+     *     port?       : string|null ,
+     *     unixSocket? : string|null
+     * } $init An associative array of parameters to initialize the DSN.
      *
      * @example
      * ```php

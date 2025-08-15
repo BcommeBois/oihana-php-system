@@ -1,16 +1,21 @@
 <?php
 
-namespace oihana\traits ;
+namespace tests\oihana\traits ;
 
-use oihana\enums\Param;
-use oihana\traits\mocks\MockPDOClass;
-use PHPUnit\Framework\MockObject\Exception;
-use PHPUnit\Framework\TestCase;
 use PDO;
 use PDOStatement;
+
 use DI\Container;
+
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Container\ContainerExceptionInterface;
+
+use PHPUnit\Framework\MockObject\Exception;
+use PHPUnit\Framework\TestCase;
+
+use oihana\enums\Param;
+
+use tests\oihana\traits\mocks\MockPDOClass;
 
 class PDOTraitTest extends TestCase
 {

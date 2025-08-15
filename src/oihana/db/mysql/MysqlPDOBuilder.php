@@ -52,16 +52,16 @@ class MysqlPDOBuilder
      * Initializes the builder with given configuration.
      *
      * @param array{
-     *     charset    : string|null ,
-     *     dbname     : string|null ,
-     *     host       : string|null ,
-     *     options    : array|null  ,
-     *     password   : string|null ,
-     *     port       : string|null ,
-     *     skipDbName : bool|null   ,
-     *     unixSocket : string|null ,
-     *     username   : string|null ,
-     *     validate   : bool|null
+     *     charset?    : string|null ,
+     *     dbname?     : string|null ,
+     *     host?       : string|null ,
+     *     options?    : array|null  ,
+     *     password?   : string|null ,
+     *     port?       : string|null ,
+     *     skipDbName? : bool|null   ,
+     *     unixSocket? : string|null ,
+     *     username?   : string|null ,
+     *     validate?   : bool|null
      * } $init Associative array of connection parameters:
      * - `host`, `port`, `dbname`, `charset`, `unixSocket` (for DSN)
      * - `username`, `password` (for credentials)
@@ -183,16 +183,16 @@ class MysqlPDOBuilder
      * Sets the builder with given configuration.
      *
      * @param array{
-     *     charset    : string|null ,
-     *     dbname     : string|null ,
-     *     host       : string|null ,
-     *     options    : array|null  ,
-     *     password   : string|null ,
-     *     port       : string|null ,
-     *     skipDbName : bool|null   ,
-     *     unixSocket : string|null ,
-     *     username   : string|null ,
-     *     validate   : bool|null
+     *     charset?    : string|null ,
+     *     dbname?     : string|null ,
+     *     host?       : string|null ,
+     *     options?    : array|null  ,
+     *     password?   : string|null ,
+     *     port?       : string|null ,
+     *     skipDbName? : bool|null   ,
+     *     unixSocket? : string|null ,
+     *     username?   : string|null ,
+     *     validate?   : bool|null
      * } $init Associative array of connection parameters:
      * - `host`, `port`, `dbname`, `charset`, `unixSocket` (for DSN)
      * - `username`, `password` (for credentials)

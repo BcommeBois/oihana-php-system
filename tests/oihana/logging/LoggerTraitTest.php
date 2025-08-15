@@ -1,10 +1,12 @@
 <?php
 
-namespace oihana\logging;
+namespace tests\oihana\logging;
 
 use DI\Container;
 use DI\DependencyException;
 use DI\NotFoundException;
+use oihana\logging\Logger;
+use oihana\logging\LoggerTrait;
 use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -38,7 +40,7 @@ class LoggerTraitTest extends TestCase
         $tmpDir          = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'oihana-php-system' . DIRECTORY_SEPARATOR ;
 
         $this->container  = new Container() ;
-        $this->logger     =  new Logger( $tmpDir ) ;
+        $this->logger     = new Logger( $tmpDir ) ;
         $this->loggerMock = $this->createMock(LoggerInterface::class);
 
         $this->container->set( 'my-logger' , $this->logger );

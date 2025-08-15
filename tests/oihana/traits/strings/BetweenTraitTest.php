@@ -1,7 +1,8 @@
 <?php
 
-namespace oihana\traits\strings;
+namespace tests\oihana\traits\strings;
 
+use oihana\traits\strings\ExpressionTrait;
 use PHPUnit\Framework\TestCase;
 
 class BetweenTraitTest extends TestCase

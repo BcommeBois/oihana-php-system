@@ -1,8 +1,9 @@
 <?php
 
-namespace oihana\traits ;
+namespace tests\oihana\traits ;
 
 use oihana\enums\Param;
+use oihana\traits\QueryIDTrait;
 use PHPUnit\Framework\TestCase;
 
 class QueryIDTraitTest extends TestCase

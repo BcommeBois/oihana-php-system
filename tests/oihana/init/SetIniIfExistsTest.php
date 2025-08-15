@@ -1,10 +1,11 @@
 <?php
 
-namespace oihana\init;
+namespace tests\oihana\init;
 
 use oihana\enums\IniOptions;
 use oihana\reflect\exceptions\ConstantException;
 use PHPUnit\Framework\TestCase;
+use function oihana\init\setIniIfExists;
 
 /**
  * Unit tests for setIniIfExists()
@@ -20,7 +21,8 @@ class SetIniIfExistsTest extends TestCase
 
     protected function setUp(): void
     {
-        if (!function_exists('ini_set')) {
+        if (!function_exists('ini_set'))
+        {
             $this->markTestSkipped('ini_set() is not available in this environment.');
         }
         $val = ini_get($this->key);
@@ -70,12 +72,12 @@ class SetIniIfExistsTest extends TestCase
      */
     public function testReturnsFalseWhenKeyMissingInArray(): void
     {
-        $before = (string)ini_get($this->key);
+        $before = (string) ini_get($this->key);
 
-        $called = setIniIfExists($this->key, []); // key not present
+        $called = setIniIfExists( $this->key ); // key not present
 
         $this->assertFalse($called, 'Expected setIniIfExists to return false when key is missing in array');
-        $this->assertSame($before, (string)ini_get($this->key), 'Ini value must remain unchanged');
+        $this->assertSame( $before , (string) ini_get($this->key) , 'Ini value must remain unchanged');
     }
 
     /**

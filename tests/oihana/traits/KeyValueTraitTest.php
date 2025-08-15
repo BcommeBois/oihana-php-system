@@ -1,7 +1,8 @@
 <?php
 
-namespace oihana\traits ;
+namespace tests\oihana\traits ;
 
+use oihana\traits\KeyValueTrait;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 

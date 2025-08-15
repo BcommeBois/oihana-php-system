@@ -1,7 +1,8 @@
 <?php
 
-namespace oihana\date;
+namespace tests\oihana\date;
 
+use oihana\date\TimeInterval;
 use PHPUnit\Framework\TestCase;
 
 class TimeIntervalTest extends TestCase

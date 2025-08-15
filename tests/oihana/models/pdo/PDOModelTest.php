@@ -1,9 +1,10 @@
 <?php
 
-namespace oihana\models\pdo;
+namespace tests\oihana\models\pdo;
 
 use DI\Container;
 use oihana\enums\Param;
+use oihana\models\pdo\PDOModel;
 use PDO;
 use PDOStatement;
 use PHPUnit\Framework\MockObject\Exception;

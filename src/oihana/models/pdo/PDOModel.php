@@ -66,12 +66,18 @@ class PDOModel extends Model
      * Sets internal properties from the provided configuration array and initializes logger, mock, and PDO.
      *
      * @param Container $container The DI container to retrieve services like PDO and logger.
-     * @param array{ alters:array|null , binds:array|null , deferAssignment:bool|null , schema:string|null , pdo:PDO|string|null } $init Optional initialization array with keys:
-     *                    - Param::ALTERS: array of alterations to apply
-     *                    - Param::BINDS: array of binds for queries
-     *                    - Param::DEFER_ASSIGNMENT: bool whether to defer property assignment on fetch
-     *                    - Param::SCHEMA: string class name of schema for fetch mode
-     *                    - Param::PDO: PDO instance or service name in container
+     * @param array{
+     *   alters?          : array|null ,
+     *   binds?           : array|null ,
+     *   deferAssignment? : bool|null ,
+     *   schema?          : string|null ,
+     *   pdo?             : PDO|string|null
+     * } $init Optional initialization array with keys:
+     *   - Param::ALTERS           : array of alterations to apply
+     *   - Param::BINDS            : array of binds for queries
+     *   - Param::DEFER_ASSIGNMENT : bool whether to defer property assignment on fetch
+     *   - Param::SCHEMA           : string class name of schema for fetch mode
+     *   - Param::PDO              : PDO instance or service name in container
      *
      * @throws ContainerExceptionInterface If container service retrieval fails.
      * @throws NotFoundExceptionInterface If container service not found.

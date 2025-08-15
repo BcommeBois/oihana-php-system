@@ -1,6 +1,6 @@
 <?php
 
-namespace oihana\init;
+namespace tests\oihana\init;
 
 use DI\DependencyException;
 use DI\NotFoundException;
@@ -18,7 +18,7 @@ use Psr\Container\NotFoundExceptionInterface;
  * - We use the display_errors directive because it is safe to modify at runtime in CLI.
  * - Each test restores the original value in tearDown to avoid side effects.
  */
-class ConfigTraitTest extends TestCase
+class InitConfigTraitTest extends TestCase
 {
     use ConfigTrait;
 
@@ -100,6 +100,12 @@ class ConfigTraitTest extends TestCase
         $this->assertEquals('/etc/config.php', $this->configPath);
     }
 
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     */
     public function testInitConfigPathFallbackToContainerKey()
     {
         $mockContainer = $this->createMock(ContainerInterface::class);
