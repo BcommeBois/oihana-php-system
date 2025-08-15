@@ -16,7 +16,7 @@ trait AlterJSONStringifyPropertyTrait
         $args = [ $value ] ;
         if( count( $definition ) > 0 )
         {
-            $args += $definition ;
+            $args = array_merge( $args , $definition ) ;
         }
         $modified = true ;
         return json_encode( ...$args ) ?? null ;

@@ -38,6 +38,45 @@ class AlterDocumentTraitTest extends TestCase
      * @throws ContainerExceptionInterface
      * @throws DependencyException
      */
+    public function testIntAlteration()
+    {
+        $processor = new MockAlterDocument
+        ([
+            'id' => Alter::INT
+        ]);
+
+        $input = [ 'id' => '123' ];
+
+        $output = $processor->process( $input );
+
+        $this->assertSame(123 , $output[ 'id' ] );
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     */
+    public function testIntAlterationDoesNotCastFloat()
+    {
+        $processor = new MockAlterDocument
+        ([
+            'id' => Alter::INT
+        ]);
+
+        $input = [ 'id' => 123.5 ];
+        $output = $processor->process( $input );
+
+        $this->assertSame(123 , $output[ 'id' ] );
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     */
     public function testArrayAndCleanAlteration()
     {
         $processor = new MockAlterDocument
@@ -93,6 +132,87 @@ class AlterDocumentTraitTest extends TestCase
         $this->assertIsArray($output['meta']);
         $this->assertTrue($output['meta']['enabled']);
         $this->assertSame(3, $output['meta']['count']);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     */
+    public function testJsonStringifyAlteration()
+    {
+        $processor = new MockAlterDocument
+        ([
+            'data' => [ Alter::JSON_STRINGIFY ]
+        ]);
+
+        $input = [ 'data' => ['a' => 1, 'b' => true] ];
+
+        $output = $processor->process($input);
+
+
+
+        $this->assertEquals('{"a":1,"b":true}', $output['data'] );
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     */
+    public function testJsonStringifyWithOptionAlteration()
+    {
+        $processor = new MockAlterDocument
+        ([
+            'data' => [ Alter::JSON_STRINGIFY, JSON_PRETTY_PRINT ]
+        ]);
+
+        $input    = [ 'data' => ['a' => 1 , 'b' => true] ];
+        $expected = json_encode( $input['data'], JSON_PRETTY_PRINT );
+        $output   = $processor->process($input);
+
+        $this->assertSame($expected , $output['data']);
+    }
+
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     */
+    public function testUrlAlteration()
+    {
+        $processor = new MockAlterDocument
+        ([
+            'url' => [ Alter::URL, '/users/' ]
+        ]);
+
+        $input = [ 'id' => 123, 'url' => 123 ];
+        $output = $processor->process($input);
+
+        $this->assertSame('/users/123', $output['url']);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     */
+    public function testUrlWithCustomPropertyAlteration()
+    {
+        $processor = new MockAlterDocument
+        ([
+            'url' => [ Alter::URL, '/profiles/', 'name' ]
+        ]);
+
+        $input = [ 'id' => 123, 'name' => 'John', 'url' => '' ];
+        $output = $processor->process($input);
+
+        $this->assertSame('/profiles/John', $output['url']);
     }
 
     /**

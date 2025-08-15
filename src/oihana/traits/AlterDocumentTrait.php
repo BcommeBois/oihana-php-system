@@ -364,6 +364,7 @@ trait AlterDocumentTrait
                     $value    = $newValue ;
                     $modified = true ;
                 }
+                break ;
             }
         }
 
