@@ -82,88 +82,60 @@ class AspectRatio
     }
 
     /**
-     * The verbose mode flag.
-     * Note: This property is not used within the current class implementation.
-     *
-     * @var bool
-     */
-    public bool $verbose = false ;
-
-    /**
      * Gets the Greatest Common Divisor (GCD) of the current width and height.
      *
      * <p>This calculation casts the width and height to integers, ignoring any floating-point values.</p>
-     *
-     * @return int The greatest common divisor.
      */
-    public function getGCD():int
+    public int $gcd
     {
-        return $this->_gcd ;
+        get => $this->_gcd ;
     }
 
     /**
-     * Returns the current height.
-     *
-     * @return int The height value.
-     */
-    public function getHeight():int
-    {
-        return $this->_height ;
-    }
-
-    /**
-     * Sets the height.
+     * The current height size.
      *
      * If the object is locked, the width is automatically adjusted to maintain
      * the aspect ratio. If unlocked, the aspect ratio is recalculated based on
      * the new height and existing width.
-     *
-     * @param int $value The new height value.
-     * @return void
      */
-    public function setHeight( int $value ):void
+    public int $height
     {
-        $this->_height = $value ;
-        if ( $this->_locked )
+        get => $this->_height ;
+        set
         {
-            $this->_width = intval($this->_height * $this->_aspW / $this->_aspH ) ;
-        }
-        else
-        {
-            $this->recalculateGCD() ;
+            $this->_height = $value ;
+            if ( $this->_locked )
+            {
+                $this->_width = intval($this->_height * $this->_aspW / $this->_aspH ) ;
+            }
+            else
+            {
+                $this->recalculateGCD() ;
+            }
         }
     }
 
     /**
-     * Returns the current width.
-     *
-     * @return int The width value.
-     */
-    public function getWidth():int
-    {
-        return $this->_width ;
-    }
-
-    /**
-     * Sets the width.
+     * The current width size.
      *
      * If the object is locked, the height is automatically adjusted to maintain
      * the aspect ratio. If unlocked, the aspect ratio is recalculated based on
      * the new width and existing height.
-     *
-     * @param int $value The new width value.
-     * @return void
      */
-    public function setWidth( int $value ):void
+    public int $width
     {
-        $this->_width = $value ;
-        if ( $this->_locked )
+        get => $this->_width ;
+        set
         {
-            $this->_height = intval($this->_width * $this->_aspH / $this->_aspW ) ;
-        }
-        else
-        {
-            $this->recalculateGCD() ;
+            $this->_width = $value ;
+            if ( $this->_locked )
+            {
+                $this->_height = intval($this->_width * $this->_aspH / $this->_aspW ) ;
+            }
+            else
+            {
+                $this->recalculateGCD() ;
+            }
         }
     }
 
@@ -189,7 +161,6 @@ class AspectRatio
     {
         $this->_locked = true ;
     }
-
 
     /**
      * Unlocks the aspect ratio.

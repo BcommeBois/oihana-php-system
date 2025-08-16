@@ -126,7 +126,7 @@
     </ul>
 
     <article class="phpdocumentor-element -file">
-        <h2 class="phpdocumentor-content__title">initContainer.php</h2>
+        <h2 class="phpdocumentor-content__title">AspectRatio.php</h2>
 
         
         
@@ -137,13 +137,20 @@
         
 <h3 id="toc">
     Table of Contents
-    <a href="files/src-oihana-init-initcontainer.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="files/src-oihana-graphics-aspectratio.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
 
 
 
+    <h4 id="toc-classes">
+        Classes
+        <a href="files/src-oihana-graphics-aspectratio.html#toc-classes" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <dl class="phpdocumentor-table-of-contents">
+                    <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/oihana-graphics-AspectRatio.html"><abbr title="\oihana\graphics\AspectRatio">AspectRatio</abbr></a></dt><dd>Manages and enforces an aspect ratio for a given width and height.</dd>    </dl>
 
 
 
@@ -151,164 +158,16 @@
 
 
 
-<h4 id="toc-functions">
-    Functions
-    <a href="files/src-oihana-init-initcontainer.html#toc-functions" class="headerlink"><i class="fas fa-link"></i></a>
-
-</h4>
-<dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a class="" href="namespaces/oihana-init.html#function_initContainer">initContainer()</a>
-    <span>
-                                &nbsp;: <abbr title="\DI\Container">Container</abbr>    </span>
-</dt>
-<dd>Initialize and build a PHP-DI container for the application.</dd>
-
-    </dl>
 
 
         
 
-            <section class="phpdocumentor-functions">
-        <h3 class="phpdocumentor-elements__header" id="functions">
-            Functions
-            <a href="files/src-oihana-init-initcontainer.html#functions" class="headerlink"><i class="fas fa-link"></i></a>
-
-        </h3>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_initContainer">
-        initContainer()
-        <a href="namespaces/oihana-init.html#function_initContainer" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/init/initContainer.php"><a href="files/src-oihana-init-initcontainer.html"><abbr title="src/oihana/init/initContainer.php">initContainer.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">53</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Initialize and build a PHP-DI container for the application.</p>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">initContainer</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, mixed&gt;|<abbr title="\DI\Definition\Source\DefinitionSource">DefinitionSource</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__variadic-operator">...</span><span class="phpdocumentor-signature__argument__name">$definitions</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\DI\Container">Container</abbr></span></code>
-
-        <section class="phpdocumentor-description"><p>This function creates a ContainerBuilder, adds one or more definition sources,
-and returns the built Container. Definitions can be provided as:</p>
-<ul>
-<li>string: path to a PHP definition file (returning an array of definitions).</li>
-<li>array: an associative array of definitions.</li>
-<li>DefinitionSource: any PHP-DI compatible definition source.</li>
-</ul>
-<p>Notes:</p>
-<ul>
-<li>Later definition sources can override entries defined earlier.</li>
-<li>To load multiple files from a directory, see initDefinitions().</li>
-</ul>
-</section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$definitions</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, mixed&gt;|<abbr title="\DI\Definition\Source\DefinitionSource">DefinitionSource</abbr></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>One or more definition sources (file path(s), array(s), or DefinitionSource instances).</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="namespaces/oihana-init.html#function_initContainer#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Exception">Exception</abbr></span>
-                                                            
-                                                 <section class="phpdocumentor-description"><p>If the container build process fails.</p>
-</section>
-
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><a href="namespaces/oihana-init.html#function_initDefinitions"><abbr title="\oihana\init\initDefinitions()">initDefinitions()</abbr></a></span>
-                                        
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">see</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\DI\ContainerBuilder">ContainerBuilder</abbr></span>
-                                        
-                                             
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">link</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                                        <a class="phpdocumentor-tag-link" href="https://php-di.org/doc/definition.html"> <p>PHP-DI definitions documentation</p>
- </a>
-                    
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">example</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">use DI\Container;
-use function oihana\init\{initContainer, initDefinitions};
-
-// From a definitions directory (merges all PHP files returning arrays)
-$definitions = initDefinitions(__DIR__ . '/../../definitions');
-
-// Add additional inline definitions that can override previous ones
-$inline =
-[
-    'config.timezone' =&gt; 'UTC',
-];
-
-// Build the container with multiple sources
-// @var Container $container
-$container = initContainer($definitions, $inline, __DIR__ . '/extra-definitions.php');
-
-// Retrieve a service
-// $logger = $container-&gt;get(App\Logger::class);
-</code></pre>
-</section>
-
-                                    </dd>
-                                            </dl>
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><abbr title="\DI\Container">Container</abbr></span>
-                    &mdash;
-                <section class="phpdocumentor-description"><p>The built dependency injection container.</p>
-</section>
-
-            </section>
-
-</article>
-            </section>
-
+        
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/init/initContainer.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/graphics/AspectRatio.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -409,17 +268,11 @@ $container = initContainer($definitions, $inline, __DIR__ . '/extra-definitions.
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                                                                                                                                        <li><a href="files/src-oihana-init-initcontainer.html#toc-functions">Functions</a></li>
-                                    </ul>
+                                                                                                        <li><a href="files/src-oihana-graphics-aspectratio.html#toc-classes">Classes</a></li>
+                                                                                                                    </ul>
             </li>
 
             
-                            <li class="phpdocumentor-on-this-page-section__title">Functions</li>
-                <li>
-                    <ul class="phpdocumentor-list -clean">
-                                                    <li class=""><a href="namespaces/oihana-init.html#function_initContainer">initContainer()</a></li>
-                                            </ul>
-                </li>
                     </ul>
     </section>
 
@@ -437,7 +290,7 @@ $container = initContainer($definitions, $inline, __DIR__ . '/extra-definitions.
     </section>
 </section>
         </div>
-        <a href="files/src-oihana-init-initcontainer.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="files/src-oihana-graphics-aspectratio.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

@@ -80,6 +80,10 @@
                 
             </li>
                     <li>
+                <a href="namespaces/oihana-graphics.html" class="">graphics</a>
+                
+            </li>
+                    <li>
                 <a href="namespaces/oihana-http.html" class="">http</a>
                 
             </li>
@@ -1129,7 +1133,7 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOModel.php"><a href="files/src-oihana-models-pdo-pdomodel.html"><abbr title="src/oihana/models/pdo/PDOModel.php">PDOModel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">79</span>
+    <span class="phpdocumentor-element-found-in__line">85</span>
 
     </aside>
 
@@ -1137,7 +1141,7 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DI\Container">Container</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="array{alters: array|null, binds: array|null, deferAssignment: bool|null, schema: string|null, pdo: \PDO|string|null}">PDO|string|null}</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DI\Container">Container</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="array{alters?: array|null, binds?: array|null, deferAssignment?: bool|null, schema?: string|null, pdo?: \PDO|string|null}">PDO|string|null}</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1158,16 +1162,16 @@ if ( !$model-&gt;userExists('admin', 'localhost') )
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$init</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="array{alters: array|null, binds: array|null, deferAssignment: bool|null, schema: string|null, pdo: \PDO|string|null}">PDO|string|null}</abbr></span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="array{alters?: array|null, binds?: array|null, deferAssignment?: bool|null, schema?: string|null, pdo?: \PDO|string|null}">PDO|string|null}</abbr></span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>Optional initialization array with keys:</p>
 <ul>
-<li>Param::ALTERS: array of alterations to apply</li>
-<li>Param::BINDS: array of binds for queries</li>
-<li>Param::DEFER_ASSIGNMENT: bool whether to defer property assignment on fetch</li>
-<li>Param::SCHEMA: string class name of schema for fetch mode</li>
-<li>Param::PDO: PDO instance or service name in container</li>
+<li>Param::ALTERS           : array of alterations to apply</li>
+<li>Param::BINDS            : array of binds for queries</li>
+<li>Param::DEFER_ASSIGNMENT : bool whether to defer property assignment on fetch</li>
+<li>Param::SCHEMA           : string class name of schema for fetch mode</li>
+<li>Param::PDO              : PDO instance or service name in container</li>
 </ul>
 </section>
 

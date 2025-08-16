@@ -691,6 +691,81 @@ Search.appendIndex(
             "summary": "Checks\u0020if\u0020a\u0020MySQL\u0020user\u0020exists.",
             "url": "classes/oihana-db-mysql-traits-MysqlUserTrait.html#method_userExists"
         },                {
+            "fqsen": "\\oihana\\graphics\\AspectRatio",
+            "name": "AspectRatio",
+            "summary": "Manages\u0020and\u0020enforces\u0020an\u0020aspect\u0020ratio\u0020for\u0020a\u0020given\u0020width\u0020and\u0020height.",
+            "url": "classes/oihana-graphics-AspectRatio.html"
+        },                {
+            "fqsen": "\\oihana\\graphics\\AspectRatio\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "AspectRatio\u0020constructor.",
+            "url": "classes/oihana-graphics-AspectRatio.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\graphics\\AspectRatio\u003A\u003AisLocked\u0028\u0029",
+            "name": "isLocked",
+            "summary": "Checks\u0020if\u0020the\u0020aspect\u0020ratio\u0020is\u0020currently\u0020locked.",
+            "url": "classes/oihana-graphics-AspectRatio.html#method_isLocked"
+        },                {
+            "fqsen": "\\oihana\\graphics\\AspectRatio\u003A\u003Alock\u0028\u0029",
+            "name": "lock",
+            "summary": "Locks\u0020the\u0020aspect\u0020ratio.",
+            "url": "classes/oihana-graphics-AspectRatio.html#method_lock"
+        },                {
+            "fqsen": "\\oihana\\graphics\\AspectRatio\u003A\u003Aunlock\u0028\u0029",
+            "name": "unlock",
+            "summary": "Unlocks\u0020the\u0020aspect\u0020ratio.",
+            "url": "classes/oihana-graphics-AspectRatio.html#method_unlock"
+        },                {
+            "fqsen": "\\oihana\\graphics\\AspectRatio\u003A\u003ArecalculateGCD\u0028\u0029",
+            "name": "recalculateGCD",
+            "summary": "Recalculates\u0020the\u0020GCD\u0020and\u0020the\u0020simplified\u0020aspect\u0020ratio\u0020components.",
+            "url": "classes/oihana-graphics-AspectRatio.html#method_recalculateGCD"
+        },                {
+            "fqsen": "\\oihana\\graphics\\AspectRatio\u003A\u003A\u0024gcd",
+            "name": "gcd",
+            "summary": "Gets\u0020the\u0020Greatest\u0020Common\u0020Divisor\u0020\u0028GCD\u0029\u0020of\u0020the\u0020current\u0020width\u0020and\u0020height.",
+            "url": "classes/oihana-graphics-AspectRatio.html#property_gcd"
+        },                {
+            "fqsen": "\\oihana\\graphics\\AspectRatio\u003A\u003A\u0024height",
+            "name": "height",
+            "summary": "The\u0020current\u0020height\u0020size.",
+            "url": "classes/oihana-graphics-AspectRatio.html#property_height"
+        },                {
+            "fqsen": "\\oihana\\graphics\\AspectRatio\u003A\u003A\u0024width",
+            "name": "width",
+            "summary": "The\u0020current\u0020width\u0020size.",
+            "url": "classes/oihana-graphics-AspectRatio.html#property_width"
+        },                {
+            "fqsen": "\\oihana\\graphics\\AspectRatio\u003A\u003A\u0024_aspW",
+            "name": "_aspW",
+            "summary": "",
+            "url": "classes/oihana-graphics-AspectRatio.html#property__aspW"
+        },                {
+            "fqsen": "\\oihana\\graphics\\AspectRatio\u003A\u003A\u0024_aspH",
+            "name": "_aspH",
+            "summary": "",
+            "url": "classes/oihana-graphics-AspectRatio.html#property__aspH"
+        },                {
+            "fqsen": "\\oihana\\graphics\\AspectRatio\u003A\u003A\u0024_gcd",
+            "name": "_gcd",
+            "summary": "",
+            "url": "classes/oihana-graphics-AspectRatio.html#property__gcd"
+        },                {
+            "fqsen": "\\oihana\\graphics\\AspectRatio\u003A\u003A\u0024_height",
+            "name": "_height",
+            "summary": "",
+            "url": "classes/oihana-graphics-AspectRatio.html#property__height"
+        },                {
+            "fqsen": "\\oihana\\graphics\\AspectRatio\u003A\u003A\u0024_locked",
+            "name": "_locked",
+            "summary": "",
+            "url": "classes/oihana-graphics-AspectRatio.html#property__locked"
+        },                {
+            "fqsen": "\\oihana\\graphics\\AspectRatio\u003A\u003A\u0024_width",
+            "name": "_width",
+            "summary": "",
+            "url": "classes/oihana-graphics-AspectRatio.html#property__width"
+        },                {
             "fqsen": "\\oihana\\http\\HttpHeaders",
             "name": "HttpHeaders",
             "summary": "Enumeration\u0020of\u0020standard\u0020HTTP\u0020header\u0020names\u0020\u0028request\u0020and\u0020response\u0029.",
@@ -2173,7 +2248,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\traits\\alters\\AlterIntPropertyTrait",
             "name": "AlterIntPropertyTrait",
-            "summary": "",
+            "summary": "Casts\u0020a\u0020value\u0020\u0028or\u0020all\u0020elements\u0020in\u0020an\u0020array\u0029\u0020to\u0020integer.",
             "url": "classes/oihana-traits-alters-AlterIntPropertyTrait.html"
         },                {
             "fqsen": "\\oihana\\traits\\alters\\AlterIntPropertyTrait\u003A\u003AalterIntProperty\u0028\u0029",
@@ -2580,6 +2655,11 @@ Search.appendIndex(
             "name": "traits",
             "summary": "",
             "url": "namespaces/oihana-db-mysql-traits.html"
+        },                {
+            "fqsen": "\\oihana\\graphics",
+            "name": "graphics",
+            "summary": "",
+            "url": "namespaces/oihana-graphics.html"
         },                {
             "fqsen": "\\oihana\\http",
             "name": "http",
