@@ -2,6 +2,7 @@
 
 namespace oihana\logging;
 
+use oihana\controllers\enums\ControllerParam;
 use Stringable;
 
 use DI\DependencyException;
@@ -194,15 +195,23 @@ trait LoggerTrait
      * @param bool|array|null $defaultValue The default value if the $init argument is not defined.
      * @return static
      */
-    public function initializeLoggable( bool|array|null $init = null , bool $defaultValue = false ) :static
+    public function initializeLoggable( bool|array|null $init = null , ?ContainerInterface $container = null , bool $defaultValue = false ) :static
     {
-        $this->loggable = match( true )
+        $loggable = match( true )
         {
             is_bool  ( $init ) => $init,
             is_array ( $init ) => $init[ static::LOGGABLE ] ?? $defaultValue ,
-            default            => $defaultValue ,
+            default            => null ,
         };
-        return $this;
+
+       if( $loggable == null && $container?->has( static::LOGGABLE ) )
+        {
+            $loggable = $container->get( static::LOGGABLE  ) ;
+        }
+
+        $this->loggable = is_bool( $loggable ) ? $loggable : $defaultValue ;
+
+       return $this;
     }
 
     /**
