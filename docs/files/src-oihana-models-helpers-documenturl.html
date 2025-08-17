@@ -126,7 +126,7 @@
     </ul>
 
     <article class="phpdocumentor-element -file">
-        <h2 class="phpdocumentor-content__title">AlterUrlPropertyTrait.php</h2>
+        <h2 class="phpdocumentor-content__title">documentUrl.php</h2>
 
         
         
@@ -137,7 +137,7 @@
         
 <h3 id="toc">
     Table of Contents
-    <a href="files/src-oihana-traits-alters-alterurlpropertytrait.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="files/src-oihana-models-helpers-documenturl.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -145,29 +145,161 @@
 
 
 
-    <h4 id="toc-traits">
-        Traits
-        <a href="files/src-oihana-traits-alters-alterurlpropertytrait.html#toc-traits" class="headerlink"><i class="fas fa-link"></i></a>
+
+
+
+
+
+
+<h4 id="toc-functions">
+    Functions
+    <a href="files/src-oihana-models-helpers-documenturl.html#toc-functions" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/oihana-models-helpers.html#function_documentUrl">documentUrl()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Generates a full document URL based on the project&#039;s base URL.</dd>
+
+    </dl>
+
+
+        
+
+            <section class="phpdocumentor-functions">
+        <h3 class="phpdocumentor-elements__header" id="functions">
+            Functions
+            <a href="files/src-oihana-models-helpers-documenturl.html#functions" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_documentUrl">
+        documentUrl()
+        <a href="namespaces/oihana-models-helpers.html#function_documentUrl" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
-    <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/oihana-traits-alters-AlterUrlPropertyTrait.html"><abbr title="\oihana\traits\alters\AlterUrlPropertyTrait">AlterUrlPropertyTrait</abbr></a></dt><dd>Provides a method to generate a URL string from a document property.</dd>    </dl>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/helpers/documentUrl.php"><a href="files/src-oihana-models-helpers-documenturl.html"><abbr title="src/oihana/models/helpers/documentUrl.php">documentUrl.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
+    </aside>
 
+        <p class="phpdocumentor-summary">Generates a full document URL based on the project&#039;s base URL.</p>
 
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">documentUrl</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$path</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">Char::EMPTY</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$definition</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;baseUrl&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$trailingSlash</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
+        <section class="phpdocumentor-description"><p>This helper function is commonly used in IoC container definitions of models
+to generate the accessible URL of a document or resource.</p>
+<p>The function:</p>
+<ol>
+<li>Retrieves the base URL from the DI container using the provided definition key (default 'baseUrl').</li>
+<li>Joins the base URL with the provided relative path.</li>
+<li>Optionally appends a trailing slash.</li>
+</ol>
+<p>Example usage:</p>
+<pre class="prettyprint"><code class="language-php">use Psr\Container\ContainerInterface;
 
+$url = documentUrl('uploads/image.png', $container);
+// returns something like 'https://example.com/uploads/image.png'
 
+$urlWithSlash = documentUrl('uploads', $container, 'baseUrl', true);
+// returns 'https://example.com/uploads/'
+</code></pre>
+</section>
 
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$path</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">Char::EMPTY</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Relative path of the document (default: empty string).</p>
+</section>
 
-        
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$container</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional DI container to fetch the base URL from.</p>
+</section>
 
-        
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$definition</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;baseUrl&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Key used to fetch the base URL from the container (default: 'baseUrl').</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$trailingSlash</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Whether to append a trailing slash to the resulting URL (default: false).</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="namespaces/oihana-models-helpers.html#function_documentUrl#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If an error occurs while retrieving the base URL from the container.</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the base URL definition is not found in the container.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The fully resolved document URL.</p>
+</section>
+
+            </section>
+
+</article>
+            </section>
+
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/traits/alters/AlterUrlPropertyTrait.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/models/helpers/documentUrl.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -268,11 +400,17 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                                                                            <li><a href="files/src-oihana-traits-alters-alterurlpropertytrait.html#toc-traits">Traits</a></li>
-                                                                                                </ul>
+                                                                                                                                                                                        <li><a href="files/src-oihana-models-helpers-documenturl.html#toc-functions">Functions</a></li>
+                                    </ul>
             </li>
 
             
+                            <li class="phpdocumentor-on-this-page-section__title">Functions</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="namespaces/oihana-models-helpers.html#function_documentUrl">documentUrl()</a></li>
+                                            </ul>
+                </li>
                     </ul>
     </section>
 
@@ -290,7 +428,7 @@
     </section>
 </section>
         </div>
-        <a href="files/src-oihana-traits-alters-alterurlpropertytrait.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="files/src-oihana-models-helpers-documenturl.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

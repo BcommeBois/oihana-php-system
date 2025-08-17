@@ -47,14 +47,15 @@ trait ModelTrait
     /**
      * Initialize the openEdge model.
      * @param array $init
-     * @return void
+     * @return static
      * @throws DependencyException
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    protected function initializeModel( array $init = [] ):void
+    protected function initializeModel( array $init = [] ):static
     {
         $this->model = $this->getDocumentsModel( $init[ static::MODEL ] ?? $this->model ) ;
+        return $this ;
     }
 }

@@ -1906,6 +1906,11 @@ Search.appendIndex(
             "summary": "The\u0020maximum\u0020number\u0020of\u0020files\u0020stored\u0020in\u0020the\u0020log\u0020folder.",
             "url": "classes/oihana-logging-MonoLogManager.html#property_maxFiles"
         },                {
+            "fqsen": "\\oihana\\models\\helpers\\documentUrl\u0028\u0029",
+            "name": "documentUrl",
+            "summary": "Generates\u0020a\u0020full\u0020document\u0020URL\u0020based\u0020on\u0020the\u0020project\u0027s\u0020base\u0020URL.",
+            "url": "namespaces/oihana-models-helpers.html#function_documentUrl"
+        },                {
             "fqsen": "\\oihana\\models\\interfaces\\CountModel",
             "name": "CountModel",
             "summary": "",
@@ -2278,12 +2283,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\traits\\alters\\AlterUrlPropertyTrait",
             "name": "AlterUrlPropertyTrait",
-            "summary": "",
+            "summary": "Provides\u0020a\u0020method\u0020to\u0020generate\u0020a\u0020URL\u0020string\u0020from\u0020a\u0020document\u0020property.",
             "url": "classes/oihana-traits-alters-AlterUrlPropertyTrait.html"
         },                {
             "fqsen": "\\oihana\\traits\\alters\\AlterUrlPropertyTrait\u003A\u003AalterUrlProperty\u0028\u0029",
             "name": "alterUrlProperty",
-            "summary": "Generates\u0020a\u0020document\u0020url.",
+            "summary": "Generates\u0020a\u0020document\u0020URL\u0020using\u0020a\u0020property\u0020as\u0020the\u0020final\u0020path\u0020segment.",
             "url": "classes/oihana-traits-alters-AlterUrlPropertyTrait.html#method_alterUrlProperty"
         },                {
             "fqsen": "\\oihana\\traits\\BindsTrait",
@@ -2685,6 +2690,11 @@ Search.appendIndex(
             "name": "monolog",
             "summary": "",
             "url": "namespaces/oihana-logging-monolog.html"
+        },                {
+            "fqsen": "\\oihana\\models\\helpers",
+            "name": "helpers",
+            "summary": "",
+            "url": "namespaces/oihana-models-helpers.html"
         },                {
             "fqsen": "\\oihana\\models\\interfaces",
             "name": "interfaces",

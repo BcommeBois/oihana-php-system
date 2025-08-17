@@ -48,11 +48,11 @@ trait ListModelTrait
      * Initialize the list model reference.
      * @param array $init
      * @param ContainerInterface|null $container
-     * @return void
+     * @return static
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    protected function initializeListModel( array $init = [] , ?ContainerInterface $container = null ) :void
+    protected function initializeListModel( array $init = [] , ?ContainerInterface $container = null ) :static
     {
         $list = $init[ static::LIST ] ?? null ;
         if( is_string( $list ) && $list != Char::EMPTY && $container?->has( $list ) )
@@ -60,5 +60,6 @@ trait ListModelTrait
             $list = $container->get( $list ) ;
         }
         $this->list = $list instanceof ListModel ? $list : null ;
+        return $this;
     }
 }

@@ -404,7 +404,7 @@ $processed = $processor-&gt;alter($data);
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Generates a document url.</dd>
+<dd>Generates a document URL using a property as the final path segment.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-traits-KeyValueTrait.html#method_getKeyValue">getKeyValue()</a>
@@ -1674,11 +1674,11 @@ $result = $this-&gt;alterProperty('price', $document, Alter::FLOAT, true);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/alters/AlterUrlPropertyTrait.php"><a href="files/src-oihana-traits-alters-alterurlpropertytrait.html"><abbr title="src/oihana/traits/alters/AlterUrlPropertyTrait.php">AlterUrlPropertyTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Generates a document url.</p>
+        <p class="phpdocumentor-summary">Generates a document URL using a property as the final path segment.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1695,35 +1695,47 @@ $result = $this-&gt;alterProperty('price', $document, Alter::FLOAT, true);
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|object</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Document to read the property from.</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$options</span>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Optional array of parameters :</p>
+<ul>
+<li>[0] string Base path prefix</li>
+<li>[1] string Property name to use (default 'id')</li>
+</ul>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$isArray</span>
                 : <span class="phpdocumentor-signature__argument__return-type">bool|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Optionally force document type (true=array, false=object)</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$modified</span>
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Reference variable updated if URL was altered</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$propertyName</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">&#039;id&#039;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The default property value to use to alter the url property (Default 'id').</p>
+                    <section class="phpdocumentor-description"><p>Default property name if not specified in options (default 'id')</p>
 </section>
 
             </dd>
@@ -1736,6 +1748,10 @@ $result = $this-&gt;alterProperty('price', $document, Alter::FLOAT, true);
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The generated URL</p>
+</section>
+
             </section>
 
 </article>
