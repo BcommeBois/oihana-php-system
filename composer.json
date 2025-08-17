@@ -33,7 +33,8 @@
             "src/oihana/init/initDefinitions.php",
             "src/oihana/init/initErrors.php",
             "src/oihana/init/initMemoryLimit.php",
-            "src/oihana/init/setIniIfExists.php"
+            "src/oihana/init/setIniIfExists.php",
+            "src/oihana/models/helpers/documentUrl.php"
         ]
     },
     "autoload-dev": {

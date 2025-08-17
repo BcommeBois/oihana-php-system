@@ -2,16 +2,21 @@
 
 namespace tests\oihana\models\pdo;
 
-use DI\Container;
-use oihana\enums\Param;
-use oihana\models\pdo\PDOModel;
 use PDO;
 use PDOStatement;
+
+use stdClass;
+
 use PHPUnit\Framework\MockObject\Exception;
 use PHPUnit\Framework\TestCase;
+
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
-use stdClass;
+
+use DI\Container;
+
+use oihana\enums\Param;
+use oihana\models\pdo\PDOModel;
 
 class PDOModelTest extends TestCase
 {

@@ -48,6 +48,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Adds oihana\models\interfaces\TruncateModel
 - Adds oihana\models\interfaces\UpdateModel
 - Adds oihana\models\interfaces\UpsertModel
+- Adds oihana\models\helpers\documentUrl
 - Adds oihana\models\pdo\PDOModel
 - Adds oihana\models\pdo\PDOTrait
 - Adds oihana\models\traits\DocumentsTrait
