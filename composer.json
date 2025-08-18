@@ -27,6 +27,7 @@
         },
         "files":
         [
+            "src/oihana/controllers/helpers/getController.php",
             "src/oihana/init/initConfig.php",
             "src/oihana/init/initContainer.php",
             "src/oihana/init/initDefaultTimezone.php",
