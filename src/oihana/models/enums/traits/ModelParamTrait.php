@@ -86,4 +86,9 @@ trait ModelParamTrait
      * The 'schema' parameter.
      */
     public const string SCHEMA = 'schema' ;
+
+    /**
+     * The 'sort' parameter.
+     */
+    public const string SORT = 'sort' ;
 }
