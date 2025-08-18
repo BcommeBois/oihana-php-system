@@ -10,6 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Added
 
+- Adds the oihana\controllers package (beta)
+
 - Adds oihana\date\TimeInterval
 - Adds oihana\date\traits\DateTrait
 
