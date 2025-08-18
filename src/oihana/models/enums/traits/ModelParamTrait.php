@@ -18,6 +18,11 @@ trait ModelParamTrait
     public const string BINDS = 'binds' ;
 
     /**
+     * The 'cache' parameter.
+     */
+    public const string CACHE = 'cache' ;
+
+    /**
      * The 'debug' parameter.
      */
     public const string DEBUG = 'debug' ;
