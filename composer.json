@@ -53,7 +53,7 @@
         "oihana/php-reflect": "dev-main",
         "oihana/php-enums": "dev-main",
         "oihana/php-files": "dev-main",
-        "oihana/php-schema": "^1.0",
+        "oihana/php-schema": "dev-main",
         "monolog/monolog": "^3.9",
         "php-di/php-di": "^7.0",
         "psr/log": "^3.0",
