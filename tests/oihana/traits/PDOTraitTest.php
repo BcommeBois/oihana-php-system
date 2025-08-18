@@ -227,7 +227,10 @@ class PDOTraitTest extends TestCase
     {
         $pdo = $this->createMock(PDO::class);
 
-        $result = $this->model->initPDO([Param::PDO => $pdo], null);
+        $this->model->initializePDO([ Param::PDO => $pdo] );
+
+        $result = $this->model->pdo ;
+
         $this->assertSame($pdo, $result);
     }
 
@@ -252,7 +255,10 @@ class PDOTraitTest extends TestCase
             ->with('my_pdo')
             ->willReturn($pdo);
 
-        $result = $this->model->initPDO([ Param::PDO => 'my_pdo'], $container);
+        $this->model->initializePDO([ Param::PDO => 'my_pdo'], $container);
+
+        $result = $this->model->pdo ;
+
         $this->assertSame($pdo, $result);
     }
 

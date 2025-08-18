@@ -2,7 +2,6 @@
 
 namespace oihana\logging;
 
-use oihana\controllers\enums\ControllerParam;
 use Stringable;
 
 use DI\DependencyException;

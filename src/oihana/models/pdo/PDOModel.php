@@ -73,11 +73,11 @@ class PDOModel extends Model
      *   schema?          : string|null ,
      *   pdo?             : PDO|string|null
      * } $init Optional initialization array with keys:
-     *   - Param::ALTERS           : array of alterations to apply
-     *   - Param::BINDS            : array of binds for queries
-     *   - Param::DEFER_ASSIGNMENT : bool whether to defer property assignment on fetch
-     *   - Param::SCHEMA           : string class name of schema for fetch mode
-     *   - Param::PDO              : PDO instance or service name in container
+     *   - ModelParam::ALTERS           : array of alterations to apply
+     *   - ModelParam::BINDS            : array of binds for queries
+     *   - ModelParam::DEFER_ASSIGNMENT : bool whether to defer property assignment on fetch
+     *   - ModelParam::SCHEMA           : string class name of schema for fetch mode
+     *   - ModelParam::PDO              : PDO instance or service name in container
      *
      * @throws ContainerExceptionInterface If container service retrieval fails.
      * @throws NotFoundExceptionInterface If container service not found.
@@ -85,11 +85,11 @@ class PDOModel extends Model
     public function __construct( Container $container , array $init = [] )
     {
         parent::__construct( $container , $init ) ;
-        $this->alters          = $init[ static::ALTERS ] ?? $this->alters ;
-        $this->binds           = $init[ static::BINDS  ] ?? $this->binds ;
-        $this->deferAssignment = $init[ static::DEFER_ASSIGNMENT ] ?? $this->deferAssignment ;
-        $this->schema          = $init[ static::SCHEMA ] ?? $this->schema ;
-        $this->pdo             = $this->initPDO( $init , $container ) ;
+        $this->initializeAlters          ( $init )
+             ->initializeBinds           ( $init )
+             ->initializeDeferAssignment ( $init )
+             ->initializeSchema          ( $init )
+             ->initializePDO             ( $init , $container ) ;
     }
 
     use PDOTrait ;

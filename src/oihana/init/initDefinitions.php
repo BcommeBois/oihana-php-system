@@ -4,8 +4,7 @@ namespace oihana\init;
 
 use Exception ;
 
-use oihana\enums\Param;
-
+use oihana\files\enums\RecursiveFilePathsOption;
 use function oihana\files\recursiveFilePaths;
 use function oihana\files\requireAndMergeArrays;
 
@@ -47,5 +46,5 @@ use function oihana\files\requireAndMergeArrays;
  */
 function initDefinitions( string $basePath ) : array
 {
-    return requireAndMergeArrays( recursiveFilePaths( $basePath , [ Param::EXTENSIONS => [ 'php' ] ] ) ) ;
+    return requireAndMergeArrays( recursiveFilePaths( $basePath , [ RecursiveFilePathsOption::EXTENSIONS => [ 'php' ] ] ) ) ;
 };

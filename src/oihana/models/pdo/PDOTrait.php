@@ -3,6 +3,7 @@
 namespace oihana\models\pdo;
 
 use Exception;
+use oihana\models\enums\ModelParam;
 use PDO;
 use PDOException;
 use PDOStatement;
@@ -55,21 +56,6 @@ trait PDOTrait
      * @var string|mixed|null
      */
     public ?string $schema = null ;
-
-    /**
-     * The 'deferAssignment' parameter constant.
-     */
-    public const string DEFER_ASSIGNMENT = 'deferAssignment' ;
-
-    /**
-     * The 'pdo' parameter constant.
-     */
-    public const string PDO = 'pdo' ;
-
-    /**
-     * The 'schema' parameter constant.
-     */
-    public const string SCHEMA = 'schema' ;
 
     /**
      * Bind named parameters to a prepared PDO statement.
@@ -247,26 +233,6 @@ trait PDOTrait
     }
 
     /**
-     * Initialize the PDO instance from a config array or dependency injection container.
-     *
-     * @param array         $init       Configuration array. Expects Param::PDO as key.
-     * @param Container|null $container Optional DI container to resolve the PDO service.
-     *
-     * @return PDO|null                 The resolved PDO instance or null.
-     * @throws ContainerExceptionInterface
-     * @throws NotFoundExceptionInterface
-     */
-    public function initPDO( array $init = [] , ?Container $container = null ) :?PDO
-    {
-        $pdo = $init[ static::PDO ] ?? null  ;
-        if( isset( $container ) && is_string( $pdo ) && $container->has( $pdo ) )
-        {
-            $pdo = $container->get( $pdo ) ;
-        }
-        return $pdo instanceof PDO ? $pdo : null ;
-    }
-
-    /**
      * Set the default fetch mode on the statement.
      * Uses FETCH_ASSOC by default or FETCH_CLASS (with optional FETCH_PROPS_LATE)
      * if a schema class is defined and exists.
@@ -290,6 +256,50 @@ trait PDOTrait
         {
             $statement->setFetchMode( PDO::FETCH_ASSOC ) ;
         }
+    }
+
+    /**
+     * Initialize the 'deferAssignment' property.
+     * @param array $init
+     * @return static
+     */
+    public function initializeDeferAssignment( array $init = [] ):static
+    {
+        $this->deferAssignment = $init[ ModelParam::DEFER_ASSIGNMENT ] ?? false ;
+        return $this ;
+    }
+
+    /**
+     * Initialize the PDO instance from a config array or dependency injection container.
+     *
+     * @param array         $init       Configuration array. Expects ModelParam::PDO ('pdo') as key.
+     * @param Container|null $container Optional DI container to resolve the PDO service.
+     *
+     * @return static
+     *
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function initializePDO( array $init = [] , ?Container $container = null ) :static
+    {
+        $pdo = $init[ ModelParam::PDO ] ?? null  ;
+        if( isset( $container ) && is_string( $pdo ) && $container->has( $pdo ) )
+        {
+            $pdo = $container->get( $pdo ) ;
+        }
+        $this->pdo = $pdo instanceof PDO ? $pdo : null ;
+        return $this ;
+    }
+
+    /**
+     * Initialize the 'schema' property.
+     * @param array $init
+     * @return static
+     */
+    public function initializeSchema( array $init = [] ):static
+    {
+        $this->schema = $init[ ModelParam::SCHEMA ] ?? false ;
+        return $this ;
     }
 
     /**

@@ -5,6 +5,7 @@ namespace oihana\traits\alters;
 use DI\DependencyException;
 use DI\NotFoundException;
 
+use oihana\models\enums\ModelParam;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
@@ -59,8 +60,8 @@ trait AlterGetDocumentPropertyTrait
             if( isset( $model ) )
             {
                 $modified = true ;
-                $key = $definition[1] ?? static::ID ;
-                return $model->get( [ static::BINDS => [ $key => $value ] ] ) ; // Add the options like Param::CACHEABLE ...
+                $key = $definition[1] ?? ModelParam::ID ;
+                return $model->get( [ ModelParam::BINDS => [ $key => $value ] ] ) ; // Add the options like ModelParam::CACHEABLE ...
             }
             return $value ;
         }

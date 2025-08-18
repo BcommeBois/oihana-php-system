@@ -2,6 +2,7 @@
 
 namespace oihana\models\traits ;
 
+use oihana\models\enums\ModelParam;
 use UnexpectedValueException;
 
 use Psr\Container\ContainerExceptionInterface;
@@ -27,11 +28,6 @@ trait ListModelTrait
     public ?ListModel $list ;
 
     /**
-     * The 'list' parameter constant.
-     */
-    public const string LIST = 'list' ;
-
-    /**
      * Asserts the existence of the `list` property.
      * @return void
      * @throws UnexpectedValueException If the `list` property is not set.
@@ -54,7 +50,7 @@ trait ListModelTrait
      */
     protected function initializeListModel( array $init = [] , ?ContainerInterface $container = null ) :static
     {
-        $list = $init[ static::LIST ] ?? null ;
+        $list = $init[ ModelParam::LIST ] ?? null ;
         if( is_string( $list ) && $list != Char::EMPTY && $container?->has( $list ) )
         {
             $list = $container->get( $list ) ;

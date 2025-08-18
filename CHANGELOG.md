@@ -6,6 +6,26 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+### Added
+
+- Adds the oihana\mysql package
+  - oihana\mysql\enums\traits\MysqlParamTrait
+  - oihana\mysql\enums\MysqlParam
+  - oihana\mysql\enums\MysqlPrivileges
+  - oihana\mysql\traits\MysqlAssertionsTrait
+  - oihana\mysql\traits\MysqlDatabaseTrait
+  - oihana\mysql\traits\MysqlPrivilegeTrait
+  - oihana\mysql\traits\MysqlRootTrait
+  - oihana\mysql\traits\MysqlTableTrait
+  - oihana\mysql\traits\MysqlUserTrait
+  - oihana\mysql\MysqlDSN
+  - oihana\mysql\MysqlModel
+  - oihana\mysql\MysqlPDOBuilder
+
+### TODO
+
+  - Move oihana\mysql package to a standalone library.
+
 ## [0.0.0] - 2025-08-13 (alpha)
 
 ### Added

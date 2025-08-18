@@ -5,6 +5,7 @@ namespace oihana\models\traits;
 use DI\DependencyException;
 use DI\NotFoundException;
 
+use oihana\models\enums\ModelParam;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
@@ -25,11 +26,6 @@ trait ModelTrait
      * The model reference.
      */
     public ?DocumentsModel $model = null ;
-
-    /**
-     * The 'model' parameter constant.
-     */
-    public const string MODEL = 'model' ;
 
     /**
      * Asserts the existence of the `model` property.
@@ -55,7 +51,7 @@ trait ModelTrait
      */
     protected function initializeModel( array $init = [] ):static
     {
-        $this->model = $this->getDocumentsModel( $init[ static::MODEL ] ?? $this->model ) ;
+        $this->model = $this->getDocumentsModel( $init[ ModelParam::MODEL ] ?? $this->model ) ;
         return $this ;
     }
 }

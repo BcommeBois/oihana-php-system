@@ -2,14 +2,14 @@
 
 namespace oihana\models;
 
+use oihana\traits\DebugTrait;
 use oihana\traits\ToStringTrait;
+
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Log\LoggerInterface;
 
 use DI\Container;
-
-use oihana\traits\DebugTrait;
 
 /**
  * A base model class that integrates a PDO instance with dependency injection container support.
@@ -75,10 +75,9 @@ class Model
     public function __construct( Container $container , array $init = [] )
     {
         $this->container = $container ;
-        $this->debug     = $init[ static::DEBUG  ] ?? $this->debug ;
-        $this->initializeDebug( $init ) ;
-        $this->initializeLogger( $init , $container ) ;
-        $this->initializeMock( $init ) ;
+        $this->initializeDebug( $init )
+             ->initializeLogger( $init , $container )
+             ->initializeMock( $init ) ;
     }
 
     use DebugTrait ,

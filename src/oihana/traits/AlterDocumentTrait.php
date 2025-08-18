@@ -5,6 +5,7 @@ namespace oihana\traits;
 use DI\DependencyException;
 use DI\NotFoundException;
 
+use oihana\models\enums\ModelParam;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
@@ -108,11 +109,6 @@ trait AlterDocumentTrait
      * The enumeration of all definitions to alter on the array or object key/value properties.
      */
     public array $alters = [] ;
-
-    /**
-     * The 'alters' constant parameter.
-     */
-    public const string ALTERS = 'alters' ;
 
     /**
      * Alters the given document (array or object) based on the configured `$alters` definitions.
@@ -369,5 +365,16 @@ trait AlterDocumentTrait
         }
 
         return $modified ? $this->setKeyValue( $document , $key , $value , $isArray ) : $document;
+    }
+
+    /**
+     * Initialize the 'alters' property.
+     * @param array $init
+     * @return static
+     */
+    public function initializeAlters( array $init = [] ):static
+    {
+        $this->alters = $init[ ModelParam::ALTERS ] ?? $this->alters ;
+        return $this ;
     }
 }
