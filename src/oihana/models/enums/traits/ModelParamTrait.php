@@ -81,6 +81,11 @@ trait ModelParamTrait
      * The 'queryBuilder' parameter.
      */
     public const string QUERY_BUILDER = 'queryBuilder' ;
+    
+    /**
+     * The 'queryFields' parameter.
+     */
+    public const string QUERY_FIELDS = 'queryFields' ;
 
     /**
      * The 'queryId' parameter.
