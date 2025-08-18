@@ -68,6 +68,16 @@ trait ModelParamTrait
     public const string PDO = 'pdo' ;
 
     /**
+     * The 'query' parameter.
+     */
+    public const string QUERY = 'query' ;
+
+    /**
+     * The 'queryId' parameter.
+     */
+    public const string QUERY_ID = 'queryId' ;
+
+    /**
      * The 'schema' parameter.
      */
     public const string SCHEMA = 'schema' ;
