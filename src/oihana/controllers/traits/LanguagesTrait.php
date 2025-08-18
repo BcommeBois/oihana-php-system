@@ -52,7 +52,7 @@ trait LanguagesTrait
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    public function initializeLanguages( array $init = [] , ?ContainerInterface $container ) :static
+    public function initializeLanguages( array $init = [] , ?ContainerInterface $container = null ) :static
     {
         $languages = $init[ ControllerParam::LANGUAGES ] ?? null ;
 
