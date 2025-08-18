@@ -141,7 +141,7 @@ trait ControllerParamTrait
      * The 'list' parameter.
      */
     public const string LIST = 'list' ;
-    
+
     /**
      * The 'margin' parameter.
      */
