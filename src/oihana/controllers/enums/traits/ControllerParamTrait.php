@@ -138,6 +138,11 @@ trait ControllerParamTrait
     public const string LANGUAGES = 'languages' ;
 
     /**
+     * The 'list' parameter.
+     */
+    public const string LIST = 'list' ;
+    
+    /**
      * The 'margin' parameter.
      */
     public const string MARGIN = 'margin' ;
@@ -146,6 +151,11 @@ trait ControllerParamTrait
      * The 'mock' parameter.
      */
     public const string MOCK = 'mock' ;
+
+    /**
+     * The 'model' parameter.
+     */
+    public const string MODEL = 'model' ;
 
     /**
      * The 'order' parameter.
