@@ -53,7 +53,7 @@ trait PDOTrait
 
     /**
      * The internal schema to use in the PDO fetch processes.
-     * @var string|mixed|null
+     * @var string|null
      */
     public ?string $schema = null ;
 
@@ -298,7 +298,7 @@ trait PDOTrait
      */
     public function initializeSchema( array $init = [] ):static
     {
-        $this->schema = $init[ ModelParam::SCHEMA ] ?? false ;
+        $this->schema = $init[ ModelParam::SCHEMA ] ?? null ;
         return $this ;
     }
 
