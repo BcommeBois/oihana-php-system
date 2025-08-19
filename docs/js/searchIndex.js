@@ -2021,11 +2021,6 @@ Search.appendIndex(
             "summary": "Initialize\u0020the\u0020PDO\u0020instance\u0020from\u0020a\u0020config\u0020array\u0020or\u0020dependency\u0020injection\u0020container.",
             "url": "classes/oihana-models-pdo-PDOTrait.html#method_initializePDO"
         },                {
-            "fqsen": "\\oihana\\models\\pdo\\PDOTrait\u003A\u003AinitializeSchema\u0028\u0029",
-            "name": "initializeSchema",
-            "summary": "Initialize\u0020the\u0020\u0027schema\u0027\u0020property.",
-            "url": "classes/oihana-models-pdo-PDOTrait.html#method_initializeSchema"
-        },                {
             "fqsen": "\\oihana\\models\\pdo\\PDOTrait\u003A\u003AisConnected\u0028\u0029",
             "name": "isConnected",
             "summary": "Indicates\u0020if\u0020the\u0020PDO\u0020is\u0020connected.",
@@ -2040,11 +2035,6 @@ Search.appendIndex(
             "name": "pdo",
             "summary": "The\u0020PDO\u0020reference.",
             "url": "classes/oihana-models-pdo-PDOTrait.html#property_pdo"
-        },                {
-            "fqsen": "\\oihana\\models\\pdo\\PDOTrait\u003A\u003A\u0024schema",
-            "name": "schema",
-            "summary": "The\u0020internal\u0020schema\u0020to\u0020use\u0020in\u0020the\u0020PDO\u0020fetch\u0020processes.",
-            "url": "classes/oihana-models-pdo-PDOTrait.html#property_schema"
         },                {
             "fqsen": "\\oihana\\models\\traits\\DocumentsTrait",
             "name": "DocumentsTrait",
@@ -2100,6 +2090,21 @@ Search.appendIndex(
             "name": "model",
             "summary": "The\u0020model\u0020reference.",
             "url": "classes/oihana-models-traits-ModelTrait.html#property_model"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\SchemaTrait",
+            "name": "SchemaTrait",
+            "summary": "Provides\u0020methods\u0020for\u0020initialize\u0020a\u0020\u0027schema\u0027\u0020property.",
+            "url": "classes/oihana-models-traits-SchemaTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\SchemaTrait\u003A\u003AinitializeSchema\u0028\u0029",
+            "name": "initializeSchema",
+            "summary": "Initialize\u0020the\u0020\u0027schema\u0027\u0020property.",
+            "url": "classes/oihana-models-traits-SchemaTrait.html#method_initializeSchema"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\SchemaTrait\u003A\u003A\u0024schema",
+            "name": "schema",
+            "summary": "The\u0020internal\u0020schema\u0020to\u0020use\u0020to\u0020hydrate\u0020the\u0020resources.",
+            "url": "classes/oihana-models-traits-SchemaTrait.html#property_schema"
         },                {
             "fqsen": "\\oihana\\mysql\\enums\\MysqlParam",
             "name": "MysqlParam",

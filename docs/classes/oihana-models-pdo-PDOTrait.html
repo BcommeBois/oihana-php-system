@@ -137,13 +137,13 @@
     PDOTrait
             <span class="phpdocumentor-trait__extends">
             uses
-                            <a href="classes/oihana-traits-AlterDocumentTrait.html"><abbr title="\oihana\traits\AlterDocumentTrait">trait:short</abbr></a>,                             <a href="classes/oihana-traits-BindsTrait.html"><abbr title="\oihana\traits\BindsTrait">trait:short</abbr></a>,                             <a href="classes/oihana-traits-ContainerTrait.html"><abbr title="\oihana\traits\ContainerTrait">trait:short</abbr></a>                    </span>
+                            <a href="classes/oihana-traits-AlterDocumentTrait.html"><abbr title="\oihana\traits\AlterDocumentTrait">trait:short</abbr></a>,                             <a href="classes/oihana-traits-BindsTrait.html"><abbr title="\oihana\traits\BindsTrait">trait:short</abbr></a>,                             <a href="classes/oihana-traits-ContainerTrait.html"><abbr title="\oihana\traits\ContainerTrait">trait:short</abbr></a>,                             <a href="classes/oihana-models-traits-SchemaTrait.html"><abbr title="\oihana\models\traits\SchemaTrait">trait:short</abbr></a>                    </span>
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
@@ -260,11 +260,11 @@
 <dd>The PDO reference.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/oihana-models-pdo-PDOTrait.html#property_schema">$schema</a>
+    <a class="" href="classes/oihana-models-traits-SchemaTrait.html#property_schema">$schema</a>
     <span>
-                        &nbsp;: string|mixed|null            </span>
+                        &nbsp;: string|null            </span>
 </dt>
-<dd>The internal schema to use in the PDO fetch processes.</dd>
+<dd>The internal schema to use to hydrate the resources.</dd>
 
     </dl>
 
@@ -373,7 +373,7 @@
 <dd>Initialize the PDO instance from a config array or dependency injection container.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-models-pdo-PDOTrait.html#method_initializeSchema">initializeSchema()</a>
+    <a class="" href="classes/oihana-models-traits-SchemaTrait.html#method_initializeSchema">initializeSchema()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
@@ -580,7 +580,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">46</span>
+    <span class="phpdocumentor-element-found-in__line">48</span>
 
     </aside>
 
@@ -621,7 +621,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">54</span>
 
     </aside>
 
@@ -652,24 +652,24 @@
 >
     <h4 class="phpdocumentor-element__name" id="property_schema">
         $schema
-        <a href="classes/oihana-models-pdo-PDOTrait.html#property_schema" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-models-traits-SchemaTrait.html#property_schema" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                             </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/SchemaTrait.php"><a href="files/src-oihana-models-traits-schematrait.html"><abbr title="src/oihana/models/traits/SchemaTrait.php">SchemaTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">58</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">The internal schema to use in the PDO fetch processes.</p>
+        <p class="phpdocumentor-summary">The internal schema to use to hydrate the resources.</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
         <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__type">string|mixed|null</span>
+            <span class="phpdocumentor-signature__type">string|null</span>
     <span class="phpdocumentor-signature__name">$schema</span>
      = <span class="phpdocumentor-signature__default-value">null</span></code>
 
@@ -1184,7 +1184,7 @@ $result = $this-&gt;alterProperty('price', $document, Alter::FLOAT, true);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">69</span>
+    <span class="phpdocumentor-element-found-in__line">65</span>
 
     </aside>
 
@@ -1244,7 +1244,7 @@ $result = $this-&gt;alterProperty('price', $document, Alter::FLOAT, true);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">101</span>
+    <span class="phpdocumentor-element-found-in__line">97</span>
 
     </aside>
 
@@ -1334,7 +1334,7 @@ Alteration is applied via AlterDocumentTrait.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">140</span>
+    <span class="phpdocumentor-element-found-in__line">136</span>
 
     </aside>
 
@@ -1424,7 +1424,7 @@ Alteration is applied via AlterDocumentTrait.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">178</span>
+    <span class="phpdocumentor-element-found-in__line">174</span>
 
     </aside>
 
@@ -1497,7 +1497,7 @@ Alteration is applied via AlterDocumentTrait.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">210</span>
+    <span class="phpdocumentor-element-found-in__line">206</span>
 
     </aside>
 
@@ -1655,7 +1655,7 @@ Alteration is applied via AlterDocumentTrait.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">244</span>
+    <span class="phpdocumentor-element-found-in__line">240</span>
 
     </aside>
 
@@ -1705,7 +1705,7 @@ if a schema class is defined and exists.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">266</span>
+    <span class="phpdocumentor-element-found-in__line">262</span>
 
     </aside>
 
@@ -1754,7 +1754,7 @@ if a schema class is defined and exists.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">283</span>
+    <span class="phpdocumentor-element-found-in__line">279</span>
 
     </aside>
 
@@ -1831,13 +1831,13 @@ if a schema class is defined and exists.</p>
 >
     <h4 class="phpdocumentor-element__name" id="method_initializeSchema">
         initializeSchema()
-        <a href="classes/oihana-models-pdo-PDOTrait.html#method_initializeSchema" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-models-traits-SchemaTrait.html#method_initializeSchema" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/SchemaTrait.php"><a href="files/src-oihana-models-traits-schematrait.html"><abbr title="src/oihana/models/traits/SchemaTrait.php">SchemaTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">299</span>
+    <span class="phpdocumentor-element-found-in__line">27</span>
 
     </aside>
 
@@ -1886,7 +1886,7 @@ if a schema class is defined and exists.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">309</span>
+    <span class="phpdocumentor-element-found-in__line">294</span>
 
     </aside>
 
@@ -2088,7 +2088,7 @@ if a schema class is defined and exists.</p>
                                             <li class=""><a href="classes/oihana-traits-ContainerTrait.html#property_container">$container</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#property_deferAssignment">$deferAssignment</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#property_pdo">$pdo</a></li>
-                                            <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#property_schema">$schema</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-SchemaTrait.html#property_schema">$schema</a></li>
                                     </ul>
             </li>
                                     <li class="phpdocumentor-on-this-page-section__title">Methods</li>
@@ -2108,7 +2108,7 @@ if a schema class is defined and exists.</p>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_initializeDefaultFetchMode">initializeDefaultFetchMode()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_initializeDeferAssignment">initializeDeferAssignment()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_initializePDO">initializePDO()</a></li>
-                                            <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_initializeSchema">initializeSchema()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-SchemaTrait.html#method_initializeSchema">initializeSchema()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_isConnected">isConnected()</a></li>
                                             <li class=""><a href="classes/oihana-traits-BindsTrait.html#method_prepareBindVars">prepareBindVars()</a></li>
                                     </ul>

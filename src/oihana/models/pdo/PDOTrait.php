@@ -3,7 +3,6 @@
 namespace oihana\models\pdo;
 
 use Exception;
-use oihana\models\enums\ModelParam;
 use PDO;
 use PDOException;
 use PDOStatement;
@@ -14,6 +13,8 @@ use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
 use oihana\enums\Char;
+use oihana\models\enums\ModelParam;
+use oihana\models\traits\SchemaTrait;
 use oihana\traits\AlterDocumentTrait;
 use oihana\traits\BindsTrait;
 use oihana\traits\ContainerTrait;
@@ -36,7 +37,8 @@ trait PDOTrait
 {
     use AlterDocumentTrait ,
         BindsTrait ,
-        ContainerTrait ;
+        ContainerTrait ,
+        SchemaTrait ;
 
     /**
      * Indicates if the the constructor is called before setting properties.
@@ -50,12 +52,6 @@ trait PDOTrait
      * @var ?PDO
      */
     public ?PDO $pdo = null ;
-
-    /**
-     * The internal schema to use in the PDO fetch processes.
-     * @var string|null
-     */
-    public ?string $schema = null ;
 
     /**
      * Bind named parameters to a prepared PDO statement.
@@ -243,7 +239,7 @@ trait PDOTrait
      */
     public function initializeDefaultFetchMode( PDOStatement $statement ):void
     {
-        if( isset( $this->schema ) && class_exists( $this->schema ) )
+        if( is_string( $this->schema ) && class_exists( $this->schema ) )
         {
             $mode = PDO::FETCH_CLASS ;
             if( $this->deferAssignment )
@@ -288,17 +284,6 @@ trait PDOTrait
             $pdo = $container->get( $pdo ) ;
         }
         $this->pdo = $pdo instanceof PDO ? $pdo : null ;
-        return $this ;
-    }
-
-    /**
-     * Initialize the 'schema' property.
-     * @param array $init
-     * @return static
-     */
-    public function initializeSchema( array $init = [] ):static
-    {
-        $this->schema = $init[ ModelParam::SCHEMA ] ?? null ;
         return $this ;
     }
 
