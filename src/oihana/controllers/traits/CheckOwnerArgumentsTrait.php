@@ -1,17 +1,16 @@
 <?php
 
-namespace oihana\models\traits;
+namespace oihana\controllers\traits;
 
 use DI\DependencyException;
 use DI\NotFoundException;
-
-use Psr\Container\ContainerExceptionInterface;
-use Psr\Container\NotFoundExceptionInterface;
-
 use oihana\exceptions\http\Error404;
 use oihana\exceptions\http\Error500;
 use oihana\models\enums\ModelParam;
 use oihana\models\interfaces\ExistModel;
+use oihana\models\traits\DocumentsTrait;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 /**
  * Provides utilities for validating "owner" arguments against specific Documents model references.
