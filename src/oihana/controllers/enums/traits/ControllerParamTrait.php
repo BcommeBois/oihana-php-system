@@ -168,6 +168,11 @@ trait ControllerParamTrait
     public const string ORDERS = 'orders' ;
 
     /**
+     * The 'owner' parameter.
+     */
+    public const string OWNER = 'owner' ;
+
+    /**
      * The 'ownerPath' parameter.
      */
     public const string OWNER_PATH = 'ownerPath' ;

@@ -4,13 +4,16 @@ namespace oihana\controllers\traits;
 
 use DI\DependencyException;
 use DI\NotFoundException;
+
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
+
+use oihana\controllers\enums\ControllerParam;
 use oihana\exceptions\http\Error404;
 use oihana\exceptions\http\Error500;
 use oihana\models\enums\ModelParam;
 use oihana\models\interfaces\ExistModel;
 use oihana\models\traits\DocumentsTrait;
-use Psr\Container\ContainerExceptionInterface;
-use Psr\Container\NotFoundExceptionInterface;
 
 /**
  * Provides utilities for validating "owner" arguments against specific Documents model references.
@@ -78,7 +81,7 @@ trait CheckOwnerArgumentsTrait
      */
     public function initializeOwner( array $init = [] ):static
     {
-        $this->owner = $init[ ModelParam::OWNER ] ?? $this->owner ;
+        $this->owner = $init[ ControllerParam::OWNER ] ?? $this->owner ;
         return $this;
     }
 }
