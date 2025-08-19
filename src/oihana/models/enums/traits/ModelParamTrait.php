@@ -68,6 +68,11 @@ trait ModelParamTrait
     public const string MODEL = 'model' ;
 
     /**
+     * The 'owner' parameter.
+     */
+    public const string OWNER = 'owner' ;
+
+    /**
      * The 'pdo' parameter.
      */
     public const string PDO = 'pdo' ;
@@ -101,4 +106,9 @@ trait ModelParamTrait
      * The 'sort' parameter.
      */
     public const string SORT = 'sort' ;
+
+    /**
+     * The 'value' parameter.
+     */
+    public const string VALUE = 'value' ;
 }
