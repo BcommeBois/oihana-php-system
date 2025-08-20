@@ -2,16 +2,17 @@
 
 namespace oihana\controllers\traits\prepare;
 
-use oihana\controllers\traits\ApiTrait;
+use fr\ooop\schema\Pagination;
+
 use oihana\controllers\traits\LimitTrait;
+use oihana\controllers\traits\PaginationTrait;
 use oihana\enums\FilterOption;
-use oihana\enums\Pagination;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 trait PrepareLimit
 {
-    use ApiTrait ,
+    use PaginationTrait ,
         LimitTrait ;
 
     /**
@@ -32,7 +33,7 @@ trait PrepareLimit
           string  $property     = Pagination::LIMIT
     ) :int
     {
-        $value = $args[ $property ] ?? $this->{ $property } ?? null ;
+        $value = $args[ $property ] ?? null ;
 
         $flag = false ;
         if( isset( $request ) )
@@ -48,8 +49,8 @@ trait PrepareLimit
                     [
                         FilterOption::OPTIONS =>
                         [
-                            FilterOption::MIN_RANGE => intval( $this->minLimit ?? $this->api[ Pagination::MIN_LIMIT ] ?? 0   ) ,
-                            FilterOption::MAX_RANGE => intval( $this->maxLimit ?? $this->api[ Pagination::MAX_LIMIT ] ?? 100 )
+                            FilterOption::MIN_RANGE => $this->minLimit ?? $this->pagination?->minLimit ?? 0   ,
+                            FilterOption::MAX_RANGE => $this->maxLimit ?? $this->pagination?->maxLimit ?? 100
                         ]
                     ]
                 );
@@ -58,7 +59,7 @@ trait PrepareLimit
 
         if( !is_int( $value ) )
         {
-            $value = intval( $this->limit ?? $this->api[ $property ] ?? $defaultValue );
+            $value = intval( $this->{ $property } ?? $this->pagination->{ $property } ?? $defaultValue );
         }
 
         if( $flag )

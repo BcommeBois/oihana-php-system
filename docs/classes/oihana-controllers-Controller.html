@@ -140,7 +140,7 @@
     
             <span class="phpdocumentor-element__extends">
             uses
-                            <a href="classes/oihana-controllers-traits-ApiTrait.html"><abbr title="\oihana\controllers\traits\ApiTrait">ApiTrait</abbr></a>,                             <a href="classes/oihana-controllers-traits-AppTrait.html"><abbr title="\oihana\controllers\traits\AppTrait">AppTrait</abbr></a>,                             <a href="classes/oihana-controllers-traits-BenchTrait.html"><abbr title="\oihana\controllers\traits\BenchTrait">BenchTrait</abbr></a>,                             <a href="classes/oihana-traits-ContainerTrait.html"><abbr title="\oihana\traits\ContainerTrait">ContainerTrait</abbr></a>,                             <a href="classes/oihana-traits-ConfigTrait.html"><abbr title="\oihana\traits\ConfigTrait">ConfigTrait</abbr></a>,                             <a href="classes/oihana-controllers-traits-GetParamTrait.html"><abbr title="\oihana\controllers\traits\GetParamTrait">GetParamTrait</abbr></a>,                             <a href="classes/oihana-controllers-traits-HttpCacheTrait.html"><abbr title="\oihana\controllers\traits\HttpCacheTrait">HttpCacheTrait</abbr></a>,                             <a href="classes/oihana-controllers-traits-JsonTrait.html"><abbr title="\oihana\controllers\traits\JsonTrait">JsonTrait</abbr></a>,                             <a href="classes/oihana-logging-LoggerTrait.html"><abbr title="\oihana\logging\LoggerTrait">LoggerTrait</abbr></a>,                             <a href="classes/oihana-controllers-traits-MockTrait.html"><abbr title="\oihana\controllers\traits\MockTrait">MockTrait</abbr></a>,                             <a href="classes/oihana-controllers-traits-RouterTrait.html"><abbr title="\oihana\controllers\traits\RouterTrait">RouterTrait</abbr></a>,                             <a href="classes/oihana-controllers-traits-StatusTrait.html"><abbr title="\oihana\controllers\traits\StatusTrait">StatusTrait</abbr></a>,                             <a href="classes/oihana-traits-ToStringTrait.html"><abbr title="\oihana\traits\ToStringTrait">ToStringTrait</abbr></a>,                             <a href="classes/oihana-controllers-traits-ValidatorTrait.html"><abbr title="\oihana\controllers\traits\ValidatorTrait">ValidatorTrait</abbr></a>                    </span>
+                            <a href="classes/oihana-controllers-traits-ApiTrait.html"><abbr title="\oihana\controllers\traits\ApiTrait">ApiTrait</abbr></a>,                             <a href="classes/oihana-controllers-traits-AppTrait.html"><abbr title="\oihana\controllers\traits\AppTrait">AppTrait</abbr></a>,                             <a href="classes/oihana-controllers-traits-BenchTrait.html"><abbr title="\oihana\controllers\traits\BenchTrait">BenchTrait</abbr></a>,                             <a href="classes/oihana-traits-ContainerTrait.html"><abbr title="\oihana\traits\ContainerTrait">ContainerTrait</abbr></a>,                             <a href="classes/oihana-traits-ConfigTrait.html"><abbr title="\oihana\traits\ConfigTrait">ConfigTrait</abbr></a>,                             <a href="classes/oihana-controllers-traits-GetParamTrait.html"><abbr title="\oihana\controllers\traits\GetParamTrait">GetParamTrait</abbr></a>,                             <a href="classes/oihana-controllers-traits-HttpCacheTrait.html"><abbr title="\oihana\controllers\traits\HttpCacheTrait">HttpCacheTrait</abbr></a>,                             <a href="classes/oihana-controllers-traits-JsonTrait.html"><abbr title="\oihana\controllers\traits\JsonTrait">JsonTrait</abbr></a>,                             <a href="classes/oihana-logging-LoggerTrait.html"><abbr title="\oihana\logging\LoggerTrait">LoggerTrait</abbr></a>,                             <a href="classes/oihana-controllers-traits-MockTrait.html"><abbr title="\oihana\controllers\traits\MockTrait">MockTrait</abbr></a>,                             <a href="classes/oihana-controllers-traits-PaginationTrait.html"><abbr title="\oihana\controllers\traits\PaginationTrait">PaginationTrait</abbr></a>,                             <a href="classes/oihana-controllers-traits-PathTrait.html"><abbr title="\oihana\controllers\traits\PathTrait">PathTrait</abbr></a>,                             <a href="classes/oihana-controllers-traits-RouterTrait.html"><abbr title="\oihana\controllers\traits\RouterTrait">RouterTrait</abbr></a>,                             <a href="classes/oihana-controllers-traits-StatusTrait.html"><abbr title="\oihana\controllers\traits\StatusTrait">StatusTrait</abbr></a>,                             <a href="classes/oihana-traits-ToStringTrait.html"><abbr title="\oihana\traits\ToStringTrait">ToStringTrait</abbr></a>,                             <a href="classes/oihana-controllers-traits-ValidatorTrait.html"><abbr title="\oihana\controllers\traits\ValidatorTrait">ValidatorTrait</abbr></a>                    </span>
     </h2>
 
 <div class="phpdocumentor-label-line">
@@ -153,7 +153,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/Controller.php"><a href="files/src-oihana-controllers-controller.html"><abbr title="src/oihana/controllers/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
@@ -288,6 +288,13 @@
                         &nbsp;: string|null            </span>
 </dt>
 <dd>The path of an owner reference.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
+    <a class="" href="classes/oihana-controllers-traits-PaginationTrait.html#property_pagination">$pagination</a>
+    <span>
+                        &nbsp;: <abbr title="\fr\ooop\schema\Pagination">Pagination</abbr>|null            </span>
+</dt>
+<dd>The pagination definition.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-controllers-traits-GetParamTrait.html#property_paramsStrategy">$paramsStrategy</a>
@@ -467,7 +474,7 @@ be logged and monitored.</dd>
 <dd>Get the parameters in the body of the current request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-controllers-Controller.html#method_getFullOwnerPath">getFullOwnerPath()</a>
+    <a class="" href="classes/oihana-controllers-traits-PathTrait.html#method_getFullOwnerPath">getFullOwnerPath()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
@@ -593,6 +600,13 @@ be logged and monitored.</dd>
 <dd>Initialize the `mock` property.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-controllers-traits-PaginationTrait.html#method_initializePagination">initializePagination()</a>
+    <span>
+                                &nbsp;: static    </span>
+</dt>
+<dd>Initializes the internal `pagination` property.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-controllers-traits-GetParamTrait.html#method_initializeParamsStrategy">initializeParamsStrategy()</a>
     <span>
                                 &nbsp;: static    </span>
@@ -600,7 +614,7 @@ be logged and monitored.</dd>
 <dd>Initialize the params strategy : &#039;both&#039; (default), &#039;body&#039; (only), &#039;query&#039; (only).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-controllers-Controller.html#method_initializePath">initializePath()</a>
+    <a class="" href="classes/oihana-controllers-traits-PathTrait.html#method_initializePath">initializePath()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
@@ -1321,6 +1335,45 @@ be logged and monitored.</dd>
             -public
                                                                     "
 >
+    <h4 class="phpdocumentor-element__name" id="property_pagination">
+        $pagination
+        <a href="classes/oihana-controllers-traits-PaginationTrait.html#property_pagination" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/PaginationTrait.php"><a href="files/src-oihana-controllers-traits-paginationtrait.html"><abbr title="src/oihana/controllers/traits/PaginationTrait.php">PaginationTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">28</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The pagination definition.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__type"><abbr title="\fr\ooop\schema\Pagination">Pagination</abbr>|null</span>
+    <span class="phpdocumentor-signature__name">$pagination</span>
+     = <span class="phpdocumentor-signature__default-value">null</span></code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -public
+                                                                    "
+>
     <h4 class="phpdocumentor-element__name" id="property_paramsStrategy">
         $paramsStrategy
         <a href="classes/oihana-controllers-traits-GetParamTrait.html#property_paramsStrategy" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1746,7 +1799,7 @@ used to modify HTTP response headers for caching.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/Controller.php"><a href="files/src-oihana-controllers-controller.html"><abbr title="src/oihana/controllers/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">48</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
@@ -2657,13 +2710,13 @@ to generate URLs relative to the application root.</p>
 >
     <h4 class="phpdocumentor-element__name" id="method_getFullOwnerPath">
         getFullOwnerPath()
-        <a href="classes/oihana-controllers-Controller.html#method_getFullOwnerPath" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-controllers-traits-PathTrait.html#method_getFullOwnerPath" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/Controller.php"><a href="files/src-oihana-controllers-controller.html"><abbr title="src/oihana/controllers/Controller.php">Controller.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/PathTrait.php"><a href="files/src-oihana-controllers-traits-pathtrait.html"><abbr title="src/oihana/controllers/traits/PathTrait.php">PathTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">122</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
     </aside>
 
@@ -2951,7 +3004,7 @@ to generate URLs relative to the application root.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/Controller.php"><a href="files/src-oihana-controllers-controller.html"><abbr title="src/oihana/controllers/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">132</span>
+    <span class="phpdocumentor-element-found-in__line">122</span>
 
     </aside>
 
@@ -4032,6 +4085,109 @@ used to resolve the logger service.</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_initializePagination">
+        initializePagination()
+        <a href="classes/oihana-controllers-traits-PaginationTrait.html#method_initializePagination" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/PaginationTrait.php"><a href="files/src-oihana-controllers-traits-paginationtrait.html"><abbr title="src/oihana/controllers/traits/PaginationTrait.php">PaginationTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">44</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Initializes the internal `pagination` property.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">initializePagination</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>This method retrieves the Slim App instance from either the provided initialization array or the DI container.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$init</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional initialization array (e.g., ['pagination' =&gt; Pagination instance]).</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$container</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional DI container for retrieving the App instance.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-controllers-traits-PaginationTrait.html#method_initializePagination#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the container is used and the App class is not found.</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the container throws an internal error.</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If no valid App instance is provided or found.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">static</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Returns the current controller instance for method chaining.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_initializeParamsStrategy">
         initializeParamsStrategy()
         <a href="classes/oihana-controllers-traits-GetParamTrait.html#method_initializeParamsStrategy" class="headerlink"><i class="fas fa-link"></i></a>
@@ -4100,13 +4256,13 @@ used to resolve the logger service.</p>
 >
     <h4 class="phpdocumentor-element__name" id="method_initializePath">
         initializePath()
-        <a href="classes/oihana-controllers-Controller.html#method_initializePath" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-controllers-traits-PathTrait.html#method_initializePath" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/Controller.php"><a href="files/src-oihana-controllers-controller.html"><abbr title="src/oihana/controllers/Controller.php">Controller.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/PathTrait.php"><a href="files/src-oihana-controllers-traits-pathtrait.html"><abbr title="src/oihana/controllers/traits/PathTrait.php">PathTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">142</span>
+    <span class="phpdocumentor-element-found-in__line">42</span>
 
     </aside>
 
@@ -4593,7 +4749,7 @@ from the DI container if available.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/Controller.php"><a href="files/src-oihana-controllers-controller.html"><abbr title="src/oihana/controllers/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">157</span>
+    <span class="phpdocumentor-element-found-in__line">134</span>
 
     </aside>
 
@@ -6249,6 +6405,7 @@ that are not necessarily wrong.</p>
                                                     <li class=""><a href="classes/oihana-logging-LoggerTrait.html#property_loggable">$loggable</a></li>
                                                     <li class=""><a href="classes/oihana-controllers-traits-MockTrait.html#property_mock">$mock</a></li>
                                                     <li class=""><a href="classes/oihana-controllers-Controller.html#property_ownerPath">$ownerPath</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-traits-PaginationTrait.html#property_pagination">$pagination</a></li>
                                                     <li class=""><a href="classes/oihana-controllers-traits-GetParamTrait.html#property_paramsStrategy">$paramsStrategy</a></li>
                                                     <li class=""><a href="classes/oihana-controllers-Controller.html#property_path">$path</a></li>
                                                     <li class=""><a href="classes/oihana-controllers-traits-ValidatorTrait.html#property_rules">$rules</a></li>
@@ -6279,7 +6436,7 @@ that are not necessarily wrong.</p>
                                             <li class=""><a href="classes/oihana-controllers-traits-AppTrait.html#method_getBasePath">getBasePath()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-GetParamTrait.html#method_getBodyParam">getBodyParam()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-GetParamTrait.html#method_getBodyParams">getBodyParams()</a></li>
-                                            <li class=""><a href="classes/oihana-controllers-Controller.html#method_getFullOwnerPath">getFullOwnerPath()</a></li>
+                                            <li class=""><a href="classes/oihana-controllers-traits-PathTrait.html#method_getFullOwnerPath">getFullOwnerPath()</a></li>
                                             <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_getLogger">getLogger()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-GetParamTrait.html#method_getParam">getParam()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-GetParamTrait.html#method_getParams">getParams()</a></li>
@@ -6297,8 +6454,9 @@ that are not necessarily wrong.</p>
                                             <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_initializeLoggable">initializeLoggable()</a></li>
                                             <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_initializeLogger">initializeLogger()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-MockTrait.html#method_initializeMock">initializeMock()</a></li>
+                                            <li class=""><a href="classes/oihana-controllers-traits-PaginationTrait.html#method_initializePagination">initializePagination()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-GetParamTrait.html#method_initializeParamsStrategy">initializeParamsStrategy()</a></li>
-                                            <li class=""><a href="classes/oihana-controllers-Controller.html#method_initializePath">initializePath()</a></li>
+                                            <li class=""><a href="classes/oihana-controllers-traits-PathTrait.html#method_initializePath">initializePath()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-RouterTrait.html#method_initializeRouterParser">initializeRouterParser()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-ValidatorTrait.html#method_initializeValidator">initializeValidator()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-JsonTrait.html#method_jsonResponse">jsonResponse()</a></li>

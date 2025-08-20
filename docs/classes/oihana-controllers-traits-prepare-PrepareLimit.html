@@ -138,13 +138,13 @@
     PrepareLimit
             <span class="phpdocumentor-trait__extends">
             uses
-                            <a href="classes/oihana-controllers-traits-ApiTrait.html"><abbr title="\oihana\controllers\traits\ApiTrait">trait:short</abbr></a>,                             <a href="classes/oihana-controllers-traits-LimitTrait.html"><abbr title="\oihana\controllers\traits\LimitTrait">trait:short</abbr></a>                    </span>
+                            <a href="classes/oihana-controllers-traits-PaginationTrait.html"><abbr title="\oihana\controllers\traits\PaginationTrait">trait:short</abbr></a>,                             <a href="classes/oihana-controllers-traits-LimitTrait.html"><abbr title="\oihana\controllers\traits\LimitTrait">trait:short</abbr></a>                    </span>
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/prepare/PrepareLimit.php"><a href="files/src-oihana-controllers-traits-prepare-preparelimit.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareLimit.php">PrepareLimit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12</span>
+    <span class="phpdocumentor-element-found-in__line">13</span>
 
     </aside>
 
@@ -205,12 +205,12 @@
 </dt>
 <dd>The default limit value.</dd>
 
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a class="" href="classes/oihana-controllers-traits-ApiTrait.html#property_api">$api</a>
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
+    <a class="" href="classes/oihana-controllers-traits-PaginationTrait.html#property_pagination">$pagination</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
+                        &nbsp;: <abbr title="\fr\ooop\schema\Pagination">Pagination</abbr>|null            </span>
 </dt>
-<dd>The default api settings.</dd>
+<dd>The pagination definition.</dd>
 
     </dl>
 
@@ -221,11 +221,11 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-controllers-traits-ApiTrait.html#method_initializeApi">initializeApi()</a>
+    <a class="" href="classes/oihana-controllers-traits-PaginationTrait.html#method_initializePagination">initializePagination()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
-<dd>Initializes the internal `api` settings.</dd>
+<dd>Initializes the internal `pagination` property.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a class="" href="classes/oihana-controllers-traits-LimitTrait.html#method_initializeLimit">initializeLimit()</a>
@@ -422,31 +422,31 @@
         class="
             phpdocumentor-element
             -property
-            -protected
+            -public
                                                                     "
 >
-    <h4 class="phpdocumentor-element__name" id="property_api">
-        $api
-        <a href="classes/oihana-controllers-traits-ApiTrait.html#property_api" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_pagination">
+        $pagination
+        <a href="classes/oihana-controllers-traits-PaginationTrait.html#property_pagination" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                             </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/ApiTrait.php"><a href="files/src-oihana-controllers-traits-apitrait.html"><abbr title="src/oihana/controllers/traits/ApiTrait.php">ApiTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/PaginationTrait.php"><a href="files/src-oihana-controllers-traits-paginationtrait.html"><abbr title="src/oihana/controllers/traits/PaginationTrait.php">PaginationTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">The default api settings.</p>
+        <p class="phpdocumentor-summary">The pagination definition.</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
-        <span class="phpdocumentor-signature__visibility">protected</span>
-            <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
-    <span class="phpdocumentor-signature__name">$api</span>
-     = <span class="phpdocumentor-signature__default-value">[]</span></code>
+        <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__type"><abbr title="\fr\ooop\schema\Pagination">Pagination</abbr>|null</span>
+    <span class="phpdocumentor-signature__name">$pagination</span>
+     = <span class="phpdocumentor-signature__default-value">null</span></code>
 
     
     
@@ -471,28 +471,28 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_initializeApi">
-        initializeApi()
-        <a href="classes/oihana-controllers-traits-ApiTrait.html#method_initializeApi" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_initializePagination">
+        initializePagination()
+        <a href="classes/oihana-controllers-traits-PaginationTrait.html#method_initializePagination" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/ApiTrait.php"><a href="files/src-oihana-controllers-traits-apitrait.html"><abbr title="src/oihana/controllers/traits/ApiTrait.php">ApiTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/PaginationTrait.php"><a href="files/src-oihana-controllers-traits-paginationtrait.html"><abbr title="src/oihana/controllers/traits/PaginationTrait.php">PaginationTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">43</span>
+    <span class="phpdocumentor-element-found-in__line">44</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Initializes the internal `api` settings.</p>
+        <p class="phpdocumentor-summary">Initializes the internal `pagination` property.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">initializeApi</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+                    <span class="phpdocumentor-signature__name">initializePagination</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
-        <section class="phpdocumentor-description"><p>By default, this method search in the DI container a ControllerParam::API definition to initialize the &quot;api&quot; property.</p>
+        <section class="phpdocumentor-description"><p>This method retrieves the Slim App instance from either the provided initialization array or the DI container.</p>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -502,7 +502,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Optional initialization array (e.g., ['api' =&gt; [ ... ] ] ).</p>
+                    <section class="phpdocumentor-description"><p>Optional initialization array (e.g., ['pagination' =&gt; Pagination instance]).</p>
 </section>
 
             </dd>
@@ -511,7 +511,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Optional DI container for retrieving the 'api' array representation.</p>
+                    <section class="phpdocumentor-description"><p>Optional DI container for retrieving the App instance.</p>
 </section>
 
             </dd>
@@ -520,7 +520,7 @@
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-controllers-traits-ApiTrait.html#method_initializeApi#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-controllers-traits-PaginationTrait.html#method_initializePagination#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -530,7 +530,7 @@
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If the container is used and the 'api' definition is not found in the DI container.</p>
+                                                 <section class="phpdocumentor-description"><p>If the container is used and the App class is not found.</p>
 </section>
 
                                     </dd>
@@ -631,7 +631,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/prepare/PrepareLimit.php"><a href="files/src-oihana-controllers-traits-prepare-preparelimit.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareLimit.php">PrepareLimit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">27</span>
 
     </aside>
 
@@ -708,7 +708,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/prepare/PrepareLimit.php"><a href="files/src-oihana-controllers-traits-prepare-preparelimit.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareLimit.php">PrepareLimit.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">80</span>
+    <span class="phpdocumentor-element-found-in__line">81</span>
 
     </aside>
 
@@ -882,13 +882,13 @@
                                             <li class=""><a href="classes/oihana-controllers-traits-LimitTrait.html#property_maxLimit">$maxLimit</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-LimitTrait.html#property_minLimit">$minLimit</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-LimitTrait.html#property_offset">$offset</a></li>
-                                            <li class=""><a href="classes/oihana-controllers-traits-ApiTrait.html#property_api">$api</a></li>
+                                            <li class=""><a href="classes/oihana-controllers-traits-PaginationTrait.html#property_pagination">$pagination</a></li>
                                     </ul>
             </li>
                                     <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-controllers-traits-ApiTrait.html#method_initializeApi">initializeApi()</a></li>
+                                            <li class=""><a href="classes/oihana-controllers-traits-PaginationTrait.html#method_initializePagination">initializePagination()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-LimitTrait.html#method_initializeLimit">initializeLimit()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-prepare-PrepareLimit.html#method_prepareLimit">prepareLimit()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-prepare-PrepareLimit.html#method_prepareOffset">prepareOffset()</a></li>

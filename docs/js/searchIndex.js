@@ -16,20 +16,10 @@ Search.appendIndex(
             "summary": "Alter\u0020the\u0020specific\u0020thing.",
             "url": "classes/oihana-controllers-Controller.html#method_alter"
         },                {
-            "fqsen": "\\oihana\\controllers\\Controller\u003A\u003AgetFullOwnerPath\u0028\u0029",
-            "name": "getFullOwnerPath",
-            "summary": "Returns\u0020the\u0020full\u0020owner\u0020path\u0020url\u0020with\u0020a\u0020specific\u0020owner\u0020identifier.",
-            "url": "classes/oihana-controllers-Controller.html#method_getFullOwnerPath"
-        },                {
             "fqsen": "\\oihana\\controllers\\Controller\u003A\u003AgetRoute\u0028\u0029",
             "name": "getRoute",
             "summary": "Returns\u0020the\u0020current\u0020Request\u0020route\u0020reference.",
             "url": "classes/oihana-controllers-Controller.html#method_getRoute"
-        },                {
-            "fqsen": "\\oihana\\controllers\\Controller\u003A\u003AinitializePath\u0028\u0029",
-            "name": "initializePath",
-            "summary": "Sets\u0020the\u0020path\u0020of\u0020the\u0020controller.",
-            "url": "classes/oihana-controllers-Controller.html#method_initializePath"
         },                {
             "fqsen": "\\oihana\\controllers\\Controller\u003A\u003AredirectResponse\u0028\u0029",
             "name": "redirectResponse",
@@ -210,6 +200,26 @@ Search.appendIndex(
             "name": "bench",
             "summary": "The\u0020bench\u0020flag\u0020to\u0020test\u0020the\u0020script\u0020execution\u0020time\u0020of\u0020a\u0020function.",
             "url": "classes/oihana-controllers-traits-BenchTrait.html#property_bench"
+        },                {
+            "fqsen": "\\oihana\\controllers\\traits\\CheckOwnerArgumentsTrait",
+            "name": "CheckOwnerArgumentsTrait",
+            "summary": "Provides\u0020utilities\u0020for\u0020validating\u0020\u0022owner\u0022\u0020arguments\u0020against\u0020specific\u0020Documents\u0020model\u0020references.",
+            "url": "classes/oihana-controllers-traits-CheckOwnerArgumentsTrait.html"
+        },                {
+            "fqsen": "\\oihana\\controllers\\traits\\CheckOwnerArgumentsTrait\u003A\u003AcheckOwnerArguments\u0028\u0029",
+            "name": "checkOwnerArguments",
+            "summary": "Check\u0020all\u0020the\u0020\u0027owner\u0027\u0020arguments\u0020with\u0020a\u0020specific\u0020Documents\u0020model\u0020reference.",
+            "url": "classes/oihana-controllers-traits-CheckOwnerArgumentsTrait.html#method_checkOwnerArguments"
+        },                {
+            "fqsen": "\\oihana\\controllers\\traits\\CheckOwnerArgumentsTrait\u003A\u003AinitializeOwner\u0028\u0029",
+            "name": "initializeOwner",
+            "summary": "Initialize\u0020the\u0020owner\u0020definition.",
+            "url": "classes/oihana-controllers-traits-CheckOwnerArgumentsTrait.html#method_initializeOwner"
+        },                {
+            "fqsen": "\\oihana\\controllers\\traits\\CheckOwnerArgumentsTrait\u003A\u003A\u0024owner",
+            "name": "owner",
+            "summary": "The\u0020collection\u0020of\u0020all\u0020owner\u0027s\u0020arguments\u0020to\u0020check\u0020in\u0020the\u0020get\u007Clist\u007Ccount\u007Cexist\u0020methods.",
+            "url": "classes/oihana-controllers-traits-CheckOwnerArgumentsTrait.html#property_owner"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\ControllerTrait",
             "name": "ControllerTrait",
@@ -556,6 +566,21 @@ Search.appendIndex(
             "summary": "Outputs\u0020a\u0020list\u0020of\u0020documents.",
             "url": "classes/oihana-controllers-traits-OutputDocumentsTrait.html#method_outputDocuments"
         },                {
+            "fqsen": "\\oihana\\controllers\\traits\\PaginationTrait",
+            "name": "PaginationTrait",
+            "summary": "Trait\u0020providing\u0020helpers\u0020to\u0020manage\u0020the\u0020application\/api\u0020pagination\u0020settings.",
+            "url": "classes/oihana-controllers-traits-PaginationTrait.html"
+        },                {
+            "fqsen": "\\oihana\\controllers\\traits\\PaginationTrait\u003A\u003AinitializePagination\u0028\u0029",
+            "name": "initializePagination",
+            "summary": "Initializes\u0020the\u0020internal\u0020\u0060pagination\u0060\u0020property.",
+            "url": "classes/oihana-controllers-traits-PaginationTrait.html#method_initializePagination"
+        },                {
+            "fqsen": "\\oihana\\controllers\\traits\\PaginationTrait\u003A\u003A\u0024pagination",
+            "name": "pagination",
+            "summary": "The\u0020pagination\u0020definition.",
+            "url": "classes/oihana-controllers-traits-PaginationTrait.html#property_pagination"
+        },                {
             "fqsen": "\\oihana\\controllers\\traits\\ParamsTrait",
             "name": "ParamsTrait",
             "summary": "",
@@ -570,6 +595,36 @@ Search.appendIndex(
             "name": "params",
             "summary": "The\u0020model\u0020reference.",
             "url": "classes/oihana-controllers-traits-ParamsTrait.html#property_params"
+        },                {
+            "fqsen": "\\oihana\\controllers\\traits\\PathTrait",
+            "name": "PathTrait",
+            "summary": "",
+            "url": "classes/oihana-controllers-traits-PathTrait.html"
+        },                {
+            "fqsen": "\\oihana\\controllers\\traits\\PathTrait\u003A\u003AgetFullOwnerPath\u0028\u0029",
+            "name": "getFullOwnerPath",
+            "summary": "Returns\u0020the\u0020full\u0020owner\u0020path\u0020url\u0020with\u0020a\u0020specific\u0020owner\u0020identifier.",
+            "url": "classes/oihana-controllers-traits-PathTrait.html#method_getFullOwnerPath"
+        },                {
+            "fqsen": "\\oihana\\controllers\\traits\\PathTrait\u003A\u003AinitializePath\u0028\u0029",
+            "name": "initializePath",
+            "summary": "Sets\u0020the\u0020path\u0020of\u0020the\u0020controller.",
+            "url": "classes/oihana-controllers-traits-PathTrait.html#method_initializePath"
+        },                {
+            "fqsen": "\\oihana\\controllers\\traits\\PathTrait\u003A\u003A\u0024fullPath",
+            "name": "fullPath",
+            "summary": "The\u0020full\u0020path\u0020reference.",
+            "url": "classes/oihana-controllers-traits-PathTrait.html#property_fullPath"
+        },                {
+            "fqsen": "\\oihana\\controllers\\traits\\PathTrait\u003A\u003A\u0024path",
+            "name": "path",
+            "summary": "The\u0020path\u0020reference.",
+            "url": "classes/oihana-controllers-traits-PathTrait.html#property_path"
+        },                {
+            "fqsen": "\\oihana\\controllers\\traits\\PathTrait\u003A\u003A\u0024ownerPath",
+            "name": "ownerPath",
+            "summary": "The\u0020path\u0020of\u0020an\u0020owner\u0020reference.",
+            "url": "classes/oihana-controllers-traits-PathTrait.html#property_ownerPath"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\prepare\\PrepareActive",
             "name": "PrepareActive",
