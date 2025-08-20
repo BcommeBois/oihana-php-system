@@ -4,28 +4,7 @@ namespace oihana\controllers ;
 
 use DI\Container;
 
-use oihana\controllers\enums\ControllerParam;
-use oihana\controllers\traits\ApiTrait;
-use oihana\controllers\traits\AppTrait;
-use oihana\controllers\traits\BenchTrait;
-use oihana\controllers\traits\GetParamTrait;
-use oihana\controllers\traits\HttpCacheTrait;
-use oihana\controllers\traits\JsonTrait;
-use oihana\controllers\traits\MockTrait;
-use oihana\controllers\traits\RouterTrait;
-use oihana\controllers\traits\StatusTrait;
-use oihana\controllers\traits\ValidatorTrait;
-
-use oihana\enums\Char;
-
-use oihana\enums\http\HttpHeader;
-
-use oihana\logging\LoggerTrait;
-
-use oihana\traits\ConfigTrait;
-use oihana\traits\ContainerTrait;
-use oihana\traits\ToStringTrait;
-
+use oihana\controllers\traits\PathTrait;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -33,6 +12,24 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 use Slim\Interfaces\RouteInterface;
 use Slim\Routing\RouteContext;
+
+use oihana\controllers\traits\ApiTrait;
+use oihana\controllers\traits\AppTrait;
+use oihana\controllers\traits\BenchTrait;
+use oihana\controllers\traits\GetParamTrait;
+use oihana\controllers\traits\HttpCacheTrait;
+use oihana\controllers\traits\JsonTrait;
+use oihana\controllers\traits\MockTrait;
+use oihana\controllers\traits\PaginationTrait;
+use oihana\controllers\traits\RouterTrait;
+use oihana\controllers\traits\StatusTrait;
+use oihana\controllers\traits\ValidatorTrait;
+use oihana\enums\Char;
+use oihana\enums\http\HttpHeader;
+use oihana\logging\LoggerTrait;
+use oihana\traits\ConfigTrait;
+use oihana\traits\ContainerTrait;
+use oihana\traits\ToStringTrait;
 
 abstract class Controller
 {
@@ -56,6 +53,7 @@ abstract class Controller
              ->initializeJsonOptions    ( $init , $container )
              ->initializeLoggable       ( $init , $container )
              ->initializeLogger         ( $init , $container )
+             ->initializePagination     ( $init , $container )
              ->initializeRouterParser   ( $init , $container )
              ->initializeBench          ( $init )
              ->initializeMock           ( $init )
@@ -64,20 +62,22 @@ abstract class Controller
              ->initializeValidator      ( $init ) ; // https://github.com/somnambulist-tech/validation
     }
 
-    use ApiTrait       ,
-        AppTrait       ,
-        BenchTrait     ,
-        ContainerTrait ,
-        ConfigTrait    ,
-        GetParamTrait  ,
-        HttpCacheTrait ,
-        JsonTrait      ,
-        LoggerTrait    ,
-        MockTrait      ,
-        RouterTrait    ,
-        StatusTrait    ,
-        ToStringTrait  ,
-        ValidatorTrait ;
+    use ApiTrait        ,
+        AppTrait        ,
+        BenchTrait      ,
+        ContainerTrait  ,
+        ConfigTrait     ,
+        GetParamTrait   ,
+        HttpCacheTrait  ,
+        JsonTrait       ,
+        LoggerTrait     ,
+        MockTrait       ,
+        PaginationTrait ,
+        PathTrait       ,
+        RouterTrait     ,
+        StatusTrait     ,
+        ToStringTrait   ,
+        ValidatorTrait  ;
 
     /**
      * The optional conditions settings to validate things.
@@ -115,16 +115,6 @@ abstract class Controller
     }
 
     /**
-     * Returns the full owner path url with a specific owner identifier.
-     * @param string $id
-     * @return string
-     */
-    public function getFullOwnerPath( string $id ):string
-    {
-        return $this->ownerPath . Char::SLASH . $id . Char::SLASH . $this->path ;
-    }
-
-    /**
      * Returns the current Request route reference.
      * @param ?Request $request
      * @return RouteInterface|null
@@ -132,19 +122,6 @@ abstract class Controller
     public function getRoute( ?Request $request ) :?RouteInterface
     {
         return isset( $request ) ? RouteContext::fromRequest( $request )->getRoute() : null ;
-    }
-
-    /**
-     * Sets the path of the controller.
-     * @param array $init
-     * return static
-     */
-    public function initializePath( array $init = [] ) :static
-    {
-        $this->path      = $init[ ControllerParam::PATH       ] ?? Char::EMPTY ;
-        $this->fullPath  = $init[ ControllerParam::FULL_PATH  ] ?? ( Char::SLASH . $this->path ) ;
-        $this->ownerPath = $init[ ControllerParam::OWNER_PATH ] ?? Char::EMPTY ;
-        return $this ;
     }
 
     /**

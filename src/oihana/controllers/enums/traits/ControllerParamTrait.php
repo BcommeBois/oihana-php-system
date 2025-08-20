@@ -2,20 +2,27 @@
 
 namespace oihana\controllers\enums\traits;
 
+use oihana\controllers\traits\ApiTrait;
+use oihana\controllers\traits\AppTrait;
+use oihana\controllers\traits\PaginationTrait;
+use oihana\traits\JsonOptionsTrait;
+
 /**
  * The enumeration of all the common controller's parameters.
  */
 trait ControllerParamTrait
 {
     /**
-     * The 'app' parameter.
-     */
-    public const string APP = 'app' ;
-
-    /**
      * The 'api' parameter.
+     * @see ApiTrait
      */
     public const string API = 'api' ;
+
+    /**
+     * The 'app' parameter.
+     * @see AppTrait
+     */
+    public const string APP = 'app' ;
 
     /**
      * The 'active' parameter.
@@ -119,6 +126,7 @@ trait ControllerParamTrait
 
     /**
      * The 'jsonOptions' parameter.
+     * @see JsonOptionsTrait
      */
     public const string JSON_OPTIONS = 'jsonOptions' ;
 
@@ -176,6 +184,12 @@ trait ControllerParamTrait
      * The 'ownerPath' parameter.
      */
     public const string OWNER_PATH = 'ownerPath' ;
+
+    /**
+     * The 'pagination' parameter.
+     * @see PaginationTrait
+     */
+    public const string PAGINATION = 'pagination' ;
 
     /**
      * The 'params' parameter.

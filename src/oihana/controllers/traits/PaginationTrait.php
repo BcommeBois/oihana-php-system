@@ -1,0 +1,62 @@
+<?php
+
+namespace oihana\controllers\traits ;
+
+use RuntimeException;
+
+use fr\ooop\schema\Pagination;
+
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\ContainerInterface;
+use Psr\Container\NotFoundExceptionInterface;
+
+use oihana\controllers\enums\ControllerParam;
+
+/**
+ * Trait providing helpers to manage the application/api pagination settings.
+ *
+ * This trait allows controllers to access the Slim App instance, retrieve
+ * the application's pagination definition.
+ *
+ */
+trait PaginationTrait
+{
+    /**
+     * The pagination definition.
+     * @var ?Pagination
+     */
+    public ?Pagination $pagination = null ;
+
+    /**
+     * Initializes the internal `pagination` property.
+     *
+     * This method retrieves the Slim App instance from either the provided initialization array or the DI container.
+     *
+     * @param array                   $init      Optional initialization array (e.g., ['pagination' => Pagination instance]).
+     * @param ContainerInterface|null $container Optional DI container for retrieving the App instance.
+     *
+     * @return static Returns the current controller instance for method chaining.
+     *
+     * @throws NotFoundExceptionInterface If the container is used and the App class is not found.
+     * @throws ContainerExceptionInterface If the container throws an internal error.
+     * @throws RuntimeException If no valid App instance is provided or found.
+     */
+    public function initializePagination( array $init = [] , ?ContainerInterface $container = null  ):static
+    {
+        $pagination = $init[ ControllerParam::PAGINATION ] ?? null;
+
+        if( $container instanceof ContainerInterface && $container->has( ControllerParam::PAGINATION ) )
+        {
+            $pagination = $container->get( ControllerParam::PAGINATION ) ;
+        }
+
+        if( is_array( $pagination ) )
+        {
+            $pagination = new Pagination( $pagination ) ;
+        }
+
+        $this->pagination = $pagination instanceof Pagination ? $pagination : null ;
+
+        return $this ;
+    }
+}
