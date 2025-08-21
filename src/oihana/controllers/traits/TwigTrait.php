@@ -81,9 +81,14 @@ trait TwigTrait
     {
         $twig = $init[ self::TWIG ] ?? null ;
 
-        if( $twig == null && $container instanceof ContainerInterface && $container->has( self::TWIG ) )
+        if( !$twig instanceof Twig && $container instanceof ContainerInterface && $container->has( self::TWIG ) )
         {
-            $twig = $container->get( self::TWIG  ) ;
+            $twig = $container->get( self::TWIG ) ;
+        }
+
+        if( !$twig instanceof Twig && $container instanceof ContainerInterface && $container->has( Twig::class ) )
+        {
+            $twig = $container->get( Twig::class ) ;
         }
 
         if ( !$twig instanceof Twig )
