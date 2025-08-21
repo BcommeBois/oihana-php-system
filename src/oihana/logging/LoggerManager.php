@@ -122,7 +122,7 @@ abstract class LoggerManager
      */
     public function countLines( string $file ) :int
     {
-        return countFileLines( $file ) ;
+        return countFileLines( $this->getFilePath( $file ) ) ;
     }
 
     /**
@@ -216,7 +216,6 @@ abstract class LoggerManager
         return file_exists( $file ) ? getFileLines( $file , [ $this , 'createLog' ] ) : null ;
     }
 
-
     /**
      * Returns the list of log files in the log directory matching the current logger name and extension.
      *
@@ -225,14 +224,14 @@ abstract class LoggerManager
      */
     public function getLoggerFiles() :array|false
     {
-        $directory = $this->getDirectory() ;
-        $files = findFiles($directory,
+        $files = findFiles( $this->getDirectory() ,
         [
             FindFilesOption::PATTERN => $this->name . Char::ASTERISK . $this->extension,
             FindFilesOption::MODE    => FindMode::FILES ,
             FindFilesOption::ORDER   => Order::asc ,
             FindFilesOption::SORT    => fn( $a , $b ) => strcmp( $a->getFilename() , $b->getFilename() ) ,
         ]);
+
         return array_map( fn($file) => $file->getFilename() , $files ) ;
     }
 }
