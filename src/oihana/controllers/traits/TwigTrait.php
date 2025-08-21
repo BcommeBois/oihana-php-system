@@ -1,79 +1,125 @@
 <?php
 
-namespace oihana\controllers\traits;
+namespace oihana\controllers\traits ;
 
-use oihana\controllers\enums\ControllerParam;
-use oihana\controllers\enums\TwigParam;
-use oihana\enums\Char;
-
+use InvalidArgumentException;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
+use Psr\Http\Message\ResponseInterface as Response;
+
+use Slim\Views\Twig;
+
+use Twig\Error\LoaderError;
+use Twig\Error\RuntimeError;
+use Twig\Error\SyntaxError;
+
 
 /**
- * The Twig trait.
+ * Provides seamless integration of the **Twig** templating engine into controllers using the **Slim Framework**.
+ *
+ * This trait offers:
+ * - Automatic initialization of a `Twig` instance from a provided configuration array or via a **PSR-11** dependency injection container.
+ * - A simplified `render()` method for rendering Twig templates into a PSR-7 `ResponseInterface`.
+ * - Error handling through Twig's native exceptions for better debugging.
+ *
+ * Typical usage within a Slim controller:
+ *
+ * ```php
+ * use oihana\controllers\traits\TwigTrait;
+ *
+ * class MyController {
+ *     use TwigTrait;
+ *
+ *     public function __construct(ContainerInterface $container) {
+ *         $this->initializeTwig([], $container);
+ *     }
+ *
+ *     public function home($request, $response) {
+ *         return $this->render($response, 'home.twig', [
+ *             'title' => 'Welcome!',
+ *             'user'  => 'Marc'
+ *         ]);
+ *     }
+ * }
+ * ```
+ *
+ * @package oihana\controllers\traits
+ * @see     https://www.slimframework.com/docs/v4/features/templates.html
+ * @see     https://twig.symfony.com/
  */
 trait TwigTrait
 {
     /**
-     * The default twig settings.
-     * @var array
+     * The Twig view renderer instance.
+     * @var Twig
      */
-    public array $twig = [] ;
+    public Twig $twig ;
 
     /**
-     * The default twig settings definitions.
-     */
-    public const array TWIG_DEFAULT_SETTINGS =
-    [
-        TwigParam::BACKGROUND_COLOR => "#1f2937" ,
-        TwigParam::PATTERN_COLOR    => "#1f2937" ,
-        TwigParam::LOGO             => null,
-        TwigParam::LOGO_DARK        => null,
-        TwigParam::FULL_PATH        => Char::EMPTY,
-    ];
-
-    /**
-     * The 'twig' key.
+     * The container key used to retrieve the Twig instance.
+     * @var string
      */
     public const string TWIG = 'twig' ;
 
     /**
-     * Returns the UI config definition to inject in a Twig view.
-     * @param array $init
-     * @return array
+     * Initializes the Twig environment for rendering templates.
+     *
+     * This method first checks if a Twig instance is provided in the `$init` array.
+     * If not, and a PSR-11 container is available, it attempts to fetch the Twig instance using the `self::TWIG` key.
+     *
+     * @param array                   $init      Optional initialization array (e.g., `['twig' => Twig $instance]`).
+     * @param ContainerInterface|null $container Optional PSR-11 container for retrieving the Twig instance.
+     *
+     * @return static Returns the current instance for method chaining.
+     *
+     * @throws NotFoundExceptionInterface    If the container does not contain a Twig instance.
+     * @throws ContainerExceptionInterface   If there is an error while retrieving Twig from the container.
+     * @throws InvalidArgumentException      If no valid Twig instance is provided or available.
      */
-    public function getUISetting( array $init = [] ) : array
-    {
-        return array_merge( $this->twig , $init ) ;
-    }
-
-    /**
-     * Initialize the `twig` property.
-     *
-     * This method retrieves the default twig settings for the application,
-     * either from the provided initialization array or from the dependency injection container.
-     *
-     * @param array                   $init      Optional initialization array (e.g., [ 'twig' => [ backgroundColor: '#ff0000' , ... ] ] ] ).
-     * @param ContainerInterface|null $container Optional DI container for retrieving the App instance.
-     *
-     * @return static Returns the current controller instance for method chaining.
-     *
-     * @throws NotFoundExceptionInterface If the container is used and the App class is not found.
-     * @throws ContainerExceptionInterface If the container throws an internal error.
-     */
-    public function initializeTwig( array $init = [] , ?ContainerInterface $container = null  ):static
+    public function initializeTwig( array $init = [] , ?ContainerInterface $container = null ) :static
     {
         $twig = $init[ self::TWIG ] ?? null ;
 
-        if( $twig === null && $container instanceof ContainerInterface && $container->has( ControllerParam::PAGINATION ) )
+        if( $twig == null && $container instanceof ContainerInterface && $container->has( self::TWIG ) )
         {
-            $twig = $container->get( self::TWIG ) ;
+            $twig = $container->get( self::TWIG  ) ;
         }
 
-        $this->twig = array_merge( self::TWIG_DEFAULT_SETTINGS , is_array( $twig ) ? $twig : [] ) ;
+        if ( !$twig instanceof Twig )
+        {
+            throw new InvalidArgumentException
+            (
+                sprintf
+                (
+                    "Invalid Twig instance. Expected an instance of '%s', got '%s'.",
+                    Twig::class , is_object( $twig ) ? get_class( $twig ) : gettype( $twig )
+                )
+            );
+        }
+
+        $this->twig = $twig ;
 
         return $this ;
     }
-}
 
+    /**
+     * Renders a Twig template into a PSR-7 response.
+     *
+     * @param ?Response $response The PSR-7 response instance.
+     * @param string    $template The name of the Twig template to render.
+     * @param array     $args     Optional array of parameters passed to the template.
+     *
+     * @return ?Response The modified response instance, or `null` if `$response` is not provided.
+     *
+     * @throws LoaderError  If the template cannot be found.
+     * @throws RuntimeError If an error occurs during template rendering.
+     * @throws SyntaxError  If the Twig template contains a syntax error.
+     */
+    public function render( ?Response $response , string $template , array $args = [] ) : ?Response
+    {
+        return isset( $response )
+             ? $this->twig->render( $response , $template , $args )
+             : null ;
+    }
+}

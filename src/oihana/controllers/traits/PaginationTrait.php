@@ -40,7 +40,6 @@ trait PaginationTrait
      *
      * @throws NotFoundExceptionInterface If the container is used and the App class is not found.
      * @throws ContainerExceptionInterface If the container throws an internal error.
-     * @throws RuntimeException If no valid App instance is provided or found.
      */
     public function initializePagination( array $init = [] , ?ContainerInterface $container = null ):static
     {
