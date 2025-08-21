@@ -2,9 +2,17 @@
 
 namespace oihana\logging;
 
+use oihana\enums\Order;
+use oihana\files\enums\FindFilesOption;
+use oihana\files\enums\FindMode;
+use oihana\files\exceptions\DirectoryException;
+use oihana\files\exceptions\FileException;
 use Psr\Log\LoggerInterface;
 
 use oihana\enums\Char;
+use function oihana\files\findFiles;
+use function oihana\files\getFileLines;
+use function oihana\files\path\joinPaths;
 
 /**
  * A logger manager.
@@ -131,7 +139,7 @@ abstract class LoggerManager
      */
     public function getDirectory() :string
     {
-        return implode( DIRECTORY_SEPARATOR , [ $this->directory , $this->path ]  );
+        return joinPaths( $this->directory , $this->path ) ;
     }
 
     /**
@@ -154,55 +162,41 @@ abstract class LoggerManager
 
     /**
      * Returns the full log path.
+     * @param ?string $file The optional file name.
      * @return string
      */
-    public function getFilePath():string
+    public function getFilePath( ?string $file = null ):string
     {
-        return $this->getDirectory() . DIRECTORY_SEPARATOR . $this->getFileName() . $this->getExtension() ;
+        return joinPaths( $this->getDirectory() , $file ?? ( $this->getFileName() . $this->getExtension() ) ) ;
     }
 
     /**
      * Returns the list of lines of a specific log file.
      * @param string $file
      * @return ?array
+     * @throws FileException
      */
     public function getLogLines( string $file ) : ?array
     {
-        $file = $this->getDirectory() . DIRECTORY_SEPARATOR . $file ;
-        if( file_exists( $file ) )
-        {
-            $lines = [] ;
-            clearstatcache();
-            if( filesize( $file ) > 0 )
-            {
-                $file = fopen( $file , self::READ ) ;
-
-                while ( !feof( $file ) )
-                {
-                    $lines[] = fgets( $file );
-                }
-
-                if( count($lines) > 0 )
-                {
-                    array_pop( $lines ) ;
-                    $lines = array_map( fn( $line ) :?array => $this->createLog( $line ) , $lines ) ;
-                }
-
-                fclose( $file ) ;
-            }
-            return $lines ;
-        }
-        return null ;
+        $file = $this->getFilePath( $file ) ;
+        return file_exists( $file ) ? getFileLines( $file ) : null ;
     }
 
+    /**
+     * Return the logger files.
+     * @throws DirectoryException
+     */
     public function getLoggerFiles() :array|false
     {
         $directory = $this->getDirectory() ;
-        $files= scandir( $directory ) ;
-        if( is_array($files) && count( $files ) > 0 && isset( $this->extension ) )
-        {
-            return array_values( array_filter( $files , fn( $file ) => str_starts_with( $file , $this->name ?? Char::EMPTY ) && str_ends_with( $file ?? Char::EMPTY , $this->extension ) ) ) ;
-        }
-        return [] ;
+        $files = findFiles($directory,
+        [
+            FindFilesOption::PATTERN => $this->name . Char::ASTERISK . $this->extension,
+            FindFilesOption::MODE    => FindMode::FILES ,
+            FindFilesOption::ORDER   => Order::asc ,
+            FindFilesOption::SORT    => fn( $a , $b ) => strcmp( $a->getFilename() , $b->getFilename() ) ,
+        ]);
+
+        return array_map( fn($file) => $file->getFilename() , $files ) ;
     }
 }
