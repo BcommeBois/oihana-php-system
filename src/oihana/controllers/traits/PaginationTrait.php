@@ -28,9 +28,10 @@ trait PaginationTrait
     public ?Pagination $pagination = null ;
 
     /**
-     * Initializes the internal `pagination` property.
+     * Initializes the `pagination` property.
      *
-     * This method retrieves the Slim App instance from either the provided initialization array or the DI container.
+     * This method retrieves the default pagination settings for the application,
+     * either from the provided initialization array or from the dependency injection container.
      *
      * @param array                   $init      Optional initialization array (e.g., ['pagination' => Pagination instance]).
      * @param ContainerInterface|null $container Optional DI container for retrieving the App instance.
@@ -41,11 +42,11 @@ trait PaginationTrait
      * @throws ContainerExceptionInterface If the container throws an internal error.
      * @throws RuntimeException If no valid App instance is provided or found.
      */
-    public function initializePagination( array $init = [] , ?ContainerInterface $container = null  ):static
+    public function initializePagination( array $init = [] , ?ContainerInterface $container = null ):static
     {
         $pagination = $init[ ControllerParam::PAGINATION ] ?? null;
 
-        if( $container instanceof ContainerInterface && $container->has( ControllerParam::PAGINATION ) )
+        if( $pagination == null && $container instanceof ContainerInterface && $container->has( ControllerParam::PAGINATION ) )
         {
             $pagination = $container->get( ControllerParam::PAGINATION ) ;
         }

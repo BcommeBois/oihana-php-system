@@ -282,6 +282,11 @@ trait ControllerParamTrait
     public const string TYPE = 'type' ;
 
     /**
+     * The 'twig' parameter.
+     */
+    public const string TWIG = 'twig' ;
+
+    /**
      * The 'url' parameter.
      */
     public const string URL = 'url' ;
