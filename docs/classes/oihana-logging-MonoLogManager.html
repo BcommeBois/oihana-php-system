@@ -188,30 +188,21 @@
     <span>
         &nbsp;= &#039;.log&#039;                            </span>
 </dt>
+<dd>Default log file extension.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a class="" href="classes/oihana-logging-LoggerManager.html#constant_DEFAULT_NAME">DEFAULT_NAME</a>
     <span>
         &nbsp;= &#039;log&#039;                            </span>
 </dt>
+<dd>Default log file name.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a class="" href="classes/oihana-logging-LoggerManager.html#constant_DEFAULT_PATH">DEFAULT_PATH</a>
     <span>
         &nbsp;= &#039;log&#039;                            </span>
 </dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a class="" href="classes/oihana-logging-LoggerManager.html#constant_READ">READ</a>
-    <span>
-        &nbsp;= &#039;r&#039;                            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a class="" href="classes/oihana-logging-LoggerManager.html#constant_WRITE">WRITE</a>
-    <span>
-        &nbsp;= &#039;w&#039;                            </span>
-</dt>
+<dd>Default log folder path (relative to $directory).</dd>
 
     </dl>
 
@@ -232,9 +223,9 @@
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-logging-LoggerManager.html#property_directory">$directory</a>
     <span>
-                        &nbsp;: string|mixed            </span>
+                        &nbsp;: string            </span>
 </dt>
-<dd>The log directory.</dd>
+<dd>The base directory for log storage.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-logging-MonoLogManager.html#property_dirPermissions">$dirPermissions</a>
@@ -246,9 +237,9 @@
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-logging-LoggerManager.html#property_extension">$extension</a>
     <span>
-                        &nbsp;: string|mixed            </span>
+                        &nbsp;: string            </span>
 </dt>
-<dd>The extension of the logs files.</dd>
+<dd>The file extension used for log files (e.g., &quot;.log&quot;).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-logging-MonoLogManager.html#property_filePermissions">$filePermissions</a>
@@ -276,14 +267,14 @@
     <span>
                         &nbsp;: string|null            </span>
 </dt>
-<dd>The name of the logging channel, a simple descriptive name that is attached to all log records.</dd>
+<dd>Optional name of the logging channel.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-logging-LoggerManager.html#property_path">$path</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
-<dd>The path of the log folder.</dd>
+<dd>Subfolder or path where log files are stored (relative to $directory).</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a class="" href="classes/oihana-logging-MonoLogManager.html#property_formatter">$formatter</a>
@@ -312,21 +303,21 @@
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Clear the content of the specific file.</dd>
+<dd>Clears the content of a specific log file.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-logging-LoggerManager.html#method_countLines">countLines()</a>
     <span>
                                 &nbsp;: int    </span>
 </dt>
-<dd>Returns the number of lines in a file.</dd>
+<dd>Returns the number of lines in a log file.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-logging-LoggerManager.html#method_createLog">createLog()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
+                                &nbsp;: <abbr title="\fr\ooop\schema\Log">Log</abbr>|null    </span>
 </dt>
-<dd>Create a basic log definition.</dd>
+<dd>Parses a log line into a structured array.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-logging-MonoLogManager.html#method_createLogger">createLogger()</a>
@@ -340,28 +331,28 @@
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Returns the log directory.</dd>
+<dd>Returns the full path of the log directory.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-logging-LoggerManager.html#method_getExtension">getExtension()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Returns the extension of the log files.</dd>
+<dd>Returns the file extension used for log files.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-logging-LoggerManager.html#method_getFileName">getFileName()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Returns the log file name.</dd>
+<dd>Returns the base name of the log file.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-logging-LoggerManager.html#method_getFilePath">getFilePath()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Returns the full log path.</dd>
+<dd>Returns the full path to a log file.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-logging-MonoLogManager.html#method_getFormatter">getFormatter()</a>
@@ -375,13 +366,14 @@
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;|false    </span>
 </dt>
+<dd>Returns the list of log files in the log directory matching the current logger name and extension.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-logging-LoggerManager.html#method_getLogLines">getLogLines()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
 </dt>
-<dd>Returns the list of lines of a specific log file.</dd>
+<dd>Returns the lines of a log file as an array of structured entries.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-logging-MonoLogManager.html#method_setFormatter">setFormatter()</a>
@@ -411,11 +403,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerManager.php"><a href="files/src-oihana-logging-loggermanager.html"><abbr title="src/oihana/logging/LoggerManager.php">LoggerManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">29</span>
+    <span class="phpdocumentor-element-found-in__line">61</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Default log file extension.</p>
+
     
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -442,11 +435,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerManager.php"><a href="files/src-oihana-logging-loggermanager.html"><abbr title="src/oihana/logging/LoggerManager.php">LoggerManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">28</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Default log file name.</p>
+
     
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -473,79 +467,18 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerManager.php"><a href="files/src-oihana-logging-loggermanager.html"><abbr title="src/oihana/logging/LoggerManager.php">LoggerManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">30</span>
+    <span class="phpdocumentor-element-found-in__line">66</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Default log folder path (relative to $directory).</p>
+
     
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">DEFAULT_PATH</span>
     = <span class="phpdocumentor-signature__default-value">&#039;log&#039;</span>
-</code>
-
-
-    
-    
-    
-
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_READ">
-        READ
-        <a href="classes/oihana-logging-LoggerManager.html#constant_READ" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerManager.php"><a href="files/src-oihana-logging-loggermanager.html"><abbr title="src/oihana/logging/LoggerManager.php">LoggerManager.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">32</span>
-
-    </aside>
-
-    
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">READ</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;r&#039;</span>
-</code>
-
-
-    
-    
-    
-
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_WRITE">
-        WRITE
-        <a href="classes/oihana-logging-LoggerManager.html#constant_WRITE" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerManager.php"><a href="files/src-oihana-logging-loggermanager.html"><abbr title="src/oihana/logging/LoggerManager.php">LoggerManager.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">33</span>
-
-    </aside>
-
-    
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">WRITE</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;w&#039;</span>
 </code>
 
 
@@ -621,16 +554,16 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerManager.php"><a href="files/src-oihana-logging-loggermanager.html"><abbr title="src/oihana/logging/LoggerManager.php">LoggerManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">39</span>
+    <span class="phpdocumentor-element-found-in__line">73</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">The log directory.</p>
+        <p class="phpdocumentor-summary">The base directory for log storage.</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
         <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__type">string|mixed</span>
+            <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$directory</span>
      = <span class="phpdocumentor-signature__default-value">\oihana\enums\Char::EMPTY</span></code>
 
@@ -699,16 +632,16 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerManager.php"><a href="files/src-oihana-logging-loggermanager.html"><abbr title="src/oihana/logging/LoggerManager.php">LoggerManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">79</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">The extension of the logs files.</p>
+        <p class="phpdocumentor-summary">The file extension used for log files (e.g., &quot;.log&quot;).</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
         <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__type">string|mixed</span>
+            <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$extension</span>
     </code>
 
@@ -855,11 +788,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerManager.php"><a href="files/src-oihana-logging-loggermanager.html"><abbr title="src/oihana/logging/LoggerManager.php">LoggerManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">51</span>
+    <span class="phpdocumentor-element-found-in__line">87</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">The name of the logging channel, a simple descriptive name that is attached to all log records.</p>
+        <p class="phpdocumentor-summary">Optional name of the logging channel.</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
@@ -868,7 +801,9 @@
     <span class="phpdocumentor-signature__name">$name</span>
     </code>
 
-    
+        <section class="phpdocumentor-description"><p>Used as prefix for log files and as a descriptive label.</p>
+</section>
+
     
     
 
@@ -894,11 +829,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerManager.php"><a href="files/src-oihana-logging-loggermanager.html"><abbr title="src/oihana/logging/LoggerManager.php">LoggerManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">57</span>
+    <span class="phpdocumentor-element-found-in__line">94</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">The path of the log folder.</p>
+        <p class="phpdocumentor-summary">Subfolder or path where log files are stored (relative to $directory).</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
@@ -1036,11 +971,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerManager.php"><a href="files/src-oihana-logging-loggermanager.html"><abbr title="src/oihana/logging/LoggerManager.php">LoggerManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">64</span>
+    <span class="phpdocumentor-element-found-in__line">105</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Clear the content of the specific file.</p>
+        <p class="phpdocumentor-summary">Clears the content of a specific log file.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1057,17 +992,40 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Log file name.</p>
+</section>
+
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-logging-LoggerManager.html#method_clear#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\oihana\files\exceptions\FileException">FileException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If clearing fails due to filesystem permissions or errors.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if the file was cleared, false if file does not exist.</p>
+</section>
+
             </section>
 
 </article>
@@ -1085,11 +1043,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerManager.php"><a href="files/src-oihana-logging-loggermanager.html"><abbr title="src/oihana/logging/LoggerManager.php">LoggerManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">85</span>
+    <span class="phpdocumentor-element-found-in__line">124</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns the number of lines in a file.</p>
+        <p class="phpdocumentor-summary">Returns the number of lines in a log file.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1106,19 +1064,40 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>return int</p>
+                    <section class="phpdocumentor-description"><p>Log file name.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-logging-LoggerManager.html#method_countLines#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\oihana\files\exceptions\FileException">FileException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If file cannot be read.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">int</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Number of lines in the file.</p>
+</section>
+
             </section>
 
 </article>
@@ -1136,20 +1115,28 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerManager.php"><a href="files/src-oihana-logging-loggermanager.html"><abbr title="src/oihana/logging/LoggerManager.php">LoggerManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">110</span>
+    <span class="phpdocumentor-element-found-in__line">143</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Create a basic log definition.</p>
+        <p class="phpdocumentor-summary">Parses a log line into a structured array.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">createLog</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$line</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                    <span class="phpdocumentor-signature__name">createLog</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$line</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\fr\ooop\schema\Log">Log</abbr>|null</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>Example: &quot;2025-08-21 10:30:00 INFO Some message&quot; becomes:
+[
+'date' =&gt; '2025-08-21',
+'time' =&gt; '10:30:00',
+'level' =&gt; 'INFO',
+'message' =&gt; 'Some message'
+]</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1157,7 +1144,9 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Raw log line.</p>
+</section>
+
             </dd>
             </dl>
 
@@ -1167,7 +1156,11 @@
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\fr\ooop\schema\Log">Log</abbr>|null</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Parsed log entry or null if line is empty or malformed.</p>
+</section>
+
             </section>
 
 </article>
@@ -1231,11 +1224,11 @@ and registers it for error handling to capture system errors and exceptions.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerManager.php"><a href="files/src-oihana-logging-loggermanager.html"><abbr title="src/oihana/logging/LoggerManager.php">LoggerManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">132</span>
+    <span class="phpdocumentor-element-found-in__line">177</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns the log directory.</p>
+        <p class="phpdocumentor-summary">Returns the full path of the log directory.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1253,6 +1246,10 @@ and registers it for error handling to capture system errors and exceptions.</p>
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Absolute path to the log folder.</p>
+</section>
+
             </section>
 
 </article>
@@ -1270,11 +1267,11 @@ and registers it for error handling to capture system errors and exceptions.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerManager.php"><a href="files/src-oihana-logging-loggermanager.html"><abbr title="src/oihana/logging/LoggerManager.php">LoggerManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">141</span>
+    <span class="phpdocumentor-element-found-in__line">187</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns the extension of the log files.</p>
+        <p class="phpdocumentor-summary">Returns the file extension used for log files.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1292,6 +1289,10 @@ and registers it for error handling to capture system errors and exceptions.</p>
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Log file extension, including dot (e.g., &quot;.log&quot;).</p>
+</section>
+
             </section>
 
 </article>
@@ -1309,11 +1310,11 @@ and registers it for error handling to capture system errors and exceptions.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerManager.php"><a href="files/src-oihana-logging-loggermanager.html"><abbr title="src/oihana/logging/LoggerManager.php">LoggerManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">150</span>
+    <span class="phpdocumentor-element-found-in__line">197</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns the log file name.</p>
+        <p class="phpdocumentor-summary">Returns the base name of the log file.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1331,6 +1332,10 @@ and registers it for error handling to capture system errors and exceptions.</p>
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Log file name.</p>
+</section>
+
             </section>
 
 </article>
@@ -1348,21 +1353,33 @@ and registers it for error handling to capture system errors and exceptions.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerManager.php"><a href="files/src-oihana-logging-loggermanager.html"><abbr title="src/oihana/logging/LoggerManager.php">LoggerManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">159</span>
+    <span class="phpdocumentor-element-found-in__line">208</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns the full log path.</p>
+        <p class="phpdocumentor-summary">Returns the full path to a log file.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getFilePath</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                    <span class="phpdocumentor-signature__name">getFilePath</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$file</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
     
-    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$file</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional custom file name. Defaults to <name><extension>.</p>
+</section>
+
+            </dd>
+            </dl>
+
     
 
     
@@ -1370,6 +1387,10 @@ and registers it for error handling to capture system errors and exceptions.</p>
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Full path to the log file.</p>
+</section>
+
             </section>
 
 </article>
@@ -1426,11 +1447,12 @@ and registers it for error handling to capture system errors and exceptions.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerManager.php"><a href="files/src-oihana-logging-loggermanager.html"><abbr title="src/oihana/logging/LoggerManager.php">LoggerManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">198</span>
+    <span class="phpdocumentor-element-found-in__line">232</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Returns the list of log files in the log directory matching the current logger name and extension.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getLoggerFiles</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|false</span></code>
@@ -1441,12 +1463,33 @@ and registers it for error handling to capture system errors and exceptions.</p>
     
     
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-logging-LoggerManager.html#method_getLoggerFiles#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\oihana\files\exceptions\DirectoryException">DirectoryException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the log directory cannot be read.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|false</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>List of log file names or false on error.</p>
+</section>
+
             </section>
 
 </article>
@@ -1464,15 +1507,15 @@ and registers it for error handling to capture system errors and exceptions.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerManager.php"><a href="files/src-oihana-logging-loggermanager.html"><abbr title="src/oihana/logging/LoggerManager.php">LoggerManager.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">169</span>
+    <span class="phpdocumentor-element-found-in__line">220</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns the list of lines of a specific log file.</p>
+        <p class="phpdocumentor-summary">Returns the lines of a log file as an array of structured entries.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getLogLines</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$file</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
+                    <span class="phpdocumentor-signature__name">getLogLines</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$file</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1482,20 +1525,43 @@ and registers it for error handling to capture system errors and exceptions.</p>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$file</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Log file name.</p>
+</section>
+
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-logging-LoggerManager.html#method_getLogLines#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\oihana\files\exceptions\FileException">FileException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the file cannot be read.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Array of parsed log entries or null if file does not exist.</p>
+</section>
+
             </section>
 
 </article>
@@ -1652,8 +1718,6 @@ and registers it for error handling to capture system errors and exceptions.</p>
                                                     <li class=""><a href="classes/oihana-logging-LoggerManager.html#constant_DEFAULT_EXTENSION">DEFAULT_EXTENSION</a></li>
                                                     <li class=""><a href="classes/oihana-logging-LoggerManager.html#constant_DEFAULT_NAME">DEFAULT_NAME</a></li>
                                                     <li class=""><a href="classes/oihana-logging-LoggerManager.html#constant_DEFAULT_PATH">DEFAULT_PATH</a></li>
-                                                    <li class=""><a href="classes/oihana-logging-LoggerManager.html#constant_READ">READ</a></li>
-                                                    <li class=""><a href="classes/oihana-logging-LoggerManager.html#constant_WRITE">WRITE</a></li>
                                             </ul>
                 </li>
             

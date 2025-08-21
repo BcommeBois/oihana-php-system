@@ -583,7 +583,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\PaginationTrait\u003A\u003AinitializePagination\u0028\u0029",
             "name": "initializePagination",
-            "summary": "Initializes\u0020the\u0020internal\u0020\u0060pagination\u0060\u0020property.",
+            "summary": "Initializes\u0020the\u0020\u0060pagination\u0060\u0020property.",
             "url": "classes/oihana-controllers-traits-PaginationTrait.html#method_initializePagination"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\PaginationTrait\u003A\u003A\u0024pagination",
@@ -931,16 +931,6 @@ Search.appendIndex(
             "summary": "The\u0020redirects\u0020settings.",
             "url": "classes/oihana-controllers-traits-RedirectsTrait.html#property_redirects"
         },                {
-            "fqsen": "\\oihana\\controllers\\traits\\RenderTrait",
-            "name": "RenderTrait",
-            "summary": "",
-            "url": "classes/oihana-controllers-traits-RenderTrait.html"
-        },                {
-            "fqsen": "\\oihana\\controllers\\traits\\RenderTrait\u003A\u003Arender\u0028\u0029",
-            "name": "render",
-            "summary": "Render\u0020the\u0020specific\u0020view\u0020with\u0020the\u0020current\u0020template\u0020engine.",
-            "url": "classes/oihana-controllers-traits-RenderTrait.html#method_render"
-        },                {
             "fqsen": "\\oihana\\controllers\\traits\\RouterTrait",
             "name": "RouterTrait",
             "summary": "Provides\u0020helper\u0020methods\u0020to\u0020manage\u0020the\u0020application\u0027s\u0020router\u0020and\u0020base\u0020URL.",
@@ -1013,23 +1003,23 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\TwigTrait",
             "name": "TwigTrait",
-            "summary": "The\u0020Twig\u0020trait.",
+            "summary": "Provides\u0020seamless\u0020integration\u0020of\u0020the\u0020\u002A\u002ATwig\u002A\u002A\u0020templating\u0020engine\u0020into\u0020controllers\u0020using\u0020the\u0020\u002A\u002ASlim\u0020Framework\u002A\u002A.",
             "url": "classes/oihana-controllers-traits-TwigTrait.html"
         },                {
-            "fqsen": "\\oihana\\controllers\\traits\\TwigTrait\u003A\u003AgetUISetting\u0028\u0029",
-            "name": "getUISetting",
-            "summary": "Returns\u0020the\u0020UI\u0020config\u0020definition\u0020to\u0020inject\u0020in\u0020a\u0020Twig\u0020view.",
-            "url": "classes/oihana-controllers-traits-TwigTrait.html#method_getUISetting"
+            "fqsen": "\\oihana\\controllers\\traits\\TwigTrait\u003A\u003AinitializeTwig\u0028\u0029",
+            "name": "initializeTwig",
+            "summary": "Initializes\u0020the\u0020Twig\u0020environment\u0020for\u0020rendering\u0020templates.",
+            "url": "classes/oihana-controllers-traits-TwigTrait.html#method_initializeTwig"
         },                {
-            "fqsen": "\\oihana\\controllers\\traits\\TwigTrait\u003A\u003A\u0024DEFAULT_BACKGROUND_COLOR",
-            "name": "DEFAULT_BACKGROUND_COLOR",
-            "summary": "",
-            "url": "classes/oihana-controllers-traits-TwigTrait.html#property_DEFAULT_BACKGROUND_COLOR"
+            "fqsen": "\\oihana\\controllers\\traits\\TwigTrait\u003A\u003Arender\u0028\u0029",
+            "name": "render",
+            "summary": "Renders\u0020a\u0020Twig\u0020template\u0020into\u0020a\u0020PSR\u002D7\u0020response.",
+            "url": "classes/oihana-controllers-traits-TwigTrait.html#method_render"
         },                {
-            "fqsen": "\\oihana\\controllers\\traits\\TwigTrait\u003A\u003A\u0024DEFAULT_PATTERN_COLOR",
-            "name": "DEFAULT_PATTERN_COLOR",
-            "summary": "",
-            "url": "classes/oihana-controllers-traits-TwigTrait.html#property_DEFAULT_PATTERN_COLOR"
+            "fqsen": "\\oihana\\controllers\\traits\\TwigTrait\u003A\u003A\u0024twig",
+            "name": "twig",
+            "summary": "The\u0020Twig\u0020view\u0020renderer\u0020instance.",
+            "url": "classes/oihana-controllers-traits-TwigTrait.html#property_twig"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\ValidatorTrait",
             "name": "ValidatorTrait",
@@ -1553,107 +1543,97 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManager",
             "name": "LoggerManager",
-            "summary": "A\u0020logger\u0020manager.",
+            "summary": "Abstract\u0020logger\u0020manager\u0020class.",
             "url": "classes/oihana-logging-LoggerManager.html"
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Creates\u0020a\u0020new\u0020MonoLogManager\u0020instance.",
+            "summary": "Constructor.",
             "url": "classes/oihana-logging-LoggerManager.html#method___construct"
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003Aclear\u0028\u0029",
             "name": "clear",
-            "summary": "Clear\u0020the\u0020content\u0020of\u0020the\u0020specific\u0020file.",
+            "summary": "Clears\u0020the\u0020content\u0020of\u0020a\u0020specific\u0020log\u0020file.",
             "url": "classes/oihana-logging-LoggerManager.html#method_clear"
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003AcountLines\u0028\u0029",
             "name": "countLines",
-            "summary": "Returns\u0020the\u0020number\u0020of\u0020lines\u0020in\u0020a\u0020file.",
+            "summary": "Returns\u0020the\u0020number\u0020of\u0020lines\u0020in\u0020a\u0020log\u0020file.",
             "url": "classes/oihana-logging-LoggerManager.html#method_countLines"
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003AcreateLog\u0028\u0029",
             "name": "createLog",
-            "summary": "Create\u0020a\u0020basic\u0020log\u0020definition.",
+            "summary": "Parses\u0020a\u0020log\u0020line\u0020into\u0020a\u0020structured\u0020array.",
             "url": "classes/oihana-logging-LoggerManager.html#method_createLog"
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003AcreateLogger\u0028\u0029",
             "name": "createLogger",
-            "summary": "",
+            "summary": "Must\u0020be\u0020implemented\u0020by\u0020subclasses\u0020to\u0020return\u0020a\u0020PSR\u002D3\u0020compliant\u0020logger.",
             "url": "classes/oihana-logging-LoggerManager.html#method_createLogger"
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003AgetDirectory\u0028\u0029",
             "name": "getDirectory",
-            "summary": "Returns\u0020the\u0020log\u0020directory.",
+            "summary": "Returns\u0020the\u0020full\u0020path\u0020of\u0020the\u0020log\u0020directory.",
             "url": "classes/oihana-logging-LoggerManager.html#method_getDirectory"
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003AgetExtension\u0028\u0029",
             "name": "getExtension",
-            "summary": "Returns\u0020the\u0020extension\u0020of\u0020the\u0020log\u0020files.",
+            "summary": "Returns\u0020the\u0020file\u0020extension\u0020used\u0020for\u0020log\u0020files.",
             "url": "classes/oihana-logging-LoggerManager.html#method_getExtension"
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003AgetFileName\u0028\u0029",
             "name": "getFileName",
-            "summary": "Returns\u0020the\u0020log\u0020file\u0020name.",
+            "summary": "Returns\u0020the\u0020base\u0020name\u0020of\u0020the\u0020log\u0020file.",
             "url": "classes/oihana-logging-LoggerManager.html#method_getFileName"
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003AgetFilePath\u0028\u0029",
             "name": "getFilePath",
-            "summary": "Returns\u0020the\u0020full\u0020log\u0020path.",
+            "summary": "Returns\u0020the\u0020full\u0020path\u0020to\u0020a\u0020log\u0020file.",
             "url": "classes/oihana-logging-LoggerManager.html#method_getFilePath"
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003AgetLogLines\u0028\u0029",
             "name": "getLogLines",
-            "summary": "Returns\u0020the\u0020list\u0020of\u0020lines\u0020of\u0020a\u0020specific\u0020log\u0020file.",
+            "summary": "Returns\u0020the\u0020lines\u0020of\u0020a\u0020log\u0020file\u0020as\u0020an\u0020array\u0020of\u0020structured\u0020entries.",
             "url": "classes/oihana-logging-LoggerManager.html#method_getLogLines"
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003AgetLoggerFiles\u0028\u0029",
             "name": "getLoggerFiles",
-            "summary": "",
+            "summary": "Returns\u0020the\u0020list\u0020of\u0020log\u0020files\u0020in\u0020the\u0020log\u0020directory\u0020matching\u0020the\u0020current\u0020logger\u0020name\u0020and\u0020extension.",
             "url": "classes/oihana-logging-LoggerManager.html#method_getLoggerFiles"
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003ADEFAULT_NAME",
             "name": "DEFAULT_NAME",
-            "summary": "",
+            "summary": "Default\u0020log\u0020file\u0020name.",
             "url": "classes/oihana-logging-LoggerManager.html#constant_DEFAULT_NAME"
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003ADEFAULT_EXTENSION",
             "name": "DEFAULT_EXTENSION",
-            "summary": "",
+            "summary": "Default\u0020log\u0020file\u0020extension.",
             "url": "classes/oihana-logging-LoggerManager.html#constant_DEFAULT_EXTENSION"
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003ADEFAULT_PATH",
             "name": "DEFAULT_PATH",
-            "summary": "",
+            "summary": "Default\u0020log\u0020folder\u0020path\u0020\u0028relative\u0020to\u0020\u0024directory\u0029.",
             "url": "classes/oihana-logging-LoggerManager.html#constant_DEFAULT_PATH"
-        },                {
-            "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003AREAD",
-            "name": "READ",
-            "summary": "",
-            "url": "classes/oihana-logging-LoggerManager.html#constant_READ"
-        },                {
-            "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003AWRITE",
-            "name": "WRITE",
-            "summary": "",
-            "url": "classes/oihana-logging-LoggerManager.html#constant_WRITE"
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003A\u0024directory",
             "name": "directory",
-            "summary": "The\u0020log\u0020directory.",
+            "summary": "The\u0020base\u0020directory\u0020for\u0020log\u0020storage.",
             "url": "classes/oihana-logging-LoggerManager.html#property_directory"
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003A\u0024extension",
             "name": "extension",
-            "summary": "The\u0020extension\u0020of\u0020the\u0020logs\u0020files.",
+            "summary": "The\u0020file\u0020extension\u0020used\u0020for\u0020log\u0020files\u0020\u0028e.g.,\u0020\u0022.log\u0022\u0029.",
             "url": "classes/oihana-logging-LoggerManager.html#property_extension"
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003A\u0024name",
             "name": "name",
-            "summary": "The\u0020name\u0020of\u0020the\u0020logging\u0020channel,\u0020a\u0020simple\u0020descriptive\u0020name\u0020that\u0020is\u0020attached\u0020to\u0020all\u0020log\u0020records.",
+            "summary": "Optional\u0020name\u0020of\u0020the\u0020logging\u0020channel.",
             "url": "classes/oihana-logging-LoggerManager.html#property_name"
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003A\u0024path",
             "name": "path",
-            "summary": "The\u0020path\u0020of\u0020the\u0020log\u0020folder.",
+            "summary": "Subfolder\u0020or\u0020path\u0020where\u0020log\u0020files\u0020are\u0020stored\u0020\u0028relative\u0020to\u0020\u0024directory\u0029.",
             "url": "classes/oihana-logging-LoggerManager.html#property_path"
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManagerTrait",

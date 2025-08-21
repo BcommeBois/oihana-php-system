@@ -2,6 +2,7 @@
 
 namespace oihana\logging;
 
+use fr\ooop\schema\Log;
 use oihana\enums\Order;
 use oihana\files\enums\FindFilesOption;
 use oihana\files\enums\FindMode;
@@ -137,9 +138,9 @@ abstract class LoggerManager
      * ]
      *
      * @param string $line Raw log line.
-     * @return array|null Parsed log entry or null if line is empty or malformed.
+     * @return Log|null Parsed log entry or null if line is empty or malformed.
      */
-    public function createLog( string $line ) :?array
+    public function createLog( string $line ) :?Log
     {
         if( $line != Char::EMPTY )
         {
@@ -149,7 +150,13 @@ abstract class LoggerManager
                 [ $date , $time , $level ] = $line ;
                 $line    = array_slice( $line , 3 ) ;
                 $message = implode(Char::SPACE , $line) ;
-                return [ "date" => $date , "time" => $time , "level" => $level , 'message' => $message ] ;
+                return new Log
+                ([
+                    Log::DATE    => $date   ,
+                    Log::TIME    => $time   ,
+                    Log::LEVEL   => $level  ,
+                    Log::MESSAGE => $message
+                ]) ;
             }
         }
         return null ;
@@ -225,12 +232,12 @@ abstract class LoggerManager
     public function getLoggerFiles() :array|false
     {
         $files = findFiles( $this->getDirectory() ,
-        [
-            FindFilesOption::PATTERN => $this->name . Char::ASTERISK . $this->extension,
-            FindFilesOption::MODE    => FindMode::FILES ,
-            FindFilesOption::ORDER   => Order::asc ,
-            FindFilesOption::SORT    => fn( $a , $b ) => strcmp( $a->getFilename() , $b->getFilename() ) ,
-        ]);
+            [
+                FindFilesOption::PATTERN => $this->name . Char::ASTERISK . $this->extension,
+                FindFilesOption::MODE    => FindMode::FILES ,
+                FindFilesOption::ORDER   => Order::asc ,
+                FindFilesOption::SORT    => fn( $a , $b ) => strcmp( $a->getFilename() , $b->getFilename() ) ,
+            ]);
 
         return array_map( fn($file) => $file->getFilename() , $files ) ;
     }

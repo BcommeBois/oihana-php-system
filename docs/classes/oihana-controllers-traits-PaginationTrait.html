@@ -197,7 +197,7 @@ the application's pagination definition.</p>
     <span>
                                 &nbsp;: static    </span>
 </dt>
-<dd>Initializes the internal `pagination` property.</dd>
+<dd>Initializes the `pagination` property.</dd>
 
     </dl>
 
@@ -278,7 +278,7 @@ the application's pagination definition.</p>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Initializes the internal `pagination` property.</p>
+        <p class="phpdocumentor-summary">Initializes the `pagination` property.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -287,7 +287,8 @@ the application's pagination definition.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
-        <section class="phpdocumentor-description"><p>This method retrieves the Slim App instance from either the provided initialization array or the DI container.</p>
+        <section class="phpdocumentor-description"><p>This method retrieves the default pagination settings for the application,
+either from the provided initialization array or from the dependency injection container.</p>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -336,16 +337,6 @@ the application's pagination definition.</p>
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
                                                             
                                                  <section class="phpdocumentor-description"><p>If the container throws an internal error.</p>
-</section>
-
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
-                                                            
-                                                 <section class="phpdocumentor-description"><p>If no valid App instance is provided or found.</p>
 </section>
 
                                     </dd>

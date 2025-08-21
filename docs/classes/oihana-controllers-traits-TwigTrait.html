@@ -140,15 +140,63 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/TwigTrait.php"><a href="files/src-oihana-controllers-traits-twigtrait.html"><abbr title="src/oihana/controllers/traits/TwigTrait.php">TwigTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11</span>
+    <span class="phpdocumentor-element-found-in__line">51</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">The Twig trait.</p>
+            <p class="phpdocumentor-summary">Provides seamless integration of the **Twig** templating engine into controllers using the **Slim Framework**.</p>
 
 
+    <section class="phpdocumentor-description"><p>This trait offers:</p>
+<ul>
+<li>Automatic initialization of a <code class="prettyprint">Twig</code> instance from a provided configuration array or via a <strong>PSR-11</strong> dependency injection container.</li>
+<li>A simplified <code class="prettyprint">render()</code> method for rendering Twig templates into a PSR-7 <code class="prettyprint">ResponseInterface</code>.</li>
+<li>Error handling through Twig's native exceptions for better debugging.</li>
+</ul>
+<p>Typical usage within a Slim controller:</p>
+<pre class="prettyprint"><code class="language-php">use oihana\controllers\traits\TwigTrait;
+
+class MyController {
+    use TwigTrait;
+
+    public function __construct(ContainerInterface $container) {
+        $this-&gt;initializeTwig([], $container);
+    }
+
+    public function home($request, $response) {
+        return $this-&gt;render($response, 'home.twig', [
+            'title' =&gt; 'Welcome!',
+            'user'  =&gt; 'Marc'
+        ]);
+    }
+}
+</code></pre>
+</section>
 
 
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-controllers-traits-TwigTrait.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://www.slimframework.com/docs/v4/features/templates.html">https://www.slimframework.com/docs/v4/features/templates.html</a></span>
+                                        
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://twig.symfony.com/">https://twig.symfony.com/</a></span>
+                                        
+                                             
+                                    </dd>
+                                            </dl>
 
 
 
@@ -166,6 +214,20 @@
 
 
 
+<h4 id="toc-constants">
+    Constants
+    <a href="classes/oihana-controllers-traits-TwigTrait.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-traits-TwigTrait.html#constant_TWIG">TWIG</a>
+    <span>
+        &nbsp;= &#039;twig&#039;                            </span>
+</dt>
+<dd>The container key used to retrieve the Twig instance.</dd>
+
+    </dl>
 
 
 <h4 id="toc-properties">
@@ -175,16 +237,11 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/oihana-controllers-traits-TwigTrait.html#property_DEFAULT_BACKGROUND_COLOR">$DEFAULT_BACKGROUND_COLOR</a>
+    <a class="" href="classes/oihana-controllers-traits-TwigTrait.html#property_twig">$twig</a>
     <span>
-                        &nbsp;: string            </span>
+                        &nbsp;: <abbr title="\Slim\Views\Twig">Twig</abbr>            </span>
 </dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/oihana-controllers-traits-TwigTrait.html#property_DEFAULT_PATTERN_COLOR">$DEFAULT_PATTERN_COLOR</a>
-    <span>
-                        &nbsp;: string            </span>
-</dt>
+<dd>The Twig view renderer instance.</dd>
 
     </dl>
 
@@ -194,12 +251,19 @@
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a class="" href="classes/oihana-controllers-traits-TwigTrait.html#method_getUISetting">getUISetting()</a>
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-controllers-traits-TwigTrait.html#method_initializeTwig">initializeTwig()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+                                &nbsp;: static    </span>
 </dt>
-<dd>Returns the UI config definition to inject in a Twig view.</dd>
+<dd>Initializes the Twig environment for rendering templates.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-controllers-traits-TwigTrait.html#method_render">render()</a>
+    <span>
+                                &nbsp;: <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>|null    </span>
+</dt>
+<dd>Renders a Twig template into a PSR-7 response.</dd>
 
     </dl>
 
@@ -207,6 +271,45 @@
 
 
         
+    <section class="phpdocumentor-constants">
+        <h3 class="phpdocumentor-elements__header" id="constants">
+            Constants
+            <a href="classes/oihana-controllers-traits-TwigTrait.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_TWIG">
+        TWIG
+        <a href="classes/oihana-controllers-traits-TwigTrait.html#constant_TWIG" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/TwigTrait.php"><a href="files/src-oihana-controllers-traits-twigtrait.html"><abbr title="src/oihana/controllers/traits/TwigTrait.php">TwigTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">63</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The container key used to retrieve the Twig instance.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">TWIG</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;twig&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+            </section>
 
         
     <section class="phpdocumentor-properties">
@@ -220,11 +323,11 @@
             phpdocumentor-element
             -property
             -public
-            -static                                                        "
+                                                                    "
 >
-    <h4 class="phpdocumentor-element__name" id="property_DEFAULT_BACKGROUND_COLOR">
-        $DEFAULT_BACKGROUND_COLOR
-        <a href="classes/oihana-controllers-traits-TwigTrait.html#property_DEFAULT_BACKGROUND_COLOR" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_twig">
+        $twig
+        <a href="classes/oihana-controllers-traits-TwigTrait.html#property_twig" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                             </span>
@@ -232,55 +335,18 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/TwigTrait.php"><a href="files/src-oihana-controllers-traits-twigtrait.html"><abbr title="src/oihana/controllers/traits/TwigTrait.php">TwigTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">57</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">The Twig view renderer instance.</p>
+
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
         <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">string</span>
-    <span class="phpdocumentor-signature__name">$DEFAULT_BACKGROUND_COLOR</span>
-     = <span class="phpdocumentor-signature__default-value">&quot;#1f2937&quot;</span></code>
-
-    
-    
-    
-
-    
-
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -public
-            -static                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="property_DEFAULT_PATTERN_COLOR">
-        $DEFAULT_PATTERN_COLOR
-        <a href="classes/oihana-controllers-traits-TwigTrait.html#property_DEFAULT_PATTERN_COLOR" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                            </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/TwigTrait.php"><a href="files/src-oihana-controllers-traits-twigtrait.html"><abbr title="src/oihana/controllers/traits/TwigTrait.php">TwigTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">14</span>
-
-    </aside>
-
-    
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-        <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__static">static</span>    <span class="phpdocumentor-signature__type">string</span>
-    <span class="phpdocumentor-signature__name">$DEFAULT_PATTERN_COLOR</span>
-     = <span class="phpdocumentor-signature__default-value">&quot;#1f2937&quot;</span></code>
+            <span class="phpdocumentor-signature__type"><abbr title="\Slim\Views\Twig">Twig</abbr></span>
+    <span class="phpdocumentor-signature__name">$twig</span>
+    </code>
 
     
     
@@ -302,26 +368,130 @@
                     <article
         class="phpdocumentor-element
             -method
-            -protected
+            -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getUISetting">
-        getUISetting()
-        <a href="classes/oihana-controllers-traits-TwigTrait.html#method_getUISetting" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_initializeTwig">
+        initializeTwig()
+        <a href="classes/oihana-controllers-traits-TwigTrait.html#method_initializeTwig" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/TwigTrait.php"><a href="files/src-oihana-controllers-traits-twigtrait.html"><abbr title="src/oihana/controllers/traits/TwigTrait.php">TwigTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">80</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns the UI config definition to inject in a Twig view.</p>
+        <p class="phpdocumentor-summary">Initializes the Twig environment for rendering templates.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">getUISetting</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$settings</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">initializeTwig</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>This method first checks if a Twig instance is provided in the <code class="prettyprint">$init</code> array.
+If not, and a PSR-11 container is available, it attempts to fetch the Twig instance using the <code class="prettyprint">self::TWIG</code> key.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$init</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional initialization array (e.g., <code class="prettyprint">['twig' =&gt; Twig $instance]</code>).</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$container</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional PSR-11 container for retrieving the Twig instance.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-controllers-traits-TwigTrait.html#method_initializeTwig#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the container does not contain a Twig instance.</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If there is an error while retrieving Twig from the container.</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\InvalidArgumentException">InvalidArgumentException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If no valid Twig instance is provided or available.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">static</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Returns the current instance for method chaining.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_render">
+        render()
+        <a href="classes/oihana-controllers-traits-TwigTrait.html#method_render" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/TwigTrait.php"><a href="files/src-oihana-controllers-traits-twigtrait.html"><abbr title="src/oihana/controllers/traits/TwigTrait.php">TwigTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">124</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Renders a Twig template into a PSR-7 response.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">render</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$response</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$template</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$args</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>|null</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -330,28 +500,82 @@
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$settings</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+                <span class="phpdocumentor-signature__argument__name">$response</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>|null</span>
+                            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The PSR-7 response instance.</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$init</span>
+                <span class="phpdocumentor-signature__argument__name">$template</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The name of the Twig template to render.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$args</span>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Optional array of parameters passed to the template.</p>
+</section>
+
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-controllers-traits-TwigTrait.html#method_render#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Twig\Error\LoaderError">LoaderError</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the template cannot be found.</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Twig\Error\RuntimeError">RuntimeError</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If an error occurs during template rendering.</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Twig\Error\SyntaxError">SyntaxError</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the Twig template contains a syntax error.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>|null</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The modified response instance, or <code class="prettyprint">null</code> if <code class="prettyprint">$response</code> is not provided.</p>
+</section>
+
             </section>
 
 </article>
@@ -462,21 +686,28 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
+                                        <li><a href="classes/oihana-controllers-traits-TwigTrait.html#toc-constants">Constants</a></li>
                                                             <li><a href="classes/oihana-controllers-traits-TwigTrait.html#toc-properties">Properties</a></li>
                                                             <li><a href="classes/oihana-controllers-traits-TwigTrait.html#toc-methods">Methods</a></li>
+                                    </ul>
+            </li>
+                        <li class="phpdocumentor-on-this-page-section__title">Constants</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/oihana-controllers-traits-TwigTrait.html#constant_TWIG">TWIG</a></li>
                                     </ul>
             </li>
                                     <li class="phpdocumentor-on-this-page-section__title">Properties</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-controllers-traits-TwigTrait.html#property_DEFAULT_BACKGROUND_COLOR">$DEFAULT_BACKGROUND_COLOR</a></li>
-                                            <li class=""><a href="classes/oihana-controllers-traits-TwigTrait.html#property_DEFAULT_PATTERN_COLOR">$DEFAULT_PATTERN_COLOR</a></li>
+                                            <li class=""><a href="classes/oihana-controllers-traits-TwigTrait.html#property_twig">$twig</a></li>
                                     </ul>
             </li>
                                     <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-controllers-traits-TwigTrait.html#method_getUISetting">getUISetting()</a></li>
+                                            <li class=""><a href="classes/oihana-controllers-traits-TwigTrait.html#method_initializeTwig">initializeTwig()</a></li>
+                                            <li class=""><a href="classes/oihana-controllers-traits-TwigTrait.html#method_render">render()</a></li>
                                     </ul>
             </li>
                     </ul>
