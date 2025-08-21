@@ -19,7 +19,7 @@ trait PrepareFacets
      */
     protected function prepareFacets( ?Request $request , array $args = [] , ?array &$params = [] ) :?array
     {
-        $facets = $args[ ControllerParam::FACETS  ] ?? [] ;
+        $facets = $args[ ControllerParam::FACETS ] ?? [] ;
         if( isset( $request ) )
         {
             // ----------- Use the parameters in the url query to inject facets

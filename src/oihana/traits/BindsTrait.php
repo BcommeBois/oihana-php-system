@@ -2,8 +2,6 @@
 
 namespace oihana\traits;
 
-use oihana\models\enums\ModelParam;
-
 /**
  * Provides logic for managing bind parameters used in PDO statements.
  * Allows defining a default set of bind values and dynamically merging them
@@ -55,7 +53,7 @@ trait BindsTrait
      */
     public function initializeBinds( array $init = [] ):static
     {
-        $this->binds = $init[ ModelParam::BINDS  ] ?? $this->binds ;
+        $this->binds = $init[ self::BINDS ] ?? $this->binds ;
         return $this ;
     }
 

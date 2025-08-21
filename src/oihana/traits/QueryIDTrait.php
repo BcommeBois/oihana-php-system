@@ -3,7 +3,6 @@
 namespace oihana\traits;
 
 use oihana\enums\Char;
-use oihana\traits\strings\ExpressionTrait;
 
 /**
  * Provides a consistent mechanism for managing an internal query identifier (`queryId`),
@@ -14,11 +13,6 @@ use oihana\traits\strings\ExpressionTrait;
  * - Allows programmatic access to get or set the query ID
  * - Automatically generates a default ID if none is provided
  * - Supports initialization via associative arrays (e.g., input parameters or config)
- *
- * Depends on:
- * - `ExpressionTrait` for consistent expression formatting
- * - `Param::QUERY_ID` constant to standardize key access
- * - `Char::UNDERLINE` for default ID generation
  *
  * @package oihana\traits
  *
@@ -49,8 +43,6 @@ use oihana\traits\strings\ExpressionTrait;
  */
 trait QueryIDTrait
 {
-    use ExpressionTrait ;
-
     /**
      * The internal query identifier.
      * This property holds the unique identifier string used internally
@@ -87,10 +79,10 @@ trait QueryIDTrait
     /**
      * Sets the internal query identifier.
      *
-     * Accepts a string value or an associative array that contains the key Param::QUERY_ID.
+     * Accepts a string value or an associative array that contains the key 'queryId'.
      * If null is passed, a default ID is auto-generated using `query_<random>`.
      *
-     * @param string|array|null $init The initial ID value, or an array with key Param::QUERY_ID.
+     * @param string|array|null $init The initial ID value, or an array with key 'queryId'.
      * @return void
      *
      * @example
