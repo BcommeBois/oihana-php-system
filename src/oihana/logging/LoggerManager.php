@@ -7,23 +7,39 @@ use oihana\files\enums\FindFilesOption;
 use oihana\files\enums\FindMode;
 use oihana\files\exceptions\DirectoryException;
 use oihana\files\exceptions\FileException;
+
 use Psr\Log\LoggerInterface;
 
 use oihana\enums\Char;
+
+use function oihana\files\clearFile;
+use function oihana\files\countFileLines;
 use function oihana\files\findFiles;
 use function oihana\files\getFileLines;
 use function oihana\files\path\joinPaths;
 
 /**
- * A logger manager.
+ * Abstract logger manager class.
+ *
+ * Provides utility methods for managing log files, including:
+ * - Creating a logger instance.
+ * - Reading log lines.
+ * - Counting log lines.
+ * - Clearing log files.
+ * - Retrieving log file paths and names.
+ *
+ * This class is meant to be extended with a concrete implementation of `createLogger()`.
  */
 abstract class LoggerManager
 {
     /**
-     * Creates a new MonoLogManager instance.
-     * @param string $directory
-     * @param array $init
-     * @param ?string $name
+     * Constructor.
+     *
+     * @param string $directory Base directory for log storage.
+     * @param array $init Optional initialization options:
+     *                    - LoggerConfig::PATH: subdirectory path
+     *                    - LoggerConfig::EXTENSION: log file extension
+     * @param string|null $name Optional logger channel name.
      */
     public function __construct( string $directory = Char::EMPTY , array $init = [] , ?string $name = null )
     {
@@ -33,87 +49,95 @@ abstract class LoggerManager
         $this->extension = $init[ LoggerConfig::EXTENSION ] ?? self::DEFAULT_EXTENSION ;
     }
 
-    public const string DEFAULT_NAME = 'log' ;
-    public const string DEFAULT_EXTENSION = '.log' ;
-    public const string DEFAULT_PATH = 'log' ;
-
-    public const string READ  = 'r' ;
-    public const string WRITE = 'w' ;
+    /**
+     * Default log file name.
+     */
+    public const string DEFAULT_NAME = 'log';
 
     /**
-     * The log directory.
-     * @var string|mixed
+     * Default log file extension.
+     */
+    public const string DEFAULT_EXTENSION = '.log';
+
+    /**
+     * Default log folder path (relative to $directory).
+     */
+    public const string DEFAULT_PATH = 'log';
+
+    /**
+     * The base directory for log storage.
+     *
+     * @var string
      */
     public string $directory = Char::EMPTY ;
 
     /**
-     * The extension of the logs files.
-     * @var string|mixed
+     * The file extension used for log files (e.g., ".log").
+     * @var string
      */
     public string $extension ;
 
     /**
-     * The name of the logging channel, a simple descriptive name that is attached to all log records.
+     * Optional name of the logging channel.
+     * Used as prefix for log files and as a descriptive label.
+     *
      * @var string|null
      */
     public ?string $name ;
 
     /**
-     * The path of the log folder.
+     * Subfolder or path where log files are stored (relative to $directory).
+     *
      * @var string
      */
     public string $path ;
 
     /**
-     * Clear the content of the specific file.
-     * @param string $file
-     * @return bool
+     * Clears the content of a specific log file.
+     *
+     * @param string $file Log file name.
+     *
+     * @return bool True if the file was cleared, false if file does not exist.
+     *
+     * @throws FileException If clearing fails due to filesystem permissions or errors.
      */
     public function clear( string $file ):bool
     {
-        $path = $this->getDirectory() . DIRECTORY_SEPARATOR . $file ;
-        if( file_exists( $path ) )
+        $file = $this->getFilePath( $file ) ;
+        if( file_exists( $file ) )
         {
-            $file = fopen( $path , self::WRITE ) ;
-            ftruncate( $file, 0 );
-            fclose( $file );
-            if ( filesize( $path ) === 0 )
-            {
-                return true ;
-            }
+            return clearFile( $file , false )  ;
         }
         return false ;
     }
 
     /**
-     * Returns the number of lines in a file.
-     * @param string $file
-     * return int
+     * Returns the number of lines in a log file.
+     *
+     * @param string $file Log file name.
+     *
+     * @return int Number of lines in the file.
+     *
+     * @throws FileException If file cannot be read.
      */
     public function countLines( string $file ) :int
     {
-        $count = 0 ;
-        $file = $this->getDirectory() . DIRECTORY_SEPARATOR . $file ;
-        if( file_exists( $file ) )
-        {
-            $stream = fopen( $file, self::READ ) ;
-            while( !feof( $stream ) )
-            {
-                $line = fgets( $stream ) ;
-                if( $line !== false )
-                {
-                    $count ++;
-                }
-            }
-            fclose( $stream ) ;
-        }
-        return $count ;
+        return countFileLines( $file ) ;
     }
 
     /**
-     * Create a basic log definition.
-     * @param string $line
-     * @return array|null
+     * Parses a log line into a structured array.
+     *
+     * Example: "2025-08-21 10:30:00 INFO Some message" becomes:
+     * [
+     *     'date' => '2025-08-21',
+     *     'time' => '10:30:00',
+     *     'level' => 'INFO',
+     *     'message' => 'Some message'
+     * ]
+     *
+     * @param string $line Raw log line.
+     * @return array|null Parsed log entry or null if line is empty or malformed.
      */
     public function createLog( string $line ) :?array
     {
@@ -131,11 +155,17 @@ abstract class LoggerManager
         return null ;
     }
 
+    /**
+     * Must be implemented by subclasses to return a PSR-3 compliant logger.
+     *
+     * @return LoggerInterface
+     */
     abstract public function createLogger():LoggerInterface ;
 
     /**
-     * Returns the log directory.
-     * @return string
+     * Returns the full path of the log directory.
+     *
+     * @return string Absolute path to the log folder.
      */
     public function getDirectory() :string
     {
@@ -143,8 +173,9 @@ abstract class LoggerManager
     }
 
     /**
-     * Returns the extension of the log files.
-     * @return string
+     * Returns the file extension used for log files.
+     *
+     * @return string Log file extension, including dot (e.g., ".log").
      */
     public function getExtension():string
     {
@@ -152,8 +183,9 @@ abstract class LoggerManager
     }
 
     /**
-     * Returns the log file name.
-     * @return string
+     * Returns the base name of the log file.
+     *
+     * @return string Log file name.
      */
     public function getFileName():string
     {
@@ -161,9 +193,10 @@ abstract class LoggerManager
     }
 
     /**
-     * Returns the full log path.
-     * @param ?string $file The optional file name.
-     * @return string
+     * Returns the full path to a log file.
+     *
+     * @param string|null $file Optional custom file name. Defaults to <name><extension>.
+     * @return string Full path to the log file.
      */
     public function getFilePath( ?string $file = null ):string
     {
@@ -171,20 +204,24 @@ abstract class LoggerManager
     }
 
     /**
-     * Returns the list of lines of a specific log file.
-     * @param string $file
-     * @return ?array
-     * @throws FileException
+     * Returns the lines of a log file as an array of structured entries.
+     *
+     * @param ?string $file Log file name.
+     * @return array|null Array of parsed log entries or null if file does not exist.
+     * @throws FileException If the file cannot be read.
      */
-    public function getLogLines( string $file ) : ?array
+    public function getLogLines( ?string $file ) : ?array
     {
         $file = $this->getFilePath( $file ) ;
         return file_exists( $file ) ? getFileLines( $file , [ $this , 'createLog' ] ) : null ;
     }
 
+
     /**
-     * Return the logger files.
-     * @throws DirectoryException
+     * Returns the list of log files in the log directory matching the current logger name and extension.
+     *
+     * @return array|false List of log file names or false on error.
+     * @throws DirectoryException If the log directory cannot be read.
      */
     public function getLoggerFiles() :array|false
     {
@@ -196,7 +233,6 @@ abstract class LoggerManager
             FindFilesOption::ORDER   => Order::asc ,
             FindFilesOption::SORT    => fn( $a , $b ) => strcmp( $a->getFilename() , $b->getFilename() ) ,
         ]);
-
         return array_map( fn($file) => $file->getFilename() , $files ) ;
     }
 }
