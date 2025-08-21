@@ -9,7 +9,7 @@ trait PrepareActive
 {
     protected function prepareActive( ?Request $request , array $args = [] , bool $defaultValue = true ) :bool|null
     {
-        $active = $args[ ControllerParam::ACTIVE  ] ?? $defaultValue ;
+        $active = $args[ ControllerParam::ACTIVE ] ?? $defaultValue ;
         if( isset( $request ) )
         {
             $param = $this->getQueryParam( $request , ControllerParam::ACTIVE ) ; // query param only (not body)
