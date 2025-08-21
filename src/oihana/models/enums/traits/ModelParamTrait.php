@@ -68,6 +68,11 @@ trait ModelParamTrait
     public const string MODEL = 'model' ;
 
     /**
+     * The 'optimized' parameter.
+     */
+    public const string OPTIMIZED = 'optimized' ;
+
+    /**
      * The 'owner' parameter.
      */
     public const string OWNER = 'owner' ;
