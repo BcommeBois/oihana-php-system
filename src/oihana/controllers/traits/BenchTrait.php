@@ -17,7 +17,7 @@ trait BenchTrait
 
     /**
      * Initialize the `bench` property.
-     * @param bool|array $init
+     * @param bool|array $init Optional initialization array or the bench boolean value.
      * @return $this
      */
     public function initializeBench( bool|array $init = [] ):static

@@ -29,7 +29,7 @@ trait ImageTrait
     /**
      * @throws ImagickException
      */
-    public function getImageDimensions(Imagick|string $image ) :?array
+    public function getImageDimensions( Imagick|string $image ) :?array
     {
         if( is_string( $image ) )
         {
@@ -41,7 +41,7 @@ trait ImageTrait
     /**
      * @throws ImagickException
      */
-    public function getImageHeight(Imagick|string $image ) :int
+    public function getImageHeight( Imagick|string $image ) :int
     {
         if( is_string( $image ) )
         {
@@ -53,7 +53,7 @@ trait ImageTrait
     /**
      * @throws ImagickException
      */
-    public function getImageWidth(Imagick|string $image ) :int
+    public function getImageWidth( Imagick|string $image ) :int
     {
         if( is_string( $image ) )
         {
@@ -82,14 +82,11 @@ trait ImageTrait
     {
         try
         {
-            [
-                'contentDisposition'    => $contentDisposition ,
-                'format'                => $format ,
-                'useContentDisposition' => $useContentDisposition ,
-                'useContentLength'      => $useContentLength ,
-                'useContentType'        => $useContentType
-            ]
-            = [ ...$this->image_response_default_options , ...$options ] ;
+            $contentDisposition    = $options[ 'contentDisposition'    ] ?? null  ;
+            $format                = $options[ 'format'                ] ?? 'jpg' ;
+            $useContentDisposition = $options[ 'useContentDisposition' ] ?? false ;
+            $useContentLength      = $options[ 'useContentLength'      ] ?? true  ;
+            $useContentType        = $options[ 'useContentType'        ] ?? true  ;
 
             if( $useContentType )
             {

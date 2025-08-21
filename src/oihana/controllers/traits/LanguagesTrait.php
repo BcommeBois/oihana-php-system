@@ -8,19 +8,68 @@ use Psr\Container\NotFoundExceptionInterface;
 
 use oihana\controllers\enums\ControllerParam;
 
+/**
+ * Provides helper methods to manage multilingual (i18n) content in controllers.
+ *
+ * This trait allows a controller to:
+ *   - Initialize and store a list of valid languages (`$languages`) from an array or a PSR-11 container.
+ *   - Filter client-provided arrays of translations to keep only supported languages.
+ *   - Retrieve the appropriate translation for a given language, with fallback to the default language.
+ *
+ * Example usage:
+ * ```php
+ * // Initialize with an array of supported languages
+ * $this->initializeLanguages(['languages' => ['fr', 'en']]);
+ *
+ * // Filter a multilingual array to keep only supported languages
+ * $input =
+ * [
+ *    'fr' => 'Bonjour <span style="color:red">monde</span>',
+ *    'en' => 'Hello <span style="color:red">world</span>',
+ *    'de' => 'Hallo Welt'
+ * ];
+ *
+ * $filtered = $this->filterLanguages($input);
+ * // $filtered =
+ * // [
+ * //    'fr' => 'Bonjour <span style="color:red">monde</span>',
+ * //    'en' => 'Hello <span style="color:red">world</span>'
+ * // ]
+ *
+ * // Filter and remove inline styles for HTML output
+ * $filteredHtml = $this->filterLanguages($input, true);
+ * // $filteredHtml = [
+ * //     'fr' => 'Bonjour <span>monde</span>',
+ * //     'en' => 'Hello <span>world</span>'
+ * // ]
+ *
+ * // Retrieve translation for a given language
+ * $textEn = $this->translate($filtered, 'en'); // 'Hello <span>world</span>'
+ *
+ * // Retrieve translation with fallback to default language if requested language is missing
+ * $textDe = $this->translate($filtered, 'de'); // 'Bonjour <span>monde</span>' (fallback to 'fr')
+ * ```
+ *
+ * @property array<string> $languages List of supported language codes.
+ */
 trait LanguagesTrait
 {
     /**
-     * The enumeration of all valid languages.
-     * @var array
+     * The enumeration of all valid languages used by the controller.
+     * @var array<string>
      */
     public array $languages = [] ;
 
     /**
-     * This helper transform an array from client to prepare a i18n property. Ex: "[ 'fr' : 'bonjour' , 'en' : 'hello' ]"
-     * @param array|null $field
-     * @param bool $html
-     * @return array|null
+     * Filter an array of translations according to the available languages.
+     *
+     * This helper transforms an input array from the client to prepare a multilingual (i18n) property.
+     * Example input: `[ 'fr' => 'bonjour', 'en' => 'hello' ]`
+     *
+     * @param array<string, mixed>|null $field The input array of translations.
+     * @param bool $html If true, strip inline styles from HTML content.
+     *
+     * @return array<string, mixed>|null Filtered translations matching available languages, or null if input is empty.
      */
     public function filterLanguages( ?array $field , bool $html = false ) :?array
     {
@@ -33,9 +82,9 @@ trait LanguagesTrait
                 {
                     if( isset( $field[ $lang ] ) )
                     {
-                        $items[$lang] = $html // if html remove all styles
-                                      ? preg_replace('/(<[^>]+) style=".*?"/i', '$1', $field[$lang] )
-                                      : $field[ $lang ] ;
+                        $items[ $lang ] = $html // if html remove all styles
+                                        ? preg_replace('/(<[^>]+) style=".*?"/i', '$1', $field[$lang] )
+                                        : $field[ $lang ] ;
                     }
                 }
             }
@@ -45,12 +94,15 @@ trait LanguagesTrait
     }
 
     /**
-     * Initialize the internal $languages property.
-     * @param array $init
-     * @param ContainerInterface|null $container
+     * Initialize the internal `$languages` property from an array or a PSR-11 container.
+     *
+     * @param array $init Optional initialization array, expected key: ControllerParam::LANGUAGES
+     * @param ContainerInterface|null $container Optional PSR-11 container for fallback configuration
+     *
      * @return static
-     * @throws ContainerExceptionInterface
-     * @throws NotFoundExceptionInterface
+     *
+     * @throws ContainerExceptionInterface If the container fails to retrieve the languages
+     * @throws NotFoundExceptionInterface If the requested languages key is not found in the container
      */
     public function initializeLanguages( array $init = [] , ?ContainerInterface $container = null ) :static
     {
@@ -66,12 +118,15 @@ trait LanguagesTrait
         return $this ;
     }
 
+
     /**
-     * @param array $texts
-     * @param string|null $lang
-     * @return array
+     * Retrieve the translation for a specific language, or fallback to the default language.
+     *
+     * @param array<string, mixed> $texts Array of translations keyed by language codes.
+     * @param string|null $lang The desired language code. If null, returns the full array.
+     * @return mixed The translated text for the requested language, fallback, or full array if no match.
      */
-    public function translate( array $texts , ?string $lang = null ) :array
+    public function translate( array $texts , ?string $lang = null ) :mixed
     {
         if( $lang === null )
         {

@@ -14,6 +14,14 @@ use Psr\Http\Message\ResponseInterface as Response;
 
 use function oihana\core\json\isValidJsonEncodeFlags;
 
+/**
+ * Provides utility methods for managing JSON encoding options and creating
+ * standardized JSON HTTP responses within controllers.
+ *
+ * This trait is designed to:
+ * - Initialize and manage JSON encoding flags.
+ * - Build PSR-7 JSON responses with proper headers.
+ */
 trait JsonTrait
 {
     /**
@@ -30,7 +38,7 @@ trait JsonTrait
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    public function initializeJsonOptions( array $init = [] , ?ContainerInterface $container = null  ):static
+    public function initializeJsonOptions( array $init = [] , ?ContainerInterface $container = null ):static
     {
         $flags = $init[ ControllerParam::JSON_OPTIONS ] ?? null;
 

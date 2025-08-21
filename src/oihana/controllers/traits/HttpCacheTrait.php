@@ -18,50 +18,81 @@ use Slim\HttpCache\CacheProvider;
  * Trait providing helpers to manage HTTP caching in controllers.
  *
  * This trait allows controllers to:
- *   - Initialize an internal HTTP cache provider (`Slim\HttpCache\CacheProvider`).
- *   - Enforce cache control headers (deny cache, set ETag, Last-Modified).
+ *   - Optionally initialize an internal HTTP cache provider (`Slim\HttpCache\CacheProvider`).
+ *   - Set or remove cache-related headers (`ETag`, `Last-Modified`, `Cache-Control`).
  *
- * Usage:
- *   1. Initialize the HTTP cache provider via `initializeHttpCache()`.
- *   2. Use helper methods to modify PSR-7 response headers for caching.
+ * **Important:**
+ *   To enable caching, you **must** call {@see initializeHttpCache()} in your controller.
+ *   If you forget to initialize the cache provider, these methods will silently
+ *   return the original response without adding any cache-related headers.
  */
 trait HttpCacheTrait
 {
     /**
-     * The cache provider reference.
-     * This property holds the `Slim\HttpCache\CacheProvider` instance
+     * The cache provider reference (optional).
+     *
+     * When set, this property holds a `Slim\HttpCache\CacheProvider` instance
      * used to modify HTTP response headers for caching.
      *
-     * @var CacheProvider
+     * @var CacheProvider|null
      */
-    protected CacheProvider $httpCache ;
+    protected ?CacheProvider $httpCache = null;
+
+    /**
+     * Enable HTTP caching for the given response.
+     *
+     * This method sets a `Cache-Control` header using the underlying CacheProvider.
+     * If the HTTP cache provider is **not** initialized, the response is returned unchanged.
+     *
+     * @param ResponseInterface   $response        A PSR-7 response object
+     * @param string             $type            Cache-Control type: "private" or "public"
+     * @param int|string|null    $maxAge          Maximum cache age in seconds or a datetime string parsable by strtotime()
+     * @param bool               $mustRevalidate  Whether to add the "must-revalidate" directive
+     *
+     * @return ResponseInterface A new response object with cache headers if the cache provider is available.
+     */
+    public function allowCache
+    (
+        ResponseInterface $response       ,
+        string            $type           = 'private',
+        int|string|null   $maxAge         = null,
+        bool              $mustRevalidate = false
+    )
+    : ResponseInterface
+    {
+        return $this->httpCache?->allowCache( $response , $type , $maxAge , $mustRevalidate ) ?? $response ;
+    }
 
     /**
      * Enforce the removal of browser cache for a response.
      *
      * Equivalent to setting headers like `Cache-Control: no-store, no-cache, must-revalidate`.
+     * If the HTTP cache provider is **not** initialized, the response is returned unchanged.
      *
      * @param ResponseInterface $response A PSR-7 response object
-     * @return ResponseInterface A new response object with cache denial headers
+     *
+     * @return ResponseInterface A new response object with cache denial headers if available.
      */
-    public function denyCache( ResponseInterface $response ) : ResponseInterface
+    public function denyCache(ResponseInterface $response): ResponseInterface
     {
-        return $this->httpCache->denyCache( $response ) ;
+        return $this->httpCache?->denyCache($response) ?? $response ;
     }
 
     /**
      * Initialize the internal HTTP cache provider.
      *
-     * This method sets up the `$httpCache` property from:
-     *   - The `$init` array, using the key `ControllerParam::HTTP_CACHE`
-     *   - The DI container, if available and containing `Slim\HttpCache\CacheProvider`
+     * Priority order:
+     * 1. `$init[ControllerParam::HTTP_CACHE]`
+     * 2. `$container->get(CacheProvider::class)` if available in DI
      *
      * @param array $init Optional initialization array
      * @param ContainerInterface|null $container Optional DI container to retrieve the cache provider
+     *
      * @return static Returns the current instance for method chaining
+     *
      * @throws DependencyException If container dependency cannot be resolved
      * @throws NotFoundException If container entry is not found
-     * @throws RuntimeException If no valid `CacheProvider` could be assigned
+     * @throws RuntimeException If no valid `CacheProvider` could be assigned.
      */
     public function initializeHttpCache( array $init = [] , ?ContainerInterface $container = null ):static
     {
@@ -72,12 +103,10 @@ trait HttpCacheTrait
             $httpCache = $this->container->get( CacheProvider::class  ) ;
         }
 
-        if( !$httpCache instanceof CacheProvider )
+        if ( $httpCache instanceof CacheProvider )
         {
-            throw new RuntimeException( 'The controller `httpCache` property must be defined.' ) ;
+            $this->httpCache = $httpCache;
         }
-
-        $this->httpCache = $httpCache ;
 
         return $this ;
     }
@@ -86,28 +115,48 @@ trait HttpCacheTrait
      * Add an `ETag` header to a PSR-7 response object.
      *
      * The `ETag` is used by browsers and proxies for cache validation.
+     * If the HTTP cache provider is **not** initialized, the response is returned unchanged.
      *
      * @param ResponseInterface $response A PSR-7 response object
-     * @param string $value The ETag value
-     * @param string $type The ETag type: either `"strong"` or `"weak"`
-     * @return ResponseInterface A new response object with the `ETag` header set
+     * @param string            $value    The ETag value
+     * @param string            $type     The ETag type: either `"strong"` or `"weak"`
+     *
+     * @return ResponseInterface A new response object with the `ETag` header set if available
      */
     public function withEtag( ResponseInterface $response, string $value, string $type = 'strong' ): ResponseInterface
     {
-        return $this->httpCache->withEtag( $response , $value , $type ) ;
+        return $this->httpCache?->withEtag( $response , $value , $type ) ?? $response ;
+    }
+
+    /**
+     * Add an `Expires` header to a PSR-7 response object.
+     *
+     * This header specifies the date and time after which the response is considered stale.
+     * If the HTTP cache provider is **not** initialized, the response is returned unchanged.
+     *
+     * @param ResponseInterface $response A PSR-7 response object
+     * @param string|int        $time     A UNIX timestamp or a string compatible with `strtotime()`.
+     *
+     * @return ResponseInterface A new response object with the `Expires` header set if available
+     */
+    public function withExpires( ResponseInterface $response, string|int $time ): ResponseInterface
+    {
+        return $this->httpCache?->withExpires( $response , $time ) ?? $response ;
     }
 
     /**
      * Add a `Last-Modified` header to a PSR-7 response object.
      *
      * This header informs caches of the last modification date of the resource.
+     * If the HTTP cache provider is **not** initialized, the response is returned unchanged.
      *
      * @param ResponseInterface $response A PSR-7 response object
-     * @param int|string $time A UNIX timestamp or a string compatible with `strtotime()`
-     * @return ResponseInterface A new response object with the `Last-Modified` header set
+     * @param int|string        $time     A UNIX timestamp or a string compatible with `strtotime()`
+     *
+     * @return ResponseInterface A new response object with the `Last-Modified` header set if available
      */
     public function withLastModified( ResponseInterface $response , int|string $time ) : ResponseInterface
     {
-        return $this->httpCache->withLastModified( $response , $time ) ;
+        return $this->httpCache?->withLastModified( $response , $time ) ?? $response;
     }
 }

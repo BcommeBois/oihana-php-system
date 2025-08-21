@@ -2,8 +2,8 @@
     "name" : "oihana/php-system" ,
     "type" : "library" ,
     "description" : "The Oihana PHP System library" ,
-    "keywords" : [ "php" , "date" , "logging" , "reflections" , "helpers" ] ,
-    "homepage" : "https://github.com/BcommeBois/oihana-php-files" ,
+    "keywords" : [ "php" , "date" , "logging" , "reflections" , "helpers" , "models", "controllers", "graphics"] ,
+    "homepage" : "https://github.com/BcommeBois/oihana-php-system" ,
     "license" : "MPL-2.0" ,
     "authors" : [
         {
@@ -35,7 +35,8 @@
             "src/oihana/init/initErrors.php",
             "src/oihana/init/initMemoryLimit.php",
             "src/oihana/init/setIniIfExists.php",
-            "src/oihana/models/helpers/documentUrl.php"
+            "src/oihana/models/helpers/documentUrl.php",
+            "src/oihana/models/helpers/getModel.php"
         ]
     },
     "autoload-dev": {
@@ -45,6 +46,7 @@
     },
     "require": {
         "php": ">=8.4",
+        "ext-fileinfo" : "*",
         "ext-imagick" : "*" ,
         "ext-pdo": "*",
         "ext-zip" : "*",

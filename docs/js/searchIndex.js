@@ -366,6 +366,11 @@ Search.appendIndex(
             "summary": "Trait\u0020providing\u0020helpers\u0020to\u0020manage\u0020HTTP\u0020caching\u0020in\u0020controllers.",
             "url": "classes/oihana-controllers-traits-HttpCacheTrait.html"
         },                {
+            "fqsen": "\\oihana\\controllers\\traits\\HttpCacheTrait\u003A\u003AallowCache\u0028\u0029",
+            "name": "allowCache",
+            "summary": "Enable\u0020HTTP\u0020caching\u0020for\u0020the\u0020given\u0020response.",
+            "url": "classes/oihana-controllers-traits-HttpCacheTrait.html#method_allowCache"
+        },                {
             "fqsen": "\\oihana\\controllers\\traits\\HttpCacheTrait\u003A\u003AdenyCache\u0028\u0029",
             "name": "denyCache",
             "summary": "Enforce\u0020the\u0020removal\u0020of\u0020browser\u0020cache\u0020for\u0020a\u0020response.",
@@ -381,6 +386,11 @@ Search.appendIndex(
             "summary": "Add\u0020an\u0020\u0060ETag\u0060\u0020header\u0020to\u0020a\u0020PSR\u002D7\u0020response\u0020object.",
             "url": "classes/oihana-controllers-traits-HttpCacheTrait.html#method_withEtag"
         },                {
+            "fqsen": "\\oihana\\controllers\\traits\\HttpCacheTrait\u003A\u003AwithExpires\u0028\u0029",
+            "name": "withExpires",
+            "summary": "Add\u0020an\u0020\u0060Expires\u0060\u0020header\u0020to\u0020a\u0020PSR\u002D7\u0020response\u0020object.",
+            "url": "classes/oihana-controllers-traits-HttpCacheTrait.html#method_withExpires"
+        },                {
             "fqsen": "\\oihana\\controllers\\traits\\HttpCacheTrait\u003A\u003AwithLastModified\u0028\u0029",
             "name": "withLastModified",
             "summary": "Add\u0020a\u0020\u0060Last\u002DModified\u0060\u0020header\u0020to\u0020a\u0020PSR\u002D7\u0020response\u0020object.",
@@ -388,7 +398,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\HttpCacheTrait\u003A\u003A\u0024httpCache",
             "name": "httpCache",
-            "summary": "The\u0020cache\u0020provider\u0020reference.",
+            "summary": "The\u0020cache\u0020provider\u0020reference\u0020\u0028optional\u0029.",
             "url": "classes/oihana-controllers-traits-HttpCacheTrait.html#property_httpCache"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\ImageTrait",
@@ -458,7 +468,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\JsonTrait",
             "name": "JsonTrait",
-            "summary": "",
+            "summary": "Provides\u0020utility\u0020methods\u0020for\u0020managing\u0020JSON\u0020encoding\u0020options\u0020and\u0020creating\nstandardized\u0020JSON\u0020HTTP\u0020responses\u0020within\u0020controllers.",
             "url": "classes/oihana-controllers-traits-JsonTrait.html"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\JsonTrait\u003A\u003AinitializeJsonOptions\u0028\u0029",
@@ -478,27 +488,27 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\LanguagesTrait",
             "name": "LanguagesTrait",
-            "summary": "",
+            "summary": "Provides\u0020helper\u0020methods\u0020to\u0020manage\u0020multilingual\u0020\u0028i18n\u0029\u0020content\u0020in\u0020controllers.",
             "url": "classes/oihana-controllers-traits-LanguagesTrait.html"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\LanguagesTrait\u003A\u003AfilterLanguages\u0028\u0029",
             "name": "filterLanguages",
-            "summary": "This\u0020helper\u0020transform\u0020an\u0020array\u0020from\u0020client\u0020to\u0020prepare\u0020a\u0020i18n\u0020property.\u0020Ex\u003A\u0020\u0022\u005B\u0020\u0027fr\u0027\u0020\u003A\u0020\u0027bonjour\u0027\u0020,\u0020\u0027en\u0027\u0020\u003A\u0020\u0027hello\u0027\u0020\u005D\u0022",
+            "summary": "Filter\u0020an\u0020array\u0020of\u0020translations\u0020according\u0020to\u0020the\u0020available\u0020languages.",
             "url": "classes/oihana-controllers-traits-LanguagesTrait.html#method_filterLanguages"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\LanguagesTrait\u003A\u003AinitializeLanguages\u0028\u0029",
             "name": "initializeLanguages",
-            "summary": "Initialize\u0020the\u0020internal\u0020\u0024languages\u0020property.",
+            "summary": "Initialize\u0020the\u0020internal\u0020\u0060\u0024languages\u0060\u0020property\u0020from\u0020an\u0020array\u0020or\u0020a\u0020PSR\u002D11\u0020container.",
             "url": "classes/oihana-controllers-traits-LanguagesTrait.html#method_initializeLanguages"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\LanguagesTrait\u003A\u003Atranslate\u0028\u0029",
             "name": "translate",
-            "summary": "",
+            "summary": "Retrieve\u0020the\u0020translation\u0020for\u0020a\u0020specific\u0020language,\u0020or\u0020fallback\u0020to\u0020the\u0020default\u0020language.",
             "url": "classes/oihana-controllers-traits-LanguagesTrait.html#method_translate"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\LanguagesTrait\u003A\u003A\u0024languages",
             "name": "languages",
-            "summary": "The\u0020enumeration\u0020of\u0020all\u0020valid\u0020languages.",
+            "summary": "The\u0020enumeration\u0020of\u0020all\u0020valid\u0020languages\u0020used\u0020by\u0020the\u0020controller.",
             "url": "classes/oihana-controllers-traits-LanguagesTrait.html#property_languages"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\LimitTrait",
@@ -1890,6 +1900,11 @@ Search.appendIndex(
             "name": "documentUrl",
             "summary": "Generates\u0020a\u0020full\u0020document\u0020URL\u0020based\u0020on\u0020the\u0020project\u0027s\u0020base\u0020URL.",
             "url": "namespaces/oihana-models-helpers.html#function_documentUrl"
+        },                {
+            "fqsen": "\\oihana\\controllers\\helpers\\getModel\u0028\u0029",
+            "name": "getModel",
+            "summary": "Resolves\u0020a\u0020model\u0020instance\u0020from\u0020a\u0020PSR\u002D11\u0020container\u0020or\u0020returns\u0020a\u0020default.",
+            "url": "namespaces/oihana-controllers-helpers.html#function_getModel"
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\CountModel",
             "name": "CountModel",

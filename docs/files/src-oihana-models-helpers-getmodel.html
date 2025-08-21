@@ -127,43 +127,21 @@
             <div class="phpdocumentor-column -nine phpdocumentor-content">
                                 <section>
                                         <ul class="phpdocumentor-breadcrumbs">
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana.html">oihana</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-controllers.html">controllers</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-controllers-traits.html">traits</a></li>
     </ul>
 
-    <article class="phpdocumentor-element -trait">
-        <h2 class="phpdocumentor-content__title">
-    JsonTrait
-    </h2>
+    <article class="phpdocumentor-element -file">
+        <h2 class="phpdocumentor-content__title">getModel.php</h2>
 
-        <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/JsonTrait.php"><a href="files/src-oihana-controllers-traits-jsontrait.html"><abbr title="src/oihana/controllers/traits/JsonTrait.php">JsonTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">25</span>
-
-    </aside>
-
-            <p class="phpdocumentor-summary">Provides utility methods for managing JSON encoding options and creating
-standardized JSON HTTP responses within controllers.</p>
+        
+        
+        
+        
 
 
-    <section class="phpdocumentor-description"><p>This trait is designed to:</p>
-<ul>
-<li>Initialize and manage JSON encoding flags.</li>
-<li>Build PSR-7 JSON responses with proper headers.</li>
-</ul>
-</section>
-
-
-
-
-
-
-
+        
 <h3 id="toc">
     Table of Contents
-    <a href="classes/oihana-controllers-traits-JsonTrait.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="files/src-oihana-models-helpers-getmodel.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -175,152 +153,102 @@ standardized JSON HTTP responses within controllers.</p>
 
 
 
-<h4 id="toc-properties">
-    Properties
-    <a href="classes/oihana-controllers-traits-JsonTrait.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+
+
+<h4 id="toc-functions">
+    Functions
+    <a href="files/src-oihana-models-helpers-getmodel.html#toc-functions" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a class="" href="classes/oihana-controllers-traits-JsonTrait.html#property_jsonOptions">$jsonOptions</a>
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/oihana-controllers-helpers.html#function_getModel">getModel()</a>
     <span>
-                        &nbsp;: int            </span>
+                                &nbsp;: <a href="classes/oihana-models-Model.html"><abbr title="\oihana\models\Model">Model</abbr></a>|null    </span>
 </dt>
-<dd>The default json options used in the controller.</dd>
-
-    </dl>
-
-<h4 id="toc-methods">
-    Methods
-    <a href="classes/oihana-controllers-traits-JsonTrait.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
-
-</h4>
-<dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-controllers-traits-JsonTrait.html#method_initializeJsonOptions">initializeJsonOptions()</a>
-    <span>
-                                &nbsp;: static    </span>
-</dt>
-<dd>Initialize the internal $jsonOptions property.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-controllers-traits-JsonTrait.html#method_jsonResponse">jsonResponse()</a>
-    <span>
-                                &nbsp;: <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>    </span>
-</dt>
-<dd>Return a JSON response</dd>
+<dd>Resolves a model instance from a PSR-11 container or returns a default.</dd>
 
     </dl>
 
 
-
-
         
 
-        
-    <section class="phpdocumentor-properties">
-        <h3 class="phpdocumentor-elements__header" id="properties">
-            Properties
-            <a href="classes/oihana-controllers-traits-JsonTrait.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <section class="phpdocumentor-functions">
+        <h3 class="phpdocumentor-elements__header" id="functions">
+            Functions
+            <a href="files/src-oihana-models-helpers-getmodel.html#functions" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -protected
-                                                                    "
->
-    <h4 class="phpdocumentor-element__name" id="property_jsonOptions">
-        $jsonOptions
-        <a href="classes/oihana-controllers-traits-JsonTrait.html#property_jsonOptions" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                            </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/JsonTrait.php"><a href="files/src-oihana-controllers-traits-jsontrait.html"><abbr title="src/oihana/controllers/traits/JsonTrait.php">JsonTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">31</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">The default json options used in the controller.</p>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-        <span class="phpdocumentor-signature__visibility">protected</span>
-            <span class="phpdocumentor-signature__type">int</span>
-    <span class="phpdocumentor-signature__name">$jsonOptions</span>
-     = <span class="phpdocumentor-signature__default-value">\oihana\enums\JsonParam::JSON_NONE</span></code>
-
-    
-    
-    
-
-    
-
-    
-
-</article>
-            </section>
-
-            <section class="phpdocumentor-methods">
-        <h3 class="phpdocumentor-elements__header" id="methods">
-            Methods
-            <a href="classes/oihana-controllers-traits-JsonTrait.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
-
-        </h3>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_initializeJsonOptions">
-        initializeJsonOptions()
-        <a href="classes/oihana-controllers-traits-JsonTrait.html#method_initializeJsonOptions" class="headerlink"><i class="fas fa-link"></i></a>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_getModel">
+        getModel()
+        <a href="namespaces/oihana-controllers-helpers.html#function_getModel" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/JsonTrait.php"><a href="files/src-oihana-controllers-traits-jsontrait.html"><abbr title="src/oihana/controllers/traits/JsonTrait.php">JsonTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/helpers/getModel.php"><a href="files/src-oihana-models-helpers-getmodel.html"><abbr title="src/oihana/models/helpers/getModel.php">getModel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Initialize the internal $jsonOptions property.</p>
+        <p class="phpdocumentor-summary">Resolves a model instance from a PSR-11 container or returns a default.</p>
 
+    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">initializeJsonOptions</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">getModel</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|string|<a href="classes/oihana-models-Model.html"><abbr title="\oihana\models\Model">Model</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$definition</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/oihana-models-Model.html"><abbr title="\oihana\models\Model">Model</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$default</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/oihana-models-Model.html"><abbr title="\oihana\models\Model">Model</abbr></a>|null</span></code>
 
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
+        <section class="phpdocumentor-description"><p>This function attempts to retrieve a <code class="prettyprint">Model</code> instance based on the provided
+definition. The definition can be:</p>
+<ul>
+<li>A <code class="prettyprint">Model</code> instance (returned directly),</li>
+<li>An array containing a <code class="prettyprint">ModelParam::MODEL</code> key,</li>
+<li>A string identifier for a model in a PSR-11 container.</li>
+</ul>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$init</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+                <span class="phpdocumentor-signature__argument__name">$definition</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|string|<a href="classes/oihana-models-Model.html"><abbr title="\oihana\models\Model">Model</abbr></a>|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The model definition, which can be:</p>
+<ul>
+<li>a Model instance,</li>
+<li>an array with key <code class="prettyprint">ModelParam::MODEL</code>,</li>
+<li>a string identifier in the container,</li>
+<li>or null.</li>
+</ul>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$container</span>
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Optional PSR-11 container used to resolve a string definition.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$default</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/oihana-models-Model.html"><abbr title="\oihana\models\Model">Model</abbr></a>|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional fallback model returned if none could be resolved.</p>
+</section>
+
             </dd>
             </dl>
 
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-controllers-traits-JsonTrait.html#method_initializeJsonOptions#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="namespaces/oihana-controllers-helpers.html#function_getModel#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -330,7 +258,9 @@ standardized JSON HTTP responses within controllers.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
                                                             
-                                             
+                                                 <section class="phpdocumentor-description"><p>If an error occurs while retrieving the model from the container.</p>
+</section>
+
                                     </dd>
                             <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">throws</span>
@@ -338,78 +268,19 @@ standardized JSON HTTP responses within controllers.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
                                                             
-                                             
+                                                 <section class="phpdocumentor-description"><p>If a string definition is provided but not found in the container.</p>
+</section>
+
                                     </dd>
                                             </dl>
 
-    
-
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">static</span>
-            </section>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/oihana-models-Model.html"><abbr title="\oihana\models\Model">Model</abbr></a>|null</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The resolved <code class="prettyprint">Model</code> instance, the provided default, or <code class="prettyprint">null</code> if none found.</p>
+</section>
 
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_jsonResponse">
-        jsonResponse()
-        <a href="classes/oihana-controllers-traits-JsonTrait.html#method_jsonResponse" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/JsonTrait.php"><a href="files/src-oihana-controllers-traits-jsontrait.html"><abbr title="src/oihana/controllers/traits/JsonTrait.php">JsonTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">62</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Return a JSON response</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">jsonResponse</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$response</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$status</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">200</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$response</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$data</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$status</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">200</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span>
             </section>
 
 </article>
@@ -419,7 +290,7 @@ standardized JSON HTTP responses within controllers.</p>
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/controllers/traits/JsonTrait.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/models/helpers/getModel.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -512,7 +383,7 @@ standardized JSON HTTP responses within controllers.</p>
     </article>
                                 </section>
                 <section class="phpdocumentor-on-this-page__sidebar">
-                                
+                            
     <section class="phpdocumentor-on-this-page__content">
         <strong class="phpdocumentor-on-this-page__title">On this page</strong>
 
@@ -520,23 +391,17 @@ standardized JSON HTTP responses within controllers.</p>
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                            <li><a href="classes/oihana-controllers-traits-JsonTrait.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/oihana-controllers-traits-JsonTrait.html#toc-methods">Methods</a></li>
+                                                                                                                                                                                        <li><a href="files/src-oihana-models-helpers-getmodel.html#toc-functions">Functions</a></li>
                                     </ul>
             </li>
-                                    <li class="phpdocumentor-on-this-page-section__title">Properties</li>
-            <li>
-                <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-controllers-traits-JsonTrait.html#property_jsonOptions">$jsonOptions</a></li>
-                                    </ul>
-            </li>
-                                    <li class="phpdocumentor-on-this-page-section__title">Methods</li>
-            <li>
-                <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-controllers-traits-JsonTrait.html#method_initializeJsonOptions">initializeJsonOptions()</a></li>
-                                            <li class=""><a href="classes/oihana-controllers-traits-JsonTrait.html#method_jsonResponse">jsonResponse()</a></li>
-                                    </ul>
-            </li>
+
+            
+                            <li class="phpdocumentor-on-this-page-section__title">Functions</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="namespaces/oihana-controllers-helpers.html#function_getModel">getModel()</a></li>
+                                            </ul>
+                </li>
                     </ul>
     </section>
 
@@ -554,7 +419,7 @@ standardized JSON HTTP responses within controllers.</p>
     </section>
 </section>
         </div>
-        <a href="classes/oihana-controllers-traits-JsonTrait.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="files/src-oihana-models-helpers-getmodel.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

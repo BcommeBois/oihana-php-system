@@ -8,19 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Added
 
-- Adds the oihana\mysql package
-  - oihana\mysql\enums\traits\MysqlParamTrait
-  - oihana\mysql\enums\MysqlParam
-  - oihana\mysql\enums\MysqlPrivileges
-  - oihana\mysql\traits\MysqlAssertionsTrait
-  - oihana\mysql\traits\MysqlDatabaseTrait
-  - oihana\mysql\traits\MysqlPrivilegeTrait
-  - oihana\mysql\traits\MysqlRootTrait
-  - oihana\mysql\traits\MysqlTableTrait
-  - oihana\mysql\traits\MysqlUserTrait
-  - oihana\mysql\MysqlDSN
-  - oihana\mysql\MysqlModel
-  - oihana\mysql\MysqlPDOBuilder
+- oihana\models\helpers\getModel
+
+- oihana\mysql\enums\traits\MysqlParamTrait
+- oihana\mysql\enums\MysqlParam
+- oihana\mysql\enums\MysqlPrivileges
+- oihana\mysql\traits\MysqlAssertionsTrait
+- oihana\mysql\traits\MysqlDatabaseTrait
+- oihana\mysql\traits\MysqlPrivilegeTrait
+- oihana\mysql\traits\MysqlRootTrait
+- oihana\mysql\traits\MysqlTableTrait
+- oihana\mysql\traits\MysqlUserTrait
+- oihana\mysql\MysqlDSN
+- oihana\mysql\MysqlModel
+- oihana\mysql\MysqlPDOBuilder
 
 ### TODO
 

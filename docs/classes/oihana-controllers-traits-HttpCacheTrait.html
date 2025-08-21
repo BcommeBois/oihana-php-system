@@ -140,7 +140,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/HttpCacheTrait.php"><a href="files/src-oihana-controllers-traits-httpcachetrait.html"><abbr title="src/oihana/controllers/traits/HttpCacheTrait.php">HttpCacheTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">28</span>
+    <span class="phpdocumentor-element-found-in__line">29</span>
 
     </aside>
 
@@ -149,14 +149,13 @@
 
     <section class="phpdocumentor-description"><p>This trait allows controllers to:</p>
 <ul>
-<li>Initialize an internal HTTP cache provider (<code class="prettyprint">Slim\HttpCache\CacheProvider</code>).</li>
-<li>Enforce cache control headers (deny cache, set ETag, Last-Modified).</li>
+<li>Optionally initialize an internal HTTP cache provider (<code class="prettyprint">Slim\HttpCache\CacheProvider</code>).</li>
+<li>Set or remove cache-related headers (<code class="prettyprint">ETag</code>, <code class="prettyprint">Last-Modified</code>, <code class="prettyprint">Cache-Control</code>).</li>
 </ul>
-<p>Usage:</p>
-<ol>
-<li>Initialize the HTTP cache provider via <code class="prettyprint">initializeHttpCache()</code>.</li>
-<li>Use helper methods to modify PSR-7 response headers for caching.</li>
-</ol>
+<p><strong>Important:</strong>
+To enable caching, you <strong>must</strong> call <abbr title="\oihana\controllers\traits\initializeHttpCache()">initializeHttpCache()</abbr> in your controller.
+If you forget to initialize the cache provider, these methods will silently
+return the original response without adding any cache-related headers.</p>
 </section>
 
 
@@ -188,9 +187,9 @@
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a class="" href="classes/oihana-controllers-traits-HttpCacheTrait.html#property_httpCache">$httpCache</a>
     <span>
-                        &nbsp;: <abbr title="\Slim\HttpCache\CacheProvider">CacheProvider</abbr>            </span>
+                        &nbsp;: <abbr title="\Slim\HttpCache\CacheProvider">CacheProvider</abbr>|null            </span>
 </dt>
-<dd>The cache provider reference.</dd>
+<dd>The cache provider reference (optional).</dd>
 
     </dl>
 
@@ -200,6 +199,13 @@
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-controllers-traits-HttpCacheTrait.html#method_allowCache">allowCache()</a>
+    <span>
+                                &nbsp;: <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>    </span>
+</dt>
+<dd>Enable HTTP caching for the given response.</dd>
+
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-controllers-traits-HttpCacheTrait.html#method_denyCache">denyCache()</a>
     <span>
@@ -220,6 +226,13 @@
                                 &nbsp;: <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>    </span>
 </dt>
 <dd>Add an `ETag` header to a PSR-7 response object.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-controllers-traits-HttpCacheTrait.html#method_withExpires">withExpires()</a>
+    <span>
+                                &nbsp;: <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>    </span>
+</dt>
+<dd>Add an `Expires` header to a PSR-7 response object.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-controllers-traits-HttpCacheTrait.html#method_withLastModified">withLastModified()</a>
@@ -259,20 +272,20 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/HttpCacheTrait.php"><a href="files/src-oihana-controllers-traits-httpcachetrait.html"><abbr title="src/oihana/controllers/traits/HttpCacheTrait.php">HttpCacheTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">The cache provider reference.</p>
+        <p class="phpdocumentor-summary">The cache provider reference (optional).</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
         <span class="phpdocumentor-signature__visibility">protected</span>
-            <span class="phpdocumentor-signature__type"><abbr title="\Slim\HttpCache\CacheProvider">CacheProvider</abbr></span>
+            <span class="phpdocumentor-signature__type"><abbr title="\Slim\HttpCache\CacheProvider">CacheProvider</abbr>|null</span>
     <span class="phpdocumentor-signature__name">$httpCache</span>
-    </code>
+     = <span class="phpdocumentor-signature__default-value">null</span></code>
 
-        <section class="phpdocumentor-description"><p>This property holds the <code class="prettyprint">Slim\HttpCache\CacheProvider</code> instance
+        <section class="phpdocumentor-description"><p>When set, this property holds a <code class="prettyprint">Slim\HttpCache\CacheProvider</code> instance
 used to modify HTTP response headers for caching.</p>
 </section>
 
@@ -298,6 +311,91 @@ used to modify HTTP response headers for caching.</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_allowCache">
+        allowCache()
+        <a href="classes/oihana-controllers-traits-HttpCacheTrait.html#method_allowCache" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/HttpCacheTrait.php"><a href="files/src-oihana-controllers-traits-httpcachetrait.html"><abbr title="src/oihana/controllers/traits/HttpCacheTrait.php">HttpCacheTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">54</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Enable HTTP caching for the given response.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">allowCache</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$response</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$type</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;private&#039;</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$maxAge</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$mustRevalidate</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>This method sets a <code class="prettyprint">Cache-Control</code> header using the underlying CacheProvider.
+If the HTTP cache provider is <strong>not</strong> initialized, the response is returned unchanged.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$response</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>A PSR-7 response object</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$type</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;private&#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Cache-Control type: &quot;private&quot; or &quot;public&quot;</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$maxAge</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Maximum cache age in seconds or a datetime string parsable by strtotime()</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$mustRevalidate</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Whether to add the &quot;must-revalidate&quot; directive</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>A new response object with cache headers if the cache provider is available.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_denyCache">
         denyCache()
         <a href="classes/oihana-controllers-traits-HttpCacheTrait.html#method_denyCache" class="headerlink"><i class="fas fa-link"></i></a>
@@ -306,7 +404,7 @@ used to modify HTTP response headers for caching.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/HttpCacheTrait.php"><a href="files/src-oihana-controllers-traits-httpcachetrait.html"><abbr title="src/oihana/controllers/traits/HttpCacheTrait.php">HttpCacheTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">47</span>
+    <span class="phpdocumentor-element-found-in__line">76</span>
 
     </aside>
 
@@ -319,7 +417,8 @@ used to modify HTTP response headers for caching.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
-        <section class="phpdocumentor-description"><p>Equivalent to setting headers like <code class="prettyprint">Cache-Control: no-store, no-cache, must-revalidate</code>.</p>
+        <section class="phpdocumentor-description"><p>Equivalent to setting headers like <code class="prettyprint">Cache-Control: no-store, no-cache, must-revalidate</code>.
+If the HTTP cache provider is <strong>not</strong> initialized, the response is returned unchanged.</p>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -343,7 +442,7 @@ used to modify HTTP response headers for caching.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>A new response object with cache denial headers</p>
+                <section class="phpdocumentor-description"><p>A new response object with cache denial headers if available.</p>
 </section>
 
             </section>
@@ -363,7 +462,7 @@ used to modify HTTP response headers for caching.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/HttpCacheTrait.php"><a href="files/src-oihana-controllers-traits-httpcachetrait.html"><abbr title="src/oihana/controllers/traits/HttpCacheTrait.php">HttpCacheTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">66</span>
+    <span class="phpdocumentor-element-found-in__line">97</span>
 
     </aside>
 
@@ -376,11 +475,11 @@ used to modify HTTP response headers for caching.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
-        <section class="phpdocumentor-description"><p>This method sets up the <code class="prettyprint">$httpCache</code> property from:</p>
-<ul>
-<li>The <code class="prettyprint">$init</code> array, using the key <code class="prettyprint">ControllerParam::HTTP_CACHE</code></li>
-<li>The DI container, if available and containing <code class="prettyprint">Slim\HttpCache\CacheProvider</code></li>
-</ul>
+        <section class="phpdocumentor-description"><p>Priority order:</p>
+<ol>
+<li><code class="prettyprint">$init[ControllerParam::HTTP_CACHE]</code></li>
+<li><code class="prettyprint">$container-&gt;get(CacheProvider::class)</code> if available in DI</li>
+</ol>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -438,7 +537,7 @@ used to modify HTTP response headers for caching.</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\RuntimeException">RuntimeException</abbr></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If no valid <code class="prettyprint">CacheProvider</code> could be assigned</p>
+                                                 <section class="phpdocumentor-description"><p>If no valid <code class="prettyprint">CacheProvider</code> could be assigned.</p>
 </section>
 
                                     </dd>
@@ -470,7 +569,7 @@ used to modify HTTP response headers for caching.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/HttpCacheTrait.php"><a href="files/src-oihana-controllers-traits-httpcachetrait.html"><abbr title="src/oihana/controllers/traits/HttpCacheTrait.php">HttpCacheTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">95</span>
+    <span class="phpdocumentor-element-found-in__line">126</span>
 
     </aside>
 
@@ -483,7 +582,8 @@ used to modify HTTP response headers for caching.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
-        <section class="phpdocumentor-description"><p>The <code class="prettyprint">ETag</code> is used by browsers and proxies for cache validation.</p>
+        <section class="phpdocumentor-description"><p>The <code class="prettyprint">ETag</code> is used by browsers and proxies for cache validation.
+If the HTTP cache provider is <strong>not</strong> initialized, the response is returned unchanged.</p>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -525,7 +625,74 @@ used to modify HTTP response headers for caching.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>A new response object with the <code class="prettyprint">ETag</code> header set</p>
+                <section class="phpdocumentor-description"><p>A new response object with the <code class="prettyprint">ETag</code> header set if available</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_withExpires">
+        withExpires()
+        <a href="classes/oihana-controllers-traits-HttpCacheTrait.html#method_withExpires" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/HttpCacheTrait.php"><a href="files/src-oihana-controllers-traits-httpcachetrait.html"><abbr title="src/oihana/controllers/traits/HttpCacheTrait.php">HttpCacheTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">142</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Add an `Expires` header to a PSR-7 response object.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">withExpires</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$response</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$time</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>This header specifies the date and time after which the response is considered stale.
+If the HTTP cache provider is <strong>not</strong> initialized, the response is returned unchanged.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$response</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>A PSR-7 response object</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$time</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>A UNIX timestamp or a string compatible with <code class="prettyprint">strtotime()</code>.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>A new response object with the <code class="prettyprint">Expires</code> header set if available</p>
 </section>
 
             </section>
@@ -545,7 +712,7 @@ used to modify HTTP response headers for caching.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/HttpCacheTrait.php"><a href="files/src-oihana-controllers-traits-httpcachetrait.html"><abbr title="src/oihana/controllers/traits/HttpCacheTrait.php">HttpCacheTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">109</span>
+    <span class="phpdocumentor-element-found-in__line">158</span>
 
     </aside>
 
@@ -558,7 +725,8 @@ used to modify HTTP response headers for caching.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
-        <section class="phpdocumentor-description"><p>This header informs caches of the last modification date of the resource.</p>
+        <section class="phpdocumentor-description"><p>This header informs caches of the last modification date of the resource.
+If the HTTP cache provider is <strong>not</strong> initialized, the response is returned unchanged.</p>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -591,7 +759,7 @@ used to modify HTTP response headers for caching.</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>A new response object with the <code class="prettyprint">Last-Modified</code> header set</p>
+                <section class="phpdocumentor-description"><p>A new response object with the <code class="prettyprint">Last-Modified</code> header set if available</p>
 </section>
 
             </section>
@@ -717,9 +885,11 @@ used to modify HTTP response headers for caching.</p>
                                     <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/oihana-controllers-traits-HttpCacheTrait.html#method_allowCache">allowCache()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-HttpCacheTrait.html#method_denyCache">denyCache()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-HttpCacheTrait.html#method_initializeHttpCache">initializeHttpCache()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-HttpCacheTrait.html#method_withEtag">withEtag()</a></li>
+                                            <li class=""><a href="classes/oihana-controllers-traits-HttpCacheTrait.html#method_withExpires">withExpires()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-HttpCacheTrait.html#method_withLastModified">withLastModified()</a></li>
                                     </ul>
             </li>

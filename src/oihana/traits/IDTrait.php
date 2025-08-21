@@ -24,7 +24,7 @@ trait IDTrait
 
     /**
      * Initialize the unique identifier of the command.
-     * @param array $init
+     * @param array $init Optional initialization array
      * @param ContainerInterface|null $container
      * @return static
      * @throws ContainerExceptionInterface
