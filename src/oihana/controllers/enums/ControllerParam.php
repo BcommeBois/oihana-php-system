@@ -2,6 +2,7 @@
 
 namespace oihana\controllers\enums;
 
+use fr\ooop\schema\constants\traits\PaginationTrait;
 use oihana\controllers\enums\traits\ControllerParamTrait;
 use oihana\reflect\traits\ConstantsTrait;
 
@@ -11,5 +12,6 @@ use oihana\reflect\traits\ConstantsTrait;
 class ControllerParam
 {
     use ConstantsTrait ,
-        ControllerParamTrait ;
+        ControllerParamTrait ,
+        PaginationTrait;
 }
