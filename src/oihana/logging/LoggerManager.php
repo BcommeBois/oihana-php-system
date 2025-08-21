@@ -179,7 +179,7 @@ abstract class LoggerManager
     public function getLogLines( string $file ) : ?array
     {
         $file = $this->getFilePath( $file ) ;
-        return file_exists( $file ) ? getFileLines( $file ) : null ;
+        return file_exists( $file ) ? getFileLines( $file , [ $this , 'createLog' ] ) : null ;
     }
 
     /**
