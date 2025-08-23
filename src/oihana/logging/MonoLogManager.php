@@ -2,16 +2,17 @@
 
 namespace oihana\logging;
 
-use Monolog\Formatter\FormatterInterface;
-use Psr\Log\LoggerInterface;
-
 use Monolog\ErrorHandler;
+use Monolog\Formatter\FormatterInterface;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\RotatingFileHandler;
 use Monolog\Level;
 use Monolog\Logger;
 
+use Psr\Log\LoggerInterface;
+
 use oihana\enums\Char;
+use oihana\logging\enums\MonoLogParam;
 
 /**
  * A logger manager.
@@ -27,11 +28,11 @@ class MonoLogManager extends LoggerManager
     public function __construct( string $directory = Char::EMPTY , array $init = [] , ?string $name = null )
     {
         parent::__construct( $directory , $init , $name ) ;
-        $this->bubbles         = boolval( $init[ MonoLogConfig::BUBBLES  ] ?? $this->bubbles ) ;
-        $this->dirPermissions  = octdec( $init[ MonoLogConfig::DIR_PERMISSIONS ] ?? '0775' ) ;
-        $this->filePermissions = octdec( $init[ MonoLogConfig::FILE_PERMISSIONS ] ?? '0664' ) ;
-        $this->level           = intval( $init[ MonoLogConfig::LEVEL ] ?? Level::Debug ) ;
-        $this->maxFiles        = intval( $init[ MonoLogConfig::MAX_FILES ] ?? $this->maxFiles ) ;
+        $this->bubbles         = boolval( $init[ MonoLogParam::BUBBLES  ] ?? $this->bubbles ) ;
+        $this->dirPermissions  = octdec( $init[ MonoLogParam::DIR_PERMISSIONS ] ?? '0775' ) ;
+        $this->filePermissions = octdec( $init[ MonoLogParam::FILE_PERMISSIONS ] ?? '0664' ) ;
+        $this->level           = intval( $init[ MonoLogParam::LEVEL ] ?? Level::Debug ) ;
+        $this->maxFiles        = intval( $init[ MonoLogParam::MAX_FILES ] ?? $this->maxFiles ) ;
     }
 
     /**

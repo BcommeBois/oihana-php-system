@@ -3,15 +3,16 @@
 namespace oihana\logging;
 
 use fr\ooop\schema\Log;
+
+use oihana\enums\Char;
 use oihana\enums\Order;
 use oihana\files\enums\FindFilesOption;
 use oihana\files\enums\FindMode;
 use oihana\files\exceptions\DirectoryException;
 use oihana\files\exceptions\FileException;
+use oihana\logging\enums\LoggerParam;
 
 use Psr\Log\LoggerInterface;
-
-use oihana\enums\Char;
 
 use function oihana\files\clearFile;
 use function oihana\files\countFileLines;
@@ -46,8 +47,8 @@ abstract class LoggerManager
     {
         $this->name      = $name  ;
         $this->directory = $directory ;
-        $this->path      = $init[ LoggerConfig::PATH ] ?? self::DEFAULT_PATH ;
-        $this->extension = $init[ LoggerConfig::EXTENSION ] ?? self::DEFAULT_EXTENSION ;
+        $this->path      = $init[ LoggerParam::PATH      ] ?? self::DEFAULT_PATH ;
+        $this->extension = $init[ LoggerParam::EXTENSION ] ?? self::DEFAULT_EXTENSION ;
     }
 
     /**

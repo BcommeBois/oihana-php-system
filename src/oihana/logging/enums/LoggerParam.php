@@ -1,10 +1,10 @@
 <?php
 
-namespace oihana\logging;
+namespace oihana\logging\enums;
 
 use oihana\reflect\traits\ConstantsTrait;
 
-class LoggerConfig
+class LoggerParam
 {
     use ConstantsTrait ;
 
