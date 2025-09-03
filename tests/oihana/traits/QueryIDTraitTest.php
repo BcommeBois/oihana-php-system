@@ -2,7 +2,6 @@
 
 namespace tests\oihana\traits ;
 
-use oihana\enums\Param;
 use oihana\traits\QueryIDTrait;
 use PHPUnit\Framework\TestCase;
 
@@ -26,7 +25,7 @@ class QueryIDTraitTest extends TestCase
     public function testSetQueryIDWithArrayContainingQueryId(): void
     {
         $obj = $this->getQueryIDInstance();
-        $obj->setQueryID([Param::QUERY_ID => 'array_id']);
+        $obj->setQueryID(['queryId' => 'array_id']);
         $this->assertSame('array_id', $obj->getQueryID());
     }
 

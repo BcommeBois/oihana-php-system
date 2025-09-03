@@ -2,6 +2,7 @@
 
 namespace tests\oihana\models\pdo;
 
+use oihana\models\enums\ModelParam;
 use PDO;
 use PDOStatement;
 
@@ -15,7 +16,6 @@ use Psr\Container\NotFoundExceptionInterface;
 
 use DI\Container;
 
-use oihana\enums\Param;
 use oihana\models\pdo\PDOModel;
 
 class PDOModelTest extends TestCase
@@ -43,11 +43,11 @@ class PDOModelTest extends TestCase
 
         $init =
         [
-            Param::PDO              => 'my_pdo',
-            Param::DEFER_ASSIGNMENT => true,
-            Param::SCHEMA           => stdClass::class,
-            Param::ALTERS           => ['foo' => 'bar'],
-            Param::BINDS            => ['baz' => 'qux'],
+            ModelParam::PDO              => 'my_pdo',
+            ModelParam::DEFER_ASSIGNMENT => true,
+            ModelParam::SCHEMA           => stdClass::class,
+            ModelParam::ALTERS           => ['foo' => 'bar'],
+            ModelParam::BINDS            => ['baz' => 'qux'],
         ];
 
         $model = new PDOModel( $this->container, $init );

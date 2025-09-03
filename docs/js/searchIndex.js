@@ -1281,6 +1281,86 @@ Search.appendIndex(
             "summary": "Set\u0020a\u0020PHP\u0020ini\u0020directive\u0020from\u0020a\u0020scalar\u0020or\u0020from\u0020a\u0020config\u0020array\u0020if\u0020the\u0020value\u0020exists\u0020and\u0020is\u0020not\u0020empty.",
             "url": "namespaces/oihana-init.html#function_setIniIfExists"
         },                {
+            "fqsen": "\\oihana\\logging\\enums\\LoggerParam",
+            "name": "LoggerParam",
+            "summary": "",
+            "url": "classes/oihana-logging-enums-LoggerParam.html"
+        },                {
+            "fqsen": "\\oihana\\logging\\enums\\LoggerParam\u003A\u003ADIRECTORY",
+            "name": "DIRECTORY",
+            "summary": "",
+            "url": "classes/oihana-logging-enums-LoggerParam.html#constant_DIRECTORY"
+        },                {
+            "fqsen": "\\oihana\\logging\\enums\\LoggerParam\u003A\u003AEXTENSION",
+            "name": "EXTENSION",
+            "summary": "",
+            "url": "classes/oihana-logging-enums-LoggerParam.html#constant_EXTENSION"
+        },                {
+            "fqsen": "\\oihana\\logging\\enums\\LoggerParam\u003A\u003ALOGGABLE",
+            "name": "LOGGABLE",
+            "summary": "",
+            "url": "classes/oihana-logging-enums-LoggerParam.html#constant_LOGGABLE"
+        },                {
+            "fqsen": "\\oihana\\logging\\enums\\LoggerParam\u003A\u003ALOGGER",
+            "name": "LOGGER",
+            "summary": "",
+            "url": "classes/oihana-logging-enums-LoggerParam.html#constant_LOGGER"
+        },                {
+            "fqsen": "\\oihana\\logging\\enums\\LoggerParam\u003A\u003ANAME",
+            "name": "NAME",
+            "summary": "",
+            "url": "classes/oihana-logging-enums-LoggerParam.html#constant_NAME"
+        },                {
+            "fqsen": "\\oihana\\logging\\enums\\LoggerParam\u003A\u003APATH",
+            "name": "PATH",
+            "summary": "",
+            "url": "classes/oihana-logging-enums-LoggerParam.html#constant_PATH"
+        },                {
+            "fqsen": "\\oihana\\logging\\enums\\MonoLogParam",
+            "name": "MonoLogParam",
+            "summary": "",
+            "url": "classes/oihana-logging-enums-MonoLogParam.html"
+        },                {
+            "fqsen": "\\oihana\\logging\\enums\\MonoLogParam\u003A\u003ABUBBLES",
+            "name": "BUBBLES",
+            "summary": "",
+            "url": "classes/oihana-logging-enums-MonoLogParam.html#constant_BUBBLES"
+        },                {
+            "fqsen": "\\oihana\\logging\\enums\\MonoLogParam\u003A\u003ADATE_FORMAT",
+            "name": "DATE_FORMAT",
+            "summary": "",
+            "url": "classes/oihana-logging-enums-MonoLogParam.html#constant_DATE_FORMAT"
+        },                {
+            "fqsen": "\\oihana\\logging\\enums\\MonoLogParam\u003A\u003ADIR_PERMISSIONS",
+            "name": "DIR_PERMISSIONS",
+            "summary": "",
+            "url": "classes/oihana-logging-enums-MonoLogParam.html#constant_DIR_PERMISSIONS"
+        },                {
+            "fqsen": "\\oihana\\logging\\enums\\MonoLogParam\u003A\u003AFILE_PERMISSIONS",
+            "name": "FILE_PERMISSIONS",
+            "summary": "",
+            "url": "classes/oihana-logging-enums-MonoLogParam.html#constant_FILE_PERMISSIONS"
+        },                {
+            "fqsen": "\\oihana\\logging\\enums\\MonoLogParam\u003A\u003AINCLUDE_STACK_TRACES",
+            "name": "INCLUDE_STACK_TRACES",
+            "summary": "",
+            "url": "classes/oihana-logging-enums-MonoLogParam.html#constant_INCLUDE_STACK_TRACES"
+        },                {
+            "fqsen": "\\oihana\\logging\\enums\\MonoLogParam\u003A\u003ALEVEL",
+            "name": "LEVEL",
+            "summary": "",
+            "url": "classes/oihana-logging-enums-MonoLogParam.html#constant_LEVEL"
+        },                {
+            "fqsen": "\\oihana\\logging\\enums\\MonoLogParam\u003A\u003AMAX_FILES",
+            "name": "MAX_FILES",
+            "summary": "",
+            "url": "classes/oihana-logging-enums-MonoLogParam.html#constant_MAX_FILES"
+        },                {
+            "fqsen": "\\oihana\\logging\\enums\\MonoLogParam\u003A\u003APATTERN",
+            "name": "PATTERN",
+            "summary": "",
+            "url": "classes/oihana-logging-enums-MonoLogParam.html#constant_PATTERN"
+        },                {
             "fqsen": "\\oihana\\logging\\Logger",
             "name": "Logger",
             "summary": "A\u0020simple\u0020PSR\u002D3\u002Dcompliant\u0020file\u002Dbased\u0020logger.",
@@ -1516,31 +1596,6 @@ Search.appendIndex(
             "summary": "Current\u0020status\u0020of\u0020the\u0020log\u0020file",
             "url": "classes/oihana-logging-Logger.html#property_status"
         },                {
-            "fqsen": "\\oihana\\logging\\LoggerConfig",
-            "name": "LoggerConfig",
-            "summary": "",
-            "url": "classes/oihana-logging-LoggerConfig.html"
-        },                {
-            "fqsen": "\\oihana\\logging\\LoggerConfig\u003A\u003ADIRECTORY",
-            "name": "DIRECTORY",
-            "summary": "",
-            "url": "classes/oihana-logging-LoggerConfig.html#constant_DIRECTORY"
-        },                {
-            "fqsen": "\\oihana\\logging\\LoggerConfig\u003A\u003AEXTENSION",
-            "name": "EXTENSION",
-            "summary": "",
-            "url": "classes/oihana-logging-LoggerConfig.html#constant_EXTENSION"
-        },                {
-            "fqsen": "\\oihana\\logging\\LoggerConfig\u003A\u003ANAME",
-            "name": "NAME",
-            "summary": "",
-            "url": "classes/oihana-logging-LoggerConfig.html#constant_NAME"
-        },                {
-            "fqsen": "\\oihana\\logging\\LoggerConfig\u003A\u003APATH",
-            "name": "PATH",
-            "summary": "",
-            "url": "classes/oihana-logging-LoggerConfig.html#constant_PATH"
-        },                {
             "fqsen": "\\oihana\\logging\\LoggerManager",
             "name": "LoggerManager",
             "summary": "Abstract\u0020logger\u0020manager\u0020class.",
@@ -1765,51 +1820,6 @@ Search.appendIndex(
             "name": "colorMap",
             "summary": "",
             "url": "classes/oihana-logging-monolog-processors-SymbolProcessor.html#property_colorMap"
-        },                {
-            "fqsen": "\\oihana\\logging\\MonoLogConfig",
-            "name": "MonoLogConfig",
-            "summary": "",
-            "url": "classes/oihana-logging-MonoLogConfig.html"
-        },                {
-            "fqsen": "\\oihana\\logging\\MonoLogConfig\u003A\u003ABUBBLES",
-            "name": "BUBBLES",
-            "summary": "",
-            "url": "classes/oihana-logging-MonoLogConfig.html#constant_BUBBLES"
-        },                {
-            "fqsen": "\\oihana\\logging\\MonoLogConfig\u003A\u003ADATE_FORMAT",
-            "name": "DATE_FORMAT",
-            "summary": "",
-            "url": "classes/oihana-logging-MonoLogConfig.html#constant_DATE_FORMAT"
-        },                {
-            "fqsen": "\\oihana\\logging\\MonoLogConfig\u003A\u003ADIR_PERMISSIONS",
-            "name": "DIR_PERMISSIONS",
-            "summary": "",
-            "url": "classes/oihana-logging-MonoLogConfig.html#constant_DIR_PERMISSIONS"
-        },                {
-            "fqsen": "\\oihana\\logging\\MonoLogConfig\u003A\u003AFILE_PERMISSIONS",
-            "name": "FILE_PERMISSIONS",
-            "summary": "",
-            "url": "classes/oihana-logging-MonoLogConfig.html#constant_FILE_PERMISSIONS"
-        },                {
-            "fqsen": "\\oihana\\logging\\MonoLogConfig\u003A\u003AINCLUDE_STACK_TRACES",
-            "name": "INCLUDE_STACK_TRACES",
-            "summary": "",
-            "url": "classes/oihana-logging-MonoLogConfig.html#constant_INCLUDE_STACK_TRACES"
-        },                {
-            "fqsen": "\\oihana\\logging\\MonoLogConfig\u003A\u003ALEVEL",
-            "name": "LEVEL",
-            "summary": "",
-            "url": "classes/oihana-logging-MonoLogConfig.html#constant_LEVEL"
-        },                {
-            "fqsen": "\\oihana\\logging\\MonoLogConfig\u003A\u003AMAX_FILES",
-            "name": "MAX_FILES",
-            "summary": "",
-            "url": "classes/oihana-logging-MonoLogConfig.html#constant_MAX_FILES"
-        },                {
-            "fqsen": "\\oihana\\logging\\MonoLogConfig\u003A\u003APATTERN",
-            "name": "PATTERN",
-            "summary": "",
-            "url": "classes/oihana-logging-MonoLogConfig.html#constant_PATTERN"
         },                {
             "fqsen": "\\oihana\\logging\\MonoLogManager",
             "name": "MonoLogManager",
@@ -3745,6 +3755,11 @@ Search.appendIndex(
             "name": "init",
             "summary": "",
             "url": "namespaces/oihana-init.html"
+        },                {
+            "fqsen": "\\oihana\\logging\\enums",
+            "name": "enums",
+            "summary": "",
+            "url": "namespaces/oihana-logging-enums.html"
         },                {
             "fqsen": "\\oihana\\logging",
             "name": "logging",

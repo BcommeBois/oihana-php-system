@@ -2,6 +2,7 @@
 
 namespace tests\oihana\traits ;
 
+use oihana\models\enums\ModelParam;
 use PDO;
 use PDOStatement;
 
@@ -12,8 +13,6 @@ use Psr\Container\ContainerExceptionInterface;
 
 use PHPUnit\Framework\MockObject\Exception;
 use PHPUnit\Framework\TestCase;
-
-use oihana\enums\Param;
 
 use tests\oihana\traits\mocks\MockPDOClass;
 
@@ -227,7 +226,7 @@ class PDOTraitTest extends TestCase
     {
         $pdo = $this->createMock(PDO::class);
 
-        $this->model->initializePDO([ Param::PDO => $pdo] );
+        $this->model->initializePDO([ ModelParam::PDO => $pdo] );
 
         $result = $this->model->pdo ;
 
@@ -255,7 +254,7 @@ class PDOTraitTest extends TestCase
             ->with('my_pdo')
             ->willReturn($pdo);
 
-        $this->model->initializePDO([ Param::PDO => 'my_pdo'], $container);
+        $this->model->initializePDO([ ModelParam::PDO => 'my_pdo'], $container);
 
         $result = $this->model->pdo ;
 

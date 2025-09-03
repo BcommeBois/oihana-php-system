@@ -233,12 +233,12 @@ abstract class LoggerManager
     public function getLoggerFiles() :array|false
     {
         $files = findFiles( $this->getDirectory() ,
-            [
-                FindFilesOption::PATTERN => $this->name . Char::ASTERISK . $this->extension,
-                FindFilesOption::MODE    => FindMode::FILES ,
-                FindFilesOption::ORDER   => Order::asc ,
-                FindFilesOption::SORT    => fn( $a , $b ) => strcmp( $a->getFilename() , $b->getFilename() ) ,
-            ]);
+        [
+            FindFilesOption::PATTERN => $this->name . Char::ASTERISK . $this->extension,
+            FindFilesOption::MODE    => FindMode::FILES ,
+            FindFilesOption::ORDER   => Order::asc ,
+            FindFilesOption::SORT    => fn( $a , $b ) => strcmp( $a->getFilename() , $b->getFilename() ) ,
+        ]);
 
         return array_map( fn($file) => $file->getFilename() , $files ) ;
     }
