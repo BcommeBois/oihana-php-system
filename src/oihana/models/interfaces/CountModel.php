@@ -3,6 +3,7 @@
 namespace oihana\models\interfaces;
 
 /**
+ * Count the number of documents in the model.
  * @package oihana\models\interfaces
  * @author  Marc Alcaraz (ekameleon)
  * @since   1.0.0

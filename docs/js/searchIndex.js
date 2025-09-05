@@ -1898,7 +1898,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\CountModel",
             "name": "CountModel",
-            "summary": "",
+            "summary": "Count\u0020the\u0020number\u0020of\u0020documents\u0020in\u0020the\u0020model.",
             "url": "classes/oihana-models-interfaces-CountModel.html"
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\CountModel\u003A\u003Acount\u0028\u0029",
@@ -1908,7 +1908,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\DeleteAllModel",
             "name": "DeleteAllModel",
-            "summary": "",
+            "summary": "Delete\u0020a\u0020set\u0020of\u0020documents\u0020in\u0020the\u0020model.",
             "url": "classes/oihana-models-interfaces-DeleteAllModel.html"
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\DeleteAllModel\u003A\u003AdeleteAll\u0028\u0029",
@@ -1918,7 +1918,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\DeleteModel",
             "name": "DeleteModel",
-            "summary": "",
+            "summary": "Delete\u0020a\u0020document\u0020in\u0020the\u0020model.",
             "url": "classes/oihana-models-interfaces-DeleteModel.html"
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\DeleteModel\u003A\u003Adelete\u0028\u0029",
@@ -1928,12 +1928,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\DocumentsModel",
             "name": "DocumentsModel",
-            "summary": "",
+            "summary": "Count\u0020the\u0020number\u0020of\u0020documents\u0020in\u0020the\u0020model.",
             "url": "classes/oihana-models-interfaces-DocumentsModel.html"
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\ExistModel",
             "name": "ExistModel",
-            "summary": "",
+            "summary": "Indicates\u0020if\u0020a\u0020document\u0020exist\u0020in\u0020the\u0020model.",
             "url": "classes/oihana-models-interfaces-ExistModel.html"
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\ExistModel\u003A\u003Aexist\u0028\u0029",
@@ -1943,7 +1943,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\GetModel",
             "name": "GetModel",
-            "summary": "",
+            "summary": "Returns\u0020a\u0020specific\u0020document\u0020in\u0020the\u0020model.",
             "url": "classes/oihana-models-interfaces-GetModel.html"
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\GetModel\u003A\u003Aget\u0028\u0029",
@@ -1953,7 +1953,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\InsertModel",
             "name": "InsertModel",
-            "summary": "",
+            "summary": "Insert\u0020a\u0020new\u0020document\u0020in\u0020the\u0020model.",
             "url": "classes/oihana-models-interfaces-InsertModel.html"
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\InsertModel\u003A\u003Ainsert\u0028\u0029",
@@ -1961,9 +1961,19 @@ Search.appendIndex(
             "summary": "Insert\u0020a\u0020new\u0020item\u0020into\u0020the\u0020model.",
             "url": "classes/oihana-models-interfaces-InsertModel.html#method_insert"
         },                {
+            "fqsen": "\\oihana\\models\\interfaces\\LastModel",
+            "name": "LastModel",
+            "summary": "Returns\u0020the\u0020last\u0020document\u0020in\u0020the\u0020model\u0020\u0028by\u0020default\u0020\u0027modified\u0027\u0029.",
+            "url": "classes/oihana-models-interfaces-LastModel.html"
+        },                {
+            "fqsen": "\\oihana\\models\\interfaces\\LastModel\u003A\u003Alast\u0028\u0029",
+            "name": "last",
+            "summary": "Returns\u0020a\u0020the\u0020last\u0020document\u0020in\u0020the\u0020model.",
+            "url": "classes/oihana-models-interfaces-LastModel.html#method_last"
+        },                {
             "fqsen": "\\oihana\\models\\interfaces\\ListModel",
             "name": "ListModel",
-            "summary": "",
+            "summary": "List\u0020the\u0020documents\u0020in\u0020the\u0020model.",
             "url": "classes/oihana-models-interfaces-ListModel.html"
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\ListModel\u003A\u003Alist\u0028\u0029",
@@ -1973,7 +1983,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\ReplaceModel",
             "name": "ReplaceModel",
-            "summary": "",
+            "summary": "Replace\u0020a\u0020document\u0020in\u0020the\u0020model.",
             "url": "classes/oihana-models-interfaces-ReplaceModel.html"
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\ReplaceModel\u003A\u003Areplace\u0028\u0029",
@@ -1983,7 +1993,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\TruncateModel",
             "name": "TruncateModel",
-            "summary": "",
+            "summary": "Truncate\u0020the\u0020model\u0020documents.",
             "url": "classes/oihana-models-interfaces-TruncateModel.html"
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\TruncateModel\u003A\u003Atruncate\u0028\u0029",
@@ -1993,7 +2003,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\UpdateModel",
             "name": "UpdateModel",
-            "summary": "",
+            "summary": "Update\u0020a\u0020document\u0020in\u0020the\u0020model.",
             "url": "classes/oihana-models-interfaces-UpdateModel.html"
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\UpdateModel\u003A\u003Aupdate\u0028\u0029",
@@ -2003,7 +2013,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\UpsertModel",
             "name": "UpsertModel",
-            "summary": "",
+            "summary": "Insert\u0020or\u0020update\/replace\u0020a\u0020document\u0020in\u0020the\u0020model\u0020if\u0020already\u0020exist.",
             "url": "classes/oihana-models-interfaces-UpsertModel.html"
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\UpsertModel\u003A\u003Aupsert\u0028\u0029",

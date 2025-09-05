@@ -3,17 +3,17 @@
 namespace oihana\models\interfaces;
 
 /**
- * Insert a new document in the model.
+ * Returns the last document in the model (by default 'modified').
  * @package oihana\models\interfaces
  * @author  Marc Alcaraz (ekameleon)
  * @since   1.0.0
  */
-interface InsertModel
+interface LastModel extends ExistModel
 {
     /**
-     * Insert a new item into the model.
+     * Returns a the last document in the model.
      * @param array $init
      * @return mixed
      */
-    public function insert( array $init = [] ) :mixed ;
+    public function last( array $init = [] ) :mixed ;
 }

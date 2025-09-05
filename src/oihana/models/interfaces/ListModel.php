@@ -3,6 +3,7 @@
 namespace oihana\models\interfaces;
 
 /**
+ * List the documents in the model.
  * @package oihana\models\interfaces
  * @author  Marc Alcaraz (ekameleon)
  * @since   1.0.0

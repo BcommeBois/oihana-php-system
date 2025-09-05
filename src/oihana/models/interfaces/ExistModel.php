@@ -3,6 +3,7 @@
 namespace oihana\models\interfaces;
 
 /**
+ * Indicates if a document exist in the model.
  * @package oihana\models\interfaces
  * @author  Marc Alcaraz (ekameleon)
  * @since   1.0.0
