@@ -143,13 +143,33 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/interfaces/DocumentsModel.php"><a href="files/src-oihana-models-interfaces-documentsmodel.html"><abbr title="src/oihana/models/interfaces/DocumentsModel.php">DocumentsModel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Count the number of documents in the model.</p>
+            <p class="phpdocumentor-summary">Interface DocumentsModel</p>
 
 
+    <section class="phpdocumentor-description"><p>Defines a complete contract for managing documents in a storage system.</p>
+<p>This interface groups together multiple CRUD-like operations and other database-related actions.
+It abstracts the logic for querying, inserting, updating, replacing, deleting, listing,
+truncating, and upserting documents in a storage backend (e.g., ArangoDB, OpenEdge SQL, etc.).</p>
+<p>All inherited interfaces expose methods with a similar signature, accepting an optional <code class="prettyprint">$init</code>
+array of options and returning various types depending on the context.</p>
+<h3>Supported Operations:</h3>
+<ul>
+<li><strong>Counting</strong> documents.</li>
+<li><strong>Checking existence</strong> of documents.</li>
+<li><strong>Retrieving</strong> single or multiple documents.</li>
+<li><strong>Inserting</strong> new documents.</li>
+<li><strong>Updating</strong> or <strong>replacing</strong> existing documents.</li>
+<li><strong>Upserting</strong> documents (insert or update depending on existence).</li>
+<li><strong>Deleting</strong> documents.</li>
+<li><strong>Listing</strong> documents based on criteria.</li>
+<li><strong>Fetching the last document</strong> matching specific conditions.</li>
+<li><strong>Truncating</strong> the underlying storage (removing all documents).</li>
+</ul>
+</section>
 
 
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
@@ -163,7 +183,7 @@
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
-                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (ekameleon)</p>
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz</p>
 </section>
 
                                     </dd>

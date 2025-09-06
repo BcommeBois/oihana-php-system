@@ -55,7 +55,8 @@ function documentUrl
 
     if( !empty( $definition ) && isset( $container ) && $container->has( $definition ) )
     {
-        $baseUrl = $container->get( $definition ) ;
+        $url     = $container->get( $definition ) ;
+        $baseUrl = is_string( $url ) ? $url : Char::EMPTY ;
     }
 
     $url = joinPaths( $baseUrl , $path );

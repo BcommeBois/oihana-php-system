@@ -53,12 +53,8 @@ function getModel
 
     if( is_string( $definition ) && $container?->has( $definition ) )
     {
-        $controller = $container->get( $definition ) ;
-        if( $controller instanceof Controller )
-        {
-            return $controller  ;
-        }
+        $definition = $container->get( $definition ) ;
     }
 
-    return $default ;
+    return $definition instanceof Model ? $definition : $default ;
 }

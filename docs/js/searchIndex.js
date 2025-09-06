@@ -1928,7 +1928,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\DocumentsModel",
             "name": "DocumentsModel",
-            "summary": "Count\u0020the\u0020number\u0020of\u0020documents\u0020in\u0020the\u0020model.",
+            "summary": "Interface\u0020DocumentsModel",
             "url": "classes/oihana-models-interfaces-DocumentsModel.html"
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\ExistModel",

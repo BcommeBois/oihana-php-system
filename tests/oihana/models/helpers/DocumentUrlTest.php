@@ -2,6 +2,7 @@
 
 namespace tests\oihana\models\helpers;
 
+use DI\Container;
 use PHPUnit\Framework\TestCase;
 
 use Psr\Container\ContainerExceptionInterface;
@@ -40,12 +41,16 @@ class DocumentUrlTest extends TestCase
      */
     public function testUsesContainerBaseUrl()
     {
-        $container = $this->createMock(ContainerInterface::class);
-        $container->method('has')->with('baseUrl')->willReturn(true);
-        $container->method('get')->with('baseUrl')->willReturn('https://example.com');
+        $container = new Container() ;
+
+        $container->set( 'baseUrl' , 'https://example.com' ) ;
 
         $path = 'uploads/file.txt';
-        $url = documentUrl($path, $container);
+
+
+
+        $url = documentUrl( path: $path, container: $container ) ;
+
         $this->assertSame('https://example.com/uploads/file.txt', $url);
     }
 
