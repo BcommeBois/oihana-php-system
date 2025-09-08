@@ -72,12 +72,10 @@ trait PDOTrait
                 if( is_array( $value ) )
                 {
                     [ $typedValue , $type ] = $value ;
-                    $this->logger?->debug( "Binding :$key => '$typedValue' (type: $type)" ) ;
                     $statement->bindValue( Char::COLON . $key , $typedValue , $type );
                 }
                 else
                 {
-                    $this->logger?->debug( "Binding :$key => '$value' (auto-type)" ) ;
                     $statement->bindValue( Char::COLON . $key , $value );
                 }
             }
