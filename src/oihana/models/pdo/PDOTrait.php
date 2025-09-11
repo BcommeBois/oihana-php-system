@@ -147,15 +147,13 @@ trait PDOTrait
      */
     public function fetchAll( string $query , array $bindVars = [] ) :array
     {
+        $result = [] ;
         $this->info( 'fetchAll #1') ;
-        $result    = [] ;
-        $statement = $this->pdo?->prepare( $query ) ;
-
-        $this->info( 'fetchAll #2') ;
-
-        if( $statement instanceof PDOStatement )
+        try
         {
-            try
+            $statement = $this->pdo?->prepare( $query ) ;
+            $this->info( 'fetchAll #2') ;
+            if( $statement instanceof PDOStatement )
             {
                 $this->info( 'fetchAll #3') ;
                 $this->bindValues( $statement , $bindVars ) ;
@@ -176,11 +174,11 @@ trait PDOTrait
                     }
                 }
             }
-            catch ( Exception $exception )
-            {
-                $this->logger->warning( __METHOD__ . ' failed, ' . $exception->getMessage() ) ;
-            }
             $statement = null ;
+        }
+        catch ( Exception $exception )
+        {
+            $this->logger->warning( __METHOD__ . ' failed, ' . $exception->getMessage() ) ;
         }
         $this->info( 'fetchAll #10') ;
         return $result ;
