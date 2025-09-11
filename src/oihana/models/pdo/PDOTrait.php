@@ -99,6 +99,8 @@ trait PDOTrait
         $statement = $this->pdo?->prepare( $query ) ;
         if( $statement instanceof PDOStatement )
         {
+            $this->info( "fetch test : " . $query ) ;
+
             try
             {
                 $this->bindValues( $statement , $bindVars ) ;
@@ -114,20 +116,20 @@ trait PDOTrait
             }
             catch ( Exception $exception )
             {
-                if ( PHP_SAPI === 'cli' )
-                {
-                    echo PHP_EOL  ;
-                    echo '-------------- PDOTrait::fetch failed ---------------------------------------' . PHP_EOL  ;
-                    echo "PDOTrait::fetch query    : " . $query . PHP_EOL . PHP_EOL  ;
-                    echo "PDOTrait::fetch bindVars : " . json_encode( $bindVars ) . PHP_EOL . PHP_EOL  ;
-                    echo "PDOTrait::fetch exception message : " . $exception->getMessage() . PHP_EOL ;
-                    echo '-----------------------------------------------------------------------------' . PHP_EOL  ;
-                }
-                else
-                {
-                    $this->logger->warning( __METHOD__ . ' failed, ' . $exception->getMessage() ) ;
-                }
-
+                $this->warning( __METHOD__ . ' failed, ' . $exception->getMessage() ) ;
+                // if ( PHP_SAPI === 'cli' )
+                // {
+                //     echo PHP_EOL  ;
+                //     echo '-------------- PDOTrait::fetch failed ---------------------------------------' . PHP_EOL  ;
+                //     echo "PDOTrait::fetch query    : " . $query . PHP_EOL . PHP_EOL  ;
+                //     echo "PDOTrait::fetch bindVars : " . json_encode( $bindVars ) . PHP_EOL . PHP_EOL  ;
+                //     echo "PDOTrait::fetch exception message : " . $exception->getMessage() . PHP_EOL ;
+                //     echo '-----------------------------------------------------------------------------' . PHP_EOL  ;
+                // }
+                // else
+                // {
+                //
+                // }
             }
         }
         $statement = null ;
