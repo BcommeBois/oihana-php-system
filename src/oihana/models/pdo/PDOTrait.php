@@ -96,10 +96,12 @@ trait PDOTrait
      */
     public function fetch( string $query , array $bindVars = [] ): mixed
     {
+        $this->info( "fetch test : " . $query ) ;
+
         $statement = $this->pdo?->prepare( $query ) ;
         if( $statement instanceof PDOStatement )
         {
-            $this->info( "fetch test : " . $query ) ;
+
 
             try
             {
