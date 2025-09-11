@@ -1,6 +1,6 @@
 <?php
 
-namespace oihana\controllers\traits ;
+namespace oihana\traits ;
 
 use oihana\controllers\enums\ControllerParam;
 

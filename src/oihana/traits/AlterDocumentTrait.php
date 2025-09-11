@@ -20,6 +20,8 @@ use oihana\traits\alters\AlterJSONParsePropertyTrait;
 use oihana\traits\alters\AlterJSONStringifyPropertyTrait;
 use oihana\traits\alters\AlterUrlPropertyTrait;
 
+use function oihana\core\accessors\getKeyValue;
+use function oihana\core\accessors\setKeyValue;
 use function oihana\core\arrays\isAssociative;
 
 /**
@@ -293,7 +295,8 @@ trait AlterDocumentTrait
             $definition = [] ;
         }
 
-        $value    = $this->getKeyValue( $document , $key , $isArray ) ;
+        $value = getKeyValue( document: $document , key: $key , isArray: $isArray ) ;
+
         $modified = false ;
 
         switch( $alter )
@@ -364,7 +367,7 @@ trait AlterDocumentTrait
             }
         }
 
-        return $modified ? $this->setKeyValue( $document , $key , $value , $isArray ) : $document;
+        return $modified ? setKeyValue( $document , $key , $value , isArray: $isArray ) : $document;
     }
 
     /**

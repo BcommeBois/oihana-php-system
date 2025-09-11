@@ -3,6 +3,7 @@
 namespace oihana\traits\alters;
 
 use oihana\enums\Char;
+use function oihana\core\accessors\getKeyValue;
 use function oihana\files\path\joinPaths;
 
 /**
@@ -42,6 +43,6 @@ trait AlterUrlPropertyTrait
         $modified = true ;
         $path     = $options[0] ?? Char::EMPTY ;
         $name     = $options[1] ?? $propertyName  ;
-        return joinPaths( $path , $this->getKeyValue( $document , $name , $isArray ) ?? Char::EMPTY ) ;
+        return joinPaths( $path , getKeyValue( $document , $name , isArray: $isArray ) ?? Char::EMPTY ) ;
     }
 }

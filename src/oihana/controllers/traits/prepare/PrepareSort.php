@@ -2,9 +2,10 @@
 
 namespace oihana\controllers\traits\prepare;
 
-use oihana\controllers\enums\ControllerParam;
-use oihana\controllers\traits\SortTrait;
 use Psr\Http\Message\ServerRequestInterface as Request;
+
+use oihana\controllers\enums\ControllerParam;
+use oihana\traits\SortTrait;
 
 trait PrepareSort
 {

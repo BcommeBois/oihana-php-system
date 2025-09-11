@@ -23,6 +23,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - oihana\mysql\MysqlModel
 - oihana\mysql\MysqlPDOBuilder
 
+### Changed
+
+- oihana\traits\SortTrait
+
 ### TODO
 
   - Move oihana\mysql package to a standalone library.
