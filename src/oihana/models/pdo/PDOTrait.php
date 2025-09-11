@@ -96,10 +96,10 @@ trait PDOTrait
      */
     public function fetch( string $query , array $bindVars = [] ): mixed
     {
-        $statement = $this->pdo?->prepare( $query ) ;
-        if( $statement instanceof PDOStatement )
+        try
         {
-            try
+            $statement = $this->pdo?->prepare( $query ) ;
+            if( $statement instanceof PDOStatement )
             {
                 $this->bindValues( $statement , $bindVars ) ;
                 if( $statement->execute() )
@@ -112,24 +112,24 @@ trait PDOTrait
                     return $this->alter( $result ) ;
                 }
             }
-            catch ( Exception $exception )
+            $statement = null ;
+        }
+        catch ( Exception $exception )
+        {
+            if ( PHP_SAPI === 'cli' )
             {
-                if ( PHP_SAPI === 'cli' )
-                {
-                    echo PHP_EOL  ;
-                    echo '-------------- PDOTrait::fetch failed ---------------------------------------' . PHP_EOL  ;
-                    echo "PDOTrait::fetch query    : " . $query . PHP_EOL . PHP_EOL  ;
-                    echo "PDOTrait::fetch bindVars : " . json_encode( $bindVars ) . PHP_EOL . PHP_EOL  ;
-                    echo "PDOTrait::fetch exception message : " . $exception->getMessage() . PHP_EOL ;
-                    echo '-----------------------------------------------------------------------------' . PHP_EOL  ;
-                }
-                else
-                {
-                    $this->warning( __METHOD__ . ' failed, ' . $exception->getMessage() ) ;
-                }
+                echo PHP_EOL  ;
+                echo '-------------- PDOTrait::fetch failed ---------------------------------------' . PHP_EOL  ;
+                echo "PDOTrait::fetch query    : " . $query . PHP_EOL . PHP_EOL  ;
+                echo "PDOTrait::fetch bindVars : " . json_encode( $bindVars ) . PHP_EOL . PHP_EOL  ;
+                echo "PDOTrait::fetch exception message : " . $exception->getMessage() . PHP_EOL ;
+                echo '-----------------------------------------------------------------------------' . PHP_EOL  ;
+            }
+            else
+            {
+                $this->warning( __METHOD__ . ' failed, ' . $exception->getMessage() ) ;
             }
         }
-        $statement = null ;
         return null ;
     }
 
@@ -148,28 +148,19 @@ trait PDOTrait
     public function fetchAll( string $query , array $bindVars = [] ) :array
     {
         $result = [] ;
-        $this->info( 'fetchAll #1') ;
         try
         {
             $statement = $this->pdo?->prepare( $query ) ;
-            $this->info( 'fetchAll #2') ;
             if( $statement instanceof PDOStatement )
             {
-                $this->info( 'fetchAll #3') ;
                 $this->bindValues( $statement , $bindVars ) ;
-                $this->info( 'fetchAll #4') ;
                 if( $statement->execute() )
                 {
-                    $this->info( 'fetchAll #5') ;
                     $this->initializeDefaultFetchMode( $statement ) ;
-                    $this->info( 'fetchAll #6') ;
                     $result = $statement->fetchAll() ;
-                    $this->info( 'fetchAll #7') ;
                     $statement->closeCursor() ;
-                    $this->info( 'fetchAll #8') ;
                     if( count( $result ) > 0 )
                     {
-                        $this->info( 'fetchAll 9') ;
                         $result = $this->alter( $result ) ;
                     }
                 }
@@ -178,9 +169,8 @@ trait PDOTrait
         }
         catch ( Exception $exception )
         {
-            $this->logger->warning( __METHOD__ . ' failed, ' . $exception->getMessage() ) ;
+            $this->warning( __METHOD__ . ' failed, ' . $exception->getMessage() ) ;
         }
-        $this->info( 'fetchAll #10') ;
         return $result ;
     }
 
@@ -211,7 +201,7 @@ trait PDOTrait
             }
             catch ( Exception $exception )
             {
-                $this->logger->warning( __METHOD__ . ' failed, ' . $exception->getMessage() ) ;
+                $this->warning( __METHOD__ . ' failed, ' . $exception->getMessage() ) ;
             }
         }
         $statement = null ;
@@ -243,7 +233,7 @@ trait PDOTrait
             }
             catch ( Exception $exception )
             {
-                $this->logger->warning( __METHOD__ . ' failed, ' . $exception->getMessage() ) ;
+                $this->warning( __METHOD__ . ' failed, ' . $exception->getMessage() ) ;
             }
         }
         $statement = null ;
