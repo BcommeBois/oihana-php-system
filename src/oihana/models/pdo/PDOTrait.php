@@ -147,25 +147,31 @@ trait PDOTrait
      */
     public function fetchAll( string $query , array $bindVars = [] ) :array
     {
-        $this->info( 'fetchAll ' . $query ) ;
+        $this->info( 'fetchAll #1') ;
         $result    = [] ;
         $statement = $this->pdo?->prepare( $query ) ;
+
+        $this->info( 'fetchAll #2') ;
+
         if( $statement instanceof PDOStatement )
         {
             try
             {
+                $this->info( 'fetchAll #3') ;
                 $this->bindValues( $statement , $bindVars ) ;
+                $this->info( 'fetchAll #4') ;
                 if( $statement->execute() )
                 {
-                    $this->info( 'fetchAll #1') ;
+                    $this->info( 'fetchAll #5') ;
                     $this->initializeDefaultFetchMode( $statement ) ;
+                    $this->info( 'fetchAll #6') ;
                     $result = $statement->fetchAll() ;
-                    $this->info( 'fetchAll #2') ;
+                    $this->info( 'fetchAll #7') ;
                     $statement->closeCursor() ;
-
+                    $this->info( 'fetchAll #8') ;
                     if( count( $result ) > 0 )
                     {
-                        $this->info( 'fetchAll #3') ;
+                        $this->info( 'fetchAll 9') ;
                         $result = $this->alter( $result ) ;
                     }
                 }
@@ -176,6 +182,7 @@ trait PDOTrait
             }
             $statement = null ;
         }
+        $this->info( 'fetchAll #10') ;
         return $result ;
     }
 
