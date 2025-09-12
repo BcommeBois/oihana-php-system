@@ -60,8 +60,11 @@ trait AlterGetDocumentPropertyTrait
             if( isset( $model ) )
             {
                 $modified = true ;
-                $key = $definition[1] ?? ModelParam::ID ;
-                return $model->get( [ ModelParam::BINDS => [ $key => $value ] ] ) ; // Add the options like ModelParam::CACHEABLE ...
+                return $model->get
+                ([
+                    ModelParam::KEY   => $definition[1] ?? null ,
+                    ModelParam::VALUE => $value
+                ]) ;
             }
             return $value ;
         }
