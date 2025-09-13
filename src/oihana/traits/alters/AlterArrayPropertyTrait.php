@@ -69,36 +69,15 @@ trait AlterArrayPropertyTrait
                     $definition = [] ;
                 }
 
-                switch( $type )
+                $array = match ( $type )
                 {
-                    case Alter::CLEAN :
-                    {
-                        $array = array_filter( $array , fn( $item ) => $item != Char::EMPTY && isset($item)  ) ;
-                        break ;
-                    }
-                    case Alter::FLOAT :
-                    {
-                        $array = $this->alterFloatProperty( $array ) ;
-                        break ;
-                    }
-
-                    case Alter::GET :
-                    {
-                        $array = array_filter( $array , fn( $item ) => $this->alterGetDocument( $item , $definition ) ) ;
-                        break ;
-                    }
-
-                    case Alter::INT :
-                    {
-                        $array = $this->alterIntProperty( $array ) ;
-                        break ;
-                    }
-                    case Alter::JSON_PARSE :
-                    {
-                        $array = array_map( fn( $item ) => json_decode( $item ) ,  $array ) ;
-                        break ;
-                    }
-                }
+                    Alter::CLEAN      => array_filter( $array , fn( $item ) => $item != Char::EMPTY && isset($item) ) ,
+                    Alter::FLOAT      => $this->alterFloatProperty( $array ) ,
+                    Alter::GET        => array_filter( $array , fn( $item ) => $this->alterGetDocument( $item , $definition ) ),
+                    Alter::INT        => $this->alterIntProperty( $array ) ,
+                    Alter::JSON_PARSE => array_map( fn($item) => json_decode( $item ) , $array ) ,
+                    default           => $array ,
+                };
             }
         }
         return $array ;
