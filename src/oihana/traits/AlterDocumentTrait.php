@@ -6,6 +6,7 @@ use DI\DependencyException;
 use DI\NotFoundException;
 
 use oihana\models\enums\ModelParam;
+use oihana\traits\alters\AlterValueTrait;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
@@ -104,6 +105,7 @@ trait AlterDocumentTrait
         AlterJSONParsePropertyTrait ,
         AlterJSONStringifyPropertyTrait ,
         AlterUrlPropertyTrait ,
+        AlterValueTrait ,
         KeyValueTrait
         ;
 
@@ -295,77 +297,22 @@ trait AlterDocumentTrait
             $definition = [] ;
         }
 
-        $value = getKeyValue( document: $document , key: $key , isArray: $isArray ) ;
-
+        $value    = getKeyValue( document: $document , key: $key , isArray: $isArray ) ;
         $modified = false ;
-
-        switch( $alter )
+        $value    = match ( $alter )
         {
-            case Alter::ARRAY :
-            {
-                $value = $this->alterArrayProperty( $value , $definition , $modified ) ;
-                break ;
-            }
-
-            case Alter::CALL :
-            {
-                $value = $this->alterCallableProperty( $value , $definition , $modified ) ;
-                break ;
-            }
-
-            case Alter::CLEAN :
-            {
-                $value = $this->alterArrayCleanProperty( $value , $modified ) ;
-                break ;
-            }
-
-            case Alter::FLOAT :
-            {
-                $value = $this->alterFloatProperty( $value , $modified ) ;
-                break ;
-            }
-
-            case Alter::GET :
-            {
-                $value = $this->alterGetDocument( $value , $definition , $modified ) ;
-                break ;
-            }
-
-            case Alter::INT :
-            {
-                $value = $this->alterIntProperty( $value , $modified ) ;
-                break ;
-            }
-
-            case Alter::JSON_PARSE :
-            {
-                $value = $this->alterJsonParseProperty( $value , $definition , $modified ) ;
-                break ;
-            }
-
-            case Alter::JSON_STRINGIFY :
-            {
-                $value = $this->alterJsonStringifyProperty( $value , $definition , $modified ) ;
-                break ;
-            }
-
-            case Alter::URL :
-            {
-                $value = $this->alterUrlProperty( $document , $definition , $isArray , $modified ) ;
-                break ;
-            }
-
-            case Alter::VALUE :
-            {
-                $newValue = $definition[0] ?? null ;
-                if( $value !== $newValue )
-                {
-                    $value    = $newValue ;
-                    $modified = true ;
-                }
-                break ;
-            }
-        }
+            Alter::ARRAY          => $this->alterArrayProperty( $value , $definition , $modified ) ,
+            Alter::CALL           => $this->alterCallableProperty( $value , $definition , $modified ) ,
+            Alter::CLEAN          => $this->alterArrayCleanProperty( $value , $modified ),
+            Alter::FLOAT          => $this->alterFloatProperty( $value , $modified ),
+            Alter::GET            => $this->alterGetDocument( $value , $definition , $modified ) ,
+            Alter::INT            => $this->alterIntProperty( $value , $modified ) ,
+            Alter::JSON_PARSE     => $this->alterJsonParseProperty( $value , $definition , $modified ) ,
+            Alter::JSON_STRINGIFY => $this->alterJsonStringifyProperty( $value , $definition , $modified ),
+            Alter::URL            => $this->alterUrlProperty( $document , $definition , $isArray , $modified ),
+            Alter::VALUE          => $this->alterValue( $value , $definition[0] ?? null, $modified ) ,
+            default               => $value,
+        };
 
         return $modified ? setKeyValue( $document , $key , $value , isArray: $isArray ) : $document;
     }

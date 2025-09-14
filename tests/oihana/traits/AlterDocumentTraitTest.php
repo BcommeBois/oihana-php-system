@@ -244,13 +244,13 @@ class AlterDocumentTraitTest extends TestCase
     {
         $processor = new MockAlterDocument
         ([
-            'status' => [Alter::VALUE, 'active']
+            'status' => [ Alter::VALUE , 'active' ]
         ]);
 
-        $input = ['status' => 'pending'];
+        $input = [ 'status' => 'pending' ] ;
         $output = $processor->process($input);
 
-        $this->assertSame('active', $output['status']);
+        $this->assertSame('active' , $output['status'] ) ;
     }
 
     /**

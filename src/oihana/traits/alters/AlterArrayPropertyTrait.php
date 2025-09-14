@@ -13,7 +13,8 @@ use oihana\enums\Char;
 
 trait AlterArrayPropertyTrait
 {
-    use AlterFloatPropertyTrait ,
+    use AlterCallablePropertyTrait ,
+        AlterFloatPropertyTrait ,
         AlterIntPropertyTrait ;
 
     /**
@@ -71,6 +72,7 @@ trait AlterArrayPropertyTrait
 
                 $array = match ( $type )
                 {
+                    Alter::CALL       => array_map( fn( $item ) => $this->alterCallableProperty( $item , $definition ) , $array ) ,
                     Alter::CLEAN      => array_filter( $array , fn( $item ) => $item != Char::EMPTY && isset($item) ) ,
                     Alter::FLOAT      => $this->alterFloatProperty( $array ) ,
                     Alter::GET        => array_filter( $array , fn( $item ) => $this->alterGetDocument( $item , $definition ) ),

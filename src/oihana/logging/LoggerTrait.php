@@ -196,7 +196,7 @@ trait LoggerTrait
      */
     public function initializeLoggable( bool|array|null $init = null , ?ContainerInterface $container = null , bool $defaultValue = false ) :static
     {
-        $loggable = match( true )
+        $loggable = match ( true )
         {
             is_bool  ( $init ) => $init,
             is_array ( $init ) => $init[ static::LOGGABLE ] ?? $defaultValue ,
