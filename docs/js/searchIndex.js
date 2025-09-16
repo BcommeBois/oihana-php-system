@@ -3356,6 +3356,16 @@ Search.appendIndex(
             "summary": "Generates\u0020a\u0020document\u0020URL\u0020using\u0020a\u0020property\u0020as\u0020the\u0020final\u0020path\u0020segment.",
             "url": "classes/oihana-traits-alters-AlterUrlPropertyTrait.html#method_alterUrlProperty"
         },                {
+            "fqsen": "\\oihana\\traits\\alters\\AlterValueTrait",
+            "name": "AlterValueTrait",
+            "summary": "Provides\u0020a\u0020method\u0020to\u0020replace\u0020a\u0020value\u0020with\u0020a\u0020fixed\u0020new\u0020one\u0020if\u0020different.",
+            "url": "classes/oihana-traits-alters-AlterValueTrait.html"
+        },                {
+            "fqsen": "\\oihana\\traits\\alters\\AlterValueTrait\u003A\u003AalterValue\u0028\u0029",
+            "name": "alterValue",
+            "summary": "Replace\u0020a\u0020value\u0020with\u0020a\u0020new\u0020one\u0020if\u0020different,\u0020otherwise\u0020keep\u0020the\u0020original.",
+            "url": "classes/oihana-traits-alters-AlterValueTrait.html#method_alterValue"
+        },                {
             "fqsen": "\\oihana\\traits\\BindsTrait",
             "name": "BindsTrait",
             "summary": "Provides\u0020logic\u0020for\u0020managing\u0020bind\u0020parameters\u0020used\u0020in\u0020PDO\u0020statements.",

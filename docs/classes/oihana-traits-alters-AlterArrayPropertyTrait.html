@@ -137,7 +137,7 @@
     AlterArrayPropertyTrait
             <span class="phpdocumentor-trait__extends">
             uses
-                            <a href="classes/oihana-traits-alters-AlterFloatPropertyTrait.html"><abbr title="\oihana\traits\alters\AlterFloatPropertyTrait">trait:short</abbr></a>,                             <a href="classes/oihana-traits-alters-AlterIntPropertyTrait.html"><abbr title="\oihana\traits\alters\AlterIntPropertyTrait">trait:short</abbr></a>                    </span>
+                            <a href="classes/oihana-traits-alters-AlterCallablePropertyTrait.html"><abbr title="\oihana\traits\alters\AlterCallablePropertyTrait">trait:short</abbr></a>,                             <a href="classes/oihana-traits-alters-AlterFloatPropertyTrait.html"><abbr title="\oihana\traits\alters\AlterFloatPropertyTrait">trait:short</abbr></a>,                             <a href="classes/oihana-traits-alters-AlterIntPropertyTrait.html"><abbr title="\oihana\traits\alters\AlterIntPropertyTrait">trait:short</abbr></a>                    </span>
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
@@ -192,6 +192,13 @@
 <dd>Transform a string expression separated by semi-colon &#039;;&#039; to creates an array.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-traits-alters-AlterCallablePropertyTrait.html#method_alterCallableProperty">alterCallableProperty()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Call a function to alter a property.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-traits-alters-AlterFloatPropertyTrait.html#method_alterFloatProperty">alterFloatProperty()</a>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;|float    </span>
@@ -234,7 +241,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/alters/AlterArrayPropertyTrait.php"><a href="files/src-oihana-traits-alters-alterarraypropertytrait.html"><abbr title="src/oihana/traits/alters/AlterArrayPropertyTrait.php">AlterArrayPropertyTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">55</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 
     </aside>
 
@@ -329,7 +336,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/alters/AlterArrayPropertyTrait.php"><a href="files/src-oihana-traits-alters-alterarraypropertytrait.html"><abbr title="src/oihana/traits/alters/AlterArrayPropertyTrait.php">AlterArrayPropertyTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
@@ -421,6 +428,65 @@
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
             </section>
 
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_alterCallableProperty">
+        alterCallableProperty()
+        <a href="classes/oihana-traits-alters-AlterCallablePropertyTrait.html#method_alterCallableProperty" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/alters/AlterCallablePropertyTrait.php"><a href="files/src-oihana-traits-alters-altercallablepropertytrait.html"><abbr title="src/oihana/traits/alters/AlterCallablePropertyTrait.php">AlterCallablePropertyTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">14</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Call a function to alter a property.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">alterCallableProperty</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$definition</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$modified</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$definition</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$modified</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
 </article>
                     <article
         class="phpdocumentor-element
@@ -656,6 +722,7 @@
                 <ul class="phpdocumentor-list -clean">
                                             <li class=""><a href="classes/oihana-traits-alters-AlterArrayPropertyTrait.html#method_alterArrayElements">alterArrayElements()</a></li>
                                             <li class=""><a href="classes/oihana-traits-alters-AlterArrayPropertyTrait.html#method_alterArrayProperty">alterArrayProperty()</a></li>
+                                            <li class=""><a href="classes/oihana-traits-alters-AlterCallablePropertyTrait.html#method_alterCallableProperty">alterCallableProperty()</a></li>
                                             <li class=""><a href="classes/oihana-traits-alters-AlterFloatPropertyTrait.html#method_alterFloatProperty">alterFloatProperty()</a></li>
                                             <li class=""><a href="classes/oihana-traits-alters-AlterIntPropertyTrait.html#method_alterIntProperty">alterIntProperty()</a></li>
                                     </ul>

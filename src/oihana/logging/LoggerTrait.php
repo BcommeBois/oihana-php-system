@@ -221,6 +221,7 @@ trait LoggerTrait
      * - An associative array containing a logger reference under the {@see static::LOGGER} key
      * - A string representing a service ID or class name resolvable by the container
      * - `null` or an empty value, which will default to {@see LoggerInterface::class}
+     *    depending on the `$useDefault` parameter.
      *
      * If a dependency injection container is provided, the method will attempt to
      * resolve the logger service from it. If no valid logger can be resolved, the
@@ -229,20 +230,25 @@ trait LoggerTrait
      * @param array|LoggerInterface|null $init      Logger initialization data.
      *                                              May be an instance, an array with a logger entry,
      *                                              a string service ID/class name, or `null`.
-     * @param ContainerInterface|null    $container Optional dependency injection container
+     * @param ContainerInterface|null $container Optional dependency injection container
      *                                              used to resolve the logger service.
      *
-     * @throws ContainerExceptionInterface If the container encounters a general error.
+     * @param bool $useDefault Whether to use {@see LoggerInterface::class} as a fallback if `$init` does not provide
+     *                         a valid logger string. Defaults to `true`.
+     *
+     * @return static Returns the current instance for method chaining.
+     * 
      * @throws DependencyException         If there is a dependency resolution error.
      * @throws NotFoundException           If the specified service is not found in the container.
      * @throws NotFoundExceptionInterface  If the specified service is not found in the container.
      *
-     * @return static Returns the current instance for method chaining.
+     * @throws ContainerExceptionInterface If the container encounters a general error.
      */
     public function initializeLogger
     (
-        array|LoggerInterface|null $init      = null ,
-        ?ContainerInterface        $container = null
+        array|LoggerInterface|null $init       = null ,
+        ?ContainerInterface        $container  = null ,
+        bool                       $useDefault = true ,
     )
     :static
     {
@@ -254,7 +260,7 @@ trait LoggerTrait
 
         $logger = is_array( $init ) ? ( $init[ static::LOGGER ] ?? null ) : $init ;
 
-        if ( !is_string($logger) || trim($logger) === '' )
+        if ( $useDefault && ( !is_string($logger) || trim($logger) === '' ) )
         {
             $logger = LoggerInterface::class ;
         }
