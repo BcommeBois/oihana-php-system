@@ -51,6 +51,22 @@ class LoggerTraitTest extends TestCase
         };
     }
 
+    public function testInitLoggerWithUseDefaultFalse(): void
+    {
+        $testObj = new class($this->container)
+        {
+            use LoggerTrait;
+
+            public function __construct(Container $container)
+            {
+                $this->initializeLogger('non-existing-logger', $container, false);
+            }
+        };
+
+        $this->assertNull($testObj->getLogger());
+    }
+
+
     public function testInitLoggableSetsFlag(): void
     {
         $this->testObj->initializeLoggable(['loggable' => true]);

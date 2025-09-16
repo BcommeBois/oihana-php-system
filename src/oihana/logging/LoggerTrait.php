@@ -190,9 +190,12 @@ trait LoggerTrait
 
     /**
      * Initialize the loggable flag.
-     * @param bool|array|null $init         The definition to initialize the loggable property.
+     * @param bool|array|null $init The definition to initialize the loggable property.
+     * @param ContainerInterface|null $container
      * @param bool|array|null $defaultValue The default value if the $init argument is not defined.
      * @return static
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     public function initializeLoggable( bool|array|null $init = null , ?ContainerInterface $container = null , bool $defaultValue = false ) :static
     {
@@ -227,7 +230,7 @@ trait LoggerTrait
      * resolve the logger service from it. If no valid logger can be resolved, the
      * `$this->logger` property will be set to `null`.
      *
-     * @param array|LoggerInterface|null $init      Logger initialization data.
+     * @param array|LoggerInterface|string|null $init Logger initialization data.
      *                                              May be an instance, an array with a logger entry,
      *                                              a string service ID/class name, or `null`.
      * @param ContainerInterface|null $container Optional dependency injection container
@@ -246,9 +249,9 @@ trait LoggerTrait
      */
     public function initializeLogger
     (
-        array|LoggerInterface|null $init       = null ,
-        ?ContainerInterface        $container  = null ,
-        bool                       $useDefault = true ,
+        array|LoggerInterface|string|null $init       = null ,
+        ?ContainerInterface               $container  = null ,
+        bool                              $useDefault = true ,
     )
     :static
     {
@@ -265,7 +268,7 @@ trait LoggerTrait
             $logger = LoggerInterface::class ;
         }
 
-        if ( $container?->has( $logger ) )
+        if ( is_string( $logger ) && $container?->has( $logger ) )
         {
             $entry = $container->get($logger) ;
             if ( $entry instanceof LoggerInterface)
@@ -276,6 +279,7 @@ trait LoggerTrait
         }
 
         $this->logger = null;
+
         return $this;
     }
 
