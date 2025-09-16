@@ -237,7 +237,7 @@ trait LoggerTrait
      *                         a valid logger string. Defaults to `true`.
      *
      * @return static Returns the current instance for method chaining.
-     * 
+     *
      * @throws DependencyException         If there is a dependency resolution error.
      * @throws NotFoundException           If the specified service is not found in the container.
      * @throws NotFoundExceptionInterface  If the specified service is not found in the container.
