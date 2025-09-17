@@ -14,6 +14,7 @@ use oihana\logging\enums\LoggerParam;
 
 use Psr\Log\LoggerInterface;
 
+use ReflectionException;
 use function oihana\files\clearFile;
 use function oihana\files\countFileLines;
 use function oihana\files\findFiles;
@@ -45,10 +46,11 @@ abstract class LoggerManager
      */
     public function __construct( string $directory = Char::EMPTY , array $init = [] , ?string $name = null )
     {
-        $this->name      = $name  ;
-        $this->directory = $directory ;
-        $this->path      = $init[ LoggerParam::PATH      ] ?? self::DEFAULT_PATH ;
-        $this->extension = $init[ LoggerParam::EXTENSION ] ?? self::DEFAULT_EXTENSION ;
+        $this->name           = $name  ;
+        $this->directory      = $directory ;
+        $this->dirPermissions = octdec( $init[ LoggerParam::DIR_PERMISSIONS ] ?? $this->dirPermissions ) ;
+        $this->path           = $init[ LoggerParam::PATH      ] ?? $this->path ;
+        $this->extension      = $init[ LoggerParam::EXTENSION ] ?? $this->extension ;
     }
 
     /**
@@ -67,17 +69,22 @@ abstract class LoggerManager
     public const string DEFAULT_PATH = 'log';
 
     /**
-     * The base directory for log storage.
-     *
-     * @var string
+     * Default permissions for newly created directories.
+     * Group writable (g+w) for collaborative environments.
      */
     public string $directory = Char::EMPTY ;
+
+    /**
+     * The directory permission.
+     * @var int|float
+     */
+    public int|float $dirPermissions = 02775 ;
 
     /**
      * The file extension used for log files (e.g., ".log").
      * @var string
      */
-    public string $extension ;
+    public string $extension = '.log' ;
 
     /**
      * Optional name of the logging channel.
@@ -85,14 +92,13 @@ abstract class LoggerManager
      *
      * @var string|null
      */
-    public ?string $name ;
+    public ?string $name = null ;
 
     /**
      * Subfolder or path where log files are stored (relative to $directory).
-     *
      * @var string
      */
-    public string $path ;
+    public string $path = Char::EMPTY ;
 
     /**
      * Clears the content of a specific log file.
@@ -140,6 +146,7 @@ abstract class LoggerManager
      *
      * @param string $line Raw log line.
      * @return Log|null Parsed log entry or null if line is empty or malformed.
+     * @throws ReflectionException
      */
     public function createLog( string $line ) :?Log
     {
@@ -169,6 +176,40 @@ abstract class LoggerManager
      * @return LoggerInterface
      */
     abstract public function createLogger():LoggerInterface ;
+
+    /**
+     * Ensure the log directory exists and is writable.
+     *
+     * Uses umask 0002 so that directories and files created
+     * have group write permissions (e.g., 0664 / 2775).
+     *
+     * @throws DirectoryException if the directory cannot be created or is not writable.
+     */
+    public function ensureDirectory(): void
+    {
+        $dir = $this->getDirectory();
+
+        if ( !is_dir( $dir ) )
+        {
+            $oldUmask = umask(0002);
+            try
+            {
+                if ( !@mkdir($dir, $this->dirPermissions, true) && !is_dir( $dir ) )
+                {
+                    throw new DirectoryException("Impossible de créer le répertoire de logs: $dir");
+                }
+            }
+            finally
+            {
+                umask($oldUmask);
+            }
+        }
+
+        if ( !is_writable( $dir ) )
+        {
+            throw new DirectoryException("Log directory is not writable: $dir" ) ;
+        }
+    }
 
     /**
      * Returns the full path of the log directory.

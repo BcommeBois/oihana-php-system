@@ -9,13 +9,14 @@ use Monolog\Handler\RotatingFileHandler;
 use Monolog\Level;
 use Monolog\Logger;
 
+use oihana\files\exceptions\DirectoryException;
 use Psr\Log\LoggerInterface;
 
 use oihana\enums\Char;
 use oihana\logging\enums\MonoLogParam;
 
 /**
- * A logger manager.
+ * A MonoLog logger manager.
  */
 class MonoLogManager extends LoggerManager
 {
@@ -28,12 +29,22 @@ class MonoLogManager extends LoggerManager
     public function __construct( string $directory = Char::EMPTY , array $init = [] , ?string $name = null )
     {
         parent::__construct( $directory , $init , $name ) ;
-        $this->bubbles         = boolval( $init[ MonoLogParam::BUBBLES  ] ?? $this->bubbles ) ;
-        $this->dirPermissions  = octdec( $init[ MonoLogParam::DIR_PERMISSIONS ] ?? '0775' ) ;
-        $this->filePermissions = octdec( $init[ MonoLogParam::FILE_PERMISSIONS ] ?? '0664' ) ;
-        $this->level           = intval( $init[ MonoLogParam::LEVEL ] ?? Level::Debug ) ;
-        $this->maxFiles        = intval( $init[ MonoLogParam::MAX_FILES ] ?? $this->maxFiles ) ;
+        $this->allowInlineLineBreaks      = boolval( $init[ MonoLogParam::ALLOW_INLINE_LINE_BREAKS  ] ?? $this->allowInlineLineBreaks ) ;
+        $this->bubbles                    = boolval( $init[ MonoLogParam::BUBBLES  ] ?? $this->bubbles ) ;
+        $this->dateFormat                 = $init[ MonoLogParam::DATE_FORMAT ] ?? $this->dateFormat ;
+        $this->filePermissions            = octdec( $init[ MonoLogParam::FILE_PERMISSIONS ] ?? $this->filePermissions ) ;
+        $this->format                     = $init[ MonoLogParam::FORMAT ] ?? $this->format ;
+        $this->includeStackTraces         = $init[ MonoLogParam::INCLUDE_STACK_TRACES ] ?? $this->includeStackTraces ;
+        $this->ignoreEmptyContextAndExtra = $init[ MonoLogParam::IGNORE_EMPTY_CONTEXT_AND_EXTRA ] ?? $this->ignoreEmptyContextAndExtra ;
+        $this->level                      = intval( $init[ MonoLogParam::LEVEL ] ?? $this->level ) ;
+        $this->maxFiles                   = intval( $init[ MonoLogParam::MAX_FILES ] ?? $this->maxFiles ) ;
     }
+
+    /**
+     * Whether to allow inline line breaks in log entries.
+     * @var bool
+     */
+    public bool $allowInlineLineBreaks = true ;
 
     /**
      * Indicates if the bubbling is active.
@@ -42,10 +53,10 @@ class MonoLogManager extends LoggerManager
     public bool $bubbles = true ;
 
     /**
-     * The directory permission.
-     * @var int|float
+     * The date format of the log files.
+     * @var string
      */
-    public int|float $dirPermissions = 0775 ;
+    public string $dateFormat = 'Y-m-d H:i:s' ;
 
     /**
      * The file permission.
@@ -54,16 +65,28 @@ class MonoLogManager extends LoggerManager
     public int|float $filePermissions = 0664 ;
 
     /**
-     * The line formatter.
-     * @var ?FormatterInterface
+     * The format of the log messages.
+     * @var string
      */
-    protected ?FormatterInterface $formatter = null ;
+    public string $format = "%datetime% %channel% %level_name% %message% %context% %extra%\n" ;
+
+    /**
+     * Include stack traces in exception logs.
+     * @var bool
+     */
+    public bool $includeStackTraces = false ;
+
+    /**
+     * Whether to ignore empty context and extra.
+     * @var bool
+     */
+    public bool $ignoreEmptyContextAndExtra = true ;
 
     /**
      * The default level of the logger.
      * @var int|Level
      */
-    public int|Level $level ;
+    public int|Level $level = Level::Debug ;
 
     /**
      * The maximum number of files stored in the log folder.
@@ -78,15 +101,11 @@ class MonoLogManager extends LoggerManager
      * and registers it for error handling to capture system errors and exceptions.
      *
      * @return LoggerInterface The configured logger instance.
+     * @throws DirectoryException If the log directory cannot be created or is not writable.
      */
     public function createLogger():LoggerInterface
     {
-        $directory = $this->directory ;
-
-        if ( !file_exists( $directory ) )
-        {
-            mkdir( dirname( $directory ) , $this->dirPermissions , true ) ;
-        }
+        $this->ensureDirectory();
 
         $logger = new Logger( $this->getFileName() );
 
@@ -116,24 +135,21 @@ class MonoLogManager extends LoggerManager
     {
         if ( $this->formatter === null )
         {
-            $this->setFormatter() ;
+            $this->formatter = new LineFormatter
+            (
+                $this->format ,
+                $this->dateFormat ,
+                $this->allowInlineLineBreaks ,
+                $this->ignoreEmptyContextAndExtra ,
+                $this->includeStackTraces
+            );
         }
         return $this->formatter ;
     }
 
     /**
-     * Sets the formatter for log entries.
-     * @return void
+     * The line formatter.
+     * @var ?FormatterInterface
      */
-    public function setFormatter():void
-    {
-        $this->formatter = new LineFormatter
-        (
-            "%datetime% %channel% %level_name% %message% %context% %extra%\n",
-            "Y-m-d H:i:s",
-            true,
-            true ,
-            false
-        );
-    }
+    protected ?FormatterInterface $formatter = null ;
 }
