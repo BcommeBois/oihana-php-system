@@ -154,23 +154,14 @@ class MonoLogManager extends LoggerManager
 
         $logger = new Logger( $this->getFileName() );
 
-        $oldUmask = umask(0002);
-
-        try
-        {
-            $handler = new RotatingFileHandler
-            (
-                $this->getFilePath() ,
-                $this->maxFiles ,
-                $this->level ,
-                $this->bubbles ,
-                $this->filePermissions
-            ) ;
-        }
-        finally
-        {
-            umask( $oldUmask ) ;
-        }
+        $handler = new RotatingFileHandler
+        (
+            $this->getFilePath() ,
+            $this->maxFiles ,
+            $this->level ,
+            $this->bubbles ,
+            $this->filePermissions
+        ) ;
 
         $handler->setFormatter( $this->getFormatter() );
 

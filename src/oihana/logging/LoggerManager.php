@@ -111,7 +111,7 @@ abstract class LoggerManager
      * The directory permission.
      * @var int|float
      */
-    public int|float $dirPermissions = 02775 ;
+    public int|float $dirPermissions = 0775 ;
 
     /**
      * The file extension used for log files (e.g., ".log").
@@ -228,17 +228,9 @@ abstract class LoggerManager
 
         if ( !is_dir( $dir ) )
         {
-            $oldUmask = umask(0002);
-            try
+            if ( !@mkdir($dir, $this->dirPermissions, true) && !is_dir( $dir ) )
             {
-                if ( !@mkdir($dir, $this->dirPermissions, true) && !is_dir( $dir ) )
-                {
-                    throw new DirectoryException("Unable to create the log directory: $dir");
-                }
-            }
-            finally
-            {
-                umask($oldUmask);
+                throw new DirectoryException("Unable to create the log directory: $dir");
             }
         }
 
