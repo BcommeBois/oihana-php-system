@@ -1276,6 +1276,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/oihana-logging-enums-LoggerParam.html#constant_DIRECTORY"
         },                {
+            "fqsen": "\\oihana\\logging\\enums\\LoggerParam\u003A\u003ADIR_PERMISSIONS",
+            "name": "DIR_PERMISSIONS",
+            "summary": "",
+            "url": "classes/oihana-logging-enums-LoggerParam.html#constant_DIR_PERMISSIONS"
+        },                {
             "fqsen": "\\oihana\\logging\\enums\\LoggerParam\u003A\u003AEXTENSION",
             "name": "EXTENSION",
             "summary": "",
@@ -1306,6 +1311,16 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/oihana-logging-enums-MonoLogParam.html"
         },                {
+            "fqsen": "\\oihana\\logging\\enums\\MonoLogParam\u003A\u003AALLOW_INLINE_LINE_BREAKS",
+            "name": "ALLOW_INLINE_LINE_BREAKS",
+            "summary": "",
+            "url": "classes/oihana-logging-enums-MonoLogParam.html#constant_ALLOW_INLINE_LINE_BREAKS"
+        },                {
+            "fqsen": "\\oihana\\logging\\enums\\MonoLogParam\u003A\u003AIGNORE_EMPTY_CONTEXT_AND_EXTRA",
+            "name": "IGNORE_EMPTY_CONTEXT_AND_EXTRA",
+            "summary": "",
+            "url": "classes/oihana-logging-enums-MonoLogParam.html#constant_IGNORE_EMPTY_CONTEXT_AND_EXTRA"
+        },                {
             "fqsen": "\\oihana\\logging\\enums\\MonoLogParam\u003A\u003ABUBBLES",
             "name": "BUBBLES",
             "summary": "",
@@ -1325,6 +1340,11 @@ Search.appendIndex(
             "name": "FILE_PERMISSIONS",
             "summary": "",
             "url": "classes/oihana-logging-enums-MonoLogParam.html#constant_FILE_PERMISSIONS"
+        },                {
+            "fqsen": "\\oihana\\logging\\enums\\MonoLogParam\u003A\u003AFORMAT",
+            "name": "FORMAT",
+            "summary": "",
+            "url": "classes/oihana-logging-enums-MonoLogParam.html#constant_FORMAT"
         },                {
             "fqsen": "\\oihana\\logging\\enums\\MonoLogParam\u003A\u003AINCLUDE_STACK_TRACES",
             "name": "INCLUDE_STACK_TRACES",
@@ -1583,12 +1603,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManager",
             "name": "LoggerManager",
-            "summary": "Abstract\u0020logger\u0020manager\u0020class.",
+            "summary": "Abstract\u0020base\u0020class\u0020for\u0020managing\u0020log\u0020files\u0020and\u0020PSR\u002D3\u0020loggers.",
             "url": "classes/oihana-logging-LoggerManager.html"
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "Constructor.",
+            "summary": "Creates\u0020a\u0020new\u0020LoggerManager\u0020instance.",
             "url": "classes/oihana-logging-LoggerManager.html#method___construct"
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003Aclear\u0028\u0029",
@@ -1610,6 +1630,11 @@ Search.appendIndex(
             "name": "createLogger",
             "summary": "Must\u0020be\u0020implemented\u0020by\u0020subclasses\u0020to\u0020return\u0020a\u0020PSR\u002D3\u0020compliant\u0020logger.",
             "url": "classes/oihana-logging-LoggerManager.html#method_createLogger"
+        },                {
+            "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003AensureDirectory\u0028\u0029",
+            "name": "ensureDirectory",
+            "summary": "Ensure\u0020the\u0020log\u0020directory\u0020exists\u0020and\u0020is\u0020writable.",
+            "url": "classes/oihana-logging-LoggerManager.html#method_ensureDirectory"
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003AgetDirectory\u0028\u0029",
             "name": "getDirectory",
@@ -1658,8 +1683,13 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003A\u0024directory",
             "name": "directory",
-            "summary": "The\u0020base\u0020directory\u0020for\u0020log\u0020storage.",
+            "summary": "Default\u0020permissions\u0020for\u0020newly\u0020created\u0020directories.",
             "url": "classes/oihana-logging-LoggerManager.html#property_directory"
+        },                {
+            "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003A\u0024dirPermissions",
+            "name": "dirPermissions",
+            "summary": "The\u0020directory\u0020permission.",
+            "url": "classes/oihana-logging-LoggerManager.html#property_dirPermissions"
         },                {
             "fqsen": "\\oihana\\logging\\LoggerManager\u003A\u003A\u0024extension",
             "name": "extension",
@@ -1808,7 +1838,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\logging\\MonoLogManager",
             "name": "MonoLogManager",
-            "summary": "A\u0020logger\u0020manager.",
+            "summary": "MonoLogManager\u0020is\u0020a\u0020PSR\u002D3\u0020compatible\u0020logger\u0020manager\u0020using\u0020Monolog.",
             "url": "classes/oihana-logging-MonoLogManager.html"
         },                {
             "fqsen": "\\oihana\\logging\\MonoLogManager\u003A\u003A__construct\u0028\u0029",
@@ -1826,40 +1856,55 @@ Search.appendIndex(
             "summary": "Retrieves\u0020the\u0020formatter\u0020instance.",
             "url": "classes/oihana-logging-MonoLogManager.html#method_getFormatter"
         },                {
-            "fqsen": "\\oihana\\logging\\MonoLogManager\u003A\u003AsetFormatter\u0028\u0029",
-            "name": "setFormatter",
-            "summary": "Sets\u0020the\u0020formatter\u0020for\u0020log\u0020entries.",
-            "url": "classes/oihana-logging-MonoLogManager.html#method_setFormatter"
+            "fqsen": "\\oihana\\logging\\MonoLogManager\u003A\u003A\u0024allowInlineLineBreaks",
+            "name": "allowInlineLineBreaks",
+            "summary": "Whether\u0020to\u0020allow\u0020inline\u0020line\u0020breaks\u0020in\u0020log\u0020entries.",
+            "url": "classes/oihana-logging-MonoLogManager.html#property_allowInlineLineBreaks"
         },                {
             "fqsen": "\\oihana\\logging\\MonoLogManager\u003A\u003A\u0024bubbles",
             "name": "bubbles",
-            "summary": "Indicates\u0020if\u0020the\u0020bubbling\u0020is\u0020active.",
+            "summary": "Indicates\u0020if\u0020the\u0020logger\u0020should\u0020bubble\u0020messages\u0020to\u0020higher\u002Dlevel\u0020loggers.",
             "url": "classes/oihana-logging-MonoLogManager.html#property_bubbles"
         },                {
-            "fqsen": "\\oihana\\logging\\MonoLogManager\u003A\u003A\u0024dirPermissions",
-            "name": "dirPermissions",
-            "summary": "The\u0020directory\u0020permission.",
-            "url": "classes/oihana-logging-MonoLogManager.html#property_dirPermissions"
+            "fqsen": "\\oihana\\logging\\MonoLogManager\u003A\u003A\u0024dateFormat",
+            "name": "dateFormat",
+            "summary": "The\u0020date\u0020format\u0020to\u0020use\u0020in\u0020log\u0020entries.",
+            "url": "classes/oihana-logging-MonoLogManager.html#property_dateFormat"
         },                {
             "fqsen": "\\oihana\\logging\\MonoLogManager\u003A\u003A\u0024filePermissions",
             "name": "filePermissions",
-            "summary": "The\u0020file\u0020permission.",
+            "summary": "File\u0020permissions\u0020for\u0020new\u0020log\u0020files.",
             "url": "classes/oihana-logging-MonoLogManager.html#property_filePermissions"
         },                {
-            "fqsen": "\\oihana\\logging\\MonoLogManager\u003A\u003A\u0024formatter",
-            "name": "formatter",
-            "summary": "The\u0020line\u0020formatter.",
-            "url": "classes/oihana-logging-MonoLogManager.html#property_formatter"
+            "fqsen": "\\oihana\\logging\\MonoLogManager\u003A\u003A\u0024format",
+            "name": "format",
+            "summary": "Format\u0020string\u0020for\u0020log\u0020messages.",
+            "url": "classes/oihana-logging-MonoLogManager.html#property_format"
+        },                {
+            "fqsen": "\\oihana\\logging\\MonoLogManager\u003A\u003A\u0024includeStackTraces",
+            "name": "includeStackTraces",
+            "summary": "Whether\u0020to\u0020include\u0020exception\u0020stack\u0020traces\u0020in\u0020log\u0020messages.",
+            "url": "classes/oihana-logging-MonoLogManager.html#property_includeStackTraces"
+        },                {
+            "fqsen": "\\oihana\\logging\\MonoLogManager\u003A\u003A\u0024ignoreEmptyContextAndExtra",
+            "name": "ignoreEmptyContextAndExtra",
+            "summary": "Whether\u0020to\u0020ignore\u0020empty\u0020context\u0020and\u0020extra\u0020arrays\u0020in\u0020log\u0020messages.",
+            "url": "classes/oihana-logging-MonoLogManager.html#property_ignoreEmptyContextAndExtra"
         },                {
             "fqsen": "\\oihana\\logging\\MonoLogManager\u003A\u003A\u0024level",
             "name": "level",
-            "summary": "The\u0020default\u0020level\u0020of\u0020the\u0020logger.",
+            "summary": "The\u0020default\u0020log\u0020level\u0020for\u0020the\u0020logger\u0020\u0028Monolog\\Level\u0020or\u0020int\u0029.",
             "url": "classes/oihana-logging-MonoLogManager.html#property_level"
         },                {
             "fqsen": "\\oihana\\logging\\MonoLogManager\u003A\u003A\u0024maxFiles",
             "name": "maxFiles",
-            "summary": "The\u0020maximum\u0020number\u0020of\u0020files\u0020stored\u0020in\u0020the\u0020log\u0020folder.",
+            "summary": "Maximum\u0020number\u0020of\u0020log\u0020files\u0020to\u0020keep\u0020in\u0020rotation.",
             "url": "classes/oihana-logging-MonoLogManager.html#property_maxFiles"
+        },                {
+            "fqsen": "\\oihana\\logging\\MonoLogManager\u003A\u003A\u0024formatter",
+            "name": "formatter",
+            "summary": "Internal\u0020line\u0020formatter\u0020instance\u0020for\u0020Monolog.",
+            "url": "classes/oihana-logging-MonoLogManager.html#property_formatter"
         },                {
             "fqsen": "\\oihana\\models\\enums\\ModelParam",
             "name": "ModelParam",
