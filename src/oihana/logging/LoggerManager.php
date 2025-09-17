@@ -233,7 +233,7 @@ abstract class LoggerManager
             {
                 if ( !@mkdir($dir, $this->dirPermissions, true) && !is_dir( $dir ) )
                 {
-                    throw new DirectoryException("Impossible de créer le répertoire de logs: $dir");
+                    throw new DirectoryException("Unable to create the log directory: $dir");
                 }
             }
             finally
