@@ -154,6 +154,8 @@ class MonoLogManager extends LoggerManager
 
         $logger = new Logger( $this->getFileName() );
 
+        echo 'file permissions : ' . $this->filePermissions . PHP_EOL . PHP_EOL ;
+
         $handler = new RotatingFileHandler
         (
             $this->getFilePath() ,
