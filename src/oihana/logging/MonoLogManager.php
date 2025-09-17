@@ -150,7 +150,7 @@ class MonoLogManager extends LoggerManager
      */
     public function createLogger():LoggerInterface
     {
-        $this->ensureDirectory();
+        // $this->ensureDirectory();
 
         $logger = new Logger( $this->getFileName() );
 
