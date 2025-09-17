@@ -79,11 +79,13 @@ abstract class LoggerManager
      */
     public function __construct( array $init = [] , ?string $name = null )
     {
-        $this->directory      = $init[ LoggerParam::DIRECTORY ] ?? $this->directory ;
-        $this->dirPermissions = octdec( $init[ LoggerParam::DIR_PERMISSIONS ] ?? $this->dirPermissions ) ;
-        $this->extension      = $init[ LoggerParam::EXTENSION ] ?? $this->extension ;
-        $this->name           = $name  ;
-        $this->path           = $init[ LoggerParam::PATH ] ?? $this->path ;
+        $this->directory = $init[ LoggerParam::DIRECTORY ] ?? $this->directory ;
+        $this->extension = $init[ LoggerParam::EXTENSION ] ?? $this->extension ;
+        $this->name      = $name  ;
+        $this->path      = $init[ LoggerParam::PATH ] ?? $this->path ;
+
+        $dirPermissions = $init[LoggerParam::DIR_PERMISSIONS] ?? $this->dirPermissions;
+        $this->dirPermissions = is_string( $dirPermissions ) ? octdec( $dirPermissions ) : (int)$dirPermissions ;
     }
 
     /**
