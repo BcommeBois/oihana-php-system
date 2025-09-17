@@ -12,23 +12,66 @@ use Monolog\Logger;
 use oihana\files\exceptions\DirectoryException;
 use Psr\Log\LoggerInterface;
 
-use oihana\enums\Char;
 use oihana\logging\enums\MonoLogParam;
 
 /**
- * A MonoLog logger manager.
+ * MonoLogManager is a PSR-3 compatible logger manager using Monolog.
+ *
+ * This class provides:
+ * - Creation of a Monolog logger with a rotating file handler.
+ * - Customizable log formats and date formats.
+ * - Options for inline line breaks, ignoring empty context/extra, and stack traces.
+ * - Management of file and directory permissions for log storage.
+ * When a log directory does not exist, it is automatically created using the configured `dirPermissions`
+ * and a temporary `umask` of 0002 to ensure group writable directories (e.g., 0664 / 2775)
+ * for collaborative environments.
+ * - Automatic error and exception handling registration via Monolog's ErrorHandler.
+ *
+ * Example usage:
+ * ```php
+ * $loggerManager = new MonoLogManager
+ * ([
+ *     'directory' => '/var/log/myapp',
+ *     'filePermissions' => 0664,
+ *     'allowInlineLineBreaks' => true,
+ *     'level' => Level::Info,
+ *     'maxFiles' => 7
+ * ]);
+ *
+ * $logger = $loggerManager->createLogger();
+ * $logger->info('Application started');
+ * ```
+ *
+ * @package oihana\logging
+ * @author  Marc Alcaraz (ekameleon)
+ * @since   1.0.0
  */
 class MonoLogManager extends LoggerManager
 {
     /**
      * Creates a new MonoLogManager instance.
-     * @param string $directory
-     * @param array $init
-     * @param ?string $name
+     *
+     * @param array{
+     *     allowInlineLineBreaks?       : bool|null   , // Whether to allow inline line breaks in log entries.
+     *     bubbles?                     : bool|null   , // Indicates if the bubbling is active.
+     *     directory?                   : string|null , // Base log directory.
+     *     dirPermissions?              : int|null    , // Directory permissions (octal, e.g., 02775).
+     *     filePermissions?             : int|null    , // File permissions (octal, e.g., 0664).
+     *     extension?                   : string|null , // Log file extension (e.g., ".log").
+     *     path?                        : string|null , // Subdirectory path inside $directory.
+     *     dateFormat?                  : string|null , // Date format for log entries.
+     *     format?                      : string|null , // Log message format string.
+     *     includeStackTraces?          : bool|null   , // Whether to include exception stack traces.
+     *     ignoreEmptyContextAndExtra?  : bool|null   , // Whether to ignore empty context and extra.
+     *     level?                       : int|null    , // Default log level (Monolog\Level).
+     *     maxFiles?                    : int|null      // Maximum number of rotating log files.
+     * } $init Optional initialization options.
+     *
+     * @param string|null $name Optional logger channel name.
      */
-    public function __construct( string $directory = Char::EMPTY , array $init = [] , ?string $name = null )
+    public function __construct( array $init = [] , ?string $name = null )
     {
-        parent::__construct( $directory , $init , $name ) ;
+        parent::__construct( $init , $name ) ;
         $this->allowInlineLineBreaks      = boolval( $init[ MonoLogParam::ALLOW_INLINE_LINE_BREAKS  ] ?? $this->allowInlineLineBreaks ) ;
         $this->bubbles                    = boolval( $init[ MonoLogParam::BUBBLES  ] ?? $this->bubbles ) ;
         $this->dateFormat                 = $init[ MonoLogParam::DATE_FORMAT ] ?? $this->dateFormat ;
@@ -47,49 +90,51 @@ class MonoLogManager extends LoggerManager
     public bool $allowInlineLineBreaks = true ;
 
     /**
-     * Indicates if the bubbling is active.
+     * Indicates if the logger should bubble messages to higher-level loggers.
      * @var bool
      */
     public bool $bubbles = true ;
 
     /**
-     * The date format of the log files.
+     * The date format to use in log entries.
+     * Defaults to "Y-m-d H:i:s".
      * @var string
      */
     public string $dateFormat = 'Y-m-d H:i:s' ;
 
     /**
-     * The file permission.
+     * File permissions for new log files.
+     * Defaults to 0664.
      * @var int|float
      */
     public int|float $filePermissions = 0664 ;
 
     /**
-     * The format of the log messages.
+     * Format string for log messages.
      * @var string
      */
     public string $format = "%datetime% %channel% %level_name% %message% %context% %extra%\n" ;
 
     /**
-     * Include stack traces in exception logs.
+     * Whether to include exception stack traces in log messages.
      * @var bool
      */
     public bool $includeStackTraces = false ;
 
     /**
-     * Whether to ignore empty context and extra.
+     * Whether to ignore empty context and extra arrays in log messages.
      * @var bool
      */
     public bool $ignoreEmptyContextAndExtra = true ;
 
     /**
-     * The default level of the logger.
+     * The default log level for the logger (Monolog\Level or int).
      * @var int|Level
      */
     public int|Level $level = Level::Debug ;
 
     /**
-     * The maximum number of files stored in the log folder.
+     * Maximum number of log files to keep in rotation.
      * @var int
      */
     public int $maxFiles = 0 ;
@@ -148,7 +193,7 @@ class MonoLogManager extends LoggerManager
     }
 
     /**
-     * The line formatter.
+     * Internal line formatter instance for Monolog.
      * @var ?FormatterInterface
      */
     protected ?FormatterInterface $formatter = null ;

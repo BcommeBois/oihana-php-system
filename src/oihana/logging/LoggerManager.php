@@ -2,7 +2,9 @@
 
 namespace oihana\logging;
 
-use fr\ooop\schema\Log;
+use ReflectionException;
+
+use Psr\Log\LoggerInterface;
 
 use oihana\enums\Char;
 use oihana\enums\Order;
@@ -12,9 +14,8 @@ use oihana\files\exceptions\DirectoryException;
 use oihana\files\exceptions\FileException;
 use oihana\logging\enums\LoggerParam;
 
-use Psr\Log\LoggerInterface;
+use fr\ooop\schema\Log;
 
-use ReflectionException;
 use function oihana\files\clearFile;
 use function oihana\files\countFileLines;
 use function oihana\files\findFiles;
@@ -22,35 +23,67 @@ use function oihana\files\getFileLines;
 use function oihana\files\path\joinPaths;
 
 /**
- * Abstract logger manager class.
+ * Abstract base class for managing log files and PSR-3 loggers.
  *
- * Provides utility methods for managing log files, including:
- * - Creating a logger instance.
- * - Reading log lines.
- * - Counting log lines.
- * - Clearing log files.
- * - Retrieving log file paths and names.
+ * LoggerManager provides utility methods to handle log files and directories,
+ * including creating, reading, counting lines, clearing logs, and retrieving
+ * log paths and names.
  *
- * This class is meant to be extended with a concrete implementation of `createLogger()`.
+ * Features:
+ * - Abstract `createLogger()` method to return a PSR-3 compliant logger.
+ * - Automatic creation of log directories if they do not exist.
+ * - Directory creation uses a temporary `umask 0002` to ensure group writable
+ *   permissions (e.g., 0664 for files, 2775 for directories) in collaborative
+ *   environments.
+ * - Utilities to read log lines as structured entries (`createLog()`).
+ * - Counting lines (`countLines()`) and clearing files (`clear()`).
+ * - Listing log files (`getLoggerFiles()`), filtered by name and extension.
+ * - Flexible configuration via constructor array:
+ *   - `directory`: Base log directory path.
+ *   - `dirPermissions`: Permissions for new directories.
+ *   - `path`: Subfolder path within the base directory.
+ *   - `extension`: Log file extension.
+ *   - `name`: Optional logger channel name.
+ *
+ * Example usage:
+ * ```php
+ * $loggerManager = new class(['directory' => '/var/log/myapp']) extends LoggerManager
+ * {
+ *     public function createLogger(): LoggerInterface {
+ *         // return a PSR-3 logger instance
+ *     }
+ * };
+ *
+ * $loggerManager->ensureDirectory();
+ * $lines = $loggerManager->getLogLines(null); // read lines from default log file
+ * ```
+ *
+ * @package oihana\logging
+ * @author  Marc Alcaraz
+ * @since   1.0.0
  */
 abstract class LoggerManager
 {
     /**
-     * Constructor.
+     * Creates a new LoggerManager instance.
      *
-     * @param string $directory Base directory for log storage.
-     * @param array $init Optional initialization options:
-     *                    - LoggerConfig::PATH: subdirectory path
-     *                    - LoggerConfig::EXTENSION: log file extension
+     * @param array{
+     *     directory?      : string|null , // The log directory path
+     *     dirPermissions? : int|null    , // The log directory permission
+     *     extension?      : string|null , // The log file extension
+     *     path?           : string|null , // The subdirectory path
+     *
+     * } $init Optional initialization options
+     *
      * @param string|null $name Optional logger channel name.
      */
-    public function __construct( string $directory = Char::EMPTY , array $init = [] , ?string $name = null )
+    public function __construct( array $init = [] , ?string $name = null )
     {
-        $this->name           = $name  ;
-        $this->directory      = $directory ;
+        $this->directory      = $init[ LoggerParam::DIRECTORY ] ?? $this->directory ;
         $this->dirPermissions = octdec( $init[ LoggerParam::DIR_PERMISSIONS ] ?? $this->dirPermissions ) ;
-        $this->path           = $init[ LoggerParam::PATH      ] ?? $this->path ;
         $this->extension      = $init[ LoggerParam::EXTENSION ] ?? $this->extension ;
+        $this->name           = $name  ;
+        $this->path           = $init[ LoggerParam::PATH ] ?? $this->path ;
     }
 
     /**
@@ -180,8 +213,12 @@ abstract class LoggerManager
     /**
      * Ensure the log directory exists and is writable.
      *
-     * Uses umask 0002 so that directories and files created
-     * have group write permissions (e.g., 0664 / 2775).
+     * If the directory does not exist, it will be created recursively.
+     * A temporary `umask 0002` is applied so that the directory is group writable
+     * according to `$this->dirPermissions` (default 2775). Files created within
+     * the directory will inherit group write permission (0664 by default).
+     *
+     * Throws a DirectoryException if the directory cannot be created or is not writable.
      *
      * @throws DirectoryException if the directory cannot be created or is not writable.
      */
@@ -214,7 +251,11 @@ abstract class LoggerManager
     /**
      * Returns the full path of the log directory.
      *
-     * @return string Absolute path to the log folder.
+     * Combines the base `$this->directory` and `$this->path` using canonical path
+     * normalization. The returned path is absolute (or relative if `$this->directory`
+     * is relative) and can be safely used for file operations.
+     *
+     * @return string Absolute or relative path to the log folder.
      */
     public function getDirectory() :string
     {
@@ -244,6 +285,9 @@ abstract class LoggerManager
     /**
      * Returns the full path to a log file.
      *
+     * If `$file` is null, returns the default log file path: <directory>/<name><extension>.
+     * Uses `joinPaths()` to safely concatenate directory and file name.
+     *
      * @param string|null $file Optional custom file name. Defaults to <name><extension>.
      * @return string Full path to the log file.
      */
@@ -268,8 +312,15 @@ abstract class LoggerManager
     /**
      * Returns the list of log files in the log directory matching the current logger name and extension.
      *
+     * The search uses `findFiles()` with options:
+     * - Pattern: "<logger name>*<extension>"
+     * - Mode: files only
+     * - Order: ascending by file name
+     *
+     * Throws a DirectoryException if the log directory cannot be read.
+     *
      * @return array|false List of log file names or false on error.
-     * @throws DirectoryException If the log directory cannot be read.
+     * @throws DirectoryException if the log directory cannot be read.
      */
     public function getLoggerFiles() :array|false
     {
