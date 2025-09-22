@@ -28,8 +28,15 @@ trait PrepareFilter
                     $value = json_decode( $param , true ) ;
                     if( is_array( $value ) )
                     {
-                        $params[ ControllerParam::FILTER ] = urlencode( json_encode( $param ) ) ;
+                        $params[ ControllerParam::FILTER ] = $param ;
                         return $value ;
+                    }
+                    else
+                    {
+                        $this->logger->warning
+                        (
+                            __METHOD__ . ' failed, the parameter is valid JSON but not an array/object: ' . $param
+                        );
                     }
                 }
                 else
