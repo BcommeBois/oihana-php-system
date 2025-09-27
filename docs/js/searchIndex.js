@@ -3528,7 +3528,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\traits\\DebugTrait",
             "name": "DebugTrait",
-            "summary": "Provides\u0020debugging\u0020and\u0020mock\u002Drelated\u0020functionality.",
+            "summary": "Provides\u0020debugging\u0020and\u0020mock\u002Drelated\u0020functionality\u0020for\u0020classes.",
             "url": "classes/oihana-traits-DebugTrait.html"
         },                {
             "fqsen": "\\oihana\\traits\\DebugTrait\u003A\u003AinitializeDebug\u0028\u0029",
@@ -3541,9 +3541,14 @@ Search.appendIndex(
             "summary": "Initialize\u0020the\u0020mock\u0020flag.",
             "url": "classes/oihana-traits-DebugTrait.html#method_initializeMock"
         },                {
+            "fqsen": "\\oihana\\traits\\DebugTrait\u003A\u003AisDebug\u0028\u0029",
+            "name": "isDebug",
+            "summary": "Check\u0020if\u0020debug\u0020mode\u0020is\u0020active.",
+            "url": "classes/oihana-traits-DebugTrait.html#method_isDebug"
+        },                {
             "fqsen": "\\oihana\\traits\\DebugTrait\u003A\u003AisMock\u0028\u0029",
             "name": "isMock",
-            "summary": "Indicates\u0020if\u0020the\u0020document\u0020use\u0020the\u0020mock\u0020mode.",
+            "summary": "Check\u0020if\u0020mock\u0020mode\u0020is\u0020active.",
             "url": "classes/oihana-traits-DebugTrait.html#method_isMock"
         },                {
             "fqsen": "\\oihana\\traits\\DebugTrait\u003A\u003A\u0024debug",

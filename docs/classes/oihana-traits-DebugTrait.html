@@ -142,13 +142,39 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/DebugTrait.php"><a href="files/src-oihana-traits-debugtrait.html"><abbr title="src/oihana/traits/DebugTrait.php">DebugTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Provides debugging and mock-related functionality.</p>
+            <p class="phpdocumentor-summary">Provides debugging and mock-related functionality for classes.</p>
 
 
+    <section class="phpdocumentor-description"><p>This trait allows a class to handle:</p>
+<ul>
+<li>A debug mode, indicating if debug features should be enabled.</li>
+<li>A mock mode, used for testing or simulating data, which is only active
+if debug mode is active.</li>
+</ul>
+<p>Both modes can be initialized via arrays using the constants <code class="prettyprint">DEBUG</code> and <code class="prettyprint">MOCK</code>.
+Any non-boolean value provided will fall back to a default value.</p>
+<p>Example usage:</p>
+<pre class="prettyprint"><code class="language-php">class MyService
+{
+    use DebugTrait;
+}
+
+$service = (new MyService())
+    -&gt;initializeDebug([DebugTrait::DEBUG =&gt; true])
+    -&gt;initializeMock([DebugTrait::MOCK =&gt; true]);
+
+var_dump($service-&gt;isDebug()); // true
+var_dump($service-&gt;isMock());  // true
+
+// Non-boolean values will use the default
+$service-&gt;initializeDebug([DebugTrait::DEBUG =&gt; 'yes'], false);
+var_dump($service-&gt;isDebug()); // false
+</code></pre>
+</section>
 
 
 
@@ -319,11 +345,18 @@ be logged and monitored.</dd>
 <dd>Initialize the mock flag.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-traits-DebugTrait.html#method_isDebug">isDebug()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Check if debug mode is active.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-traits-DebugTrait.html#method_isMock">isMock()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Indicates if the document use the mock mode.</dd>
+<dd>Check if mock mode is active.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-logging-LoggerTrait.html#method_log">log()</a>
@@ -368,7 +401,7 @@ be logged and monitored.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/DebugTrait.php"><a href="files/src-oihana-traits-debugtrait.html"><abbr title="src/oihana/traits/DebugTrait.php">DebugTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">29</span>
+    <span class="phpdocumentor-element-found-in__line">59</span>
 
     </aside>
 
@@ -464,7 +497,7 @@ be logged and monitored.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/DebugTrait.php"><a href="files/src-oihana-traits-debugtrait.html"><abbr title="src/oihana/traits/DebugTrait.php">DebugTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">64</span>
 
     </aside>
 
@@ -512,7 +545,7 @@ be logged and monitored.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/DebugTrait.php"><a href="files/src-oihana-traits-debugtrait.html"><abbr title="src/oihana/traits/DebugTrait.php">DebugTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">48</span>
 
     </aside>
 
@@ -590,7 +623,7 @@ be logged and monitored.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/DebugTrait.php"><a href="files/src-oihana-traits-debugtrait.html"><abbr title="src/oihana/traits/DebugTrait.php">DebugTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">24</span>
+    <span class="phpdocumentor-element-found-in__line">54</span>
 
     </aside>
 
@@ -993,7 +1026,7 @@ be logged and monitored.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/DebugTrait.php"><a href="files/src-oihana-traits-debugtrait.html"><abbr title="src/oihana/traits/DebugTrait.php">DebugTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">77</span>
 
     </aside>
 
@@ -1001,12 +1034,16 @@ be logged and monitored.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">initializeDebug</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+                    <span class="phpdocumentor-signature__name">initializeDebug</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$defaultValue</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>This method sets the <code class="prettyprint">$debug</code> property using the value provided in the <code class="prettyprint">$init</code> array,
+or falls back to the current <code class="prettyprint">$debug</code> value. If the value in <code class="prettyprint">$init</code> is not a boolean,
+the provided <code class="prettyprint">$defaultValue</code> is used instead.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1014,7 +1051,18 @@ be logged and monitored.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Optional initialization array.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$defaultValue</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Default value to use if the init value is not a boolean.</p>
+</section>
+
             </dd>
             </dl>
 
@@ -1025,6 +1073,10 @@ be logged and monitored.</p>
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">static</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Returns the current instance for chaining.</p>
+</section>
+
             </section>
 
 </article>
@@ -1268,7 +1320,7 @@ a valid logger string. Defaults to <code class="prettyprint">true</code>.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/DebugTrait.php"><a href="files/src-oihana-traits-debugtrait.html"><abbr title="src/oihana/traits/DebugTrait.php">DebugTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">52</span>
+    <span class="phpdocumentor-element-found-in__line">95</span>
 
     </aside>
 
@@ -1276,12 +1328,16 @@ a valid logger string. Defaults to <code class="prettyprint">true</code>.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">initializeMock</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+                    <span class="phpdocumentor-signature__name">initializeMock</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$defaultValue</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>This method sets the <code class="prettyprint">$mock</code> property using the value provided in the <code class="prettyprint">$init</code> array,
+or falls back to the current <code class="prettyprint">$mock</code> value. If the value in <code class="prettyprint">$init</code> is not a boolean,
+the provided <code class="prettyprint">$defaultValue</code> is used instead.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1289,7 +1345,18 @@ a valid logger string. Defaults to <code class="prettyprint">true</code>.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Optional initialization array.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$defaultValue</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Default value to use if the init value is not a boolean.</p>
+</section>
+
             </dd>
             </dl>
 
@@ -1300,6 +1367,69 @@ a valid logger string. Defaults to <code class="prettyprint">true</code>.</p>
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">static</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Returns the current instance for chaining.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isDebug">
+        isDebug()
+        <a href="classes/oihana-traits-DebugTrait.html#method_isDebug" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/DebugTrait.php"><a href="files/src-oihana-traits-debugtrait.html"><abbr title="src/oihana/traits/DebugTrait.php">DebugTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">112</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Check if debug mode is active.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">isDebug</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>This method returns the boolean value of the debug flag. If a value is provided
+in the <code class="prettyprint">$init</code> array, it is used; otherwise the current <code class="prettyprint">$debug</code> property is used.
+Non-boolean values in <code class="prettyprint">$init</code> are treated as <code class="prettyprint">false</code>.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$init</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional array containing a debug value.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if debug mode is active, false otherwise.</p>
+</section>
+
             </section>
 
 </article>
@@ -1317,11 +1447,11 @@ a valid logger string. Defaults to <code class="prettyprint">true</code>.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/DebugTrait.php"><a href="files/src-oihana-traits-debugtrait.html"><abbr title="src/oihana/traits/DebugTrait.php">DebugTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">63</span>
+    <span class="phpdocumentor-element-found-in__line">128</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Indicates if the document use the mock mode.</p>
+        <p class="phpdocumentor-summary">Check if mock mode is active.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -1330,7 +1460,11 @@ a valid logger string. Defaults to <code class="prettyprint">true</code>.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>Mock mode is only active if debug mode is active as well.
+If a value is provided in the <code class="prettyprint">$init</code> array, it is used; otherwise the current <code class="prettyprint">$mock</code> property is used.
+Non-boolean values in <code class="prettyprint">$init</code> are treated as <code class="prettyprint">false</code>.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -1338,7 +1472,9 @@ a valid logger string. Defaults to <code class="prettyprint">true</code>.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Optional array containing a mock value.</p>
+</section>
+
             </dd>
             </dl>
 
@@ -1349,6 +1485,10 @@ a valid logger string. Defaults to <code class="prettyprint">true</code>.</p>
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if mock mode is active, false otherwise.</p>
+</section>
+
             </section>
 
 </article>
@@ -1661,6 +1801,7 @@ that are not necessarily wrong.</p>
                                             <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_initializeLoggable">initializeLoggable()</a></li>
                                             <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_initializeLogger">initializeLogger()</a></li>
                                             <li class=""><a href="classes/oihana-traits-DebugTrait.html#method_initializeMock">initializeMock()</a></li>
+                                            <li class=""><a href="classes/oihana-traits-DebugTrait.html#method_isDebug">isDebug()</a></li>
                                             <li class=""><a href="classes/oihana-traits-DebugTrait.html#method_isMock">isMock()</a></li>
                                             <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_log">log()</a></li>
                                             <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_notice">notice()</a></li>
