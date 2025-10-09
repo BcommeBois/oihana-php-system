@@ -14,8 +14,6 @@ use oihana\enums\Char;
  * - Automatically generates a default ID if none is provided
  * - Supports initialization via associative arrays (e.g., input parameters or config)
  *
- * @package oihana\traits
- *
  * @example
  * ```php
  * use oihana\traits\QueryIDTrait;
@@ -34,7 +32,7 @@ use oihana\enums\Char;
  * echo $builder->getQueryID(); // 'custom_query'
  *
  * $builder->setQueryID(null);
- * echo $builder->getQueryID(); // 'query_8237412' (random suffix)
+ * echo $builder->getQueryID(); // 'query_238472' (random 6-digit suffix)
  * ```
  *
  * @package oihana\traits
@@ -100,6 +98,9 @@ trait QueryIDTrait
         {
             $init = $init[ static::QUERY_ID ] ?? null ;
         }
-        $this->queryId = is_null( $init ) ? static::QUERY . Char::UNDERLINE . mt_rand() : $init ;
+
+        $this->queryId = is_null( $init )
+                       ? static::QUERY . Char::UNDERLINE . mt_rand( 100000 , 999999 )
+                       : (string) $init ;
     }
 }
