@@ -14,7 +14,6 @@ use Twig\Error\LoaderError;
 use Twig\Error\RuntimeError;
 use Twig\Error\SyntaxError;
 
-
 /**
  * Provides seamless integration of the **Twig** templating engine into controllers using the **Slim Framework**.
  *
@@ -77,7 +76,13 @@ trait TwigTrait
      * @throws ContainerExceptionInterface   If there is an error while retrieving Twig from the container.
      * @throws InvalidArgumentException      If no valid Twig instance is provided or available.
      */
-    public function initializeTwig( array $init = [] , ?ContainerInterface $container = null ) :static
+    public function initializeTwig
+    (
+        array               $init      = [] ,
+        ?ContainerInterface $container = null ,
+        array               $keys      = [ self::TWIG , Twig::class ]
+    )
+    :static
     {
         $twig = $init[ self::TWIG ] ?? null ;
 
