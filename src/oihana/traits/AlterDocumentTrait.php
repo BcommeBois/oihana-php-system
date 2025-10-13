@@ -33,19 +33,21 @@ use function oihana\core\arrays\isAssociative;
  *
  * Example usage:
  * ```php
- * class MyProcessor {
- * use AlterDocumentTrait;
- *
- * public function __construct()
+ * class MyProcessor
  * {
- * $this->alters = [
- * 'price'    => Alter::FLOAT,
- * 'tags'     => [ Alter::ARRAY , Alter::CLEAN ],
- * 'meta'     => [ Alter::JSON_PARSE ],
- * 'link'     => [ Alter::URL , '/product/' ],
- * 'score'    => [ Alter::CALL , fn($value) => $value * 10 ],
- * ];
- * }
+ *     use AlterDocumentTrait;
+ *
+ *     public function __construct()
+ *     {
+ *         $this->alters =
+ *         [
+ *             'price' => Alter::FLOAT,
+ *             'tags'  => [ Alter::ARRAY , Alter::CLEAN ],
+ *             'meta'  => [ Alter::JSON_PARSE ],
+ *             'link'  => [ Alter::URL , '/product/' ],
+ *             'score' => [ Alter::CALL , fn($value) => $value * 10 ],
+ *         ];
+ *     }
  * }
  *
  * $processor = new MyProcessor();

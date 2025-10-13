@@ -3,12 +3,15 @@
 namespace oihana\controllers\traits ;
 
 use oihana\controllers\enums\ControllerParam;
+use oihana\controllers\traits\prepare\PrepareBench;
 use oihana\date\TimeInterval;
 use oihana\enums\Output;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 trait BenchTrait
 {
+    use PrepareBench ;
+
     /**
      * The bench flag to test the script execution time of a function.
      * @var bool

@@ -8,8 +8,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 trait PrepareBench
 {
-    use BenchTrait ,
-        PrepareBoolean ;
+    use PrepareBoolean ;
 
     /**
      * Prepare and returns the 'bench' value.
