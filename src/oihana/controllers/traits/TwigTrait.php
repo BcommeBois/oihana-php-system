@@ -80,7 +80,6 @@ trait TwigTrait
     (
         array               $init      = [] ,
         ?ContainerInterface $container = null ,
-        array               $keys      = [ self::TWIG , Twig::class ]
     )
     :static
     {
