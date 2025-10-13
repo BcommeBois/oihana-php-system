@@ -9,7 +9,6 @@ use Monolog\Handler\RotatingFileHandler;
 use Monolog\Level;
 use Monolog\Logger;
 
-use oihana\files\exceptions\DirectoryException;
 use Psr\Log\LoggerInterface;
 
 use oihana\logging\enums\MonoLogParam;
@@ -146,7 +145,6 @@ class MonoLogManager extends LoggerManager
      * and registers it for error handling to capture system errors and exceptions.
      *
      * @return LoggerInterface The configured logger instance.
-     * @throws DirectoryException If the log directory cannot be created or is not writable.
      */
     public function createLogger():LoggerInterface
     {

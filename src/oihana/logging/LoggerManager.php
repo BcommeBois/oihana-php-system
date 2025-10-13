@@ -85,7 +85,7 @@ abstract class LoggerManager
         $this->name      = $name  ;
         $this->path      = $init[ LoggerParam::PATH ] ?? $this->path ;
 
-        $dirPermissions = $init[LoggerParam::DIR_PERMISSIONS] ?? $this->dirPermissions;
+        $dirPermissions = $init[ LoggerParam::DIR_PERMISSIONS ] ?? $this->dirPermissions;
         $this->dirPermissions = is_string( $dirPermissions ) ? octdec( $dirPermissions ) : (int)$dirPermissions ;
     }
 
