@@ -2,11 +2,12 @@
 
 namespace oihana\controllers\traits ;
 
+use Psr\Http\Message\ServerRequestInterface as Request;
+
 use oihana\controllers\enums\ControllerParam;
 use oihana\controllers\traits\prepare\PrepareBench;
 use oihana\date\TimeInterval;
 use oihana\enums\Output;
-use Psr\Http\Message\ServerRequestInterface as Request;
 
 trait BenchTrait
 {
