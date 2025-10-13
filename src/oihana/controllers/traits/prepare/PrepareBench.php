@@ -3,7 +3,6 @@
 namespace oihana\controllers\traits\prepare;
 
 use oihana\controllers\enums\ControllerParam;
-use oihana\controllers\traits\BenchTrait;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 trait PrepareBench
