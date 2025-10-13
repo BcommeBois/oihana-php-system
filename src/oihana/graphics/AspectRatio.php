@@ -18,8 +18,6 @@ use function oihana\core\maths\gcd;
  *
  * @example
  * ```php
- * <?php
- *
  * // Create a new unlocked aspect ratio for a Full HD resolution (1920x1080)
  * $ratio = new AspectRatio(1920, 1080);
  *

@@ -49,7 +49,8 @@ use function oihana\files\path\joinPaths;
  * ```php
  * $loggerManager = new class(['directory' => '/var/log/myapp']) extends LoggerManager
  * {
- *     public function createLogger(): LoggerInterface {
+ *     public function createLogger(): LoggerInterface
+ *     {
  *         // return a PSR-3 logger instance
  *     }
  * };
