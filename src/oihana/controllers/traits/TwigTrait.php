@@ -72,9 +72,9 @@ trait TwigTrait
      *
      * @return static Returns the current instance for method chaining.
      *
-     * @throws NotFoundExceptionInterface    If the container does not contain a Twig instance.
-     * @throws ContainerExceptionInterface   If there is an error while retrieving Twig from the container.
-     * @throws InvalidArgumentException      If no valid Twig instance is provided or available.
+     * @throws NotFoundExceptionInterface  If the container does not contain a Twig instance.
+     * @throws ContainerExceptionInterface If there is an error while retrieving Twig from the container.
+     * @throws InvalidArgumentException    If no valid Twig instance is provided or available.
      */
     public function initializeTwig
     (
