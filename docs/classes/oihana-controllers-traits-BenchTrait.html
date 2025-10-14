@@ -135,12 +135,15 @@
     <article class="phpdocumentor-element -trait">
         <h2 class="phpdocumentor-content__title">
     BenchTrait
+            <span class="phpdocumentor-trait__extends">
+            uses
+                            <a href="classes/oihana-controllers-traits-prepare-PrepareBench.html"><abbr title="\oihana\controllers\traits\prepare\PrepareBench">trait:short</abbr></a>                    </span>
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/BenchTrait.php"><a href="files/src-oihana-controllers-traits-benchtrait.html"><abbr title="src/oihana/controllers/traits/BenchTrait.php">BenchTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+    <span class="phpdocumentor-element-found-in__line">12</span>
 
     </aside>
 
@@ -209,6 +212,13 @@
 </dt>
 <dd>Start the bench process.</dd>
 
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a class="" href="classes/oihana-controllers-traits-prepare-PrepareBench.html#method_prepareBench">prepareBench()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Prepare and returns the &#039;bench&#039; value.</dd>
+
     </dl>
 
 
@@ -240,7 +250,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/BenchTrait.php"><a href="files/src-oihana-controllers-traits-benchtrait.html"><abbr title="src/oihana/controllers/traits/BenchTrait.php">BenchTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">16</span>
+    <span class="phpdocumentor-element-found-in__line">20</span>
 
     </aside>
 
@@ -284,7 +294,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/BenchTrait.php"><a href="files/src-oihana-controllers-traits-benchtrait.html"><abbr title="src/oihana/controllers/traits/BenchTrait.php">BenchTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 
     </aside>
 
@@ -344,7 +354,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/BenchTrait.php"><a href="files/src-oihana-controllers-traits-benchtrait.html"><abbr title="src/oihana/controllers/traits/BenchTrait.php">BenchTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">23</span>
+    <span class="phpdocumentor-element-found-in__line">27</span>
 
     </aside>
 
@@ -395,7 +405,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/BenchTrait.php"><a href="files/src-oihana-controllers-traits-benchtrait.html"><abbr title="src/oihana/controllers/traits/BenchTrait.php">BenchTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">53</span>
+    <span class="phpdocumentor-element-found-in__line">57</span>
 
     </aside>
 
@@ -441,6 +451,69 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">int|float|null</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_prepareBench">
+        prepareBench()
+        <a href="classes/oihana-controllers-traits-prepare-PrepareBench.html#method_prepareBench" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/prepare/PrepareBench.php"><a href="files/src-oihana-controllers-traits-prepare-preparebench.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareBench.php">PrepareBench.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">19</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Prepare and returns the &#039;bench&#039; value.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">prepareBench</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$args</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$params</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$request</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr>|null</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$args</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$params</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
             </section>
 
 </article>
@@ -567,6 +640,7 @@
                                             <li class=""><a href="classes/oihana-controllers-traits-BenchTrait.html#method_endBench">endBench()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-BenchTrait.html#method_initializeBench">initializeBench()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-BenchTrait.html#method_startBench">startBench()</a></li>
+                                            <li class=""><a href="classes/oihana-controllers-traits-prepare-PrepareBench.html#method_prepareBench">prepareBench()</a></li>
                                     </ul>
             </li>
                     </ul>

@@ -142,7 +142,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/AlterDocumentTrait.php"><a href="files/src-oihana-traits-alterdocumenttrait.html"><abbr title="src/oihana/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">97</span>
+    <span class="phpdocumentor-element-found-in__line">99</span>
 
     </aside>
 
@@ -152,19 +152,21 @@
     <section class="phpdocumentor-description"><p>The alteration definitions are stored in the <code class="prettyprint">$alters</code> array and can apply various transformations to data,
 such as converting values to floats, parsing JSON, cleaning arrays, or resolving URLs.</p>
 <p>Example usage:</p>
-<pre class="prettyprint"><code class="language-php">class MyProcessor {
-use AlterDocumentTrait;
-
-public function __construct()
+<pre class="prettyprint"><code class="language-php">class MyProcessor
 {
-$this-&gt;alters = [
-'price'    =&gt; Alter::FLOAT,
-'tags'     =&gt; [ Alter::ARRAY , Alter::CLEAN ],
-'meta'     =&gt; [ Alter::JSON_PARSE ],
-'link'     =&gt; [ Alter::URL , '/product/' ],
-'score'    =&gt; [ Alter::CALL , fn($value) =&gt; $value * 10 ],
-];
-}
+    use AlterDocumentTrait;
+
+    public function __construct()
+    {
+        $this-&gt;alters =
+        [
+            'price' =&gt; Alter::FLOAT,
+            'tags'  =&gt; [ Alter::ARRAY , Alter::CLEAN ],
+            'meta'  =&gt; [ Alter::JSON_PARSE ],
+            'link'  =&gt; [ Alter::URL , '/product/' ],
+            'score' =&gt; [ Alter::CALL , fn($value) =&gt; $value * 10 ],
+        ];
+    }
 }
 
 $processor = new MyProcessor();
@@ -455,7 +457,7 @@ $processed = $processor-&gt;alter($data);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/AlterDocumentTrait.php"><a href="files/src-oihana-traits-alterdocumenttrait.html"><abbr title="src/oihana/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">115</span>
+    <span class="phpdocumentor-element-found-in__line">117</span>
 
     </aside>
 
@@ -499,7 +501,7 @@ $processed = $processor-&gt;alter($data);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/AlterDocumentTrait.php"><a href="files/src-oihana-traits-alterdocumenttrait.html"><abbr title="src/oihana/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">163</span>
+    <span class="phpdocumentor-element-found-in__line">165</span>
 
     </aside>
 
@@ -892,7 +894,7 @@ $output = $processor-&gt;alter($input);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/AlterDocumentTrait.php"><a href="files/src-oihana-traits-alterdocumenttrait.html"><abbr title="src/oihana/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">195</span>
+    <span class="phpdocumentor-element-found-in__line">197</span>
 
     </aside>
 
@@ -1382,7 +1384,7 @@ $output = $processor-&gt;alter($input);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/AlterDocumentTrait.php"><a href="files/src-oihana-traits-alterdocumenttrait.html"><abbr title="src/oihana/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">216</span>
+    <span class="phpdocumentor-element-found-in__line">218</span>
 
     </aside>
 
@@ -1466,7 +1468,7 @@ $output = $processor-&gt;alter($input);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/AlterDocumentTrait.php"><a href="files/src-oihana-traits-alterdocumenttrait.html"><abbr title="src/oihana/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">288</span>
+    <span class="phpdocumentor-element-found-in__line">290</span>
 
     </aside>
 
@@ -1868,7 +1870,7 @@ $result = $this-&gt;alterProperty('price', $document, Alter::FLOAT, true);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/AlterDocumentTrait.php"><a href="files/src-oihana-traits-alterdocumenttrait.html"><abbr title="src/oihana/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">325</span>
+    <span class="phpdocumentor-element-found-in__line">327</span>
 
     </aside>
 

@@ -283,7 +283,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\GetParamTrait",
             "name": "GetParamTrait",
-            "summary": "",
+            "summary": "Trait\u0020GetParamTrait",
             "url": "classes/oihana-controllers-traits-GetParamTrait.html"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\GetParamTrait\u003A\u003AinitializeParamsStrategy\u0028\u0029",
@@ -293,37 +293,37 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\GetParamTrait\u003A\u003AgetBodyParam\u0028\u0029",
             "name": "getBodyParam",
-            "summary": "Get\u0020a\u0020parameter\u0020in\u0020the\u0020body\u0020of\u0020the\u0020current\u0020request.",
+            "summary": "Get\u0020a\u0020single\u0020parameter\u0020from\u0020the\u0020request\u0020body.",
             "url": "classes/oihana-controllers-traits-GetParamTrait.html#method_getBodyParam"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\GetParamTrait\u003A\u003AgetBodyParams\u0028\u0029",
             "name": "getBodyParams",
-            "summary": "Get\u0020the\u0020parameters\u0020in\u0020the\u0020body\u0020of\u0020the\u0020current\u0020request.",
+            "summary": "Get\u0020multiple\u0020parameters\u0020from\u0020the\u0020request\u0020body.",
             "url": "classes/oihana-controllers-traits-GetParamTrait.html#method_getBodyParams"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\GetParamTrait\u003A\u003AgetParam\u0028\u0029",
             "name": "getParam",
-            "summary": "Get\u0020the\u0020parameters\u0020in\u0020the\u0020query\u0020or\u0020body\u0020of\u0020the\u0020current\u0020request.",
+            "summary": "Get\u0020a\u0020single\u0020parameter\u0020from\u0020query\u0020or\u0020body\u0020according\u0020to\u0020the\u0020current\u0020strategy.",
             "url": "classes/oihana-controllers-traits-GetParamTrait.html#method_getParam"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\GetParamTrait\u003A\u003AgetParams\u0028\u0029",
             "name": "getParams",
-            "summary": "Get\u0020the\u0020parameters\u0020in\u0020the\u0020query\u0020or\u0020body\u0020of\u0020the\u0020current\u0020request.",
+            "summary": "Get\u0020all\u0020query\u0020parameters\u0020or\u0020body\u0020parameters\u0020if\u0020query\u0020is\u0020empty.",
             "url": "classes/oihana-controllers-traits-GetParamTrait.html#method_getParams"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\GetParamTrait\u003A\u003AgetQueryParam\u0028\u0029",
             "name": "getQueryParam",
-            "summary": "Get\u0020the\u0020parameter\u0020value\u0020in\u0020the\u0020body\u0020of\u0020the\u0020current\u0020request.",
+            "summary": "Get\u0020a\u0020single\u0020parameter\u0020from\u0020query\u0020string.",
             "url": "classes/oihana-controllers-traits-GetParamTrait.html#method_getQueryParam"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\GetParamTrait\u003A\u003AgetParamBool\u0028\u0029",
             "name": "getParamBool",
-            "summary": "",
+            "summary": "Get\u0020a\u0020boolean\u0020parameter\u0020from\u0020request.",
             "url": "classes/oihana-controllers-traits-GetParamTrait.html#method_getParamBool"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\GetParamTrait\u003A\u003AgetParamFloat\u0028\u0029",
             "name": "getParamFloat",
-            "summary": "",
+            "summary": "Get\u0020a\u0020float\u0020parameter.",
             "url": "classes/oihana-controllers-traits-GetParamTrait.html#method_getParamFloat"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\GetParamTrait\u003A\u003AgetParamFloatWithRange\u0028\u0029",
@@ -333,7 +333,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\GetParamTrait\u003A\u003AgetParamInt\u0028\u0029",
             "name": "getParamInt",
-            "summary": "",
+            "summary": "Get\u0020an\u0020integer\u0020parameter.",
             "url": "classes/oihana-controllers-traits-GetParamTrait.html#method_getParamInt"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\GetParamTrait\u003A\u003AgetParamIntWithRange\u0028\u0029",
@@ -348,7 +348,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\GetParamTrait\u003A\u003AgetParamNumberWithRange\u0028\u0029",
             "name": "getParamNumberWithRange",
-            "summary": "",
+            "summary": "Get\u0020a\u0020numeric\u0020parameter\u0020with\u0020a\u0020min\/max\u0020range\u0020validation.",
             "url": "classes/oihana-controllers-traits-GetParamTrait.html#method_getParamNumberWithRange"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\GetParamTrait\u003A\u003AgetParamString\u0028\u0029",
@@ -358,7 +358,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\GetParamTrait\u003A\u003A\u0024paramsStrategy",
             "name": "paramsStrategy",
-            "summary": "The\u0020internal\u0020strategy\u0020to\u0020get\u0020body\u0020or\u0020query\u0020parameters.",
+            "summary": "Strategy\u0020to\u0020fetch\u0020parameters\u003A\u0020\u0027both\u0027\u0020\u0028default\u0029,\u0020\u0027body\u0027\u0020only,\u0020or\u0020\u0027query\u0027\u0020only.",
             "url": "classes/oihana-controllers-traits-GetParamTrait.html#property_paramsStrategy"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\HttpCacheTrait",
