@@ -22,7 +22,8 @@ use Somnambulist\Components\Validation\Validation;
  */
 trait ValidatorTrait
 {
-    use StatusTrait ;
+    use ControllerTrait ,
+        StatusTrait ;
 
     /**
      * The custom validation rules definitions.
