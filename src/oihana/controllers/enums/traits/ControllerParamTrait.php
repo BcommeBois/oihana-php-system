@@ -227,6 +227,11 @@ trait ControllerParamTrait
     public const string RULES = 'rules' ;
 
     /**
+     * The 'schema' parameter.
+     */
+    public const string SCHEMA = 'schema' ;
+
+    /**
      * The 'search' parameter.
      */
     public const string SEARCH = 'search' ;
