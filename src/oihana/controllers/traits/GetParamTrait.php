@@ -155,7 +155,6 @@ trait GetParamTrait
             if( $this->paramsStrategy == HttpParamStrategy::BOTH || $this->paramsStrategy == HttpParamStrategy::BODY )
             {
                 $params = (array) $request->getParsedBody();
-                if( isset( $params[ $name ] ) )
                 if ( hasKeyValue( $params , $name ) )
                 {
                     return getKeyValue($params, $name);
