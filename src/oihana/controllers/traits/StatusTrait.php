@@ -26,7 +26,7 @@ trait StatusTrait
      */
     public function fail( ?Response $response , string|int|null $code = 400 , ?string $details = null , array $options = [] ) :?Response
     {
-        $code       = (int) ( HttpStatusCode::includes( (int) $code ) ?? $code ?? HttpStatusCode::DEFAULT ) ;
+        $code       = (int) ( HttpStatusCode::includes( (int) $code ) ? $code : HttpStatusCode::DEFAULT ) ;
         $message    = HttpStatusCode::getDescription( $code ) ;
         $hasDetails = is_string( $details ) && $details != Char::EMPTY ;
 
