@@ -44,8 +44,6 @@ class DocumentRoute extends Route
 
             $thing = withPlaceholder( $route , $this->routePlaceholder ) ; // default /route/{id:[0-9]+}
 
-            echo '>>>>>>>> ' . $thing . '</br>';
-
             $this->options( $routes , $thing , $this->hasGet || $this->hasDelete || $this->hasPatch || $this->hasPut ) ;
             $this->delete ( $routes , $thing ) ;
             $this->get    ( $routes , $thing ) ;
