@@ -6,9 +6,7 @@ use DI\Container;
 use DI\DependencyException;
 use DI\NotFoundException;
 
-use oihana\enums\Char;
 use oihana\routes\traits\HttpMethodRoutesTrait;
-use function oihana\core\strings\betweenBrackets;
 use function oihana\routes\helpers\withPlaceholder;
 
 class DocumentRoute extends Route
@@ -42,13 +40,14 @@ class DocumentRoute extends Route
             $this->deleteAll ( $routes , $route ) ;
             $this->post      ( $routes , $route ) ;
 
-            $thing = withPlaceholder( $route , $this->routePlaceholder ) ; // default /route/{id:[0-9]+}
+            $docRoute    = withPlaceholder( $route , $this->routePlaceholder ) ; // default /route/{id:[0-9]+}
+            $deleteRoute = withPlaceholder( $route , $this->routePlaceholder , $this->hasDeleteMultiple ) ; // if true /route[/{id:[0-9]+}]
 
-            $this->options( $routes , $thing , $this->hasGet || $this->hasDelete || $this->hasPatch || $this->hasPut ) ;
-            $this->delete ( $routes , $thing ) ;
-            $this->get    ( $routes , $thing ) ;
-            $this->patch  ( $routes , $thing ) ;
-            $this->put    ( $routes , $thing ) ;
+            $this->options( $routes , $docRoute , $this->hasGet || $this->hasDelete || $this->hasPatch || $this->hasPut ) ;
+            $this->delete ( $routes , $deleteRoute ) ;
+            $this->get    ( $routes , $docRoute    ) ;
+            $this->patch  ( $routes , $docRoute    ) ;
+            $this->put    ( $routes , $docRoute    ) ;
 
             if( count( $routes ) > 0 )
             {
