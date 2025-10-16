@@ -48,16 +48,16 @@ class Route
         $this->logger    = $this->container->get( LoggerInterface::class ) ;
         $this->settings  = $init ; // TODO remove it - use only to initialize the constructor
 
-        $this->controllerID = $init[ self::CONTROLLER_ID ] ?? $this->controllerID ;
-        $this->name         = $init[ self::NAME          ] ?? $this->name ;
-        $this->ownerPattern = $init[ self::OWNER_PATTERN ] ?? $this->ownerPattern ;
-        $this->prefix       = $init[ self::PREFIX        ] ?? $this->prefix ;
-        $this->property     = $init[ self::PROPERTY      ] ?? $this->property ;
-        $this->route        = $init[ self::ROUTE         ] ?? $this->route ;
-        $this->routePattern = $init[ self::ROUTE_PATTERN ] ?? $this->routePattern ;
-        $this->routes       = $init[ self::ROUTES        ] ?? $this->routes ;
-        $this->suffix       = $init[ self::SUFFIX        ] ?? $this->suffix ;
-        $this->verbose      = $init[ self::VERBOSE       ] ?? $this->verbose ;
+        $this->controllerID     = $init[ self::CONTROLLER_ID     ] ?? $this->controllerID ;
+        $this->name             = $init[ self::NAME              ] ?? $this->name ;
+        $this->ownerPlaceholder = $init[ self::OWNER_PLACEHOLDER ] ?? $this->ownerPlaceholder ;
+        $this->prefix           = $init[ self::PREFIX            ] ?? $this->prefix ;
+        $this->property         = $init[ self::PROPERTY          ] ?? $this->property ;
+        $this->route            = $init[ self::ROUTE             ] ?? $this->route ;
+        $this->routePlaceholder = $init[ self::ROUTE_PLACEHOLDER ] ?? $this->routePlaceholder ;
+        $this->routes           = $init[ self::ROUTES            ] ?? $this->routes ;
+        $this->suffix           = $init[ self::SUFFIX            ] ?? $this->suffix ;
+        $this->verbose          = $init[ self::VERBOSE           ] ?? $this->verbose ;
     }
 
     use ContainerTrait ,
@@ -72,28 +72,33 @@ class Route
      * Default route pattern for numeric IDs
      */
     public const string DEFAULT_ROUTE_PATTERN = '{id:[0-9]+}' ;
+    public const string DEFAULT_ROUTE_PLACEHOLDER = 'id:[0-9]+' ;
 
     /**
      * Default owner pattern for numeric owner IDs
      */
     public const string DEFAULT_OWNER_PATTERN = '{owner:[0-9]+}' ;
+    public const string DEFAULT_OWNER_PLACEHOLDER = 'owner:[0-9]+' ;
 
     /**
      * Array keys for route initialization
      */
-    public const string CLAZZ         = 'clazz'        ;
-    public const string CONTROLLER_ID = 'controllerID' ;
-    public const string METHOD        = 'method'       ;
-    public const string NAME          = 'name'         ;
-    public const string OWNER_PATTERN = 'ownerPattern' ;
-    public const string PATCH_PATTERN = 'patchPattern' ;
-    public const string PREFIX        = 'prefix'       ;
-    public const string PROPERTY      = 'property'     ;
-    public const string ROUTE         = 'route'        ;
-    public const string ROUTE_PATTERN = 'routePattern' ;
-    public const string ROUTES        = 'routes'       ;
-    public const string SUFFIX        = 'suffix'       ;
-    public const string VERBOSE       = 'verbose'      ;
+    public const string CLAZZ              = 'clazz'            ;
+    public const string CONTROLLER_ID      = 'controllerID'     ;
+    public const string METHOD             = 'method'           ;
+    public const string NAME               = 'name'             ;
+    public const string OWNER_PATTERN      = 'ownerPattern'     ;
+    public const string OWNER_PLACEHOLDER  = 'ownerPlaceHolder' ;
+    public const string PATCH_PATTERN      = 'patchPattern'     ;
+    public const string PATCH_PLACE_HOLDER = 'patchPlaceHolder' ;
+    public const string PREFIX             = 'prefix'           ;
+    public const string PROPERTY           = 'property'         ;
+    public const string ROUTE              = 'route'            ;
+    public const string ROUTE_PATTERN      = 'routePattern'     ;
+    public const string ROUTE_PLACEHOLDER  = 'routePattern'     ;
+    public const string ROUTES             = 'routes'           ;
+    public const string SUFFIX             = 'suffix'           ;
+    public const string VERBOSE            = 'verbose'          ;
 
     /**
      * @var App Slim App instance
@@ -116,9 +121,9 @@ class Route
     public ?string $name = null ;
 
     /**
-     * @var string|null Owner route pattern
+     * @var string|null The owner route placeholder.
      */
-    public ?string $ownerPattern = self::DEFAULT_OWNER_PATTERN ;
+    public ?string $ownerPlaceholder = self::DEFAULT_OWNER_PLACEHOLDER ;
 
     /**
      * @var string Route name prefix
@@ -131,22 +136,22 @@ class Route
     public string $property = Char::EMPTY ;
 
     /**
-     * @var string|null Main route pattern
+     * @var string|null The route expression.
      */
     public ?string $route = null ;
 
     /**
-     * @var string Main route pattern regex
+     * @var string The route placeholder.
      */
-    public  string $routePattern = self::DEFAULT_ROUTE_PATTERN ;
+    public  string $routePlaceholder = self::DEFAULT_ROUTE_PLACEHOLDER ;
 
     /**
-     * @var array|null Nested route definitions
+     * @var array|null Nested route definitions.
      */
     public ?array $routes = null ;
 
     /**
-     * @var array Initial settings passed to constructor
+     * @var array Initial settings passed to constructor.
      */
     public array $settings ;
 
@@ -159,7 +164,6 @@ class Route
      * @var bool Verbose mode flag
      */
     public bool $verbose = true ;
-
 
     /**
      * Invokes all nested routes if defined.

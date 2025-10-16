@@ -8,6 +8,8 @@ use DI\NotFoundException;
 
 use oihana\enums\Char;
 use oihana\routes\traits\HttpMethodRoutesTrait;
+use function oihana\core\strings\betweenBrackets;
+use function oihana\routes\helpers\withPlaceholder;
 
 class DocumentRoute extends Route
 {
@@ -40,7 +42,7 @@ class DocumentRoute extends Route
             $this->deleteAll ( $routes , $route ) ;
             $this->post      ( $routes , $route ) ;
 
-            $thing = $route . Char::SLASH . $this->routePattern ; // default /route/:{id:[0-9]+}
+            $thing = withPlaceholder( $route , $this->routePlaceholder ) ; // default /route/{id:[0-9]+}
 
             $this->options( $routes , $thing , $this->hasGet || $this->hasDelete || $this->hasPatch || $this->hasPut ) ;
             $this->delete ( $routes , $thing ) ;
