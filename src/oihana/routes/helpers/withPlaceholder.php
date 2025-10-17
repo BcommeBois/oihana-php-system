@@ -71,7 +71,7 @@ function withPlaceholder
     }
 
     $route   = rtrim ( $route , Char::SLASH ) ;
-    $segment = betweenBraces( $placeholder , trim:false ) ;
+    $segment = betweenBraces( $placeholder ) ;
 
     if ( $optional )
     {

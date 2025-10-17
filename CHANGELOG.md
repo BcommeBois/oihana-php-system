@@ -22,6 +22,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - oihana\mysql\MysqlDSN
 - oihana\mysql\MysqlModel
 - oihana\mysql\MysqlPDOBuilder
+-  
+- oihana\traits\alters\AlterNotPropertyTrait
 
 ### Changed
 

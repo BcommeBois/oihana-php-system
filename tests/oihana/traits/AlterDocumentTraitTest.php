@@ -313,4 +313,58 @@ class AlterDocumentTraitTest extends TestCase
 
         $this->assertSame($input, $output);
     }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     */
+    public function testNotAlterationSingleBoolean()
+    {
+        $processor = new MockAlterDocument([
+            'active' => Alter::NOT
+        ]);
+
+        $input = ['active' => true];
+        $output = $processor->process($input);
+
+        $this->assertSame(false, $output['active']);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     */
+    public function testNotAlterationArrayOfBooleans()
+    {
+        $processor = new MockAlterDocument([
+            'flags' => Alter::NOT
+        ]);
+
+        $input = ['flags' => [true, false, true]];
+        $output = $processor->process($input);
+
+        $this->assertSame([false, true, false], $output['flags']);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     */
+    public function testNotAlterationNonBooleanValue()
+    {
+        $processor = new MockAlterDocument([
+            'enabled' => Alter::NOT
+        ]);
+
+        $input = ['enabled' => 1]; // truthy value
+        $output = $processor->process($input);
+
+        $this->assertSame(false, $output['enabled']);
+    }
 }

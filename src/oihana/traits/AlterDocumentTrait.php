@@ -19,6 +19,7 @@ use oihana\traits\alters\AlterGetDocumentPropertyTrait;
 use oihana\traits\alters\AlterIntPropertyTrait;
 use oihana\traits\alters\AlterJSONParsePropertyTrait;
 use oihana\traits\alters\AlterJSONStringifyPropertyTrait;
+use oihana\traits\alters\AlterNotPropertyTrait;
 use oihana\traits\alters\AlterUrlPropertyTrait;
 
 use function oihana\core\accessors\getKeyValue;
@@ -106,6 +107,7 @@ trait AlterDocumentTrait
         AlterIntPropertyTrait ,
         AlterJSONParsePropertyTrait ,
         AlterJSONStringifyPropertyTrait ,
+        AlterNotPropertyTrait ,
         AlterUrlPropertyTrait ,
         AlterValueTrait ,
         KeyValueTrait
@@ -311,6 +313,7 @@ trait AlterDocumentTrait
             Alter::INT            => $this->alterIntProperty( $value , $modified ) ,
             Alter::JSON_PARSE     => $this->alterJsonParseProperty( $value , $definition , $modified ) ,
             Alter::JSON_STRINGIFY => $this->alterJsonStringifyProperty( $value , $definition , $modified ),
+            Alter::NOT            => $this->alterNotProperty( $value , $modified ),
             Alter::URL            => $this->alterUrlProperty( $document , $definition , $isArray , $modified ),
             Alter::VALUE          => $this->alterValue( $value , $definition[0] ?? null, $modified ) ,
             default               => $value,
