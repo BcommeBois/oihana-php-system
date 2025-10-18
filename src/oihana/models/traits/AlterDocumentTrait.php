@@ -168,14 +168,14 @@ trait AlterDocumentTrait
      */
     public function alter( mixed $document ) :mixed
     {
-        if ( count( $this->alters ) === 0 )
+        if ( !is_array( $document ) && !is_object( $document ) )
         {
             return $document ;
         }
 
-        if ( !is_array($document) && !is_object($document) )
+        if ( count( $this->alters ) === 0 )
         {
-            return $document; // Explicite
+            return $document ;
         }
 
         if ( is_array( $document ) && !isAssociative( $document ) )
