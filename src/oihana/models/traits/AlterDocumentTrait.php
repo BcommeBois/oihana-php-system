@@ -24,6 +24,7 @@ use oihana\models\traits\alters\AlterValueTrait;
 use oihana\traits\KeyValueTrait;
 
 use function oihana\core\accessors\getKeyValue;
+use function oihana\core\accessors\hasKeyValue;
 use function oihana\core\accessors\setKeyValue;
 use function oihana\core\arrays\isAssociative;
 
@@ -122,11 +123,9 @@ trait AlterDocumentTrait
     /**
      * Alters the given document (array or object) based on the configured `$alters` definitions.
      *
-     * This method determines the structure of the document and applies the appropriate transformation logic:
-     * - If the document is an **associative array**, each key listed in `$alters` is processed using `alterAssociativeArray()`.
-     * - If the document is a **sequential array** (i.e., a list of items), the alteration is recursively applied to each item.
-     * - If the document is an **object**, its public properties are altered using `alterObject()`.
-     * - If `$alters` is empty or no matching keys/properties are found, the document is returned unchanged.
+     * This method determines if the document is a sequential array (list).
+     * If it is, the alteration is recursively applied to each item.
+     * Otherwise (associative array or object), each key listed in `$alters` is processed.
      *
      * @param mixed $document The input to alter. Can be an associative array, object, or a list of items.
      *
@@ -167,66 +166,24 @@ trait AlterDocumentTrait
      */
     public function alter( mixed $document ) :mixed
     {
-        if( count( $this->alters ) > 0 )
+        if ( count( $this->alters ) === 0 )
         {
-            if( is_array( $document ) )
-            {
-                if( isAssociative( $document ) )
-                {
-                    return $this->alterAssociativeArray( $document ) ;
-                }
-                else
-                {
-                    return array_map( fn( $value ) => $this->alter( $value ) , $document ) ;
-                }
-            }
-            elseif( is_object( $document ) )
-            {
-                return $this->alterObject( $document ) ;
-            }
+            return $document ;
         }
-        return $document ;
-    }
 
-    /**
-     * Alter the passed-in array.
-     * @param array $document
-     * @return array
-     * @throws ContainerExceptionInterface
-     * @throws DependencyException
-     * @throws NotFoundException
-     * @throws NotFoundExceptionInterface
-     */
-    public function alterAssociativeArray( array $document ) : array
-    {
-        foreach( $this->alters as $key => $definition )
+        if ( is_array( $document ) && !isAssociative( $document ) )
         {
-            if( array_key_exists( $key , $document ) )
-            {
-                $document = $this->alterProperty( $key , $document , $definition , true ) ;
-            }
+            return array_map( fn( $value ) => $this->alter( $value ) , $document ) ;
         }
-        return $document ;
-    }
 
-    /**
-     * Alter the passed-in object.
-     * @param object $document
-     * @return mixed
-     * @throws ContainerExceptionInterface
-     * @throws DependencyException
-     * @throws NotFoundException
-     * @throws NotFoundExceptionInterface
-     */
-    public function alterObject( object $document ) :object
-    {
-        foreach( $this->alters as $key => $definition )
+        foreach ( $this->alters as $key => $definition )
         {
-            if( property_exists( $document, $key ) )
+            if ( hasKeyValue( $document , $key ) )
             {
-                $document = $this->alterProperty( $key , $document , $definition , false ) ;
+                $document = $this->alterProperty( $key , $document , $definition ) ;
             }
         }
+
         return $document ;
     }
 
@@ -323,7 +280,7 @@ trait AlterDocumentTrait
             Alter::JSON_STRINGIFY => $this->alterJsonStringifyProperty ( $value , $definition , $modified ),
             Alter::NOT            => $this->alterNotProperty           ( $value , $modified ),
             Alter::URL            => $this->alterUrlProperty           ( $document , $definition , $isArray , $modified ),
-            Alter::VALUE          => $this->alterValue                 ( $value , $definition[0] ?? null, $modified ) ,
+            Alter::VALUE          => $this->alterValue                 ( $value , $definition , $modified ) ,
             default               => $value
         };
 

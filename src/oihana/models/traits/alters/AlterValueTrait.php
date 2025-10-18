@@ -11,7 +11,7 @@ namespace oihana\models\traits\alters;
  *
  * Example usage:
  * ```php
- * use oihana\enums\Alter;
+ * use oihana\models\enums\Alter;
  * use oihana\traits\AlterDocumentTrait;
  * use oihana\traits\alters\AlterValueTrait;
  *
@@ -21,8 +21,9 @@ namespace oihana\models\traits\alters;
  *
  *     public function __construct()
  *     {
- *         $this->alters = [
- *             'status' => [ Alter::VALUE, 'published' ],
+ *         $this->alters =
+ *         [
+ *             'status' => [ Alter::VALUE , 'published' ] ,
  *         ];
  *     }
  * }
@@ -46,14 +47,15 @@ trait AlterValueTrait
     /**
      * Replace a value with a new one if different, otherwise keep the original.
      *
-     * @param mixed $value     The original value
-     * @param mixed $newValue  The value to replace with
-     * @param bool  $modified  Will be set to true if the value was replaced
+     * @param mixed $value      The original value
+     * @param array $definition The definition reference to extract the new value to apply.
+     * @param bool  $modified   Will be set to true if the value was replaced
      *
      * @return mixed The altered value
      */
-    public function alterValue( mixed $value , mixed $newValue , bool &$modified = false ) : mixed
+    public function alterValue( mixed $value , array $definition = [] , bool &$modified = false ) : mixed
     {
+        $newValue = $definition[0] ?? null ;
         if( $value !== $newValue )
         {
             $modified = true ;
