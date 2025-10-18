@@ -157,8 +157,6 @@ class AlterDocumentTraitTest extends TestCase
 
         $output = $processor->process($input);
 
-
-
         $this->assertEquals('{"a":1,"b":true}', $output['data'] );
     }
 
@@ -182,8 +180,6 @@ class AlterDocumentTraitTest extends TestCase
         $this->assertSame($expected , $output['data']);
     }
 
-
-
     /**
      * @throws NotFoundExceptionInterface
      * @throws NotFoundException
@@ -201,6 +197,48 @@ class AlterDocumentTraitTest extends TestCase
         $output = $processor->process($input);
 
         $this->assertSame(20, $output['score']);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     */
+    public function testCallableAlterationWithTwoArguments()
+    {
+        // On définit une fonction qui prend deux arguments
+        $processor = new MockAlterDocument([
+            'score' => [Alter::CALL, fn($v, $multiplier) => $v * $multiplier, 3]
+        ]);
+
+        $input = ['score' => 10];
+        $output = $processor->process($input);
+
+        // La fonction devrait multiplier 10 par 3
+        $this->assertSame(30, $output['score']);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     */
+    public function testCallableAlterationWithStringFunctionCallable()
+    {
+        $processor = new MockAlterDocument([
+            'score' => [Alter::CALL, 'oihana\core\numbers\clip', 2 , 5 ] // le 3e paramètre = facteur
+        ]);
+
+        $output = $processor->process(['score' => 7]);
+        $this->assertSame(5, $output['score']);
+
+        $output = $processor->process(['score' => 1]);
+        $this->assertSame(2 , $output['score']);
+
+        $output = $processor->process(['score' => 3]);
+        $this->assertSame(3 , $output['score']);
     }
 
     /**
@@ -1078,8 +1116,7 @@ class AlterDocumentTraitTest extends TestCase
             'active' => Alter::NOT
         ]);
 
-        $input = true;
-        $output = $processor->process($input);
+        $output = $processor->process(true);
 
         // Scalar boolean returned unchanged
         $this->assertSame(true, $output);

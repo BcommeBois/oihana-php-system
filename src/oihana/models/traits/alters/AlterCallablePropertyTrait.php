@@ -2,6 +2,8 @@
 
 namespace oihana\models\traits\alters;
 
+use function oihana\core\callables\resolveCallable;
+
 trait AlterCallablePropertyTrait
 {
     /**
@@ -11,14 +13,28 @@ trait AlterCallablePropertyTrait
      * @param bool $modified
      * @return mixed
      */
-    public function alterCallableProperty( mixed $value , array $definition = [] , bool &$modified = false ): mixed
+    public function alterCallableProperty
+    (
+        mixed $value ,
+        array $definition = [] ,
+        bool &$modified   = false
+    )
+    : mixed
     {
-        $function = array_shift( $definition ) ;
-        if( is_callable( $function ) )
+        $callable = array_shift($definition);
+
+        if ( is_string( $callable ) )
         {
-            $value = $function( ...([ $value , ...$definition ]) ) ;
-            $modified = true ;
+            $callable = resolveCallable( $callable ) ;
         }
-        return $value ;
+
+        if( $callable !== null && is_callable( $callable ) )
+        {
+            $value = $callable( $value , ...$definition );
+            $modified = true;
+        }
+
+        return $value;
+
     }
 }
