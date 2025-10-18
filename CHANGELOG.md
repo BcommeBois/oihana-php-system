@@ -23,6 +23,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - oihana\mysql\MysqlModel
 - oihana\mysql\MysqlPDOBuilder
 
+- oihana\models\enums\Alter
 - oihana\models\traits\alters\AlterNotPropertyTrait
 
 ### Changed

@@ -4,8 +4,8 @@ namespace oihana\models\traits\alters;
 
 use DI\DependencyException;
 use DI\NotFoundException;
-use oihana\enums\Alter;
 use oihana\enums\Char;
+use oihana\models\enums\Alter;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 

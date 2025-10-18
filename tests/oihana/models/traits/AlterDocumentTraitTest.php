@@ -12,7 +12,7 @@ use DI\NotFoundException;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
-use oihana\enums\Alter;
+use oihana\models\enums\Alter;
 
 use tests\oihana\traits\mocks\MockAlterDocument;
 
