@@ -1008,4 +1008,191 @@ class AlterDocumentTraitTest extends TestCase
         $this->assertSame('https://blog.example.com/posts/1', $output[0]['url']);
         $this->assertSame('https://blog.example.com/posts/2', $output[1]['url']);
     }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     */
+    public function testAlterWithScalarString()
+    {
+        $processor = new MockAlterDocument([
+            'name' => Alter::FLOAT
+        ]);
+
+        $input = 'just a string';
+        $output = $processor->process($input);
+
+        // Scalar value returned unchanged
+        $this->assertSame('just a string', $output);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     */
+    public function testAlterWithScalarInteger()
+    {
+        $processor = new MockAlterDocument([
+            'value' => Alter::FLOAT
+        ]);
+
+        $input = 42;
+        $output = $processor->process($input);
+
+        // Scalar integer returned unchanged
+        $this->assertSame(42, $output);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     */
+    public function testAlterWithScalarFloat()
+    {
+        $processor = new MockAlterDocument([
+            'amount' => Alter::INT
+        ]);
+
+        $input = 3.14;
+        $output = $processor->process($input);
+
+        // Scalar float returned unchanged
+        $this->assertSame(3.14, $output);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     */
+    public function testAlterWithScalarBoolean()
+    {
+        $processor = new MockAlterDocument([
+            'active' => Alter::NOT
+        ]);
+
+        $input = true;
+        $output = $processor->process($input);
+
+        // Scalar boolean returned unchanged
+        $this->assertSame(true, $output);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     */
+    public function testAlterWithScalarNull()
+    {
+        $processor = new MockAlterDocument([
+            'value' => Alter::NORMALIZE
+        ]);
+
+        $input = null;
+        $output = $processor->process($input);
+
+        // Scalar null returned unchanged
+        $this->assertNull($output);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     */
+    public function testAlterWithMixedArrayContainingScalars()
+    {
+        $processor = new MockAlterDocument([
+            'value' => Alter::FLOAT
+        ]);
+
+        // Sequential array with mixed scalar types
+        $input = [42, 'string', 3.14, true, null];
+        $output = $processor->process($input);
+
+        // Each scalar is processed recursively but remains unchanged
+        // since they don't have properties to alter
+        $this->assertSame([42, 'string', 3.14, true, null], $output);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     */
+    public function testAlterWithArrayOfMixedStructures()
+    {
+        $processor = new MockAlterDocument([
+            'id' => Alter::INT
+        ]);
+
+        // Sequential array with mixed structures
+        $input = [
+            ['id' => '1'],
+            42,
+            'string',
+            ['id' => '2'],
+            null
+        ];
+
+        $output = $processor->process($input);
+
+        // Associative arrays are altered, scalars pass through unchanged
+        $this->assertSame(1, $output[0]['id']);
+        $this->assertSame(42, $output[1]);
+        $this->assertSame('string', $output[2]);
+        $this->assertSame(2, $output[3]['id']);
+        $this->assertNull($output[4]);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     */
+    public function testAlterWithScalarWhenAltersEmpty()
+    {
+        $processor = new MockAlterDocument(); // No alters defined
+
+        $input = 'some value';
+        $output = $processor->process($input);
+
+        // Scalar returned unchanged even with empty alters
+        $this->assertSame('some value', $output);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     */
+    public function testAlterWithScalarResource()
+    {
+        $processor = new MockAlterDocument([
+            'stream' => Alter::FLOAT
+        ]);
+
+        $resource = fopen('php://memory', 'r');
+        $input = $resource;
+
+        $output = $processor->process($input);
+
+        // Resource returned unchanged
+        $this->assertSame($resource, $output);
+
+        fclose($resource);
+    }
 }
