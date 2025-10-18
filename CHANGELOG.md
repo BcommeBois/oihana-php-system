@@ -22,11 +22,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - oihana\mysql\MysqlDSN
 - oihana\mysql\MysqlModel
 - oihana\mysql\MysqlPDOBuilder
--  
-- oihana\traits\alters\AlterNotPropertyTrait
+
+- oihana\models\traits\alters\AlterNotPropertyTrait
 
 ### Changed
 
+- Move oihana\traits\AlterTrait (+dependencies) -> oihana\models\traits\AlterTrait
 - oihana\traits\SortTrait
 
 ### TODO

@@ -26,7 +26,8 @@ use oihana\exceptions\UnsupportedOperationException;
  * ```php
  * use oihana\traits\UnsupportedTrait;
  *
- * class ReadOnlyRepository {
+ * class ReadOnlyRepository
+ * {
  *     use UnsupportedTrait;
  *
  *     public function save($item)

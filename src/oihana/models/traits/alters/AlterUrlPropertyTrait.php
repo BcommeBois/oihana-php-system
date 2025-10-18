@@ -1,6 +1,6 @@
 <?php
 
-namespace oihana\traits\alters;
+namespace oihana\models\traits\alters;
 
 use oihana\enums\Char;
 use function oihana\core\accessors\getKeyValue;
@@ -38,7 +38,15 @@ trait AlterUrlPropertyTrait
      *
      * @return string The generated URL
      */
-    public function alterUrlProperty( array|object $document ,  array $options = [] , ?bool $isArray = null , bool &$modified = false , string $propertyName = 'id' ): string
+    public function alterUrlProperty
+    (
+        array|object $document ,
+        array        $options      = [] ,
+        ?bool        $isArray      = null ,
+        bool        &$modified     = false ,
+        string       $propertyName = 'id'
+    )
+    :string
     {
         $modified = true ;
         $path     = $options[0] ?? Char::EMPTY ;

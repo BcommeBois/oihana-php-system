@@ -1,12 +1,12 @@
 <?php
 
-namespace oihana\traits\alters;
+namespace oihana\models\traits\alters;
 
 /**
  * Provides a method to replace a value with a fixed new one if different.
  *
  * This trait is part of the alteration system and is intended to be used
- * in combination with {@see \oihana\traits\AlterDocumentTrait}.
+ * in combination with {@see \oihana\models\traits\AlterDocumentTrait}.
  * It encapsulates the logic for the `Alter::VALUE` transformation type.
  *
  * Example usage:

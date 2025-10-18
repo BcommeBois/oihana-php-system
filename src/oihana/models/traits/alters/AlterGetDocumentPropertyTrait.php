@@ -1,15 +1,13 @@
 <?php
 
-namespace oihana\traits\alters;
+namespace oihana\models\traits\alters;
 
 use DI\DependencyException;
 use DI\NotFoundException;
-
 use oihana\models\enums\ModelParam;
+use oihana\models\traits\DocumentsTrait;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
-
-use oihana\models\traits\DocumentsTrait;
 
 /**
  * Provides logic to retrieve a document using a Documents model based on a given value and definition.

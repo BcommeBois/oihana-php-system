@@ -4,7 +4,9 @@ namespace tests\oihana\traits\mocks;
 
 use DI\DependencyException;
 use DI\NotFoundException;
-use oihana\traits\AlterDocumentTrait;
+
+use oihana\models\traits\AlterDocumentTrait;
+
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 

@@ -1,26 +1,27 @@
 <?php
 
-namespace oihana\traits;
+namespace oihana\models\traits;
 
 use DI\DependencyException;
 use DI\NotFoundException;
 
-use oihana\models\enums\ModelParam;
-use oihana\traits\alters\AlterValueTrait;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
 use oihana\enums\Alter;
-use oihana\traits\alters\AlterArrayCleanPropertyTrait;
-use oihana\traits\alters\AlterArrayPropertyTrait;
-use oihana\traits\alters\AlterCallablePropertyTrait;
-use oihana\traits\alters\AlterFloatPropertyTrait;
-use oihana\traits\alters\AlterGetDocumentPropertyTrait;
-use oihana\traits\alters\AlterIntPropertyTrait;
-use oihana\traits\alters\AlterJSONParsePropertyTrait;
-use oihana\traits\alters\AlterJSONStringifyPropertyTrait;
-use oihana\traits\alters\AlterNotPropertyTrait;
-use oihana\traits\alters\AlterUrlPropertyTrait;
+use oihana\models\enums\ModelParam;
+use oihana\models\traits\alters\AlterArrayCleanPropertyTrait;
+use oihana\models\traits\alters\AlterArrayPropertyTrait;
+use oihana\models\traits\alters\AlterCallablePropertyTrait;
+use oihana\models\traits\alters\AlterFloatPropertyTrait;
+use oihana\models\traits\alters\AlterGetDocumentPropertyTrait;
+use oihana\models\traits\alters\AlterIntPropertyTrait;
+use oihana\models\traits\alters\AlterJSONParsePropertyTrait;
+use oihana\models\traits\alters\AlterJSONStringifyPropertyTrait;
+use oihana\models\traits\alters\AlterNotPropertyTrait;
+use oihana\models\traits\alters\AlterUrlPropertyTrait;
+use oihana\models\traits\alters\AlterValueTrait;
+use oihana\traits\KeyValueTrait;
 
 use function oihana\core\accessors\getKeyValue;
 use function oihana\core\accessors\setKeyValue;
@@ -289,7 +290,14 @@ trait AlterDocumentTrait
      * // Returns the document with 'price' casted to float (29.9)
      * ```
      */
-    public function alterProperty( string $key , array|object $document , string|array $definition , ?bool $isArray = null ) : array|object
+    public function alterProperty
+    (
+        string       $key ,
+        array|object $document ,
+        string|array $definition ,
+        ?bool        $isArray = null
+    )
+    : array|object
     {
         if( is_array( $definition ) && count( $definition ) > 0 )
         {
@@ -305,18 +313,18 @@ trait AlterDocumentTrait
         $modified = false ;
         $value    = match ( $alter )
         {
-            Alter::ARRAY          => $this->alterArrayProperty( $value , $definition , $modified ) ,
-            Alter::CALL           => $this->alterCallableProperty( $value , $definition , $modified ) ,
-            Alter::CLEAN          => $this->alterArrayCleanProperty( $value , $modified ),
-            Alter::FLOAT          => $this->alterFloatProperty( $value , $modified ),
-            Alter::GET            => $this->alterGetDocument( $value , $definition , $modified ) ,
-            Alter::INT            => $this->alterIntProperty( $value , $modified ) ,
-            Alter::JSON_PARSE     => $this->alterJsonParseProperty( $value , $definition , $modified ) ,
-            Alter::JSON_STRINGIFY => $this->alterJsonStringifyProperty( $value , $definition , $modified ),
-            Alter::NOT            => $this->alterNotProperty( $value , $modified ),
-            Alter::URL            => $this->alterUrlProperty( $document , $definition , $isArray , $modified ),
-            Alter::VALUE          => $this->alterValue( $value , $definition[0] ?? null, $modified ) ,
-            default               => $value,
+            Alter::ARRAY          => $this->alterArrayProperty         ( $value , $definition , $modified ) ,
+            Alter::CALL           => $this->alterCallableProperty      ( $value , $definition , $modified ) ,
+            Alter::CLEAN          => $this->alterArrayCleanProperty    ( $value , $modified ),
+            Alter::FLOAT          => $this->alterFloatProperty         ( $value , $modified ),
+            Alter::GET            => $this->alterGetDocument           ( $value , $definition , $modified ) ,
+            Alter::INT            => $this->alterIntProperty           ( $value , $modified ) ,
+            Alter::JSON_PARSE     => $this->alterJsonParseProperty     ( $value , $definition , $modified ) ,
+            Alter::JSON_STRINGIFY => $this->alterJsonStringifyProperty ( $value , $definition , $modified ),
+            Alter::NOT            => $this->alterNotProperty           ( $value , $modified ),
+            Alter::URL            => $this->alterUrlProperty           ( $document , $definition , $isArray , $modified ),
+            Alter::VALUE          => $this->alterValue                 ( $value , $definition[0] ?? null, $modified ) ,
+            default               => $value
         };
 
         return $modified ? setKeyValue( $document , $key , $value , isArray: $isArray ) : $document;

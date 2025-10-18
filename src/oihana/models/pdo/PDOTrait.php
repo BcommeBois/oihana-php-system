@@ -2,22 +2,19 @@
 
 namespace oihana\models\pdo;
 
+use DI\Container;
 use Exception;
+use oihana\enums\Char;
+use oihana\models\enums\ModelParam;
+use oihana\models\traits\AlterDocumentTrait;
+use oihana\models\traits\SchemaTrait;
+use oihana\traits\BindsTrait;
+use oihana\traits\ContainerTrait;
 use PDO;
 use PDOException;
 use PDOStatement;
-
-use DI\Container;
-
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
-
-use oihana\enums\Char;
-use oihana\models\enums\ModelParam;
-use oihana\models\traits\SchemaTrait;
-use oihana\traits\AlterDocumentTrait;
-use oihana\traits\BindsTrait;
-use oihana\traits\ContainerTrait;
 
 /**
  * Provides methods for binding values, executing queries, and retrieving results using PDO.

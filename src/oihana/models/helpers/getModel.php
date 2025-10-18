@@ -2,8 +2,6 @@
 
 namespace oihana\controllers\helpers ;
 
-use oihana\controllers\Controller;
-
 use oihana\models\enums\ModelParam;
 use oihana\models\Model;
 

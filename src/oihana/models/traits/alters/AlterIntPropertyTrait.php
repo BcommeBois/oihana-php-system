@@ -1,6 +1,6 @@
 <?php
 
-namespace oihana\traits\alters;
+namespace oihana\models\traits\alters;
 
 /**
  * Casts a value (or all elements in an array) to integer.

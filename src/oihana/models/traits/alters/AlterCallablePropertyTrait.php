@@ -1,6 +1,6 @@
 <?php
 
-namespace oihana\traits\alters;
+namespace oihana\models\traits\alters;
 
 trait AlterCallablePropertyTrait
 {

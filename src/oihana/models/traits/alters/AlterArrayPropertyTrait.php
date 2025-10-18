@@ -1,15 +1,13 @@
 <?php
 
-namespace oihana\traits\alters;
+namespace oihana\models\traits\alters;
 
 use DI\DependencyException;
 use DI\NotFoundException;
-
-use Psr\Container\ContainerExceptionInterface;
-use Psr\Container\NotFoundExceptionInterface;
-
 use oihana\enums\Alter;
 use oihana\enums\Char;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 trait AlterArrayPropertyTrait
 {

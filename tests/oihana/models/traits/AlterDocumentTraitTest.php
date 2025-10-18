@@ -1,14 +1,19 @@
 <?php
 
-namespace tests\oihana\traits ;
+namespace oihana\models\traits ;
+
+use PHPUnit\Framework\TestCase;
+
+use stdClass;
 
 use DI\DependencyException;
 use DI\NotFoundException;
-use oihana\enums\Alter;
-use PHPUnit\Framework\TestCase;
+
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
-use stdClass;
+
+use oihana\enums\Alter;
+
 use tests\oihana\traits\mocks\MockAlterDocument;
 
 class AlterDocumentTraitTest extends TestCase
