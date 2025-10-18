@@ -50,7 +50,13 @@ trait AlterGetDocumentPropertyTrait
      * @throws NotFoundException
      * @throws NotFoundExceptionInterface
      */
-    public function alterGetDocument( mixed $value , array $definition = [] , bool &$modified = false ): mixed
+    public function alterGetDocument
+    (
+        mixed $value ,
+        array $definition = [] ,
+        bool &$modified = false
+    )
+    : mixed
     {
         if( isset( $value ) )
         {

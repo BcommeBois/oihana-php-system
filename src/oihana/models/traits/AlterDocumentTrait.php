@@ -19,6 +19,7 @@ use oihana\models\traits\alters\AlterIntPropertyTrait;
 use oihana\models\traits\alters\AlterJSONParsePropertyTrait;
 use oihana\models\traits\alters\AlterJSONStringifyPropertyTrait;
 use oihana\models\traits\alters\AlterNotPropertyTrait;
+use oihana\models\traits\alters\AlterNormalizePropertyTrait;
 use oihana\models\traits\alters\AlterUrlPropertyTrait;
 use oihana\models\traits\alters\AlterValueTrait;
 use oihana\traits\KeyValueTrait;
@@ -109,6 +110,7 @@ trait AlterDocumentTrait
         AlterIntPropertyTrait ,
         AlterJSONParsePropertyTrait ,
         AlterJSONStringifyPropertyTrait ,
+        AlterNormalizePropertyTrait ,
         AlterNotPropertyTrait ,
         AlterUrlPropertyTrait ,
         AlterValueTrait ,
@@ -206,13 +208,14 @@ trait AlterDocumentTrait
      * - Alter::INT            — Casts the value to integer
      * - Alter::JSON_PARSE     — Parses a JSON string into a PHP value
      * - Alter::JSON_STRINGIFY — Encodes a value into a JSON string
+     * - Alter::NORMALIZE      - Normalize a document property using configurable flags
+     * - Alter::NOT            — Invert boolean values
      * - Alter::URL            — Generates a URL based on document properties
      * - Alter::VALUE          — Replaces the value with a fixed constant
      *
      * @param string       $key        The name of the property to alter (e.g. 'price', 'tags')
      * @param array|object $document   The document (array or object) passed by reference
      * @param string|array $definition The alteration definition: either a string (`Alter::`) or an array (`[ Alter::X , ...args ]`)
-     * @param ?bool        $isArray    Optional flag to indicate the type of document. If null, it will be inferred automatically.
      *
      * @return array|object The altered document (same reference type as input)
      *
@@ -243,7 +246,7 @@ trait AlterDocumentTrait
      *     'rating'   => 0,
      * ];
      *
-     * $result = $this->alterProperty('price', $document, Alter::FLOAT, true);
+     * $result = $this->alterProperty('price', $document, Alter::FLOAT ;
      * // Returns the document with 'price' casted to float (29.9)
      * ```
      */
@@ -251,8 +254,7 @@ trait AlterDocumentTrait
     (
         string       $key ,
         array|object $document ,
-        string|array $definition ,
-        ?bool        $isArray = null
+        string|array $definition
     )
     : array|object
     {
@@ -266,25 +268,26 @@ trait AlterDocumentTrait
             $definition = [] ;
         }
 
-        $value    = getKeyValue( document: $document , key: $key , isArray: $isArray ) ;
+        $value    = getKeyValue( document: $document , key: $key ) ;
         $modified = false ;
         $value    = match ( $alter )
         {
-            Alter::ARRAY          => $this->alterArrayProperty         ( $value , $definition , $modified ) ,
-            Alter::CALL           => $this->alterCallableProperty      ( $value , $definition , $modified ) ,
-            Alter::CLEAN          => $this->alterArrayCleanProperty    ( $value , $modified ),
-            Alter::FLOAT          => $this->alterFloatProperty         ( $value , $modified ),
-            Alter::GET            => $this->alterGetDocument           ( $value , $definition , $modified ) ,
-            Alter::INT            => $this->alterIntProperty           ( $value , $modified ) ,
-            Alter::JSON_PARSE     => $this->alterJsonParseProperty     ( $value , $definition , $modified ) ,
-            Alter::JSON_STRINGIFY => $this->alterJsonStringifyProperty ( $value , $definition , $modified ),
-            Alter::NOT            => $this->alterNotProperty           ( $value , $modified ),
-            Alter::URL            => $this->alterUrlProperty           ( $document , $definition , $isArray , $modified ),
-            Alter::VALUE          => $this->alterValue                 ( $value , $definition , $modified ) ,
+            Alter::ARRAY          => $this->alterArrayProperty         ( $value    , $definition , $modified ) ,
+            Alter::CALL           => $this->alterCallableProperty      ( $value    , $definition , $modified ) ,
+            Alter::CLEAN          => $this->alterArrayCleanProperty    ( $value    , $modified ),
+            Alter::FLOAT          => $this->alterFloatProperty         ( $value    , $modified ),
+            Alter::GET            => $this->alterGetDocument           ( $value    , $definition , $modified ) ,
+            Alter::INT            => $this->alterIntProperty           ( $value    , $modified ) ,
+            Alter::JSON_PARSE     => $this->alterJsonParseProperty     ( $value    , $definition , $modified ) ,
+            Alter::JSON_STRINGIFY => $this->alterJsonStringifyProperty ( $value    , $definition , $modified ),
+            Alter::NORMALIZE      => $this->alterNormalizeProperty     ( $value    , $definition , $modified ),
+            Alter::NOT            => $this->alterNotProperty           ( $value    , $modified ),
+            Alter::URL            => $this->alterUrlProperty           ( $document , $definition , $modified , container: $this->container ) ,
+            Alter::VALUE          => $this->alterValue                 ( $value    , $definition , $modified ) ,
             default               => $value
         };
 
-        return $modified ? setKeyValue( $document , $key , $value , isArray: $isArray ) : $document;
+        return $modified ? setKeyValue( $document , $key , $value ) : $document;
     }
 
     /**

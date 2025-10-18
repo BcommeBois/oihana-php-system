@@ -53,7 +53,13 @@ trait AlterValueTrait
      *
      * @return mixed The altered value
      */
-    public function alterValue( mixed $value , array $definition = [] , bool &$modified = false ) : mixed
+    public function alterValue
+    (
+        mixed $value ,
+        array $definition = [] ,
+        bool  &$modified  = false
+    )
+    : mixed
     {
         $newValue = $definition[0] ?? null ;
         if( $value !== $newValue )
