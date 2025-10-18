@@ -173,6 +173,11 @@ trait AlterDocumentTrait
             return $document ;
         }
 
+        if ( !is_array($document) && !is_object($document) )
+        {
+            return $document; // Explicite
+        }
+
         if ( is_array( $document ) && !isAssociative( $document ) )
         {
             return array_map( fn( $value ) => $this->alter( $value ) , $document ) ;
