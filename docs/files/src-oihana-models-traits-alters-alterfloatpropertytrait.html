@@ -130,7 +130,7 @@
     </ul>
 
     <article class="phpdocumentor-element -file">
-        <h2 class="phpdocumentor-content__title">getModel.php</h2>
+        <h2 class="phpdocumentor-content__title">AlterFloatPropertyTrait.php</h2>
 
         
         
@@ -141,7 +141,7 @@
         
 <h3 id="toc">
     Table of Contents
-    <a href="files/src-oihana-models-helpers-getmodel.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="files/src-oihana-models-traits-alters-alterfloatpropertytrait.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -149,148 +149,29 @@
 
 
 
+    <h4 id="toc-traits">
+        Traits
+        <a href="files/src-oihana-models-traits-alters-alterfloatpropertytrait.html#toc-traits" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/oihana-models-traits-alters-AlterFloatPropertyTrait.html"><abbr title="\oihana\models\traits\alters\AlterFloatPropertyTrait">AlterFloatPropertyTrait</abbr></a></dt>    </dl>
 
 
 
 
 
 
-<h4 id="toc-functions">
-    Functions
-    <a href="files/src-oihana-models-helpers-getmodel.html#toc-functions" class="headerlink"><i class="fas fa-link"></i></a>
-
-</h4>
-<dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a class="" href="namespaces/oihana-controllers-helpers.html#function_getModel">getModel()</a>
-    <span>
-                                &nbsp;: <a href="classes/oihana-models-Model.html"><abbr title="\oihana\models\Model">Model</abbr></a>|null    </span>
-</dt>
-<dd>Resolves a model instance from a PSR-11 container or returns a default.</dd>
-
-    </dl>
 
 
         
 
-            <section class="phpdocumentor-functions">
-        <h3 class="phpdocumentor-elements__header" id="functions">
-            Functions
-            <a href="files/src-oihana-models-helpers-getmodel.html#functions" class="headerlink"><i class="fas fa-link"></i></a>
-
-        </h3>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_getModel">
-        getModel()
-        <a href="namespaces/oihana-controllers-helpers.html#function_getModel" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/helpers/getModel.php"><a href="files/src-oihana-models-helpers-getmodel.html"><abbr title="src/oihana/models/helpers/getModel.php">getModel.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">34</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Resolves a model instance from a PSR-11 container or returns a default.</p>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">getModel</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|string|<a href="classes/oihana-models-Model.html"><abbr title="\oihana\models\Model">Model</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$definition</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/oihana-models-Model.html"><abbr title="\oihana\models\Model">Model</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$default</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/oihana-models-Model.html"><abbr title="\oihana\models\Model">Model</abbr></a>|null</span></code>
-
-        <section class="phpdocumentor-description"><p>This function attempts to retrieve a <code class="prettyprint">Model</code> instance based on the provided
-definition. The definition can be:</p>
-<ul>
-<li>A <code class="prettyprint">Model</code> instance (returned directly),</li>
-<li>An array containing a <code class="prettyprint">ModelParam::MODEL</code> key,</li>
-<li>A string identifier for a model in a PSR-11 container.</li>
-</ul>
-</section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$definition</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|string|<a href="classes/oihana-models-Model.html"><abbr title="\oihana\models\Model">Model</abbr></a>|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The model definition, which can be:</p>
-<ul>
-<li>a Model instance,</li>
-<li>an array with key <code class="prettyprint">ModelParam::MODEL</code>,</li>
-<li>a string identifier in the container,</li>
-<li>or null.</li>
-</ul>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$container</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Optional PSR-11 container used to resolve a string definition.</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$default</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/oihana-models-Model.html"><abbr title="\oihana\models\Model">Model</abbr></a>|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Optional fallback model returned if none could be resolved.</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="namespaces/oihana-controllers-helpers.html#function_getModel#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
-                                                            
-                                                 <section class="phpdocumentor-description"><p>If an error occurs while retrieving the model from the container.</p>
-</section>
-
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
-                                                            
-                                                 <section class="phpdocumentor-description"><p>If a string definition is provided but not found in the container.</p>
-</section>
-
-                                    </dd>
-                                            </dl>
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><a href="classes/oihana-models-Model.html"><abbr title="\oihana\models\Model">Model</abbr></a>|null</span>
-                    &mdash;
-                <section class="phpdocumentor-description"><p>The resolved <code class="prettyprint">Model</code> instance, the provided default, or <code class="prettyprint">null</code> if none found.</p>
-</section>
-
-            </section>
-
-</article>
-            </section>
-
+        
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/models/helpers/getModel.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/models/traits/alters/AlterFloatPropertyTrait.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -391,17 +272,11 @@ definition. The definition can be:</p>
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                                                                                                                                        <li><a href="files/src-oihana-models-helpers-getmodel.html#toc-functions">Functions</a></li>
-                                    </ul>
+                                                                                                                            <li><a href="files/src-oihana-models-traits-alters-alterfloatpropertytrait.html#toc-traits">Traits</a></li>
+                                                                                                </ul>
             </li>
 
             
-                            <li class="phpdocumentor-on-this-page-section__title">Functions</li>
-                <li>
-                    <ul class="phpdocumentor-list -clean">
-                                                    <li class=""><a href="namespaces/oihana-controllers-helpers.html#function_getModel">getModel()</a></li>
-                                            </ul>
-                </li>
                     </ul>
     </section>
 
@@ -419,7 +294,7 @@ definition. The definition can be:</p>
     </section>
 </section>
         </div>
-        <a href="files/src-oihana-models-helpers-getmodel.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="files/src-oihana-models-traits-alters-alterfloatpropertytrait.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

@@ -127,72 +127,21 @@
             <div class="phpdocumentor-column -nine phpdocumentor-content">
                                 <section>
                                         <ul class="phpdocumentor-breadcrumbs">
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana.html">oihana</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-traits.html">traits</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-traits-alters.html">alters</a></li>
     </ul>
 
-    <article class="phpdocumentor-element -trait">
-        <h2 class="phpdocumentor-content__title">
-    AlterIntPropertyTrait
-    </h2>
+    <article class="phpdocumentor-element -file">
+        <h2 class="phpdocumentor-content__title">withPlaceholder.php</h2>
 
-        <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/alters/AlterIntPropertyTrait.php"><a href="files/src-oihana-traits-alters-alterintpropertytrait.html"><abbr title="src/oihana/traits/alters/AlterIntPropertyTrait.php">AlterIntPropertyTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">50</span>
-
-    </aside>
-
-            <p class="phpdocumentor-summary">Casts a value (or all elements in an array) to integer.</p>
+        
+        
+        
+        
 
 
-    <section class="phpdocumentor-description"><p>This method is typically used in property alteration pipelines
-to ensure that the given value is strictly an integer type.
-If the value is already an integer, it is returned unchanged and
-the $modified flag remains <code class="prettyprint">false</code>.</p>
-<ul>
-<li>If the value is an array, each element is individually cast to integer.</li>
-<li>If the value is not an integer, it is cast using <abbr title="\oihana\traits\alters\intval()">intval()</abbr>.</li>
-</ul>
-<p>The <code class="prettyprint">$modified</code> flag will be set to <code class="prettyprint">true</code> whenever at least one
-value is cast to integer (i.e., when its original type was not already <code class="prettyprint">int</code>).</p>
-<p>Example:</p>
-<pre class="prettyprint"><code class="language-php">use oihana\traits\alters\AlterIntPropertyTrait;
-
-class Product {
-    use AlterIntPropertyTrait;
-}
-
-$product = new Product();
-$modified = false;
-
-// Casting a single value
-$id = $product-&gt;alterIntProperty(&quot;42&quot;, $modified);
-// $id === 42  (int)
-// $modified === true
-
-// Casting an array of values
-$values = $product-&gt;alterIntProperty([&quot;10&quot;, &quot;20&quot;, &quot;30&quot;], $modified);
-// $values === [10, 20, 30] (all int)
-// $modified === true
-
-// Already an int
-$count = $product-&gt;alterIntProperty(5, $modified);
-// $count === 5 (int)
-// $modified === false
-</code></pre>
-</section>
-
-
-
-
-
-
-
+        
 <h3 id="toc">
     Table of Contents
-    <a href="classes/oihana-traits-alters-AlterIntPropertyTrait.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="files/src-oihana-routes-helpers-withplaceholder.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -205,91 +154,149 @@ $count = $product-&gt;alterIntProperty(5, $modified);
 
 
 
-<h4 id="toc-methods">
-    Methods
-    <a href="classes/oihana-traits-alters-AlterIntPropertyTrait.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+<h4 id="toc-functions">
+    Functions
+    <a href="files/src-oihana-routes-helpers-withplaceholder.html#toc-functions" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-traits-alters-AlterIntPropertyTrait.html#method_alterIntProperty">alterIntProperty()</a>
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/oihana-routes-helpers.html#function_withPlaceholder">withPlaceholder()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;|int    </span>
+                                &nbsp;: string    </span>
 </dt>
-<dd>Cast a value to integer.</dd>
+<dd>Builds a Slim-framework-compatible route by appending a placeholder.</dd>
 
     </dl>
 
 
-
-
         
 
-        
-
-            <section class="phpdocumentor-methods">
-        <h3 class="phpdocumentor-elements__header" id="methods">
-            Methods
-            <a href="classes/oihana-traits-alters-AlterIntPropertyTrait.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <section class="phpdocumentor-functions">
+        <h3 class="phpdocumentor-elements__header" id="functions">
+            Functions
+            <a href="files/src-oihana-routes-helpers-withplaceholder.html#functions" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_alterIntProperty">
-        alterIntProperty()
-        <a href="classes/oihana-traits-alters-AlterIntPropertyTrait.html#method_alterIntProperty" class="headerlink"><i class="fas fa-link"></i></a>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_withPlaceholder">
+        withPlaceholder()
+        <a href="namespaces/oihana-routes-helpers.html#function_withPlaceholder" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/alters/AlterIntPropertyTrait.php"><a href="files/src-oihana-traits-alters-alterintpropertytrait.html"><abbr title="src/oihana/traits/alters/AlterIntPropertyTrait.php">AlterIntPropertyTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/helpers/withPlaceholder.php"><a href="files/src-oihana-routes-helpers-withplaceholder.html"><abbr title="src/oihana/routes/helpers/withPlaceholder.php">withPlaceholder.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">62</span>
+    <span class="phpdocumentor-element-found-in__line">57</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Cast a value to integer.</p>
+        <p class="phpdocumentor-summary">Builds a Slim-framework-compatible route by appending a placeholder.</p>
 
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">alterIntProperty</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$modified</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
     
-        <section class="phpdocumentor-description"><p>If the value is an array, all elements in the array are casted.</p>
-<pre class="prettyprint"><code class="prettyprint">Property::PRICE =&gt; [ Alter::INT ] ,
-</code></pre>
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">withPlaceholder</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$route</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$placeholder</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$optional</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$leadingSlash</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"><p>This helper function assembles a base route and a placeholder segment,
+automatically handling trailing slashes, optional segments, and empty
+placeholders. It is designed to simplify the creation of dynamic
+route patterns.</p>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$value</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                <span class="phpdocumentor-signature__argument__name">$route</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The base route path (e.g., '/users').</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$modified</span>
+                <span class="phpdocumentor-signature__argument__name">$placeholder</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Placeholder name, optionally with regex (e.g., 'id', 'id:[0-9]+', 'params:.*')</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$optional</span>
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>If <code class="prettyprint">true</code>, wrap the placeholder in square brackets</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$leadingSlash</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>If <code class="prettyprint">true</code>, a leading slash <code class="prettyprint">/</code> will be prepended to the placeholder (Default true).</p>
+</section>
+
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="namespaces/oihana-routes-helpers.html#function_withPlaceholder#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
-    
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">// Placeholder requis simple
+withPlaceholder('/users', 'id');
+// -&gt; '/users/{id}'
+
+// Placeholder requis avec une contrainte regex
+withPlaceholder('/articles', 'slug:[a-z0-9-]+');
+// -&gt; '/articles/{slug:[a-z0-9-]+}'
+
+// Placeholder optionnel
+withPlaceholder('/search', 'query', true);
+// -&gt; '/search[/{query}]'
+
+// Placeholder &quot;catch-all&quot; optionnel pour capturer plusieurs segments
+withPlaceholder('/files', 'path:.*', true);
+// -&gt; '/files[/{path:.*}]'
+
+// Gère correctement le slash final sur la route de base
+withPlaceholder('/products/', 'sku');
+// -&gt; '/products/{sku}'
+
+// Cas d'un placeholder vide ou null
+withPlaceholder('/home', null);
+// -&gt; '/home'
+
+// Sans ajout de slash initial (cas d'usage avancé)
+withPlaceholder('/user-', 'id', false, false);
+// -&gt; '/user-{id}'
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Slim route with placeholder</p>
+</section>
+
             </section>
 
 </article>
@@ -299,7 +306,7 @@ $count = $product-&gt;alterIntProperty(5, $modified);
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/traits/alters/AlterIntPropertyTrait.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/routes/helpers/withPlaceholder.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -392,7 +399,7 @@ $count = $product-&gt;alterIntProperty(5, $modified);
     </article>
                                 </section>
                 <section class="phpdocumentor-on-this-page__sidebar">
-                                
+                            
     <section class="phpdocumentor-on-this-page__content">
         <strong class="phpdocumentor-on-this-page__title">On this page</strong>
 
@@ -400,15 +407,17 @@ $count = $product-&gt;alterIntProperty(5, $modified);
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                                <li><a href="classes/oihana-traits-alters-AlterIntPropertyTrait.html#toc-methods">Methods</a></li>
+                                                                                                                                                                                        <li><a href="files/src-oihana-routes-helpers-withplaceholder.html#toc-functions">Functions</a></li>
                                     </ul>
             </li>
-                                                <li class="phpdocumentor-on-this-page-section__title">Methods</li>
-            <li>
-                <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-traits-alters-AlterIntPropertyTrait.html#method_alterIntProperty">alterIntProperty()</a></li>
-                                    </ul>
-            </li>
+
+            
+                            <li class="phpdocumentor-on-this-page-section__title">Functions</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="namespaces/oihana-routes-helpers.html#function_withPlaceholder">withPlaceholder()</a></li>
+                                            </ul>
+                </li>
                     </ul>
     </section>
 
@@ -426,7 +435,7 @@ $count = $product-&gt;alterIntProperty(5, $modified);
     </section>
 </section>
         </div>
-        <a href="classes/oihana-traits-alters-AlterIntPropertyTrait.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="files/src-oihana-routes-helpers-withplaceholder.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

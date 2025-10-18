@@ -127,21 +127,83 @@
             <div class="phpdocumentor-column -nine phpdocumentor-content">
                                 <section>
                                         <ul class="phpdocumentor-breadcrumbs">
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana.html">oihana</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-models.html">models</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-models-traits.html">traits</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-models-traits-alters.html">alters</a></li>
     </ul>
 
-    <article class="phpdocumentor-element -file">
-        <h2 class="phpdocumentor-content__title">getModel.php</h2>
+    <article class="phpdocumentor-element -trait">
+        <h2 class="phpdocumentor-content__title">
+    AlterValueTrait
+    </h2>
 
-        
-        
-        
-        
+        <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/alters/AlterValueTrait.php"><a href="files/src-oihana-models-traits-alters-altervaluetrait.html"><abbr title="src/oihana/models/traits/alters/AlterValueTrait.php">AlterValueTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">44</span>
+
+    </aside>
+
+            <p class="phpdocumentor-summary">Provides a method to replace a value with a fixed new one if different.</p>
 
 
-        
+    <section class="phpdocumentor-description"><p>This trait is part of the alteration system and is intended to be used
+in combination with <a href="classes/oihana-models-traits-AlterDocumentTrait.html"><abbr title="\oihana\models\traits\AlterDocumentTrait">AlterDocumentTrait</abbr></a>.
+It encapsulates the logic for the <code class="prettyprint">Alter::VALUE</code> transformation type.</p>
+<p>Example usage:</p>
+<pre class="prettyprint"><code class="language-php">use oihana\enums\Alter;
+use oihana\traits\AlterDocumentTrait;
+use oihana\traits\alters\AlterValueTrait;
+
+class Example
+{
+    use AlterDocumentTrait, AlterValueTrait;
+
+    public function __construct()
+    {
+        $this-&gt;alters = [
+            'status' =&gt; [ Alter::VALUE, 'published' ],
+        ];
+    }
+}
+
+$doc = [ 'status' =&gt; 'draft' ];
+
+$processor = new Example();
+$result    = $processor-&gt;alter($doc);
+
+// Result:
+// [
+//     'status' =&gt; 'published'
+// ]
+</code></pre>
+</section>
+
+
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-models-traits-alters-AlterValueTrait.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
+
+
+
+
+
 <h3 id="toc">
     Table of Contents
-    <a href="files/src-oihana-models-helpers-getmodel.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-models-traits-alters-AlterValueTrait.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -154,131 +216,102 @@
 
 
 
-
-<h4 id="toc-functions">
-    Functions
-    <a href="files/src-oihana-models-helpers-getmodel.html#toc-functions" class="headerlink"><i class="fas fa-link"></i></a>
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/oihana-models-traits-alters-AlterValueTrait.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a class="" href="namespaces/oihana-controllers-helpers.html#function_getModel">getModel()</a>
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-models-traits-alters-AlterValueTrait.html#method_alterValue">alterValue()</a>
     <span>
-                                &nbsp;: <a href="classes/oihana-models-Model.html"><abbr title="\oihana\models\Model">Model</abbr></a>|null    </span>
+                                &nbsp;: mixed    </span>
 </dt>
-<dd>Resolves a model instance from a PSR-11 container or returns a default.</dd>
+<dd>Replace a value with a new one if different, otherwise keep the original.</dd>
 
     </dl>
 
 
+
+
         
 
-            <section class="phpdocumentor-functions">
-        <h3 class="phpdocumentor-elements__header" id="functions">
-            Functions
-            <a href="files/src-oihana-models-helpers-getmodel.html#functions" class="headerlink"><i class="fas fa-link"></i></a>
+        
+
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/oihana-models-traits-alters-AlterValueTrait.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
-                    <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_getModel">
-        getModel()
-        <a href="namespaces/oihana-controllers-helpers.html#function_getModel" class="headerlink"><i class="fas fa-link"></i></a>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_alterValue">
+        alterValue()
+        <a href="classes/oihana-models-traits-alters-AlterValueTrait.html#method_alterValue" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/helpers/getModel.php"><a href="files/src-oihana-models-helpers-getmodel.html"><abbr title="src/oihana/models/helpers/getModel.php">getModel.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/alters/AlterValueTrait.php"><a href="files/src-oihana-models-traits-alters-altervaluetrait.html"><abbr title="src/oihana/models/traits/alters/AlterValueTrait.php">AlterValueTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">55</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Resolves a model instance from a PSR-11 container or returns a default.</p>
+        <p class="phpdocumentor-summary">Replace a value with a new one if different, otherwise keep the original.</p>
 
-    
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">getModel</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|string|<a href="classes/oihana-models-Model.html"><abbr title="\oihana\models\Model">Model</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$definition</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/oihana-models-Model.html"><abbr title="\oihana\models\Model">Model</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$default</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/oihana-models-Model.html"><abbr title="\oihana\models\Model">Model</abbr></a>|null</span></code>
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">alterValue</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$newValue</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$modified</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-        <section class="phpdocumentor-description"><p>This function attempts to retrieve a <code class="prettyprint">Model</code> instance based on the provided
-definition. The definition can be:</p>
-<ul>
-<li>A <code class="prettyprint">Model</code> instance (returned directly),</li>
-<li>An array containing a <code class="prettyprint">ModelParam::MODEL</code> key,</li>
-<li>A string identifier for a model in a PSR-11 container.</li>
-</ul>
-</section>
-
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$definition</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|string|<a href="classes/oihana-models-Model.html"><abbr title="\oihana\models\Model">Model</abbr></a>|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+                <span class="phpdocumentor-signature__argument__name">$value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The model definition, which can be:</p>
-<ul>
-<li>a Model instance,</li>
-<li>an array with key <code class="prettyprint">ModelParam::MODEL</code>,</li>
-<li>a string identifier in the container,</li>
-<li>or null.</li>
-</ul>
+                    <section class="phpdocumentor-description"><p>The original value</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$container</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+                <span class="phpdocumentor-signature__argument__name">$newValue</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Optional PSR-11 container used to resolve a string definition.</p>
+                    <section class="phpdocumentor-description"><p>The value to replace with</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$default</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/oihana-models-Model.html"><abbr title="\oihana\models\Model">Model</abbr></a>|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+                <span class="phpdocumentor-signature__argument__name">$modified</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Optional fallback model returned if none could be resolved.</p>
+                    <section class="phpdocumentor-description"><p>Will be set to true if the value was replaced</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="namespaces/oihana-controllers-helpers.html#function_getModel#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
-                                                            
-                                                 <section class="phpdocumentor-description"><p>If an error occurs while retrieving the model from the container.</p>
-</section>
-
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
-                                                            
-                                                 <section class="phpdocumentor-description"><p>If a string definition is provided but not found in the container.</p>
-</section>
-
-                                    </dd>
-                                            </dl>
+    
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><a href="classes/oihana-models-Model.html"><abbr title="\oihana\models\Model">Model</abbr></a>|null</span>
+        <span class="phpdocumentor-signature__response_type">mixed</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>The resolved <code class="prettyprint">Model</code> instance, the provided default, or <code class="prettyprint">null</code> if none found.</p>
+                <section class="phpdocumentor-description"><p>The altered value</p>
 </section>
 
             </section>
@@ -290,7 +323,7 @@ definition. The definition can be:</p>
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/models/helpers/getModel.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/models/traits/alters/AlterValueTrait.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -383,7 +416,7 @@ definition. The definition can be:</p>
     </article>
                                 </section>
                 <section class="phpdocumentor-on-this-page__sidebar">
-                            
+                                
     <section class="phpdocumentor-on-this-page__content">
         <strong class="phpdocumentor-on-this-page__title">On this page</strong>
 
@@ -391,17 +424,15 @@ definition. The definition can be:</p>
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                                                                                                                                        <li><a href="files/src-oihana-models-helpers-getmodel.html#toc-functions">Functions</a></li>
+                                                                                <li><a href="classes/oihana-models-traits-alters-AlterValueTrait.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
-
-            
-                            <li class="phpdocumentor-on-this-page-section__title">Functions</li>
-                <li>
-                    <ul class="phpdocumentor-list -clean">
-                                                    <li class=""><a href="namespaces/oihana-controllers-helpers.html#function_getModel">getModel()</a></li>
-                                            </ul>
-                </li>
+                                                <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/oihana-models-traits-alters-AlterValueTrait.html#method_alterValue">alterValue()</a></li>
+                                    </ul>
+            </li>
                     </ul>
     </section>
 
@@ -419,7 +450,7 @@ definition. The definition can be:</p>
     </section>
 </section>
         </div>
-        <a href="files/src-oihana-models-helpers-getmodel.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/oihana-models-traits-alters-AlterValueTrait.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

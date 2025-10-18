@@ -128,24 +128,62 @@
                                 <section>
                                         <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana.html">oihana</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-traits.html">traits</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-traits-alters.html">alters</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-models.html">models</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-models-traits.html">traits</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-models-traits-alters.html">alters</a></li>
     </ul>
 
     <article class="phpdocumentor-element -trait">
         <h2 class="phpdocumentor-content__title">
-    AlterJSONStringifyPropertyTrait
+    AlterIntPropertyTrait
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/alters/AlterJSONStringifyPropertyTrait.php"><a href="files/src-oihana-traits-alters-alterjsonstringifypropertytrait.html"><abbr title="src/oihana/traits/alters/AlterJSONStringifyPropertyTrait.php">AlterJSONStringifyPropertyTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/alters/AlterIntPropertyTrait.php"><a href="files/src-oihana-models-traits-alters-alterintpropertytrait.html"><abbr title="src/oihana/models/traits/alters/AlterIntPropertyTrait.php">AlterIntPropertyTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5</span>
+    <span class="phpdocumentor-element-found-in__line">50</span>
 
     </aside>
 
-        
+            <p class="phpdocumentor-summary">Casts a value (or all elements in an array) to integer.</p>
 
+
+    <section class="phpdocumentor-description"><p>This method is typically used in property alteration pipelines
+to ensure that the given value is strictly an integer type.
+If the value is already an integer, it is returned unchanged and
+the $modified flag remains <code class="prettyprint">false</code>.</p>
+<ul>
+<li>If the value is an array, each element is individually cast to integer.</li>
+<li>If the value is not an integer, it is cast using <abbr title="\oihana\models\traits\alters\intval()">intval()</abbr>.</li>
+</ul>
+<p>The <code class="prettyprint">$modified</code> flag will be set to <code class="prettyprint">true</code> whenever at least one
+value is cast to integer (i.e., when its original type was not already <code class="prettyprint">int</code>).</p>
+<p>Example:</p>
+<pre class="prettyprint"><code class="language-php">use oihana\traits\alters\AlterIntPropertyTrait;
+
+class Product {
+    use AlterIntPropertyTrait;
+}
+
+$product = new Product();
+$modified = false;
+
+// Casting a single value
+$id = $product-&gt;alterIntProperty(&quot;42&quot;, $modified);
+// $id === 42  (int)
+// $modified === true
+
+// Casting an array of values
+$values = $product-&gt;alterIntProperty([&quot;10&quot;, &quot;20&quot;, &quot;30&quot;], $modified);
+// $values === [10, 20, 30] (all int)
+// $modified === true
+
+// Already an int
+$count = $product-&gt;alterIntProperty(5, $modified);
+// $count === 5 (int)
+// $modified === false
+</code></pre>
+</section>
 
 
 
@@ -155,7 +193,7 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/oihana-traits-alters-AlterJSONStringifyPropertyTrait.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-models-traits-alters-AlterIntPropertyTrait.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -170,16 +208,16 @@
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/oihana-traits-alters-AlterJSONStringifyPropertyTrait.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-models-traits-alters-AlterIntPropertyTrait.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-traits-alters-AlterJSONStringifyPropertyTrait.html#method_alterJsonStringifyProperty">alterJsonStringifyProperty()</a>
+    <a class="" href="classes/oihana-models-traits-alters-AlterIntPropertyTrait.html#method_alterIntProperty">alterIntProperty()</a>
     <span>
-                                &nbsp;: string|false|null    </span>
+                                &nbsp;: array&lt;string|int, mixed&gt;|int    </span>
 </dt>
-<dd>Returns the JSON representation of a value</dd>
+<dd>Cast a value to integer.</dd>
 
     </dl>
 
@@ -193,7 +231,7 @@
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/oihana-traits-alters-AlterJSONStringifyPropertyTrait.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/oihana-models-traits-alters-AlterIntPropertyTrait.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -202,41 +240,38 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_alterJsonStringifyProperty">
-        alterJsonStringifyProperty()
-        <a href="classes/oihana-traits-alters-AlterJSONStringifyPropertyTrait.html#method_alterJsonStringifyProperty" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_alterIntProperty">
+        alterIntProperty()
+        <a href="classes/oihana-models-traits-alters-AlterIntPropertyTrait.html#method_alterIntProperty" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/alters/AlterJSONStringifyPropertyTrait.php"><a href="files/src-oihana-traits-alters-alterjsonstringifypropertytrait.html"><abbr title="src/oihana/traits/alters/AlterJSONStringifyPropertyTrait.php">AlterJSONStringifyPropertyTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/alters/AlterIntPropertyTrait.php"><a href="files/src-oihana-models-traits-alters-alterintpropertytrait.html"><abbr title="src/oihana/models/traits/alters/AlterIntPropertyTrait.php">AlterIntPropertyTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14</span>
+    <span class="phpdocumentor-element-found-in__line">62</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns the JSON representation of a value</p>
+        <p class="phpdocumentor-summary">Cast a value to integer.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">alterJsonStringifyProperty</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$definition</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$modified</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|false|null</span></code>
+                    <span class="phpdocumentor-signature__name">alterIntProperty</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$modified</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>If the value is an array, all elements in the array are casted.</p>
+<pre class="prettyprint"><code class="prettyprint">Property::PRICE =&gt; [ Alter::INT ] ,
+</code></pre>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$value</span>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$definition</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
@@ -255,7 +290,7 @@
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">string|false|null</span>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span>
             </section>
 
 </article>
@@ -265,7 +300,7 @@
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/traits/alters/AlterJSONStringifyPropertyTrait.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/models/traits/alters/AlterIntPropertyTrait.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -366,13 +401,13 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                                <li><a href="classes/oihana-traits-alters-AlterJSONStringifyPropertyTrait.html#toc-methods">Methods</a></li>
+                                                                                <li><a href="classes/oihana-models-traits-alters-AlterIntPropertyTrait.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
                                                 <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-traits-alters-AlterJSONStringifyPropertyTrait.html#method_alterJsonStringifyProperty">alterJsonStringifyProperty()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-alters-AlterIntPropertyTrait.html#method_alterIntProperty">alterIntProperty()</a></li>
                                     </ul>
             </li>
                     </ul>
@@ -392,7 +427,7 @@
     </section>
 </section>
         </div>
-        <a href="classes/oihana-traits-alters-AlterJSONStringifyPropertyTrait.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/oihana-models-traits-alters-AlterIntPropertyTrait.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

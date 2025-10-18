@@ -204,6 +204,12 @@
 <dd>Default owner pattern for numeric owner IDs</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-routes-Route.html#constant_DEFAULT_OWNER_PLACEHOLDER">DEFAULT_OWNER_PLACEHOLDER</a>
+    <span>
+        &nbsp;= &#039;owner:[0-9]+&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a class="" href="classes/oihana-routes-Route.html#constant_DEFAULT_PREFIX">DEFAULT_PREFIX</a>
     <span>
         &nbsp;= &#039;api&#039;                            </span>
@@ -216,6 +222,12 @@
         &nbsp;= &#039;{id:[0-9]+}&#039;                            </span>
 </dt>
 <dd>Default route pattern for numeric IDs</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-routes-Route.html#constant_DEFAULT_ROUTE_PLACEHOLDER">DEFAULT_ROUTE_PLACEHOLDER</a>
+    <span>
+        &nbsp;= &#039;id:[0-9]+&#039;                            </span>
+</dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a class="" href="classes/oihana-routes-Route.html#constant_METHOD">METHOD</a>
@@ -236,9 +248,21 @@
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-routes-Route.html#constant_OWNER_PLACEHOLDER">OWNER_PLACEHOLDER</a>
+    <span>
+        &nbsp;= &#039;ownerPlaceHolder&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a class="" href="classes/oihana-routes-Route.html#constant_PATCH_PATTERN">PATCH_PATTERN</a>
     <span>
         &nbsp;= &#039;patchPattern&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-routes-Route.html#constant_PATCH_PLACE_HOLDER">PATCH_PLACE_HOLDER</a>
+    <span>
+        &nbsp;= &#039;patchPlaceHolder&#039;                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
@@ -261,6 +285,12 @@
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a class="" href="classes/oihana-routes-Route.html#constant_ROUTE_PATTERN">ROUTE_PATTERN</a>
+    <span>
+        &nbsp;= &#039;routePattern&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-routes-Route.html#constant_ROUTE_PLACEHOLDER">ROUTE_PLACEHOLDER</a>
     <span>
         &nbsp;= &#039;routePattern&#039;                            </span>
 </dt>
@@ -318,7 +348,7 @@
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/oihana-routes-Route.html#property_ownerPattern">$ownerPattern</a>
+    <a class="" href="classes/oihana-routes-Route.html#property_ownerPlaceholder">$ownerPlaceholder</a>
     <span>
                         &nbsp;: string|null            </span>
 </dt>
@@ -342,7 +372,7 @@
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/oihana-routes-Route.html#property_routePattern">$routePattern</a>
+    <a class="" href="classes/oihana-routes-Route.html#property_routePlaceholder">$routePlaceholder</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
@@ -469,7 +499,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">84</span>
+    <span class="phpdocumentor-element-found-in__line">86</span>
 
     </aside>
 
@@ -501,7 +531,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">85</span>
+    <span class="phpdocumentor-element-found-in__line">87</span>
 
     </aside>
 
@@ -532,7 +562,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">79</span>
+    <span class="phpdocumentor-element-found-in__line">80</span>
 
     </aside>
 
@@ -544,6 +574,37 @@
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">DEFAULT_OWNER_PATTERN</span>
     = <span class="phpdocumentor-signature__default-value">&#039;{owner:[0-9]+}&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_DEFAULT_OWNER_PLACEHOLDER">
+        DEFAULT_OWNER_PLACEHOLDER
+        <a href="classes/oihana-routes-Route.html#constant_DEFAULT_OWNER_PLACEHOLDER" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">81</span>
+
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">DEFAULT_OWNER_PLACEHOLDER</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;owner:[0-9]+&#039;</span>
 </code>
 
 
@@ -619,6 +680,37 @@
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_DEFAULT_ROUTE_PLACEHOLDER">
+        DEFAULT_ROUTE_PLACEHOLDER
+        <a href="classes/oihana-routes-Route.html#constant_DEFAULT_ROUTE_PLACEHOLDER" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">75</span>
+
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">DEFAULT_ROUTE_PLACEHOLDER</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;id:[0-9]+&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_METHOD">
         METHOD
         <a href="classes/oihana-routes-Route.html#constant_METHOD" class="headerlink"><i class="fas fa-link"></i></a>
@@ -628,7 +720,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">86</span>
+    <span class="phpdocumentor-element-found-in__line">88</span>
 
     </aside>
 
@@ -659,7 +751,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">87</span>
+    <span class="phpdocumentor-element-found-in__line">89</span>
 
     </aside>
 
@@ -690,7 +782,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">88</span>
+    <span class="phpdocumentor-element-found-in__line">90</span>
 
     </aside>
 
@@ -712,6 +804,37 @@
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_OWNER_PLACEHOLDER">
+        OWNER_PLACEHOLDER
+        <a href="classes/oihana-routes-Route.html#constant_OWNER_PLACEHOLDER" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">91</span>
+
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">OWNER_PLACEHOLDER</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;ownerPlaceHolder&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_PATCH_PATTERN">
         PATCH_PATTERN
         <a href="classes/oihana-routes-Route.html#constant_PATCH_PATTERN" class="headerlink"><i class="fas fa-link"></i></a>
@@ -721,7 +844,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">89</span>
+    <span class="phpdocumentor-element-found-in__line">92</span>
 
     </aside>
 
@@ -743,6 +866,37 @@
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PATCH_PLACE_HOLDER">
+        PATCH_PLACE_HOLDER
+        <a href="classes/oihana-routes-Route.html#constant_PATCH_PLACE_HOLDER" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">93</span>
+
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PATCH_PLACE_HOLDER</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;patchPlaceHolder&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_PREFIX">
         PREFIX
         <a href="classes/oihana-routes-Route.html#constant_PREFIX" class="headerlink"><i class="fas fa-link"></i></a>
@@ -752,7 +906,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">90</span>
+    <span class="phpdocumentor-element-found-in__line">94</span>
 
     </aside>
 
@@ -783,7 +937,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">91</span>
+    <span class="phpdocumentor-element-found-in__line">95</span>
 
     </aside>
 
@@ -814,7 +968,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">92</span>
+    <span class="phpdocumentor-element-found-in__line">96</span>
 
     </aside>
 
@@ -845,7 +999,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">93</span>
+    <span class="phpdocumentor-element-found-in__line">97</span>
 
     </aside>
 
@@ -867,6 +1021,37 @@
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ROUTE_PLACEHOLDER">
+        ROUTE_PLACEHOLDER
+        <a href="classes/oihana-routes-Route.html#constant_ROUTE_PLACEHOLDER" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">98</span>
+
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ROUTE_PLACEHOLDER</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;routePattern&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_ROUTES">
         ROUTES
         <a href="classes/oihana-routes-Route.html#constant_ROUTES" class="headerlink"><i class="fas fa-link"></i></a>
@@ -876,7 +1061,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">94</span>
+    <span class="phpdocumentor-element-found-in__line">99</span>
 
     </aside>
 
@@ -907,7 +1092,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">95</span>
+    <span class="phpdocumentor-element-found-in__line">100</span>
 
     </aside>
 
@@ -938,7 +1123,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">96</span>
+    <span class="phpdocumentor-element-found-in__line">101</span>
 
     </aside>
 
@@ -1024,7 +1209,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">106</span>
+    <span class="phpdocumentor-element-found-in__line">111</span>
 
     </aside>
 
@@ -1064,7 +1249,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">111</span>
+    <span class="phpdocumentor-element-found-in__line">116</span>
 
     </aside>
 
@@ -1104,7 +1289,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">116</span>
+    <span class="phpdocumentor-element-found-in__line">121</span>
 
     </aside>
 
@@ -1134,9 +1319,9 @@
             -public
                                                                     "
 >
-    <h4 class="phpdocumentor-element__name" id="property_ownerPattern">
-        $ownerPattern
-        <a href="classes/oihana-routes-Route.html#property_ownerPattern" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_ownerPlaceholder">
+        $ownerPlaceholder
+        <a href="classes/oihana-routes-Route.html#property_ownerPlaceholder" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                             </span>
@@ -1144,7 +1329,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">121</span>
+    <span class="phpdocumentor-element-found-in__line">126</span>
 
     </aside>
 
@@ -1153,11 +1338,11 @@
     <code class="phpdocumentor-code phpdocumentor-signature ">
         <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__type">string|null</span>
-    <span class="phpdocumentor-signature__name">$ownerPattern</span>
-     = <span class="phpdocumentor-signature__default-value">self::DEFAULT_OWNER_PATTERN</span></code>
+    <span class="phpdocumentor-signature__name">$ownerPlaceholder</span>
+     = <span class="phpdocumentor-signature__default-value">self::DEFAULT_OWNER_PLACEHOLDER</span></code>
 
     
-        <section class="phpdocumentor-description"><p>Owner route pattern</p>
+        <section class="phpdocumentor-description"><p>The owner route placeholder.</p>
 </section>
 
     
@@ -1184,7 +1369,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">126</span>
+    <span class="phpdocumentor-element-found-in__line">131</span>
 
     </aside>
 
@@ -1224,7 +1409,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">131</span>
+    <span class="phpdocumentor-element-found-in__line">136</span>
 
     </aside>
 
@@ -1264,7 +1449,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">136</span>
+    <span class="phpdocumentor-element-found-in__line">141</span>
 
     </aside>
 
@@ -1277,7 +1462,7 @@
      = <span class="phpdocumentor-signature__default-value">null</span></code>
 
     
-        <section class="phpdocumentor-description"><p>Main route pattern</p>
+        <section class="phpdocumentor-description"><p>The route expression.</p>
 </section>
 
     
@@ -1294,9 +1479,9 @@
             -public
                                                                     "
 >
-    <h4 class="phpdocumentor-element__name" id="property_routePattern">
-        $routePattern
-        <a href="classes/oihana-routes-Route.html#property_routePattern" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_routePlaceholder">
+        $routePlaceholder
+        <a href="classes/oihana-routes-Route.html#property_routePlaceholder" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                             </span>
@@ -1304,7 +1489,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">141</span>
+    <span class="phpdocumentor-element-found-in__line">146</span>
 
     </aside>
 
@@ -1313,11 +1498,11 @@
     <code class="phpdocumentor-code phpdocumentor-signature ">
         <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__type">string</span>
-    <span class="phpdocumentor-signature__name">$routePattern</span>
-     = <span class="phpdocumentor-signature__default-value">self::DEFAULT_ROUTE_PATTERN</span></code>
+    <span class="phpdocumentor-signature__name">$routePlaceholder</span>
+     = <span class="phpdocumentor-signature__default-value">self::DEFAULT_ROUTE_PLACEHOLDER</span></code>
 
     
-        <section class="phpdocumentor-description"><p>Main route pattern regex</p>
+        <section class="phpdocumentor-description"><p>The route placeholder.</p>
 </section>
 
     
@@ -1344,7 +1529,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">146</span>
+    <span class="phpdocumentor-element-found-in__line">151</span>
 
     </aside>
 
@@ -1357,7 +1542,7 @@
      = <span class="phpdocumentor-signature__default-value">null</span></code>
 
     
-        <section class="phpdocumentor-description"><p>Nested route definitions</p>
+        <section class="phpdocumentor-description"><p>Nested route definitions.</p>
 </section>
 
     
@@ -1384,7 +1569,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">151</span>
+    <span class="phpdocumentor-element-found-in__line">156</span>
 
     </aside>
 
@@ -1397,7 +1582,7 @@
     </code>
 
     
-        <section class="phpdocumentor-description"><p>Initial settings passed to constructor</p>
+        <section class="phpdocumentor-description"><p>Initial settings passed to constructor.</p>
 </section>
 
     
@@ -1424,7 +1609,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">156</span>
+    <span class="phpdocumentor-element-found-in__line">161</span>
 
     </aside>
 
@@ -1464,7 +1649,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">161</span>
+    <span class="phpdocumentor-element-found-in__line">166</span>
 
     </aside>
 
@@ -1504,7 +1689,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">101</span>
+    <span class="phpdocumentor-element-found-in__line">106</span>
 
     </aside>
 
@@ -1640,7 +1825,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">170</span>
+    <span class="phpdocumentor-element-found-in__line">174</span>
 
     </aside>
 
@@ -1756,7 +1941,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">191</span>
+    <span class="phpdocumentor-element-found-in__line">195</span>
 
     </aside>
 
@@ -1811,7 +1996,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">206</span>
+    <span class="phpdocumentor-element-found-in__line">210</span>
 
     </aside>
 
@@ -1866,7 +2051,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">241</span>
+    <span class="phpdocumentor-element-found-in__line">245</span>
 
     </aside>
 
@@ -1921,7 +2106,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">256</span>
+    <span class="phpdocumentor-element-found-in__line">260</span>
 
     </aside>
 
@@ -1968,7 +2153,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">279</span>
+    <span class="phpdocumentor-element-found-in__line">283</span>
 
     </aside>
 
@@ -2011,7 +2196,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/Route.php"><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">290</span>
+    <span class="phpdocumentor-element-found-in__line">294</span>
 
     </aside>
 
@@ -2158,16 +2343,21 @@
                                                     <li class=""><a href="classes/oihana-routes-Route.html#constant_CLAZZ">CLAZZ</a></li>
                                                     <li class=""><a href="classes/oihana-routes-Route.html#constant_CONTROLLER_ID">CONTROLLER_ID</a></li>
                                                     <li class=""><a href="classes/oihana-routes-Route.html#constant_DEFAULT_OWNER_PATTERN">DEFAULT_OWNER_PATTERN</a></li>
+                                                    <li class=""><a href="classes/oihana-routes-Route.html#constant_DEFAULT_OWNER_PLACEHOLDER">DEFAULT_OWNER_PLACEHOLDER</a></li>
                                                     <li class=""><a href="classes/oihana-routes-Route.html#constant_DEFAULT_PREFIX">DEFAULT_PREFIX</a></li>
                                                     <li class=""><a href="classes/oihana-routes-Route.html#constant_DEFAULT_ROUTE_PATTERN">DEFAULT_ROUTE_PATTERN</a></li>
+                                                    <li class=""><a href="classes/oihana-routes-Route.html#constant_DEFAULT_ROUTE_PLACEHOLDER">DEFAULT_ROUTE_PLACEHOLDER</a></li>
                                                     <li class=""><a href="classes/oihana-routes-Route.html#constant_METHOD">METHOD</a></li>
                                                     <li class=""><a href="classes/oihana-routes-Route.html#constant_NAME">NAME</a></li>
                                                     <li class=""><a href="classes/oihana-routes-Route.html#constant_OWNER_PATTERN">OWNER_PATTERN</a></li>
+                                                    <li class=""><a href="classes/oihana-routes-Route.html#constant_OWNER_PLACEHOLDER">OWNER_PLACEHOLDER</a></li>
                                                     <li class=""><a href="classes/oihana-routes-Route.html#constant_PATCH_PATTERN">PATCH_PATTERN</a></li>
+                                                    <li class=""><a href="classes/oihana-routes-Route.html#constant_PATCH_PLACE_HOLDER">PATCH_PLACE_HOLDER</a></li>
                                                     <li class=""><a href="classes/oihana-routes-Route.html#constant_PREFIX">PREFIX</a></li>
                                                     <li class=""><a href="classes/oihana-routes-Route.html#constant_PROPERTY">PROPERTY</a></li>
                                                     <li class=""><a href="classes/oihana-routes-Route.html#constant_ROUTE">ROUTE</a></li>
                                                     <li class=""><a href="classes/oihana-routes-Route.html#constant_ROUTE_PATTERN">ROUTE_PATTERN</a></li>
+                                                    <li class=""><a href="classes/oihana-routes-Route.html#constant_ROUTE_PLACEHOLDER">ROUTE_PLACEHOLDER</a></li>
                                                     <li class=""><a href="classes/oihana-routes-Route.html#constant_ROUTES">ROUTES</a></li>
                                                     <li class=""><a href="classes/oihana-routes-Route.html#constant_SUFFIX">SUFFIX</a></li>
                                                     <li class=""><a href="classes/oihana-routes-Route.html#constant_VERBOSE">VERBOSE</a></li>
@@ -2181,11 +2371,11 @@
                                                     <li class=""><a href="classes/oihana-routes-Route.html#property_controllerID">$controllerID</a></li>
                                                     <li class=""><a href="classes/oihana-routes-Route.html#property_logger">$logger</a></li>
                                                     <li class=""><a href="classes/oihana-routes-Route.html#property_name">$name</a></li>
-                                                    <li class=""><a href="classes/oihana-routes-Route.html#property_ownerPattern">$ownerPattern</a></li>
+                                                    <li class=""><a href="classes/oihana-routes-Route.html#property_ownerPlaceholder">$ownerPlaceholder</a></li>
                                                     <li class=""><a href="classes/oihana-routes-Route.html#property_prefix">$prefix</a></li>
                                                     <li class=""><a href="classes/oihana-routes-Route.html#property_property">$property</a></li>
                                                     <li class=""><a href="classes/oihana-routes-Route.html#property_route">$route</a></li>
-                                                    <li class=""><a href="classes/oihana-routes-Route.html#property_routePattern">$routePattern</a></li>
+                                                    <li class=""><a href="classes/oihana-routes-Route.html#property_routePlaceholder">$routePlaceholder</a></li>
                                                     <li class=""><a href="classes/oihana-routes-Route.html#property_routes">$routes</a></li>
                                                     <li class=""><a href="classes/oihana-routes-Route.html#property_settings">$settings</a></li>
                                                     <li class=""><a href="classes/oihana-routes-Route.html#property_suffix">$suffix</a></li>

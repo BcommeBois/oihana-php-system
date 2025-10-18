@@ -1906,6 +1906,76 @@ Search.appendIndex(
             "summary": "Internal\u0020line\u0020formatter\u0020instance\u0020for\u0020Monolog.",
             "url": "classes/oihana-logging-MonoLogManager.html#property_formatter"
         },                {
+            "fqsen": "\\oihana\\models\\enums\\Alter",
+            "name": "Alter",
+            "summary": "Enumeration\u0020of\u0020all\u0020transformation\u0020or\u0020filter\u0020operations\u0020that\u0020can\u0020be\u0020applied\nto\u0020an\u0020object\u0020property\u0020or\u0020an\u0020array\u0020key.",
+            "url": "classes/oihana-models-enums-Alter.html"
+        },                {
+            "fqsen": "\\oihana\\models\\enums\\Alter\u003A\u003AARRAY",
+            "name": "ARRAY",
+            "summary": "",
+            "url": "classes/oihana-models-enums-Alter.html#constant_ARRAY"
+        },                {
+            "fqsen": "\\oihana\\models\\enums\\Alter\u003A\u003ACALL",
+            "name": "CALL",
+            "summary": "",
+            "url": "classes/oihana-models-enums-Alter.html#constant_CALL"
+        },                {
+            "fqsen": "\\oihana\\models\\enums\\Alter\u003A\u003ACLEAN",
+            "name": "CLEAN",
+            "summary": "",
+            "url": "classes/oihana-models-enums-Alter.html#constant_CLEAN"
+        },                {
+            "fqsen": "\\oihana\\models\\enums\\Alter\u003A\u003AFLOAT",
+            "name": "FLOAT",
+            "summary": "",
+            "url": "classes/oihana-models-enums-Alter.html#constant_FLOAT"
+        },                {
+            "fqsen": "\\oihana\\models\\enums\\Alter\u003A\u003AGET",
+            "name": "GET",
+            "summary": "",
+            "url": "classes/oihana-models-enums-Alter.html#constant_GET"
+        },                {
+            "fqsen": "\\oihana\\models\\enums\\Alter\u003A\u003ALIST",
+            "name": "LIST",
+            "summary": "",
+            "url": "classes/oihana-models-enums-Alter.html#constant_LIST"
+        },                {
+            "fqsen": "\\oihana\\models\\enums\\Alter\u003A\u003AINT",
+            "name": "INT",
+            "summary": "",
+            "url": "classes/oihana-models-enums-Alter.html#constant_INT"
+        },                {
+            "fqsen": "\\oihana\\models\\enums\\Alter\u003A\u003AJSON_PARSE",
+            "name": "JSON_PARSE",
+            "summary": "",
+            "url": "classes/oihana-models-enums-Alter.html#constant_JSON_PARSE"
+        },                {
+            "fqsen": "\\oihana\\models\\enums\\Alter\u003A\u003AJSON_STRINGIFY",
+            "name": "JSON_STRINGIFY",
+            "summary": "",
+            "url": "classes/oihana-models-enums-Alter.html#constant_JSON_STRINGIFY"
+        },                {
+            "fqsen": "\\oihana\\models\\enums\\Alter\u003A\u003ANORMALIZE",
+            "name": "NORMALIZE",
+            "summary": "",
+            "url": "classes/oihana-models-enums-Alter.html#constant_NORMALIZE"
+        },                {
+            "fqsen": "\\oihana\\models\\enums\\Alter\u003A\u003ANOT",
+            "name": "NOT",
+            "summary": "",
+            "url": "classes/oihana-models-enums-Alter.html#constant_NOT"
+        },                {
+            "fqsen": "\\oihana\\models\\enums\\Alter\u003A\u003AURL",
+            "name": "URL",
+            "summary": "",
+            "url": "classes/oihana-models-enums-Alter.html#constant_URL"
+        },                {
+            "fqsen": "\\oihana\\models\\enums\\Alter\u003A\u003AVALUE",
+            "name": "VALUE",
+            "summary": "",
+            "url": "classes/oihana-models-enums-Alter.html#constant_VALUE"
+        },                {
             "fqsen": "\\oihana\\models\\enums\\ModelParam",
             "name": "ModelParam",
             "summary": "The\u0020enumeration\u0020of\u0020all\u0020the\u0020common\u0020model\u0027s\u0020parameters.",
@@ -2135,6 +2205,156 @@ Search.appendIndex(
             "name": "pdo",
             "summary": "The\u0020PDO\u0020reference.",
             "url": "classes/oihana-models-pdo-PDOTrait.html#property_pdo"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait",
+            "name": "AlterDocumentTrait",
+            "summary": "Provides\u0020a\u0020system\u0020to\u0020alter\u0020properties\u0020of\u0020arrays\u0020or\u0020objects\u0020based\u0020on\u0020a\u0020configurable\u0020set\u0020of\u0020rules\u0020\u0028called\u0020\u0022alters\u0022\u0029.",
+            "url": "classes/oihana-models-traits-AlterDocumentTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003Aalter\u0028\u0029",
+            "name": "alter",
+            "summary": "Alters\u0020the\u0020given\u0020document\u0020\u0028array\u0020or\u0020object\u0029\u0020based\u0020on\u0020the\u0020configured\u0020\u0060\u0024alters\u0060\u0020definitions.",
+            "url": "classes/oihana-models-traits-AlterDocumentTrait.html#method_alter"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003AalterAssociativeArray\u0028\u0029",
+            "name": "alterAssociativeArray",
+            "summary": "Alter\u0020the\u0020passed\u002Din\u0020array.",
+            "url": "classes/oihana-models-traits-AlterDocumentTrait.html#method_alterAssociativeArray"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003AalterObject\u0028\u0029",
+            "name": "alterObject",
+            "summary": "Alter\u0020the\u0020passed\u002Din\u0020object.",
+            "url": "classes/oihana-models-traits-AlterDocumentTrait.html#method_alterObject"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003AalterProperty\u0028\u0029",
+            "name": "alterProperty",
+            "summary": "Alters\u0020a\u0020specific\u0020property\u0020of\u0020the\u0020given\u0020document\u0020\u0028array\u0020or\u0020object\u0029\u0020using\u0020a\u0020defined\u0020transformation\u0020rule.",
+            "url": "classes/oihana-models-traits-AlterDocumentTrait.html#method_alterProperty"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003AinitializeAlters\u0028\u0029",
+            "name": "initializeAlters",
+            "summary": "Initialize\u0020the\u0020\u0027alters\u0027\u0020property.",
+            "url": "classes/oihana-models-traits-AlterDocumentTrait.html#method_initializeAlters"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003A\u0024alters",
+            "name": "alters",
+            "summary": "The\u0020enumeration\u0020of\u0020all\u0020definitions\u0020to\u0020alter\u0020on\u0020the\u0020array\u0020or\u0020object\u0020key\/value\u0020properties.",
+            "url": "classes/oihana-models-traits-AlterDocumentTrait.html#property_alters"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterArrayCleanPropertyTrait",
+            "name": "AlterArrayCleanPropertyTrait",
+            "summary": "",
+            "url": "classes/oihana-models-traits-alters-AlterArrayCleanPropertyTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterArrayCleanPropertyTrait\u003A\u003AalterArrayCleanProperty\u0028\u0029",
+            "name": "alterArrayCleanProperty",
+            "summary": "Clean\u0020an\u0020array\u0020of\u0020null\u0020or\u0020empty\u0020string\u0020elements.",
+            "url": "classes/oihana-models-traits-alters-AlterArrayCleanPropertyTrait.html#method_alterArrayCleanProperty"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterArrayPropertyTrait",
+            "name": "AlterArrayPropertyTrait",
+            "summary": "",
+            "url": "classes/oihana-models-traits-alters-AlterArrayPropertyTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterArrayPropertyTrait\u003A\u003AalterArrayProperty\u0028\u0029",
+            "name": "alterArrayProperty",
+            "summary": "Transform\u0020a\u0020string\u0020expression\u0020separated\u0020by\u0020semi\u002Dcolon\u0020\u0027\u003B\u0027\u0020to\u0020creates\u0020an\u0020array.",
+            "url": "classes/oihana-models-traits-alters-AlterArrayPropertyTrait.html#method_alterArrayProperty"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterArrayPropertyTrait\u003A\u003AalterArrayElements\u0028\u0029",
+            "name": "alterArrayElements",
+            "summary": "Alters\u0020all\u0020elements\u0020in\u0020an\u0020array.",
+            "url": "classes/oihana-models-traits-alters-AlterArrayPropertyTrait.html#method_alterArrayElements"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterCallablePropertyTrait",
+            "name": "AlterCallablePropertyTrait",
+            "summary": "",
+            "url": "classes/oihana-models-traits-alters-AlterCallablePropertyTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterCallablePropertyTrait\u003A\u003AalterCallableProperty\u0028\u0029",
+            "name": "alterCallableProperty",
+            "summary": "Call\u0020a\u0020function\u0020to\u0020alter\u0020a\u0020property.",
+            "url": "classes/oihana-models-traits-alters-AlterCallablePropertyTrait.html#method_alterCallableProperty"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterFloatPropertyTrait",
+            "name": "AlterFloatPropertyTrait",
+            "summary": "",
+            "url": "classes/oihana-models-traits-alters-AlterFloatPropertyTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterFloatPropertyTrait\u003A\u003AalterFloatProperty\u0028\u0029",
+            "name": "alterFloatProperty",
+            "summary": "Cast\u0020a\u0020value\u0020to\u0020float.\u0020If\u0020the\u0020value\u0020is\u0020an\u0020array,\u0020all\u0020elements\u0020in\u0020the\u0020array\u0020are\u0020casted.",
+            "url": "classes/oihana-models-traits-alters-AlterFloatPropertyTrait.html#method_alterFloatProperty"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterGetDocumentPropertyTrait",
+            "name": "AlterGetDocumentPropertyTrait",
+            "summary": "Provides\u0020logic\u0020to\u0020retrieve\u0020a\u0020document\u0020using\u0020a\u0020Documents\u0020model\u0020based\u0020on\u0020a\u0020given\u0020value\u0020and\u0020definition.",
+            "url": "classes/oihana-models-traits-alters-AlterGetDocumentPropertyTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterGetDocumentPropertyTrait\u003A\u003AalterGetDocument\u0028\u0029",
+            "name": "alterGetDocument",
+            "summary": "Gets\u0020a\u0020document\u0020with\u0020a\u0020Documents\u0020model.",
+            "url": "classes/oihana-models-traits-alters-AlterGetDocumentPropertyTrait.html#method_alterGetDocument"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterIntPropertyTrait",
+            "name": "AlterIntPropertyTrait",
+            "summary": "Casts\u0020a\u0020value\u0020\u0028or\u0020all\u0020elements\u0020in\u0020an\u0020array\u0029\u0020to\u0020integer.",
+            "url": "classes/oihana-models-traits-alters-AlterIntPropertyTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterIntPropertyTrait\u003A\u003AalterIntProperty\u0028\u0029",
+            "name": "alterIntProperty",
+            "summary": "Cast\u0020a\u0020value\u0020to\u0020integer.",
+            "url": "classes/oihana-models-traits-alters-AlterIntPropertyTrait.html#method_alterIntProperty"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterJSONParsePropertyTrait",
+            "name": "AlterJSONParsePropertyTrait",
+            "summary": "",
+            "url": "classes/oihana-models-traits-alters-AlterJSONParsePropertyTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterJSONParsePropertyTrait\u003A\u003AalterJsonParseProperty\u0028\u0029",
+            "name": "alterJsonParseProperty",
+            "summary": "Decodes\u0020a\u0020JSON\u0020string",
+            "url": "classes/oihana-models-traits-alters-AlterJSONParsePropertyTrait.html#method_alterJsonParseProperty"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterJSONStringifyPropertyTrait",
+            "name": "AlterJSONStringifyPropertyTrait",
+            "summary": "",
+            "url": "classes/oihana-models-traits-alters-AlterJSONStringifyPropertyTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterJSONStringifyPropertyTrait\u003A\u003AalterJsonStringifyProperty\u0028\u0029",
+            "name": "alterJsonStringifyProperty",
+            "summary": "Returns\u0020the\u0020JSON\u0020representation\u0020of\u0020a\u0020value",
+            "url": "classes/oihana-models-traits-alters-AlterJSONStringifyPropertyTrait.html#method_alterJsonStringifyProperty"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterNotPropertyTrait",
+            "name": "AlterNotPropertyTrait",
+            "summary": "Provides\u0020an\u0020alteration\u0020to\u0020invert\u0020boolean\u0020values.",
+            "url": "classes/oihana-models-traits-alters-AlterNotPropertyTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterNotPropertyTrait\u003A\u003AalterNotProperty\u0028\u0029",
+            "name": "alterNotProperty",
+            "summary": "Invert\u0020a\u0020boolean\u0020value\u0020or\u0020an\u0020array\u0020of\u0020booleans.",
+            "url": "classes/oihana-models-traits-alters-AlterNotPropertyTrait.html#method_alterNotProperty"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterUrlPropertyTrait",
+            "name": "AlterUrlPropertyTrait",
+            "summary": "Provides\u0020a\u0020method\u0020to\u0020generate\u0020a\u0020URL\u0020string\u0020from\u0020a\u0020document\u0020property.",
+            "url": "classes/oihana-models-traits-alters-AlterUrlPropertyTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterUrlPropertyTrait\u003A\u003AalterUrlProperty\u0028\u0029",
+            "name": "alterUrlProperty",
+            "summary": "Generates\u0020a\u0020document\u0020URL\u0020using\u0020a\u0020property\u0020as\u0020the\u0020final\u0020path\u0020segment.",
+            "url": "classes/oihana-models-traits-alters-AlterUrlPropertyTrait.html#method_alterUrlProperty"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterValueTrait",
+            "name": "AlterValueTrait",
+            "summary": "Provides\u0020a\u0020method\u0020to\u0020replace\u0020a\u0020value\u0020with\u0020a\u0020fixed\u0020new\u0020one\u0020if\u0020different.",
+            "url": "classes/oihana-models-traits-alters-AlterValueTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterValueTrait\u003A\u003AalterValue\u0028\u0029",
+            "name": "alterValue",
+            "summary": "Replace\u0020a\u0020value\u0020with\u0020a\u0020new\u0020one\u0020if\u0020different,\u0020otherwise\u0020keep\u0020the\u0020original.",
+            "url": "classes/oihana-models-traits-alters-AlterValueTrait.html#method_alterValue"
         },                {
             "fqsen": "\\oihana\\models\\traits\\DocumentsTrait",
             "name": "DocumentsTrait",
@@ -2846,6 +3066,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/oihana-routes-enums-RouteFlag.html#constant_HAS_DELETE_ALL"
         },                {
+            "fqsen": "\\oihana\\routes\\enums\\RouteFlag\u003A\u003AHAS_DELETE_MULTIPLE",
+            "name": "HAS_DELETE_MULTIPLE",
+            "summary": "",
+            "url": "classes/oihana-routes-enums-RouteFlag.html#constant_HAS_DELETE_MULTIPLE"
+        },                {
             "fqsen": "\\oihana\\routes\\enums\\RouteFlag\u003A\u003AHAS_GET",
             "name": "HAS_GET",
             "summary": "",
@@ -2870,6 +3095,11 @@ Search.appendIndex(
             "name": "HAS_PUT",
             "summary": "",
             "url": "classes/oihana-routes-enums-RouteFlag.html#constant_HAS_PUT"
+        },                {
+            "fqsen": "\\oihana\\routes\\helpers\\withPlaceholder\u0028\u0029",
+            "name": "withPlaceholder",
+            "summary": "Builds\u0020a\u0020Slim\u002Dframework\u002Dcompatible\u0020route\u0020by\u0020appending\u0020a\u0020placeholder.",
+            "url": "namespaces/oihana-routes-helpers.html#function_withPlaceholder"
         },                {
             "fqsen": "\\oihana\\routes\\http\\DeleteRoute",
             "name": "DeleteRoute",
@@ -3026,10 +3256,20 @@ Search.appendIndex(
             "summary": "Default\u0020route\u0020pattern\u0020for\u0020numeric\u0020IDs",
             "url": "classes/oihana-routes-Route.html#constant_DEFAULT_ROUTE_PATTERN"
         },                {
+            "fqsen": "\\oihana\\routes\\Route\u003A\u003ADEFAULT_ROUTE_PLACEHOLDER",
+            "name": "DEFAULT_ROUTE_PLACEHOLDER",
+            "summary": "",
+            "url": "classes/oihana-routes-Route.html#constant_DEFAULT_ROUTE_PLACEHOLDER"
+        },                {
             "fqsen": "\\oihana\\routes\\Route\u003A\u003ADEFAULT_OWNER_PATTERN",
             "name": "DEFAULT_OWNER_PATTERN",
             "summary": "Default\u0020owner\u0020pattern\u0020for\u0020numeric\u0020owner\u0020IDs",
             "url": "classes/oihana-routes-Route.html#constant_DEFAULT_OWNER_PATTERN"
+        },                {
+            "fqsen": "\\oihana\\routes\\Route\u003A\u003ADEFAULT_OWNER_PLACEHOLDER",
+            "name": "DEFAULT_OWNER_PLACEHOLDER",
+            "summary": "",
+            "url": "classes/oihana-routes-Route.html#constant_DEFAULT_OWNER_PLACEHOLDER"
         },                {
             "fqsen": "\\oihana\\routes\\Route\u003A\u003ACLAZZ",
             "name": "CLAZZ",
@@ -3056,10 +3296,20 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/oihana-routes-Route.html#constant_OWNER_PATTERN"
         },                {
+            "fqsen": "\\oihana\\routes\\Route\u003A\u003AOWNER_PLACEHOLDER",
+            "name": "OWNER_PLACEHOLDER",
+            "summary": "",
+            "url": "classes/oihana-routes-Route.html#constant_OWNER_PLACEHOLDER"
+        },                {
             "fqsen": "\\oihana\\routes\\Route\u003A\u003APATCH_PATTERN",
             "name": "PATCH_PATTERN",
             "summary": "",
             "url": "classes/oihana-routes-Route.html#constant_PATCH_PATTERN"
+        },                {
+            "fqsen": "\\oihana\\routes\\Route\u003A\u003APATCH_PLACE_HOLDER",
+            "name": "PATCH_PLACE_HOLDER",
+            "summary": "",
+            "url": "classes/oihana-routes-Route.html#constant_PATCH_PLACE_HOLDER"
         },                {
             "fqsen": "\\oihana\\routes\\Route\u003A\u003APREFIX",
             "name": "PREFIX",
@@ -3080,6 +3330,11 @@ Search.appendIndex(
             "name": "ROUTE_PATTERN",
             "summary": "",
             "url": "classes/oihana-routes-Route.html#constant_ROUTE_PATTERN"
+        },                {
+            "fqsen": "\\oihana\\routes\\Route\u003A\u003AROUTE_PLACEHOLDER",
+            "name": "ROUTE_PLACEHOLDER",
+            "summary": "",
+            "url": "classes/oihana-routes-Route.html#constant_ROUTE_PLACEHOLDER"
         },                {
             "fqsen": "\\oihana\\routes\\Route\u003A\u003AROUTES",
             "name": "ROUTES",
@@ -3116,10 +3371,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/oihana-routes-Route.html#property_name"
         },                {
-            "fqsen": "\\oihana\\routes\\Route\u003A\u003A\u0024ownerPattern",
-            "name": "ownerPattern",
+            "fqsen": "\\oihana\\routes\\Route\u003A\u003A\u0024ownerPlaceholder",
+            "name": "ownerPlaceholder",
             "summary": "",
-            "url": "classes/oihana-routes-Route.html#property_ownerPattern"
+            "url": "classes/oihana-routes-Route.html#property_ownerPlaceholder"
         },                {
             "fqsen": "\\oihana\\routes\\Route\u003A\u003A\u0024prefix",
             "name": "prefix",
@@ -3136,10 +3391,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/oihana-routes-Route.html#property_route"
         },                {
-            "fqsen": "\\oihana\\routes\\Route\u003A\u003A\u0024routePattern",
-            "name": "routePattern",
+            "fqsen": "\\oihana\\routes\\Route\u003A\u003A\u0024routePlaceholder",
+            "name": "routePlaceholder",
             "summary": "",
-            "url": "classes/oihana-routes-Route.html#property_routePattern"
+            "url": "classes/oihana-routes-Route.html#property_routePlaceholder"
         },                {
             "fqsen": "\\oihana\\routes\\Route\u003A\u003A\u0024routes",
             "name": "routes",
@@ -3185,6 +3440,11 @@ Search.appendIndex(
             "name": "hasDeleteAll",
             "summary": "",
             "url": "classes/oihana-routes-traits-HasRouteTrait.html#property_hasDeleteAll"
+        },                {
+            "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003A\u0024hasDeleteMultiple",
+            "name": "hasDeleteMultiple",
+            "summary": "",
+            "url": "classes/oihana-routes-traits-HasRouteTrait.html#property_hasDeleteMultiple"
         },                {
             "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003A\u0024hasGet",
             "name": "hasGet",
@@ -3270,146 +3530,6 @@ Search.appendIndex(
             "name": "put",
             "summary": "",
             "url": "classes/oihana-routes-traits-HttpMethodRoutesTrait.html#property_put"
-        },                {
-            "fqsen": "\\oihana\\traits\\AlterDocumentTrait",
-            "name": "AlterDocumentTrait",
-            "summary": "Provides\u0020a\u0020system\u0020to\u0020alter\u0020properties\u0020of\u0020arrays\u0020or\u0020objects\u0020based\u0020on\u0020a\u0020configurable\u0020set\u0020of\u0020rules\u0020\u0028called\u0020\u0022alters\u0022\u0029.",
-            "url": "classes/oihana-traits-AlterDocumentTrait.html"
-        },                {
-            "fqsen": "\\oihana\\traits\\AlterDocumentTrait\u003A\u003Aalter\u0028\u0029",
-            "name": "alter",
-            "summary": "Alters\u0020the\u0020given\u0020document\u0020\u0028array\u0020or\u0020object\u0029\u0020based\u0020on\u0020the\u0020configured\u0020\u0060\u0024alters\u0060\u0020definitions.",
-            "url": "classes/oihana-traits-AlterDocumentTrait.html#method_alter"
-        },                {
-            "fqsen": "\\oihana\\traits\\AlterDocumentTrait\u003A\u003AalterAssociativeArray\u0028\u0029",
-            "name": "alterAssociativeArray",
-            "summary": "Alter\u0020the\u0020passed\u002Din\u0020array.",
-            "url": "classes/oihana-traits-AlterDocumentTrait.html#method_alterAssociativeArray"
-        },                {
-            "fqsen": "\\oihana\\traits\\AlterDocumentTrait\u003A\u003AalterObject\u0028\u0029",
-            "name": "alterObject",
-            "summary": "Alter\u0020the\u0020passed\u002Din\u0020object.",
-            "url": "classes/oihana-traits-AlterDocumentTrait.html#method_alterObject"
-        },                {
-            "fqsen": "\\oihana\\traits\\AlterDocumentTrait\u003A\u003AalterProperty\u0028\u0029",
-            "name": "alterProperty",
-            "summary": "Alters\u0020a\u0020specific\u0020property\u0020of\u0020the\u0020given\u0020document\u0020\u0028array\u0020or\u0020object\u0029\u0020using\u0020a\u0020defined\u0020transformation\u0020rule.",
-            "url": "classes/oihana-traits-AlterDocumentTrait.html#method_alterProperty"
-        },                {
-            "fqsen": "\\oihana\\traits\\AlterDocumentTrait\u003A\u003AinitializeAlters\u0028\u0029",
-            "name": "initializeAlters",
-            "summary": "Initialize\u0020the\u0020\u0027alters\u0027\u0020property.",
-            "url": "classes/oihana-traits-AlterDocumentTrait.html#method_initializeAlters"
-        },                {
-            "fqsen": "\\oihana\\traits\\AlterDocumentTrait\u003A\u003A\u0024alters",
-            "name": "alters",
-            "summary": "The\u0020enumeration\u0020of\u0020all\u0020definitions\u0020to\u0020alter\u0020on\u0020the\u0020array\u0020or\u0020object\u0020key\/value\u0020properties.",
-            "url": "classes/oihana-traits-AlterDocumentTrait.html#property_alters"
-        },                {
-            "fqsen": "\\oihana\\traits\\alters\\AlterArrayCleanPropertyTrait",
-            "name": "AlterArrayCleanPropertyTrait",
-            "summary": "",
-            "url": "classes/oihana-traits-alters-AlterArrayCleanPropertyTrait.html"
-        },                {
-            "fqsen": "\\oihana\\traits\\alters\\AlterArrayCleanPropertyTrait\u003A\u003AalterArrayCleanProperty\u0028\u0029",
-            "name": "alterArrayCleanProperty",
-            "summary": "Clean\u0020an\u0020array\u0020of\u0020null\u0020or\u0020empty\u0020string\u0020elements.",
-            "url": "classes/oihana-traits-alters-AlterArrayCleanPropertyTrait.html#method_alterArrayCleanProperty"
-        },                {
-            "fqsen": "\\oihana\\traits\\alters\\AlterArrayPropertyTrait",
-            "name": "AlterArrayPropertyTrait",
-            "summary": "",
-            "url": "classes/oihana-traits-alters-AlterArrayPropertyTrait.html"
-        },                {
-            "fqsen": "\\oihana\\traits\\alters\\AlterArrayPropertyTrait\u003A\u003AalterArrayProperty\u0028\u0029",
-            "name": "alterArrayProperty",
-            "summary": "Transform\u0020a\u0020string\u0020expression\u0020separated\u0020by\u0020semi\u002Dcolon\u0020\u0027\u003B\u0027\u0020to\u0020creates\u0020an\u0020array.",
-            "url": "classes/oihana-traits-alters-AlterArrayPropertyTrait.html#method_alterArrayProperty"
-        },                {
-            "fqsen": "\\oihana\\traits\\alters\\AlterArrayPropertyTrait\u003A\u003AalterArrayElements\u0028\u0029",
-            "name": "alterArrayElements",
-            "summary": "Alters\u0020all\u0020elements\u0020in\u0020an\u0020array.",
-            "url": "classes/oihana-traits-alters-AlterArrayPropertyTrait.html#method_alterArrayElements"
-        },                {
-            "fqsen": "\\oihana\\traits\\alters\\AlterCallablePropertyTrait",
-            "name": "AlterCallablePropertyTrait",
-            "summary": "",
-            "url": "classes/oihana-traits-alters-AlterCallablePropertyTrait.html"
-        },                {
-            "fqsen": "\\oihana\\traits\\alters\\AlterCallablePropertyTrait\u003A\u003AalterCallableProperty\u0028\u0029",
-            "name": "alterCallableProperty",
-            "summary": "Call\u0020a\u0020function\u0020to\u0020alter\u0020a\u0020property.",
-            "url": "classes/oihana-traits-alters-AlterCallablePropertyTrait.html#method_alterCallableProperty"
-        },                {
-            "fqsen": "\\oihana\\traits\\alters\\AlterFloatPropertyTrait",
-            "name": "AlterFloatPropertyTrait",
-            "summary": "",
-            "url": "classes/oihana-traits-alters-AlterFloatPropertyTrait.html"
-        },                {
-            "fqsen": "\\oihana\\traits\\alters\\AlterFloatPropertyTrait\u003A\u003AalterFloatProperty\u0028\u0029",
-            "name": "alterFloatProperty",
-            "summary": "Cast\u0020a\u0020value\u0020to\u0020float.\u0020If\u0020the\u0020value\u0020is\u0020an\u0020array,\u0020all\u0020elements\u0020in\u0020the\u0020array\u0020are\u0020casted.",
-            "url": "classes/oihana-traits-alters-AlterFloatPropertyTrait.html#method_alterFloatProperty"
-        },                {
-            "fqsen": "\\oihana\\traits\\alters\\AlterGetDocumentPropertyTrait",
-            "name": "AlterGetDocumentPropertyTrait",
-            "summary": "Provides\u0020logic\u0020to\u0020retrieve\u0020a\u0020document\u0020using\u0020a\u0020Documents\u0020model\u0020based\u0020on\u0020a\u0020given\u0020value\u0020and\u0020definition.",
-            "url": "classes/oihana-traits-alters-AlterGetDocumentPropertyTrait.html"
-        },                {
-            "fqsen": "\\oihana\\traits\\alters\\AlterGetDocumentPropertyTrait\u003A\u003AalterGetDocument\u0028\u0029",
-            "name": "alterGetDocument",
-            "summary": "Gets\u0020a\u0020document\u0020with\u0020a\u0020Documents\u0020model.",
-            "url": "classes/oihana-traits-alters-AlterGetDocumentPropertyTrait.html#method_alterGetDocument"
-        },                {
-            "fqsen": "\\oihana\\traits\\alters\\AlterIntPropertyTrait",
-            "name": "AlterIntPropertyTrait",
-            "summary": "Casts\u0020a\u0020value\u0020\u0028or\u0020all\u0020elements\u0020in\u0020an\u0020array\u0029\u0020to\u0020integer.",
-            "url": "classes/oihana-traits-alters-AlterIntPropertyTrait.html"
-        },                {
-            "fqsen": "\\oihana\\traits\\alters\\AlterIntPropertyTrait\u003A\u003AalterIntProperty\u0028\u0029",
-            "name": "alterIntProperty",
-            "summary": "Cast\u0020a\u0020value\u0020to\u0020integer.",
-            "url": "classes/oihana-traits-alters-AlterIntPropertyTrait.html#method_alterIntProperty"
-        },                {
-            "fqsen": "\\oihana\\traits\\alters\\AlterJSONParsePropertyTrait",
-            "name": "AlterJSONParsePropertyTrait",
-            "summary": "",
-            "url": "classes/oihana-traits-alters-AlterJSONParsePropertyTrait.html"
-        },                {
-            "fqsen": "\\oihana\\traits\\alters\\AlterJSONParsePropertyTrait\u003A\u003AalterJsonParseProperty\u0028\u0029",
-            "name": "alterJsonParseProperty",
-            "summary": "Decodes\u0020a\u0020JSON\u0020string",
-            "url": "classes/oihana-traits-alters-AlterJSONParsePropertyTrait.html#method_alterJsonParseProperty"
-        },                {
-            "fqsen": "\\oihana\\traits\\alters\\AlterJSONStringifyPropertyTrait",
-            "name": "AlterJSONStringifyPropertyTrait",
-            "summary": "",
-            "url": "classes/oihana-traits-alters-AlterJSONStringifyPropertyTrait.html"
-        },                {
-            "fqsen": "\\oihana\\traits\\alters\\AlterJSONStringifyPropertyTrait\u003A\u003AalterJsonStringifyProperty\u0028\u0029",
-            "name": "alterJsonStringifyProperty",
-            "summary": "Returns\u0020the\u0020JSON\u0020representation\u0020of\u0020a\u0020value",
-            "url": "classes/oihana-traits-alters-AlterJSONStringifyPropertyTrait.html#method_alterJsonStringifyProperty"
-        },                {
-            "fqsen": "\\oihana\\traits\\alters\\AlterUrlPropertyTrait",
-            "name": "AlterUrlPropertyTrait",
-            "summary": "Provides\u0020a\u0020method\u0020to\u0020generate\u0020a\u0020URL\u0020string\u0020from\u0020a\u0020document\u0020property.",
-            "url": "classes/oihana-traits-alters-AlterUrlPropertyTrait.html"
-        },                {
-            "fqsen": "\\oihana\\traits\\alters\\AlterUrlPropertyTrait\u003A\u003AalterUrlProperty\u0028\u0029",
-            "name": "alterUrlProperty",
-            "summary": "Generates\u0020a\u0020document\u0020URL\u0020using\u0020a\u0020property\u0020as\u0020the\u0020final\u0020path\u0020segment.",
-            "url": "classes/oihana-traits-alters-AlterUrlPropertyTrait.html#method_alterUrlProperty"
-        },                {
-            "fqsen": "\\oihana\\traits\\alters\\AlterValueTrait",
-            "name": "AlterValueTrait",
-            "summary": "Provides\u0020a\u0020method\u0020to\u0020replace\u0020a\u0020value\u0020with\u0020a\u0020fixed\u0020new\u0020one\u0020if\u0020different.",
-            "url": "classes/oihana-traits-alters-AlterValueTrait.html"
-        },                {
-            "fqsen": "\\oihana\\traits\\alters\\AlterValueTrait\u003A\u003AalterValue\u0028\u0029",
-            "name": "alterValue",
-            "summary": "Replace\u0020a\u0020value\u0020with\u0020a\u0020new\u0020one\u0020if\u0020different,\u0020otherwise\u0020keep\u0020the\u0020original.",
-            "url": "classes/oihana-traits-alters-AlterValueTrait.html#method_alterValue"
         },                {
             "fqsen": "\\oihana\\traits\\BindsTrait",
             "name": "BindsTrait",
@@ -3881,6 +4001,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/oihana-models-traits.html"
         },                {
+            "fqsen": "\\oihana\\models\\traits\\alters",
+            "name": "alters",
+            "summary": "",
+            "url": "namespaces/oihana-models-traits-alters.html"
+        },                {
             "fqsen": "\\oihana\\mysql\\enums",
             "name": "enums",
             "summary": "",
@@ -3906,6 +4031,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/oihana-routes-enums.html"
         },                {
+            "fqsen": "\\oihana\\routes\\helpers",
+            "name": "helpers",
+            "summary": "",
+            "url": "namespaces/oihana-routes-helpers.html"
+        },                {
             "fqsen": "\\oihana\\routes\\http",
             "name": "http",
             "summary": "",
@@ -3920,11 +4050,6 @@ Search.appendIndex(
             "name": "traits",
             "summary": "",
             "url": "namespaces/oihana-traits.html"
-        },                {
-            "fqsen": "\\oihana\\traits\\alters",
-            "name": "alters",
-            "summary": "",
-            "url": "namespaces/oihana-traits-alters.html"
         },                {
             "fqsen": "\\oihana\\traits\\strings",
             "name": "strings",

@@ -128,13 +128,13 @@
                                 <section>
                                         <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana.html">oihana</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-routes.html">routes</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-routes-enums.html">enums</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-models.html">models</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-models-enums.html">enums</a></li>
     </ul>
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    RouteFlag
+    Alter
 
     
     
@@ -150,16 +150,64 @@
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/enums/Alter.php"><a href="files/src-oihana-models-enums-alter.html"><abbr title="src/oihana/models/enums/Alter.php">Alter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 
     </aside>
 
-        
+            <p class="phpdocumentor-summary">Enumeration of all transformation or filter operations that can be applied
+to an object property or an array key.</p>
 
 
+    <section class="phpdocumentor-description"><p>Each constant represents a type of alteration that can be performed
+when normalizing or processing data within models or collections.</p>
+<p>Examples of usage include:</p>
+<ul>
+<li>Converting a value to a specific type (<code class="prettyprint">INT</code>, <code class="prettyprint">FLOAT</code>)</li>
+<li>Cleaning or normalizing arrays or strings (<code class="prettyprint">CLEAN</code>, <code class="prettyprint">NORMALIZE</code>)</li>
+<li>Parsing or serializing JSON (<code class="prettyprint">JSON_PARSE</code>, <code class="prettyprint">JSON_STRINGIFY</code>)</li>
+<li>Applying custom callbacks (<code class="prettyprint">CALL</code>)</li>
+<li>Extracting values via getters (<code class="prettyprint">GET</code>)</li>
+<li>Handling URLs or array transformations (<code class="prettyprint">URL</code>, <code class="prettyprint">ARRAY</code>)</li>
+</ul>
+</section>
 
+
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-models-enums-Alter.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\oihana\models\enums\AlterDocumentTrait">AlterDocumentTrait</abbr></span>
+                                        
+                                                 <section class="phpdocumentor-description"><p>For usage of alter rules in models.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
 
 
@@ -167,7 +215,7 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/oihana-routes-enums-RouteFlag.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-models-enums-Alter.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -179,68 +227,86 @@
 
 <h4 id="toc-constants">
     Constants
-    <a href="classes/oihana-routes-enums-RouteFlag.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-models-enums-Alter.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_DEFAULT_FLAG">DEFAULT_FLAG</a>
+    <a class="" href="classes/oihana-models-enums-Alter.html#constant_ARRAY">ARRAY</a>
     <span>
-        &nbsp;= &#039;defaultFlag&#039;                            </span>
+        &nbsp;= &#039;array&#039;                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_COUNT">HAS_COUNT</a>
+    <a class="" href="classes/oihana-models-enums-Alter.html#constant_CALL">CALL</a>
     <span>
-        &nbsp;= &#039;hasCount&#039;                            </span>
+        &nbsp;= &#039;call&#039;                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_DELETE">HAS_DELETE</a>
+    <a class="" href="classes/oihana-models-enums-Alter.html#constant_CLEAN">CLEAN</a>
     <span>
-        &nbsp;= &#039;hasDelete&#039;                            </span>
+        &nbsp;= &#039;clean&#039;                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_DELETE_ALL">HAS_DELETE_ALL</a>
+    <a class="" href="classes/oihana-models-enums-Alter.html#constant_FLOAT">FLOAT</a>
     <span>
-        &nbsp;= &#039;hasDeleteAll&#039;                            </span>
+        &nbsp;= &#039;float&#039;                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_DELETE_MULTIPLE">HAS_DELETE_MULTIPLE</a>
+    <a class="" href="classes/oihana-models-enums-Alter.html#constant_GET">GET</a>
     <span>
-        &nbsp;= &#039;hasDeleteMultiple&#039;                            </span>
+        &nbsp;= &#039;get&#039;                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_GET">HAS_GET</a>
+    <a class="" href="classes/oihana-models-enums-Alter.html#constant_INT">INT</a>
     <span>
-        &nbsp;= &#039;hasGet&#039;                            </span>
+        &nbsp;= &#039;int&#039;                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_LIST">HAS_LIST</a>
+    <a class="" href="classes/oihana-models-enums-Alter.html#constant_JSON_PARSE">JSON_PARSE</a>
     <span>
-        &nbsp;= &#039;hasList&#039;                            </span>
+        &nbsp;= &#039;jsonParse&#039;                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_PATCH">HAS_PATCH</a>
+    <a class="" href="classes/oihana-models-enums-Alter.html#constant_JSON_STRINGIFY">JSON_STRINGIFY</a>
     <span>
-        &nbsp;= &#039;hasPatch&#039;                            </span>
+        &nbsp;= &#039;jsonStringify&#039;                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_POST">HAS_POST</a>
+    <a class="" href="classes/oihana-models-enums-Alter.html#constant_LIST">LIST</a>
     <span>
-        &nbsp;= &#039;hasPost&#039;                            </span>
+        &nbsp;= &#039;list&#039;                            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_PUT">HAS_PUT</a>
+    <a class="" href="classes/oihana-models-enums-Alter.html#constant_NORMALIZE">NORMALIZE</a>
     <span>
-        &nbsp;= &#039;hasPut&#039;                            </span>
+        &nbsp;= &#039;normalize&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-models-enums-Alter.html#constant_NOT">NOT</a>
+    <span>
+        &nbsp;= &#039;not&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-models-enums-Alter.html#constant_URL">URL</a>
+    <span>
+        &nbsp;= &#039;url&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-models-enums-Alter.html#constant_VALUE">VALUE</a>
+    <span>
+        &nbsp;= &#039;value&#039;                            </span>
 </dt>
 
     </dl>
@@ -254,20 +320,20 @@
     <section class="phpdocumentor-constants">
         <h3 class="phpdocumentor-elements__header" id="constants">
             Constants
-            <a href="classes/oihana-routes-enums-RouteFlag.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/oihana-models-enums-Alter.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_DEFAULT_FLAG">
-        DEFAULT_FLAG
-        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_DEFAULT_FLAG" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_ARRAY">
+        ARRAY
+        <a href="classes/oihana-models-enums-Alter.html#constant_ARRAY" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/enums/Alter.php"><a href="files/src-oihana-models-enums-alter.html"><abbr title="src/oihana/models/enums/Alter.php">Alter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
     </aside>
 
@@ -276,8 +342,8 @@
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">DEFAULT_FLAG</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;defaultFlag&#039;</span>
+    <span class="phpdocumentor-signature__name">ARRAY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;array&#039;</span>
 </code>
 
 
@@ -289,16 +355,16 @@
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_HAS_COUNT">
-        HAS_COUNT
-        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_COUNT" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_CALL">
+        CALL
+        <a href="classes/oihana-models-enums-Alter.html#constant_CALL" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/enums/Alter.php"><a href="files/src-oihana-models-enums-alter.html"><abbr title="src/oihana/models/enums/Alter.php">Alter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
@@ -307,8 +373,8 @@
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">HAS_COUNT</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;hasCount&#039;</span>
+    <span class="phpdocumentor-signature__name">CALL</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;call&#039;</span>
 </code>
 
 
@@ -320,16 +386,16 @@
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_HAS_DELETE">
-        HAS_DELETE
-        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_DELETE" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_CLEAN">
+        CLEAN
+        <a href="classes/oihana-models-enums-Alter.html#constant_CLEAN" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/enums/Alter.php"><a href="files/src-oihana-models-enums-alter.html"><abbr title="src/oihana/models/enums/Alter.php">Alter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">34</span>
 
     </aside>
 
@@ -338,8 +404,8 @@
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">HAS_DELETE</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;hasDelete&#039;</span>
+    <span class="phpdocumentor-signature__name">CLEAN</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;clean&#039;</span>
 </code>
 
 
@@ -351,16 +417,16 @@
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_HAS_DELETE_ALL">
-        HAS_DELETE_ALL
-        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_DELETE_ALL" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_FLOAT">
+        FLOAT
+        <a href="classes/oihana-models-enums-Alter.html#constant_FLOAT" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/enums/Alter.php"><a href="files/src-oihana-models-enums-alter.html"><abbr title="src/oihana/models/enums/Alter.php">Alter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
     </aside>
 
@@ -369,8 +435,8 @@
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">HAS_DELETE_ALL</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;hasDeleteAll&#039;</span>
+    <span class="phpdocumentor-signature__name">FLOAT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;float&#039;</span>
 </code>
 
 
@@ -382,16 +448,16 @@
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_HAS_DELETE_MULTIPLE">
-        HAS_DELETE_MULTIPLE
-        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_DELETE_MULTIPLE" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_GET">
+        GET
+        <a href="classes/oihana-models-enums-Alter.html#constant_GET" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/enums/Alter.php"><a href="files/src-oihana-models-enums-alter.html"><abbr title="src/oihana/models/enums/Alter.php">Alter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
@@ -400,8 +466,8 @@
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">HAS_DELETE_MULTIPLE</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;hasDeleteMultiple&#039;</span>
+    <span class="phpdocumentor-signature__name">GET</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;get&#039;</span>
 </code>
 
 
@@ -413,16 +479,16 @@
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_HAS_GET">
-        HAS_GET
-        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_GET" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_INT">
+        INT
+        <a href="classes/oihana-models-enums-Alter.html#constant_INT" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/enums/Alter.php"><a href="files/src-oihana-models-enums-alter.html"><abbr title="src/oihana/models/enums/Alter.php">Alter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">16</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
@@ -431,8 +497,8 @@
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">HAS_GET</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;hasGet&#039;</span>
+    <span class="phpdocumentor-signature__name">INT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;int&#039;</span>
 </code>
 
 
@@ -444,16 +510,16 @@
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_HAS_LIST">
-        HAS_LIST
-        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_LIST" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_JSON_PARSE">
+        JSON_PARSE
+        <a href="classes/oihana-models-enums-Alter.html#constant_JSON_PARSE" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/enums/Alter.php"><a href="files/src-oihana-models-enums-alter.html"><abbr title="src/oihana/models/enums/Alter.php">Alter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">17</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 
     </aside>
 
@@ -462,8 +528,8 @@
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">HAS_LIST</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;hasList&#039;</span>
+    <span class="phpdocumentor-signature__name">JSON_PARSE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jsonParse&#039;</span>
 </code>
 
 
@@ -475,16 +541,16 @@
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_HAS_PATCH">
-        HAS_PATCH
-        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_PATCH" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_JSON_STRINGIFY">
+        JSON_STRINGIFY
+        <a href="classes/oihana-models-enums-Alter.html#constant_JSON_STRINGIFY" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/enums/Alter.php"><a href="files/src-oihana-models-enums-alter.html"><abbr title="src/oihana/models/enums/Alter.php">Alter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
     </aside>
 
@@ -493,8 +559,8 @@
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">HAS_PATCH</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;hasPatch&#039;</span>
+    <span class="phpdocumentor-signature__name">JSON_STRINGIFY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jsonStringify&#039;</span>
 </code>
 
 
@@ -506,16 +572,16 @@
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_HAS_POST">
-        HAS_POST
-        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_POST" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_LIST">
+        LIST
+        <a href="classes/oihana-models-enums-Alter.html#constant_LIST" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/enums/Alter.php"><a href="files/src-oihana-models-enums-alter.html"><abbr title="src/oihana/models/enums/Alter.php">Alter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">19</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
@@ -524,8 +590,8 @@
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">HAS_POST</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;hasPost&#039;</span>
+    <span class="phpdocumentor-signature__name">LIST</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;list&#039;</span>
 </code>
 
 
@@ -537,16 +603,16 @@
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_HAS_PUT">
-        HAS_PUT
-        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_PUT" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_NORMALIZE">
+        NORMALIZE
+        <a href="classes/oihana-models-enums-Alter.html#constant_NORMALIZE" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/enums/Alter.php"><a href="files/src-oihana-models-enums-alter.html"><abbr title="src/oihana/models/enums/Alter.php">Alter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
     </aside>
 
@@ -555,8 +621,101 @@
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">HAS_PUT</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;hasPut&#039;</span>
+    <span class="phpdocumentor-signature__name">NORMALIZE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;normalize&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_NOT">
+        NOT
+        <a href="classes/oihana-models-enums-Alter.html#constant_NOT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/enums/Alter.php"><a href="files/src-oihana-models-enums-alter.html"><abbr title="src/oihana/models/enums/Alter.php">Alter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">42</span>
+
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">NOT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;not&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_URL">
+        URL
+        <a href="classes/oihana-models-enums-Alter.html#constant_URL" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/enums/Alter.php"><a href="files/src-oihana-models-enums-alter.html"><abbr title="src/oihana/models/enums/Alter.php">Alter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">43</span>
+
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">URL</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;url&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_VALUE">
+        VALUE
+        <a href="classes/oihana-models-enums-Alter.html#constant_VALUE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/enums/Alter.php"><a href="files/src-oihana-models-enums-alter.html"><abbr title="src/oihana/models/enums/Alter.php">Alter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">44</span>
+
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">VALUE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;value&#039;</span>
 </code>
 
 
@@ -576,7 +735,7 @@
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/routes/enums/RouteFlag.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/models/enums/Alter.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -677,22 +836,25 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                        <li><a href="classes/oihana-routes-enums-RouteFlag.html#toc-constants">Constants</a></li>
+                                        <li><a href="classes/oihana-models-enums-Alter.html#toc-constants">Constants</a></li>
                                                                             </ul>
             </li>
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_DEFAULT_FLAG">DEFAULT_FLAG</a></li>
-                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_COUNT">HAS_COUNT</a></li>
-                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_DELETE">HAS_DELETE</a></li>
-                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_DELETE_ALL">HAS_DELETE_ALL</a></li>
-                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_DELETE_MULTIPLE">HAS_DELETE_MULTIPLE</a></li>
-                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_GET">HAS_GET</a></li>
-                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_LIST">HAS_LIST</a></li>
-                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_PATCH">HAS_PATCH</a></li>
-                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_POST">HAS_POST</a></li>
-                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_PUT">HAS_PUT</a></li>
+                                                    <li class=""><a href="classes/oihana-models-enums-Alter.html#constant_ARRAY">ARRAY</a></li>
+                                                    <li class=""><a href="classes/oihana-models-enums-Alter.html#constant_CALL">CALL</a></li>
+                                                    <li class=""><a href="classes/oihana-models-enums-Alter.html#constant_CLEAN">CLEAN</a></li>
+                                                    <li class=""><a href="classes/oihana-models-enums-Alter.html#constant_FLOAT">FLOAT</a></li>
+                                                    <li class=""><a href="classes/oihana-models-enums-Alter.html#constant_GET">GET</a></li>
+                                                    <li class=""><a href="classes/oihana-models-enums-Alter.html#constant_INT">INT</a></li>
+                                                    <li class=""><a href="classes/oihana-models-enums-Alter.html#constant_JSON_PARSE">JSON_PARSE</a></li>
+                                                    <li class=""><a href="classes/oihana-models-enums-Alter.html#constant_JSON_STRINGIFY">JSON_STRINGIFY</a></li>
+                                                    <li class=""><a href="classes/oihana-models-enums-Alter.html#constant_LIST">LIST</a></li>
+                                                    <li class=""><a href="classes/oihana-models-enums-Alter.html#constant_NORMALIZE">NORMALIZE</a></li>
+                                                    <li class=""><a href="classes/oihana-models-enums-Alter.html#constant_NOT">NOT</a></li>
+                                                    <li class=""><a href="classes/oihana-models-enums-Alter.html#constant_URL">URL</a></li>
+                                                    <li class=""><a href="classes/oihana-models-enums-Alter.html#constant_VALUE">VALUE</a></li>
                                             </ul>
                 </li>
             
@@ -714,7 +876,7 @@
     </section>
 </section>
         </div>
-        <a href="classes/oihana-routes-enums-RouteFlag.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/oihana-models-enums-Alter.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

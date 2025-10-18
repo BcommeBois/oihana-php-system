@@ -128,43 +128,70 @@
                                 <section>
                                         <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana.html">oihana</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-traits.html">traits</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-traits-alters.html">alters</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-models.html">models</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-models-traits.html">traits</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-models-traits-alters.html">alters</a></li>
     </ul>
 
     <article class="phpdocumentor-element -trait">
         <h2 class="phpdocumentor-content__title">
-    AlterUrlPropertyTrait
+    AlterNotPropertyTrait
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/alters/AlterUrlPropertyTrait.php"><a href="files/src-oihana-traits-alters-alterurlpropertytrait.html"><abbr title="src/oihana/traits/alters/AlterUrlPropertyTrait.php">AlterUrlPropertyTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/alters/AlterNotPropertyTrait.php"><a href="files/src-oihana-models-traits-alters-alternotpropertytrait.html"><abbr title="src/oihana/models/traits/alters/AlterNotPropertyTrait.php">AlterNotPropertyTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Provides a method to generate a URL string from a document property.</p>
+            <p class="phpdocumentor-summary">Provides an alteration to invert boolean values.</p>
 
 
-    <section class="phpdocumentor-description"><p>This trait depends on KeyValueTrait to safely read values from arrays or objects.</p>
-<p>Example usage:</p>
-<pre class="prettyprint"><code class="language-php">use oihana\traits\alters\AlterUrlPropertyTrait;
+    <section class="phpdocumentor-description"><p>This trait defines a single alteration type <code class="prettyprint">Alter::NOT</code> which will invert a boolean value
+or an array of boolean values. Non-boolean values will be cast to boolean before inversion.</p>
+<p>Example usage in <code class="prettyprint">AlterDocumentTrait</code>:</p>
+<pre class="prettyprint"><code class="language-php">$this-&gt;alters = [
+    'active' =&gt; Alter::NOT,          // single boolean
+    'flags'  =&gt; Alter::NOT,          // array of booleans
+];
 
-$document = ['id' =&gt; 42];
-$url = $this-&gt;alterUrlProperty($document, ['/base/path']);
-// returns '/base/path/42'
+$data = [
+    'active' =&gt; true,
+    'flags'  =&gt; [true, false, true],
+];
+
+$result = $this-&gt;alter($data);
+// $result = [
+//     'active' =&gt; false,
+//     'flags'  =&gt; [false, true, false],
+// ]
 </code></pre>
+<p>Supported input types:</p>
+<ul>
+<li><code class="prettyprint">bool</code>           → returns the opposite boolean.</li>
+<li><code class="prettyprint">array&lt;bool&gt;</code>    → returns a new array with all elements inverted.</li>
+<li>any other value  → cast to boolean and inverted.</li>
+</ul>
 </section>
 
 
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-traits-alters-AlterUrlPropertyTrait.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-models-traits-alters-AlterNotPropertyTrait.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (ekameleon)</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">since</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
@@ -180,7 +207,7 @@ $url = $this-&gt;alterUrlProperty($document, ['/base/path']);
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/oihana-traits-alters-AlterUrlPropertyTrait.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-models-traits-alters-AlterNotPropertyTrait.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -195,16 +222,16 @@ $url = $this-&gt;alterUrlProperty($document, ['/base/path']);
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/oihana-traits-alters-AlterUrlPropertyTrait.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-models-traits-alters-AlterNotPropertyTrait.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-traits-alters-AlterUrlPropertyTrait.html#method_alterUrlProperty">alterUrlProperty()</a>
+    <a class="" href="classes/oihana-models-traits-alters-AlterNotPropertyTrait.html#method_alterNotProperty">alterNotProperty()</a>
     <span>
-                                &nbsp;: string    </span>
+                                &nbsp;: bool|array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd>Generates a document URL using a property as the final path segment.</dd>
+<dd>Invert a boolean value or an array of booleans.</dd>
 
     </dl>
 
@@ -218,7 +245,7 @@ $url = $this-&gt;alterUrlProperty($document, ['/base/path']);
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/oihana-traits-alters-AlterUrlPropertyTrait.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/oihana-models-traits-alters-AlterNotPropertyTrait.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -227,23 +254,23 @@ $url = $this-&gt;alterUrlProperty($document, ['/base/path']);
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_alterUrlProperty">
-        alterUrlProperty()
-        <a href="classes/oihana-traits-alters-AlterUrlPropertyTrait.html#method_alterUrlProperty" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_alterNotProperty">
+        alterNotProperty()
+        <a href="classes/oihana-models-traits-alters-AlterNotPropertyTrait.html#method_alterNotProperty" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/alters/AlterUrlPropertyTrait.php"><a href="files/src-oihana-traits-alters-alterurlpropertytrait.html"><abbr title="src/oihana/traits/alters/AlterUrlPropertyTrait.php">AlterUrlPropertyTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/alters/AlterNotPropertyTrait.php"><a href="files/src-oihana-models-traits-alters-alternotpropertytrait.html"><abbr title="src/oihana/models/traits/alters/AlterNotPropertyTrait.php">AlterNotPropertyTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">68</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Generates a document URL using a property as the final path segment.</p>
+        <p class="phpdocumentor-summary">Invert a boolean value or an array of booleans.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">alterUrlProperty</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|object&nbsp;</span><span class="phpdocumentor-signature__argument__name">$document</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$options</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$isArray</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$modified</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$propertyName</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;id&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+                    <span class="phpdocumentor-signature__name">alterNotProperty</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$modified</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool|array&lt;string|int, mixed&gt;</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -252,33 +279,11 @@ $url = $this-&gt;alterUrlProperty($document, ['/base/path']);
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$document</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|object</span>
+                <span class="phpdocumentor-signature__argument__name">$value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Document to read the property from.</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$options</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Optional array of parameters :</p>
-<ul>
-<li>[0] string Base path prefix</li>
-<li>[1] string Property name to use (default 'id')</li>
-</ul>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$isArray</span>
-                : <span class="phpdocumentor-signature__argument__return-type">bool|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Optionally force document type (true=array, false=object)</p>
+                    <section class="phpdocumentor-description"><p>The value to alter. Can be a boolean, array of booleans, or any other value.</p>
 </section>
 
             </dd>
@@ -287,30 +292,52 @@ $url = $this-&gt;alterUrlProperty($document, ['/base/path']);
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Reference variable updated if URL was altered</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$propertyName</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">&#039;id&#039;</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Default property name if not specified in options (default 'id')</p>
+                    <section class="phpdocumentor-description"><p>Reference flag set to true if the value is altered.</p>
 </section>
 
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-models-traits-alters-AlterNotPropertyTrait.html#method_alterNotProperty#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$processor = new class {
+use \oihana\traits\alters\AlterNotPropertyTrait;
+};
+
+// Single boolean
+$modified = false;
+$result = $processor-&gt;alterNotProperty(true, $modified);
+// $result === false
+// $modified === true
+
+// Array of booleans
+$array = [true, false, true];
+$result = $processor-&gt;alterNotProperty($array, $modified);
+// $result === [false, true, false]
+// $modified === true
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">string</span>
+        <span class="phpdocumentor-signature__response_type">bool|array&lt;string|int, mixed&gt;</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>The generated URL</p>
+                <section class="phpdocumentor-description"><p>Returns the inverted boolean or array of inverted booleans.</p>
 </section>
 
             </section>
@@ -322,7 +349,7 @@ $url = $this-&gt;alterUrlProperty($document, ['/base/path']);
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/traits/alters/AlterUrlPropertyTrait.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/models/traits/alters/AlterNotPropertyTrait.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -423,13 +450,13 @@ $url = $this-&gt;alterUrlProperty($document, ['/base/path']);
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                                <li><a href="classes/oihana-traits-alters-AlterUrlPropertyTrait.html#toc-methods">Methods</a></li>
+                                                                                <li><a href="classes/oihana-models-traits-alters-AlterNotPropertyTrait.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
                                                 <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-traits-alters-AlterUrlPropertyTrait.html#method_alterUrlProperty">alterUrlProperty()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-alters-AlterNotPropertyTrait.html#method_alterNotProperty">alterNotProperty()</a></li>
                                     </ul>
             </li>
                     </ul>
@@ -449,7 +476,7 @@ $url = $this-&gt;alterUrlProperty($document, ['/base/path']);
     </section>
 </section>
         </div>
-        <a href="classes/oihana-traits-alters-AlterUrlPropertyTrait.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/oihana-models-traits-alters-AlterNotPropertyTrait.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 
