@@ -13,6 +13,17 @@ use oihana\enums\http\HttpMethod;
 use Somnambulist\Components\Validation\Factory as Validator;
 use Somnambulist\Components\Validation\Rule;
 
+class MockValidatorController
+{
+    public function __construct( Container $container )
+    {
+        $this->container = $container;
+        $this->validator = new Validator();
+    }
+
+    use ValidatorTrait;
+}
+
 final class ValidatorTraitTest extends TestCase
 {
     private object $controller;
@@ -22,14 +33,7 @@ final class ValidatorTraitTest extends TestCase
     {
         $this->container = new Container();
 
-        // Create a concrete test class that uses the trait
-        $this->controller = new class
-        {
-            use ValidatorTrait;
-        };
-
-        // Manually inject the container
-        $this->controller->container = $this->container;
+        $this->controller = new MockValidatorController( $this->container ) ;
     }
 
     /**
@@ -58,7 +62,7 @@ final class ValidatorTraitTest extends TestCase
      */
     public function testValidatorSetterWithNull(): void
     {
-        $this->controller->validator = null;
+        $this->controller->validator = new Validator();
 
         $this->assertInstanceOf(Validator::class, $this->controller->validator);
     }
