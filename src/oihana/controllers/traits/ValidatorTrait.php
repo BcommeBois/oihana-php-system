@@ -41,25 +41,10 @@ trait ValidatorTrait
     public array $rules = [] ;
 
     /**
-     * The validator reference with get hook.
+     * The validator reference.
      * @var Validator
      */
-    public Validator $validator
-    {
-        get
-        {
-            if( !isset( $this->validator ) )
-            {
-                $this->validator = new Validator() ;
-            }
-            return $this->validator ;
-        }
-
-        set( ?Validator $value )
-        {
-            $this->validator = $value ?? new Validator() ;
-        }
-    }
+    public Validator $validator ;
 
     /**
      * Register the extra validator's rules.
@@ -129,8 +114,7 @@ trait ValidatorTrait
     {
         $validator = $init[ ControllerParam::VALIDATOR ] ?? null ;
 
-        $this->validator = $validator instanceof Validator ? $validator : new Validator() ;
-
+        $this->validator   = $validator instanceof Validator ? $validator : new Validator() ;
         $this->customRules = $init[ ControllerParam::CUSTOM_RULES ] ?? $this->customRules ;
         $this->rules       = $init[ ControllerParam::RULES        ] ?? $this->rules ;
 
