@@ -13,10 +13,9 @@ use oihana\controllers\enums\ControllerParam;
 /**
  * Retrieves a controller instance from a PSR-11 container if available.
  *
- * This function attempts to fetch a controller by its identifier (`$id`)
- * from the given container. If the container is provided and contains the
- * specified entry, it is resolved and returned if it is an instance of
- * {@see Controller}. Otherwise, the optional `$default` controller is returned.
+ * This function attempts to fetch a controller by its identifier (`$id`) from the given container.
+ * If the container is provided and contains the specified entry, it is resolved and returned
+ * if it is an instance of {@see Controller}. Otherwise, the optional `$default` controller is returned.
  *
  * @param array|string|null|Controller $definition The controller definition within the container.
  * @param ContainerInterface|null      $container  The PSR-11 container to fetch the controller from (optional).
@@ -47,12 +46,8 @@ function getController
 
     if( is_string( $definition ) && $container?->has( $definition ) )
     {
-        $controller = $container->get( $definition ) ;
-        if( $controller instanceof Controller )
-        {
-            return $controller  ;
-        }
+        $definition = $container->get( $definition ) ;
     }
 
-    return $default ;
+    return $definition instanceof Controller ? $definition : $default ;
 }
