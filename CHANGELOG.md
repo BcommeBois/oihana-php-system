@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Added
 
+- oihana\controllers\helpers\getController
+
 - oihana\models\helpers\cacheCollection
 - oihana\models\helpers\getModel
 
@@ -26,6 +28,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 - oihana\models\enums\Alter
 - oihana\models\traits\alters\AlterNotPropertyTrait
+
+- oihana\validations\rules\ColorRule
+- oihana\validations\rules\ContainerRule (abstract)
+- oihana\validations\rules\InstanceOfRule
+- oihana\validations\rules\ISO8601DateRule
+- oihana\validations\rules\PostalCodeRule
+- oihana\validations\rules\StartsWithRule
 
 ### Changed
 
