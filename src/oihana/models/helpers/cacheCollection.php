@@ -10,8 +10,7 @@ use MatthiasMullie\Scrapbook\KeyValueStore;
 use MatthiasMullie\Scrapbook\Psr16\SimpleCache;
 
 /**
- * Creates a namespaced cache collection from a Memcached store definition
- * registered in the dependency injection container.
+ * Creates a namespaced cache collection from a Key/Value store definition registered in the dependency injection container.
  *
  * A cache collection is an isolated namespace within the same backend,
  * allowing logical separation of cached values (e.g. per feature, domain, or module).
