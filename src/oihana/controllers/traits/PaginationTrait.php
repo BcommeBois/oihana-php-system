@@ -2,9 +2,9 @@
 
 namespace oihana\controllers\traits ;
 
-use RuntimeException;
+use xyz\oihana\schema\Pagination;
 
-use fr\ooop\schema\Pagination;
+use ReflectionException;
 
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
@@ -33,13 +33,14 @@ trait PaginationTrait
      * This method retrieves the default pagination settings for the application,
      * either from the provided initialization array or from the dependency injection container.
      *
-     * @param array                   $init      Optional initialization array (e.g., ['pagination' => Pagination instance]).
+     * @param array $init Optional initialization array (e.g., ['pagination' => Pagination instance]).
      * @param ContainerInterface|null $container Optional DI container for retrieving the App instance.
      *
      * @return static Returns the current controller instance for method chaining.
      *
-     * @throws NotFoundExceptionInterface If the container is used and the App class is not found.
      * @throws ContainerExceptionInterface If the container throws an internal error.
+     * @throws NotFoundExceptionInterface If the container is used and the App class is not found.
+     * @throws ReflectionException
      */
     public function initializePagination( array $init = [] , ?ContainerInterface $container = null ):static
     {

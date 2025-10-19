@@ -5,12 +5,15 @@ namespace oihana\controllers\traits ;
 use oihana\enums\Char;
 use oihana\enums\http\HttpStatusCode;
 use oihana\enums\Output;
+use oihana\logging\LoggerTrait;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 trait StatusTrait
 {
-    use JsonTrait ;
+    use BaseUrlTrait ,
+        JsonTrait    ,
+        LoggerTrait  ;
 
     /**
      * Formats a specific error status message with a code and an errors array representation of all errors.

@@ -32,7 +32,6 @@ class LoggerTraitTest extends TestCase
 {
     private Container       $container;
     private LoggerInterface $logger;
-    private LoggerInterface $loggerMock;
     private object          $testObj ;
 
     protected function setUp(): void
@@ -41,7 +40,6 @@ class LoggerTraitTest extends TestCase
 
         $this->container  = new Container() ;
         $this->logger     = new Logger( $tmpDir ) ;
-        $this->loggerMock = $this->createMock(LoggerInterface::class);
 
         $this->container->set( 'my-logger' , $this->logger );
 

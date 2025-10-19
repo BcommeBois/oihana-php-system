@@ -2,6 +2,9 @@
 
 namespace oihana\logging;
 
+use Stringable;
+use Throwable;
+
 use Psr\Log\LoggerInterface ;
 use Psr\Log\LoggerTrait;
 use Psr\Log\LogLevel ;
@@ -9,8 +12,6 @@ use Psr\Log\LogLevel ;
 use oihana\enums\Char;
 use oihana\traits\ToStringTrait;
 
-use Stringable;
-use Throwable;
 use function oihana\core\strings\fastFormat;
 
 /**

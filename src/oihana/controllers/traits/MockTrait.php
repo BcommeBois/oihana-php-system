@@ -17,7 +17,7 @@ trait MockTrait
      * @param bool|array $init
      * @return $this
      */
-    public function initializeMock( bool|array $init = [] ):static
+    public function initializeMock( bool|array $init = [] ) :static
     {
         $this->mock = is_bool( $init ) ? $init : ( $init[ ControllerParam::MOCK ] ?? null ) ;
         return $this ;

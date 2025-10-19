@@ -14,7 +14,7 @@ use oihana\files\exceptions\DirectoryException;
 use oihana\files\exceptions\FileException;
 use oihana\logging\enums\LoggerParam;
 
-use fr\ooop\schema\Log;
+use xyz\oihana\schema\Log;
 
 use function oihana\files\clearFile;
 use function oihana\files\countFileLines;

@@ -2,6 +2,7 @@
 
 namespace oihana\controllers\traits ;
 
+use oihana\traits\ContainerTrait;
 use Psr\Http\Message\ResponseInterface as Response;
 
 use DI\DependencyException;
@@ -22,7 +23,8 @@ use Somnambulist\Components\Validation\Validation;
  */
 trait ValidatorTrait
 {
-    use ControllerTrait ,
+    use ContainerTrait ,
+        ControllerTrait ,
         StatusTrait ;
 
     /**
@@ -39,10 +41,25 @@ trait ValidatorTrait
     public array $rules = [] ;
 
     /**
-     * The validator reference.
+     * The validator reference with get hook.
      * @var Validator
      */
-    protected Validator $validator ;
+    public Validator $validator
+    {
+        get
+        {
+            if( !isset( $this->validator ) )
+            {
+                $this->validator = new Validator() ;
+            }
+            return $this->validator ;
+        }
+
+        set( ?Validator $value )
+        {
+            $this->validator = $value ?? new Validator() ;
+        }
+    }
 
     /**
      * Register the extra validator's rules.
@@ -77,7 +94,7 @@ trait ValidatorTrait
      * @param int|string $code
      * @return Response|null
      */
-    protected function getValidatorError( ?Response $response , Validation $validation , array $errors = [] , int|string $code = 400 ) : ?Response
+    public function getValidatorError( ?Response $response , Validation $validation , array $errors = [] , int|string $code = 400 ) : ?Response
     {
         if( $validation->fails() )
         {
@@ -91,7 +108,7 @@ trait ValidatorTrait
      * Overrides this method to extends the default rules definitions.
      * @return array
      */
-    protected function initCustomValidationRules() :array
+    public function initCustomValidationRules() :array
     {
         return $this->customRules ;
     }
@@ -101,19 +118,24 @@ trait ValidatorTrait
      *
      * By default, creates a new Validator instance and initialize it.
      *
-     * @param null|array|Validator $init
+     * @param array $init
      *
      * @return static
      *
      * @throws DependencyException
      * @throws NotFoundException
      */
-    public function initializeValidator( null|array|Validator $init = null ) :static
+    public function initializeValidator( array $init = [] ) :static
     {
+        $validator = $init[ ControllerParam::VALIDATOR ] ?? null ;
+
+        $this->validator = $validator instanceof Validator ? $validator : new Validator() ;
+
         $this->customRules = $init[ ControllerParam::CUSTOM_RULES ] ?? $this->customRules ;
         $this->rules       = $init[ ControllerParam::RULES        ] ?? $this->rules ;
-        $this->validator   = $init[ ControllerParam::VALIDATOR    ] ?? new Validator() ;
+
         $this->addRules( $this->initCustomValidationRules() ) ;
+
         return $this ;
     }
 
@@ -126,7 +148,7 @@ trait ValidatorTrait
      *
      * @return array
      */
-    protected function prepareRules( ?string $method = null ) :array
+    public function prepareRules( ?string $method = null ) :array
     {
         return array_merge( $this->rules[ HttpMethod::ALL ] ?? [] , $this->rules[ $method ] ?? [] ) ;
     }

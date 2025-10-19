@@ -182,11 +182,11 @@ trait GetParamTrait
         if( $request )
         {
             $params = $request->getQueryParams();
-            if( is_countable($params) && count($params) > 0 )
+            if( is_countable( $params ) && count( $params ) > 0 )
             {
                 return $params ;
             }
-            return (array) $request->getParsedBody();
+            return (array) $request->getParsedBody() ;
         }
         return null  ;
     }

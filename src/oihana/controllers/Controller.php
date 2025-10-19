@@ -2,9 +2,12 @@
 
 namespace oihana\controllers ;
 
-use DI\Container;
+use ReflectionException;
 
-use oihana\controllers\traits\PathTrait;
+use DI\Container;
+use DI\DependencyException;
+use DI\NotFoundException;
+
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -21,6 +24,7 @@ use oihana\controllers\traits\HttpCacheTrait;
 use oihana\controllers\traits\JsonTrait;
 use oihana\controllers\traits\MockTrait;
 use oihana\controllers\traits\PaginationTrait;
+use oihana\controllers\traits\PathTrait;
 use oihana\controllers\traits\RouterTrait;
 use oihana\controllers\traits\StatusTrait;
 use oihana\controllers\traits\ValidatorTrait;
@@ -31,16 +35,32 @@ use oihana\traits\ConfigTrait;
 use oihana\traits\ContainerTrait;
 use oihana\traits\ToStringTrait;
 
+/**
+ * Base abstract Controller.
+ *
+ * Provides the foundational logic for all controllers, including:
+ * dependency injection, logging, routing, validation, caching,
+ * JSON handling, benchmarking, configuration, and API initialization.
+ *
+ * This class is meant to be extended by all application controllers.
+ *
+ * @package oihana\controllers
+ */
 abstract class Controller
 {
     /**
      * Creates a new Controller instance.
+     *
      * @param Container $container The DI container reference to initialize the controller.
      * @param array $init The optional properties to passed-in to initialize the object.
      * - string $path : The path expression of the component.
      * - Validator $validator : The optional validator of the controller (by default use a basic Validator instance).
+     *
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
+     * @throws DependencyException
+     * @throws NotFoundException
+     * @throws ReflectionException
      */
     public function __construct( Container $container , array $init = [] )
     {

@@ -16,7 +16,7 @@ trait ParamsTrait
      * @param array $init
      * @return static
      */
-    protected function initializeParams( array $init = [] ) :static
+    public function initializeParams( array $init = [] ) :static
     {
         $this->params = $init[ ControllerParam::PARAMS ] ?? $this->params ;
         return $this ;

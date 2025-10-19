@@ -4,6 +4,7 @@ namespace oihana\controllers\traits ;
 
 use oihana\controllers\enums\ControllerParam;
 use oihana\enums\http\HttpHeader;
+use oihana\enums\http\HttpStatusCode;
 use oihana\enums\JsonParam;
 use oihana\files\enums\FileMimeType;
 
@@ -28,7 +29,7 @@ trait JsonTrait
      * The default json options used in the controller.
      * @var int
      */
-    protected int $jsonOptions = JsonParam::JSON_NONE ;
+    public int $jsonOptions = JsonParam::JSON_NONE ;
 
     /**
      * Initialize the internal $jsonOptions property.
@@ -40,7 +41,7 @@ trait JsonTrait
      */
     public function initializeJsonOptions( array $init = [] , ?ContainerInterface $container = null ):static
     {
-        $flags = $init[ ControllerParam::JSON_OPTIONS ] ?? null;
+        $flags = $init[ ControllerParam::JSON_OPTIONS ] ?? JsonParam::JSON_NONE ;
 
         if( $flags == null && $container instanceof ContainerInterface && $container->has( ControllerParam::JSON_OPTIONS ) )
         {
@@ -59,7 +60,7 @@ trait JsonTrait
      * @param int $status
      * @return Response
      */
-    public function jsonResponse( Response $response , mixed $data = null , int $status = 200 ): Response
+    public function jsonResponse( Response $response , mixed $data = null , int $status = HttpStatusCode::OK ): Response
     {
         $response->getBody()->write( json_encode( $data , $this->jsonOptions ) ) ;
         return $response->withStatus( $status )

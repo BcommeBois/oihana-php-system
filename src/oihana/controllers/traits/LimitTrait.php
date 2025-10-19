@@ -2,7 +2,7 @@
 
 namespace oihana\controllers\traits ;
 
-use fr\ooop\schema\Pagination;
+use xyz\oihana\schema\Pagination;
 
 /**
  * The limit/offset trait.
@@ -38,12 +38,12 @@ trait LimitTrait
      * @param array $init
      * @return static
      */
-    protected function initializeLimit( array $init = [] ):static
+    public function initializeLimit( array $init = [] ):static
     {
-        $this->limit    = $init[ Pagination::LIMIT      ] ?? $this->limit    ;
-        $this->maxLimit = $init[ Pagination::MAX_LIMIT  ] ?? $this->maxLimit ;
-        $this->minLimit = $init[ Pagination::MIN_LIMIT  ] ?? $this->minLimit ;
-        $this->offset   = $init[ Pagination::OFFSET     ] ?? $this->offset   ;
+        $this->limit    = $init[ Pagination::LIMIT     ] ?? $this->limit    ;
+        $this->maxLimit = $init[ Pagination::MAX_LIMIT ] ?? $this->maxLimit ;
+        $this->minLimit = $init[ Pagination::MIN_LIMIT ] ?? $this->minLimit ;
+        $this->offset   = $init[ Pagination::OFFSET    ] ?? $this->offset   ;
         return $this ;
     }
 }

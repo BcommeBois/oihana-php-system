@@ -1,8 +1,9 @@
 <?php
 
-namespace oihana\controllers\traits;
+namespace tests\oihana\controllers\traits;
 
 use DI\NotFoundException;
+use oihana\controllers\traits\GetParamTrait;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 use oihana\enums\http\HttpParamStrategy;
@@ -14,7 +15,6 @@ final class GetParamTraitTest extends TestCase
 
     protected function setUp(): void
     {
-        // Initialize default strategy
         $this->paramsStrategy = HttpParamStrategy::BOTH ;
     }
 

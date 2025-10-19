@@ -2,8 +2,9 @@
 
 namespace oihana\controllers\traits\prepare;
 
-use fr\ooop\schema\Pagination;
+use xyz\oihana\schema\Pagination;
 
+use oihana\controllers\traits\GetParamTrait;
 use oihana\controllers\traits\LimitTrait;
 use oihana\controllers\traits\PaginationTrait;
 use oihana\enums\FilterOption;
@@ -12,7 +13,8 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 trait PrepareLimit
 {
-    use PaginationTrait ,
+    use GetParamTrait ,
+        PaginationTrait ,
         LimitTrait ;
 
     /**
@@ -59,7 +61,7 @@ trait PrepareLimit
 
         if( !is_int( $value ) )
         {
-            $value = intval( $this->{ $property } ?? $this->pagination->{ $property } ?? $defaultValue );
+            $value = intval( $this->{ $property } ?? $this->pagination?->{ $property } ?? $defaultValue );
         }
 
         if( $flag )

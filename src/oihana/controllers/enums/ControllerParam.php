@@ -2,9 +2,10 @@
 
 namespace oihana\controllers\enums;
 
-use fr\ooop\schema\constants\traits\PaginationTrait;
 use oihana\controllers\enums\traits\ControllerParamTrait;
 use oihana\reflect\traits\ConstantsTrait;
+
+use xyz\oihana\schema\constants\traits\PaginationTrait;
 
 /**
  * The enumeration of all the common controller's parameters.
