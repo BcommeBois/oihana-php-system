@@ -14,7 +14,6 @@ use stdClass;
 
 use function oihana\models\helpers\cacheCollection;
 
-
 class CacheCollectionTest extends TestCase
 {
     /**
