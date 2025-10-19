@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Added
 
+- oihana\models\helpers\cacheCollection
 - oihana\models\helpers\getModel
 
 - oihana\mysql\enums\traits\MysqlParamTrait
