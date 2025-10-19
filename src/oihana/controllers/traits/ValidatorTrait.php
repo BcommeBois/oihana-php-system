@@ -24,7 +24,6 @@ use Somnambulist\Components\Validation\Validation;
 trait ValidatorTrait
 {
     use ContainerTrait ,
-        ControllerTrait ,
         StatusTrait ;
 
     /**

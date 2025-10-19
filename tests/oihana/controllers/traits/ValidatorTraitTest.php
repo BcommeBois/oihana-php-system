@@ -125,8 +125,8 @@ final class ValidatorTraitTest extends TestCase
     public function testInitializeValidatorWithRules(): void
     {
         $rules = [
-            HttpMethod::POST => ['name' => 'required|string'],
-            HttpMethod::PUT => ['name' => 'required|string', 'id' => 'required|integer'],
+            HttpMethod::POST => [ 'name' => 'required|string'],
+            HttpMethod::PUT  => [ 'name' => 'required|string', 'id' => 'required|integer'],
         ];
         $init = [
             ControllerParam::RULES => $rules,

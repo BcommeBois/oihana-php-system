@@ -5,11 +5,14 @@ namespace oihana\controllers\traits;
 use Exception;
 use oihana\controllers\Controller;
 use oihana\controllers\enums\ControllerParam;
+use oihana\traits\ContainerTrait;
 
 // FIXME : replace this method and use the 'oihana/controllers/helper/getController' function
 
 trait ControllerTrait
 {
+    use ContainerTrait ;
+    
     /**
      * Returns a Controller reference with a specific definition.
      * @param array|string|null|Controller $definition
@@ -20,7 +23,12 @@ trait ControllerTrait
      * @param string|null $debugMethod
      * @return ?Controller
      */
-    public function getController( array|string|null|Controller $definition , ?string $debugMethod = null ):?Controller
+    public function getController
+    (
+        array|string|null|Controller $definition ,
+        string|null                  $debugMethod = null
+    )
+    :?Controller
     {
         try
         {
