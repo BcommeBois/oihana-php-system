@@ -15,6 +15,7 @@
     displayDetailsOnSkippedTests="true"
     displayDetailsOnTestsThatTriggerNotices="true"
     displayDetailsOnTestsThatTriggerWarnings="true"
+    executionOrder="depends,defects"
     failOnEmptyTestSuite="true"
     failOnIncomplete="true"
     failOnRisky="true"
