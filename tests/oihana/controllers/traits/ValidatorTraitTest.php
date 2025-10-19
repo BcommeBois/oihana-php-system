@@ -2,6 +2,9 @@
 
 namespace tests\oihana\controllers\traits;
 
+use DI\DependencyException;
+use DI\NotFoundException;
+use PHPUnit\Framework\MockObject\Exception;
 use PHPUnit\Framework\TestCase;
 
 use DI\Container;
@@ -27,12 +30,12 @@ class MockValidatorController
 final class ValidatorTraitTest extends TestCase
 {
     private object $controller;
+
     private Container $container;
 
     protected function setUp(): void
     {
-        $this->container = new Container();
-
+        $this->container  = new Container();
         $this->controller = new MockValidatorController( $this->container ) ;
     }
 
@@ -42,7 +45,6 @@ final class ValidatorTraitTest extends TestCase
     public function testValidatorGetterLazyInitialization(): void
     {
         $validator = $this->controller->validator;
-
         $this->assertInstanceOf(Validator::class, $validator);
     }
 
@@ -52,9 +54,9 @@ final class ValidatorTraitTest extends TestCase
     public function testValidatorSetter(): void
     {
         $customValidator = new Validator();
-        $this->controller->validator = $customValidator;
+        $this->controller->validator = $customValidator ;
 
-        $this->assertSame($customValidator, $this->controller->validator);
+        $this->assertSame( $customValidator , $this->controller->validator ) ;
     }
 
     /**
@@ -63,7 +65,6 @@ final class ValidatorTraitTest extends TestCase
     public function testValidatorSetterWithNull(): void
     {
         $this->controller->validator = new Validator();
-
         $this->assertInstanceOf(Validator::class, $this->controller->validator);
     }
 
@@ -72,7 +73,7 @@ final class ValidatorTraitTest extends TestCase
      */
     public function testInitializeValidatorEmpty(): void
     {
-        $result = $this->controller->initializeValidator([]);
+        $result = $this->controller->initializeValidator();
 
         $this->assertSame($this->controller, $result);
         $this->assertInstanceOf(Validator::class, $this->controller->validator);
@@ -80,25 +81,33 @@ final class ValidatorTraitTest extends TestCase
 
     /**
      * Test initializeValidator with custom validator
+     * @return void
+     * @throws DependencyException
+     * @throws NotFoundException
      */
     public function testInitializeValidatorWithCustomValidator(): void
     {
         $customValidator = new Validator();
-        $init = [
-            ControllerParam::VALIDATOR => $customValidator,
+        $init =
+        [
+            ControllerParam::VALIDATOR => $customValidator ,
         ];
 
-        $this->controller->initializeValidator($init);
+        $this->controller->initializeValidator( $init ) ;
 
-        $this->assertSame($customValidator, $this->controller->validator);
+        $this->assertSame( $customValidator, $this->controller->validator );
     }
 
     /**
      * Test initializeValidator with custom rules
+     * @return void
+     * @throws DependencyException
+     * @throws NotFoundException
      */
     public function testInitializeValidatorWithCustomRules(): void
     {
-        $customRules = [
+        $customRules =
+            [
             'email' => 'email_rule',
             'phone' => 'phone_rule',
         ];
@@ -107,7 +116,6 @@ final class ValidatorTraitTest extends TestCase
         ];
 
         $this->controller->initializeValidator($init);
-
         $this->assertEquals($customRules, $this->controller->customRules);
     }
 
@@ -131,13 +139,18 @@ final class ValidatorTraitTest extends TestCase
 
     /**
      * Test addRules with Rule instances
+     * @return void
+     * @throws DependencyException
+     * @throws NotFoundException
+     * @throws Exception
      */
     public function testAddRulesWithRuleInstances(): void
     {
-        $mockRule = $this->createMock(Rule::class);
+        $mockRule = $this->createMock(Rule::class ) ;
 
-        $this->controller->addRules([
-            'test_field' => $mockRule,
+        $this->controller->addRules
+        ([
+            'test_field' => $mockRule ,
         ]);
 
         // The validator should accept the rule
