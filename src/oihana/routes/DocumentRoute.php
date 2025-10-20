@@ -31,10 +31,9 @@ class DocumentRoute extends Route
         {
             $routes = [] ;
 
-            // COUNT/LIST/POST : /route
-
             $route = $this->getRoute() ;
-
+            
+            // COUNT/LIST/POST : /route
             $this->list    ( $routes , $route ) ;
             $this->count   ( $routes , $route ) ;
             $this->options ( $routes , $route , $this->hasPost ) ;
