@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+            <title>Oihana Php System</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <link rel="icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/base.css">
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/template.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism-okaidia.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
+                <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+        <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/template.js"></script>
+        <script src="js/search.js"></script>
+        <script defer src="js/searchIndex.js"></script>
+    </head>
+<body id="top">
+    <header class="phpdocumentor-header phpdocumentor-section">
+    <h1 class="phpdocumentor-title">
+    <a href="" class="phpdocumentor-title__link">
+        <img src="assets/images/oihana-php-system-logo-inline-512x160.png" alt="Oihana PHP System" style="width: 128px; height: 40px;"/>
+    </a>
+</h1>    <input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button" />
+    <label class="phpdocumentor-header__menu-icon" for="menu-button">
+        <i class="fas fa-bars"></i>
+    </label>
+    <section data-search-form class="phpdocumentor-search">
+    <label>
+        <span class="visually-hidden">Search for</span>
+        <svg class="phpdocumentor-search__icon" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" stroke-width="2"/>
+            <line x1="12.4892" y1="12.2727" x2="19.1559" y2="18.9393" stroke="currentColor" stroke-width="3"/>
+        </svg>
+        <input type="search" class="phpdocumentor-field phpdocumentor-search__field" placeholder="Loading .." disabled />
+    </label>
+</section>
+
+    <nav class="phpdocumentor-topnav">
+    <ul class="phpdocumentor-topnav__menu">
+                        <li class="phpdocumentor-topnav__menu-item -social">
+                <a href="https://github.com/BcommeBois/oihana-php-system">
+                    <span>
+                                                                        <i class="fab fa-github"></i>
+                                                
+                    </span>
+                </a>
+            </li>
+                </ul>
+</nav>
+</header>
+
+    <main class="phpdocumentor">
+        <div class="phpdocumentor-section">
+            <input class="phpdocumentor-sidebar__menu-button" type="checkbox" id="sidebar-button" name="sidebar-button" />
+<label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
+    Menu
+</label>
+<aside class="phpdocumentor-column -three phpdocumentor-sidebar">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
+            <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/oihana.html" class="">oihana</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/oihana-controllers.html" class="">controllers</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-date.html" class="">date</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-graphics.html" class="">graphics</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-init.html" class="">init</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-logging.html" class="">logging</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-models.html" class="">models</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-mysql.html" class="">mysql</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-routes.html" class="">routes</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-traits.html" class="">traits</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-validations.html" class="">validations</a>
+                
+            </li>
+            </ul>
+
+                        </section>
+            
+    <section class="phpdocumentor-sidebar__category -reports">
+        <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
+                <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
+    </section>
+
+    <section class="phpdocumentor-sidebar__category -indices">
+        <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
+    </section>
+</aside>
+
+            <div class="phpdocumentor-column -nine phpdocumentor-content">
+                                        <section>
+        
+        <h2 class="phpdocumentor-content__title">Files</h2>
+                                            <h3>A</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/src-oihana-models-enums-alter.html"><abbr title="src/oihana/models/enums/Alter.php">Alter.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-traits-alters-alterarraycleanpropertytrait.html"><abbr title="src/oihana/models/traits/alters/AlterArrayCleanPropertyTrait.php">AlterArrayCleanPropertyTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-traits-alters-alterarraypropertytrait.html"><abbr title="src/oihana/models/traits/alters/AlterArrayPropertyTrait.php">AlterArrayPropertyTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-traits-alters-altercallablepropertytrait.html"><abbr title="src/oihana/models/traits/alters/AlterCallablePropertyTrait.php">AlterCallablePropertyTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-traits-alterdocumenttrait.html"><abbr title="src/oihana/models/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-traits-alters-alterfloatpropertytrait.html"><abbr title="src/oihana/models/traits/alters/AlterFloatPropertyTrait.php">AlterFloatPropertyTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-traits-alters-altergetdocumentpropertytrait.html"><abbr title="src/oihana/models/traits/alters/AlterGetDocumentPropertyTrait.php">AlterGetDocumentPropertyTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-traits-alters-alterintpropertytrait.html"><abbr title="src/oihana/models/traits/alters/AlterIntPropertyTrait.php">AlterIntPropertyTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-traits-alters-alterjsonparsepropertytrait.html"><abbr title="src/oihana/models/traits/alters/AlterJSONParsePropertyTrait.php">AlterJSONParsePropertyTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-traits-alters-alterjsonstringifypropertytrait.html"><abbr title="src/oihana/models/traits/alters/AlterJSONStringifyPropertyTrait.php">AlterJSONStringifyPropertyTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-traits-alters-alternormalizepropertytrait.html"><abbr title="src/oihana/models/traits/alters/AlterNormalizePropertyTrait.php">AlterNormalizePropertyTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-traits-alters-alternotpropertytrait.html"><abbr title="src/oihana/models/traits/alters/AlterNotPropertyTrait.php">AlterNotPropertyTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-traits-alters-alterurlpropertytrait.html"><abbr title="src/oihana/models/traits/alters/AlterUrlPropertyTrait.php">AlterUrlPropertyTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-traits-alters-altervaluetrait.html"><abbr title="src/oihana/models/traits/alters/AlterValueTrait.php">AlterValueTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-apitrait.html"><abbr title="src/oihana/controllers/traits/ApiTrait.php">ApiTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-apptrait.html"><abbr title="src/oihana/controllers/traits/AppTrait.php">AppTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-graphics-aspectratio.html"><abbr title="src/oihana/graphics/AspectRatio.php">AspectRatio.php</abbr></a></li>
+                        </ul>
+                                                        <h3>B</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/src-oihana-controllers-traits-baseurltrait.html"><abbr title="src/oihana/controllers/traits/BaseUrlTrait.php">BaseUrlTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-benchtrait.html"><abbr title="src/oihana/controllers/traits/BenchTrait.php">BenchTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-traits-bindstrait.html"><abbr title="src/oihana/traits/BindsTrait.php">BindsTrait.php</abbr></a></li>
+                        </ul>
+                                                        <h3>C</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/src-oihana-traits-cacheabletrait.html"><abbr title="src/oihana/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-checkownerargumentstrait.html"><abbr title="src/oihana/controllers/traits/CheckOwnerArgumentsTrait.php">CheckOwnerArgumentsTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-validations-rules-colorrule.html"><abbr title="src/oihana/validations/rules/ColorRule.php">ColorRule.php</abbr></a></li>
+                            <li><a href="files/src-oihana-traits-configtrait.html"><abbr title="src/oihana/traits/ConfigTrait.php">ConfigTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-validations-rules-containerrule.html"><abbr title="src/oihana/validations/rules/ContainerRule.php">ContainerRule.php</abbr></a></li>
+                            <li><a href="files/src-oihana-traits-containertrait.html"><abbr title="src/oihana/traits/ContainerTrait.php">ContainerTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-controller.html"><abbr title="src/oihana/controllers/Controller.php">Controller.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-enums-controllerparam.html"><abbr title="src/oihana/controllers/enums/ControllerParam.php">ControllerParam.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-interfaces-countmodel.html"><abbr title="src/oihana/models/interfaces/CountModel.php">CountModel.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-helpers-cachecollection.html"><abbr title="src/oihana/models/helpers/cacheCollection.php">cacheCollection.php</abbr></a></li>
+                        </ul>
+                                                        <h3>D</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/src-oihana-date-traits-datetrait.html"><abbr title="src/oihana/date/traits/DateTrait.php">DateTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-traits-debugtrait.html"><abbr title="src/oihana/traits/DebugTrait.php">DebugTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-interfaces-deleteallmodel.html"><abbr title="src/oihana/models/interfaces/DeleteAllModel.php">DeleteAllModel.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-interfaces-deletemodel.html"><abbr title="src/oihana/models/interfaces/DeleteModel.php">DeleteModel.php</abbr></a></li>
+                            <li><a href="files/src-oihana-routes-http-deleteroute.html"><abbr title="src/oihana/routes/http/DeleteRoute.php">DeleteRoute.php</abbr></a></li>
+                            <li><a href="files/src-oihana-routes-documentroute.html"><abbr title="src/oihana/routes/DocumentRoute.php">DocumentRoute.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-interfaces-documentsmodel.html"><abbr title="src/oihana/models/interfaces/DocumentsModel.php">DocumentsModel.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-traits-documentstrait.html"><abbr title="src/oihana/models/traits/DocumentsTrait.php">DocumentsTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-helpers-documenturl.html"><abbr title="src/oihana/models/helpers/documentUrl.php">documentUrl.php</abbr></a></li>
+                        </ul>
+                                                        <h3>E</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/src-oihana-logging-monolog-processors-emojiprocessor.html"><abbr title="src/oihana/logging/monolog/processors/EmojiProcessor.php">EmojiProcessor.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-interfaces-existmodel.html"><abbr title="src/oihana/models/interfaces/ExistModel.php">ExistModel.php</abbr></a></li>
+                            <li><a href="files/src-oihana-traits-strings-expressiontrait.html"><abbr title="src/oihana/traits/strings/ExpressionTrait.php">ExpressionTrait.php</abbr></a></li>
+                        </ul>
+                                                        <h3>F</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/src-oihana-controllers-traits-filetrait.html"><abbr title="src/oihana/controllers/traits/FileTrait.php">FileTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-forcedocumenturltrait.html"><abbr title="src/oihana/controllers/traits/ForceDocumentUrlTrait.php">ForceDocumentUrlTrait.php</abbr></a></li>
+                        </ul>
+                                                        <h3>G</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/src-oihana-models-interfaces-getmodel.html"><abbr title="src/oihana/models/interfaces/GetModel.php">GetModel.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-getparamtrait.html"><abbr title="src/oihana/controllers/traits/GetParamTrait.php">GetParamTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-routes-http-getroute.html"><abbr title="src/oihana/routes/http/GetRoute.php">GetRoute.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-helpers-getcontroller.html"><abbr title="src/oihana/controllers/helpers/getController.php">getController.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-helpers-getmodel.html"><abbr title="src/oihana/models/helpers/getModel.php">getModel.php</abbr></a></li>
+                        </ul>
+                                                        <h3>H</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/src-oihana-routes-traits-hasroutetrait.html"><abbr title="src/oihana/routes/traits/HasRouteTrait.php">HasRouteTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-httpcachetrait.html"><abbr title="src/oihana/controllers/traits/HttpCacheTrait.php">HttpCacheTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-routes-traits-httpmethodroutestrait.html"><abbr title="src/oihana/routes/traits/HttpMethodRoutesTrait.php">HttpMethodRoutesTrait.php</abbr></a></li>
+                        </ul>
+                                                        <h3>I</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/src-oihana-routes-i18nroute.html"><abbr title="src/oihana/routes/I18nRoute.php">I18nRoute.php</abbr></a></li>
+                            <li><a href="files/src-oihana-traits-idtrait.html"><abbr title="src/oihana/traits/IDTrait.php">IDTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-validations-rules-iso8601daterule.html"><abbr title="src/oihana/validations/rules/ISO8601DateRule.php">ISO8601DateRule.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-imagetrait.html"><abbr title="src/oihana/controllers/traits/ImageTrait.php">ImageTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-interfaces-insertmodel.html"><abbr title="src/oihana/models/interfaces/InsertModel.php">InsertModel.php</abbr></a></li>
+                            <li><a href="files/src-oihana-validations-rules-instanceofrule.html"><abbr title="src/oihana/validations/rules/InstanceOfRule.php">InstanceOfRule.php</abbr></a></li>
+                            <li><a href="files/src-oihana-init-initconfig.html"><abbr title="src/oihana/init/initConfig.php">initConfig.php</abbr></a></li>
+                            <li><a href="files/src-oihana-init-initcontainer.html"><abbr title="src/oihana/init/initContainer.php">initContainer.php</abbr></a></li>
+                            <li><a href="files/src-oihana-init-initdefaulttimezone.html"><abbr title="src/oihana/init/initDefaultTimezone.php">initDefaultTimezone.php</abbr></a></li>
+                            <li><a href="files/src-oihana-init-initdefinitions.html"><abbr title="src/oihana/init/initDefinitions.php">initDefinitions.php</abbr></a></li>
+                            <li><a href="files/src-oihana-init-initerrors.html"><abbr title="src/oihana/init/initErrors.php">initErrors.php</abbr></a></li>
+                            <li><a href="files/src-oihana-init-initmemorylimit.html"><abbr title="src/oihana/init/initMemoryLimit.php">initMemoryLimit.php</abbr></a></li>
+                        </ul>
+                                                        <h3>J</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/src-oihana-traits-jsonoptionstrait.html"><abbr title="src/oihana/traits/JsonOptionsTrait.php">JsonOptionsTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-jsontrait.html"><abbr title="src/oihana/controllers/traits/JsonTrait.php">JsonTrait.php</abbr></a></li>
+                        </ul>
+                                                        <h3>K</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/src-oihana-traits-keyvaluetrait.html"><abbr title="src/oihana/traits/KeyValueTrait.php">KeyValueTrait.php</abbr></a></li>
+                        </ul>
+                                                        <h3>L</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/src-oihana-controllers-traits-languagestrait.html"><abbr title="src/oihana/controllers/traits/LanguagesTrait.php">LanguagesTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-interfaces-lastmodel.html"><abbr title="src/oihana/models/interfaces/LastModel.php">LastModel.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-limittrait.html"><abbr title="src/oihana/controllers/traits/LimitTrait.php">LimitTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-interfaces-listmodel.html"><abbr title="src/oihana/models/interfaces/ListModel.php">ListModel.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-traits-listmodeltrait.html"><abbr title="src/oihana/models/traits/ListModelTrait.php">ListModelTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-traits-lockabletrait.html"><abbr title="src/oihana/traits/LockableTrait.php">LockableTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-logging-logger.html"><abbr title="src/oihana/logging/Logger.php">Logger.php</abbr></a></li>
+                            <li><a href="files/src-oihana-logging-loggermanager.html"><abbr title="src/oihana/logging/LoggerManager.php">LoggerManager.php</abbr></a></li>
+                            <li><a href="files/src-oihana-logging-loggermanagertrait.html"><abbr title="src/oihana/logging/LoggerManagerTrait.php">LoggerManagerTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-logging-enums-loggerparam.html"><abbr title="src/oihana/logging/enums/LoggerParam.php">LoggerParam.php</abbr></a></li>
+                            <li><a href="files/src-oihana-logging-loggertrait.html"><abbr title="src/oihana/logging/LoggerTrait.php">LoggerTrait.php</abbr></a></li>
+                        </ul>
+                                                        <h3>M</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/src-oihana-routes-http-methodroute.html"><abbr title="src/oihana/routes/http/MethodRoute.php">MethodRoute.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-mocktrait.html"><abbr title="src/oihana/controllers/traits/MockTrait.php">MockTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-model.html"><abbr title="src/oihana/models/Model.php">Model.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-enums-modelparam.html"><abbr title="src/oihana/models/enums/ModelParam.php">ModelParam.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-enums-traits-modelparamtrait.html"><abbr title="src/oihana/models/enums/traits/ModelParamTrait.php">ModelParamTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-traits-modeltrait.html"><abbr title="src/oihana/models/traits/ModelTrait.php">ModelTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-logging-monologmanager.html"><abbr title="src/oihana/logging/MonoLogManager.php">MonoLogManager.php</abbr></a></li>
+                            <li><a href="files/src-oihana-logging-enums-monologparam.html"><abbr title="src/oihana/logging/enums/MonoLogParam.php">MonoLogParam.php</abbr></a></li>
+                            <li><a href="files/src-oihana-mysql-traits-mysqlassertionstrait.html"><abbr title="src/oihana/mysql/traits/MysqlAssertionsTrait.php">MysqlAssertionsTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-mysql-mysqldsn.html"><abbr title="src/oihana/mysql/MysqlDSN.php">MysqlDSN.php</abbr></a></li>
+                            <li><a href="files/src-oihana-mysql-traits-mysqldatabasetrait.html"><abbr title="src/oihana/mysql/traits/MysqlDatabaseTrait.php">MysqlDatabaseTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-mysql-mysqlmodel.html"><abbr title="src/oihana/mysql/MysqlModel.php">MysqlModel.php</abbr></a></li>
+                            <li><a href="files/src-oihana-mysql-mysqlpdobuilder.html"><abbr title="src/oihana/mysql/MysqlPDOBuilder.php">MysqlPDOBuilder.php</abbr></a></li>
+                            <li><a href="files/src-oihana-mysql-enums-mysqlparam.html"><abbr title="src/oihana/mysql/enums/MysqlParam.php">MysqlParam.php</abbr></a></li>
+                            <li><a href="files/src-oihana-mysql-enums-mysqlparamtrait.html"><abbr title="src/oihana/mysql/enums/MysqlParamTrait.php">MysqlParamTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-mysql-traits-mysqlprivilegetrait.html"><abbr title="src/oihana/mysql/traits/MysqlPrivilegeTrait.php">MysqlPrivilegeTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-mysql-enums-mysqlprivileges.html"><abbr title="src/oihana/mysql/enums/MysqlPrivileges.php">MysqlPrivileges.php</abbr></a></li>
+                            <li><a href="files/src-oihana-mysql-traits-mysqlroottrait.html"><abbr title="src/oihana/mysql/traits/MysqlRootTrait.php">MysqlRootTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-mysql-traits-mysqltabletrait.html"><abbr title="src/oihana/mysql/traits/MysqlTableTrait.php">MysqlTableTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-mysql-traits-mysqlusertrait.html"><abbr title="src/oihana/mysql/traits/MysqlUserTrait.php">MysqlUserTrait.php</abbr></a></li>
+                        </ul>
+                                                        <h3>N</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/src-oihana-routes-enums-nobodyresponse.html"><abbr title="src/oihana/routes/enums/NoBodyResponse.php">NoBodyResponse.php</abbr></a></li>
+                        </ul>
+                                                        <h3>O</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/src-oihana-routes-http-optionsroute.html"><abbr title="src/oihana/routes/http/OptionsRoute.php">OptionsRoute.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-outputdocumentstrait.html"><abbr title="src/oihana/controllers/traits/OutputDocumentsTrait.php">OutputDocumentsTrait.php</abbr></a></li>
+                        </ul>
+                                                        <h3>P</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/src-oihana-models-pdo-pdomodel.html"><abbr title="src/oihana/models/pdo/PDOModel.php">PDOModel.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-paginationtrait.html"><abbr title="src/oihana/controllers/traits/PaginationTrait.php">PaginationTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-paramstrait.html"><abbr title="src/oihana/controllers/traits/ParamsTrait.php">ParamsTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-routes-http-patchroute.html"><abbr title="src/oihana/routes/http/PatchRoute.php">PatchRoute.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-pathtrait.html"><abbr title="src/oihana/controllers/traits/PathTrait.php">PathTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-routes-http-postroute.html"><abbr title="src/oihana/routes/http/PostRoute.php">PostRoute.php</abbr></a></li>
+                            <li><a href="files/src-oihana-validations-rules-postalcoderule.html"><abbr title="src/oihana/validations/rules/PostalCodeRule.php">PostalCodeRule.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-prepare-prepareactive.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareActive.php">PrepareActive.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-prepare-preparebench.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareBench.php">PrepareBench.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-prepare-prepareboolean.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareBoolean.php">PrepareBoolean.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-prepare-preparedate.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareDate.php">PrepareDate.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-prepare-preparefacets.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareFacets.php">PrepareFacets.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-prepare-preparefilter.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareFilter.php">PrepareFilter.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-prepare-preparegroupby.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareGroupBy.php">PrepareGroupBy.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-prepare-preparehastotal.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareHasTotal.php">PrepareHasTotal.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-prepare-prepareids.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareIDs.php">PrepareIDs.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-prepare-prepareint.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareInt.php">PrepareInt.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-prepare-prepareinterval.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareInterval.php">PrepareInterval.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-prepare-preparelang.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareLang.php">PrepareLang.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-prepare-preparelimit.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareLimit.php">PrepareLimit.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-prepare-preparemargin.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareMargin.php">PrepareMargin.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-prepare-preparemock.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareMock.php">PrepareMock.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-prepare-prepareorredirectargumenttrait.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareOrRedirectArgumentTrait.php">PrepareOrRedirectArgumentTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-prepare-prepareorder.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareOrder.php">PrepareOrder.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-prepareparamtrait.html"><abbr title="src/oihana/controllers/traits/PrepareParamTrait.php">PrepareParamTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-prepare-preparequantity.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareQuantity.php">PrepareQuantity.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-prepare-preparesearch.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareSearch.php">PrepareSearch.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-prepare-prepareskin.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareSkin.php">PrepareSkin.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-prepare-preparesort.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareSort.php">PrepareSort.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-prepare-preparetimezone.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareTimezone.php">PrepareTimezone.php</abbr></a></li>
+                            <li><a href="files/src-oihana-routes-http-putroute.html"><abbr title="src/oihana/routes/http/PutRoute.php">PutRoute.php</abbr></a></li>
+                        </ul>
+                                                        <h3>Q</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/src-oihana-traits-queryidtrait.html"><abbr title="src/oihana/traits/QueryIDTrait.php">QueryIDTrait.php</abbr></a></li>
+                        </ul>
+                                                        <h3>R</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/src-oihana-controllers-traits-redirectstrait.html"><abbr title="src/oihana/controllers/traits/RedirectsTrait.php">RedirectsTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-interfaces-replacemodel.html"><abbr title="src/oihana/models/interfaces/ReplaceModel.php">ReplaceModel.php</abbr></a></li>
+                            <li><a href="files/src-oihana-routes-route.html"><abbr title="src/oihana/routes/Route.php">Route.php</abbr></a></li>
+                            <li><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-routertrait.html"><abbr title="src/oihana/controllers/traits/RouterTrait.php">RouterTrait.php</abbr></a></li>
+                        </ul>
+                                                        <h3>S</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/src-oihana-models-traits-schematrait.html"><abbr title="src/oihana/models/traits/SchemaTrait.php">SchemaTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-enums-skin.html"><abbr title="src/oihana/controllers/enums/Skin.php">Skin.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-enums-traits-skintrait.html"><abbr title="src/oihana/controllers/enums/traits/SkinTrait.php">SkinTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-sortaftertrait.html"><abbr title="src/oihana/controllers/traits/SortAfterTrait.php">SortAfterTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-traits-sorttrait.html"><abbr title="src/oihana/traits/SortTrait.php">SortTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-validations-rules-startswithrule.html"><abbr title="src/oihana/validations/rules/StartsWithRule.php">StartsWithRule.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-statustrait.html"><abbr title="src/oihana/controllers/traits/StatusTrait.php">StatusTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-logging-monolog-processors-symbolprocessor.html"><abbr title="src/oihana/logging/monolog/processors/SymbolProcessor.php">SymbolProcessor.php</abbr></a></li>
+                            <li><a href="files/src-oihana-init-setiniifexists.html"><abbr title="src/oihana/init/setIniIfExists.php">setIniIfExists.php</abbr></a></li>
+                        </ul>
+                                                        <h3>T</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/src-oihana-date-timeinterval.html"><abbr title="src/oihana/date/TimeInterval.php">TimeInterval.php</abbr></a></li>
+                            <li><a href="files/src-oihana-traits-tostringtrait.html"><abbr title="src/oihana/traits/ToStringTrait.php">ToStringTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-interfaces-truncatemodel.html"><abbr title="src/oihana/models/interfaces/TruncateModel.php">TruncateModel.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-enums-twigparam.html"><abbr title="src/oihana/controllers/enums/TwigParam.php">TwigParam.php</abbr></a></li>
+                            <li><a href="files/src-oihana-controllers-traits-twigtrait.html"><abbr title="src/oihana/controllers/traits/TwigTrait.php">TwigTrait.php</abbr></a></li>
+                        </ul>
+                                                        <h3>U</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/src-oihana-traits-unsupportedtrait.html"><abbr title="src/oihana/traits/UnsupportedTrait.php">UnsupportedTrait.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-interfaces-updatemodel.html"><abbr title="src/oihana/models/interfaces/UpdateModel.php">UpdateModel.php</abbr></a></li>
+                            <li><a href="files/src-oihana-models-interfaces-upsertmodel.html"><abbr title="src/oihana/models/interfaces/UpsertModel.php">UpsertModel.php</abbr></a></li>
+                            <li><a href="files/src-oihana-traits-uritrait.html"><abbr title="src/oihana/traits/UriTrait.php">UriTrait.php</abbr></a></li>
+                        </ul>
+                                                        <h3>V</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/src-oihana-controllers-traits-validatortrait.html"><abbr title="src/oihana/controllers/traits/ValidatorTrait.php">ValidatorTrait.php</abbr></a></li>
+                        </ul>
+                                                        <h3>W</h3>
+            <ul class="phpdocumentor-list">
+                            <li><a href="files/src-oihana-routes-helpers-withplaceholder.html"><abbr title="src/oihana/routes/helpers/withPlaceholder.php">withPlaceholder.php</abbr></a></li>
+                        </ul>
+                                                                                                                        </section>
+                            </div>
+            <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+    <section class="phpdocumentor-search-results__dialog">
+        <header class="phpdocumentor-search-results__header">
+            <h2 class="phpdocumentor-search-results__title">Search results</h2>
+            <button class="phpdocumentor-search-results__close"><i class="fas fa-times"></i></button>
+        </header>
+        <section class="phpdocumentor-search-results__body">
+            <ul class="phpdocumentor-search-results__entries"></ul>
+        </section>
+    </section>
+</section>
+        </div>
+        <a href="indices/files.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+
+    </main>
+
+    <script>
+        cssVars({});
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
+</body>
+</html>
