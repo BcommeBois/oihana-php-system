@@ -8,7 +8,6 @@ trait HasRouteTrait
 {
     public bool $hasCount          ;
     public bool $hasDelete         ;
-    public bool $hasDeleteAll      ;
     public bool $hasDeleteMultiple ;
     public bool $hasGet            ;
     public bool $hasList           ;
@@ -26,7 +25,6 @@ trait HasRouteTrait
         $flag = ( $init[ RouteFlag::DEFAULT_FLAG ] ?? true ) === true ;
         $this->hasCount          = $init[ RouteFlag::HAS_COUNT           ] ?? $flag ;
         $this->hasDelete         = $init[ RouteFlag::HAS_DELETE          ] ?? $flag ;
-        $this->hasDeleteAll      = $init[ RouteFlag::HAS_DELETE_ALL      ] ?? $flag ;
         $this->hasDeleteMultiple = $init[ RouteFlag::HAS_DELETE_MULTIPLE ] ?? $flag ;
         $this->hasGet            = $init[ RouteFlag::HAS_GET             ] ?? $flag ;
         $this->hasList           = $init[ RouteFlag::HAS_LIST            ] ?? $flag ;

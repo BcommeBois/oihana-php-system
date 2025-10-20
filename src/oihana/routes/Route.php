@@ -71,13 +71,11 @@ class Route
     /**
      * Default route pattern for numeric IDs
      */
-    public const string DEFAULT_ROUTE_PATTERN = '{id:[0-9]+}' ;
     public const string DEFAULT_ROUTE_PLACEHOLDER = 'id:[0-9]+' ;
 
     /**
      * Default owner pattern for numeric owner IDs
      */
-    public const string DEFAULT_OWNER_PATTERN = '{owner:[0-9]+}' ;
     public const string DEFAULT_OWNER_PLACEHOLDER = 'owner:[0-9]+' ;
 
     /**

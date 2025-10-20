@@ -34,7 +34,7 @@ class I18nRoute extends Route
             $routes = [] ;
 
             // route/{id}/property
-            $route  = withPlaceholder( $this->getRoute() , $this->routePlaceholder ) . Char::SLASH . $this->property ;
+            $route = withPlaceholder( $this->getRoute() , $this->routePlaceholder ) . Char::SLASH . $this->property ;
 
             $this->options ( $routes , $route ) ;
             $this->get     ( $routes , $route , $this->property ) ;

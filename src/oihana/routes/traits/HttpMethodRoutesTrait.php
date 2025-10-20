@@ -61,17 +61,6 @@ trait HttpMethodRoutesTrait
     }
 
     /**
-     * Generates a new DELETE (ALL) route reference.
-     */
-    protected function deleteAll( array &$routes , string $route , ?string $method = HttpMethod::deleteAll ) :void
-    {
-        if( $this->hasDeleteAll )
-        {
-            $this->method( DeleteRoute::class , $routes , $route , $method ) ;
-        }
-    }
-
-    /**
      * Generates a new GET route reference.
      */
     protected function get( array &$routes , string $route , ?string $method = null ) :void

@@ -31,23 +31,26 @@ class DocumentRoute extends Route
         {
             $routes = [] ;
 
-            $route = $this->getRoute() ; // "/route"
+            // COUNT/LIST/POST : /route
 
-            $this->list  ( $routes , $route ) ;
-            $this->count ( $routes , $route ) ;
+            $route = $this->getRoute() ;
 
-            $this->options   ( $routes , $route , $this->hasDeleteAll || $this->hasPost ) ;
-            $this->deleteAll ( $routes , $route ) ;
-            $this->post      ( $routes , $route ) ;
+            $this->list    ( $routes , $route ) ;
+            $this->count   ( $routes , $route ) ;
+            $this->options ( $routes , $route , $this->hasPost ) ;
+            $this->post    ( $routes , $route ) ;
 
-            $docRoute    = withPlaceholder( $route , $this->routePlaceholder ) ; // default /route/{id:[0-9]+}
-            $deleteRoute = withPlaceholder( $route , $this->routePlaceholder , $this->hasDeleteMultiple ) ; // if true /route[/{id:[0-9]+}]
+            // DELETE/GET/PATCH/PUT : /route/{id:[0-9]+}
+            $docRoute = withPlaceholder( $route , $this->routePlaceholder ) ;
 
-            $this->options( $routes , $docRoute , $this->hasGet || $this->hasDelete || $this->hasPatch || $this->hasPut ) ;
-            $this->delete ( $routes , $deleteRoute ) ;
-            $this->get    ( $routes , $docRoute    ) ;
-            $this->patch  ( $routes , $docRoute    ) ;
-            $this->put    ( $routes , $docRoute    ) ;
+            // DELETE (`hasDeleteMultiple` === true ) -> /route[/{id:[0-9]+}]
+            $deleteRoute = withPlaceholder( $route , $this->routePlaceholder , $this->hasDeleteMultiple ) ;
+
+            $this->options ( $routes , $docRoute , $this->hasGet || $this->hasDelete || $this->hasPatch || $this->hasPut ) ;
+            $this->delete  ( $routes , $deleteRoute ) ;
+            $this->get     ( $routes , $docRoute    ) ;
+            $this->patch   ( $routes , $docRoute    ) ;
+            $this->put     ( $routes , $docRoute    ) ;
 
             if( count( $routes ) > 0 )
             {

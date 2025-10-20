@@ -11,7 +11,6 @@ class RouteFlag
     const string DEFAULT_FLAG        = 'defaultFlag'       ;
     const string HAS_COUNT           = 'hasCount'          ;
     const string HAS_DELETE          = 'hasDelete'         ;
-    const string HAS_DELETE_ALL      = 'hasDeleteAll'      ;
     const string HAS_DELETE_MULTIPLE = 'hasDeleteMultiple' ;
     const string HAS_GET             = 'hasGet'            ;
     const string HAS_LIST            = 'hasList'           ;
