@@ -3,7 +3,7 @@ Search.appendIndex(
                 {
             "fqsen": "\\oihana\\controllers\\Controller",
             "name": "Controller",
-            "summary": "",
+            "summary": "Base\u0020abstract\u0020Controller.",
             "url": "classes/oihana-controllers-Controller.html"
         },                {
             "fqsen": "\\oihana\\controllers\\Controller\u003A\u003A__construct\u0028\u0029",
@@ -220,16 +220,6 @@ Search.appendIndex(
             "name": "owner",
             "summary": "The\u0020collection\u0020of\u0020all\u0020owner\u0027s\u0020arguments\u0020to\u0020check\u0020in\u0020the\u0020get\u007Clist\u007Ccount\u007Cexist\u0020methods.",
             "url": "classes/oihana-controllers-traits-CheckOwnerArgumentsTrait.html#property_owner"
-        },                {
-            "fqsen": "\\oihana\\controllers\\traits\\ControllerTrait",
-            "name": "ControllerTrait",
-            "summary": "",
-            "url": "classes/oihana-controllers-traits-ControllerTrait.html"
-        },                {
-            "fqsen": "\\oihana\\controllers\\traits\\ControllerTrait\u003A\u003AgetController\u0028\u0029",
-            "name": "getController",
-            "summary": "Returns\u0020a\u0020Controller\u0020reference\u0020with\u0020a\u0020specific\u0020definition.",
-            "url": "classes/oihana-controllers-traits-ControllerTrait.html#method_getController"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\FileTrait",
             "name": "FileTrait",
@@ -1986,6 +1976,11 @@ Search.appendIndex(
             "summary": "The\u0020enumeration\u0020of\u0020all\u0020the\u0020common\u0020model\u0027s\u0020parameters.",
             "url": "classes/oihana-models-enums-traits-ModelParamTrait.html"
         },                {
+            "fqsen": "\\oihana\\models\\helpers\\cacheCollection\u0028\u0029",
+            "name": "cacheCollection",
+            "summary": "Creates\u0020a\u0020namespaced\u0020cache\u0020collection\u0020from\u0020a\u0020Key\/Value\u0020store\u0020definition\u0020registered\u0020in\u0020the\u0020dependency\u0020injection\u0020container.",
+            "url": "namespaces/oihana-models-helpers.html#function_cacheCollection"
+        },                {
             "fqsen": "\\oihana\\models\\helpers\\documentUrl\u0028\u0029",
             "name": "documentUrl",
             "summary": "Generates\u0020a\u0020full\u0020document\u0020URL\u0020based\u0020on\u0020the\u0020project\u0027s\u0020base\u0020URL.",
@@ -2216,16 +2211,6 @@ Search.appendIndex(
             "summary": "Alters\u0020the\u0020given\u0020document\u0020\u0028array\u0020or\u0020object\u0029\u0020based\u0020on\u0020the\u0020configured\u0020\u0060\u0024alters\u0060\u0020definitions.",
             "url": "classes/oihana-models-traits-AlterDocumentTrait.html#method_alter"
         },                {
-            "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003AalterAssociativeArray\u0028\u0029",
-            "name": "alterAssociativeArray",
-            "summary": "Alter\u0020the\u0020passed\u002Din\u0020array.",
-            "url": "classes/oihana-models-traits-AlterDocumentTrait.html#method_alterAssociativeArray"
-        },                {
-            "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003AalterObject\u0028\u0029",
-            "name": "alterObject",
-            "summary": "Alter\u0020the\u0020passed\u002Din\u0020object.",
-            "url": "classes/oihana-models-traits-AlterDocumentTrait.html#method_alterObject"
-        },                {
             "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003AalterProperty\u0028\u0029",
             "name": "alterProperty",
             "summary": "Alters\u0020a\u0020specific\u0020property\u0020of\u0020the\u0020given\u0020document\u0020\u0028array\u0020or\u0020object\u0029\u0020using\u0020a\u0020defined\u0020transformation\u0020rule.",
@@ -2326,6 +2311,16 @@ Search.appendIndex(
             "summary": "Returns\u0020the\u0020JSON\u0020representation\u0020of\u0020a\u0020value",
             "url": "classes/oihana-models-traits-alters-AlterJSONStringifyPropertyTrait.html#method_alterJsonStringifyProperty"
         },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterNormalizePropertyTrait",
+            "name": "AlterNormalizePropertyTrait",
+            "summary": "",
+            "url": "classes/oihana-models-traits-alters-AlterNormalizePropertyTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterNormalizePropertyTrait\u003A\u003AalterNormalizeProperty\u0028\u0029",
+            "name": "alterNormalizeProperty",
+            "summary": "Normalize\u0020a\u0020document\u0020property\u0020using\u0020configurable\u0020flags.",
+            "url": "classes/oihana-models-traits-alters-AlterNormalizePropertyTrait.html#method_alterNormalizeProperty"
+        },                {
             "fqsen": "\\oihana\\models\\traits\\alters\\AlterNotPropertyTrait",
             "name": "AlterNotPropertyTrait",
             "summary": "Provides\u0020an\u0020alteration\u0020to\u0020invert\u0020boolean\u0020values.",
@@ -2338,12 +2333,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\traits\\alters\\AlterUrlPropertyTrait",
             "name": "AlterUrlPropertyTrait",
-            "summary": "Provides\u0020a\u0020method\u0020to\u0020generate\u0020a\u0020URL\u0020string\u0020from\u0020a\u0020document\u0020property.",
+            "summary": "Generates\u0020URL\u0020strings\u0020from\u0020document\u0020properties,\u0020with\u0020support\u0020for\u0020base\u0020URL\u0020resolution\u0020from\u0020a\u0020DI\u0020container.",
             "url": "classes/oihana-models-traits-alters-AlterUrlPropertyTrait.html"
         },                {
             "fqsen": "\\oihana\\models\\traits\\alters\\AlterUrlPropertyTrait\u003A\u003AalterUrlProperty\u0028\u0029",
             "name": "alterUrlProperty",
-            "summary": "Generates\u0020a\u0020document\u0020URL\u0020using\u0020a\u0020property\u0020as\u0020the\u0020final\u0020path\u0020segment.",
+            "summary": "Generates\u0020a\u0020complete\u0020URL\u0020by\u0020combining\u0020path\u0020segments\u0020and\u0020document\u0020properties.",
             "url": "classes/oihana-models-traits-alters-AlterUrlPropertyTrait.html#method_alterUrlProperty"
         },                {
             "fqsen": "\\oihana\\models\\traits\\alters\\AlterValueTrait",
@@ -3886,6 +3881,226 @@ Search.appendIndex(
             "summary": "Builds\u0020a\u0020complete\u0020URI\u0020by\u0020merging\u0020query\u0020and\u0020fragment\u0020parameters\u0020into\u0020the\u0020provided\u0020URI.",
             "url": "classes/oihana-traits-UriTrait.html#method_buildUri"
         },                {
+            "fqsen": "\\oihana\\validations\\rules\\ColorRule",
+            "name": "ColorRule",
+            "summary": "Rule\u003A\u0020Ensures\u0020that\u0020a\u0020given\u0020value\u0020matches\u0020a\u0020valid\u0020color\u0020expression\u0020\u0028e.g.\u0020\u0022\u0023ff0000\u0022\u0029.",
+            "url": "classes/oihana-validations-rules-ColorRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ColorRule\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020ColorRule\u0020instance.",
+            "url": "classes/oihana-validations-rules-ColorRule.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ColorRule\u003A\u003Acheck\u0028\u0029",
+            "name": "check",
+            "summary": "Validates\u0020whether\u0020the\u0020given\u0020value\u0020matches\u0020the\u0020defined\u0020color\u0020pattern.",
+            "url": "classes/oihana-validations-rules-ColorRule.html#method_check"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ColorRule\u003A\u003Apattern\u0028\u0029",
+            "name": "pattern",
+            "summary": "Sets\u0020the\u0020regex\u0020pattern\u0020used\u0020to\u0020validate\u0020color\u0020expressions.",
+            "url": "classes/oihana-validations-rules-ColorRule.html#method_pattern"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ColorRule\u003A\u003Aprefix\u0028\u0029",
+            "name": "prefix",
+            "summary": "Sets\u0020the\u0020prefix\u0020of\u0020the\u0020color\u0020expression\u0020\u0028default\u0020\u0027\u0023\u0027\u0029.",
+            "url": "classes/oihana-validations-rules-ColorRule.html#method_prefix"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ColorRule\u003A\u003ADEFAULT_PATTERN",
+            "name": "DEFAULT_PATTERN",
+            "summary": "Default\u0020regex\u0020pattern\u0020format\u0020\u0028supports\u0020prefix\u0020substitution\u0020via\u0020sprintf\u0029.",
+            "url": "classes/oihana-validations-rules-ColorRule.html#constant_DEFAULT_PATTERN"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ColorRule\u003A\u003ANAME",
+            "name": "NAME",
+            "summary": "The\u0020rule\u0020name.",
+            "url": "classes/oihana-validations-rules-ColorRule.html#constant_NAME"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ColorRule\u003A\u003APATTERN",
+            "name": "PATTERN",
+            "summary": "The\u0020\u0027pattern\u0027\u0020parameter\u0020key.",
+            "url": "classes/oihana-validations-rules-ColorRule.html#constant_PATTERN"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ColorRule\u003A\u003APREFIX",
+            "name": "PREFIX",
+            "summary": "The\u0020\u0027prefix\u0027\u0020parameter\u0020key.",
+            "url": "classes/oihana-validations-rules-ColorRule.html#constant_PREFIX"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ColorRule\u003A\u003A\u0024fillableParams",
+            "name": "fillableParams",
+            "summary": "",
+            "url": "classes/oihana-validations-rules-ColorRule.html#property_fillableParams"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ColorRule\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "The\u0020default\u0020error\u0020message\u0020used\u0020when\u0020validation\u0020fails.",
+            "url": "classes/oihana-validations-rules-ColorRule.html#property_message"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ContainerRule",
+            "name": "ContainerRule",
+            "summary": "An\u0020abstract\u0020rule\u0020to\u0020defines\u0020rules\u0020with\u0020a\u0020DI\u0020container\u0020reference.",
+            "url": "classes/oihana-validations-rules-ContainerRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ContainerRule\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020ContainerRule\u0020instance.",
+            "url": "classes/oihana-validations-rules-ContainerRule.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ContainerRule\u003A\u003A\u0024container",
+            "name": "container",
+            "summary": "The\u0020DI\u0020container\u0020reference.",
+            "url": "classes/oihana-validations-rules-ContainerRule.html#property_container"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\InstanceOfRule",
+            "name": "InstanceOfRule",
+            "summary": "Ensures\u0020that\u0020a\u0020given\u0020value\u0020is\u0020instance\u0020of\u0020the\u0020specified\u0020class\u0020name.",
+            "url": "classes/oihana-validations-rules-InstanceOfRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\InstanceOfRule\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020InstanceOfRule\u0020instance.",
+            "url": "classes/oihana-validations-rules-InstanceOfRule.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\InstanceOfRule\u003A\u003Acheck\u0028\u0029",
+            "name": "check",
+            "summary": "Checks\u0020if\u0020the\u0020provided\u0020value\u0020is\u0020an\u0020instance\u0020of\u0020the\u0020configured\u0020class\u0020name.",
+            "url": "classes/oihana-validations-rules-InstanceOfRule.html#method_check"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\InstanceOfRule\u003A\u003AclassName\u0028\u0029",
+            "name": "className",
+            "summary": "Sets\u0020the\u0020class\u0020name\u0020to\u0020check\u0020instances\u0020against.",
+            "url": "classes/oihana-validations-rules-InstanceOfRule.html#method_className"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\InstanceOfRule\u003A\u003ACLASS_NAME",
+            "name": "CLASS_NAME",
+            "summary": "The\u0020\u0022className\u0022\u0020parameter\u0020key.",
+            "url": "classes/oihana-validations-rules-InstanceOfRule.html#constant_CLASS_NAME"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\InstanceOfRule\u003A\u003ANAME",
+            "name": "NAME",
+            "summary": "The\u0020rule\u0020name.",
+            "url": "classes/oihana-validations-rules-InstanceOfRule.html#constant_NAME"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\InstanceOfRule\u003A\u003A\u0024fillableParams",
+            "name": "fillableParams",
+            "summary": "",
+            "url": "classes/oihana-validations-rules-InstanceOfRule.html#property_fillableParams"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\InstanceOfRule\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "The\u0020error\u0020message\u0020used\u0020when\u0020validation\u0020fails.",
+            "url": "classes/oihana-validations-rules-InstanceOfRule.html#property_message"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ISO8601DateRule",
+            "name": "ISO8601DateRule",
+            "summary": "Validates\u0020whether\u0020a\u0020given\u0020value\u0020is\u0020a\u0020valid\u0020ISO\u00208601\u0020date\u0020or\u0020datetime\u0020expression.",
+            "url": "classes/oihana-validations-rules-ISO8601DateRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ISO8601DateRule\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Constructor.",
+            "url": "classes/oihana-validations-rules-ISO8601DateRule.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ISO8601DateRule\u003A\u003Acheck\u0028\u0029",
+            "name": "check",
+            "summary": "Check\u0020if\u0020the\u0020value\u0020is\u0020valid.",
+            "url": "classes/oihana-validations-rules-ISO8601DateRule.html#method_check"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ISO8601DateRule\u003A\u003ADEFAULT_PATTERN",
+            "name": "DEFAULT_PATTERN",
+            "summary": "The\u0020default\u0020pattern\u0020regexp\u0020expression\u0020of\u0020the\u0020rule.",
+            "url": "classes/oihana-validations-rules-ISO8601DateRule.html#constant_DEFAULT_PATTERN"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ISO8601DateRule\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "The\u0020message\u0020pattern\u0020if\u0020the\u0020rule\u0020is\u0020not\u0020valid.",
+            "url": "classes/oihana-validations-rules-ISO8601DateRule.html#property_message"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ISO8601DateRule\u003A\u003A\u0024pattern",
+            "name": "pattern",
+            "summary": "The\u0020regular\u0020expression\u0020pattern\u0020used\u0020for\u0020validation.",
+            "url": "classes/oihana-validations-rules-ISO8601DateRule.html#property_pattern"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\PostalCodeRule",
+            "name": "PostalCodeRule",
+            "summary": "Validates\u0020a\u0020postal\u0020code\u0020for\u0020a\u0020given\u0020country.",
+            "url": "classes/oihana-validations-rules-PostalCodeRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\PostalCodeRule\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020PostalCodeRule\u0020instance.",
+            "url": "classes/oihana-validations-rules-PostalCodeRule.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\PostalCodeRule\u003A\u003Acountry\u0028\u0029",
+            "name": "country",
+            "summary": "The\u0020country\u0020code\u0020of\u0020the\u0020postalCode\u0020regex\u0020pattern.",
+            "url": "classes/oihana-validations-rules-PostalCodeRule.html#method_country"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\PostalCodeRule\u003A\u003Acheck\u0028\u0029",
+            "name": "check",
+            "summary": "Check\u0020the\u0020value.",
+            "url": "classes/oihana-validations-rules-PostalCodeRule.html#method_check"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\PostalCodeRule\u003A\u003ACOUNTRY",
+            "name": "COUNTRY",
+            "summary": "The\u0020country\u0020parameter.",
+            "url": "classes/oihana-validations-rules-PostalCodeRule.html#constant_COUNTRY"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\PostalCodeRule\u003A\u003A\u0024default",
+            "name": "default",
+            "summary": "The\u0020default\u0020ISO\u00203166\u002D1\u0020alpha\u002D2\u0020country\u0020code.",
+            "url": "classes/oihana-validations-rules-PostalCodeRule.html#property_default"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\PostalCodeRule\u003A\u003A\u0024fillableParams",
+            "name": "fillableParams",
+            "summary": "The\u0020internal\u0020list\u0020of\u0020fillable\u0020parameters.",
+            "url": "classes/oihana-validations-rules-PostalCodeRule.html#property_fillableParams"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\PostalCodeRule\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "The\u0020internal\u0020message\u0020pattern.",
+            "url": "classes/oihana-validations-rules-PostalCodeRule.html#property_message"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\StartsWithRule",
+            "name": "StartsWithRule",
+            "summary": "Rule\u003A\u0020Ensures\u0020that\u0020a\u0020given\u0020value\u0020starts\u0020with\u0020a\u0020specified\u0020prefix.",
+            "url": "classes/oihana-validations-rules-StartsWithRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\StartsWithRule\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020StartsWithRule\u0020instance.",
+            "url": "classes/oihana-validations-rules-StartsWithRule.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\StartsWithRule\u003A\u003Acheck\u0028\u0029",
+            "name": "check",
+            "summary": "Checks\u0020if\u0020the\u0020provided\u0020value\u0020meets\u0020the\u0020required\u0020conditions\u0020based\u0020on\u0020the\u0020prefix\u0020parameter.",
+            "url": "classes/oihana-validations-rules-StartsWithRule.html#method_check"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\StartsWithRule\u003A\u003Aprefix\u0028\u0029",
+            "name": "prefix",
+            "summary": "Sets\u0020the\u0020prefix\u0020expression\u0020to\u0020evaluate.",
+            "url": "classes/oihana-validations-rules-StartsWithRule.html#method_prefix"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\StartsWithRule\u003A\u003ANAME",
+            "name": "NAME",
+            "summary": "The\u0020rule\u0020name.",
+            "url": "classes/oihana-validations-rules-StartsWithRule.html#constant_NAME"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\StartsWithRule\u003A\u003APREFIX",
+            "name": "PREFIX",
+            "summary": "The\u0020\u0022prefix\u0022\u0020parameter\u0020key.",
+            "url": "classes/oihana-validations-rules-StartsWithRule.html#constant_PREFIX"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\StartsWithRule\u003A\u003A\u0024fillableParams",
+            "name": "fillableParams",
+            "summary": "",
+            "url": "classes/oihana-validations-rules-StartsWithRule.html#property_fillableParams"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\StartsWithRule\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "The\u0020error\u0020message\u0020used\u0020when\u0020validation\u0020fails.",
+            "url": "classes/oihana-validations-rules-StartsWithRule.html#property_message"
+        },                {
             "fqsen": "\\",
             "name": "\\",
             "summary": "",
@@ -4055,5 +4270,15 @@ Search.appendIndex(
             "name": "strings",
             "summary": "",
             "url": "namespaces/oihana-traits-strings.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules",
+            "name": "rules",
+            "summary": "",
+            "url": "namespaces/oihana-validations-rules.html"
+        },                {
+            "fqsen": "\\oihana\\validations",
+            "name": "validations",
+            "summary": "",
+            "url": "namespaces/oihana-validations.html"
         }            ]
 );

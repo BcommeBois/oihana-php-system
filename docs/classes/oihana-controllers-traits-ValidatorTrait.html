@@ -107,6 +107,10 @@
                 <a href="namespaces/oihana-traits.html" class="">traits</a>
                 
             </li>
+                    <li>
+                <a href="namespaces/oihana-validations.html" class="">validations</a>
+                
+            </li>
             </ul>
 
                         </section>
@@ -137,13 +141,13 @@
     ValidatorTrait
             <span class="phpdocumentor-trait__extends">
             uses
-                            <a href="classes/oihana-controllers-traits-ControllerTrait.html"><abbr title="\oihana\controllers\traits\ControllerTrait">trait:short</abbr></a>,                             <a href="classes/oihana-controllers-traits-StatusTrait.html"><abbr title="\oihana\controllers\traits\StatusTrait">trait:short</abbr></a>                    </span>
+                            <a href="classes/oihana-traits-ContainerTrait.html"><abbr title="\oihana\traits\ContainerTrait">trait:short</abbr></a>,                             <a href="classes/oihana-controllers-traits-StatusTrait.html"><abbr title="\oihana\controllers\traits\StatusTrait">trait:short</abbr></a>                    </span>
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/ValidatorTrait.php"><a href="files/src-oihana-controllers-traits-validatortrait.html"><abbr title="src/oihana/controllers/traits/ValidatorTrait.php">ValidatorTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">23</span>
+    <span class="phpdocumentor-element-found-in__line">24</span>
 
     </aside>
 
@@ -195,6 +199,13 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
+    <a class="" href="classes/oihana-traits-ContainerTrait.html#property_container">$container</a>
+    <span>
+                        &nbsp;: <abbr title="\DI\Container">Container</abbr>            </span>
+</dt>
+<dd>The DI container reference.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-controllers-traits-ValidatorTrait.html#property_customRules">$customRules</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
@@ -208,7 +219,7 @@
 </dt>
 <dd>The rules definitions used in the prepareRules method to initialize a validation process in the POST/PATCH/PUT and custom methods.</dd>
 
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-controllers-traits-ValidatorTrait.html#property_validator">$validator</a>
     <span>
                         &nbsp;: <abbr title="\Somnambulist\Components\Validation\Factory">Factory</abbr>            </span>
@@ -238,11 +249,18 @@
 <dd>Formats a specific error status message with a code and an errors array representation of all errors.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-controllers-traits-ControllerTrait.html#method_getController">getController()</a>
+    <a class="" href="classes/oihana-controllers-traits-ValidatorTrait.html#method_getValidatorError">getValidatorError()</a>
     <span>
-                                &nbsp;: <a href="classes/oihana-controllers-Controller.html"><abbr title="\oihana\controllers\Controller">Controller</abbr></a>|null    </span>
+                                &nbsp;: <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>|null    </span>
 </dt>
-<dd>Returns a Controller reference with a specific definition.</dd>
+<dd>Returns an error if the validator fails.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-controllers-traits-ValidatorTrait.html#method_initCustomValidationRules">initCustomValidationRules()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Returns the list of all extra-rules to initialize the validator.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-controllers-traits-ValidatorTrait.html#method_initializeValidator">initializeValidator()</a>
@@ -250,6 +268,13 @@
                                 &nbsp;: static    </span>
 </dt>
 <dd>Sets the current internal validator of the controller.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-controllers-traits-ValidatorTrait.html#method_prepareRules">prepareRules()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Merge the default common and the specific method&#039;s rules.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-controllers-traits-StatusTrait.html#method_status">status()</a>
@@ -264,27 +289,6 @@
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Outputs a success message with a JSON response. If the $response parameter is null, returns the $data parameter value.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a class="" href="classes/oihana-controllers-traits-ValidatorTrait.html#method_getValidatorError">getValidatorError()</a>
-    <span>
-                                &nbsp;: <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>|null    </span>
-</dt>
-<dd>Returns an error if the validator fails.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a class="" href="classes/oihana-controllers-traits-ValidatorTrait.html#method_initCustomValidationRules">initCustomValidationRules()</a>
-    <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
-</dt>
-<dd>Returns the list of all extra-rules to initialize the validator.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a class="" href="classes/oihana-controllers-traits-ValidatorTrait.html#method_prepareRules">prepareRules()</a>
-    <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;    </span>
-</dt>
-<dd>Merge the default common and the specific method&#039;s rules.</dd>
 
     </dl>
 
@@ -307,6 +311,45 @@
             -public
                                                                     "
 >
+    <h4 class="phpdocumentor-element__name" id="property_container">
+        $container
+        <a href="classes/oihana-traits-ContainerTrait.html#property_container" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/ContainerTrait.php"><a href="files/src-oihana-traits-containertrait.html"><abbr title="src/oihana/traits/ContainerTrait.php">ContainerTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">13</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The DI container reference.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__type"><abbr title="\DI\Container">Container</abbr></span>
+    <span class="phpdocumentor-signature__name">$container</span>
+    </code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -public
+                                                                    "
+>
     <h4 class="phpdocumentor-element__name" id="property_customRules">
         $customRules
         <a href="classes/oihana-controllers-traits-ValidatorTrait.html#property_customRules" class="headerlink"><i class="fas fa-link"></i></a>
@@ -317,7 +360,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/ValidatorTrait.php"><a href="files/src-oihana-controllers-traits-validatortrait.html"><abbr title="src/oihana/controllers/traits/ValidatorTrait.php">ValidatorTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
@@ -356,7 +399,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/ValidatorTrait.php"><a href="files/src-oihana-controllers-traits-validatortrait.html"><abbr title="src/oihana/controllers/traits/ValidatorTrait.php">ValidatorTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">39</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
     </aside>
 
@@ -399,7 +442,7 @@
         class="
             phpdocumentor-element
             -property
-            -protected
+            -public
                                                                     "
 >
     <h4 class="phpdocumentor-element__name" id="property_validator">
@@ -412,7 +455,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/ValidatorTrait.php"><a href="files/src-oihana-controllers-traits-validatortrait.html"><abbr title="src/oihana/controllers/traits/ValidatorTrait.php">ValidatorTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">46</span>
 
     </aside>
 
@@ -420,7 +463,7 @@
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
-        <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__type"><abbr title="\Somnambulist\Components\Validation\Factory">Factory</abbr></span>
     <span class="phpdocumentor-signature__name">$validator</span>
     </code>
@@ -456,7 +499,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/ValidatorTrait.php"><a href="files/src-oihana-controllers-traits-validatortrait.html"><abbr title="src/oihana/controllers/traits/ValidatorTrait.php">ValidatorTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">54</span>
+    <span class="phpdocumentor-element-found-in__line">55</span>
 
     </aside>
 
@@ -524,7 +567,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/StatusTrait.php"><a href="files/src-oihana-controllers-traits-statustrait.html"><abbr title="src/oihana/controllers/traits/StatusTrait.php">StatusTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">30</span>
 
     </aside>
 
@@ -599,23 +642,23 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_getController">
-        getController()
-        <a href="classes/oihana-controllers-traits-ControllerTrait.html#method_getController" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_getValidatorError">
+        getValidatorError()
+        <a href="classes/oihana-controllers-traits-ValidatorTrait.html#method_getValidatorError" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/ControllerTrait.php"><a href="files/src-oihana-controllers-traits-controllertrait.html"><abbr title="src/oihana/controllers/traits/ControllerTrait.php">ControllerTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/ValidatorTrait.php"><a href="files/src-oihana-controllers-traits-validatortrait.html"><abbr title="src/oihana/controllers/traits/ValidatorTrait.php">ValidatorTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">23</span>
+    <span class="phpdocumentor-element-found-in__line">81</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns a Controller reference with a specific definition.</p>
+        <p class="phpdocumentor-summary">Returns an error if the validator fails.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getController</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|string|null|<a href="classes/oihana-controllers-Controller.html"><abbr title="\oihana\controllers\Controller">Controller</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$definition</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$debugMethod</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/oihana-controllers-Controller.html"><abbr title="\oihana\controllers\Controller">Controller</abbr></a>|null</span></code>
+                    <span class="phpdocumentor-signature__name">getValidatorError</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$response</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Somnambulist\Components\Validation\Validation">Validation</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$validation</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$errors</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$code</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">400</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>|null</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -624,21 +667,30 @@
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$definition</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|string|null|<a href="classes/oihana-controllers-Controller.html"><abbr title="\oihana\controllers\Controller">Controller</abbr></a></span>
+                <span class="phpdocumentor-signature__argument__name">$response</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>|null</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><li>If the $definition is an array, try to use the $definition[ AQL::CONTROLLER ] reference to find the controller in the DI container.</li>
-<li>If the $definition is a string, the $definition is the reference to find the controller in the DI container.</li>
-<li>If the $definition is an instance of Controller the definition is returned directly.</li>
-<li>Else return null.</li>
-</section>
-
+                
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$debugMethod</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+                <span class="phpdocumentor-signature__argument__name">$validation</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Somnambulist\Components\Validation\Validation">Validation</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$errors</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$code</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int|string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">400</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
@@ -650,7 +702,48 @@
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><a href="classes/oihana-controllers-Controller.html"><abbr title="\oihana\controllers\Controller">Controller</abbr></a>|null</span>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>|null</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_initCustomValidationRules">
+        initCustomValidationRules()
+        <a href="classes/oihana-controllers-traits-ValidatorTrait.html#method_initCustomValidationRules" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/ValidatorTrait.php"><a href="files/src-oihana-controllers-traits-validatortrait.html"><abbr title="src/oihana/controllers/traits/ValidatorTrait.php">ValidatorTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">95</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the list of all extra-rules to initialize the validator.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">initCustomValidationRules</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Overrides this method to extends the default rules definitions.</p>
+</section>
+
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
             </section>
 
 </article>
@@ -668,7 +761,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/ValidatorTrait.php"><a href="files/src-oihana-controllers-traits-validatortrait.html"><abbr title="src/oihana/controllers/traits/ValidatorTrait.php">ValidatorTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">111</span>
+    <span class="phpdocumentor-element-found-in__line">112</span>
 
     </aside>
 
@@ -676,7 +769,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">initializeValidator</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">null|array&lt;string|int, mixed&gt;|<abbr title="\Somnambulist\Components\Validation\Factory">Factory</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+                    <span class="phpdocumentor-signature__name">initializeValidator</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -688,8 +781,8 @@
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$init</span>
-                : <span class="phpdocumentor-signature__argument__return-type">null|array&lt;string|int, mixed&gt;|<abbr title="\Somnambulist\Components\Validation\Factory">Factory</abbr></span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
@@ -734,6 +827,59 @@
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_prepareRules">
+        prepareRules()
+        <a href="classes/oihana-controllers-traits-ValidatorTrait.html#method_prepareRules" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/ValidatorTrait.php"><a href="files/src-oihana-controllers-traits-validatortrait.html"><abbr title="src/oihana/controllers/traits/ValidatorTrait.php">ValidatorTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">134</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Merge the default common and the specific method&#039;s rules.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">prepareRules</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$method</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>You can overrides this method to prepare the validator rules with a specific router method and strategy.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$method</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The specific rule type to override the default rules definitions.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_status">
         status()
         <a href="classes/oihana-controllers-traits-StatusTrait.html#method_status" class="headerlink"><i class="fas fa-link"></i></a>
@@ -742,7 +888,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/StatusTrait.php"><a href="files/src-oihana-controllers-traits-statustrait.html"><abbr title="src/oihana/controllers/traits/StatusTrait.php">StatusTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">63</span>
+    <span class="phpdocumentor-element-found-in__line">66</span>
 
     </aside>
 
@@ -835,7 +981,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/StatusTrait.php"><a href="files/src-oihana-controllers-traits-statustrait.html"><abbr title="src/oihana/controllers/traits/StatusTrait.php">StatusTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">111</span>
+    <span class="phpdocumentor-element-found-in__line">114</span>
 
     </aside>
 
@@ -906,170 +1052,6 @@ return $this-&gt;success( $request , $response , $data , [ Output::PARAMS =&gt; 
     
 
     
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_getValidatorError">
-        getValidatorError()
-        <a href="classes/oihana-controllers-traits-ValidatorTrait.html#method_getValidatorError" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/ValidatorTrait.php"><a href="files/src-oihana-controllers-traits-validatortrait.html"><abbr title="src/oihana/controllers/traits/ValidatorTrait.php">ValidatorTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">80</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Returns an error if the validator fails.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">getValidatorError</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$response</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Somnambulist\Components\Validation\Validation">Validation</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$validation</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$errors</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int|string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$code</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">400</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>|null</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$response</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>|null</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$validation</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Somnambulist\Components\Validation\Validation">Validation</abbr></span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$errors</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$code</span>
-                : <span class="phpdocumentor-signature__argument__return-type">int|string</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">400</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>|null</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_initCustomValidationRules">
-        initCustomValidationRules()
-        <a href="classes/oihana-controllers-traits-ValidatorTrait.html#method_initCustomValidationRules" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/ValidatorTrait.php"><a href="files/src-oihana-controllers-traits-validatortrait.html"><abbr title="src/oihana/controllers/traits/ValidatorTrait.php">ValidatorTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">94</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Returns the list of all extra-rules to initialize the validator.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">initCustomValidationRules</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-        <section class="phpdocumentor-description"><p>Overrides this method to extends the default rules definitions.</p>
-</section>
-
-    
-    
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_prepareRules">
-        prepareRules()
-        <a href="classes/oihana-controllers-traits-ValidatorTrait.html#method_prepareRules" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/ValidatorTrait.php"><a href="files/src-oihana-controllers-traits-validatortrait.html"><abbr title="src/oihana/controllers/traits/ValidatorTrait.php">ValidatorTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">129</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Merge the default common and the specific method&#039;s rules.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">prepareRules</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$method</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-        <section class="phpdocumentor-description"><p>You can overrides this method to prepare the validator rules with a specific router method and strategy.</p>
-</section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$method</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The specific rule type to override the default rules definitions.</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
-            </section>
-
 </article>
             </section>
 
@@ -1185,6 +1167,7 @@ return $this-&gt;success( $request , $response , $data , [ Output::PARAMS =&gt; 
                                     <li class="phpdocumentor-on-this-page-section__title">Properties</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/oihana-traits-ContainerTrait.html#property_container">$container</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-ValidatorTrait.html#property_customRules">$customRules</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-ValidatorTrait.html#property_rules">$rules</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-ValidatorTrait.html#property_validator">$validator</a></li>
@@ -1195,13 +1178,12 @@ return $this-&gt;success( $request , $response , $data , [ Output::PARAMS =&gt; 
                 <ul class="phpdocumentor-list -clean">
                                             <li class=""><a href="classes/oihana-controllers-traits-ValidatorTrait.html#method_addRules">addRules()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-StatusTrait.html#method_fail">fail()</a></li>
-                                            <li class=""><a href="classes/oihana-controllers-traits-ControllerTrait.html#method_getController">getController()</a></li>
-                                            <li class=""><a href="classes/oihana-controllers-traits-ValidatorTrait.html#method_initializeValidator">initializeValidator()</a></li>
-                                            <li class=""><a href="classes/oihana-controllers-traits-StatusTrait.html#method_status">status()</a></li>
-                                            <li class=""><a href="classes/oihana-controllers-traits-StatusTrait.html#method_success">success()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-ValidatorTrait.html#method_getValidatorError">getValidatorError()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-ValidatorTrait.html#method_initCustomValidationRules">initCustomValidationRules()</a></li>
+                                            <li class=""><a href="classes/oihana-controllers-traits-ValidatorTrait.html#method_initializeValidator">initializeValidator()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-ValidatorTrait.html#method_prepareRules">prepareRules()</a></li>
+                                            <li class=""><a href="classes/oihana-controllers-traits-StatusTrait.html#method_status">status()</a></li>
+                                            <li class=""><a href="classes/oihana-controllers-traits-StatusTrait.html#method_success">success()</a></li>
                                     </ul>
             </li>
                     </ul>

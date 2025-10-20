@@ -107,6 +107,10 @@
                 <a href="namespaces/oihana-traits.html" class="">traits</a>
                 
             </li>
+                    <li>
+                <a href="namespaces/oihana-validations.html" class="">validations</a>
+                
+            </li>
             </ul>
 
                         </section>
@@ -180,7 +184,7 @@ the application's pagination definition.</p>
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-controllers-traits-PaginationTrait.html#property_pagination">$pagination</a>
     <span>
-                        &nbsp;: <abbr title="\fr\ooop\schema\Pagination">Pagination</abbr>|null            </span>
+                        &nbsp;: <abbr title="\xyz\oihana\schema\Pagination">Pagination</abbr>|null            </span>
 </dt>
 <dd>The pagination definition.</dd>
 
@@ -239,7 +243,7 @@ the application's pagination definition.</p>
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
         <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__type"><abbr title="\fr\ooop\schema\Pagination">Pagination</abbr>|null</span>
+            <span class="phpdocumentor-signature__type"><abbr title="\xyz\oihana\schema\Pagination">Pagination</abbr>|null</span>
     <span class="phpdocumentor-signature__name">$pagination</span>
      = <span class="phpdocumentor-signature__default-value">null</span></code>
 
@@ -274,7 +278,7 @@ the application's pagination definition.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/PaginationTrait.php"><a href="files/src-oihana-controllers-traits-paginationtrait.html"><abbr title="src/oihana/controllers/traits/PaginationTrait.php">PaginationTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">44</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
@@ -324,6 +328,16 @@ either from the provided initialization array or from the dependency injection c
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the container throws an internal error.</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
                                                             
                                                  <section class="phpdocumentor-description"><p>If the container is used and the App class is not found.</p>
@@ -334,11 +348,9 @@ either from the provided initialization array or from the dependency injection c
                     <span class="phpdocumentor-tag__name">throws</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If the container throws an internal error.</p>
-</section>
-
+                                             
                                     </dd>
                                             </dl>
 

@@ -107,6 +107,10 @@
                 <a href="namespaces/oihana-traits.html" class="">traits</a>
                 
             </li>
+                    <li>
+                <a href="namespaces/oihana-validations.html" class="">validations</a>
+                
+            </li>
             </ul>
 
                         </section>
@@ -158,6 +162,13 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/oihana-models-helpers.html#function_cacheCollection">cacheCollection()</a>
+    <span>
+                                &nbsp;: <abbr title="\MatthiasMullie\Scrapbook\Psr16\SimpleCache">SimpleCache</abbr>|null    </span>
+</dt>
+<dd>Creates a namespaced cache collection from a Key/Value store definition registered in the dependency injection container.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a class="" href="namespaces/oihana-models-helpers.html#function_documentUrl">documentUrl()</a>
     <span>
                                 &nbsp;: string    </span>
@@ -174,6 +185,118 @@
             <a href="namespaces/oihana-models-helpers.html#functions" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_cacheCollection">
+        cacheCollection()
+        <a href="namespaces/oihana-models-helpers.html#function_cacheCollection" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/helpers/cacheCollection.php"><a href="files/src-oihana-models-helpers-cachecollection.html"><abbr title="src/oihana/models/helpers/cacheCollection.php">cacheCollection.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">41</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Creates a namespaced cache collection from a Key/Value store definition registered in the dependency injection container.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">cacheCollection</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DI\Container">Container</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$collection</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$definition</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\MatthiasMullie\Scrapbook\Psr16\SimpleCache">SimpleCache</abbr>|null</span></code>
+
+        <section class="phpdocumentor-description"><p>A cache collection is an isolated namespace within the same backend,
+allowing logical separation of cached values (e.g. per feature, domain, or module).
+This helper function retrieves a <abbr title="\MatthiasMullie\Scrapbook\KeyValueStore">KeyValueStore</abbr> from the container,
+and wraps its collection in a PSR-16 <abbr title="\MatthiasMullie\Scrapbook\Psr16\SimpleCache">SimpleCache</abbr> implementation.</p>
+<p>Example usage:</p>
+<pre class="prettyprint"><code class="language-php">// Retrieve a cache collection named &quot;users&quot;
+$userCache = cacheCollection( $container , &quot;users&quot; , 'cache:memory' );
+
+// Store and retrieve values
+$userCache-&gt;set(&quot;id:42&quot;, [&quot;name&quot; =&gt; &quot;Alice&quot;]);
+$data = $userCache-&gt;get(&quot;id:42&quot;);
+</code></pre>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$container</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\DI\Container">Container</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The DI container used to resolve the cache store definition.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$collection</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The collection name (namespace) to create inside the cache store.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$definition</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The container entry identifier of the base key/value store in the DI container.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="namespaces/oihana-models-helpers.html#function_cacheCollection#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\DI\DependencyException">DependencyException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the container fails to resolve the cache definition.</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\DI\NotFoundException">NotFoundException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the cache definition is not registered in the container.</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://www.scrapbook.cash">https://www.scrapbook.cash</a></span>
+                                        
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\MatthiasMullie\Scrapbook\Psr16\SimpleCache">SimpleCache</abbr>|null</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>A PSR-16 cache instance scoped to the given collection, or <code class="prettyprint">null</code> if the definition is not found or not compatible.</p>
+</section>
+
+            </section>
+
+</article>
                     <article class="phpdocumentor-element -function - ">
     <h4 class="phpdocumentor-element__name" id="function_documentUrl">
         documentUrl()
@@ -407,6 +530,7 @@ $urlWithSlash = documentUrl('uploads', $container, 'baseUrl', true);
                             <li class="phpdocumentor-on-this-page-section__title">Functions</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="namespaces/oihana-models-helpers.html#function_cacheCollection">cacheCollection()</a></li>
                                                     <li class=""><a href="namespaces/oihana-models-helpers.html#function_documentUrl">documentUrl()</a></li>
                                             </ul>
                 </li>

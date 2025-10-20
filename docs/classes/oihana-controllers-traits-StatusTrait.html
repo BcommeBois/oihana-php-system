@@ -107,6 +107,10 @@
                 <a href="namespaces/oihana-traits.html" class="">traits</a>
                 
             </li>
+                    <li>
+                <a href="namespaces/oihana-validations.html" class="">validations</a>
+                
+            </li>
             </ul>
 
                         </section>
@@ -137,13 +141,13 @@
     StatusTrait
             <span class="phpdocumentor-trait__extends">
             uses
-                            <a href="classes/oihana-controllers-traits-JsonTrait.html"><abbr title="\oihana\controllers\traits\JsonTrait">trait:short</abbr></a>                    </span>
+                            <a href="classes/oihana-controllers-traits-BaseUrlTrait.html"><abbr title="\oihana\controllers\traits\BaseUrlTrait">trait:short</abbr></a>,                             <a href="classes/oihana-controllers-traits-JsonTrait.html"><abbr title="\oihana\controllers\traits\JsonTrait">trait:short</abbr></a>,                             <a href="classes/oihana-logging-LoggerTrait.html"><abbr title="\oihana\logging\LoggerTrait">trait:short</abbr></a>                    </span>
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/StatusTrait.php"><a href="files/src-oihana-controllers-traits-statustrait.html"><abbr title="src/oihana/controllers/traits/StatusTrait.php">StatusTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11</span>
+    <span class="phpdocumentor-element-found-in__line">12</span>
 
     </aside>
 
@@ -168,6 +172,27 @@
 
 
 
+<h4 id="toc-constants">
+    Constants
+    <a href="classes/oihana-controllers-traits-StatusTrait.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-logging-LoggerTrait.html#constant_LOGGABLE">LOGGABLE</a>
+    <span>
+        &nbsp;= &#039;loggable&#039;                            </span>
+</dt>
+<dd>The &#039;loggable&#039; parameter constant.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-logging-LoggerTrait.html#constant_LOGGER">LOGGER</a>
+    <span>
+        &nbsp;= &#039;logger&#039;                            </span>
+</dt>
+<dd>The &#039;logger&#039; parameter constant.</dd>
+
+    </dl>
 
 
 <h4 id="toc-properties">
@@ -176,12 +201,26 @@
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
+    <a class="" href="classes/oihana-controllers-traits-BaseUrlTrait.html#property_baseUrl">$baseUrl</a>
+    <span>
+                        &nbsp;: string            </span>
+</dt>
+<dd>The application&#039;s base URL.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-controllers-traits-JsonTrait.html#property_jsonOptions">$jsonOptions</a>
     <span>
                         &nbsp;: int            </span>
 </dt>
 <dd>The default json options used in the controller.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
+    <a class="" href="classes/oihana-logging-LoggerTrait.html#property_loggable">$loggable</a>
+    <span>
+                        &nbsp;: bool            </span>
+</dt>
+<dd>The loggable flag.</dd>
 
     </dl>
 
@@ -192,11 +231,89 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-logging-LoggerTrait.html#method_alert">alert()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Action must be taken immediately.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-logging-LoggerTrait.html#method_critical">critical()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Critical conditions.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-logging-LoggerTrait.html#method_debug">debug()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Detailed debug information.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-logging-LoggerTrait.html#method_emergency">emergency()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>System is unusable.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-logging-LoggerTrait.html#method_error">error()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Runtime errors that do not require immediate action but should typically
+be logged and monitored.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-controllers-traits-StatusTrait.html#method_fail">fail()</a>
     <span>
                                 &nbsp;: <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>|null    </span>
 </dt>
 <dd>Formats a specific error status message with a code and an errors array representation of all errors.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-controllers-traits-BaseUrlTrait.html#method_getCurrentPath">getCurrentPath()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Returns the current application path relative to the base URL.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-controllers-traits-BaseUrlTrait.html#method_getFullPath">getFullPath()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Returns the full application URL including the base URL and optional parameters.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-logging-LoggerTrait.html#method_getLogger">getLogger()</a>
+    <span>
+                                &nbsp;: <abbr title="\Psr\Log\LoggerInterface">LoggerInterface</abbr>|null    </span>
+</dt>
+<dd>Returns the logger reference.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-controllers-traits-BaseUrlTrait.html#method_getPath">getPath()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Generates a path based on the base URL and a provided relative path.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-logging-LoggerTrait.html#method_info">info()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Interesting events.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-controllers-traits-BaseUrlTrait.html#method_initializeBaseUrl">initializeBaseUrl()</a>
+    <span>
+                                &nbsp;: static    </span>
+</dt>
+<dd>Initializes the internal `baseUrl` property.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-controllers-traits-JsonTrait.html#method_initializeJsonOptions">initializeJsonOptions()</a>
@@ -206,11 +323,39 @@
 <dd>Initialize the internal $jsonOptions property.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-logging-LoggerTrait.html#method_initializeLoggable">initializeLoggable()</a>
+    <span>
+                                &nbsp;: static    </span>
+</dt>
+<dd>Initialize the loggable flag.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-logging-LoggerTrait.html#method_initializeLogger">initializeLogger()</a>
+    <span>
+                                &nbsp;: static    </span>
+</dt>
+<dd>Initializes the logger reference for the current instance.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-controllers-traits-JsonTrait.html#method_jsonResponse">jsonResponse()</a>
     <span>
                                 &nbsp;: <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>    </span>
 </dt>
 <dd>Return a JSON response</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-logging-LoggerTrait.html#method_log">log()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Logs with an arbitrary level.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-logging-LoggerTrait.html#method_notice">notice()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Normal but significant events.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-controllers-traits-StatusTrait.html#method_status">status()</a>
@@ -226,12 +371,90 @@
 </dt>
 <dd>Outputs a success message with a JSON response. If the $response parameter is null, returns the $data parameter value.</dd>
 
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-logging-LoggerTrait.html#method_warning">warning()</a>
+    <span>
+                                &nbsp;: void    </span>
+</dt>
+<dd>Exceptional occurrences that are not errors.</dd>
+
     </dl>
 
 
 
 
         
+    <section class="phpdocumentor-constants">
+        <h3 class="phpdocumentor-elements__header" id="constants">
+            Constants
+            <a href="classes/oihana-controllers-traits-StatusTrait.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_LOGGABLE">
+        LOGGABLE
+        <a href="classes/oihana-logging-LoggerTrait.html#constant_LOGGABLE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerTrait.php"><a href="files/src-oihana-logging-loggertrait.html"><abbr title="src/oihana/logging/LoggerTrait.php">LoggerTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">90</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;loggable&#039; parameter constant.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">LOGGABLE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;loggable&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_LOGGER">
+        LOGGER
+        <a href="classes/oihana-logging-LoggerTrait.html#constant_LOGGER" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerTrait.php"><a href="files/src-oihana-logging-loggertrait.html"><abbr title="src/oihana/logging/LoggerTrait.php">LoggerTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">85</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;logger&#039; parameter constant.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">LOGGER</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;logger&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+            </section>
 
         
     <section class="phpdocumentor-properties">
@@ -244,7 +467,48 @@
         class="
             phpdocumentor-element
             -property
-            -protected
+            -public
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_baseUrl">
+        $baseUrl
+        <a href="classes/oihana-controllers-traits-BaseUrlTrait.html#property_baseUrl" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/BaseUrlTrait.php"><a href="files/src-oihana-controllers-traits-baseurltrait.html"><abbr title="src/oihana/controllers/traits/BaseUrlTrait.php">BaseUrlTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">37</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The application&#039;s base URL.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$baseUrl</span>
+     = <span class="phpdocumentor-signature__default-value">\oihana\enums\Char::EMPTY</span></code>
+
+        <section class="phpdocumentor-description"><p>Used as a prefix for all generated URLs.</p>
+</section>
+
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -public
                                                                     "
 >
     <h4 class="phpdocumentor-element__name" id="property_jsonOptions">
@@ -257,7 +521,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/JsonTrait.php"><a href="files/src-oihana-controllers-traits-jsontrait.html"><abbr title="src/oihana/controllers/traits/JsonTrait.php">JsonTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
     </aside>
 
@@ -265,10 +529,49 @@
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
-        <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__type">int</span>
     <span class="phpdocumentor-signature__name">$jsonOptions</span>
      = <span class="phpdocumentor-signature__default-value">\oihana\enums\JsonParam::JSON_NONE</span></code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -public
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_loggable">
+        $loggable
+        <a href="classes/oihana-logging-LoggerTrait.html#property_loggable" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerTrait.php"><a href="files/src-oihana-logging-loggertrait.html"><abbr title="src/oihana/logging/LoggerTrait.php">LoggerTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">96</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The loggable flag.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__type">bool</span>
+    <span class="phpdocumentor-signature__name">$loggable</span>
+     = <span class="phpdocumentor-signature__default-value">false</span></code>
 
     
     
@@ -293,6 +596,272 @@
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_alert">
+        alert()
+        <a href="classes/oihana-logging-LoggerTrait.html#method_alert" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerTrait.php"><a href="files/src-oihana-logging-loggertrait.html"><abbr title="src/oihana/logging/LoggerTrait.php">LoggerTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">117</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Action must be taken immediately.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">alert</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|<abbr title="\Stringable">Stringable</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$message</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$context</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Example: Entire website down, database unavailable, etc. This should
+trigger the SMS alerts and wake you up.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$message</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|<abbr title="\Stringable">Stringable</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$context</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_critical">
+        critical()
+        <a href="classes/oihana-logging-LoggerTrait.html#method_critical" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerTrait.php"><a href="files/src-oihana-logging-loggertrait.html"><abbr title="src/oihana/logging/LoggerTrait.php">LoggerTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">129</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Critical conditions.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">critical</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|<abbr title="\Stringable">Stringable</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$message</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$context</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Example: Application component unavailable, unexpected exception.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$message</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|<abbr title="\Stringable">Stringable</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$context</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_debug">
+        debug()
+        <a href="classes/oihana-logging-LoggerTrait.html#method_debug" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerTrait.php"><a href="files/src-oihana-logging-loggertrait.html"><abbr title="src/oihana/logging/LoggerTrait.php">LoggerTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">292</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Detailed debug information.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">debug</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|<abbr title="\Stringable">Stringable</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$message</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$context</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$message</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|<abbr title="\Stringable">Stringable</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$context</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_emergency">
+        emergency()
+        <a href="classes/oihana-logging-LoggerTrait.html#method_emergency" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerTrait.php"><a href="files/src-oihana-logging-loggertrait.html"><abbr title="src/oihana/logging/LoggerTrait.php">LoggerTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">104</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">System is unusable.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">emergency</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|<abbr title="\Stringable">Stringable</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$message</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$context</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$message</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|<abbr title="\Stringable">Stringable</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$context</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_error">
+        error()
+        <a href="classes/oihana-logging-LoggerTrait.html#method_error" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerTrait.php"><a href="files/src-oihana-logging-loggertrait.html"><abbr title="src/oihana/logging/LoggerTrait.php">LoggerTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">141</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Runtime errors that do not require immediate action but should typically
+be logged and monitored.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">error</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|<abbr title="\Stringable">Stringable</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$message</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$context</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$message</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|<abbr title="\Stringable">Stringable</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$context</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_fail">
         fail()
         <a href="classes/oihana-controllers-traits-StatusTrait.html#method_fail" class="headerlink"><i class="fas fa-link"></i></a>
@@ -301,7 +870,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/StatusTrait.php"><a href="files/src-oihana-controllers-traits-statustrait.html"><abbr title="src/oihana/controllers/traits/StatusTrait.php">StatusTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">30</span>
 
     </aside>
 
@@ -376,6 +945,410 @@
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_getCurrentPath">
+        getCurrentPath()
+        <a href="classes/oihana-controllers-traits-BaseUrlTrait.html#method_getCurrentPath" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/BaseUrlTrait.php"><a href="files/src-oihana-controllers-traits-baseurltrait.html"><abbr title="src/oihana/controllers/traits/BaseUrlTrait.php">BaseUrlTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">81</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the current application path relative to the base URL.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getCurrentPath</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$useNow</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Uses the <code class="prettyprint">Request</code> object if provided, otherwise falls back to <code class="prettyprint">$_SERVER['REQUEST_URI']</code>.
+Allows adding GET parameters via <code class="prettyprint">$params</code>.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$request</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr>|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional HTTP request</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$params</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional associative array of GET parameters</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$useNow</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>If true, adds a <code class="prettyprint">_</code> parameter with the current timestamp to prevent caching</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Full path including the base URL and query parameters</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getFullPath">
+        getFullPath()
+        <a href="classes/oihana-controllers-traits-BaseUrlTrait.html#method_getFullPath" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/BaseUrlTrait.php"><a href="files/src-oihana-controllers-traits-baseurltrait.html"><abbr title="src/oihana/controllers/traits/BaseUrlTrait.php">BaseUrlTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">94</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the full application URL including the base URL and optional parameters.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getFullPath</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$useNow</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$params</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional associative array of GET parameters</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$useNow</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>If true, adds a <code class="prettyprint">_</code> parameter with the current timestamp</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Full URL</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getLogger">
+        getLogger()
+        <a href="classes/oihana-logging-LoggerTrait.html#method_getLogger" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerTrait.php"><a href="files/src-oihana-logging-loggertrait.html"><abbr title="src/oihana/logging/LoggerTrait.php">LoggerTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">150</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns the logger reference.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getLogger</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Log\LoggerInterface">LoggerInterface</abbr>|null</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Log\LoggerInterface">LoggerInterface</abbr>|null</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getPath">
+        getPath()
+        <a href="classes/oihana-controllers-traits-BaseUrlTrait.html#method_getPath" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/BaseUrlTrait.php"><a href="files/src-oihana-controllers-traits-baseurltrait.html"><abbr title="src/oihana/controllers/traits/BaseUrlTrait.php">BaseUrlTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">107</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Generates a path based on the base URL and a provided relative path.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getPath</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$path</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">Char::EMPTY</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$useNow</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$path</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">Char::EMPTY</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Relative path to append to the base URL</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$params</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional associative array of GET parameters</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$useNow</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>If true, adds a <code class="prettyprint">_</code> parameter with the current timestamp</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Full path</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_info">
+        info()
+        <a href="classes/oihana-logging-LoggerTrait.html#method_info" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerTrait.php"><a href="files/src-oihana-logging-loggertrait.html"><abbr title="src/oihana/logging/LoggerTrait.php">LoggerTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">186</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Interesting events.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">info</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|<abbr title="\Stringable">Stringable</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$message</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$context</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Example: User logs in, SQL logs.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$message</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|<abbr title="\Stringable">Stringable</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$context</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_initializeBaseUrl">
+        initializeBaseUrl()
+        <a href="classes/oihana-controllers-traits-BaseUrlTrait.html#method_initializeBaseUrl" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/BaseUrlTrait.php"><a href="files/src-oihana-controllers-traits-baseurltrait.html"><abbr title="src/oihana/controllers/traits/BaseUrlTrait.php">BaseUrlTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">55</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Initializes the internal `baseUrl` property.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">initializeBaseUrl</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>The value can come from:</p>
+<ul>
+<li>the <code class="prettyprint">$init</code> array (key <code class="prettyprint">ControllerParam::BASE_URL</code>),</li>
+<li>the DI container if provided and contains the key <code class="prettyprint">ControllerParam::BASE_URL</code>,</li>
+<li>otherwise it remains an empty string.</li>
+</ul>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$init</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional initialization array</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$container</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional DI container to fetch the base URL</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-controllers-traits-BaseUrlTrait.html#method_initializeBaseUrl#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the container encounters an error during access</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the <code class="prettyprint">ControllerParam::BASE_URL</code> key is not found in the container</p>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">static</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Returns the current instance for method chaining</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_initializeJsonOptions">
         initializeJsonOptions()
         <a href="classes/oihana-controllers-traits-JsonTrait.html#method_initializeJsonOptions" class="headerlink"><i class="fas fa-link"></i></a>
@@ -384,7 +1357,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/JsonTrait.php"><a href="files/src-oihana-controllers-traits-jsontrait.html"><abbr title="src/oihana/controllers/traits/JsonTrait.php">JsonTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">42</span>
 
     </aside>
 
@@ -455,6 +1428,232 @@
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_initializeLoggable">
+        initializeLoggable()
+        <a href="classes/oihana-logging-LoggerTrait.html#method_initializeLoggable" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerTrait.php"><a href="files/src-oihana-logging-loggertrait.html"><abbr title="src/oihana/logging/LoggerTrait.php">LoggerTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">200</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Initialize the loggable flag.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">initializeLoggable</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">bool|array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool|array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$defaultValue</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$init</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool|array&lt;string|int, mixed&gt;|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The definition to initialize the loggable property.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$container</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$defaultValue</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool|array&lt;string|int, mixed&gt;|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The default value if the $init argument is not defined.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-logging-LoggerTrait.html#method_initializeLoggable#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">static</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_initializeLogger">
+        initializeLogger()
+        <a href="classes/oihana-logging-LoggerTrait.html#method_initializeLogger" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerTrait.php"><a href="files/src-oihana-logging-loggertrait.html"><abbr title="src/oihana/logging/LoggerTrait.php">LoggerTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">250</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Initializes the logger reference for the current instance.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">initializeLogger</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|<abbr title="\Psr\Log\LoggerInterface">LoggerInterface</abbr>|string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$useDefault</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>This method accepts either:</p>
+<ul>
+<li>A <abbr title="\Psr\Log\LoggerInterface">LoggerInterface</abbr> instance</li>
+<li>An associative array containing a logger reference under the <abbr title="\oihana\logging\static::LOGGER">static::LOGGER</abbr> key</li>
+<li>A string representing a service ID or class name resolvable by the container</li>
+<li><code class="prettyprint">null</code> or an empty value, which will default to <abbr title="\Psr\Log\LoggerInterface::class">LoggerInterface::class</abbr>
+depending on the <code class="prettyprint">$useDefault</code> parameter.</li>
+</ul>
+<p>If a dependency injection container is provided, the method will attempt to
+resolve the logger service from it. If no valid logger can be resolved, the
+<code class="prettyprint">$this-&gt;logger</code> property will be set to <code class="prettyprint">null</code>.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$init</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|<abbr title="\Psr\Log\LoggerInterface">LoggerInterface</abbr>|string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Logger initialization data.
+May be an instance, an array with a logger entry,
+a string service ID/class name, or <code class="prettyprint">null</code>.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$container</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional dependency injection container
+used to resolve the logger service.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$useDefault</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Whether to use <abbr title="\Psr\Log\LoggerInterface::class">LoggerInterface::class</abbr> as a fallback if <code class="prettyprint">$init</code> does not provide
+a valid logger string. Defaults to <code class="prettyprint">true</code>.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-logging-LoggerTrait.html#method_initializeLogger#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\DI\DependencyException">DependencyException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If there is a dependency resolution error.</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\DI\NotFoundException">NotFoundException</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the specified service is not found in the container.</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the specified service is not found in the container.</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If the container encounters a general error.</p>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">static</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Returns the current instance for method chaining.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_jsonResponse">
         jsonResponse()
         <a href="classes/oihana-controllers-traits-JsonTrait.html#method_jsonResponse" class="headerlink"><i class="fas fa-link"></i></a>
@@ -463,7 +1662,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/JsonTrait.php"><a href="files/src-oihana-controllers-traits-jsontrait.html"><abbr title="src/oihana/controllers/traits/JsonTrait.php">JsonTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">62</span>
+    <span class="phpdocumentor-element-found-in__line">63</span>
 
     </aside>
 
@@ -471,7 +1670,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">jsonResponse</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$response</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$status</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">200</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">jsonResponse</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$response</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$status</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">HttpStatusCode::OK</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -496,7 +1695,7 @@
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$status</span>
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">200</span>            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">HttpStatusCode::OK</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
@@ -518,6 +1717,117 @@
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_log">
+        log()
+        <a href="classes/oihana-logging-LoggerTrait.html#method_log" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerTrait.php"><a href="files/src-oihana-logging-loggertrait.html"><abbr title="src/oihana/logging/LoggerTrait.php">LoggerTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">304</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Logs with an arbitrary level.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">log</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$level</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|<abbr title="\Stringable">Stringable</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$message</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$context</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$level</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$message</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|<abbr title="\Stringable">Stringable</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$context</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_notice">
+        notice()
+        <a href="classes/oihana-logging-LoggerTrait.html#method_notice" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerTrait.php"><a href="files/src-oihana-logging-loggertrait.html"><abbr title="src/oihana/logging/LoggerTrait.php">LoggerTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">174</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Normal but significant events.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">notice</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|<abbr title="\Stringable">Stringable</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$message</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$context</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$message</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|<abbr title="\Stringable">Stringable</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$context</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_status">
         status()
         <a href="classes/oihana-controllers-traits-StatusTrait.html#method_status" class="headerlink"><i class="fas fa-link"></i></a>
@@ -526,7 +1836,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/StatusTrait.php"><a href="files/src-oihana-controllers-traits-statustrait.html"><abbr title="src/oihana/controllers/traits/StatusTrait.php">StatusTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">63</span>
+    <span class="phpdocumentor-element-found-in__line">66</span>
 
     </aside>
 
@@ -619,7 +1929,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/StatusTrait.php"><a href="files/src-oihana-controllers-traits-statustrait.html"><abbr title="src/oihana/controllers/traits/StatusTrait.php">StatusTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">111</span>
+    <span class="phpdocumentor-element-found-in__line">114</span>
 
     </aside>
 
@@ -682,6 +1992,61 @@ return $this-&gt;success( $request , $response , $data , [ Output::PARAMS =&gt; 
 </ul>
 </section>
 
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_warning">
+        warning()
+        <a href="classes/oihana-logging-LoggerTrait.html#method_warning" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/logging/LoggerTrait.php"><a href="files/src-oihana-logging-loggertrait.html"><abbr title="src/oihana/logging/LoggerTrait.php">LoggerTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">163</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Exceptional occurrences that are not errors.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">warning</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|<abbr title="\Stringable">Stringable</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$message</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$context</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Example: Use of deprecated APIs, poor use of an API, undesirable things
+that are not necessarily wrong.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$message</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|<abbr title="\Stringable">Stringable</abbr></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$context</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
             </dd>
             </dl>
 
@@ -798,24 +2163,50 @@ return $this-&gt;success( $request , $response , $data , [ Output::PARAMS =&gt; 
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
+                                        <li><a href="classes/oihana-controllers-traits-StatusTrait.html#toc-constants">Constants</a></li>
                                                             <li><a href="classes/oihana-controllers-traits-StatusTrait.html#toc-properties">Properties</a></li>
                                                             <li><a href="classes/oihana-controllers-traits-StatusTrait.html#toc-methods">Methods</a></li>
+                                    </ul>
+            </li>
+                        <li class="phpdocumentor-on-this-page-section__title">Constants</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/oihana-logging-LoggerTrait.html#constant_LOGGABLE">LOGGABLE</a></li>
+                                            <li class=""><a href="classes/oihana-logging-LoggerTrait.html#constant_LOGGER">LOGGER</a></li>
                                     </ul>
             </li>
                                     <li class="phpdocumentor-on-this-page-section__title">Properties</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/oihana-controllers-traits-BaseUrlTrait.html#property_baseUrl">$baseUrl</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-JsonTrait.html#property_jsonOptions">$jsonOptions</a></li>
+                                            <li class=""><a href="classes/oihana-logging-LoggerTrait.html#property_loggable">$loggable</a></li>
                                     </ul>
             </li>
                                     <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_alert">alert()</a></li>
+                                            <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_critical">critical()</a></li>
+                                            <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_debug">debug()</a></li>
+                                            <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_emergency">emergency()</a></li>
+                                            <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_error">error()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-StatusTrait.html#method_fail">fail()</a></li>
+                                            <li class=""><a href="classes/oihana-controllers-traits-BaseUrlTrait.html#method_getCurrentPath">getCurrentPath()</a></li>
+                                            <li class=""><a href="classes/oihana-controllers-traits-BaseUrlTrait.html#method_getFullPath">getFullPath()</a></li>
+                                            <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_getLogger">getLogger()</a></li>
+                                            <li class=""><a href="classes/oihana-controllers-traits-BaseUrlTrait.html#method_getPath">getPath()</a></li>
+                                            <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_info">info()</a></li>
+                                            <li class=""><a href="classes/oihana-controllers-traits-BaseUrlTrait.html#method_initializeBaseUrl">initializeBaseUrl()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-JsonTrait.html#method_initializeJsonOptions">initializeJsonOptions()</a></li>
+                                            <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_initializeLoggable">initializeLoggable()</a></li>
+                                            <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_initializeLogger">initializeLogger()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-JsonTrait.html#method_jsonResponse">jsonResponse()</a></li>
+                                            <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_log">log()</a></li>
+                                            <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_notice">notice()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-StatusTrait.html#method_status">status()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-StatusTrait.html#method_success">success()</a></li>
+                                            <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_warning">warning()</a></li>
                                     </ul>
             </li>
                     </ul>

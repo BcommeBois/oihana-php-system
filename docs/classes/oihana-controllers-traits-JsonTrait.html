@@ -107,6 +107,10 @@
                 <a href="namespaces/oihana-traits.html" class="">traits</a>
                 
             </li>
+                    <li>
+                <a href="namespaces/oihana-validations.html" class="">validations</a>
+                
+            </li>
             </ul>
 
                         </section>
@@ -140,7 +144,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/JsonTrait.php"><a href="files/src-oihana-controllers-traits-jsontrait.html"><abbr title="src/oihana/controllers/traits/JsonTrait.php">JsonTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">26</span>
 
     </aside>
 
@@ -181,7 +185,7 @@ standardized JSON HTTP responses within controllers.</p>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -property -protected">
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-controllers-traits-JsonTrait.html#property_jsonOptions">$jsonOptions</a>
     <span>
                         &nbsp;: int            </span>
@@ -228,7 +232,7 @@ standardized JSON HTTP responses within controllers.</p>
         class="
             phpdocumentor-element
             -property
-            -protected
+            -public
                                                                     "
 >
     <h4 class="phpdocumentor-element__name" id="property_jsonOptions">
@@ -241,7 +245,7 @@ standardized JSON HTTP responses within controllers.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/JsonTrait.php"><a href="files/src-oihana-controllers-traits-jsontrait.html"><abbr title="src/oihana/controllers/traits/JsonTrait.php">JsonTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">31</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
     </aside>
 
@@ -249,7 +253,7 @@ standardized JSON HTTP responses within controllers.</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
-        <span class="phpdocumentor-signature__visibility">protected</span>
+        <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__type">int</span>
     <span class="phpdocumentor-signature__name">$jsonOptions</span>
      = <span class="phpdocumentor-signature__default-value">\oihana\enums\JsonParam::JSON_NONE</span></code>
@@ -285,7 +289,7 @@ standardized JSON HTTP responses within controllers.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/JsonTrait.php"><a href="files/src-oihana-controllers-traits-jsontrait.html"><abbr title="src/oihana/controllers/traits/JsonTrait.php">JsonTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">41</span>
+    <span class="phpdocumentor-element-found-in__line">42</span>
 
     </aside>
 
@@ -364,7 +368,7 @@ standardized JSON HTTP responses within controllers.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/JsonTrait.php"><a href="files/src-oihana-controllers-traits-jsontrait.html"><abbr title="src/oihana/controllers/traits/JsonTrait.php">JsonTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">62</span>
+    <span class="phpdocumentor-element-found-in__line">63</span>
 
     </aside>
 
@@ -372,7 +376,7 @@ standardized JSON HTTP responses within controllers.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">jsonResponse</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$response</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$status</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">200</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span></code>
+                    <span class="phpdocumentor-signature__name">jsonResponse</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$response</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$data</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$status</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">HttpStatusCode::OK</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -397,7 +401,7 @@ standardized JSON HTTP responses within controllers.</p>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$status</span>
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">200</span>            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">HttpStatusCode::OK</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>

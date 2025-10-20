@@ -107,6 +107,10 @@
                 <a href="namespaces/oihana-traits.html" class="">traits</a>
                 
             </li>
+                    <li>
+                <a href="namespaces/oihana-validations.html" class="">validations</a>
+                
+            </li>
             </ul>
 
                         </section>
@@ -141,7 +145,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/alters/AlterValueTrait.php"><a href="files/src-oihana-models-traits-alters-altervaluetrait.html"><abbr title="src/oihana/models/traits/alters/AlterValueTrait.php">AlterValueTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">44</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
@@ -152,7 +156,7 @@
 in combination with <a href="classes/oihana-models-traits-AlterDocumentTrait.html"><abbr title="\oihana\models\traits\AlterDocumentTrait">AlterDocumentTrait</abbr></a>.
 It encapsulates the logic for the <code class="prettyprint">Alter::VALUE</code> transformation type.</p>
 <p>Example usage:</p>
-<pre class="prettyprint"><code class="language-php">use oihana\enums\Alter;
+<pre class="prettyprint"><code class="language-php">use oihana\models\enums\Alter;
 use oihana\traits\AlterDocumentTrait;
 use oihana\traits\alters\AlterValueTrait;
 
@@ -162,8 +166,9 @@ class Example
 
     public function __construct()
     {
-        $this-&gt;alters = [
-            'status' =&gt; [ Alter::VALUE, 'published' ],
+        $this-&gt;alters =
+        [
+            'status' =&gt; [ Alter::VALUE , 'published' ] ,
         ];
     }
 }
@@ -258,7 +263,7 @@ $result    = $processor-&gt;alter($doc);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/alters/AlterValueTrait.php"><a href="files/src-oihana-models-traits-alters-altervaluetrait.html"><abbr title="src/oihana/models/traits/alters/AlterValueTrait.php">AlterValueTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">55</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 
     </aside>
 
@@ -266,7 +271,7 @@ $result    = $processor-&gt;alter($doc);
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">alterValue</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$newValue</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$modified</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">alterValue</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$definition</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$modified</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -284,11 +289,11 @@ $result    = $processor-&gt;alter($doc);
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$newValue</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
-                            </dt>
+                <span class="phpdocumentor-signature__argument__name">$definition</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The value to replace with</p>
+                    <section class="phpdocumentor-description"><p>The definition reference to extract the new value to apply.</p>
 </section>
 
             </dd>
