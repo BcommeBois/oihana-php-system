@@ -12,8 +12,6 @@ use Psr\Container\NotFoundExceptionInterface;
 use oihana\enums\Char;
 
 /**
- * Trait ConfigTrait
- *
  * Provides functionality for managing a configuration setup.
  *
  * @property array  $config     The configuration array.
