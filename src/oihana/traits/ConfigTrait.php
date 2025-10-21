@@ -50,7 +50,7 @@ use oihana\enums\Char;
  *     'db_name' => 'prod'
  * ]);
  *
- * $service->initConfig( ['config' => 'my_config'] , $container ) ;
+ * $service->initializeConfig( ['config' => 'my_config'] , $container ) ;
  * echo
  */
 trait ConfigTrait
@@ -80,7 +80,7 @@ trait ConfigTrait
      *
      * Example usage:
      * ```php
-     * $this->initConfig( ['config' => ['db_host' => 'localhost']] ) ;
+     * $this->initializeConfig( ['config' => ['db_host' => 'localhost']] ) ;
      * echo $this->config['db_host'] ; // 'localhost'
      *
      * // Using a DI container
