@@ -134,7 +134,7 @@ trait CacheableTrait
      * @throws DependencyException
      * @throws NotFoundException
      */
-    protected function initializeCache(  array $init = [] , ?Container $container = null  ):static
+    public function initializeCache(  array $init = [] , ?Container $container = null  ):static
     {
         $cache = $init[ self::CACHE ] ?? $this->cache ;
 
@@ -153,7 +153,7 @@ trait CacheableTrait
      * @param array $init
      * @return static
      */
-    protected function initializeCacheable( array $init = [] ) :static
+    public function initializeCacheable( array $init = [] ) :static
     {
         $this->cacheable = $init[ self::CACHEABLE ] ?? $this->cacheable ;
         return $this;

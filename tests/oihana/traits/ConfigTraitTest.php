@@ -1,24 +1,20 @@
 <?php
 
-namespace tests\oihana\init;
+namespace tests\oihana\traits;
 
+use DI\Container;
 use DI\DependencyException;
 use DI\NotFoundException;
+
 use oihana\enums\Char;
 use oihana\traits\ConfigTrait;
+
 use PHPUnit\Framework\TestCase;
+
 use Psr\Container\ContainerExceptionInterface;
-use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
-/**
- * Unit tests for setIniIfExists()
- *
- * Notes:
- * - We use the display_errors directive because it is safe to modify at runtime in CLI.
- * - Each test restores the original value in tearDown to avoid side effects.
- */
-class InitConfigTraitTest extends TestCase
+final class ConfigTraitTest extends TestCase
 {
     use ConfigTrait;
 
@@ -31,8 +27,7 @@ class InitConfigTraitTest extends TestCase
     public function testInitConfigWithArray()
     {
         $init = [ self::CONFIG => ['foo' => 'bar'] ] ;
-
-        $this->initConfig($init);
+        $this->initializeConfig( $init );
         $this->assertEquals(['foo' => 'bar'], $this->config);
     }
 
@@ -44,26 +39,24 @@ class InitConfigTraitTest extends TestCase
      */
     public function testInitConfigWithContainer()
     {
-        $mockContainer = $this->createMock(ContainerInterface::class);
-        $mockContainer->method('has')
-            ->willReturnCallback(fn($key) => $key === 'my_config');
-        $mockContainer->method('get')
-            ->willReturnCallback(fn($key) => $key === 'my_config' ? ['baz' => 'qux'] : null);
-
-        $this->initConfig(['config' => 'my_config'], $mockContainer);
-        $this->assertEquals(['baz' => 'qux'], $this->config);
+        $container = new Container() ;
+        $container->set( 'my_config' ,  ['baz' => 'qux'] );
+        $this->initializeConfig( [ self::CONFIG => 'my_config'], $container ) ;
+        $this->assertEquals(['baz' => 'qux'], $this->config) ;
     }
 
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     */
     public function testInitConfigFallbackToContainerConfigKey()
     {
-        $mockContainer = $this->createMock(ContainerInterface::class);
-        $mockContainer->method('has')
-            ->willReturnMap([[ self::CONFIG, true]]);
-        $mockContainer->method('get')
-            ->willReturnMap([[ self::CONFIG, ['a' => 1]]]);
-
-        $this->initConfig([], $mockContainer);
-        $this->assertEquals(['a' => 1], $this->config);
+        $container = new Container() ;
+        $container->set( self::CONFIG , ['a' => 1 ] );
+        $this->initializeConfig( container: $container ) ;
+        $this->assertEquals( ['a' => 1] , $this->config ) ;
     }
 
     /**
@@ -74,11 +67,8 @@ class InitConfigTraitTest extends TestCase
      */
     public function testInitConfigPathDirect()
     {
-        $init = [
-            self::CONFIG_PATH => '/path/to/config.php'
-        ];
-
-        $this->initConfigPath($init);
+        $init = [ self::CONFIG_PATH => '/path/to/config.php' ] ;
+        $this->initConfigPath( $init );
         $this->assertEquals('/path/to/config.php', $this->configPath);
     }
 
@@ -90,13 +80,9 @@ class InitConfigTraitTest extends TestCase
      */
     public function testInitConfigPathWithContainer()
     {
-        $mockContainer = $this->createMock(ContainerInterface::class);
-        $mockContainer->method('has')
-            ->willReturnMap([['my_path', true]]);
-        $mockContainer->method('get')
-            ->willReturnMap([['my_path', '/etc/config.php']]);
-
-        $this->initConfigPath(['configPath' => 'my_path'], $mockContainer);
+        $container = new Container() ;
+        $container->set( 'my_path' , '/etc/config.php' );
+        $this->initConfigPath([ self::CONFIG_PATH => 'my_path'], $container );
         $this->assertEquals('/etc/config.php', $this->configPath);
     }
 
@@ -108,13 +94,9 @@ class InitConfigTraitTest extends TestCase
      */
     public function testInitConfigPathFallbackToContainerKey()
     {
-        $mockContainer = $this->createMock(ContainerInterface::class);
-        $mockContainer->method('has')
-            ->willReturnMap([[ self::CONFIG_PATH, true]]);
-        $mockContainer->method('get')
-            ->willReturnMap([[ self::CONFIG_PATH, '/default/path.php']]);
-
-        $this->initConfigPath([], $mockContainer);
+        $container = new Container() ;
+        $container->set( self::CONFIG_PATH , '/default/path.php' );
+        $this->initConfigPath( container: $container ) ;
         $this->assertEquals('/default/path.php', $this->configPath);
     }
 
@@ -126,7 +108,7 @@ class InitConfigTraitTest extends TestCase
      */
     public function testDefaultsWhenNoConfigOrPath()
     {
-        $this->initConfig();
+        $this->initializeConfig();
         $this->initConfigPath();
         $this->assertEquals([], $this->config);
         $this->assertEquals(Char::EMPTY, $this->configPath);

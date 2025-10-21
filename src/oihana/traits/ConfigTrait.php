@@ -11,7 +11,6 @@ use Psr\Container\NotFoundExceptionInterface;
 
 use oihana\enums\Char;
 
-
 /**
  * Trait ConfigTrait
  *
@@ -86,7 +85,7 @@ trait ConfigTrait
      *
      * // Using a DI container
      * $container->set( 'my_config' , ['db_name' => 'prod'] ) ;
-     * $this->initConfig( ['config' => 'my_config' ] , $container ) ;
+     * $this->initializeConfig( ['config' => 'my_config' ] , $container ) ;
      * echo $this->config[ 'db_name' ] ; // 'prod'
      * ```
      *
@@ -100,7 +99,7 @@ trait ConfigTrait
      *
      * @throws ContainerExceptionInterface
      */
-    public function initConfig( array $init = [] , ?ContainerInterface $container = null ) :static
+    public function initializeConfig( array $init = [] , ?ContainerInterface $container = null ) :static
     {
         $config = $init[ static::CONFIG ] ?? null ;
         if( is_array( $config ) )
