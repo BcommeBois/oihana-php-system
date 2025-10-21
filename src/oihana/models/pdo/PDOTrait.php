@@ -2,17 +2,21 @@
 
 namespace oihana\models\pdo;
 
-use DI\Container;
 use Exception;
+
+use PDO;
+use PDOException;
+use PDOStatement;
+
+use DI\Container;
+
 use oihana\enums\Char;
 use oihana\models\enums\ModelParam;
 use oihana\models\traits\AlterDocumentTrait;
 use oihana\models\traits\BindsTrait;
 use oihana\models\traits\SchemaTrait;
 use oihana\traits\ContainerTrait;
-use PDO;
-use PDOException;
-use PDOStatement;
+
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
