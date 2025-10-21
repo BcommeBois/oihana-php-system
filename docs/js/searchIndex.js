@@ -3586,10 +3586,10 @@ Search.appendIndex(
             "summary": "Trait\u0020ConfigTrait",
             "url": "classes/oihana-traits-ConfigTrait.html"
         },                {
-            "fqsen": "\\oihana\\traits\\ConfigTrait\u003A\u003AinitConfig\u0028\u0029",
-            "name": "initConfig",
+            "fqsen": "\\oihana\\traits\\ConfigTrait\u003A\u003AinitializeConfig\u0028\u0029",
+            "name": "initializeConfig",
             "summary": "Initialize\u0020the\u0020configuration\u0020from\u0020an\u0020array\u0020or\u0020a\u0020DI\u0020container.",
-            "url": "classes/oihana-traits-ConfigTrait.html#method_initConfig"
+            "url": "classes/oihana-traits-ConfigTrait.html#method_initializeConfig"
         },                {
             "fqsen": "\\oihana\\traits\\ConfigTrait\u003A\u003AinitConfigPath\u0028\u0029",
             "name": "initConfigPath",

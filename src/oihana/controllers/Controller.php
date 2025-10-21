@@ -2,6 +2,7 @@
 
 namespace oihana\controllers ;
 
+use oihana\enums\http\HttpStatusCode;
 use ReflectionException;
 
 use DI\Container;
@@ -151,7 +152,7 @@ abstract class Controller
      * @param int $status
      * @return Response
      */
-    public function redirectResponse( Response $response , string $url , int $status = 302 ) :Response
+    public function redirectResponse( Response $response , string $url , int $status = HttpStatusCode::FOUND ) :Response
     {
         return $response->withHeader( HttpHeader::LOCATION , $url )->withStatus( $status ) ;
     }
