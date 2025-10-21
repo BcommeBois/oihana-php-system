@@ -1,0 +1,2734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+            <title>Oihana Php System</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <link rel="icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/base.css">
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/template.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism-okaidia.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
+                <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+        <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/template.js"></script>
+        <script src="js/search.js"></script>
+        <script defer src="js/searchIndex.js"></script>
+    </head>
+<body id="top">
+    <header class="phpdocumentor-header phpdocumentor-section">
+    <h1 class="phpdocumentor-title">
+    <a href="" class="phpdocumentor-title__link">
+        <img src="assets/images/oihana-php-system-logo-inline-512x160.png" alt="Oihana PHP System" style="width: 128px; height: 40px;"/>
+    </a>
+</h1>    <input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button" />
+    <label class="phpdocumentor-header__menu-icon" for="menu-button">
+        <i class="fas fa-bars"></i>
+    </label>
+    <section data-search-form class="phpdocumentor-search">
+    <label>
+        <span class="visually-hidden">Search for</span>
+        <svg class="phpdocumentor-search__icon" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" stroke-width="2"/>
+            <line x1="12.4892" y1="12.2727" x2="19.1559" y2="18.9393" stroke="currentColor" stroke-width="3"/>
+        </svg>
+        <input type="search" class="phpdocumentor-field phpdocumentor-search__field" placeholder="Loading .." disabled />
+    </label>
+</section>
+
+    <nav class="phpdocumentor-topnav">
+    <ul class="phpdocumentor-topnav__menu">
+                        <li class="phpdocumentor-topnav__menu-item -social">
+                <a href="https://github.com/BcommeBois/oihana-php-system">
+                    <span>
+                                                                        <i class="fab fa-github"></i>
+                                                
+                    </span>
+                </a>
+            </li>
+                </ul>
+</nav>
+</header>
+
+    <main class="phpdocumentor">
+        <div class="phpdocumentor-section">
+            <input class="phpdocumentor-sidebar__menu-button" type="checkbox" id="sidebar-button" name="sidebar-button" />
+<label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
+    Menu
+</label>
+<aside class="phpdocumentor-column -three phpdocumentor-sidebar">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
+            <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/oihana.html" class="">oihana</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/oihana-controllers.html" class="">controllers</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-date.html" class="">date</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-graphics.html" class="">graphics</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-init.html" class="">init</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-logging.html" class="">logging</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-models.html" class="">models</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-mysql.html" class="">mysql</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-routes.html" class="">routes</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-traits.html" class="">traits</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-validations.html" class="">validations</a>
+                
+            </li>
+            </ul>
+
+                        </section>
+            
+    <section class="phpdocumentor-sidebar__category -reports">
+        <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
+                <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
+    </section>
+
+    <section class="phpdocumentor-sidebar__category -indices">
+        <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
+    </section>
+</aside>
+
+            <div class="phpdocumentor-column -nine phpdocumentor-content">
+                                <section>
+                                        <ul class="phpdocumentor-breadcrumbs">
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana.html">oihana</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-controllers.html">controllers</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-controllers-enums.html">enums</a></li>
+    </ul>
+
+    <article class="phpdocumentor-element -class">
+        <h2 class="phpdocumentor-content__title">
+    ControllerParam
+
+    
+    
+    
+            <span class="phpdocumentor-element__extends">
+            uses
+                            <abbr title="\oihana\reflect\traits\ConstantsTrait">ConstantsTrait</abbr>,                             <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html"><abbr title="\oihana\controllers\enums\traits\ControllerParamTrait">ControllerParamTrait</abbr></a>,                             <abbr title="\xyz\oihana\schema\constants\traits\PaginationTrait">PaginationTrait</abbr>                    </span>
+    </h2>
+
+<div class="phpdocumentor-label-line">
+
+
+</div>
+
+        <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/ControllerParam.php"><a href="files/src-oihana-controllers-enums-controllerparam.html"><abbr title="src/oihana/controllers/enums/ControllerParam.php">ControllerParam.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">13</span>
+
+    </aside>
+
+            <p class="phpdocumentor-summary">The enumeration of all the common controller&#039;s parameters.</p>
+
+
+
+
+
+
+
+
+
+<h3 id="toc">
+    Table of Contents
+    <a href="classes/oihana-controllers-enums-ControllerParam.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h3>
+
+
+
+
+
+
+
+<h4 id="toc-constants">
+    Constants
+    <a href="classes/oihana-controllers-enums-ControllerParam.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_ACTIVE">ACTIVE</a>
+    <span>
+        &nbsp;= &#039;active&#039;                            </span>
+</dt>
+<dd>The &#039;active&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_ALL">ALL</a>
+    <span>
+        &nbsp;= &#039;all&#039;                            </span>
+</dt>
+<dd>The &#039;all&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_API">API</a>
+    <span>
+        &nbsp;= &#039;api&#039;                            </span>
+</dt>
+<dd>The &#039;api&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_APP">APP</a>
+    <span>
+        &nbsp;= &#039;app&#039;                            </span>
+</dt>
+<dd>The &#039;app&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_BASE_URL">BASE_URL</a>
+    <span>
+        &nbsp;= &#039;baseUrl&#039;                            </span>
+</dt>
+<dd>The &#039;baseUrl&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_BENCH">BENCH</a>
+    <span>
+        &nbsp;= &#039;bench&#039;                            </span>
+</dt>
+<dd>The &#039;bench&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_CONTROLLER">CONTROLLER</a>
+    <span>
+        &nbsp;= &#039;controller&#039;                            </span>
+</dt>
+<dd>The &#039;controller&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_CUSTOM_RULES">CUSTOM_RULES</a>
+    <span>
+        &nbsp;= &#039;customRules&#039;                            </span>
+</dt>
+<dd>The &#039;customRules&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_DATE_FORMAT">DATE_FORMAT</a>
+    <span>
+        &nbsp;= &#039;dateFormat&#039;                            </span>
+</dt>
+<dd>The &#039;dateFormat&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_DOCUMENT_KEY">DOCUMENT_KEY</a>
+    <span>
+        &nbsp;= &#039;documentKey&#039;                            </span>
+</dt>
+<dd>The &#039;documentKey&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_FACETS">FACETS</a>
+    <span>
+        &nbsp;= &#039;facets&#039;                            </span>
+</dt>
+<dd>The &#039;facets&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_FIELDS">FIELDS</a>
+    <span>
+        &nbsp;= &#039;fields&#039;                            </span>
+</dt>
+<dd>The &#039;fields&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_FILTER">FILTER</a>
+    <span>
+        &nbsp;= &#039;filter&#039;                            </span>
+</dt>
+<dd>The &#039;filter&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_FORCE_URL">FORCE_URL</a>
+    <span>
+        &nbsp;= &#039;forceUrl&#039;                            </span>
+</dt>
+<dd>The &#039;forceUrl&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_FULL_PATH">FULL_PATH</a>
+    <span>
+        &nbsp;= &#039;fullPath&#039;                            </span>
+</dt>
+<dd>The &#039;fullPath&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_GROUP_BY">GROUP_BY</a>
+    <span>
+        &nbsp;= &#039;groupBy&#039;                            </span>
+</dt>
+<dd>The &#039;groupBy&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_HAS_TOTAL">HAS_TOTAL</a>
+    <span>
+        &nbsp;= &#039;hasTotal&#039;                            </span>
+</dt>
+<dd>The &#039;hasTotal&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_HTTP_CACHE">HTTP_CACHE</a>
+    <span>
+        &nbsp;= &#039;httpCache&#039;                            </span>
+</dt>
+<dd>The &#039;httpCache&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_ID">ID</a>
+    <span>
+        &nbsp;= &#039;id&#039;                            </span>
+</dt>
+<dd>The &#039;id&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_IDS">IDS</a>
+    <span>
+        &nbsp;= &#039;ids&#039;                            </span>
+</dt>
+<dd>The &#039;ids&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_INTERVAL">INTERVAL</a>
+    <span>
+        &nbsp;= &#039;interval&#039;                            </span>
+</dt>
+<dd>The &#039;interval&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_INTERVAL_DEFAULT">INTERVAL_DEFAULT</a>
+    <span>
+        &nbsp;= &#039;intervalDefault&#039;                            </span>
+</dt>
+<dd>The &#039;intervalDefault&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_JSON_OPTIONS">JSON_OPTIONS</a>
+    <span>
+        &nbsp;= &#039;jsonOptions&#039;                            </span>
+</dt>
+<dd>The &#039;jsonOptions&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_KEY">KEY</a>
+    <span>
+        &nbsp;= &#039;key&#039;                            </span>
+</dt>
+<dd>The &#039;key&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_LANG">LANG</a>
+    <span>
+        &nbsp;= &#039;lang&#039;                            </span>
+</dt>
+<dd>The &#039;lang&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_LANGUAGES">LANGUAGES</a>
+    <span>
+        &nbsp;= &#039;languages&#039;                            </span>
+</dt>
+<dd>The &#039;languages&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_LIST">LIST</a>
+    <span>
+        &nbsp;= &#039;list&#039;                            </span>
+</dt>
+<dd>The &#039;list&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_MARGIN">MARGIN</a>
+    <span>
+        &nbsp;= &#039;margin&#039;                            </span>
+</dt>
+<dd>The &#039;margin&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_MOCK">MOCK</a>
+    <span>
+        &nbsp;= &#039;mock&#039;                            </span>
+</dt>
+<dd>The &#039;mock&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_MODEL">MODEL</a>
+    <span>
+        &nbsp;= &#039;model&#039;                            </span>
+</dt>
+<dd>The &#039;model&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_ORDER">ORDER</a>
+    <span>
+        &nbsp;= &#039;order&#039;                            </span>
+</dt>
+<dd>The &#039;order&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_ORDERS">ORDERS</a>
+    <span>
+        &nbsp;= &#039;orders&#039;                            </span>
+</dt>
+<dd>The &#039;orders&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_OWNER">OWNER</a>
+    <span>
+        &nbsp;= &#039;owner&#039;                            </span>
+</dt>
+<dd>The &#039;owner&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_OWNER_PATH">OWNER_PATH</a>
+    <span>
+        &nbsp;= &#039;ownerPath&#039;                            </span>
+</dt>
+<dd>The &#039;ownerPath&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_PAGINATION">PAGINATION</a>
+    <span>
+        &nbsp;= &#039;pagination&#039;                            </span>
+</dt>
+<dd>The &#039;pagination&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_PARAMS">PARAMS</a>
+    <span>
+        &nbsp;= &#039;params&#039;                            </span>
+</dt>
+<dd>The &#039;params&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_PARAMS_STRATEGY">PARAMS_STRATEGY</a>
+    <span>
+        &nbsp;= &#039;paramsStrategy&#039;                            </span>
+</dt>
+<dd>The &#039;paramsStrategy&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_PATH">PATH</a>
+    <span>
+        &nbsp;= &#039;path&#039;                            </span>
+</dt>
+<dd>The &#039;path&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_QUANTITY">QUANTITY</a>
+    <span>
+        &nbsp;= &#039;quantity&#039;                            </span>
+</dt>
+<dd>The &#039;quantity&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_REDIRECTS">REDIRECTS</a>
+    <span>
+        &nbsp;= &#039;redirects&#039;                            </span>
+</dt>
+<dd>The &#039;redirects&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_ROUTER">ROUTER</a>
+    <span>
+        &nbsp;= &#039;router&#039;                            </span>
+</dt>
+<dd>The &#039;router&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_RULES">RULES</a>
+    <span>
+        &nbsp;= &#039;rules&#039;                            </span>
+</dt>
+<dd>The &#039;rules&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_SCHEMA">SCHEMA</a>
+    <span>
+        &nbsp;= &#039;schema&#039;                            </span>
+</dt>
+<dd>The &#039;schema&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_SEARCH">SEARCH</a>
+    <span>
+        &nbsp;= &#039;search&#039;                            </span>
+</dt>
+<dd>The &#039;search&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_SKIN">SKIN</a>
+    <span>
+        &nbsp;= &#039;skin&#039;                            </span>
+</dt>
+<dd>The &#039;skin&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_SKIN_DEFAULT">SKIN_DEFAULT</a>
+    <span>
+        &nbsp;= &#039;skinDefault&#039;                            </span>
+</dt>
+<dd>The &#039;skinDefault&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_SKIN_METHODS">SKIN_METHODS</a>
+    <span>
+        &nbsp;= &#039;skinMethods&#039;                            </span>
+</dt>
+<dd>The &#039;skinMethods&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_SKINS">SKINS</a>
+    <span>
+        &nbsp;= &#039;skins&#039;                            </span>
+</dt>
+<dd>The &#039;skins&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_SORT">SORT</a>
+    <span>
+        &nbsp;= &#039;sort&#039;                            </span>
+</dt>
+<dd>The &#039;sort&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_SORT_DEFAULT">SORT_DEFAULT</a>
+    <span>
+        &nbsp;= &#039;sortDefault&#039;                            </span>
+</dt>
+<dd>The &#039;sortDefault&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_STATUS">STATUS</a>
+    <span>
+        &nbsp;= &#039;status&#039;                            </span>
+</dt>
+<dd>The &#039;status&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_TIMEZONE">TIMEZONE</a>
+    <span>
+        &nbsp;= &#039;timezone&#039;                            </span>
+</dt>
+<dd>The &#039;timezone&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_TIMEZONE_DEFAULT">TIMEZONE_DEFAULT</a>
+    <span>
+        &nbsp;= &#039;timezoneDefault&#039;                            </span>
+</dt>
+<dd>The &#039;timezoneDefault&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_TWIG">TWIG</a>
+    <span>
+        &nbsp;= &#039;twig&#039;                            </span>
+</dt>
+<dd>The &#039;twig&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_TYPE">TYPE</a>
+    <span>
+        &nbsp;= &#039;type&#039;                            </span>
+</dt>
+<dd>The &#039;type&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_URL">URL</a>
+    <span>
+        &nbsp;= &#039;url&#039;                            </span>
+</dt>
+<dd>The &#039;url&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_VALIDATOR">VALIDATOR</a>
+    <span>
+        &nbsp;= &#039;validator&#039;                            </span>
+</dt>
+<dd>The &#039;validator&#039; parameter.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_VALUE">VALUE</a>
+    <span>
+        &nbsp;= &#039;value&#039;                            </span>
+</dt>
+<dd>The &#039;value&#039; parameter.</dd>
+
+    </dl>
+
+
+
+
+
+
+        
+    <section class="phpdocumentor-constants">
+        <h3 class="phpdocumentor-elements__header" id="constants">
+            Constants
+            <a href="classes/oihana-controllers-enums-ControllerParam.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ACTIVE">
+        ACTIVE
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_ACTIVE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">30</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;active&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ACTIVE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;active&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ALL">
+        ALL
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_ALL" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">35</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;all&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ALL</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;all&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_API">
+        API
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_API" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">19</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;api&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">API</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;api&#039;</span>
+</code>
+
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_API#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/oihana-controllers-traits-ApiTrait.html"><abbr title="\oihana\controllers\traits\ApiTrait">ApiTrait</abbr></a></span>
+                                        
+                                             
+                                    </dd>
+                        </dl>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_APP">
+        APP
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_APP" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">25</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;app&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">APP</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;app&#039;</span>
+</code>
+
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_APP#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/oihana-controllers-traits-AppTrait.html"><abbr title="\oihana\controllers\traits\AppTrait">AppTrait</abbr></a></span>
+                                        
+                                             
+                                    </dd>
+                        </dl>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_BASE_URL">
+        BASE_URL
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_BASE_URL" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">40</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;baseUrl&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">BASE_URL</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;baseUrl&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_BENCH">
+        BENCH
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_BENCH" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">45</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;bench&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">BENCH</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;bench&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_CONTROLLER">
+        CONTROLLER
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_CONTROLLER" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">50</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;controller&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">CONTROLLER</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;controller&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_CUSTOM_RULES">
+        CUSTOM_RULES
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_CUSTOM_RULES" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">65</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;customRules&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">CUSTOM_RULES</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;customRules&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_DATE_FORMAT">
+        DATE_FORMAT
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_DATE_FORMAT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">55</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;dateFormat&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">DATE_FORMAT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;dateFormat&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_DOCUMENT_KEY">
+        DOCUMENT_KEY
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_DOCUMENT_KEY" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">60</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;documentKey&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">DOCUMENT_KEY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;documentKey&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_FACETS">
+        FACETS
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_FACETS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">70</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;facets&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">FACETS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;facets&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_FIELDS">
+        FIELDS
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_FIELDS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">75</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;fields&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">FIELDS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;fields&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_FILTER">
+        FILTER
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_FILTER" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">80</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;filter&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">FILTER</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;filter&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_FORCE_URL">
+        FORCE_URL
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_FORCE_URL" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">85</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;forceUrl&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">FORCE_URL</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;forceUrl&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_FULL_PATH">
+        FULL_PATH
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_FULL_PATH" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">90</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;fullPath&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">FULL_PATH</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;fullPath&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_GROUP_BY">
+        GROUP_BY
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_GROUP_BY" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">95</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;groupBy&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">GROUP_BY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;groupBy&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_HAS_TOTAL">
+        HAS_TOTAL
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_HAS_TOTAL" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">100</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;hasTotal&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">HAS_TOTAL</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;hasTotal&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_HTTP_CACHE">
+        HTTP_CACHE
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_HTTP_CACHE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">105</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;httpCache&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">HTTP_CACHE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;httpCache&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ID">
+        ID
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_ID" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">110</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;id&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ID</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;id&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_IDS">
+        IDS
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_IDS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">115</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;ids&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">IDS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;ids&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_INTERVAL">
+        INTERVAL
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_INTERVAL" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">120</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;interval&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">INTERVAL</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;interval&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_INTERVAL_DEFAULT">
+        INTERVAL_DEFAULT
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_INTERVAL_DEFAULT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">125</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;intervalDefault&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">INTERVAL_DEFAULT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;intervalDefault&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_JSON_OPTIONS">
+        JSON_OPTIONS
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_JSON_OPTIONS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">131</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;jsonOptions&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">JSON_OPTIONS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;jsonOptions&#039;</span>
+</code>
+
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_JSON_OPTIONS#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/oihana-traits-JsonOptionsTrait.html"><abbr title="\oihana\traits\JsonOptionsTrait">JsonOptionsTrait</abbr></a></span>
+                                        
+                                             
+                                    </dd>
+                        </dl>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_KEY">
+        KEY
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_KEY" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">136</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;key&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">KEY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;key&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_LANG">
+        LANG
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_LANG" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">141</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;lang&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">LANG</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;lang&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_LANGUAGES">
+        LANGUAGES
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_LANGUAGES" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">146</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;languages&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">LANGUAGES</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;languages&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_LIST">
+        LIST
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_LIST" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">151</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;list&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">LIST</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;list&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_MARGIN">
+        MARGIN
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_MARGIN" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">156</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;margin&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">MARGIN</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;margin&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_MOCK">
+        MOCK
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_MOCK" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">161</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;mock&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">MOCK</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;mock&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_MODEL">
+        MODEL
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_MODEL" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">166</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;model&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">MODEL</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;model&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ORDER">
+        ORDER
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_ORDER" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">171</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;order&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ORDER</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;order&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ORDERS">
+        ORDERS
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_ORDERS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">176</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;orders&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ORDERS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;orders&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_OWNER">
+        OWNER
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_OWNER" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">181</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;owner&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">OWNER</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;owner&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_OWNER_PATH">
+        OWNER_PATH
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_OWNER_PATH" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">186</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;ownerPath&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">OWNER_PATH</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;ownerPath&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PAGINATION">
+        PAGINATION
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_PAGINATION" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">192</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;pagination&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PAGINATION</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;pagination&#039;</span>
+</code>
+
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_PAGINATION#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/oihana-controllers-traits-PaginationTrait.html"><abbr title="\oihana\controllers\traits\PaginationTrait">PaginationTrait</abbr></a></span>
+                                        
+                                             
+                                    </dd>
+                        </dl>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PARAMS">
+        PARAMS
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_PARAMS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">197</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;params&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PARAMS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;params&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PARAMS_STRATEGY">
+        PARAMS_STRATEGY
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_PARAMS_STRATEGY" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">202</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;paramsStrategy&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PARAMS_STRATEGY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;paramsStrategy&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PATH">
+        PATH
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_PATH" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">207</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;path&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PATH</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;path&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_QUANTITY">
+        QUANTITY
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_QUANTITY" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">212</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;quantity&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">QUANTITY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;quantity&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_REDIRECTS">
+        REDIRECTS
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_REDIRECTS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">217</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;redirects&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">REDIRECTS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;redirects&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ROUTER">
+        ROUTER
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_ROUTER" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">222</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;router&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ROUTER</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;router&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_RULES">
+        RULES
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_RULES" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">227</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;rules&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">RULES</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;rules&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SCHEMA">
+        SCHEMA
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_SCHEMA" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">232</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;schema&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SCHEMA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;schema&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SEARCH">
+        SEARCH
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_SEARCH" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">237</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;search&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SEARCH</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;search&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SKIN">
+        SKIN
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_SKIN" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">242</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;skin&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SKIN</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;skin&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SKIN_DEFAULT">
+        SKIN_DEFAULT
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_SKIN_DEFAULT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">247</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;skinDefault&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SKIN_DEFAULT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;skinDefault&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SKIN_METHODS">
+        SKIN_METHODS
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_SKIN_METHODS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">252</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;skinMethods&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SKIN_METHODS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;skinMethods&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SKINS">
+        SKINS
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_SKINS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">257</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;skins&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SKINS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;skins&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SORT">
+        SORT
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_SORT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">262</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;sort&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SORT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;sort&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SORT_DEFAULT">
+        SORT_DEFAULT
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_SORT_DEFAULT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">267</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;sortDefault&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SORT_DEFAULT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;sortDefault&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_STATUS">
+        STATUS
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_STATUS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">272</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;status&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">STATUS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;status&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_TIMEZONE">
+        TIMEZONE
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_TIMEZONE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">277</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;timezone&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">TIMEZONE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;timezone&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_TIMEZONE_DEFAULT">
+        TIMEZONE_DEFAULT
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_TIMEZONE_DEFAULT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">282</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;timezoneDefault&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">TIMEZONE_DEFAULT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;timezoneDefault&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_TWIG">
+        TWIG
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_TWIG" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">292</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;twig&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">TWIG</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;twig&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_TYPE">
+        TYPE
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_TYPE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">287</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;type&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">TYPE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;type&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_URL">
+        URL
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_URL" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">297</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;url&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">URL</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;url&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_VALIDATOR">
+        VALIDATOR
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_VALIDATOR" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">302</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;validator&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">VALIDATOR</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;validator&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_VALUE">
+        VALUE
+        <a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_VALUE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/enums/traits/ControllerParamTrait.php"><a href="files/src-oihana-controllers-enums-traits-controllerparamtrait.html"><abbr title="src/oihana/controllers/enums/traits/ControllerParamTrait.php">ControllerParamTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">307</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;value&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">VALUE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;value&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+            </section>
+
+        
+
+        
+        <div class="phpdocumentor-modal" id="source-view">
+    <div class="phpdocumentor-modal-bg" data-exit-button></div>
+    <div class="phpdocumentor-modal-container">
+        <div class="phpdocumentor-modal-content">
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/controllers/enums/ControllerParam.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+        </div>
+        <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
+    </div>
+</div>
+
+    <script type="text/javascript">
+        (function () {
+            function loadExternalCodeSnippet(el, url, line) {
+                Array.prototype.slice.call(el.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                    const src = url || pre.getAttribute('data-src').replace(/\\/g, '/');
+                    const language = 'php';
+
+                    const code = document.createElement('code');
+                    code.className = 'language-' + language;
+                    pre.textContent = '';
+                    pre.setAttribute('data-line', line)
+                    code.textContent = 'Loading…';
+                    pre.appendChild(code);
+
+                    var xhr = new XMLHttpRequest();
+
+                    xhr.open('GET', src, true);
+
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState !== 4) {
+                            return;
+                        }
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+                            Prism.highlightElement(code);
+                            d=document.getElementsByClassName("line-numbers");
+                            d[0].scrollTop = d[0].children[1].offsetTop;
+                            return;
+                        }
+
+                        if (xhr.status === 404) {
+                            code.textContent = '✖ Error: File could not be found';
+                            return;
+                        }
+
+                        if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                            return;
+                        }
+
+                        code.textContent = '✖ Error: An unknown error occurred';
+                    };
+
+                    xhr.send(null);
+                });
+            }
+
+            const modalButtons = document.querySelectorAll("[data-modal]");
+            const openedAsLocalFile = window.location.protocol === 'file:';
+            if (modalButtons.length > 0 && openedAsLocalFile) {
+                console.warn(
+                    'Viewing the source code is unavailable because you are opening this page from the file:// scheme; ' +
+                    'browsers block XHR requests when a page is opened this way'
+                );
+            }
+
+            modalButtons.forEach(function (trigger) {
+                if (openedAsLocalFile) {
+                    trigger.setAttribute("hidden", "hidden");
+                }
+
+                trigger.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const modal = document.getElementById(trigger.dataset.modal);
+                    if (!modal) {
+                        console.error(`Modal with id "${trigger.dataset.modal}" could not be found`);
+                        return;
+                    }
+                    modal.classList.add("phpdocumentor-modal__open");
+
+                    loadExternalCodeSnippet(modal, trigger.dataset.src || null, trigger.dataset.line)
+                    const exits = modal.querySelectorAll("[data-exit-button]");
+                    exits.forEach(function (exit) {
+                        exit.addEventListener("click", function (event) {
+                            event.preventDefault();
+                            modal.classList.remove("phpdocumentor-modal__open");
+                        });
+                    });
+                });
+            });
+        })();
+    </script>
+
+    </article>
+                                </section>
+                <section class="phpdocumentor-on-this-page__sidebar">
+                                
+    <section class="phpdocumentor-on-this-page__content">
+        <strong class="phpdocumentor-on-this-page__title">On this page</strong>
+
+        <ul class="phpdocumentor-list -clean">
+            <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                        <li><a href="classes/oihana-controllers-enums-ControllerParam.html#toc-constants">Constants</a></li>
+                                                                            </ul>
+            </li>
+                            <li class="phpdocumentor-on-this-page-section__title">Constants</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_ACTIVE">ACTIVE</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_ALL">ALL</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_API">API</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_APP">APP</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_BASE_URL">BASE_URL</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_BENCH">BENCH</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_CONTROLLER">CONTROLLER</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_CUSTOM_RULES">CUSTOM_RULES</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_DATE_FORMAT">DATE_FORMAT</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_DOCUMENT_KEY">DOCUMENT_KEY</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_FACETS">FACETS</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_FIELDS">FIELDS</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_FILTER">FILTER</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_FORCE_URL">FORCE_URL</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_FULL_PATH">FULL_PATH</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_GROUP_BY">GROUP_BY</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_HAS_TOTAL">HAS_TOTAL</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_HTTP_CACHE">HTTP_CACHE</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_ID">ID</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_IDS">IDS</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_INTERVAL">INTERVAL</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_INTERVAL_DEFAULT">INTERVAL_DEFAULT</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_JSON_OPTIONS">JSON_OPTIONS</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_KEY">KEY</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_LANG">LANG</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_LANGUAGES">LANGUAGES</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_LIST">LIST</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_MARGIN">MARGIN</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_MOCK">MOCK</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_MODEL">MODEL</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_ORDER">ORDER</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_ORDERS">ORDERS</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_OWNER">OWNER</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_OWNER_PATH">OWNER_PATH</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_PAGINATION">PAGINATION</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_PARAMS">PARAMS</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_PARAMS_STRATEGY">PARAMS_STRATEGY</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_PATH">PATH</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_QUANTITY">QUANTITY</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_REDIRECTS">REDIRECTS</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_ROUTER">ROUTER</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_RULES">RULES</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_SCHEMA">SCHEMA</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_SEARCH">SEARCH</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_SKIN">SKIN</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_SKIN_DEFAULT">SKIN_DEFAULT</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_SKIN_METHODS">SKIN_METHODS</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_SKINS">SKINS</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_SORT">SORT</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_SORT_DEFAULT">SORT_DEFAULT</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_STATUS">STATUS</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_TIMEZONE">TIMEZONE</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_TIMEZONE_DEFAULT">TIMEZONE_DEFAULT</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_TWIG">TWIG</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_TYPE">TYPE</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_URL">URL</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_VALIDATOR">VALIDATOR</a></li>
+                                                    <li class=""><a href="classes/oihana-controllers-enums-traits-ControllerParamTrait.html#constant_VALUE">VALUE</a></li>
+                                            </ul>
+                </li>
+            
+            
+                    </ul>
+    </section>
+
+                </section>
+                            </div>
+            <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+    <section class="phpdocumentor-search-results__dialog">
+        <header class="phpdocumentor-search-results__header">
+            <h2 class="phpdocumentor-search-results__title">Search results</h2>
+            <button class="phpdocumentor-search-results__close"><i class="fas fa-times"></i></button>
+        </header>
+        <section class="phpdocumentor-search-results__body">
+            <ul class="phpdocumentor-search-results__entries"></ul>
+        </section>
+    </section>
+</section>
+        </div>
+        <a href="classes/oihana-controllers-enums-ControllerParam.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+
+    </main>
+
+    <script>
+        cssVars({});
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
+</body>
+</html>
