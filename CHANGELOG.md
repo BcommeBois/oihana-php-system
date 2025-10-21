@@ -39,6 +39,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Changed
 
 - Move oihana\traits\AlterTrait (+dependencies) -> oihana\models\traits\AlterTrait
+- Move oihana\traits\BindTrait -> oihana\models\traits\BindTrait
 - oihana\traits\SortTrait
 
 ### TODO

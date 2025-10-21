@@ -1,6 +1,6 @@
 <?php
 
-namespace oihana\traits;
+namespace oihana\models\traits;
 
 /**
  * Provides logic for managing bind parameters used in PDO statements.
@@ -10,26 +10,28 @@ namespace oihana\traits;
  * ### Usage example:
  *
  * ```php
- * class MyModel {
+ * class MyModel
+ * {
  *     use BindsTrait;
  * }
  *
  * $model = new MyModel();
- * $model->binds = [ ':id' => 42 ];
+ * $model->binds = [ 'id' => 42 ];
  *
- * $params = $model->prepareBindVars([
- *     'binds' => [ ':status' => 'active' ]
+ * $params = $model->prepareBindVars
+ * ([
+ *     'binds' => [ 'status' => 'active' ]
  * ]);
  *
  * print_r($params);
  * // Output:
  * // [
- * //     ':id'     => 42,
- * //     ':status' => 'active'
+ * //     'id'     => 42,
+ * //     'status' => 'active'
  * // ]
  * ```
  *
- * @package oihana\traits
+ * @package oihana\models\traits
  * @author  Marc Alcaraz (ekameleon)
  * @since   1.0.0
  */

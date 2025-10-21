@@ -2,7 +2,6 @@
 
 namespace oihana\controllers\traits ;
 
-use oihana\traits\ContainerTrait;
 use Psr\Http\Message\ResponseInterface as Response;
 
 use DI\DependencyException;
@@ -11,6 +10,7 @@ use DI\NotFoundException;
 use oihana\controllers\enums\ControllerParam;
 use oihana\enums\Output;
 use oihana\enums\http\HttpMethod;
+use oihana\traits\ContainerTrait;
 
 use Somnambulist\Components\Validation\Factory as Validator;
 use Somnambulist\Components\Validation\Rule;
