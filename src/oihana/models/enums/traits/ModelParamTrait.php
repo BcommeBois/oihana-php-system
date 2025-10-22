@@ -113,6 +113,11 @@ trait ModelParamTrait
     public const string SORT = 'sort' ;
 
     /**
+     * The 'sortDefault' parameter.
+     */
+    public const string SORT_DEFAULT = 'sortDefault' ;
+
+    /**
      * The 'value' parameter.
      */
     public const string VALUE = 'value' ;
