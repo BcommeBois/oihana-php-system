@@ -2,7 +2,7 @@
 
 namespace oihana\traits ;
 
-trait SortTrait
+trait SortDefaultTrait
 {
     /**
      * The default sort definition.
@@ -21,7 +21,7 @@ trait SortTrait
      * @param string|null $defaultValue
      * @return static
      */
-    protected function initializeSort( array $init = [] , ?string $defaultValue = null ) :static
+    public function initializeSortDefault( array $init = [] , ?string $defaultValue = null ) :static
     {
         $this->sortDefault = $init[ self::SORT_DEFAULT ] ?? $this->sortDefault ?? $defaultValue ;
         return $this ;

@@ -5,11 +5,11 @@ namespace oihana\controllers\traits\prepare;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
 use oihana\controllers\enums\ControllerParam;
-use oihana\traits\SortTrait;
+use oihana\traits\SortDefaultTrait;
 
 trait PrepareSort
 {
-    use SortTrait ;
+    use SortDefaultTrait ;
 
     /**
      * Prepares the sorting parameter based on the given request and arguments.
