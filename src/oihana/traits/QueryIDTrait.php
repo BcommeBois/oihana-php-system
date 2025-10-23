@@ -24,7 +24,7 @@ use oihana\enums\Char;
  *
  *    public function __construct(array $options = [])
  *    {
- *        $this->setQueryID($options);
+ *        $this->initializeQueryID($options);
  *    }
  * }
  *
