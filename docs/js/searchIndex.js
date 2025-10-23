@@ -3721,30 +3721,30 @@ Search.appendIndex(
             "summary": "Returns\u0020the\u0020internal\u0020query\u0020identifier.",
             "url": "classes/oihana-traits-QueryIDTrait.html#method_getQueryID"
         },                {
-            "fqsen": "\\oihana\\traits\\QueryIDTrait\u003A\u003AsetQueryID\u0028\u0029",
-            "name": "setQueryID",
+            "fqsen": "\\oihana\\traits\\QueryIDTrait\u003A\u003AinitializeQueryID\u0028\u0029",
+            "name": "initializeQueryID",
             "summary": "Sets\u0020the\u0020internal\u0020query\u0020identifier.",
-            "url": "classes/oihana-traits-QueryIDTrait.html#method_setQueryID"
+            "url": "classes/oihana-traits-QueryIDTrait.html#method_initializeQueryID"
         },                {
             "fqsen": "\\oihana\\traits\\QueryIDTrait\u003A\u003A\u0024queryId",
             "name": "queryId",
             "summary": "The\u0020internal\u0020query\u0020identifier.",
             "url": "classes/oihana-traits-QueryIDTrait.html#property_queryId"
         },                {
-            "fqsen": "\\oihana\\traits\\SortTrait",
-            "name": "SortTrait",
+            "fqsen": "\\oihana\\traits\\SortDefaultTrait",
+            "name": "SortDefaultTrait",
             "summary": "",
-            "url": "classes/oihana-traits-SortTrait.html"
+            "url": "classes/oihana-traits-SortDefaultTrait.html"
         },                {
-            "fqsen": "\\oihana\\traits\\SortTrait\u003A\u003AinitializeSort\u0028\u0029",
-            "name": "initializeSort",
+            "fqsen": "\\oihana\\traits\\SortDefaultTrait\u003A\u003AinitializeSortDefault\u0028\u0029",
+            "name": "initializeSortDefault",
             "summary": "Initialize\u0020the\u0020sort\u0020behavior\u0020with\u0020an\u0020associative\u0020array\u0020definition.",
-            "url": "classes/oihana-traits-SortTrait.html#method_initializeSort"
+            "url": "classes/oihana-traits-SortDefaultTrait.html#method_initializeSortDefault"
         },                {
-            "fqsen": "\\oihana\\traits\\SortTrait\u003A\u003A\u0024sortDefault",
+            "fqsen": "\\oihana\\traits\\SortDefaultTrait\u003A\u003A\u0024sortDefault",
             "name": "sortDefault",
-            "summary": "",
-            "url": "classes/oihana-traits-SortTrait.html#property_sortDefault"
+            "summary": "The\u0020default\u0020sort\u0020definition.",
+            "url": "classes/oihana-traits-SortDefaultTrait.html#property_sortDefault"
         },                {
             "fqsen": "\\oihana\\traits\\strings\\ExpressionTrait",
             "name": "ExpressionTrait",

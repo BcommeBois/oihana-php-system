@@ -18,29 +18,29 @@ class QueryIDTraitTest extends TestCase
     public function testSetAndGetQueryIDWithString(): void
     {
         $obj = $this->getQueryIDInstance();
-        $obj->setQueryID('custom_id');
+        $obj->initializeQueryID('custom_id');
         $this->assertSame('custom_id', $obj->getQueryID());
     }
 
-    public function testSetQueryIDWithArrayContainingQueryId(): void
+    public function testInitializeQueryIdWithArrayContainingQueryId(): void
     {
         $obj = $this->getQueryIDInstance();
-        $obj->setQueryID(['queryId' => 'array_id']);
+        $obj->initializeQueryID(['queryId' => 'array_id']);
         $this->assertSame('array_id', $obj->getQueryID());
     }
 
-    public function testSetQueryIDWithArrayWithoutQueryId(): void
+    public function testInitializeQueryIdWithArrayWithoutQueryId(): void
     {
         $obj = $this->getQueryIDInstance();
-        $obj->setQueryID(['other' => 'value']);
+        $obj->initializeQueryID(['other' => 'value']);
         $id = $obj->getQueryID();
         $this->assertMatchesRegularExpression('/^query_\d+$/', $id);
     }
 
-    public function testSetQueryIDWithNull(): void
+    public function testInitializeQueryIdWithNull(): void
     {
         $obj = $this->getQueryIDInstance();
-        $obj->setQueryID(null);
+        $obj->initializeQueryID(null);
         $id = $obj->getQueryID();
         $this->assertMatchesRegularExpression('/^query_\d+$/', $id);
     }
@@ -48,7 +48,7 @@ class QueryIDTraitTest extends TestCase
     public function testQueryIDIsAString(): void
     {
         $obj = $this->getQueryIDInstance();
-        $obj->setQueryID(null);
+        $obj->initializeQueryID(null);
         $this->assertIsString($obj->getQueryID());
     }
 }

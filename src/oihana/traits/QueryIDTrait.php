@@ -81,18 +81,19 @@ trait QueryIDTrait
      * If null is passed, a default ID is auto-generated using `query_<random>`.
      *
      * @param string|array|null $init The initial ID value, or an array with key 'queryId'.
-     * @return void
+     *
+     * @return static
      *
      * @example
      * ```php
-     * $this->setQueryID('my_query'); // sets queryId to 'my_query'
+     * $this->initializeQueryID('my_query'); // sets queryId to 'my_query'
      *
-     * $this->setQueryID(['queryId' => 'users_by_name']);
+     * $this->initializeQueryID(['queryId' => 'users_by_name']);
      *
-     * $this->setQueryID(null); // auto-generates ID like 'query_2384721'
+     * $this->initializeQueryID(null); // auto-generates ID like 'query_2384721'
      * ```
      */
-    public function setQueryID( string|array|null $init ) :void
+    public function initializeQueryID( string|array|null $init ) :static
     {
         if( is_array( $init ) )
         {
@@ -102,5 +103,6 @@ trait QueryIDTrait
         $this->queryId = is_null( $init )
                        ? static::QUERY . Char::UNDERLINE . mt_rand( 100000 , 999999 )
                        : (string) $init ;
+        return $this ;
     }
 }

@@ -142,7 +142,7 @@
     PrepareSort
             <span class="phpdocumentor-trait__extends">
             uses
-                            <a href="classes/oihana-traits-SortTrait.html"><abbr title="\oihana\traits\SortTrait">trait:short</abbr></a>                    </span>
+                            <a href="classes/oihana-traits-SortDefaultTrait.html"><abbr title="\oihana\traits\SortDefaultTrait">trait:short</abbr></a>                    </span>
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
@@ -173,6 +173,20 @@
 
 
 
+<h4 id="toc-constants">
+    Constants
+    <a href="classes/oihana-controllers-traits-prepare-PrepareSort.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-traits-SortDefaultTrait.html#constant_SORT_DEFAULT">SORT_DEFAULT</a>
+    <span>
+        &nbsp;= &#039;sortDefault&#039;                            </span>
+</dt>
+<dd>The &#039;sortDefault&#039; parameter.</dd>
+
+    </dl>
 
 
 <h4 id="toc-properties">
@@ -182,10 +196,11 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/oihana-traits-SortTrait.html#property_sortDefault">$sortDefault</a>
+    <a class="" href="classes/oihana-traits-SortDefaultTrait.html#property_sortDefault">$sortDefault</a>
     <span>
                         &nbsp;: string|null            </span>
 </dt>
+<dd>The default sort definition.</dd>
 
     </dl>
 
@@ -195,8 +210,8 @@
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a class="" href="classes/oihana-traits-SortTrait.html#method_initializeSort">initializeSort()</a>
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-traits-SortDefaultTrait.html#method_initializeSortDefault">initializeSortDefault()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
@@ -215,6 +230,45 @@
 
 
         
+    <section class="phpdocumentor-constants">
+        <h3 class="phpdocumentor-elements__header" id="constants">
+            Constants
+            <a href="classes/oihana-controllers-traits-prepare-PrepareSort.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SORT_DEFAULT">
+        SORT_DEFAULT
+        <a href="classes/oihana-traits-SortDefaultTrait.html#constant_SORT_DEFAULT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/SortDefaultTrait.php"><a href="files/src-oihana-traits-sortdefaulttrait.html"><abbr title="src/oihana/traits/SortDefaultTrait.php">SortDefaultTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">16</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;sortDefault&#039; parameter.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SORT_DEFAULT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;sortDefault&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+            </section>
 
         
     <section class="phpdocumentor-properties">
@@ -232,19 +286,20 @@
 >
     <h4 class="phpdocumentor-element__name" id="property_sortDefault">
         $sortDefault
-        <a href="classes/oihana-traits-SortTrait.html#property_sortDefault" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-traits-SortDefaultTrait.html#property_sortDefault" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                             </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/SortTrait.php"><a href="files/src-oihana-traits-sorttrait.html"><abbr title="src/oihana/traits/SortTrait.php">SortTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/SortDefaultTrait.php"><a href="files/src-oihana-traits-sortdefaulttrait.html"><abbr title="src/oihana/traits/SortDefaultTrait.php">SortDefaultTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9</span>
+    <span class="phpdocumentor-element-found-in__line">11</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">The default sort definition.</p>
+
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
         <span class="phpdocumentor-signature__visibility">public</span>
@@ -272,26 +327,26 @@
                     <article
         class="phpdocumentor-element
             -method
-            -protected
+            -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_initializeSort">
-        initializeSort()
-        <a href="classes/oihana-traits-SortTrait.html#method_initializeSort" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_initializeSortDefault">
+        initializeSortDefault()
+        <a href="classes/oihana-traits-SortDefaultTrait.html#method_initializeSortDefault" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/SortTrait.php"><a href="files/src-oihana-traits-sorttrait.html"><abbr title="src/oihana/traits/SortTrait.php">SortTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/SortDefaultTrait.php"><a href="files/src-oihana-traits-sortdefaulttrait.html"><abbr title="src/oihana/traits/SortDefaultTrait.php">SortDefaultTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">17</span>
+    <span class="phpdocumentor-element-found-in__line">24</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">Initialize the sort behavior with an associative array definition.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">initializeSort</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$defaultValue</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">initializeSortDefault</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$defaultValue</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -519,20 +574,27 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
+                                        <li><a href="classes/oihana-controllers-traits-prepare-PrepareSort.html#toc-constants">Constants</a></li>
                                                             <li><a href="classes/oihana-controllers-traits-prepare-PrepareSort.html#toc-properties">Properties</a></li>
                                                             <li><a href="classes/oihana-controllers-traits-prepare-PrepareSort.html#toc-methods">Methods</a></li>
+                                    </ul>
+            </li>
+                        <li class="phpdocumentor-on-this-page-section__title">Constants</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/oihana-traits-SortDefaultTrait.html#constant_SORT_DEFAULT">SORT_DEFAULT</a></li>
                                     </ul>
             </li>
                                     <li class="phpdocumentor-on-this-page-section__title">Properties</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-traits-SortTrait.html#property_sortDefault">$sortDefault</a></li>
+                                            <li class=""><a href="classes/oihana-traits-SortDefaultTrait.html#property_sortDefault">$sortDefault</a></li>
                                     </ul>
             </li>
                                     <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-traits-SortTrait.html#method_initializeSort">initializeSort()</a></li>
+                                            <li class=""><a href="classes/oihana-traits-SortDefaultTrait.html#method_initializeSortDefault">initializeSortDefault()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-prepare-PrepareSort.html#method_prepareSort">prepareSort()</a></li>
                                     </ul>
             </li>
