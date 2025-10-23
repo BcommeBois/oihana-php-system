@@ -187,7 +187,7 @@ class MyQueryBuilder
 $builder = new MyQueryBuilder(['queryId' =&gt; 'custom_query']);
 echo $builder-&gt;getQueryID(); // 'custom_query'
 
-$builder-&gt;setQueryID(null);
+$builder-&gt;initializeQueryID(null);
 echo $builder-&gt;getQueryID(); // 'query_238472' (random 6-digit suffix)
 </code></pre>
 </section>

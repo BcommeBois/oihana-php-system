@@ -31,7 +31,7 @@ use oihana\enums\Char;
  * $builder = new MyQueryBuilder(['queryId' => 'custom_query']);
  * echo $builder->getQueryID(); // 'custom_query'
  *
- * $builder->setQueryID(null);
+ * $builder->initializeQueryID(null);
  * echo $builder->getQueryID(); // 'query_238472' (random 6-digit suffix)
  * ```
  *
