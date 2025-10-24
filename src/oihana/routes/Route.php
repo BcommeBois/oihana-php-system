@@ -141,7 +141,7 @@ class Route
     /**
      * @var string The route placeholder.
      */
-    public  string $routePlaceholder = self::DEFAULT_ROUTE_PLACEHOLDER ;
+    public string $routePlaceholder = self::DEFAULT_ROUTE_PLACEHOLDER ;
 
     /**
      * @var array|null Nested route definitions.
