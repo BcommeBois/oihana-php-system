@@ -34,6 +34,7 @@ class Alter
     public const string CLEAN          = 'clean' ;
     public const string FLOAT          = 'float' ;
     public const string GET            = 'get' ;
+    public const string HYDRATE        = 'hydrate' ;
     public const string LIST           = 'list' ;
     public const string INT            = 'int' ;
     public const string JSON_PARSE     = 'jsonParse' ;

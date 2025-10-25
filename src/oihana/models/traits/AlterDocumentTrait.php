@@ -4,8 +4,8 @@ namespace oihana\models\traits;
 
 use DI\DependencyException;
 use DI\NotFoundException;
+use ReflectionException;
 
-use oihana\traits\ContainerTrait;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
@@ -16,6 +16,7 @@ use oihana\models\traits\alters\AlterArrayPropertyTrait;
 use oihana\models\traits\alters\AlterCallablePropertyTrait;
 use oihana\models\traits\alters\AlterFloatPropertyTrait;
 use oihana\models\traits\alters\AlterGetDocumentPropertyTrait;
+use oihana\models\traits\alters\AlterHydratePropertyTrait;
 use oihana\models\traits\alters\AlterIntPropertyTrait;
 use oihana\models\traits\alters\AlterJSONParsePropertyTrait;
 use oihana\models\traits\alters\AlterJSONStringifyPropertyTrait;
@@ -23,7 +24,7 @@ use oihana\models\traits\alters\AlterNotPropertyTrait;
 use oihana\models\traits\alters\AlterNormalizePropertyTrait;
 use oihana\models\traits\alters\AlterUrlPropertyTrait;
 use oihana\models\traits\alters\AlterValueTrait;
-use oihana\traits\KeyValueTrait;
+use oihana\traits\ContainerTrait;
 
 use function oihana\core\accessors\getKeyValue;
 use function oihana\core\accessors\hasKeyValue;
@@ -108,6 +109,7 @@ trait AlterDocumentTrait
         AlterCallablePropertyTrait ,
         AlterFloatPropertyTrait ,
         AlterGetDocumentPropertyTrait ,
+        AlterHydratePropertyTrait ,
         AlterIntPropertyTrait ,
         AlterJSONParsePropertyTrait ,
         AlterJSONStringifyPropertyTrait ,
@@ -137,6 +139,7 @@ trait AlterDocumentTrait
      * @throws DependencyException
      * @throws NotFoundException
      * @throws NotFoundExceptionInterface
+     * @throws ReflectionException
      *
      * @example
      * ```php
@@ -210,6 +213,7 @@ trait AlterDocumentTrait
      * - Alter::CLEAN          — Removes empty (`""`) or null elements from arrays
      * - Alter::FLOAT          — Casts the value to float
      * - Alter::GET            — Resolves a document by ID using a model
+     * - Alter::HYDRATE        — Hydrate a value with a specific class.
      * - Alter::INT            — Casts the value to integer
      * - Alter::JSON_PARSE     — Parses a JSON string into a PHP value
      * - Alter::JSON_STRINGIFY — Encodes a value into a JSON string
@@ -218,16 +222,17 @@ trait AlterDocumentTrait
      * - Alter::URL            — Generates a URL based on document properties
      * - Alter::VALUE          — Replaces the value with a fixed constant
      *
-     * @param string       $key        The name of the property to alter (e.g. 'price', 'tags')
-     * @param array|object $document   The document (array or object) passed by reference
+     * @param string $key The name of the property to alter (e.g. 'price', 'tags')
+     * @param array|object $document The document (array or object) passed by reference
      * @param string|array $definition The alteration definition: either a string (`Alter::`) or an array (`[ Alter::X , ...args ]`)
      *
      * @return array|object The altered document (same reference type as input)
      *
+     * @throws ContainerExceptionInterface
      * @throws DependencyException
      * @throws NotFoundException
-     * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
+     * @throws ReflectionException
      *
      * @example
      * ```php
@@ -282,6 +287,7 @@ trait AlterDocumentTrait
             Alter::CLEAN          => $this->alterArrayCleanProperty    ( $value    , $modified ),
             Alter::FLOAT          => $this->alterFloatProperty         ( $value    , $modified ),
             Alter::GET            => $this->alterGetDocument           ( $value    , $definition ,  $this->container , $modified ) ,
+            Alter::HYDRATE        => $this->alterHydrateProperty       ( $value    , $definition ,  $modified ) ,
             Alter::INT            => $this->alterIntProperty           ( $value    , $modified ) ,
             Alter::JSON_PARSE     => $this->alterJsonParseProperty     ( $value    , $definition , $modified ) ,
             Alter::JSON_STRINGIFY => $this->alterJsonStringifyProperty ( $value    , $definition , $modified ),
