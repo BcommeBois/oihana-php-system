@@ -9,6 +9,7 @@ use oihana\enums\Char;
 use oihana\models\enums\Alter;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
+use ReflectionException;
 
 trait AlterArrayPropertyTrait
 {
@@ -24,10 +25,10 @@ trait AlterArrayPropertyTrait
      * ```
      * The previous example transform the 'category' string in an Array and after remove all null or empty array elements and JSON parse all elements.
      *
-     * @param mixed      $value
-     * @param array      $options
+     * @param mixed $value
+     * @param array $options
      * @param ?Container $container An optional DI container reference.
-     * @param bool       $modified
+     * @param bool $modified
      *
      * @return array
      *
@@ -35,6 +36,7 @@ trait AlterArrayPropertyTrait
      * @throws DependencyException
      * @throws NotFoundException
      * @throws NotFoundExceptionInterface
+     * @throws ReflectionException
      */
     public function alterArrayProperty
     (
@@ -56,16 +58,17 @@ trait AlterArrayPropertyTrait
     /**
      * Alters all elements in an array.
      *
-     * @param array      $array     The array reference to alter.
-     * @param array      $options   The options representation.
+     * @param array $array The array reference to alter.
+     * @param array $options The options representation.
      * @param ?Container $container An optional DI container reference.
      *
      * @return array
      *
+     * @throws ContainerExceptionInterface
      * @throws DependencyException
      * @throws NotFoundException
-     * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
+     * @throws ReflectionException
      */
     public function alterArrayElements
     (
@@ -95,6 +98,8 @@ trait AlterArrayPropertyTrait
                     Alter::CLEAN      => array_filter( $array , fn( $item ) => $item != Char::EMPTY && isset($item) ) ,
                     Alter::FLOAT      => $this->alterFloatProperty( $array ) ,
                     Alter::GET        => array_filter( $array , fn( $item ) => $this->alterGetDocument( $item , $definition , $container ) ),
+                    Alter::HYDRATE    => array_filter( $array , fn( $item ) => $this->alterHydrateProperty( $item , $definition ) ),
+                    Alter::NOT        => $this->alterNotProperty( $array ) ,
                     Alter::INT        => $this->alterIntProperty( $array ) ,
                     Alter::JSON_PARSE => array_map( fn($item) => json_decode( $item ) , $array ) ,
                     default           => $array ,
