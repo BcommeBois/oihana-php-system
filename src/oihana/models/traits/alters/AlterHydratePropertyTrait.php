@@ -2,11 +2,13 @@
 
 namespace oihana\models\traits\alters;
 
+use ReflectionException;
+
 use oihana\core\arrays\CleanFlag;
 use oihana\reflect\traits\ReflectionTrait;
+
 use org\schema\Thing;
 
-use ReflectionException;
 use function oihana\core\normalize;
 
 trait AlterHydratePropertyTrait
@@ -14,27 +16,54 @@ trait AlterHydratePropertyTrait
     use ReflectionTrait ;
 
     /**
-     * Cast a value to custom class. If the value is an array, all elements in the array are casted.
+     * Hydrate a property value into a specific class instance using reflection.
      *
-     * ### Usage
-     *  ```
-     *  Property::GEO => [ Alter::HYDRATE , GeoCoordinates::class ] ,
-     *  ```
+     * This method transforms a raw value (typically an array) into an object of the
+     * specified class. If the input value is an array, it can be normalized and then
+     * hydrated using either the {@see Thing} constructor or the {@see ReflectionTrait::hydrate()}
+     * method depending on the class type.
      *
-     * ### Note
-     * If the value is an empty array, by default returns null.
+     * ### Behavior
+     * - If `$value` is **not an array**, it is returned as-is.
+     * - If `$value` is an **empty array**, the method returns `null` (by default).
+     * - If `$schema` refers to a class extending {@see Thing}, the object is created
+     *   directly via its constructor.
+     * - Otherwise, hydration is performed via {@see ReflectionTrait::hydrate()}.
+     * - The `$modified` flag is set to `true` if the resulting value differs from the input.
      *
-     * Use the {@see normalize()} function inside the method with the default flag CleanFlag::DEFAULT | CleanFlag::RETURN_NULL.
-     * You can change the normalize flag with a custom flag in the third entry in the alter definition.
+     * ### Usage Example
+     * ```php
+     * Property::GEO => [ Alter::HYDRATE, GeoCoordinates::class ],
+     * ```
      *
-     * Example : ```[ Alter::HYDRATE , GeoCoordinates::class , CleanFlag::NONE ]```
+     * ### Custom Normalization
+     * You can specify a custom normalization flag as a third element in the definition:
+     * ```php
+     * [ Alter::HYDRATE, GeoCoordinates::class, true , CleanFlag::ALL ]
+     * ```
      *
-     * @param mixed $value      The original value to alter.
-     * @param array $definition The definition reference to extract the schema to apply.
-     * @param bool $modified    Will be set to true if the value was replaced
+     * By default, the value is normalized using:
+     * {@see normalize()} with flags `CleanFlag::DEFAULT | CleanFlag::RETURN_NULL`.
+     *
+     * @param mixed $value
+     *     The original value to hydrate. Can be a scalar, array, or object.
+     * @param array $definition
+     *     The alter definition, expected as:
+     *     ```
+     *     [
+     *         0 => string|null $schema,   // Fully qualified class name to hydrate into
+     *         1 => bool        $normalize // Whether to normalize the value before hydration
+     *         2 => int         $flags     // Optional CleanFlag bitmask
+     *     ]
+     *     ```
+     * @param bool &$modified
+     *     Reference flag set to `true` if the resulting value differs from the original.
      *
      * @return mixed
+     *     The hydrated value, possibly an instance of `$schema`, or `null` if empty.
+     *
      * @throws ReflectionException
+     *     If an error occurs during reflection-based hydration.
      */
     public function alterHydrateProperty
     (
@@ -49,10 +78,11 @@ trait AlterHydratePropertyTrait
             return $value ;
         }
 
-        $schema = $definition[0] ?? null ;
-        $flags  = $definition[1] ?? ( CleanFlag::DEFAULT | CleanFlag::RETURN_NULL ) ;
+        $schema    = $definition[0] ?? null ;
+        $normalize = $definition[1] ?? false ;
+        $flags     = $definition[2] ?? ( CleanFlag::DEFAULT | CleanFlag::RETURN_NULL ) ;
 
-        $newValue = normalize( $value , $flags ) ;
+        $newValue = $normalize ? normalize( $value , $flags ) : $value ;
 
         if( $newValue == null )
         {

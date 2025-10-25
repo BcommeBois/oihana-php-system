@@ -8,6 +8,12 @@ namespace oihana\models\enums\traits;
 trait ModelParamTrait
 {
     /**
+     * The 'alterKey' parameter.
+     * Defines the default 'alter' key identifier.
+     */
+    public const string ALTER_KEY = 'alterKey' ;
+
+    /**
      * The 'alters' parameter.
      */
     public const string ALTERS = 'alters' ;

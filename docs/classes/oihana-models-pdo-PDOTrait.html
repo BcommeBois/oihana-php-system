@@ -286,13 +286,6 @@
 <dd>Alters the given document (array or object) based on the configured `$alters` definitions.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-models-traits-AlterDocumentTrait.html#method_alterProperty">alterProperty()</a>
-    <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;|object    </span>
-</dt>
-<dd>Alters a specific property of the given document (array or object) using a defined transformation rule.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-models-pdo-PDOTrait.html#method_bindValues">bindValues()</a>
     <span>
                                 &nbsp;: void    </span>
@@ -383,6 +376,48 @@
 </dt>
 <dd>Prepares the binding parameters to inject in a PDO statement.</dd>
 
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a class="" href="classes/oihana-models-traits-AlterDocumentTrait.html#method_alterProperty">alterProperty()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;|object    </span>
+</dt>
+<dd>Alters a specific property of the given document using one or more transformation rules.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a class="" href="classes/oihana-models-traits-AlterDocumentTrait.html#method_applyChainedAlterations">applyChainedAlterations()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;|object    </span>
+</dt>
+<dd>Applies chained alterations to a property.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a class="" href="classes/oihana-models-traits-AlterDocumentTrait.html#method_applySingleAlteration">applySingleAlteration()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, mixed&gt;|object    </span>
+</dt>
+<dd>Applies a single alteration (original behavior).</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a class="" href="classes/oihana-models-traits-AlterDocumentTrait.html#method_executeAlteration">executeAlteration()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Executes a specific alteration.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a class="" href="classes/oihana-models-traits-AlterDocumentTrait.html#method_firstIsAlter">firstIsAlter()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Checks if a value is an Alter enum or an array starting with an Alter enum.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a class="" href="classes/oihana-models-traits-AlterDocumentTrait.html#method_isChainedDefinition">isChainedDefinition()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Detects if the definition represents chained alterations.</dd>
+
     </dl>
 
 
@@ -453,7 +488,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterDocumentTrait.php"><a href="files/src-oihana-models-traits-alterdocumenttrait.html"><abbr title="src/oihana/models/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">123</span>
+    <span class="phpdocumentor-element-found-in__line">118</span>
 
     </aside>
 
@@ -694,7 +729,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterDocumentTrait.php"><a href="files/src-oihana-models-traits-alterdocumenttrait.html"><abbr title="src/oihana/models/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">169</span>
+    <span class="phpdocumentor-element-found-in__line">167</span>
 
     </aside>
 
@@ -764,6 +799,14 @@ Otherwise (associative array or object), each key listed in <code class="prettyp
                                                             
                                              
                                     </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
+                                                            
+                                             
+                                    </dd>
                                                 <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">example</span>
                 </dt>
@@ -779,11 +822,12 @@ Otherwise (associative array or object), each key listed in <code class="prettyp
         [
            'price' =&gt; Alter::FLOAT,
            'tags'  =&gt; [ Alter::ARRAY , Alter::CLEAN ],
+           'name'  =&gt; [ Alter::TRIM , Alter::UPPERCASE ], // Chained alterations
         ];
     }
 }
 
-$input = [ 'price' =&gt; '19.99', 'tags'  =&gt; 'foo,bar' ];
+$input = [ 'price' =&gt; '19.99', 'tags'  =&gt; 'foo,bar', 'name' =&gt; '  john  ' ];
 
 $processor = new Example();
 $output = $processor-&gt;alter($input);
@@ -792,6 +836,7 @@ $output = $processor-&gt;alter($input);
 // [
 //     'price' =&gt; 19.99,
 //     'tags'  =&gt; ['foo', 'bar'],
+//     'name'  =&gt; 'JOHN',
 // ]
 </code></pre>
 </section>
@@ -806,172 +851,6 @@ $output = $processor-&gt;alter($input);
         <span class="phpdocumentor-signature__response_type">mixed</span>
                     &mdash;
                 <section class="phpdocumentor-description"><p>The altered document, same structure as input.</p>
-</section>
-
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_alterProperty">
-        alterProperty()
-        <a href="classes/oihana-models-traits-AlterDocumentTrait.html#method_alterProperty" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterDocumentTrait.php"><a href="files/src-oihana-models-traits-alterdocumenttrait.html"><abbr title="src/oihana/models/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">258</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Alters a specific property of the given document (array or object) using a defined transformation rule.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">alterProperty</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|object&nbsp;</span><span class="phpdocumentor-signature__argument__name">$document</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$definition</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|object</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-        <section class="phpdocumentor-description"><p>The transformation is defined by the <code class="prettyprint">$definition</code> argument, which can be either:</p>
-<ul>
-<li>A string representing a single <code class="prettyprint">Alter::</code> constant (e.g. <code class="prettyprint">Alter::FLOAT</code>)</li>
-<li>An array, where the first element is an <code class="prettyprint">Alter::</code> constant and the rest are parameters for that transformation</li>
-</ul>
-<p>If the alteration modifies the value, the altered value is set back into the document.
-Otherwise, the original document is returned unmodified.</p>
-<p>Supported alter types:</p>
-<ul>
-<li>Alter::ARRAY          — Explodes a string into an array (using <code class="prettyprint">;</code>) and applies sub-alters</li>
-<li>Alter::CALL           — Calls a user-defined callable on the value</li>
-<li>Alter::CLEAN          — Removes empty (<code class="prettyprint">&quot;&quot;</code>) or null elements from arrays</li>
-<li>Alter::FLOAT          — Casts the value to float</li>
-<li>Alter::GET            — Resolves a document by ID using a model</li>
-<li>Alter::INT            — Casts the value to integer</li>
-<li>Alter::JSON_PARSE     — Parses a JSON string into a PHP value</li>
-<li>Alter::JSON_STRINGIFY — Encodes a value into a JSON string</li>
-<li>Alter::NORMALIZE      - Normalize a document property using configurable flags</li>
-<li>Alter::NOT            — Invert boolean values</li>
-<li>Alter::URL            — Generates a URL based on document properties</li>
-<li>Alter::VALUE          — Replaces the value with a fixed constant</li>
-</ul>
-</section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$key</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The name of the property to alter (e.g. 'price', 'tags')</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$document</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|object</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The document (array or object) passed by reference</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$definition</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, mixed&gt;</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The alteration definition: either a string (<code class="prettyprint">Alter::</code>) or an array (<code class="prettyprint">[ Alter::X , ...args ]</code>)</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/oihana-models-traits-AlterDocumentTrait.html#method_alterProperty#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\DI\DependencyException">DependencyException</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\DI\NotFoundException">NotFoundException</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
-                                                            
-                                             
-                                    </dd>
-                                                <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">example</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                                
-                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$this-&gt;alters =
-[
-    'price'    =&gt; Alter::FLOAT,                         // Casts 'price' to float
-    'tags'     =&gt; [ Alter::ARRAY , Alter::CLEAN ],      // Splits and cleans 'tags'
-    'meta'     =&gt; [ Alter::JSON_PARSE ],                // Parses 'meta' JSON string
-    'url'      =&gt; [ Alter::URL , '/product/' ],         // Generates a product URL
-    'discount' =&gt; [ Alter::CALL , fn($v) =&gt; $v * 0.9 ], // Applies a callable
-    'rating'   =&gt; [ Alter::VALUE , 5 ]                  // Fixed value replacement
-];
-
-$document =
-[
-    'price'    =&gt; '29.90',
-    'tags'     =&gt; 'a;;b;',
-    'meta'     =&gt; '{&quot;active&quot;:true}',
-    'url'      =&gt; '123',
-    'discount' =&gt; 100,
-    'rating'   =&gt; 0,
-];
-
-$result = $this-&gt;alterProperty('price', $document, Alter::FLOAT ;
-// Returns the document with 'price' casted to float (29.9)
-</code></pre>
-</section>
-
-                                    </dd>
-                                            </dl>
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|object</span>
-                    &mdash;
-                <section class="phpdocumentor-description"><p>The altered document (same reference type as input)</p>
 </section>
 
             </section>
@@ -1364,7 +1243,7 @@ Alteration is applied via AlterDocumentTrait.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterDocumentTrait.php"><a href="files/src-oihana-models-traits-alterdocumenttrait.html"><abbr title="src/oihana/models/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">303</span>
+    <span class="phpdocumentor-element-found-in__line">200</span>
 
     </aside>
 
@@ -1769,6 +1648,734 @@ if a schema class is defined and exists.</p>
             </section>
 
 </article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_alterProperty">
+        alterProperty()
+        <a href="classes/oihana-models-traits-AlterDocumentTrait.html#method_alterProperty" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterDocumentTrait.php"><a href="files/src-oihana-models-traits-alterdocumenttrait.html"><abbr title="src/oihana/models/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">278</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Alters a specific property of the given document using one or more transformation rules.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">alterProperty</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|object&nbsp;</span><span class="phpdocumentor-signature__argument__name">$document</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$definition</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DI\Container">Container</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|object</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>The transformation is defined by the <code class="prettyprint">$definition</code> argument, which can be:</p>
+<ul>
+<li>A string representing a single <code class="prettyprint">Alter::</code> constant (e.g. <code class="prettyprint">Alter::FLOAT</code>)</li>
+<li>An array with a single alteration and parameters: <code class="prettyprint">[ Alter::URL , '/product/' ]</code></li>
+<li>An array with chained alterations (NEW): <code class="prettyprint">[ Alter::NORMALIZE , [ Alter::HYDRATE , Class::class ] ]</code></li>
+<li>An array with multiple simple alterations (NEW): <code class="prettyprint">[ Alter::TRIM , Alter::UPPERCASE , Alter::NORMALIZE ]</code></li>
+</ul>
+<p>If the alteration modifies the value, the altered value is set back into the document.
+Otherwise, the original document is returned unmodified.</p>
+<p>Supported alter types:</p>
+<ul>
+<li>Alter::ARRAY          — Explodes a string into an array (using <code class="prettyprint">;</code>) and applies sub-alters</li>
+<li>Alter::CALL           — Calls a user-defined callable on the value</li>
+<li>Alter::CLEAN          — Removes empty (<code class="prettyprint">&quot;&quot;</code>) or null elements from arrays</li>
+<li>Alter::FLOAT          — Casts the value to float</li>
+<li>Alter::GET            — Resolves a document by ID using a model</li>
+<li>Alter::HYDRATE        — Hydrate a value with a specific class.</li>
+<li>Alter::INT            — Casts the value to integer</li>
+<li>Alter::JSON_PARSE     — Parses a JSON string into a PHP value</li>
+<li>Alter::JSON_STRINGIFY — Encodes a value into a JSON string</li>
+<li>Alter::NORMALIZE      — Normalize a document property using configurable flags</li>
+<li>Alter::NOT            — Invert boolean values</li>
+<li>Alter::URL            — Generates a URL based on document properties</li>
+<li>Alter::VALUE          — Replaces the value with a fixed constant</li>
+</ul>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$key</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The name of the property to alter (e.g. 'price', 'tags')</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$document</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|object</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The document (array or object) passed by reference</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$definition</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The alteration definition: either a string (<code class="prettyprint">Alter::</code>) or an array (<code class="prettyprint">[ Alter::X , ...args ]</code>)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$container</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\DI\Container">Container</abbr>|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>An optional DI container reference.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-models-traits-AlterDocumentTrait.html#method_alterProperty#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\DI\DependencyException">DependencyException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\DI\NotFoundException">NotFoundException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$this-&gt;alters =
+[
+    'price'    =&gt; Alter::FLOAT,                         // Casts 'price' to float
+    'tags'     =&gt; [ Alter::ARRAY , Alter::CLEAN ],      // Splits and cleans 'tags'
+    'meta'     =&gt; [ Alter::JSON_PARSE ],                // Parses 'meta' JSON string
+    'url'      =&gt; [ Alter::URL , '/product/' ],         // Generates a product URL
+    'discount' =&gt; [ Alter::CALL , fn($v) =&gt; $v * 0.9 ], // Applies a callable
+    'rating'   =&gt; [ Alter::VALUE , 5 ],                 // Fixed value replacement
+    'geo'      =&gt; [ Alter::NORMALIZE , [ Alter::HYDRATE , GeoCoordinates::class ] ],
+    'name'     =&gt; [ Alter::TRIM , Alter::UPPERCASE , Alter::NORMALIZE ],
+];
+
+$document =
+[
+    'price'    =&gt; '29.90',
+    'tags'     =&gt; 'a;;b;',
+    'meta'     =&gt; '{&quot;active&quot;:true}',
+    'url'      =&gt; '123',
+    'discount' =&gt; 100,
+    'rating'   =&gt; 0,
+    'geo'      =&gt; ['latitude' =&gt; null, 'longitude' =&gt; 2.5],
+    'name'     =&gt; '  john doe  ',
+];
+
+$result = $this-&gt;alterProperty('price', $document, Alter::FLOAT);
+// Returns the document with 'price' casted to float (29.9)
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|object</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The altered document (same reference type as input)</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_applyChainedAlterations">
+        applyChainedAlterations()
+        <a href="classes/oihana-models-traits-AlterDocumentTrait.html#method_applyChainedAlterations" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterDocumentTrait.php"><a href="files/src-oihana-models-traits-alterdocumenttrait.html"><abbr title="src/oihana/models/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">312</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Applies chained alterations to a property.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">applyChainedAlterations</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|object&nbsp;</span><span class="phpdocumentor-signature__argument__name">$document</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$definitions</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DI\Container">Container</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|object</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Each alteration in the chain is applied sequentially, with the output of one
+becoming the input of the next.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$key</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The property key</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$document</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|object</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The document containing the property</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$definitions</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The array of alteration definitions</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$container</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\DI\Container">Container</abbr>|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>An optional DI container reference.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-models-traits-AlterDocumentTrait.html#method_applyChainedAlterations#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\DI\DependencyException">DependencyException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\DI\NotFoundException">NotFoundException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|object</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>$document The document with the altered property</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_applySingleAlteration">
+        applySingleAlteration()
+        <a href="classes/oihana-models-traits-AlterDocumentTrait.html#method_applySingleAlteration" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterDocumentTrait.php"><a href="files/src-oihana-models-traits-alterdocumenttrait.html"><abbr title="src/oihana/models/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">376</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Applies a single alteration (original behavior).</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">applySingleAlteration</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|object&nbsp;</span><span class="phpdocumentor-signature__argument__name">$document</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$definitions</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DI\Container">Container</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|object</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$key</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The property key</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$document</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|object</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The document containing the property</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$definitions</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The alteration definition with parameters</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$container</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\DI\Container">Container</abbr>|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>An optional DI container reference.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-models-traits-AlterDocumentTrait.html#method_applySingleAlteration#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\DI\DependencyException">DependencyException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\DI\NotFoundException">NotFoundException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|object</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The document with the altered property</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_executeAlteration">
+        executeAlteration()
+        <a href="classes/oihana-models-traits-AlterDocumentTrait.html#method_executeAlteration" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterDocumentTrait.php"><a href="files/src-oihana-models-traits-alterdocumenttrait.html"><abbr title="src/oihana/models/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">422</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Executes a specific alteration.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">executeAlteration</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|<a href="classes/oihana-models-enums-Alter.html"><abbr title="\oihana\models\enums\Alter">Alter</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$alter</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|object&nbsp;</span><span class="phpdocumentor-signature__argument__name">$document</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\DI\Container">Container</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$modified</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$alter</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|<a href="classes/oihana-models-enums-Alter.html"><abbr title="\oihana\models\enums\Alter">Alter</abbr></a></span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The alteration type</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$key</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The property key (for context)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$value</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The value to alter</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$params</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The alteration parameters</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$document</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|object</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The full document (for context)</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$container</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\DI\Container">Container</abbr>|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>An optional DI container reference.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$modified</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Output parameter indicating if the value was modified</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-models-traits-AlterDocumentTrait.html#method_executeAlteration#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\DI\DependencyException">DependencyException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\DI\NotFoundException">NotFoundException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">mixed</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The altered value</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_firstIsAlter">
+        firstIsAlter()
+        <a href="classes/oihana-models-traits-AlterDocumentTrait.html#method_firstIsAlter" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterDocumentTrait.php"><a href="files/src-oihana-models-traits-alterdocumenttrait.html"><abbr title="src/oihana/models/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">459</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Checks if a value is an Alter enum or an array starting with an Alter enum.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">firstIsAlter</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$first</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$first</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The value to check</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if it's an Alter or array with Alter as first element</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isChainedDefinition">
+        isChainedDefinition()
+        <a href="classes/oihana-models-traits-AlterDocumentTrait.html#method_isChainedDefinition" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterDocumentTrait.php"><a href="files/src-oihana-models-traits-alterdocumenttrait.html"><abbr title="src/oihana/models/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">478</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Detects if the definition represents chained alterations.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">isChainedDefinition</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$definitions</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Chaining is detected when:</p>
+<ul>
+<li>The first element is an Alter enum</li>
+<li>AND the second element is either:
+<ul>
+<li>Another Alter enum (simple chaining)</li>
+<li>An array whose first element is an Alter enum (chaining with params)</li>
+</ul>
+</li>
+</ul>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$definitions</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The alteration definitions</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if chaining is detected, false otherwise</p>
+</section>
+
+            </section>
+
+</article>
             </section>
 
         <div class="phpdocumentor-modal" id="source-view">
@@ -1902,7 +2509,6 @@ if a schema class is defined and exists.</p>
             <li>
                 <ul class="phpdocumentor-list -clean">
                                             <li class=""><a href="classes/oihana-models-traits-AlterDocumentTrait.html#method_alter">alter()</a></li>
-                                            <li class=""><a href="classes/oihana-models-traits-AlterDocumentTrait.html#method_alterProperty">alterProperty()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_bindValues">bindValues()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_fetch">fetch()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_fetchAll">fetchAll()</a></li>
@@ -1916,6 +2522,12 @@ if a schema class is defined and exists.</p>
                                             <li class=""><a href="classes/oihana-models-traits-SchemaTrait.html#method_initializeSchema">initializeSchema()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_isConnected">isConnected()</a></li>
                                             <li class=""><a href="classes/oihana-models-traits-BindsTrait.html#method_prepareBindVars">prepareBindVars()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-AlterDocumentTrait.html#method_alterProperty">alterProperty()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-AlterDocumentTrait.html#method_applyChainedAlterations">applyChainedAlterations()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-AlterDocumentTrait.html#method_applySingleAlteration">applySingleAlteration()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-AlterDocumentTrait.html#method_executeAlteration">executeAlteration()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-AlterDocumentTrait.html#method_firstIsAlter">firstIsAlter()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-AlterDocumentTrait.html#method_isChainedDefinition">isChainedDefinition()</a></li>
                                     </ul>
             </li>
                     </ul>

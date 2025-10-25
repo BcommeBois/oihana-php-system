@@ -1,35 +1,31 @@
 <?php
 
-namespace oihana\models\traits ;
-
-use PHPUnit\Framework\TestCase;
-
-use stdClass;
+namespace tests\oihana\models\traits\alters ;
 
 use DI\DependencyException;
 use DI\NotFoundException;
-
+use oihana\models\enums\Alter;
+use PHPUnit\Framework\TestCase;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
-
-use oihana\core\arrays\CleanFlag;
-use oihana\models\enums\Alter;
-
+use ReflectionException;
+use stdClass;
 use tests\oihana\models\mocks\MockAlterDocument;
 
-class AlterDocumentWithUrlTraitTest extends TestCase
+class AlterUrlTraitTest extends TestCase
 {
     /**
-     * @throws NotFoundExceptionInterface
-     * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws NotFoundException
+     * @throws NotFoundExceptionInterface
+     * @throws ReflectionException
      */
     public function testUrlAlteration()
     {
         $processor = new MockAlterDocument
         ([
-            'url' => [ Alter::URL, '/users/' ]
+            'url' => [ Alter::URL , '/users/' ]
         ]);
 
         $input = [ 'id' => 123, 'url' => 123 ];
@@ -39,10 +35,11 @@ class AlterDocumentWithUrlTraitTest extends TestCase
     }
 
     /**
-     * @throws NotFoundExceptionInterface
-     * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws NotFoundException
+     * @throws NotFoundExceptionInterface
+     * @throws ReflectionException
      */
     public function testUrlWithCustomPropertyAlteration()
     {
@@ -62,10 +59,12 @@ class AlterDocumentWithUrlTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testUrlSimplePath()
     {
-        $processor = new MockAlterDocument([
+        $processor = new MockAlterDocument
+        ([
             'url' => [Alter::URL, '/products']
         ]);
 
@@ -80,14 +79,38 @@ class AlterDocumentWithUrlTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
+     */
+    public function testUrlWithDefaultAlterKey()
+    {
+        $processor = new MockAlterDocument
+        ([
+            'url' => [Alter::URL, '/products']
+        ]);
+
+        $processor->alterKey = 'name' ;
+
+        $input = ['id' => 42, 'name' => 'eka' , 'url' => ''];
+        $output = $processor->process($input);
+
+        $this->assertSame('/products/eka', $output['url']);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testUrlWithCustomProperty()
     {
-        $processor = new MockAlterDocument([
-            'url' => [Alter::URL, '/users', 'slug']
+        $processor = new MockAlterDocument
+        ([
+            'url' => [ Alter::URL , '/users' , 'slug' ]
         ]);
 
-        $input = ['id' => 123, 'slug' => 'john-doe', 'url' => ''];
+        $input = ['id' => 123, 'slug' => 'john-doe', 'url' => '' ] ;
         $output = $processor->process($input);
 
         $this->assertSame('/users/john-doe', $output['url']);
@@ -98,10 +121,12 @@ class AlterDocumentWithUrlTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testUrlWithTrailingSlash()
     {
-        $processor = new MockAlterDocument([
+        $processor = new MockAlterDocument
+        ([
             'url' => [Alter::URL, '/api', 'id', null, true]
         ]);
 
@@ -116,10 +141,12 @@ class AlterDocumentWithUrlTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testUrlWithEmptyPath()
     {
-        $processor = new MockAlterDocument([
+        $processor = new MockAlterDocument
+        ([
             'url' => [Alter::URL, '', 'id']
         ]);
 
@@ -134,6 +161,7 @@ class AlterDocumentWithUrlTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testUrlWithLeadingSlash()
     {
@@ -152,11 +180,13 @@ class AlterDocumentWithUrlTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testUrlWithObject()
     {
-        $processor = new MockAlterDocument([
-            'url' => [Alter::URL, '/items', 'id']
+        $processor = new MockAlterDocument
+        ([
+            'url' => [ Alter::URL , '/items' , 'id' ]
         ]);
 
         $input = new stdClass();
@@ -173,6 +203,7 @@ class AlterDocumentWithUrlTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testUrlWithNumericProperty()
     {
@@ -192,6 +223,7 @@ class AlterDocumentWithUrlTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testUrlWithStringProperty()
     {
@@ -210,6 +242,7 @@ class AlterDocumentWithUrlTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testUrlWithMissingProperty()
     {
@@ -229,6 +262,7 @@ class AlterDocumentWithUrlTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testUrlWithTrailingSlashAlreadyPresent()
     {
@@ -248,6 +282,7 @@ class AlterDocumentWithUrlTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testUrlSequentialArray()
     {
@@ -273,6 +308,7 @@ class AlterDocumentWithUrlTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testUrlWithNullProperty()
     {
@@ -292,6 +328,7 @@ class AlterDocumentWithUrlTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testUrlWithZeroProperty()
     {
@@ -310,6 +347,7 @@ class AlterDocumentWithUrlTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testUrlWithContainerBaseUrl()
     {
@@ -330,6 +368,7 @@ class AlterDocumentWithUrlTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testUrlWithContainerBaseUrlAndTrailingSlash()
     {
@@ -350,6 +389,7 @@ class AlterDocumentWithUrlTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testUrlWithContainerBaseUrlMissing()
     {
@@ -369,6 +409,7 @@ class AlterDocumentWithUrlTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testUrlWithContainerBaseUrlCustomKey()
     {
@@ -389,6 +430,7 @@ class AlterDocumentWithUrlTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testUrlWithContainerBaseUrlNotString()
     {
@@ -411,6 +453,7 @@ class AlterDocumentWithUrlTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testUrlWithComplexPath()
     {
@@ -431,6 +474,7 @@ class AlterDocumentWithUrlTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testUrlSequentialArrayWithContainerBaseUrl()
     {

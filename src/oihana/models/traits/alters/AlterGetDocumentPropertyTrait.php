@@ -10,6 +10,7 @@ use oihana\models\traits\DocumentsTrait;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
+use Throwable;
 use function oihana\controllers\helpers\getDocumentModel;
 
 /**
@@ -40,8 +41,6 @@ use function oihana\controllers\helpers\getDocumentModel;
  */
 trait AlterGetDocumentPropertyTrait
 {
-    use DocumentsTrait ;
-
     /**
      * Gets a document with a Documents model.
      * @param mixed         $value
@@ -68,14 +67,21 @@ trait AlterGetDocumentPropertyTrait
             $model = getDocumentModel( $definition[0] ?? null , $container ) ;
             if( isset( $model ) )
             {
-                $modified = true ;
-                return $model->get
-                ([
-                    ModelParam::KEY   => $definition[1] ?? null ,
-                    ModelParam::VALUE => $value
-                ]) ;
+                try
+                {
+                    $newValue = $model->get
+                    ([
+                        ModelParam::KEY   => $definition[1] ?? null ,
+                        ModelParam::VALUE => $value
+                    ]) ;
+                    $modified = true ;
+                    return $newValue ;
+                }
+                catch( Throwable )
+                {
+                    return null ; // return null if the get method failed
+                }
             }
-            return $value ;
         }
         return $value ;
     }

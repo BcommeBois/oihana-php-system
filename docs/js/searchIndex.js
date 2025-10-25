@@ -1926,6 +1926,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/oihana-models-enums-Alter.html#constant_GET"
         },                {
+            "fqsen": "\\oihana\\models\\enums\\Alter\u003A\u003AHYDRATE",
+            "name": "HYDRATE",
+            "summary": "",
+            "url": "classes/oihana-models-enums-Alter.html#constant_HYDRATE"
+        },                {
             "fqsen": "\\oihana\\models\\enums\\Alter\u003A\u003ALIST",
             "name": "LIST",
             "summary": "",
@@ -1985,6 +1990,11 @@ Search.appendIndex(
             "name": "documentUrl",
             "summary": "Generates\u0020a\u0020full\u0020document\u0020URL\u0020based\u0020on\u0020the\u0020project\u0027s\u0020base\u0020URL.",
             "url": "namespaces/oihana-models-helpers.html#function_documentUrl"
+        },                {
+            "fqsen": "\\oihana\\controllers\\helpers\\getDocumentModel\u0028\u0029",
+            "name": "getDocumentModel",
+            "summary": "Resolves\u0020a\u0020DocumentsModel\u0020instance\u0020from\u0020a\u0020PSR\u002D11\u0020container\u0020or\u0020returns\u0020a\u0020default.",
+            "url": "namespaces/oihana-controllers-helpers.html#function_getDocumentModel"
         },                {
             "fqsen": "\\oihana\\controllers\\helpers\\getModel\u0028\u0029",
             "name": "getModel",
@@ -2211,15 +2221,40 @@ Search.appendIndex(
             "summary": "Alters\u0020the\u0020given\u0020document\u0020\u0028array\u0020or\u0020object\u0029\u0020based\u0020on\u0020the\u0020configured\u0020\u0060\u0024alters\u0060\u0020definitions.",
             "url": "classes/oihana-models-traits-AlterDocumentTrait.html#method_alter"
         },                {
-            "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003AalterProperty\u0028\u0029",
-            "name": "alterProperty",
-            "summary": "Alters\u0020a\u0020specific\u0020property\u0020of\u0020the\u0020given\u0020document\u0020\u0028array\u0020or\u0020object\u0029\u0020using\u0020a\u0020defined\u0020transformation\u0020rule.",
-            "url": "classes/oihana-models-traits-AlterDocumentTrait.html#method_alterProperty"
-        },                {
             "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003AinitializeAlters\u0028\u0029",
             "name": "initializeAlters",
             "summary": "Initialize\u0020the\u0020\u0027alters\u0027\u0020property.",
             "url": "classes/oihana-models-traits-AlterDocumentTrait.html#method_initializeAlters"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003AalterProperty\u0028\u0029",
+            "name": "alterProperty",
+            "summary": "Alters\u0020a\u0020specific\u0020property\u0020of\u0020the\u0020given\u0020document\u0020using\u0020one\u0020or\u0020more\u0020transformation\u0020rules.",
+            "url": "classes/oihana-models-traits-AlterDocumentTrait.html#method_alterProperty"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003AapplyChainedAlterations\u0028\u0029",
+            "name": "applyChainedAlterations",
+            "summary": "Applies\u0020chained\u0020alterations\u0020to\u0020a\u0020property.",
+            "url": "classes/oihana-models-traits-AlterDocumentTrait.html#method_applyChainedAlterations"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003AapplySingleAlteration\u0028\u0029",
+            "name": "applySingleAlteration",
+            "summary": "Applies\u0020a\u0020single\u0020alteration\u0020\u0028original\u0020behavior\u0029.",
+            "url": "classes/oihana-models-traits-AlterDocumentTrait.html#method_applySingleAlteration"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003AexecuteAlteration\u0028\u0029",
+            "name": "executeAlteration",
+            "summary": "Executes\u0020a\u0020specific\u0020alteration.",
+            "url": "classes/oihana-models-traits-AlterDocumentTrait.html#method_executeAlteration"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003AfirstIsAlter\u0028\u0029",
+            "name": "firstIsAlter",
+            "summary": "Checks\u0020if\u0020a\u0020value\u0020is\u0020an\u0020Alter\u0020enum\u0020or\u0020an\u0020array\u0020starting\u0020with\u0020an\u0020Alter\u0020enum.",
+            "url": "classes/oihana-models-traits-AlterDocumentTrait.html#method_firstIsAlter"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003AisChainedDefinition\u0028\u0029",
+            "name": "isChainedDefinition",
+            "summary": "Detects\u0020if\u0020the\u0020definition\u0020represents\u0020chained\u0020alterations.",
+            "url": "classes/oihana-models-traits-AlterDocumentTrait.html#method_isChainedDefinition"
         },                {
             "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003A\u0024alters",
             "name": "alters",
@@ -2281,6 +2316,16 @@ Search.appendIndex(
             "summary": "Gets\u0020a\u0020document\u0020with\u0020a\u0020Documents\u0020model.",
             "url": "classes/oihana-models-traits-alters-AlterGetDocumentPropertyTrait.html#method_alterGetDocument"
         },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterHydratePropertyTrait",
+            "name": "AlterHydratePropertyTrait",
+            "summary": "",
+            "url": "classes/oihana-models-traits-alters-AlterHydratePropertyTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterHydratePropertyTrait\u003A\u003AalterHydrateProperty\u0028\u0029",
+            "name": "alterHydrateProperty",
+            "summary": "Hydrate\u0020a\u0020property\u0020value\u0020into\u0020a\u0020specific\u0020class\u0020instance\u0020using\u0020reflection.",
+            "url": "classes/oihana-models-traits-alters-AlterHydratePropertyTrait.html#method_alterHydrateProperty"
+        },                {
             "fqsen": "\\oihana\\models\\traits\\alters\\AlterIntPropertyTrait",
             "name": "AlterIntPropertyTrait",
             "summary": "Casts\u0020a\u0020value\u0020\u0028or\u0020all\u0020elements\u0020in\u0020an\u0020array\u0029\u0020to\u0020integer.",
@@ -2310,6 +2355,21 @@ Search.appendIndex(
             "name": "alterJsonStringifyProperty",
             "summary": "Returns\u0020the\u0020JSON\u0020representation\u0020of\u0020a\u0020value",
             "url": "classes/oihana-models-traits-alters-AlterJSONStringifyPropertyTrait.html#method_alterJsonStringifyProperty"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterKeyTrait",
+            "name": "AlterKeyTrait",
+            "summary": "Provides\u0020a\u0020default\u0020key\u0020to\u0020use\u0020in\u0020the\u0020alter\u0020methods.",
+            "url": "classes/oihana-models-traits-alters-AlterKeyTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterKeyTrait\u003A\u003AinitializeAlterKey\u0028\u0029",
+            "name": "initializeAlterKey",
+            "summary": "Initialize\u0020the\u0020\u0027alters\u0027\u0020property.",
+            "url": "classes/oihana-models-traits-alters-AlterKeyTrait.html#method_initializeAlterKey"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterKeyTrait\u003A\u003A\u0024alterKey",
+            "name": "alterKey",
+            "summary": "The\u0020default\u0020alter\u0020key\u0020reference.",
+            "url": "classes/oihana-models-traits-alters-AlterKeyTrait.html#property_alterKey"
         },                {
             "fqsen": "\\oihana\\models\\traits\\alters\\AlterNormalizePropertyTrait",
             "name": "AlterNormalizePropertyTrait",

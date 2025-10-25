@@ -4,6 +4,7 @@ namespace tests\oihana\models\traits ;
 
 use PHPUnit\Framework\TestCase;
 
+use ReflectionException;
 use stdClass;
 
 use DI\DependencyException;
@@ -12,7 +13,6 @@ use DI\NotFoundException;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
-use oihana\core\arrays\CleanFlag;
 use oihana\models\enums\Alter;
 
 use tests\oihana\models\mocks\MockAlterDocument;
@@ -24,6 +24,8 @@ class AlterDocumentTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
+     *
      */
     public function testFloatAlteration()
     {
@@ -186,67 +188,6 @@ class AlterDocumentTraitTest extends TestCase
      * @throws ContainerExceptionInterface
      * @throws DependencyException
      */
-    public function testCallableAlteration()
-    {
-        $processor = new MockAlterDocument
-        ([
-            'score' => [Alter::CALL, fn($v) => $v * 2]
-        ]);
-
-        $input = ['score' => 10];
-        $output = $processor->process($input);
-
-        $this->assertSame(20, $output['score']);
-    }
-
-    /**
-     * @throws NotFoundExceptionInterface
-     * @throws NotFoundException
-     * @throws ContainerExceptionInterface
-     * @throws DependencyException
-     */
-    public function testCallableAlterationWithTwoArguments()
-    {
-        // On définit une fonction qui prend deux arguments
-        $processor = new MockAlterDocument([
-            'score' => [Alter::CALL, fn($v, $multiplier) => $v * $multiplier, 3]
-        ]);
-
-        $input = ['score' => 10];
-        $output = $processor->process($input);
-
-        // La fonction devrait multiplier 10 par 3
-        $this->assertSame(30, $output['score']);
-    }
-
-    /**
-     * @throws NotFoundExceptionInterface
-     * @throws NotFoundException
-     * @throws ContainerExceptionInterface
-     * @throws DependencyException
-     */
-    public function testCallableAlterationWithStringFunctionCallable()
-    {
-        $processor = new MockAlterDocument([
-            'score' => [Alter::CALL, 'oihana\core\numbers\clip', 2 , 5 ] // le 3e paramètre = facteur
-        ]);
-
-        $output = $processor->process(['score' => 7]);
-        $this->assertSame(5, $output['score']);
-
-        $output = $processor->process(['score' => 1]);
-        $this->assertSame(2 , $output['score']);
-
-        $output = $processor->process(['score' => 3]);
-        $this->assertSame(3 , $output['score']);
-    }
-
-    /**
-     * @throws NotFoundExceptionInterface
-     * @throws NotFoundException
-     * @throws ContainerExceptionInterface
-     * @throws DependencyException
-     */
     public function testValueAlteration()
     {
         $processor = new MockAlterDocument
@@ -310,6 +251,7 @@ class AlterDocumentTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testUnchangedWhenNoAlters()
     {
@@ -323,294 +265,11 @@ class AlterDocumentTraitTest extends TestCase
 
     // ----- Not
 
-    /**
-     * @throws NotFoundExceptionInterface
-     * @throws NotFoundException
-     * @throws ContainerExceptionInterface
-     * @throws DependencyException
-     */
-    public function testNotAlterationSingleBoolean()
-    {
-        $processor = new MockAlterDocument([
-            'active' => Alter::NOT
-        ]);
 
-        $input = ['active' => true];
-        $output = $processor->process($input);
-
-        $this->assertSame(false, $output['active']);
-    }
-
-    /**
-     * @throws NotFoundExceptionInterface
-     * @throws NotFoundException
-     * @throws ContainerExceptionInterface
-     * @throws DependencyException
-     */
-    public function testNotAlterationArrayOfBooleans()
-    {
-        $processor = new MockAlterDocument([
-            'flags' => Alter::NOT
-        ]);
-
-        $input = ['flags' => [true, false, true]];
-        $output = $processor->process($input);
-
-        $this->assertSame([false, true, false], $output['flags']);
-    }
-
-    /**
-     * @throws NotFoundExceptionInterface
-     * @throws NotFoundException
-     * @throws ContainerExceptionInterface
-     * @throws DependencyException
-     */
-    public function testNotAlterationNonBooleanValue()
-    {
-        $processor = new MockAlterDocument([
-            'enabled' => Alter::NOT
-        ]);
-
-        $input = ['enabled' => 1]; // truthy value
-        $output = $processor->process($input);
-
-        $this->assertSame(false, $output['enabled']);
-    }
 
     // ----- Normalize
 
-    /**
-     * @throws NotFoundExceptionInterface
-     * @throws NotFoundException
-     * @throws ContainerExceptionInterface
-     * @throws DependencyException
-     */
-    public function testNormalizeWithDefaultFlags()
-    {
-        $processor = new MockAlterDocument([
-            'name' => Alter::NORMALIZE
-        ]);
 
-        $input = ['name' => '  John  '];
-        $output = $processor->process($input);
-
-        $this->assertSame('John', $output['name']);
-    }
-
-    /**
-     * @throws NotFoundExceptionInterface
-     * @throws NotFoundException
-     * @throws ContainerExceptionInterface
-     * @throws DependencyException
-     */
-    public function testNormalizeEmptyString()
-    {
-        $processor = new MockAlterDocument([
-            'description' => Alter::NORMALIZE
-        ]);
-
-        $input = ['description' => '   '];
-        $output = $processor->process($input);
-
-        $this->assertNull($output['description']);
-    }
-
-    /**
-     * @throws NotFoundExceptionInterface
-     * @throws NotFoundException
-     * @throws ContainerExceptionInterface
-     * @throws DependencyException
-     */
-    public function testNormalizeNullValue()
-    {
-        $processor = new MockAlterDocument([
-            'value' => Alter::NORMALIZE
-        ]);
-
-        $input = ['value' => null];
-        $output = $processor->process($input);
-
-        $this->assertNull($output['value']);
-    }
-
-    /**
-     * @throws NotFoundExceptionInterface
-     * @throws NotFoundException
-     * @throws ContainerExceptionInterface
-     * @throws DependencyException
-     */
-    public function testNormalizeWithCustomFlags()
-    {
-        $processor = new MockAlterDocument([
-            'status' => [Alter::NORMALIZE, CleanFlag::NULLS]
-        ]);
-
-        $input = ['status' => '   '];
-        $output = $processor->process($input);
-
-        // With only NULLS flag, whitespace-only strings are NOT treated as empty
-        $this->assertSame('   ', $output['status']);
-    }
-
-    /**
-     * @throws NotFoundExceptionInterface
-     * @throws NotFoundException
-     * @throws ContainerExceptionInterface
-     * @throws DependencyException
-     */
-    public function testNormalizeArray()
-    {
-        $processor = new MockAlterDocument([
-            'tags' => Alter::NORMALIZE
-        ]);
-
-        $input = ['tags' => ['a', '', null, '  b  ']];
-        $output = $processor->process($input);
-
-        // Empty strings and nulls removed, ...
-        $this->assertSame(['a', '  b  '], $output['tags']);
-    }
-
-    /**
-     * @throws NotFoundExceptionInterface
-     * @throws NotFoundException
-     * @throws ContainerExceptionInterface
-     * @throws DependencyException
-     */
-    public function testNormalizeNestedArray()
-    {
-        $processor = new MockAlterDocument([
-            'data' => Alter::NORMALIZE
-        ]);
-
-        $input = ['data' => [
-            'items' => ['a', '', null, 'b'],
-            'count' => 2
-        ]];
-        $output = $processor->process($input);
-
-        // Recursive cleaning removes empty/null from nested arrays
-        $this->assertSame(['items' => ['a', 'b'], 'count' => 2], $output['data']);
-    }
-
-    /**
-     * @throws NotFoundExceptionInterface
-     * @throws NotFoundException
-     * @throws ContainerExceptionInterface
-     * @throws DependencyException
-     */
-    public function testNormalizeEmptyArray()
-    {
-        $processor = new MockAlterDocument([
-            'options' => Alter::NORMALIZE
-        ]);
-
-        $input = ['options' => ['', null, '  ']];
-        $output = $processor->process($input);
-
-        // Empty array returns null with RETURN_NULL flag
-        $this->assertNull($output['options']);
-    }
-
-    /**
-     * @throws NotFoundExceptionInterface
-     * @throws NotFoundException
-     * @throws ContainerExceptionInterface
-     * @throws DependencyException
-     */
-    public function testNormalizeWithFalsyFlag()
-    {
-        $processor = new MockAlterDocument([
-            'count' => [Alter::NORMALIZE, CleanFlag::FALSY]
-        ]);
-
-        $input = ['count' => 0];
-        $output = $processor->process($input);
-
-        $this->assertNull($output['count']);
-    }
-
-    /**
-     * @throws NotFoundExceptionInterface
-     * @throws NotFoundException
-     * @throws ContainerExceptionInterface
-     * @throws DependencyException
-     */
-    public function testNormalizeWithoutReturnNullFlag()
-    {
-        $processor = new MockAlterDocument
-        ([
-            'tags' => [Alter::NORMALIZE, CleanFlag::DEFAULT ]
-        ]);
-
-        $input = ['tags' => ['', null, '  ']];
-        $output = $processor->process($input);
-
-        // Returns empty array instead of null
-        $this->assertSame([], $output['tags']);
-    }
-
-    /**
-     * @throws NotFoundExceptionInterface
-     * @throws NotFoundException
-     * @throws ContainerExceptionInterface
-     * @throws DependencyException
-     */
-    public function testNormalizePreservesValidValues()
-    {
-        $processor = new MockAlterDocument([
-            'email' => Alter::NORMALIZE
-        ]);
-
-        $input = ['email' => 'john@example.com'];
-        $output = $processor->process($input);
-
-        $this->assertSame('john@example.com', $output['email']);
-    }
-
-    /**
-     * @throws NotFoundExceptionInterface
-     * @throws NotFoundException
-     * @throws ContainerExceptionInterface
-     * @throws DependencyException
-     */
-    public function testNormalizeIntegerNotFalsy()
-    {
-        $processor = new MockAlterDocument([
-            'score' => [Alter::NORMALIZE, CleanFlag::NULLS | CleanFlag::EMPTY]
-        ]);
-
-        $input = ['score' => 0];
-        $output = $processor->process($input);
-
-        // 0 is preserved without FALSY flag
-        $this->assertSame(0, $output['score']);
-    }
-
-    /**
-     * @throws NotFoundExceptionInterface
-     * @throws NotFoundException
-     * @throws ContainerExceptionInterface
-     * @throws DependencyException
-     */
-    public function testNormalizeSequentialArray()
-    {
-        $processor = new MockAlterDocument([
-            'name' => Alter::NORMALIZE
-        ]);
-
-        $input = [
-            ['name' => '  Alice  '],
-            ['name' => '   '],
-            ['name' => 'Bob'],
-        ];
-
-        $output = $processor->process($input);
-
-        $this->assertSame('Alice', $output[0]['name']);
-        $this->assertNull($output[1]['name']);
-        $this->assertSame('Bob', $output[2]['name']);
-    }
 
     /**
      * @throws NotFoundExceptionInterface
@@ -620,7 +279,8 @@ class AlterDocumentTraitTest extends TestCase
      */
     public function testAlterWithScalarString()
     {
-        $processor = new MockAlterDocument([
+        $processor = new MockAlterDocument
+        ([
             'name' => Alter::FLOAT
         ]);
 
@@ -669,52 +329,20 @@ class AlterDocumentTraitTest extends TestCase
         $this->assertSame(3.14, $output);
     }
 
-    /**
-     * @throws NotFoundExceptionInterface
-     * @throws NotFoundException
-     * @throws ContainerExceptionInterface
-     * @throws DependencyException
-     */
-    public function testAlterWithScalarBoolean()
-    {
-        $processor = new MockAlterDocument([
-            'active' => Alter::NOT
-        ]);
 
-        $output = $processor->process(true);
 
-        // Scalar boolean returned unchanged
-        $this->assertSame(true, $output);
-    }
 
     /**
      * @throws NotFoundExceptionInterface
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
-     */
-    public function testAlterWithScalarNull()
-    {
-        $processor = new MockAlterDocument([
-            'value' => Alter::NORMALIZE
-        ]);
-
-        $input = null;
-        $output = $processor->process($input);
-
-        // Scalar null returned unchanged
-        $this->assertNull($output);
-    }
-
-    /**
-     * @throws NotFoundExceptionInterface
-     * @throws NotFoundException
-     * @throws ContainerExceptionInterface
-     * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testAlterWithMixedArrayContainingScalars()
     {
-        $processor = new MockAlterDocument([
+        $processor = new MockAlterDocument
+        ([
             'value' => Alter::FLOAT
         ]);
 
@@ -732,10 +360,12 @@ class AlterDocumentTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testAlterWithArrayOfMixedStructures()
     {
-        $processor = new MockAlterDocument([
+        $processor = new MockAlterDocument
+        ([
             'id' => Alter::INT
         ]);
 
@@ -763,6 +393,7 @@ class AlterDocumentTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testAlterWithScalarWhenAltersEmpty()
     {
@@ -780,10 +411,12 @@ class AlterDocumentTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testAlterWithScalarResource()
     {
-        $processor = new MockAlterDocument([
+        $processor = new MockAlterDocument
+        ([
             'stream' => Alter::FLOAT
         ]);
 

@@ -36,7 +36,14 @@ trait DocumentsTrait
      * @return void
      * @throws Error404
      */
-    public function assertExistInModel( null|string|int|object $document , ExistModel $model , string $name = Char::EMPTY , ?string $key = 'id' ):void
+    public function assertExistInModel
+    (
+        null|string|int|object $document ,
+        ExistModel $model ,
+        string     $name = Char::EMPTY ,
+        ?string    $key  = 'id'
+    )
+    :void
     {
         try
         {

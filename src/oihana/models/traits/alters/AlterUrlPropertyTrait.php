@@ -6,7 +6,6 @@ use DI\Container;
 use DI\DependencyException;
 use DI\NotFoundException;
 use oihana\enums\Char;
-
 use org\schema\constants\Schema;
 use function oihana\core\accessors\getKeyValue;
 use function oihana\files\path\joinPaths;
@@ -73,6 +72,8 @@ use function oihana\files\path\joinPaths;
  */
 trait AlterUrlPropertyTrait
 {
+    use AlterKeyTrait ;
+
     /**
      * Generates a complete URL by combining path segments and document properties.
      *
@@ -90,9 +91,9 @@ trait AlterUrlPropertyTrait
      *
      * @param array|object  $document      The document to read property values from.
      * @param array         $options       Configuration array: [path, propertyName, containerKey, trailingSlash]
+     * @param ?Container    $container     DI container for resolving base URL from service definitions.
      * @param bool          $modified      Reference flag set to true if URL alteration occurs.
      * @param string        $propertyName  Default property name to use if not specified in options.
-     * @param ?Container    $container     DI container for resolving base URL from service definitions.
      * @param string        $containerKey  Default container key for base URL if not specified in options.
      *
      * @return string The generated URL.
@@ -129,9 +130,9 @@ trait AlterUrlPropertyTrait
     (
         array|object $document ,
         array        $options      = [] ,
-        bool        &$modified     = false ,
-        string       $propertyName = Schema::ID ,
         ?Container   $container    = null ,
+        bool        &$modified     = false ,
+        ?string      $propertyName = null ,
         string       $containerKey = 'baseUrl' ,
     )
     :string
@@ -139,7 +140,7 @@ trait AlterUrlPropertyTrait
         $modified = true ;
 
         $path             = $options[0] ?? Char::EMPTY ;
-        $propertyName     = $options[1] ?? $propertyName ;
+        $propertyName     = $options[1] ?? $propertyName ?? $this->alterKey ?? Schema::ID ;
         $containerKey     = $options[2] ?? $containerKey ;
         $trailingSlash    = $options[3] ?? false ;
 

@@ -8,10 +8,11 @@ use DI\NotFoundException;
 use oihana\models\traits\AlterDocumentTrait;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
+use ReflectionException;
 
 class MockAlterDocument
 {
-    public function __construct(array $alters = [])
+    public function __construct(  array $alters = [])
     {
         $this->alters    = $alters ;
         $this->container = new Container() ;
@@ -20,10 +21,13 @@ class MockAlterDocument
     use AlterDocumentTrait;
 
     /**
-     * @throws NotFoundExceptionInterface
-     * @throws NotFoundException
+     * @param mixed $input
+     * @return mixed
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws NotFoundException
+     * @throws NotFoundExceptionInterface
+     * @throws ReflectionException
      */
     public function process( mixed $input ): mixed
     {
