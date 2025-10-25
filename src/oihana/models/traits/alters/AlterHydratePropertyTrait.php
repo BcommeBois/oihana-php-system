@@ -16,9 +16,19 @@ trait AlterHydratePropertyTrait
     /**
      * Cast a value to custom class. If the value is an array, all elements in the array are casted.
      *
-     * ```
-     * Property::GEO => [ Alter::HYDRATE , GeoCoordinates::class ] ,
-     * ```
+     * ### Usage
+     *  ```
+     *  Property::GEO => [ Alter::HYDRATE , GeoCoordinates::class ] ,
+     *  ```
+     *
+     * ### Note
+     * If the value is an empty array, by default returns null.
+     *
+     * Use the {@see normalize()} function inside the method with the default flag CleanFlag::DEFAULT | CleanFlag::RETURN_NULL.
+     * You can change the normalize flag with a custom flag in the third entry in the alter definition.
+     *
+     * Example : ```[ Alter::HYDRATE , GeoCoordinates::class , CleanFlag::NONE ]```
+     *
      * @param mixed $value      The original value to alter.
      * @param array $definition The definition reference to extract the schema to apply.
      * @param bool $modified    Will be set to true if the value was replaced
