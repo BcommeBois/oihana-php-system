@@ -50,6 +50,7 @@ trait CheckOwnerArgumentsTrait
             {
                 if( array_key_exists( $arg , $args ) )
                 {
+                    // TODO use the function getDocumentsModel( $documents, $this->container )
                     $documents = $this->getDocumentsModel( $documents ) ;
                     if( $documents instanceof ExistModel )
                     {

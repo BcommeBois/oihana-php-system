@@ -2,12 +2,15 @@
 
 namespace oihana\models\traits\alters;
 
+use DI\Container;
 use DI\DependencyException;
 use DI\NotFoundException;
 use oihana\models\enums\ModelParam;
 use oihana\models\traits\DocumentsTrait;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
+
+use function oihana\controllers\helpers\getDocumentModel;
 
 /**
  * Provides logic to retrieve a document using a Documents model based on a given value and definition.
@@ -41,9 +44,10 @@ trait AlterGetDocumentPropertyTrait
 
     /**
      * Gets a document with a Documents model.
-     * @param mixed $value
-     * @param array $definition
-     * @param bool $modified
+     * @param mixed         $value
+     * @param array         $definition
+     * @param ?Container    $container     DI container for resolving base URL from service definitions.
+     * @param bool          $modified
      * @return mixed
      * @throws ContainerExceptionInterface
      * @throws DependencyException
@@ -52,15 +56,16 @@ trait AlterGetDocumentPropertyTrait
      */
     public function alterGetDocument
     (
-        mixed $value ,
-        array $definition = [] ,
-        bool &$modified = false
+        mixed      $value ,
+        array      $definition = []    ,
+        ?Container $container  = null  ,
+        bool       &$modified  = false
     )
     : mixed
     {
         if( isset( $value ) )
         {
-            $model = $this->getDocumentsModel( $definition[0] ?? null ) ;
+            $model = getDocumentModel( $definition[0] ?? null , $container ) ;
             if( isset( $model ) )
             {
                 $modified = true ;

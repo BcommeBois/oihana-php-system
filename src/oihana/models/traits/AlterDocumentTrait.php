@@ -5,6 +5,7 @@ namespace oihana\models\traits;
 use DI\DependencyException;
 use DI\NotFoundException;
 
+use oihana\traits\ContainerTrait;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
@@ -114,8 +115,7 @@ trait AlterDocumentTrait
         AlterNotPropertyTrait ,
         AlterUrlPropertyTrait ,
         AlterValueTrait ,
-        KeyValueTrait
-        ;
+        ContainerTrait ;
 
     /**
      * The enumeration of all definitions to alter on the array or object key/value properties.
@@ -277,11 +277,11 @@ trait AlterDocumentTrait
         $modified = false ;
         $value    = match ( $alter )
         {
-            Alter::ARRAY          => $this->alterArrayProperty         ( $value    , $definition , $modified ) ,
+            Alter::ARRAY          => $this->alterArrayProperty         ( $value    , $definition , $this->container , $modified ) ,
             Alter::CALL           => $this->alterCallableProperty      ( $value    , $definition , $modified ) ,
             Alter::CLEAN          => $this->alterArrayCleanProperty    ( $value    , $modified ),
             Alter::FLOAT          => $this->alterFloatProperty         ( $value    , $modified ),
-            Alter::GET            => $this->alterGetDocument           ( $value    , $definition , $modified ) ,
+            Alter::GET            => $this->alterGetDocument           ( $value    , $definition ,  $this->container , $modified ) ,
             Alter::INT            => $this->alterIntProperty           ( $value    , $modified ) ,
             Alter::JSON_PARSE     => $this->alterJsonParseProperty     ( $value    , $definition , $modified ) ,
             Alter::JSON_STRINGIFY => $this->alterJsonStringifyProperty ( $value    , $definition , $modified ),
