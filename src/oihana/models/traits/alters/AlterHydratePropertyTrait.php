@@ -52,7 +52,7 @@ trait AlterHydratePropertyTrait
      *     ```
      *     [
      *         0 => string|null $schema,   // Fully qualified class name to hydrate into
-     *         1 => bool        $normalize // Whether to normalize the value before hydration
+     *         1 => bool        $normalize // Whether to normalize the value before hydration (default true)
      *         2 => int         $flags     // Optional CleanFlag bitmask
      *     ]
      *     ```
@@ -79,7 +79,7 @@ trait AlterHydratePropertyTrait
         }
 
         $schema    = $definition[0] ?? null ;
-        $normalize = $definition[1] ?? false ;
+        $normalize = $definition[1] ?? true ;
         $flags     = $definition[2] ?? ( CleanFlag::DEFAULT | CleanFlag::RETURN_NULL ) ;
 
         $newValue = $normalize ? normalize( $value , $flags ) : $value ;
