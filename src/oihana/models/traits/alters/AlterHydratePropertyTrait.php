@@ -54,6 +54,6 @@ trait AlterHydratePropertyTrait
 
         $modified = $value !== $newValue ;
 
-        return $value ;
+        return $newValue ;
     }
 }
