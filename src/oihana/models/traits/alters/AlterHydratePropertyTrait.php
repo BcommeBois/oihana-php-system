@@ -2,10 +2,12 @@
 
 namespace oihana\models\traits\alters;
 
+use oihana\core\arrays\CleanFlag;
 use oihana\reflect\traits\ReflectionTrait;
 use org\schema\Thing;
 
 use ReflectionException;
+use function oihana\core\normalize;
 
 trait AlterHydratePropertyTrait
 {
@@ -37,8 +39,10 @@ trait AlterHydratePropertyTrait
             return $value ;
         }
 
-        $newValue = $value ;
-        $schema   = $definition[0] ?? null ;
+        $schema = $definition[0] ?? null ;
+        $flags  = $definition[1] ?? ( CleanFlag::DEFAULT | CleanFlag::RETURN_NULL ) ;
+
+        $newValue = normalize( $value , $flags ) ;
 
         if( is_string( $schema ) && class_exists( $schema ) )
         {

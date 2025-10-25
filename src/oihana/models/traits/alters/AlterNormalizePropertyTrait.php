@@ -48,7 +48,7 @@ trait AlterNormalizePropertyTrait
 
         if ( $newValue !== $value )
         {
-            $modified = true;
+            $modified = true ;
         }
 
         return $newValue ;
