@@ -99,6 +99,7 @@ trait AlterArrayPropertyTrait
                     Alter::FLOAT      => $this->alterFloatProperty( $array ) ,
                     Alter::GET        => array_filter( $array , fn( $item ) => $this->alterGetDocument( $item , $definition , $container ) ),
                     Alter::HYDRATE    => array_filter( $array , fn( $item ) => $this->alterHydrateProperty( $item , $definition ) ),
+                    Alter::NORMALIZE  => $this->alterNormalizeProperty( $array , $definition ),
                     Alter::NOT        => $this->alterNotProperty( $array ) ,
                     Alter::INT        => $this->alterIntProperty( $array ) ,
                     Alter::JSON_PARSE => array_map( fn($item) => json_decode( $item ) , $array ) ,
