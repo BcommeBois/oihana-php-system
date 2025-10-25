@@ -44,6 +44,12 @@ trait AlterHydratePropertyTrait
 
         $newValue = normalize( $value , $flags ) ;
 
+        if( $newValue == null )
+        {
+            $modified = true ;
+            return $newValue ;
+        }
+
         if( is_string( $schema ) && class_exists( $schema ) )
         {
             if ( is_a( $schema , Thing::class , true ) )
