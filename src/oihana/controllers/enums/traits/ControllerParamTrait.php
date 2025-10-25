@@ -207,6 +207,12 @@ trait ControllerParamTrait
     public const string PATH = 'path' ;
 
     /**
+     * The 'payload' parameter.
+     * @see PaginationTrait
+     */
+    public const string PAYLOAD = 'payload' ;
+
+    /**
      * The 'quantity' parameter.
      */
     public const string QUANTITY = 'quantity' ;
