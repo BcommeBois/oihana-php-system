@@ -87,7 +87,6 @@ class ExistModelRule extends ContainerRule
      */
     public function check( mixed $value ): bool
     {
-
         $this->assertHasRequiredParameters( $this->fillableParams );
 
         $model = $this->parameter(self::MODEL ) ;

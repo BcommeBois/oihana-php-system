@@ -28,7 +28,7 @@ abstract class ContainerRule extends Rule
     public function __construct( ContainerInterface $container , array $init = [] )
     {
         $this->container = $container ;
-        $this->initializeLogger( $init ) ;
+        $this->initializeLogger( $init , $container ) ;
     }
 
     use LoggerTrait ,
