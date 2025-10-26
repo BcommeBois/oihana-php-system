@@ -27,15 +27,24 @@ class ExistModelRule extends ContainerRule
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    public function __construct( ContainerInterface $container , string|array $init = [] )
+    public function __construct
+    (
+        ContainerInterface $container   ,
+        string|array       $init = []   ,
+        ?string            $key  = null ,
+    )
     {
         if( is_string( $init ) )
         {
-            $init = [ self::MODEL => $init != Char::EMPTY ? $init : null ] ;
+            $init =
+            [
+                self::KEY   => $key ,
+                self::MODEL => $init != Char::EMPTY ? $init : null
+            ] ;
         }
         parent::__construct( $container , $init ) ;
-        $this->key   ( $init[ self::KEY   ] ?? self::DEFAULT_KEY )
-             ->model ( $init[ self::MODEL ] ?? null              ) ;
+        $this->key   ( $init[ self::KEY   ] ?? $key ?? self::DEFAULT_KEY )
+             ->model ( $init[ self::MODEL ] ?? null                      ) ;
     }
 
     /**
