@@ -213,6 +213,12 @@ trait ControllerParamTrait
     public const string PAYLOAD = 'payload' ;
 
     /**
+     * The 'payloads' parameter.
+     * @see PaginationTrait
+     */
+    public const string PAYLOADS = 'payloads' ;
+
+    /**
      * The 'quantity' parameter.
      */
     public const string QUANTITY = 'quantity' ;
