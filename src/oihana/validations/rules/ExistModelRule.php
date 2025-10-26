@@ -2,6 +2,7 @@
 
 namespace oihana\validations\rules ;
 
+use oihana\enums\Char;
 use oihana\models\enums\ModelParam;
 use oihana\models\interfaces\ExistModel;
 
@@ -21,13 +22,17 @@ class ExistModelRule extends ContainerRule
      * Creates a new ContainerRule instance.
      *
      * @param ContainerInterface $container The DI container reference.
-     * @param array              $init      The options to passed-in the rule.
+     * @param array|string       $init      The options to passed-in the rule.
      *
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    public function __construct( ContainerInterface $container , array $init = [] )
+    public function __construct( ContainerInterface $container , string|array $init = [] )
     {
+        if( is_string( $init ) )
+        {
+            $init = [ self::MODEL => $init != Char::EMPTY ? $init : null ] ;
+        }
         parent::__construct( $container , $init ) ;
         $this->key   ( $init[ self::KEY   ] ?? self::DEFAULT_KEY )
              ->model ( $init[ self::MODEL ] ?? null              ) ;
