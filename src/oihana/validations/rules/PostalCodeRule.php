@@ -88,8 +88,10 @@ class PostalCodeRule extends Rule
 
     /**
      * The country code of the postalCode regex pattern.
-     * @param array|string|null $value
-     * @return $this
+     *
+     * @param array|string|null $value The country code of the postal code.
+     * @return static
+     *
      * @example
      * ```php
      * $lang = 'it' ;
@@ -98,14 +100,19 @@ class PostalCodeRule extends Rule
      * $validation = $validator->validate( [ 'postalCode' => 45 ] , [ 'postalCode' => 'required|postalCode:it' ] ) ;
      * ```
      */
-    public function country( array|string|null $value ) :Rule
+    public function country( array|string|null $value ) :static
     {
         $this->params[ self::COUNTRY ] = array_map('strtoupper', toArray( $value ?? $this->default ) ) ;
         return $this;
     }
 
     /**
-     * Check the value.
+     * Checks whether the given value satisfies the condition.
+     *
+     * @param mixed $value The value to check.
+     *
+     * @return bool True if the value satisfies the condition.
+     *
      * @throws ParameterException
      */
     public function check( mixed $value ): bool

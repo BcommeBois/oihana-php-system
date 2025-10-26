@@ -110,7 +110,7 @@ class ColorRule extends Rule
      * @param string $value The regex pattern format.
      * @return static Returns the current instance for method chaining.
      */
-    public function pattern( string $value = self::DEFAULT_PATTERN ) :ColorRule
+    public function pattern( string $value = self::DEFAULT_PATTERN ) :static
     {
         $this->params[ self::PATTERN ] = $value ;
         return $this;
@@ -122,7 +122,7 @@ class ColorRule extends Rule
      * @param string $value The prefix character(s) for color expressions.
      * @return static Returns the current instance for method chaining.
      */
-    public function prefix( string $value = Char::NUMBER ) :ColorRule
+    public function prefix( string $value = Char::NUMBER ) :static
     {
         $this->params[ self::PREFIX ] = $value ;
         return $this;

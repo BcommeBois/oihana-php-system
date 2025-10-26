@@ -191,7 +191,7 @@ class MockDocumentModel implements DocumentsModel
      *   - ModelParam::VALUE: Value to search for
      * @return mixed The found document or null if not found
      */
-    public function get(array $init = []): mixed
+    public function get( array $init = [] ) :mixed
     {
         $key   = $init[ ModelParam::KEY   ] ?? 'id' ;
         $value = $init[ ModelParam::VALUE ] ?? null ;
@@ -201,7 +201,11 @@ class MockDocumentModel implements DocumentsModel
             return null;
         }
 
-        return array_find( $this->documents , fn( $document ) => isset( $document[ $key ] ) && $document[ $key ] === $value );
+        return array_find
+        (
+            $this->documents ,
+            fn( $document ) => isset( $document[ $key ] ) && $document[ $key ] === $value
+        );
     }
 
     /**
@@ -394,13 +398,16 @@ class MockDocumentModel implements DocumentsModel
             return $this->insert(['document' => $document]);
         }
 
-        $existing = $this->get([
+        $existing = $this->get
+        ([
             ModelParam::KEY => $key,
             ModelParam::VALUE => $value
         ]);
 
-        if ($existing !== null) {
-            return $this->update([
+        if ($existing !== null)
+        {
+            return $this->update
+            ([
                 ModelParam::KEY => $key,
                 ModelParam::VALUE => $value,
                 'data' => $document

@@ -74,7 +74,7 @@ class InstanceOfRule extends Rule
      *
      * @return static Returns the current instance for fluent chaining.
      */
-    public function className( ?string $value ) :Rule
+    public function className( ?string $value ) :static
     {
         $this->params[ self::CLASS_NAME ] = $value  ;
         return $this;

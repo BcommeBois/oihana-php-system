@@ -12,7 +12,7 @@ use oihana\logging\LoggerTrait;
 use oihana\traits\ToStringTrait;
 
 /**
- * An abstract rule to defines rules with a DI container reference.
+ * An abstract rule to defines rules with an internal DI container reference.
  */
 abstract class ContainerRule extends Rule
 {

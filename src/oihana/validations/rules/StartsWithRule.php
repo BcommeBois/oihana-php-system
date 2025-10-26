@@ -81,7 +81,7 @@ class StartsWithRule extends Rule
      *
      * @return static Returns the current instance for method chaining.
      */
-    public function prefix( ?string $value ) :Rule
+    public function prefix( ?string $value ) :static
     {
         $this->params[ self::PREFIX ] = $value  ;
         return $this;

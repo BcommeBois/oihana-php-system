@@ -45,6 +45,7 @@ class AlterDocumentTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testIntAlteration()
     {
@@ -65,6 +66,7 @@ class AlterDocumentTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testIntAlterationDoesNotCastFloat()
     {
@@ -84,6 +86,7 @@ class AlterDocumentTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testArrayAndCleanAlteration()
     {
@@ -103,6 +106,7 @@ class AlterDocumentTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testJsonParseAlteration()
     {
@@ -125,6 +129,7 @@ class AlterDocumentTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testJsonParseAlterationAssociative()
     {
@@ -147,6 +152,7 @@ class AlterDocumentTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testJsonStringifyAlteration()
     {
@@ -167,6 +173,7 @@ class AlterDocumentTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testJsonStringifyWithOptionAlteration()
     {
@@ -187,6 +194,7 @@ class AlterDocumentTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testValueAlteration()
     {
@@ -206,6 +214,7 @@ class AlterDocumentTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testSequentialArrayAlteration()
     {
@@ -230,6 +239,7 @@ class AlterDocumentTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testObjectAlteration()
     {
@@ -263,19 +273,12 @@ class AlterDocumentTraitTest extends TestCase
         $this->assertSame($input, $output);
     }
 
-    // ----- Not
-
-
-
-    // ----- Normalize
-
-
-
     /**
      * @throws NotFoundExceptionInterface
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testAlterWithScalarString()
     {
@@ -296,6 +299,7 @@ class AlterDocumentTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testAlterWithScalarInteger()
     {
@@ -315,6 +319,7 @@ class AlterDocumentTraitTest extends TestCase
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      */
     public function testAlterWithScalarFloat()
     {
@@ -329,14 +334,12 @@ class AlterDocumentTraitTest extends TestCase
         $this->assertSame(3.14, $output);
     }
 
-
-
-
     /**
      * @throws NotFoundExceptionInterface
      * @throws NotFoundException
      * @throws ContainerExceptionInterface
      * @throws DependencyException
+     * @throws ReflectionException
      * @throws ReflectionException
      */
     public function testAlterWithMixedArrayContainingScalars()
