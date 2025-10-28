@@ -1976,6 +1976,71 @@ Search.appendIndex(
             "summary": "The\u0020enumeration\u0020of\u0020all\u0020the\u0020common\u0020model\u0027s\u0020parameters.",
             "url": "classes/oihana-models-enums-ModelParam.html"
         },                {
+            "fqsen": "\\oihana\\models\\enums\\NoticeType",
+            "name": "NoticeType",
+            "summary": "The\u0020enumeration\u0020of\u0020the\u0020model\u0027s\u0020notice\u0020types.",
+            "url": "classes/oihana-models-enums-NoticeType.html"
+        },                {
+            "fqsen": "\\oihana\\models\\enums\\NoticeType\u003A\u003AAFTER_DELETE",
+            "name": "AFTER_DELETE",
+            "summary": "",
+            "url": "classes/oihana-models-enums-NoticeType.html#constant_AFTER_DELETE"
+        },                {
+            "fqsen": "\\oihana\\models\\enums\\NoticeType\u003A\u003AAFTER_INSERT",
+            "name": "AFTER_INSERT",
+            "summary": "",
+            "url": "classes/oihana-models-enums-NoticeType.html#constant_AFTER_INSERT"
+        },                {
+            "fqsen": "\\oihana\\models\\enums\\NoticeType\u003A\u003AAFTER_REPLACE",
+            "name": "AFTER_REPLACE",
+            "summary": "",
+            "url": "classes/oihana-models-enums-NoticeType.html#constant_AFTER_REPLACE"
+        },                {
+            "fqsen": "\\oihana\\models\\enums\\NoticeType\u003A\u003AAFTER_UPDATE",
+            "name": "AFTER_UPDATE",
+            "summary": "",
+            "url": "classes/oihana-models-enums-NoticeType.html#constant_AFTER_UPDATE"
+        },                {
+            "fqsen": "\\oihana\\models\\enums\\NoticeType\u003A\u003AAFTER_TRUNCATE",
+            "name": "AFTER_TRUNCATE",
+            "summary": "",
+            "url": "classes/oihana-models-enums-NoticeType.html#constant_AFTER_TRUNCATE"
+        },                {
+            "fqsen": "\\oihana\\models\\enums\\NoticeType\u003A\u003AAFTER_UPSERT",
+            "name": "AFTER_UPSERT",
+            "summary": "",
+            "url": "classes/oihana-models-enums-NoticeType.html#constant_AFTER_UPSERT"
+        },                {
+            "fqsen": "\\oihana\\models\\enums\\NoticeType\u003A\u003ABEFORE_DELETE",
+            "name": "BEFORE_DELETE",
+            "summary": "",
+            "url": "classes/oihana-models-enums-NoticeType.html#constant_BEFORE_DELETE"
+        },                {
+            "fqsen": "\\oihana\\models\\enums\\NoticeType\u003A\u003ABEFORE_INSERT",
+            "name": "BEFORE_INSERT",
+            "summary": "",
+            "url": "classes/oihana-models-enums-NoticeType.html#constant_BEFORE_INSERT"
+        },                {
+            "fqsen": "\\oihana\\models\\enums\\NoticeType\u003A\u003ABEFORE_REPLACE",
+            "name": "BEFORE_REPLACE",
+            "summary": "",
+            "url": "classes/oihana-models-enums-NoticeType.html#constant_BEFORE_REPLACE"
+        },                {
+            "fqsen": "\\oihana\\models\\enums\\NoticeType\u003A\u003ABEFORE_TRUNCATE",
+            "name": "BEFORE_TRUNCATE",
+            "summary": "",
+            "url": "classes/oihana-models-enums-NoticeType.html#constant_BEFORE_TRUNCATE"
+        },                {
+            "fqsen": "\\oihana\\models\\enums\\NoticeType\u003A\u003ABEFORE_UPDATE",
+            "name": "BEFORE_UPDATE",
+            "summary": "",
+            "url": "classes/oihana-models-enums-NoticeType.html#constant_BEFORE_UPDATE"
+        },                {
+            "fqsen": "\\oihana\\models\\enums\\NoticeType\u003A\u003ABEFORE_UPSERT",
+            "name": "BEFORE_UPSERT",
+            "summary": "",
+            "url": "classes/oihana-models-enums-NoticeType.html#constant_BEFORE_UPSERT"
+        },                {
             "fqsen": "\\oihana\\models\\enums\\traits\\ModelParamTrait",
             "name": "ModelParamTrait",
             "summary": "The\u0020enumeration\u0020of\u0020all\u0020the\u0020common\u0020model\u0027s\u0020parameters.",
@@ -2500,6 +2565,86 @@ Search.appendIndex(
             "name": "schema",
             "summary": "The\u0020internal\u0020schema\u0020to\u0020use\u0020to\u0020hydrate\u0020the\u0020resources.",
             "url": "classes/oihana-models-traits-SchemaTrait.html#property_schema"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasDeleteSignals",
+            "name": "HasDeleteSignals",
+            "summary": "Provides\u0020deletion\u002Drelated\u0020signals.",
+            "url": "classes/oihana-models-traits-signals-HasDeleteSignals.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasDeleteSignals\u003A\u003AinitializeDeleteSignals\u0028\u0029",
+            "name": "initializeDeleteSignals",
+            "summary": "Initializes\u0020the\u0020deletion\u0020signals.",
+            "url": "classes/oihana-models-traits-signals-HasDeleteSignals.html#method_initializeDeleteSignals"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasDeleteSignals\u003A\u003A\u0024afterDelete",
+            "name": "afterDelete",
+            "summary": "Signal\u0020emitted\u0020after\u0020a\u0020document\u0020has\u0020been\u0020deleted.",
+            "url": "classes/oihana-models-traits-signals-HasDeleteSignals.html#property_afterDelete"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasDeleteSignals\u003A\u003A\u0024beforeDelete",
+            "name": "beforeDelete",
+            "summary": "Signal\u0020emitted\u0020before\u0020a\u0020document\u0020is\u0020deleted.",
+            "url": "classes/oihana-models-traits-signals-HasDeleteSignals.html#property_beforeDelete"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasInsertSignals",
+            "name": "HasInsertSignals",
+            "summary": "Provides\u0020insertion\u002Drelated\u0020signals.",
+            "url": "classes/oihana-models-traits-signals-HasInsertSignals.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasInsertSignals\u003A\u003AinitializeInsertSignals\u0028\u0029",
+            "name": "initializeInsertSignals",
+            "summary": "Initializes\u0020the\u0020insertion\u0020signals.",
+            "url": "classes/oihana-models-traits-signals-HasInsertSignals.html#method_initializeInsertSignals"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasInsertSignals\u003A\u003A\u0024afterInsert",
+            "name": "afterInsert",
+            "summary": "Signal\u0020emitted\u0020after\u0020a\u0020document\u0020has\u0020been\u0020inserted.",
+            "url": "classes/oihana-models-traits-signals-HasInsertSignals.html#property_afterInsert"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasInsertSignals\u003A\u003A\u0024beforeInsert",
+            "name": "beforeInsert",
+            "summary": "Signal\u0020emitted\u0020before\u0020a\u0020document\u0020is\u0020inserted.",
+            "url": "classes/oihana-models-traits-signals-HasInsertSignals.html#property_beforeInsert"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasReplaceSignals",
+            "name": "HasReplaceSignals",
+            "summary": "Provides\u0020replace\u002Drelated\u0020signals.",
+            "url": "classes/oihana-models-traits-signals-HasReplaceSignals.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasReplaceSignals\u003A\u003AinitializeReplaceSignals\u0028\u0029",
+            "name": "initializeReplaceSignals",
+            "summary": "Initializes\u0020the\u0020replace\u0020signals.",
+            "url": "classes/oihana-models-traits-signals-HasReplaceSignals.html#method_initializeReplaceSignals"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasReplaceSignals\u003A\u003A\u0024afterReplace",
+            "name": "afterReplace",
+            "summary": "Signal\u0020emitted\u0020after\u0020a\u0020document\u0020has\u0020been\u0020deleted.",
+            "url": "classes/oihana-models-traits-signals-HasReplaceSignals.html#property_afterReplace"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasReplaceSignals\u003A\u003A\u0024beforeReplace",
+            "name": "beforeReplace",
+            "summary": "Signal\u0020emitted\u0020before\u0020a\u0020document\u0020is\u0020deleted.",
+            "url": "classes/oihana-models-traits-signals-HasReplaceSignals.html#property_beforeReplace"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasUpdateSignals",
+            "name": "HasUpdateSignals",
+            "summary": "Provides\u0020update\u002Drelated\u0020signals.",
+            "url": "classes/oihana-models-traits-signals-HasUpdateSignals.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasUpdateSignals\u003A\u003AinitializeUpdateSignals\u0028\u0029",
+            "name": "initializeUpdateSignals",
+            "summary": "Initializes\u0020the\u0020update\u0020signals.",
+            "url": "classes/oihana-models-traits-signals-HasUpdateSignals.html#method_initializeUpdateSignals"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasUpdateSignals\u003A\u003A\u0024afterUpdate",
+            "name": "afterUpdate",
+            "summary": "Signal\u0020emitted\u0020after\u0020a\u0020document\u0020has\u0020been\u0020deleted.",
+            "url": "classes/oihana-models-traits-signals-HasUpdateSignals.html#property_afterUpdate"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasUpdateSignals\u003A\u003A\u0024beforeUpdate",
+            "name": "beforeUpdate",
+            "summary": "Signal\u0020emitted\u0020before\u0020a\u0020document\u0020is\u0020deleted.",
+            "url": "classes/oihana-models-traits-signals-HasUpdateSignals.html#property_beforeUpdate"
         },                {
             "fqsen": "\\oihana\\mysql\\enums\\MysqlParam",
             "name": "MysqlParam",
@@ -4665,6 +4810,11 @@ Search.appendIndex(
             "name": "alters",
             "summary": "",
             "url": "namespaces/oihana-models-traits-alters.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals",
+            "name": "signals",
+            "summary": "",
+            "url": "namespaces/oihana-models-traits-signals.html"
         },                {
             "fqsen": "\\oihana\\mysql\\enums",
             "name": "enums",
