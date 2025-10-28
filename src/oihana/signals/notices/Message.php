@@ -1,6 +1,8 @@
 <?php
 
-namespace oihana\signals;
+namespace oihana\signals\notices;
+
+use oihana\signals\Notice;
 
 /**
  * Represents a text message emitted by a Signal.

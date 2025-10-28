@@ -2,33 +2,33 @@
 
 namespace tests\oihana\signal;
 
-use oihana\signals\notices\Message;
+use oihana\signals\notices\Payload;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
-class MessageTest extends TestCase
+class PayloadTest extends TestCase
 {
-    public function testCanInstantiateMessage()
+    public function testCanInstantiatePayload()
     {
-        $notice = new Message(
+        $notice = new Payload(
             type: 'info',
-            text: 'hello world' ,
+            data: [ 'id' => 'foo' , 'name' => 'bar' ] ,
             target: new stdClass(),
             context: ['foo' => 'bar']
         );
 
         $this->assertSame('info', $notice->type);
         $this->assertInstanceOf(stdClass::class, $notice->target);
-        $this->assertSame('hello world', $notice->text);
+        $this->assertSame([ 'id' => 'foo' , 'name' => 'bar' ], $notice->data);
         $this->assertSame(['foo' => 'bar'], $notice->context);
     }
 
     public function testDefaultValues()
     {
-        $notice = new Message('info' );
+        $notice = new Payload('info' );
 
         $this->assertSame('info', $notice->type);
-        $this->assertEmpty($notice->text);
+        $this->assertNull($notice->data);
         $this->assertNull($notice->target);
         $this->assertSame([], $notice->context);
     }

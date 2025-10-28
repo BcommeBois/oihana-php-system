@@ -32,6 +32,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 - oihana\signal\Message
 - oihana\signal\Notice
+- oihana\signal\Payload
 - oihana\signal\Receiver
 - oihana\signal\Signal
 - oihana\signal\SignalEntry
