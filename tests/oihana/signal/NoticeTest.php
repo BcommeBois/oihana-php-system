@@ -5,16 +5,20 @@ namespace tests\oihana\signal;
 use oihana\signals\Notice;
 
 use PHPUnit\Framework\TestCase;
+use ReflectionException;
 use stdClass;
 
-final class NoticeTest extends TestCase
+class NoticeTest extends TestCase
 {
     public function testCanInstantiateNotice()
     {
-        $notice = new Notice(
-            type: 'afterDelete',
-            target: new stdClass(),
-            context: ['foo' => 'bar']
+        $payload = new stdClass() ;
+
+        $notice = new Notice
+        (
+            type    : 'afterDelete',
+            target  : $payload,
+            context : ['foo' => 'bar']
         );
 
         $this->assertSame('afterDelete', $notice->type);
@@ -52,5 +56,46 @@ final class NoticeTest extends TestCase
 
         $this->assertNull($notice->target);
         $this->assertSame(['deleted' => 1], $notice->context);
+    }
+
+    /**
+     * @throws ReflectionException
+     */
+    public function testNoticeToArray()
+    {
+        $payload = new stdClass() ;
+        $notice  = new Notice
+        (
+            type    : 'afterDelete',
+            target  : $payload,
+            context : ['foo' => 'bar']
+        );
+
+        $this->assertSame
+        ([
+            'context' => ['foo' => 'bar'] ,
+            'target'  => $payload ,
+            'type'    => 'afterDelete' ,
+        ]
+        , $notice->toArray() );
+    }
+
+    public function testNoticeJsonEncode()
+    {
+        $payload = new stdClass() ;
+        $payload->name = 'foo' ;
+
+        $notice  = new Notice
+        (
+            type    : 'afterDelete',
+            target  : $payload,
+            context : ['foo' => 'bar']
+        );
+
+        $this->assertSame
+        (
+            expected : '{"context":{"foo":"bar"},"target":{"name":"foo"},"type":"afterDelete"}' ,
+            actual   : json_encode( $notice )
+        );
     }
 }

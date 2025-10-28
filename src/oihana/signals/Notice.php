@@ -2,6 +2,11 @@
 
 namespace oihana\signals;
 
+use ReflectionException;
+use JsonSerializable;
+
+use oihana\reflect\traits\ReflectionTrait;
+
 /**
  * Represents a notification or message emitted by a Signal.
  *
@@ -30,7 +35,7 @@ namespace oihana\signals;
  * @since 1.0.0
  * @package oihana\signals
  */
-class Notice
+class Notice implements JsonSerializable
 {
     /**
      * Creates a new Notice.
@@ -51,6 +56,8 @@ class Notice
         $this->type    = $type    ;
     }
 
+    use ReflectionTrait ;
+
     /**
      * The context of the notice
      * @var array
@@ -68,4 +75,28 @@ class Notice
      * @var mixed
      */
     public mixed $type ;
+
+    /**
+     * Serializes the current object into a JSON array.
+     *
+     * @return array JSON-LD representation of the object.
+     *
+     * @throws ReflectionException If reflection fails when accessing properties.
+     */
+    public function jsonSerialize() : array
+    {
+        return $this->jsonSerializeFromPublicProperties( $this , true ) ;
+    }
+
+    /**
+     * Returns the array representation of the notice object.
+     *
+     * @return array
+     *
+     * @throws ReflectionException
+     */
+    public function toArray() : array
+    {
+        return $this->jsonSerializeFromPublicProperties( $this , true ) ;
+    }
 }

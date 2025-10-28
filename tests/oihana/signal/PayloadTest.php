@@ -4,6 +4,7 @@ namespace tests\oihana\signal;
 
 use oihana\signals\notices\Payload;
 use PHPUnit\Framework\TestCase;
+use ReflectionException;
 use stdClass;
 
 final class PayloadTest extends TestCase
@@ -31,5 +32,33 @@ final class PayloadTest extends TestCase
         $this->assertNull($notice->data);
         $this->assertNull($notice->target);
         $this->assertSame([], $notice->context);
+    }
+
+    /**
+     * @throws ReflectionException
+     */
+    public function testToArray()
+    {
+        $target = new stdClass() ;
+
+        $data = new stdClass() ;
+        $data->name = 'foo' ;
+
+        $notice = new Payload
+        (
+            type    : 'afterDelete',
+            data    : $data ,
+            target  : $target ,
+            context : ['foo' => 'bar']
+        );
+
+        $this->assertSame
+        ([
+            'data'    => $data ,
+            'context' => ['foo' => 'bar'] ,
+            'target'  => $target ,
+            'type'    => 'afterDelete' ,
+        ]
+        , $notice->toArray() );
     }
 }
