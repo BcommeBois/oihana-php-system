@@ -6,7 +6,7 @@ use oihana\signals\Signal;
 use oihana\signals\Receiver;
 use PHPUnit\Framework\TestCase;
 
-class SignalTest extends TestCase
+final class SignalTest extends TestCase
 {
     public function testConnectCallable(): void
     {

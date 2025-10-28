@@ -6,7 +6,7 @@ use oihana\signals\notices\Message;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
-class MessageTest extends TestCase
+final class MessageTest extends TestCase
 {
     public function testCanInstantiateMessage()
     {

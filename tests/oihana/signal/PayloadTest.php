@@ -6,7 +6,7 @@ use oihana\signals\notices\Payload;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
-class PayloadTest extends TestCase
+final class PayloadTest extends TestCase
 {
     public function testCanInstantiatePayload()
     {

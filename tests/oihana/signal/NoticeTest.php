@@ -7,7 +7,7 @@ use oihana\signals\Notice;
 use PHPUnit\Framework\TestCase;
 use stdClass;
 
-class NoticeTest extends TestCase
+final class NoticeTest extends TestCase
 {
     public function testCanInstantiateNotice()
     {
