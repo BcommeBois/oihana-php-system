@@ -21,18 +21,18 @@ use oihana\signals\Signal;
 trait HasReplaceSignals
 {
     /**
-     * Signal emitted after a document has been deleted.
+     * Signal emitted after a document has been replaced.
      *
-     * Observers connected to this signal receive the deleted document and optional context.
+     * Observers connected to this signal receive the replaced document and optional context.
      *
      * @var Signal|null
      */
     public ?Signal $afterReplace = null ;
 
     /**
-     * Signal emitted before a document is deleted.
+     * Signal emitted before a document is replaced.
      *
-     * Observers connected to this signal receive the document that is about to be deleted.
+     * Observers connected to this signal receive the document that is about to be replaced.
      *
      * @var Signal|null
      */

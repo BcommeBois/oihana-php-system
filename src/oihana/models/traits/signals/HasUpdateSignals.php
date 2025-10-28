@@ -21,18 +21,18 @@ use oihana\signals\Signal;
 trait HasUpdateSignals
 {
     /**
-     * Signal emitted after a document has been deleted.
+     * Signal emitted after a document has been updated.
      *
-     * Observers connected to this signal receive the deleted document and optional context.
+     * Observers connected to this signal receive the updated document and optional context.
      *
      * @var Signal|null
      */
     public ?Signal $afterUpdate = null ;
 
     /**
-     * Signal emitted before a document is deleted.
+     * Signal emitted before a document is updated.
      *
-     * Observers connected to this signal receive the document that is about to be deleted.
+     * Observers connected to this signal receive the document that is about to be updated.
      *
      * @var Signal|null
      */
