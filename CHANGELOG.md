@@ -28,6 +28,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 - oihana\models\enums\Alter
 - oihana\models\enums\NoticeType
+- oihana\models\notices\AfterDelete
+- oihana\models\notices\AfterInsert
+- oihana\models\notices\AfterReplace
+- oihana\models\notices\AfterTruncate
+- oihana\models\notices\AfterUpdate
+- oihana\models\notices\AfterUpsert
+- oihana\models\notices\BeforeDelete
+- oihana\models\notices\BeforeInsert
+- oihana\models\notices\BeforeReplace
+- oihana\models\notices\BeforeTruncate
+- oihana\models\notices\BeforeUpdate
+- oihana\models\notices\BeforeUpsert
 - oihana\models\traits\alters\AlterNotPropertyTrait
 
 - oihana\signal\Message

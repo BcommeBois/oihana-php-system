@@ -2206,6 +2206,126 @@ Search.appendIndex(
             "summary": "The\u0020DI\u0020container\u0020reference.",
             "url": "classes/oihana-models-Model.html#property_container"
         },                {
+            "fqsen": "\\oihana\\models\\notices\\AfterDelete",
+            "name": "AfterDelete",
+            "summary": "Notice\u0020emitted\u0020after\u0020a\u0020document\u0020has\u0020been\u0020deleted.",
+            "url": "classes/oihana-models-notices-AfterDelete.html"
+        },                {
+            "fqsen": "\\oihana\\models\\notices\\AfterDelete\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020AfterDelete\u0020instance",
+            "url": "classes/oihana-models-notices-AfterDelete.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\models\\notices\\AfterInsert",
+            "name": "AfterInsert",
+            "summary": "Notice\u0020emitted\u0020after\u0020a\u0020document\u0020has\u0020been\u0020inserted.",
+            "url": "classes/oihana-models-notices-AfterInsert.html"
+        },                {
+            "fqsen": "\\oihana\\models\\notices\\AfterInsert\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020AfterInsert\u0020instance",
+            "url": "classes/oihana-models-notices-AfterInsert.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\models\\notices\\AfterReplace",
+            "name": "AfterReplace",
+            "summary": "Notice\u0020emitted\u0020after\u0020a\u0020document\u0020has\u0020been\u0020replaced.",
+            "url": "classes/oihana-models-notices-AfterReplace.html"
+        },                {
+            "fqsen": "\\oihana\\models\\notices\\AfterReplace\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020AfterReplace\u0020instance",
+            "url": "classes/oihana-models-notices-AfterReplace.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\models\\notices\\AfterTruncate",
+            "name": "AfterTruncate",
+            "summary": "Notice\u0020emitted\u0020after\u0020a\u0020collection\u0020has\u0020been\u0020truncated.",
+            "url": "classes/oihana-models-notices-AfterTruncate.html"
+        },                {
+            "fqsen": "\\oihana\\models\\notices\\AfterTruncate\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020AfterTruncate\u0020instance",
+            "url": "classes/oihana-models-notices-AfterTruncate.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\models\\notices\\AfterUpdate",
+            "name": "AfterUpdate",
+            "summary": "Notice\u0020emitted\u0020after\u0020a\u0020document\u0020has\u0020been\u0020updated.",
+            "url": "classes/oihana-models-notices-AfterUpdate.html"
+        },                {
+            "fqsen": "\\oihana\\models\\notices\\AfterUpdate\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020AfterUpdate\u0020instance",
+            "url": "classes/oihana-models-notices-AfterUpdate.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\models\\notices\\AfterUpsert",
+            "name": "AfterUpsert",
+            "summary": "Notice\u0020emitted\u0020after\u0020a\u0020document\u0020has\u0020been\u0020upserted.",
+            "url": "classes/oihana-models-notices-AfterUpsert.html"
+        },                {
+            "fqsen": "\\oihana\\models\\notices\\AfterUpsert\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020AfterUpdate\u0020instance",
+            "url": "classes/oihana-models-notices-AfterUpsert.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\models\\notices\\BeforeDelete",
+            "name": "BeforeDelete",
+            "summary": "Notice\u0020emitted\u0020before\u0020a\u0020document\u0020is\u0020deleted.",
+            "url": "classes/oihana-models-notices-BeforeDelete.html"
+        },                {
+            "fqsen": "\\oihana\\models\\notices\\BeforeDelete\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020BeforeDelete\u0020instance.",
+            "url": "classes/oihana-models-notices-BeforeDelete.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\models\\notices\\BeforeInsert",
+            "name": "BeforeInsert",
+            "summary": "Notice\u0020emitted\u0020before\u0020a\u0020document\u0020is\u0020inserted.",
+            "url": "classes/oihana-models-notices-BeforeInsert.html"
+        },                {
+            "fqsen": "\\oihana\\models\\notices\\BeforeInsert\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020BeforeInsert\u0020instance.",
+            "url": "classes/oihana-models-notices-BeforeInsert.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\models\\notices\\BeforeReplace",
+            "name": "BeforeReplace",
+            "summary": "Notice\u0020emitted\u0020before\u0020a\u0020document\u0020is\u0020replaced.",
+            "url": "classes/oihana-models-notices-BeforeReplace.html"
+        },                {
+            "fqsen": "\\oihana\\models\\notices\\BeforeReplace\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020BeforeReplace\u0020instance.",
+            "url": "classes/oihana-models-notices-BeforeReplace.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\models\\notices\\BeforeTruncate",
+            "name": "BeforeTruncate",
+            "summary": "Notice\u0020emitted\u0020before\u0020a\u0020collection\u0020is\u0020truncated.",
+            "url": "classes/oihana-models-notices-BeforeTruncate.html"
+        },                {
+            "fqsen": "\\oihana\\models\\notices\\BeforeTruncate\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020BeforeTruncate\u0020instance.",
+            "url": "classes/oihana-models-notices-BeforeTruncate.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\models\\notices\\BeforeUpdate",
+            "name": "BeforeUpdate",
+            "summary": "Notice\u0020emitted\u0020before\u0020a\u0020document\u0020is\u0020updated.",
+            "url": "classes/oihana-models-notices-BeforeUpdate.html"
+        },                {
+            "fqsen": "\\oihana\\models\\notices\\BeforeUpdate\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020BeforeUpdate\u0020instance.",
+            "url": "classes/oihana-models-notices-BeforeUpdate.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\models\\notices\\BeforeUpsert",
+            "name": "BeforeUpsert",
+            "summary": "Notice\u0020emitted\u0020before\u0020a\u0020document\u0020is\u0020upserted.",
+            "url": "classes/oihana-models-notices-BeforeUpsert.html"
+        },                {
+            "fqsen": "\\oihana\\models\\notices\\BeforeUpsert\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020BeforeUpsert\u0020instance.",
+            "url": "classes/oihana-models-notices-BeforeUpsert.html#method___construct"
+        },                {
             "fqsen": "\\oihana\\models\\pdo\\PDOModel",
             "name": "PDOModel",
             "summary": "A\u0020base\u0020model\u0020class\u0020that\u0020integrates\u0020a\u0020PDO\u0020instance\u0020with\u0020dependency\u0020injection\u0020container\u0020support.",
@@ -3751,6 +3871,36 @@ Search.appendIndex(
             "summary": "The\u0020type\u0020of\u0020the\u0020notice.",
             "url": "classes/oihana-signals-Notice.html#property_type"
         },                {
+            "fqsen": "\\oihana\\signals\\notices\\Message",
+            "name": "Message",
+            "summary": "Represents\u0020a\u0020text\u0020message\u0020emitted\u0020by\u0020a\u0020Signal.",
+            "url": "classes/oihana-signals-notices-Message.html"
+        },                {
+            "fqsen": "\\oihana\\signals\\notices\\Message\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020Message.",
+            "url": "classes/oihana-signals-notices-Message.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\signals\\notices\\Message\u003A\u003A\u0024text",
+            "name": "text",
+            "summary": "The\u0020message\u0020of\u0020the\u0020notice",
+            "url": "classes/oihana-signals-notices-Message.html#property_text"
+        },                {
+            "fqsen": "\\oihana\\signals\\notices\\Payload",
+            "name": "Payload",
+            "summary": "Represents\u0020a\u0020payload\u0020notice\u0020emitted\u0020by\u0020a\u0020Signal.",
+            "url": "classes/oihana-signals-notices-Payload.html"
+        },                {
+            "fqsen": "\\oihana\\signals\\notices\\Payload\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020Payload.",
+            "url": "classes/oihana-signals-notices-Payload.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\signals\\notices\\Payload\u003A\u003A\u0024data",
+            "name": "data",
+            "summary": "The\u0020message\u0020of\u0020the\u0020notice",
+            "url": "classes/oihana-signals-notices-Payload.html#property_data"
+        },                {
             "fqsen": "\\oihana\\signals\\Receiver",
             "name": "Receiver",
             "summary": "Contract\u0020for\u0020objects\u0020that\u0020receive\u0020and\u0020handle\u0020signal\u0020emissions.",
@@ -4796,6 +4946,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/oihana-models.html"
         },                {
+            "fqsen": "\\oihana\\models\\notices",
+            "name": "notices",
+            "summary": "",
+            "url": "namespaces/oihana-models-notices.html"
+        },                {
             "fqsen": "\\oihana\\models\\pdo",
             "name": "pdo",
             "summary": "",
@@ -4860,6 +5015,11 @@ Search.appendIndex(
             "name": "signals",
             "summary": "",
             "url": "namespaces/oihana-signals.html"
+        },                {
+            "fqsen": "\\oihana\\signals\\notices",
+            "name": "notices",
+            "summary": "",
+            "url": "namespaces/oihana-signals-notices.html"
         },                {
             "fqsen": "\\oihana\\traits",
             "name": "traits",
