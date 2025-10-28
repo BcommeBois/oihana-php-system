@@ -30,6 +30,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - oihana\models\enums\NoticeType
 - oihana\models\traits\alters\AlterNotPropertyTrait
 
+- oihana\signal\Message
 - oihana\signal\Notice
 - oihana\signal\Receiver
 - oihana\signal\Signal
