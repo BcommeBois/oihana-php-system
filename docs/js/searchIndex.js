@@ -3581,6 +3581,96 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/oihana-routes-traits-HttpMethodRoutesTrait.html#property_put"
         },                {
+            "fqsen": "\\oihana\\signals\\Notice",
+            "name": "Notice",
+            "summary": "Represents\u0020a\u0020notification\u0020or\u0020message\u0020emitted\u0020by\u0020a\u0020Signal.",
+            "url": "classes/oihana-signals-Notice.html"
+        },                {
+            "fqsen": "\\oihana\\signals\\Notice\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020Notice.",
+            "url": "classes/oihana-signals-Notice.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\signals\\Notice\u003A\u003A\u0024context",
+            "name": "context",
+            "summary": "The\u0020context\u0020of\u0020the\u0020notice",
+            "url": "classes/oihana-signals-Notice.html#property_context"
+        },                {
+            "fqsen": "\\oihana\\signals\\Notice\u003A\u003A\u0024target",
+            "name": "target",
+            "summary": "The\u0020target\u0020of\u0020the\u0020notice.",
+            "url": "classes/oihana-signals-Notice.html#property_target"
+        },                {
+            "fqsen": "\\oihana\\signals\\Notice\u003A\u003A\u0024type",
+            "name": "type",
+            "summary": "The\u0020type\u0020of\u0020the\u0020notice.",
+            "url": "classes/oihana-signals-Notice.html#property_type"
+        },                {
+            "fqsen": "\\oihana\\signals\\Receiver",
+            "name": "Receiver",
+            "summary": "Contract\u0020for\u0020objects\u0020that\u0020receive\u0020and\u0020handle\u0020signal\u0020emissions.",
+            "url": "classes/oihana-signals-Receiver.html"
+        },                {
+            "fqsen": "\\oihana\\signals\\Receiver\u003A\u003Areceive\u0028\u0029",
+            "name": "receive",
+            "summary": "Handles\u0020signal\u0020emissions\u0020by\u0020processing\u0020the\u0020provided\u0020values.",
+            "url": "classes/oihana-signals-Receiver.html#method_receive"
+        },                {
+            "fqsen": "\\oihana\\signals\\Signal",
+            "name": "Signal",
+            "summary": "A\u0020fast\u0020and\u0020flexible\u0020signal\/slot\u0020implementation\u0020for\u0020event\u002Ddriven\u0020programming.",
+            "url": "classes/oihana-signals-Signal.html"
+        },                {
+            "fqsen": "\\oihana\\signals\\Signal\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020Signal\u0020instance.",
+            "url": "classes/oihana-signals-Signal.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\signals\\Signal\u003A\u003Aconnect\u0028\u0029",
+            "name": "connect",
+            "summary": "Connects\u0020a\u0020receiver\u0020to\u0020this\u0020signal.",
+            "url": "classes/oihana-signals-Signal.html#method_connect"
+        },                {
+            "fqsen": "\\oihana\\signals\\Signal\u003A\u003Aconnected\u0028\u0029",
+            "name": "connected",
+            "summary": "Checks\u0020if\u0020any\u0020receivers\u0020are\u0020connected\u0020to\u0020this\u0020signal.",
+            "url": "classes/oihana-signals-Signal.html#method_connected"
+        },                {
+            "fqsen": "\\oihana\\signals\\Signal\u003A\u003Adisconnect\u0028\u0029",
+            "name": "disconnect",
+            "summary": "Disconnects\u0020one\u0020or\u0020all\u0020receivers\u0020from\u0020this\u0020signal.",
+            "url": "classes/oihana-signals-Signal.html#method_disconnect"
+        },                {
+            "fqsen": "\\oihana\\signals\\Signal\u003A\u003Aemit\u0028\u0029",
+            "name": "emit",
+            "summary": "Emits\u0020a\u0020signal,\u0020calling\u0020all\u0020connected\u0020receivers\u0020with\u0020the\u0020provided\u0020values.",
+            "url": "classes/oihana-signals-Signal.html#method_emit"
+        },                {
+            "fqsen": "\\oihana\\signals\\Signal\u003A\u003AhasReceiver\u0028\u0029",
+            "name": "hasReceiver",
+            "summary": "Checks\u0020if\u0020a\u0020specific\u0020receiver\u0020is\u0020connected\u0020to\u0020this\u0020signal.",
+            "url": "classes/oihana-signals-Signal.html#method_hasReceiver"
+        },                {
+            "fqsen": "\\oihana\\signals\\Signal\u003A\u003AtoArray\u0028\u0029",
+            "name": "toArray",
+            "summary": "Returns\u0020an\u0020array\u0020of\u0020all\u0020connected\u0020receivers.",
+            "url": "classes/oihana-signals-Signal.html#method_toArray"
+        },                {
+            "fqsen": "\\oihana\\signals\\Signal\u003A\u003ARECEIVE",
+            "name": "RECEIVE",
+            "summary": "The\u0020method\u0020name\u0020used\u0020when\u0020calling\u0020Receiver\u0020objects.",
+            "url": "classes/oihana-signals-Signal.html#constant_RECEIVE"
+        },                {
+            "fqsen": "\\oihana\\signals\\Signal\u003A\u003A\u0024length",
+            "name": "length",
+            "summary": "The\u0020number\u0020of\u0020currently\u0020connected\u0020receivers.",
+            "url": "classes/oihana-signals-Signal.html#property_length"
+        },                {
+            "fqsen": "\\oihana\\signals\\Signal\u003A\u003A\u0024receivers",
+            "name": "receivers",
+            "summary": "Internal\u0020storage\u0020for\u0020connected\u0020receivers.",
+            "url": "classes/oihana-signals-Signal.html#property_receivers"
+        },                {
             "fqsen": "\\oihana\\traits\\CacheableTrait",
             "name": "CacheableTrait",
             "summary": "Provides\u0020caching\u0020functionality\u0020through\u0020a\u0020PSR\u002D16\u0020compliant\u0020cache\u0020implementation.",
@@ -3916,6 +4006,276 @@ Search.appendIndex(
             "summary": "Builds\u0020a\u0020complete\u0020URI\u0020by\u0020merging\u0020query\u0020and\u0020fragment\u0020parameters\u0020into\u0020the\u0020provided\u0020URI.",
             "url": "classes/oihana-traits-UriTrait.html#method_buildUri"
         },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules",
+            "name": "Rules",
+            "summary": "The\u0020available\u0020rules\u0020constants.",
+            "url": "classes/oihana-validations-enums-Rules.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AACCEPTED",
+            "name": "ACCEPTED",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020must\u0020be\u0020one\u0020of\u0020\u0027on\u0027,\u0020\u0027yes\u0027,\u0020\u00271\u0027,\u0020\u0027true\u0027\u0020\u0028the\u0020string\u0020\u0022true\u0022\u0029,\u0020or\u0020true.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_ACCEPTED"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AAFTER",
+            "name": "AFTER",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020must\u0020be\u0020a\u0020date\u0020after\u0020the\u0020given\u0020minimum.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_AFTER"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AALPHA",
+            "name": "ALPHA",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020must\u0020be\u0020entirely\u0020alphabetic\u0020characters.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_ALPHA"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AALPHA_DASH",
+            "name": "ALPHA_DASH",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020may\u0020have\u0020alpha\u002Dnumeric\u0020characters,\u0020as\u0020well\u0020as\u0020dashes\u0020and\u0020underscores.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_ALPHA_DASH"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AALPHA_NUM",
+            "name": "ALPHA_NUM",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020must\u0020be\u0020entirely\u0020alpha\u002Dnumeric\u0020characters.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_ALPHA_NUM"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AALPHA_SPACES",
+            "name": "ALPHA_SPACES",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020may\u0020have\u0020alpha\u0020characters,\u0020as\u0020well\u0020as\u0020spaces.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_ALPHA_SPACES"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AANY_OF",
+            "name": "ANY_OF",
+            "summary": "A\u0020variation\u0020of\u0020in\u003A\u0020here\u0020the\u0020values\u0020\u0028separated\u0020by\u0020default\u0020with\u0020a\u0020,\u0029\u0020must\u0020all\u0020be\u0020in\u0020the\u0020given\u0020values.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_ANY_OF"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AARRAY",
+            "name": "ARRAY",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020must\u0020be\u0020an\u0020array.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_ARRAY"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AARRAY_MUST_HAVE_KEYS",
+            "name": "ARRAY_MUST_HAVE_KEYS",
+            "summary": "The\u0020array\u0020must\u0020contain\u0020all\u0020the\u0020specified\u0020keys\u0020to\u0020be\u0020valid.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_ARRAY_MUST_HAVE_KEYS"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AARRAY_CAN_ONLY_HAVE_KEYS",
+            "name": "ARRAY_CAN_ONLY_HAVE_KEYS",
+            "summary": "The\u0020array\u0020can\u0020only\u0020contain\u0020the\u0020specified\u0020keys,\u0020any\u0020keys\u0020not\u0020present\u0020will\u0020fail\u0020validation.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_ARRAY_CAN_ONLY_HAVE_KEYS"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ABEFORE",
+            "name": "BEFORE",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020must\u0020be\u0020a\u0020date\u0020before\u0020the\u0020given\u0020maximum.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_BEFORE"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ABETWEEN",
+            "name": "BETWEEN",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020must\u0020have\u0020a\u0020size\u0020between\u0020min\u0020and\u0020max\u0020params.\u0020Value\u0020size\u0020is\u0020calculated\u0020in\u0020the\u0020same\u0020way\u0020as\u0020min\u0020and\u0020max\u0020rule.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_BETWEEN"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ABOOLEAN",
+            "name": "BOOLEAN",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020must\u0020be\u0020boolean.\u0020Accepted\u0020inputs\u0020are\u0020true,\u0020false,\u00201,\u00200,\u0020\u00221\u0022,\u0020and\u0020\u00220\u0022.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_BOOLEAN"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ACALLBACK",
+            "name": "CALLBACK",
+            "summary": "Define\u0020a\u0020custom\u0020callback\u0020to\u0020validate\u0020the\u0020value.\u0020This\u0020rule\u0020cannot\u0020be\u0020registered\u0020using\u0020the\u0020string\u0020syntax.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_CALLBACK"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ADATE",
+            "name": "DATE",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020must\u0020be\u0020valid\u0020date\u0020following\u0020a\u0020given\u0020format.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_DATE"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ADEFAULT",
+            "name": "DEFAULT",
+            "summary": "If\u0020the\u0020attribute\u0020has\u0020no\u0020value,\u0020this\u0020default\u0020will\u0020be\u0020used\u0020in\u0020place\u0020in\u0020the\u0020validated\u0020data.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_DEFAULT"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ADIFFERENT",
+            "name": "DIFFERENT",
+            "summary": "Opposite\u0020of\u0020same\u003B\u0020the\u0020field\u0020value\u0020under\u0020this\u0020rule\u0020must\u0020be\u0020different\u0020to\u0020another_field\u0020value.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_DIFFERENT"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ADIGITS",
+            "name": "DIGITS",
+            "summary": "The\u0020field\u0020under\u0020validation\u0020must\u0020be\u0020numeric\u0020and\u0020must\u0020have\u0020an\u0020exact\u0020length\u0020of\u0020value.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_DIGITS"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ADIGITS_BETWEEN",
+            "name": "DIGITS_BETWEEN",
+            "summary": "The\u0020field\u0020under\u0020validation\u0020must\u0020be\u0020numeric\u0020and\u0020have\u0020a\u0020length\u0020between\u0020the\u0020given\u0020min\u0020and\u0020max.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_DIGITS_BETWEEN"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AEMAIL",
+            "name": "EMAIL",
+            "summary": "The\u0020field\u0020under\u0020this\u0020validation\u0020must\u0020be\u0020a\u0020valid\u0020email\u0020address\u0020according\u0020to\u0020the\u0020built\u002Din\u0020PHP\u0020filter\u0020extension.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_EMAIL"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AENDS_WITH",
+            "name": "ENDS_WITH",
+            "summary": "The\u0020field\u0020under\u0020this\u0020validation\u0020must\u0020end\u0020with\u0020another_field.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_ENDS_WITH"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AEXTENSION",
+            "name": "EXTENSION",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020must\u0020end\u0020with\u0020an\u0020extension\u0020corresponding\u0020to\u0020one\u0020of\u0020those\u0020listed.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_EXTENSION"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AFLOAT",
+            "name": "FLOAT",
+            "summary": "The\u0020field\u0020under\u0020validation\u0020must\u0020be\u0020an\u0020float.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_FLOAT"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AIN",
+            "name": "IN",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020must\u0020be\u0020included\u0020in\u0020the\u0020given\u0020list\u0020of\u0020values.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_IN"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AINTEGER",
+            "name": "INTEGER",
+            "summary": "The\u0020field\u0020under\u0020validation\u0020must\u0020be\u0020an\u0020integer.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_INTEGER"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AIP",
+            "name": "IP",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020must\u0020be\u0020a\u0020valid\u0020ipv4\u0020or\u0020ipv6\u0020address.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_IP"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AIPV4",
+            "name": "IPV4",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020must\u0020be\u0020a\u0020valid\u0020ipv4\u0020address.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_IPV4"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AIPV6",
+            "name": "IPV6",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020must\u0020be\u0020a\u0020valid\u0020ipv6\u0020address.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_IPV6"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AJSON",
+            "name": "JSON",
+            "summary": "The\u0020field\u0020under\u0020this\u0020validation\u0020must\u0020be\u0020a\u0020valid\u0020JSON\u0020string.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_JSON"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ALENGTH",
+            "name": "LENGTH",
+            "summary": "The\u0020field\u0020under\u0020this\u0020validation\u0020must\u0020be\u0020a\u0020string\u0020of\u0020exactly\u0020the\u0020length\u0020specified.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_LENGTH"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ALOWERCASE",
+            "name": "LOWERCASE",
+            "summary": "The\u0020field\u0020under\u0020this\u0020validation\u0020must\u0020be\u0020in\u0020lowercase.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_LOWERCASE"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AMAX",
+            "name": "MAX",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020must\u0020have\u0020a\u0020size\u0020less\u0020than\u0020or\u0020equal\u0020to\u0020the\u0020given\u0020number.\u0020Value\u0020size\u0020is\u0020calculated\u0020in\u0020the\u0020same\u0020way\u0020as\u0020the\u0020min\u0020rule.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_MAX"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AMIMES",
+            "name": "MIMES",
+            "summary": "The\u0020\u0024_FILES\u0020item\u0020under\u0020validation\u0020must\u0020have\u0020a\u0020MIME\u0020type\u0020corresponding\u0020to\u0020one\u0020of\u0020the\u0020listed\u0020extensions.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_MIMES"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AMIN",
+            "name": "MIN",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020must\u0020have\u0020a\u0020size\u0020greater\u0020than\u0020or\u0020equal\u0020to\u0020the\u0020given\u0020number.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_MIN"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ANOT_IN",
+            "name": "NOT_IN",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020must\u0020not\u0020be\u0020included\u0020in\u0020the\u0020given\u0020list\u0020of\u0020values.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_NOT_IN"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ANULLABLE",
+            "name": "NULLABLE",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020may\u0020be\u0020empty.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_NULLABLE"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003APRESENT",
+            "name": "PRESENT",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020must\u0020be\u0020in\u0020the\u0020set\u0020of\u0020inputs,\u0020whatever\u0020the\u0020value\u0020is.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_PRESENT"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003APROHIBITED",
+            "name": "PROHIBITED",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020is\u0020not\u0020allowed.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_PROHIBITED"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003APROHIBITED_IF",
+            "name": "PROHIBITED_IF",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020is\u0020not\u0020allowed\u0020if\u0020another_field\u0020is\u0020provided\u0020with\u0020any\u0020of\u0020the\u0020value\u0028s\u0029.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_PROHIBITED_IF"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003APROHIBITED_UNLESS",
+            "name": "PROHIBITED_UNLESS",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020is\u0020not\u0020allowed\u0020unless\u0020another_field\u0020has\u0020one\u0020of\u0020these\u0020values.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_PROHIBITED_UNLESS"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AREGEX",
+            "name": "REGEX",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020must\u0020match\u0020the\u0020given\u0020regex.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_REGEX"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AREJECTED",
+            "name": "REJECTED",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020must\u0020have\u0020a\u0020value\u0020that\u0020corresponds\u0020to\u0020rejection\u0020i.e.\u00200\u0020\u0028zero\u0029,\u0020\u00220\u0022,\u0020false,\u0020no,\u0020\u0022false\u0022,\u0020off.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_REJECTED"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AREQUIRED",
+            "name": "REQUIRED",
+            "summary": "The\u0020field\u0020under\u0020this\u0020validation\u0020must\u0020be\u0020present\u0020and\u0020contain\u0020a\u0020non\u002Dempty\u0020value.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_REQUIRED"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AREQUIRED_IF",
+            "name": "REQUIRED_IF",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020must\u0020be\u0020present\u0020and\u0020not\u0020empty\u0020if\u0020the\u0020another_field\u0020field\u0020is\u0020equal\u0020to\u0020any\u0020value.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_REQUIRED_IF"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AREQUIRED_UNLESS",
+            "name": "REQUIRED_UNLESS",
+            "summary": "The\u0020field\u0020under\u0020validation\u0020must\u0020be\u0020present\u0020and\u0020not\u0020empty\u0020unless\u0020the\u0020another_field\u0020field\u0020is\u0020equal\u0020to\u0020any\u0020value.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_REQUIRED_UNLESS"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AREQUIRES",
+            "name": "REQUIRES",
+            "summary": "The\u0020field\u0020under\u0020validation\u0020requires\u0020that\u0020the\u0020specified\u0020fields\u0020are\u0020present\u0020in\u0020the\u0020input\u0020data\u0020and\u0020are\u0020not\u0020empty.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_REQUIRES"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AREQUIRED_WITH",
+            "name": "REQUIRED_WITH",
+            "summary": "The\u0020field\u0020under\u0020validation\u0020must\u0020be\u0020present\u0020and\u0020not\u0020empty\u0020only\u0020if\u0020any\u0020of\u0020the\u0020other\u0020specified\u0020fields\u0020are\u0020present.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_REQUIRED_WITH"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ASOMETIMES",
+            "name": "SOMETIMES",
+            "summary": "Sometimes\u0020attributes\u0020can\u0020be\u0020left\u0020off\u0020or\u0020can\u0020be\u0020null.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_SOMETIMES"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ASTARTS_WITH",
+            "name": "STARTS_WITH",
+            "summary": "The\u0020field\u0020under\u0020this\u0020validation\u0020must\u0020start\u0020with\u0020another_field.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_STARTS_WITH"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ASTRING",
+            "name": "STRING",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020must\u0020be\u0020a\u0020PHP\u0020string.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_STRING"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AUPPERCASE",
+            "name": "UPPERCASE",
+            "summary": "The\u0020field\u0020under\u0020this\u0020validation\u0020must\u0020be\u0020in\u0020uppercase.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_UPPERCASE"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AURL",
+            "name": "URL",
+            "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020must\u0020be\u0020a\u0020valid\u0020url\u0020format.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_URL"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AUUID",
+            "name": "UUID",
+            "summary": "The\u0020field\u0020under\u0020this\u0020validation\u0020must\u0020be\u0020a\u0020valid\u0020UUID\u0020and\u0020not\u0020the\u0020nil\u0020UUID\u0020string.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_UUID"
+        },                {
             "fqsen": "\\oihana\\validations\\rules\\ColorRule",
             "name": "ColorRule",
             "summary": "Rule\u003A\u0020Ensures\u0020that\u0020a\u0020given\u0020value\u0020matches\u0020a\u0020valid\u0020color\u0020expression\u0020\u0028e.g.\u0020\u0022\u0023ff0000\u0022\u0029.",
@@ -3973,7 +4333,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\validations\\rules\\ContainerRule",
             "name": "ContainerRule",
-            "summary": "An\u0020abstract\u0020rule\u0020to\u0020defines\u0020rules\u0020with\u0020a\u0020DI\u0020container\u0020reference.",
+            "summary": "An\u0020abstract\u0020rule\u0020to\u0020defines\u0020rules\u0020with\u0020an\u0020internal\u0020DI\u0020container\u0020reference.",
             "url": "classes/oihana-validations-rules-ContainerRule.html"
         },                {
             "fqsen": "\\oihana\\validations\\rules\\ContainerRule\u003A\u003A__construct\u0028\u0029",
@@ -3985,6 +4345,56 @@ Search.appendIndex(
             "name": "container",
             "summary": "The\u0020DI\u0020container\u0020reference.",
             "url": "classes/oihana-validations-rules-ContainerRule.html#property_container"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ExistModelRule",
+            "name": "ExistModelRule",
+            "summary": "An\u0020abstract\u0020rule\u0020to\u0020defines\u0020rules\u0020with\u0020an\u0020internal\u0020DI\u0020container\u0020reference.",
+            "url": "classes/oihana-validations-rules-ExistModelRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ExistModelRule\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020ContainerRule\u0020instance.",
+            "url": "classes/oihana-validations-rules-ExistModelRule.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ExistModelRule\u003A\u003Acheck\u0028\u0029",
+            "name": "check",
+            "summary": "Checks\u0020whether\u0020the\u0020given\u0020value\u0020satisfies\u0020the\u0020condition.",
+            "url": "classes/oihana-validations-rules-ExistModelRule.html#method_check"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ExistModelRule\u003A\u003Akey\u0028\u0029",
+            "name": "key",
+            "summary": "Defines\u0020the\u0020optional\u0020key\u0020to\u0020find\u0020the\u0020ressource\u0020in\u0020the\u0020model.",
+            "url": "classes/oihana-validations-rules-ExistModelRule.html#method_key"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ExistModelRule\u003A\u003Amodel\u0028\u0029",
+            "name": "model",
+            "summary": "Defines\u0020the\u0020model\u0020identifier\u0020to\u0020find\u0020it\u0020in\u0020the\u0020DI\u0020container.",
+            "url": "classes/oihana-validations-rules-ExistModelRule.html#method_model"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ExistModelRule\u003A\u003ADEFAULT_KEY",
+            "name": "DEFAULT_KEY",
+            "summary": "The\u0020default\u0020\u0027key\u0027\u0020value.",
+            "url": "classes/oihana-validations-rules-ExistModelRule.html#constant_DEFAULT_KEY"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ExistModelRule\u003A\u003AKEY",
+            "name": "KEY",
+            "summary": "The\u0020\u0027key\u0027\u0020parameter\u0020key.",
+            "url": "classes/oihana-validations-rules-ExistModelRule.html#constant_KEY"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ExistModelRule\u003A\u003AMODEL",
+            "name": "MODEL",
+            "summary": "The\u0020\u0027model\u0027\u0020parameter\u0020key.",
+            "url": "classes/oihana-validations-rules-ExistModelRule.html#constant_MODEL"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ExistModelRule\u003A\u003A\u0024fillableParams",
+            "name": "fillableParams",
+            "summary": "The\u0020internal\u0020list\u0020of\u0020fillable\u0020parameters.",
+            "url": "classes/oihana-validations-rules-ExistModelRule.html#property_fillableParams"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ExistModelRule\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "The\u0020internal\u0020message\u0020pattern.",
+            "url": "classes/oihana-validations-rules-ExistModelRule.html#property_message"
         },                {
             "fqsen": "\\oihana\\validations\\rules\\InstanceOfRule",
             "name": "InstanceOfRule",
@@ -4073,7 +4483,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\validations\\rules\\PostalCodeRule\u003A\u003Acheck\u0028\u0029",
             "name": "check",
-            "summary": "Check\u0020the\u0020value.",
+            "summary": "Checks\u0020whether\u0020the\u0020given\u0020value\u0020satisfies\u0020the\u0020condition.",
             "url": "classes/oihana-validations-rules-PostalCodeRule.html#method_check"
         },                {
             "fqsen": "\\oihana\\validations\\rules\\PostalCodeRule\u003A\u003ACOUNTRY",
@@ -4296,6 +4706,11 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/oihana-routes-traits.html"
         },                {
+            "fqsen": "\\oihana\\signals",
+            "name": "signals",
+            "summary": "",
+            "url": "namespaces/oihana-signals.html"
+        },                {
             "fqsen": "\\oihana\\traits",
             "name": "traits",
             "summary": "",
@@ -4306,14 +4721,19 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/oihana-traits-strings.html"
         },                {
-            "fqsen": "\\oihana\\validations\\rules",
-            "name": "rules",
+            "fqsen": "\\oihana\\validations\\enums",
+            "name": "enums",
             "summary": "",
-            "url": "namespaces/oihana-validations-rules.html"
+            "url": "namespaces/oihana-validations-enums.html"
         },                {
             "fqsen": "\\oihana\\validations",
             "name": "validations",
             "summary": "",
             "url": "namespaces/oihana-validations.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules",
+            "name": "rules",
+            "summary": "",
+            "url": "namespaces/oihana-validations-rules.html"
         }            ]
 );

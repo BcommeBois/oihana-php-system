@@ -104,6 +104,10 @@
                 
             </li>
                     <li>
+                <a href="namespaces/oihana-signals.html" class="">signals</a>
+                
+            </li>
+                    <li>
                 <a href="namespaces/oihana-traits.html" class="">traits</a>
                 
             </li>
@@ -291,12 +295,12 @@ $validation = $validator-&gt;validate( $_POST,
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Check the value.</dd>
+<dd>Checks whether the given value satisfies the condition.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-validations-rules-PostalCodeRule.html#method_country">country()</a>
     <span>
-                                &nbsp;: $this    </span>
+                                &nbsp;: static    </span>
 </dt>
 <dd>The country code of the postalCode regex pattern.</dd>
 
@@ -547,11 +551,11 @@ $validation = $validator-&gt;validate( $_POST,
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/PostalCodeRule.php"><a href="files/src-oihana-validations-rules-postalcoderule.html"><abbr title="src/oihana/validations/rules/PostalCodeRule.php">PostalCodeRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">111</span>
+    <span class="phpdocumentor-element-found-in__line">118</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Check the value.</p>
+        <p class="phpdocumentor-summary">Checks whether the given value satisfies the condition.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -568,7 +572,9 @@ $validation = $validator-&gt;validate( $_POST,
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The value to check.</p>
+</section>
+
             </dd>
             </dl>
 
@@ -594,6 +600,10 @@ $validation = $validator-&gt;validate( $_POST,
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True if the value satisfies the condition.</p>
+</section>
+
             </section>
 
 </article>
@@ -611,7 +621,7 @@ $validation = $validator-&gt;validate( $_POST,
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/PostalCodeRule.php"><a href="files/src-oihana-validations-rules-postalcoderule.html"><abbr title="src/oihana/validations/rules/PostalCodeRule.php">PostalCodeRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">101</span>
+    <span class="phpdocumentor-element-found-in__line">103</span>
 
     </aside>
 
@@ -619,7 +629,7 @@ $validation = $validator-&gt;validate( $_POST,
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">country</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">$this</span></code>
+                    <span class="phpdocumentor-signature__name">country</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -632,7 +642,9 @@ $validation = $validator-&gt;validate( $_POST,
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|string|null</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The country code of the postal code.</p>
+</section>
+
             </dd>
             </dl>
 
@@ -662,7 +674,7 @@ $validation = $validator-&gt;validate( [ 'postalCode' =&gt; 45 ] , [ 'postalCode
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">$this</span>
+        <span class="phpdocumentor-signature__response_type">static</span>
             </section>
 
 </article>

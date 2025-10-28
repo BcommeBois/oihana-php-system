@@ -29,6 +29,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - oihana\models\enums\Alter
 - oihana\models\traits\alters\AlterNotPropertyTrait
 
+- oihana\signal\Notice
+- oihana\signal\Receiver
+- oihana\signal\Signal
+- oihana\signal\SignalEntry
+- oihana\signal\Signaler
+
 - oihana\validations\rules\ColorRule
 - oihana\validations\rules\ContainerRule (abstract)
 - oihana\validations\rules\InstanceOfRule

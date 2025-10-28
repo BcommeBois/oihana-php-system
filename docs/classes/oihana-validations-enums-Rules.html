@@ -1,0 +1,3012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+            <title>Oihana Php System</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <link rel="icon" href="images/favicon.ico"/>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/base.css">
+            <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@100;200;300;400;600;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/template.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/themes/prism-okaidia.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.css">
+                <script src="https://cdn.jsdelivr.net/npm/fuse.js@3.4.6"></script>
+        <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
+        <script src="js/template.js"></script>
+        <script src="js/search.js"></script>
+        <script defer src="js/searchIndex.js"></script>
+    </head>
+<body id="top">
+    <header class="phpdocumentor-header phpdocumentor-section">
+    <h1 class="phpdocumentor-title">
+    <a href="" class="phpdocumentor-title__link">
+        <img src="assets/images/oihana-php-system-logo-inline-512x160.png" alt="Oihana PHP System" style="width: 128px; height: 40px;"/>
+    </a>
+</h1>    <input class="phpdocumentor-header__menu-button" type="checkbox" id="menu-button" name="menu-button" />
+    <label class="phpdocumentor-header__menu-icon" for="menu-button">
+        <i class="fas fa-bars"></i>
+    </label>
+    <section data-search-form class="phpdocumentor-search">
+    <label>
+        <span class="visually-hidden">Search for</span>
+        <svg class="phpdocumentor-search__icon" width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" stroke-width="2"/>
+            <line x1="12.4892" y1="12.2727" x2="19.1559" y2="18.9393" stroke="currentColor" stroke-width="3"/>
+        </svg>
+        <input type="search" class="phpdocumentor-field phpdocumentor-search__field" placeholder="Loading .." disabled />
+    </label>
+</section>
+
+    <nav class="phpdocumentor-topnav">
+    <ul class="phpdocumentor-topnav__menu">
+                        <li class="phpdocumentor-topnav__menu-item -social">
+                <a href="https://github.com/BcommeBois/oihana-php-system">
+                    <span>
+                                                                        <i class="fab fa-github"></i>
+                                                
+                    </span>
+                </a>
+            </li>
+                </ul>
+</nav>
+</header>
+
+    <main class="phpdocumentor">
+        <div class="phpdocumentor-section">
+            <input class="phpdocumentor-sidebar__menu-button" type="checkbox" id="sidebar-button" name="sidebar-button" />
+<label class="phpdocumentor-sidebar__menu-icon" for="sidebar-button">
+    Menu
+</label>
+<aside class="phpdocumentor-column -three phpdocumentor-sidebar">
+                    <section class="phpdocumentor-sidebar__category -namespaces">
+            <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/oihana.html" class="">oihana</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/oihana-controllers.html" class="">controllers</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-date.html" class="">date</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-graphics.html" class="">graphics</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-init.html" class="">init</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-logging.html" class="">logging</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-models.html" class="">models</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-mysql.html" class="">mysql</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-routes.html" class="">routes</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-signals.html" class="">signals</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-traits.html" class="">traits</a>
+                
+            </li>
+                    <li>
+                <a href="namespaces/oihana-validations.html" class="">validations</a>
+                
+            </li>
+            </ul>
+
+                        </section>
+            
+    <section class="phpdocumentor-sidebar__category -reports">
+        <h2 class="phpdocumentor-sidebar__category-header">Reports</h2>
+                <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/deprecated.html">Deprecated</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/errors.html">Errors</a></h3>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="reports/markers.html">Markers</a></h3>
+    </section>
+
+    <section class="phpdocumentor-sidebar__category -indices">
+        <h2 class="phpdocumentor-sidebar__category-header">Indices</h2>
+        <h3 class="phpdocumentor-sidebar__root-package"><a href="indices/files.html">Files</a></h3>
+    </section>
+</aside>
+
+            <div class="phpdocumentor-column -nine phpdocumentor-content">
+                                <section>
+                                        <ul class="phpdocumentor-breadcrumbs">
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana.html">oihana</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-validations.html">validations</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-validations-enums.html">enums</a></li>
+    </ul>
+
+    <article class="phpdocumentor-element -class">
+        <h2 class="phpdocumentor-content__title">
+    Rules
+
+    
+    
+    
+            <span class="phpdocumentor-element__extends">
+            uses
+                            <abbr title="\oihana\reflect\traits\ConstantsTrait">ConstantsTrait</abbr>                    </span>
+    </h2>
+
+<div class="phpdocumentor-label-line">
+
+
+</div>
+
+        <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">16</span>
+
+    </aside>
+
+            <p class="phpdocumentor-summary">The available rules constants.</p>
+
+
+
+
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-validations-enums-Rules.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="https://github.com/somnambulist-tech/validation?tab=readme-ov-file#available-rules">https://github.com/somnambulist-tech/validation?tab=readme-ov-file#available-rules</a></span>
+                                        
+                                             
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (ekameleon)</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
+
+
+
+
+
+<h3 id="toc">
+    Table of Contents
+    <a href="classes/oihana-validations-enums-Rules.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h3>
+
+
+
+
+
+
+
+<h4 id="toc-constants">
+    Constants
+    <a href="classes/oihana-validations-enums-Rules.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_ACCEPTED">ACCEPTED</a>
+    <span>
+        &nbsp;= &#039;accepted&#039;                            </span>
+</dt>
+<dd>The field under this rule must be one of &#039;on&#039;, &#039;yes&#039;, &#039;1&#039;, &#039;true&#039; (the string &quot;true&quot;), or true.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_AFTER">AFTER</a>
+    <span>
+        &nbsp;= &#039;after&#039;                            </span>
+</dt>
+<dd>The field under this rule must be a date after the given minimum.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_ALPHA">ALPHA</a>
+    <span>
+        &nbsp;= &#039;alpha&#039;                            </span>
+</dt>
+<dd>The field under this rule must be entirely alphabetic characters.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_ALPHA_DASH">ALPHA_DASH</a>
+    <span>
+        &nbsp;= &#039;alpha_dash&#039;                            </span>
+</dt>
+<dd>The field under this rule may have alpha-numeric characters, as well as dashes and underscores.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_ALPHA_NUM">ALPHA_NUM</a>
+    <span>
+        &nbsp;= &#039;alpha_num&#039;                            </span>
+</dt>
+<dd>The field under this rule must be entirely alpha-numeric characters.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_ALPHA_SPACES">ALPHA_SPACES</a>
+    <span>
+        &nbsp;= &#039;alpha_spaces&#039;                            </span>
+</dt>
+<dd>The field under this rule may have alpha characters, as well as spaces.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_ANY_OF">ANY_OF</a>
+    <span>
+        &nbsp;= &#039;any&#039;                            </span>
+</dt>
+<dd>A variation of in: here the values (separated by default with a ,) must all be in the given values.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_ARRAY">ARRAY</a>
+    <span>
+        &nbsp;= &#039;array&#039;                            </span>
+</dt>
+<dd>The field under this rule must be an array.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_ARRAY_CAN_ONLY_HAVE_KEYS">ARRAY_CAN_ONLY_HAVE_KEYS</a>
+    <span>
+        &nbsp;= &#039;array_can_only_have_keys&#039;                            </span>
+</dt>
+<dd>The array can only contain the specified keys, any keys not present will fail validation.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_ARRAY_MUST_HAVE_KEYS">ARRAY_MUST_HAVE_KEYS</a>
+    <span>
+        &nbsp;= &#039;array_must_have_keys&#039;                            </span>
+</dt>
+<dd>The array must contain all the specified keys to be valid.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_BEFORE">BEFORE</a>
+    <span>
+        &nbsp;= &#039;before&#039;                            </span>
+</dt>
+<dd>The field under this rule must be a date before the given maximum.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_BETWEEN">BETWEEN</a>
+    <span>
+        &nbsp;= &#039;between&#039;                            </span>
+</dt>
+<dd>The field under this rule must have a size between min and max params. Value size is calculated in the same way as min and max rule.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_BOOLEAN">BOOLEAN</a>
+    <span>
+        &nbsp;= &#039;boolean&#039;                            </span>
+</dt>
+<dd>The field under this rule must be boolean. Accepted inputs are true, false, 1, 0, &quot;1&quot;, and &quot;0&quot;.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_CALLBACK">CALLBACK</a>
+    <span>
+        &nbsp;= &#039;callback&#039;                            </span>
+</dt>
+<dd>Define a custom callback to validate the value. This rule cannot be registered using the string syntax.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_DATE">DATE</a>
+    <span>
+        &nbsp;= &#039;date&#039;                            </span>
+</dt>
+<dd>The field under this rule must be valid date following a given format.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_DEFAULT">DEFAULT</a>
+    <span>
+        &nbsp;= &#039;default&#039;                            </span>
+</dt>
+<dd>If the attribute has no value, this default will be used in place in the validated data.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_DIFFERENT">DIFFERENT</a>
+    <span>
+        &nbsp;= &#039;different&#039;                            </span>
+</dt>
+<dd>Opposite of same; the field value under this rule must be different to another_field value.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_DIGITS">DIGITS</a>
+    <span>
+        &nbsp;= &#039;digits&#039;                            </span>
+</dt>
+<dd>The field under validation must be numeric and must have an exact length of value.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_DIGITS_BETWEEN">DIGITS_BETWEEN</a>
+    <span>
+        &nbsp;= &#039;digits_between&#039;                            </span>
+</dt>
+<dd>The field under validation must be numeric and have a length between the given min and max.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_EMAIL">EMAIL</a>
+    <span>
+        &nbsp;= &#039;email&#039;                            </span>
+</dt>
+<dd>The field under this validation must be a valid email address according to the built-in PHP filter extension.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_ENDS_WITH">ENDS_WITH</a>
+    <span>
+        &nbsp;= &#039;ends_with&#039;                            </span>
+</dt>
+<dd>The field under this validation must end with another_field.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_EXTENSION">EXTENSION</a>
+    <span>
+        &nbsp;= &#039;extension&#039;                            </span>
+</dt>
+<dd>The field under this rule must end with an extension corresponding to one of those listed.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_FLOAT">FLOAT</a>
+    <span>
+        &nbsp;= &#039;float&#039;                            </span>
+</dt>
+<dd>The field under validation must be an float.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_IN">IN</a>
+    <span>
+        &nbsp;= &#039;in&#039;                            </span>
+</dt>
+<dd>The field under this rule must be included in the given list of values.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_INTEGER">INTEGER</a>
+    <span>
+        &nbsp;= &#039;integer&#039;                            </span>
+</dt>
+<dd>The field under validation must be an integer.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_IP">IP</a>
+    <span>
+        &nbsp;= &#039;ipv&#039;                            </span>
+</dt>
+<dd>The field under this rule must be a valid ipv4 or ipv6 address.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_IPV4">IPV4</a>
+    <span>
+        &nbsp;= &#039;ipv4&#039;                            </span>
+</dt>
+<dd>The field under this rule must be a valid ipv4 address.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_IPV6">IPV6</a>
+    <span>
+        &nbsp;= &#039;ipv6&#039;                            </span>
+</dt>
+<dd>The field under this rule must be a valid ipv6 address.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_JSON">JSON</a>
+    <span>
+        &nbsp;= &#039;json&#039;                            </span>
+</dt>
+<dd>The field under this validation must be a valid JSON string.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_LENGTH">LENGTH</a>
+    <span>
+        &nbsp;= &#039;length&#039;                            </span>
+</dt>
+<dd>The field under this validation must be a string of exactly the length specified.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_LOWERCASE">LOWERCASE</a>
+    <span>
+        &nbsp;= &#039;lowercase&#039;                            </span>
+</dt>
+<dd>The field under this validation must be in lowercase.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_MAX">MAX</a>
+    <span>
+        &nbsp;= &#039;max&#039;                            </span>
+</dt>
+<dd>The field under this rule must have a size less than or equal to the given number. Value size is calculated in the same way as the min rule.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_MIMES">MIMES</a>
+    <span>
+        &nbsp;= &#039;mimes&#039;                            </span>
+</dt>
+<dd>The $_FILES item under validation must have a MIME type corresponding to one of the listed extensions.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_MIN">MIN</a>
+    <span>
+        &nbsp;= &#039;min&#039;                            </span>
+</dt>
+<dd>The field under this rule must have a size greater than or equal to the given number.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_NOT_IN">NOT_IN</a>
+    <span>
+        &nbsp;= &#039;not_in&#039;                            </span>
+</dt>
+<dd>The field under this rule must not be included in the given list of values.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_NULLABLE">NULLABLE</a>
+    <span>
+        &nbsp;= &#039;nullable&#039;                            </span>
+</dt>
+<dd>The field under this rule may be empty.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_PRESENT">PRESENT</a>
+    <span>
+        &nbsp;= &#039;present&#039;                            </span>
+</dt>
+<dd>The field under this rule must be in the set of inputs, whatever the value is.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_PROHIBITED">PROHIBITED</a>
+    <span>
+        &nbsp;= &#039;prohibited&#039;                            </span>
+</dt>
+<dd>The field under this rule is not allowed.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_PROHIBITED_IF">PROHIBITED_IF</a>
+    <span>
+        &nbsp;= &#039;prohibited_if&#039;                            </span>
+</dt>
+<dd>The field under this rule is not allowed if another_field is provided with any of the value(s).</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_PROHIBITED_UNLESS">PROHIBITED_UNLESS</a>
+    <span>
+        &nbsp;= &#039;prohibited_unless&#039;                            </span>
+</dt>
+<dd>The field under this rule is not allowed unless another_field has one of these values.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_REGEX">REGEX</a>
+    <span>
+        &nbsp;= &#039;regex&#039;                            </span>
+</dt>
+<dd>The field under this rule must match the given regex.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_REJECTED">REJECTED</a>
+    <span>
+        &nbsp;= &#039;rejected&#039;                            </span>
+</dt>
+<dd>The field under this rule must have a value that corresponds to rejection i.e. 0 (zero), &quot;0&quot;, false, no, &quot;false&quot;, off.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_REQUIRED">REQUIRED</a>
+    <span>
+        &nbsp;= &#039;required&#039;                            </span>
+</dt>
+<dd>The field under this validation must be present and contain a non-empty value.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_REQUIRED_IF">REQUIRED_IF</a>
+    <span>
+        &nbsp;= &#039;required_if&#039;                            </span>
+</dt>
+<dd>The field under this rule must be present and not empty if the another_field field is equal to any value.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_REQUIRED_UNLESS">REQUIRED_UNLESS</a>
+    <span>
+        &nbsp;= &#039;required_unless&#039;                            </span>
+</dt>
+<dd>The field under validation must be present and not empty unless the another_field field is equal to any value.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_REQUIRED_WITH">REQUIRED_WITH</a>
+    <span>
+        &nbsp;= &#039;required_with&#039;                            </span>
+</dt>
+<dd>The field under validation must be present and not empty only if any of the other specified fields are present.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_REQUIRES">REQUIRES</a>
+    <span>
+        &nbsp;= &#039;requires&#039;                            </span>
+</dt>
+<dd>The field under validation requires that the specified fields are present in the input data and are not empty.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_SOMETIMES">SOMETIMES</a>
+    <span>
+        &nbsp;= &#039;sometimes&#039;                            </span>
+</dt>
+<dd>Sometimes attributes can be left off or can be null.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_STARTS_WITH">STARTS_WITH</a>
+    <span>
+        &nbsp;= &#039;starts_with&#039;                            </span>
+</dt>
+<dd>The field under this validation must start with another_field.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_STRING">STRING</a>
+    <span>
+        &nbsp;= &#039;string&#039;                            </span>
+</dt>
+<dd>The field under this rule must be a PHP string.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_UPPERCASE">UPPERCASE</a>
+    <span>
+        &nbsp;= &#039;uppercase&#039;                            </span>
+</dt>
+<dd>The field under this validation must be in uppercase.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_URL">URL</a>
+    <span>
+        &nbsp;= &#039;url&#039;                            </span>
+</dt>
+<dd>The field under this rule must be a valid url format.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_UUID">UUID</a>
+    <span>
+        &nbsp;= &#039;uuid&#039;                            </span>
+</dt>
+<dd>The field under this validation must be a valid UUID and not the nil UUID string.</dd>
+
+    </dl>
+
+
+
+
+
+
+        
+    <section class="phpdocumentor-constants">
+        <h3 class="phpdocumentor-elements__header" id="constants">
+            Constants
+            <a href="classes/oihana-validations-enums-Rules.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ACCEPTED">
+        ACCEPTED
+        <a href="classes/oihana-validations-enums-Rules.html#constant_ACCEPTED" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">23</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule must be one of &#039;on&#039;, &#039;yes&#039;, &#039;1&#039;, &#039;true&#039; (the string &quot;true&quot;), or true.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ACCEPTED</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;accepted&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_AFTER">
+        AFTER
+        <a href="classes/oihana-validations-enums-Rules.html#constant_AFTER" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">38</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule must be a date after the given minimum.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">AFTER</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;after&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><p>The parameter should be any valid string that can be parsed by strtotime. For example:</p>
+</section>
+
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-validations-enums-Rules.html#constant_AFTER#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">after:next week
+after:2016-12-31
+after:2016
+after:2016-12-31 09:56:02
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ALPHA">
+        ALPHA
+        <a href="classes/oihana-validations-enums-Rules.html#constant_ALPHA" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">43</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule must be entirely alphabetic characters.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ALPHA</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;alpha&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ALPHA_DASH">
+        ALPHA_DASH
+        <a href="classes/oihana-validations-enums-Rules.html#constant_ALPHA_DASH" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">48</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule may have alpha-numeric characters, as well as dashes and underscores.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ALPHA_DASH</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;alpha_dash&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ALPHA_NUM">
+        ALPHA_NUM
+        <a href="classes/oihana-validations-enums-Rules.html#constant_ALPHA_NUM" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">53</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule must be entirely alpha-numeric characters.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ALPHA_NUM</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;alpha_num&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ALPHA_SPACES">
+        ALPHA_SPACES
+        <a href="classes/oihana-validations-enums-Rules.html#constant_ALPHA_SPACES" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">58</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule may have alpha characters, as well as spaces.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ALPHA_SPACES</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;alpha_spaces&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ANY_OF">
+        ANY_OF
+        <a href="classes/oihana-validations-enums-Rules.html#constant_ANY_OF" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">63</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">A variation of in: here the values (separated by default with a ,) must all be in the given values.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ANY_OF</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;any&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ARRAY">
+        ARRAY
+        <a href="classes/oihana-validations-enums-Rules.html#constant_ARRAY" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">68</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule must be an array.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ARRAY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;array&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ARRAY_CAN_ONLY_HAVE_KEYS">
+        ARRAY_CAN_ONLY_HAVE_KEYS
+        <a href="classes/oihana-validations-enums-Rules.html#constant_ARRAY_CAN_ONLY_HAVE_KEYS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">118</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The array can only contain the specified keys, any keys not present will fail validation.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ARRAY_CAN_ONLY_HAVE_KEYS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;array_can_only_have_keys&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><p>By default, associative data has no restrictions on the key =&gt; values that can be present.</p>
+<p>For example: you have filters for a search box that are passed to SQL,
+only the specified keys should be allowed to be sent and not any value in the array of filters.</p>
+</section>
+
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-validations-enums-Rules.html#constant_ARRAY_CAN_ONLY_HAVE_KEYS#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">use Somnambulist\Components\Validation\Factory;
+
+$validation = $factory-&gt;validate([
+'filters' =&gt; ['foo' =&gt; 'bar', 'baz' =&gt; 'example']
+], [
+'filters' =&gt; 'array|array_can_only_have_keys:foo,bar',
+]);
+
+$validation-&gt;passes(); // true if filters only has the keys in array_can_only_have_keys
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ARRAY_MUST_HAVE_KEYS">
+        ARRAY_MUST_HAVE_KEYS
+        <a href="classes/oihana-validations-enums-Rules.html#constant_ARRAY_MUST_HAVE_KEYS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">95</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The array must contain all the specified keys to be valid.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ARRAY_MUST_HAVE_KEYS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;array_must_have_keys&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><p>This is useful to ensure that a nested array meets a prescribed format.
+The same thing can be achieved by using individual rules for each key with required.</p>
+<p>Note that this will still allow additional keys to be present, it merely validates the presence of specific keys.</p>
+<p>This rule is best used in conjunction with the array rule, though it can be used standalone.</p>
+</section>
+
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-validations-enums-Rules.html#constant_ARRAY_MUST_HAVE_KEYS#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">use Somnambulist\Components\Validation\Factory;
+
+$validation = $factory-&gt;validate
+([
+    'filters' =&gt; ['foo' =&gt; 'bar', 'baz' =&gt; 'example']
+] ,
+[
+    'filters' =&gt; 'array|array_must_have_keys:foo,bar,baz',
+]);
+
+$validation-&gt;passes(); // true if filters has all the keys in array_must_have_keys
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_BEFORE">
+        BEFORE
+        <a href="classes/oihana-validations-enums-Rules.html#constant_BEFORE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">133</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule must be a date before the given maximum.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">BEFORE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;before&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><p>This also works the same way as the after rule. Pass anything that can be parsed by strtotime</p>
+</section>
+
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-validations-enums-Rules.html#constant_BEFORE#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">before:last week
+before:2016-12-31
+before:2016
+before:2016-12-31 09:56:02
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_BETWEEN">
+        BETWEEN
+        <a href="classes/oihana-validations-enums-Rules.html#constant_BETWEEN" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">149</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule must have a size between min and max params. Value size is calculated in the same way as min and max rule.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">BETWEEN</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;between&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><p>You can also validate the size of uploaded files using this rule:</p>
+</section>
+
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-validations-enums-Rules.html#constant_BETWEEN#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$validation = $validator-&gt;validate
+(
+    [ 'photo' =&gt; $_FILES['photo'] ],
+    [ 'photo' =&gt; 'required|between:1M,2M' ]
+);
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_BOOLEAN">
+        BOOLEAN
+        <a href="classes/oihana-validations-enums-Rules.html#constant_BOOLEAN" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">154</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule must be boolean. Accepted inputs are true, false, 1, 0, &quot;1&quot;, and &quot;0&quot;.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">BOOLEAN</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;boolean&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_CALLBACK">
+        CALLBACK
+        <a href="classes/oihana-validations-enums-Rules.html#constant_CALLBACK" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">207</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Define a custom callback to validate the value. This rule cannot be registered using the string syntax.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">CALLBACK</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;callback&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><p>To use this rule, you must use the array syntax and either explicitly specify callback, or pass the closure:</p>
+</section>
+
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-validations-enums-Rules.html#constant_CALLBACK#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$validation = $validator-&gt;validate( $_POST,
+[
+    'even_number' =&gt; [
+         'required',
+         function ( $value )
+         {
+              // false = invalid
+              return (is_numeric($value) AND $value % 2 === 0);
+         },
+         'callback' =&gt; fn ($v) =&gt; is_numeric($v) &amp;&amp; $v % 2 === 0,
+     ]
+]);
+</code></pre>
+<p>You can set a custom message by returning a string instead of false.
+To allow for message translation, instead of a literal string; return a message key instead
+and add this to the message bag on the Factory.</p>
+<p>Note: returning a message string will be removed in a future version, requiring only boolean responses.
+Instead, set the message string directly before returning true/false via $this-&gt;message = &quot;&quot;;</p>
+<pre class="prettyprint"><code class="language-php">$validation = $validator-&gt;validate( $_POST,
+[
+   'even_number' =&gt;
+   [
+        'required',
+        function ($value)
+        {
+             if (!is_numeric($value))
+             {
+                 return &quot;:attribute must be numeric.&quot;;
+             }
+             if ($value % 2 !== 0)
+             {
+                  return &quot;:attribute is not even number.&quot;;
+             }
+             return true; // always return true if validation passes
+        }
+    ]
+]);
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_DATE">
+        DATE
+        <a href="classes/oihana-validations-enums-Rules.html#constant_DATE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">213</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule must be valid date following a given format.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">DATE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;date&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><p>Parameter format is optional, default format is Y-m-d.</p>
+</section>
+
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_DEFAULT">
+        DEFAULT
+        <a href="classes/oihana-validations-enums-Rules.html#constant_DEFAULT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">240</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">If the attribute has no value, this default will be used in place in the validated data.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">DEFAULT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;default&#039;</span>
+</code>
+
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-validations-enums-Rules.html#constant_DEFAULT#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="prettyprint">use Somnambulist\Components\Validation\Factory;
+
+$validation = (new Factory)-&gt;validate
+([
+   'enabled' =&gt; null
+],
+[
+    'enabled'   =&gt; 'default:1|required|in:0,1'
+    'published' =&gt; 'default:0|required|in:0,1'
+]);
+
+$validation-&gt;passes(); // true
+
+// Get the valid/default data
+$valid_data = $validation-&gt;getValidData();
+
+$enabled = $valid_data['enabled'];
+$published = $valid_data['published'];
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_DIFFERENT">
+        DIFFERENT
+        <a href="classes/oihana-validations-enums-Rules.html#constant_DIFFERENT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">249</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Opposite of same; the field value under this rule must be different to another_field value.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">DIFFERENT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;different&#039;</span>
+</code>
+
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-validations-enums-Rules.html#constant_DIFFERENT#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">different:another_field
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_DIGITS">
+        DIGITS
+        <a href="classes/oihana-validations-enums-Rules.html#constant_DIGITS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">258</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under validation must be numeric and must have an exact length of value.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">DIGITS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;digits&#039;</span>
+</code>
+
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-validations-enums-Rules.html#constant_DIGITS#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">digits:value
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_DIGITS_BETWEEN">
+        DIGITS_BETWEEN
+        <a href="classes/oihana-validations-enums-Rules.html#constant_DIGITS_BETWEEN" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">267</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under validation must be numeric and have a length between the given min and max.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">DIGITS_BETWEEN</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;digits_between&#039;</span>
+</code>
+
+
+    
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-validations-enums-Rules.html#constant_DIGITS_BETWEEN#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">digits_between:min,max
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_EMAIL">
+        EMAIL
+        <a href="classes/oihana-validations-enums-Rules.html#constant_EMAIL" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">273</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this validation must be a valid email address according to the built-in PHP filter extension.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">EMAIL</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;email&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><p>See <abbr title="\oihana\validations\enums\FILTER_VALIDATE_EMAIL">FILTER_VALIDATE_EMAIL</abbr> for details.</p>
+</section>
+
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ENDS_WITH">
+        ENDS_WITH
+        <a href="classes/oihana-validations-enums-Rules.html#constant_ENDS_WITH" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">279</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this validation must end with another_field.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ENDS_WITH</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;ends_with&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><p>Comparison can be against strings, numbers and array elements.</p>
+</section>
+
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_EXTENSION">
+        EXTENSION
+        <a href="classes/oihana-validations-enums-Rules.html#constant_EXTENSION" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">287</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule must end with an extension corresponding to one of those listed.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">EXTENSION</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;extension&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><p>This is useful for validating a file type for a given path or url.
+The mimes rule should be used for validating uploads.</p>
+</section>
+
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_FLOAT">
+        FLOAT
+        <a href="classes/oihana-validations-enums-Rules.html#constant_FLOAT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">292</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under validation must be an float.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">FLOAT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;float&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_IN">
+        IN
+        <a href="classes/oihana-validations-enums-Rules.html#constant_IN" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">328</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule must be included in the given list of values.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">IN</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;in&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><p>To help build the string rule, the In (and NotIn) rules have a helper method:</p>
+<pre class="prettyprint"><code class="language-php">use Somnambulist\Components\Validation\Factory;
+use Somnambulist\Components\Validation\Rules\In;
+
+$factory = new Factory();
+$validation = $factory-&gt;validate($data,
+[
+   'enabled' =&gt;
+   [
+      'required',
+      In::make([true, 1])
+   ]
+]);
+</code></pre>
+<p>This rule uses in_array to perform the validation and by default does not perform strict checking.
+If you require strict checking, you can invoke the rule like this:</p>
+<pre class="prettyprint"><code class="language-php">use Somnambulist\Components\Validation\Factory;
+
+$factory = new Factory();
+$validation = $factory-&gt;validate($data,
+[
+   'enabled' =&gt;
+   [
+      'required',
+      $factory-&gt;rule('in')-&gt;values([true, 1])-&gt;strict()
+   ]
+]);
+</code></pre>
+</section>
+
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_INTEGER">
+        INTEGER
+        <a href="classes/oihana-validations-enums-Rules.html#constant_INTEGER" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">333</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under validation must be an integer.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">INTEGER</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;integer&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_IP">
+        IP
+        <a href="classes/oihana-validations-enums-Rules.html#constant_IP" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">338</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule must be a valid ipv4 or ipv6 address.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">IP</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;ipv&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_IPV4">
+        IPV4
+        <a href="classes/oihana-validations-enums-Rules.html#constant_IPV4" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">343</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule must be a valid ipv4 address.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">IPV4</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;ipv4&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_IPV6">
+        IPV6
+        <a href="classes/oihana-validations-enums-Rules.html#constant_IPV6" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">348</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule must be a valid ipv6 address.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">IPV6</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;ipv6&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_JSON">
+        JSON
+        <a href="classes/oihana-validations-enums-Rules.html#constant_JSON" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">353</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this validation must be a valid JSON string.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">JSON</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;json&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_LENGTH">
+        LENGTH
+        <a href="classes/oihana-validations-enums-Rules.html#constant_LENGTH" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">358</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this validation must be a string of exactly the length specified.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">LENGTH</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;length&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_LOWERCASE">
+        LOWERCASE
+        <a href="classes/oihana-validations-enums-Rules.html#constant_LOWERCASE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">363</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this validation must be in lowercase.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">LOWERCASE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;lowercase&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_MAX">
+        MAX
+        <a href="classes/oihana-validations-enums-Rules.html#constant_MAX" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">381</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule must have a size less than or equal to the given number. Value size is calculated in the same way as the min rule.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">MAX</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;max&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><p>You can also validate the maximum size of uploaded files using this rule:</p>
+</section>
+
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-validations-enums-Rules.html#constant_MAX#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="prettyprint">$validation = $validator-&gt;validate
+([
+    'photo' =&gt; $_FILES['photo']
+],
+[
+    'photo' =&gt; 'required|max:2M'
+]);
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_MIMES">
+        MIMES
+        <a href="classes/oihana-validations-enums-Rules.html#constant_MIMES" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">386</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The $_FILES item under validation must have a MIME type corresponding to one of the listed extensions.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">MIMES</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;mimes&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_MIN">
+        MIN
+        <a href="classes/oihana-validations-enums-Rules.html#constant_MIN" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">411</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule must have a size greater than or equal to the given number.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">MIN</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;min&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><p>For string values, the size corresponds to the number of characters.
+For integer or float values, size corresponds to its numerical value.
+For an array, size corresponds to the count of the array.</p>
+<p>If your value is numeric string, you can use the numeric rule to treat its size as a numeric value
+instead of the number of characters.</p>
+<p>You can also validate the minimum size of uploaded files using this rule:</p>
+</section>
+
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-validations-enums-Rules.html#constant_MIN#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="prettyprint">$validation = $validator-&gt;validate
+([
+    'photo' =&gt; $_FILES['photo']
+],
+[
+    'photo' =&gt; 'required|min:2M'
+]);
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_NOT_IN">
+        NOT_IN
+        <a href="classes/oihana-validations-enums-Rules.html#constant_NOT_IN" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">422</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule must not be included in the given list of values.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">NOT_IN</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;not_in&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><p>This rule also uses in_array and can have strict checks enabled the same way as In.</p>
+<pre class="prettyprint"><code class="language-php">not_in:value_1,value_2,...
+</code></pre>
+</section>
+
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_NULLABLE">
+        NULLABLE
+        <a href="classes/oihana-validations-enums-Rules.html#constant_NULLABLE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">427</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule may be empty.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">NULLABLE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;nullable&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PRESENT">
+        PRESENT
+        <a href="classes/oihana-validations-enums-Rules.html#constant_PRESENT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">432</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule must be in the set of inputs, whatever the value is.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PRESENT</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;present&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PROHIBITED">
+        PROHIBITED
+        <a href="classes/oihana-validations-enums-Rules.html#constant_PROHIBITED" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">437</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule is not allowed.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PROHIBITED</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;prohibited&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PROHIBITED_IF">
+        PROHIBITED_IF
+        <a href="classes/oihana-validations-enums-Rules.html#constant_PROHIBITED_IF" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">442</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule is not allowed if another_field is provided with any of the value(s).</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PROHIBITED_IF</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;prohibited_if&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PROHIBITED_UNLESS">
+        PROHIBITED_UNLESS
+        <a href="classes/oihana-validations-enums-Rules.html#constant_PROHIBITED_UNLESS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">448</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule is not allowed unless another_field has one of these values.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">PROHIBITED_UNLESS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;prohibited_unless&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><p>This is the inverse of prohibited_if.</p>
+</section>
+
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_REGEX">
+        REGEX
+        <a href="classes/oihana-validations-enums-Rules.html#constant_REGEX" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">473</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule must match the given regex.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">REGEX</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;regex&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><p>Note: if you require the use of |, then the regex rule must be written in array format instead of as a string.</p>
+<p>For example:</p>
+<pre class="prettyprint"><code class="language-php">use Somnambulist\Components\Validation\Factory;
+
+$validation = (new Factory())-&gt;validate
+([
+   'field' =&gt; 'value'
+],
+[
+   'field' =&gt;
+   [
+     'required',
+     'regex' =&gt; '/(this|that|value)/'
+   ]
+])
+</code></pre>
+</section>
+
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_REJECTED">
+        REJECTED
+        <a href="classes/oihana-validations-enums-Rules.html#constant_REJECTED" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">479</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule must have a value that corresponds to rejection i.e. 0 (zero), &quot;0&quot;, false, no, &quot;false&quot;, off.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">REJECTED</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;rejected&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><p>This is the inverse of the accepted rule.</p>
+</section>
+
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_REQUIRED">
+        REQUIRED
+        <a href="classes/oihana-validations-enums-Rules.html#constant_REQUIRED" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">499</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this validation must be present and contain a non-empty value.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">REQUIRED</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;required&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><p>Valid values include non-empty strings, numbers, and arrays with elements.
+Empty values such as null, empty arrays, or empty strings are considered invalid.</p>
+<p>Examples:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Valid</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>'something'</td>
+<td>true</td>
+</tr>
+<tr>
+<td>'0'</td>
+<td>true</td>
+</tr>
+<tr>
+<td>0</td>
+<td>true</td>
+</tr>
+<tr>
+<td>[0]</td>
+<td>true</td>
+</tr>
+<tr>
+<td>[null]</td>
+<td>true</td>
+</tr>
+<tr>
+<td>null</td>
+<td>false</td>
+</tr>
+<tr>
+<td>[]</td>
+<td>false</td>
+</tr>
+<tr>
+<td>''</td>
+<td>false</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_REQUIRED_IF">
+        REQUIRED_IF
+        <a href="classes/oihana-validations-enums-Rules.html#constant_REQUIRED_IF" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">510</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule must be present and not empty if the another_field field is equal to any value.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">REQUIRED_IF</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;required_if&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><p>For example required_if:something,1,yes,on will be required if something's value is one of 1, '1', 'yes', or 'on'.</p>
+<pre class="prettyprint"><code class="language-php">required_if:another_field,value_1,value_2,...
+</code></pre>
+</section>
+
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_REQUIRED_UNLESS">
+        REQUIRED_UNLESS
+        <a href="classes/oihana-validations-enums-Rules.html#constant_REQUIRED_UNLESS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">518</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under validation must be present and not empty unless the another_field field is equal to any value.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">REQUIRED_UNLESS</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;required_unless&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">required_unless:another_field,value_1,value_2,...
+</code></pre>
+</section>
+
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_REQUIRED_WITH">
+        REQUIRED_WITH
+        <a href="classes/oihana-validations-enums-Rules.html#constant_REQUIRED_WITH" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">548</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under validation must be present and not empty only if any of the other specified fields are present.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">REQUIRED_WITH</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;required_with&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">required_with:field_1,field_2,...
+</code></pre>
+<p>Note: the behaviour of this rule can be circumvented if the rule this is defined on is sometimes or nullable.</p>
+<p>For example: if a is &quot;required_with:b&quot;, but a is also only sometimes present,
+then the required_with will never trigger as the sometimes rule will negate it. a would also
+need to be explicitly passed to trigger the rule.</p>
+</section>
+
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_REQUIRES">
+        REQUIRES
+        <a href="classes/oihana-validations-enums-Rules.html#constant_REQUIRES" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">533</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under validation requires that the specified fields are present in the input data and are not empty.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">REQUIRES</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;requires&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">requires:field_1,field_2,...
+</code></pre>
+<p>For example: field b &quot;requires:a&quot;; if a is either not present, or has an &quot;empty&quot; value, then the validation fails.
+&quot;empty&quot; is false, empty string, or null.</p>
+<p>This is an extension of required_with, however the rule will fail when used with sometimes or nullable.
+For example: if b &quot;requires:a&quot; and &quot;a&quot; is allowed to be nullable, b will fail as it explicitly requires a with a value.</p>
+</section>
+
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_SOMETIMES">
+        SOMETIMES
+        <a href="classes/oihana-validations-enums-Rules.html#constant_SOMETIMES" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">562</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Sometimes attributes can be left off or can be null.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">SOMETIMES</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;sometimes&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><p>These cases should be handled carefully and have different results after validation.</p>
+</section>
+
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-validations-enums-Rules.html#constant_SOMETIMES#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">[
+    'filters' =&gt; 'sometimes|array',
+]
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_STARTS_WITH">
+        STARTS_WITH
+        <a href="classes/oihana-validations-enums-Rules.html#constant_STARTS_WITH" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">568</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this validation must start with another_field.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">STARTS_WITH</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;starts_with&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><p>Comparison can be against strings, numbers and array elements.</p>
+</section>
+
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_STRING">
+        STRING
+        <a href="classes/oihana-validations-enums-Rules.html#constant_STRING" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">573</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule must be a PHP string.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">STRING</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;string&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_UPPERCASE">
+        UPPERCASE
+        <a href="classes/oihana-validations-enums-Rules.html#constant_UPPERCASE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">578</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this validation must be in uppercase.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">UPPERCASE</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;uppercase&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_URL">
+        URL
+        <a href="classes/oihana-validations-enums-Rules.html#constant_URL" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">597</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this rule must be a valid url format.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">URL</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;url&#039;</span>
+</code>
+
+
+        <section class="phpdocumentor-description"><p>The default is to validate the common format: any_scheme://.... You can specify specific URL schemes if you wish.</p>
+</section>
+
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-validations-enums-Rules.html#constant_URL#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$validation = (new Factory)-&gt;validate($inputs,
+[
+    'random_url' =&gt; 'url',          // value can be `any_scheme://...`
+    'https_url' =&gt; 'url:http',      // value must be started with `https://`
+    'http_url' =&gt; 'url:http,https', // value must be started with `http://` or `https://`
+    'ftp_url' =&gt; 'url:ftp',         // value must be started with `ftp://`
+    'custom_url' =&gt; 'url:custom',   // value must be started with `custom://`
+]);
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_UUID">
+        UUID
+        <a href="classes/oihana-validations-enums-Rules.html#constant_UUID" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">602</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under this validation must be a valid UUID and not the nil UUID string.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">UUID</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;uuid&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+            </section>
+
+        
+
+        
+        <div class="phpdocumentor-modal" id="source-view">
+    <div class="phpdocumentor-modal-bg" data-exit-button></div>
+    <div class="phpdocumentor-modal-container">
+        <div class="phpdocumentor-modal-content">
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/validations/enums/Rules.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+        </div>
+        <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
+    </div>
+</div>
+
+    <script type="text/javascript">
+        (function () {
+            function loadExternalCodeSnippet(el, url, line) {
+                Array.prototype.slice.call(el.querySelectorAll('pre[data-src]')).forEach((pre) => {
+                    const src = url || pre.getAttribute('data-src').replace(/\\/g, '/');
+                    const language = 'php';
+
+                    const code = document.createElement('code');
+                    code.className = 'language-' + language;
+                    pre.textContent = '';
+                    pre.setAttribute('data-line', line)
+                    code.textContent = 'Loading…';
+                    pre.appendChild(code);
+
+                    var xhr = new XMLHttpRequest();
+
+                    xhr.open('GET', src, true);
+
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState !== 4) {
+                            return;
+                        }
+
+                        if (xhr.status < 400 && xhr.responseText) {
+                            code.textContent = xhr.responseText;
+                            Prism.highlightElement(code);
+                            d=document.getElementsByClassName("line-numbers");
+                            d[0].scrollTop = d[0].children[1].offsetTop;
+                            return;
+                        }
+
+                        if (xhr.status === 404) {
+                            code.textContent = '✖ Error: File could not be found';
+                            return;
+                        }
+
+                        if (xhr.status >= 400) {
+                            code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                            return;
+                        }
+
+                        code.textContent = '✖ Error: An unknown error occurred';
+                    };
+
+                    xhr.send(null);
+                });
+            }
+
+            const modalButtons = document.querySelectorAll("[data-modal]");
+            const openedAsLocalFile = window.location.protocol === 'file:';
+            if (modalButtons.length > 0 && openedAsLocalFile) {
+                console.warn(
+                    'Viewing the source code is unavailable because you are opening this page from the file:// scheme; ' +
+                    'browsers block XHR requests when a page is opened this way'
+                );
+            }
+
+            modalButtons.forEach(function (trigger) {
+                if (openedAsLocalFile) {
+                    trigger.setAttribute("hidden", "hidden");
+                }
+
+                trigger.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const modal = document.getElementById(trigger.dataset.modal);
+                    if (!modal) {
+                        console.error(`Modal with id "${trigger.dataset.modal}" could not be found`);
+                        return;
+                    }
+                    modal.classList.add("phpdocumentor-modal__open");
+
+                    loadExternalCodeSnippet(modal, trigger.dataset.src || null, trigger.dataset.line)
+                    const exits = modal.querySelectorAll("[data-exit-button]");
+                    exits.forEach(function (exit) {
+                        exit.addEventListener("click", function (event) {
+                            event.preventDefault();
+                            modal.classList.remove("phpdocumentor-modal__open");
+                        });
+                    });
+                });
+            });
+        })();
+    </script>
+
+    </article>
+                                </section>
+                <section class="phpdocumentor-on-this-page__sidebar">
+                                
+    <section class="phpdocumentor-on-this-page__content">
+        <strong class="phpdocumentor-on-this-page__title">On this page</strong>
+
+        <ul class="phpdocumentor-list -clean">
+            <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                        <li><a href="classes/oihana-validations-enums-Rules.html#toc-constants">Constants</a></li>
+                                                                            </ul>
+            </li>
+                            <li class="phpdocumentor-on-this-page-section__title">Constants</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_ACCEPTED">ACCEPTED</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_AFTER">AFTER</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_ALPHA">ALPHA</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_ALPHA_DASH">ALPHA_DASH</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_ALPHA_NUM">ALPHA_NUM</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_ALPHA_SPACES">ALPHA_SPACES</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_ANY_OF">ANY_OF</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_ARRAY">ARRAY</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_ARRAY_CAN_ONLY_HAVE_KEYS">ARRAY_CAN_ONLY_HAVE_KEYS</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_ARRAY_MUST_HAVE_KEYS">ARRAY_MUST_HAVE_KEYS</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_BEFORE">BEFORE</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_BETWEEN">BETWEEN</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_BOOLEAN">BOOLEAN</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_CALLBACK">CALLBACK</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_DATE">DATE</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_DEFAULT">DEFAULT</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_DIFFERENT">DIFFERENT</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_DIGITS">DIGITS</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_DIGITS_BETWEEN">DIGITS_BETWEEN</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_EMAIL">EMAIL</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_ENDS_WITH">ENDS_WITH</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_EXTENSION">EXTENSION</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_FLOAT">FLOAT</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_IN">IN</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_INTEGER">INTEGER</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_IP">IP</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_IPV4">IPV4</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_IPV6">IPV6</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_JSON">JSON</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_LENGTH">LENGTH</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_LOWERCASE">LOWERCASE</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_MAX">MAX</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_MIMES">MIMES</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_MIN">MIN</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_NOT_IN">NOT_IN</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_NULLABLE">NULLABLE</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_PRESENT">PRESENT</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_PROHIBITED">PROHIBITED</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_PROHIBITED_IF">PROHIBITED_IF</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_PROHIBITED_UNLESS">PROHIBITED_UNLESS</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_REGEX">REGEX</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_REJECTED">REJECTED</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_REQUIRED">REQUIRED</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_REQUIRED_IF">REQUIRED_IF</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_REQUIRED_UNLESS">REQUIRED_UNLESS</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_REQUIRED_WITH">REQUIRED_WITH</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_REQUIRES">REQUIRES</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_SOMETIMES">SOMETIMES</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_STARTS_WITH">STARTS_WITH</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_STRING">STRING</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_UPPERCASE">UPPERCASE</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_URL">URL</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_UUID">UUID</a></li>
+                                            </ul>
+                </li>
+            
+            
+                    </ul>
+    </section>
+
+                </section>
+                            </div>
+            <section data-search-results class="phpdocumentor-search-results phpdocumentor-search-results--hidden">
+    <section class="phpdocumentor-search-results__dialog">
+        <header class="phpdocumentor-search-results__header">
+            <h2 class="phpdocumentor-search-results__title">Search results</h2>
+            <button class="phpdocumentor-search-results__close"><i class="fas fa-times"></i></button>
+        </header>
+        <section class="phpdocumentor-search-results__body">
+            <ul class="phpdocumentor-search-results__entries"></ul>
+        </section>
+    </section>
+</section>
+        </div>
+        <a href="classes/oihana-validations-enums-Rules.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+
+    </main>
+
+    <script>
+        cssVars({});
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/prism.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.23.0/plugins/line-highlight/prism-line-highlight.min.js"></script>
+</body>
+</html>
