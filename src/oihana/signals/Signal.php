@@ -2,18 +2,25 @@
 
 namespace oihana\signals;
 
+use Throwable;
+
 /**
  * A fast and flexible signal/slot implementation for event-driven programming.
  *
  * This class provides a robust observer pattern implementation with priority-based
  * execution, auto-disconnect capability, and support for both callable functions
- * and Receiver objects.
+ * and Receiver objects. It is ideal for event-driven architectures and decoupled
+ * communication between components.
  *
  * Features:
  * - Priority-based receiver execution (higher priority executes first)
  * - Auto-disconnect for one-time listeners
  * - Type-safe receiver management
- * - Efficient sorting and execution
+ * - Efficient sorting and execution order
+ * - Supports both object receivers implementing `Receiver` and PHP callables
+ *
+ * WeakReferences are used for object receivers to allow proper garbage collection
+ * without preventing objects from being destroyed.
  *
  * @example Basic usage with callables and Receiver objects
  * ```php
@@ -97,7 +104,9 @@ class Signal implements Signaler
      * Creates a new Signal instance.
      *
      * @param array<callable|Receiver>|null $receivers Optional array of initial receivers to connect.
-     *                                                  Each receiver will be connected with default priority (0).
+     *                                                 Each receiver will be connected with default priority (0).
+     *
+     * @param bool $throwable Indicates if the signal should throw exceptions when a receiver fails (default `true`).
      *
      * @example
      * ```php
@@ -111,9 +120,11 @@ class Signal implements Signaler
      * ]);
      * ```
      */
-    public function __construct( ?array $receivers = null )
+    public function __construct( ?array $receivers = null , bool $throwable = true )
     {
         $this->receivers = [] ;
+        $this->throwable = $throwable ;
+
         if ( !empty( $receivers ) )
         {
             foreach( $receivers as $receiver )
@@ -148,21 +159,22 @@ class Signal implements Signaler
     }
 
     /**
+     * Indicates whether exceptions from receivers are propagated.
+     * @var bool
+     */
+    public bool $throwable = true;
+
+    /**
      * Connects a receiver to this signal.
      *
-     * Receivers are executed in order of priority (highest first). If the same
-     * receiver is already connected, this method returns false and does not
-     * create a duplicate connection.
+     * Receivers are executed in order of priority (highest first). Duplicate
+     * receivers are ignored.
      *
-     * @param callable|Receiver $receiver The receiver to connect. Can be:
-     *                                     - A callable (function, closure, arrow function)
-     *                                     - An object implementing the Receiver interface
+     * @param callable|Receiver $receiver The receiver to connect.
      * @param int $priority Execution priority (higher values execute first). Default: 0
-     * @param bool $autoDisconnect If true, receiver is automatically disconnected after first emit. Default: false
+     * @param bool $autoDisconnect Auto-disconnect after first execution. Default: false
      *
-     * @return bool True if the receiver was successfully connected, false if:
-     *              - The receiver is already connected
-     *              - The receiver is not callable and not a Receiver object
+     * @return bool True if successfully connected, false if duplicate or invalid receiver.
      *
      * @example
      * ```php
@@ -190,26 +202,21 @@ class Signal implements Signaler
     {
         if ( is_callable( $receiver ) || ( $receiver instanceof Receiver ) )
         {
-            if ( $receiver instanceof Receiver )
-            {
-                $receiver = [ $receiver , self::RECEIVE ] ;
-            }
+            $entry = new SignalEntry( $receiver , $priority , $autoDisconnect ) ;
 
-            if ( $this->hasReceiver( $receiver ) )
+            if ( array_any( $this->receivers , fn( $current ) => $current->getCallable() === $entry->getCallable() ) )
             {
                 return false ;
             }
 
-            $this->receivers[] = new SignalEntry( $receiver , $priority , $autoDisconnect ) ;
+            $this->receivers[] = $entry ;
 
             usort($this->receivers, fn( $a , $b ) => $b->priority <=> $a->priority ) ;
 
             return true ;
         }
-        else
-        {
-            return false ;
-        }
+
+        return false ;
     }
 
     /**
@@ -232,25 +239,19 @@ class Signal implements Signaler
      * }
      * ```
      */
-    public function connected():bool
+    public function connected() :bool
     {
-        return count( $this->receivers ) > 0 ;
+        return !empty( $this->receivers ) ;
     }
 
     /**
      * Disconnects one or all receivers from this signal.
      *
      * @param callable|Receiver|null $receiver The receiver to disconnect.
-     *                                         If null, disconnects ALL receivers.
-     *                                         If specified, disconnects only that receiver.
+     *                                         Null disconnects all.
      *
-     * @return bool True if:
-     *              - A specific receiver was found and disconnected
-     *              - All receivers were disconnected (when $receiver is null and receivers exist)
-     *              False if:
-     *              - The specified receiver was not found
-     *              - No receivers exist when trying to disconnect all
-     *
+     * @return bool True if disconnection occurred, false otherwise.
+ *
      * @example
      * ```php
      * $signal = new Signal();
@@ -271,38 +272,29 @@ class Signal implements Signaler
      */
     public function disconnect( mixed $receiver = null ) :bool
     {
-        if ( !isset( $receiver ) )
+        if ( empty( $this->receivers ) )
         {
-            if ( count( $this->receivers ) > 0 )
+            return false  ;
+        }
+
+        if ( $receiver === null )
+        {
+            $this->receivers = [] ;
+            return true ;
+        }
+
+        $target = $receiver instanceof Receiver ? [ $receiver , self::RECEIVE ] : $receiver ;
+
+        foreach ( $this->receivers as $i => $entry )
+        {
+            if ( $entry->getCallable() === $target )
             {
-                $this->receivers = [] ;
+                unset( $this->receivers[ $i ] ) ;
                 return true ;
             }
-            else
-            {
-                return false  ;
-            }
         }
 
-        if ( $receiver instanceof Receiver )
-        {
-            $receiver = [ $receiver , self::RECEIVE ]  ;
-        }
-
-        if ( is_callable( $receiver ) && count( $this->receivers ) > 0 )
-        {
-            foreach( $this->receivers as $key => $entry )
-            {
-                if( $entry->receiver === $receiver )
-                {
-                    unset( $this->receivers[ $key ] ) ;
-                    $this->receivers = array_values( $this->receivers );
-                    return true ;
-                }
-            }
-        }
-
-        return false ;
+        return false  ;
     }
 
     /**
@@ -312,9 +304,10 @@ class Signal implements Signaler
      * with autoDisconnect are automatically removed after being called.
      *
      * @param mixed ...$values Zero or more values to pass to each receiver.
-     *                         All receivers receive the same values.
      *
      * @return void
+     *
+     * @throws Throwable If a receiver throws and $throwable is true.
      *
      * @example
      * ```php
@@ -342,40 +335,54 @@ class Signal implements Signaler
      * $signal->emit(); // Doesn't print (already disconnected)
      * ```
      */
-    public function emit( mixed ...$values ):void
+    public function emit( mixed ...$values ) :void
     {
-        if ( count( $this->receivers ) == 0 )
+        if ( empty( $this->receivers ) )
         {
             return ;
         }
 
-        $toRemove = [];
-        foreach( $this->receivers as $key => $entry )
+        $toRemove = [] ;
+
+        foreach ($this->receivers as $i => $entry)
         {
-            call_user_func_array( $entry->receiver , $values ) ;
-            if ( $entry->auto )
+            $callable = $entry->getCallable() ;
+            if ($callable === null)
             {
-                $toRemove[] = $key ;
+                $toRemove[] = $i ; // object gone
+                continue ;
+            }
+
+            try
+            {
+                $callable( ...$values ) ;
+            }
+            catch( Throwable $exception )
+            {
+                if ( $this->throwable )
+                {
+                    throw $exception ;
+                }
+            }
+
+            if ($entry->auto)
+            {
+                $toRemove[] = $i ;
             }
         }
 
-        if( !empty( $toRemove ) )
+        foreach ( $toRemove as $i )
         {
-            foreach( $toRemove as $key )
-            {
-                unset( $this->receivers[ $key ] ) ;
-            }
-
-            $this->receivers = array_values( $this->receivers );
+            unset( $this->receivers[ $i ] ) ;
         }
     }
 
     /**
      * Checks if a specific receiver is connected to this signal.
      *
-     * @param callable|Receiver $receiver The receiver to search for.
+     * @param callable|Receiver $receiver The receiver to check.
      *
-     * @return bool True if the receiver is connected, false otherwise.
+     * @return bool True if connected, false otherwise.
      *
      * @example
      * ```php
@@ -393,22 +400,14 @@ class Signal implements Signaler
      */
     public function hasReceiver( mixed $receiver ) :bool
     {
-        if ( $receiver instanceof Receiver )
-        {
-            $receiver = array( $receiver , 'receive' ) ;
-        }
-
-        if ( !is_callable( $receiver ) || empty( $this->receivers ) )
+        if( empty( $this->receivers ) )
         {
             return false ;
         }
 
-        if ( array_any( $this->receivers , fn( $entry ) => $entry->receiver === $receiver ) )
-        {
-            return true ;
-        }
+        $target = $receiver instanceof Receiver ? [ $receiver , self::RECEIVE ] : $receiver ;
 
-        return false ;
+        return array_any( $this->receivers , fn( $entry ) => $entry->getCallable() === $target ) ;
     }
 
     /**
@@ -436,15 +435,11 @@ class Signal implements Signaler
      */
     public function toArray() :array
     {
-        $ar = [] ;
-        if ( count( $this->receivers ) > 0 )
+        if( count( $this->receivers ) > 0 )
         {
-            foreach ( $this->receivers as $entry )
-            {
-                $ar[] = $entry->receiver ;
-            }
+            return array_map( fn( $entry ) => $entry->receiver , $this->receivers ) ;
         }
-        return $ar ;
+        return [] ;
     }
 
     /**

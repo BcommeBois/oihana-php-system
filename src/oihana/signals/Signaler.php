@@ -150,7 +150,7 @@ interface Signaler
      * }
      * ```
      */
-    public function connected():bool ;
+    public function connected() :bool ;
 
     /**
      * Disconnects a receiver or all receivers from this signal.
@@ -196,7 +196,7 @@ interface Signaler
      * }
      * ```
      */
-    public function disconnect( mixed $receiver = NULL ) :bool ;
+    public function disconnect( mixed $receiver = null ) :bool ;
 
     /**
      * Emits a signal, notifying all connected receivers with provided values.
@@ -262,7 +262,7 @@ interface Signaler
      * }
      * ```
      */
-    public function emit() :void ;
+    public function emit( mixed ...$values ) :void ;
 
     /**
      * Checks if a specific receiver is currently connected.
@@ -320,5 +320,5 @@ interface Signaler
      * $signal->hasReceiver( $handler ); // true (same reference)
      * ```
      */
-    function hasReceiver( mixed $receiver ):bool ;
+    function hasReceiver( mixed $receiver ) :bool ;
 }

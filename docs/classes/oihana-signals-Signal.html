@@ -159,7 +159,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/signals/Signal.php"><a href="files/src-oihana-signals-signal.html"><abbr title="src/oihana/signals/Signal.php">Signal.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">94</span>
+    <span class="phpdocumentor-element-found-in__line">101</span>
 
     </aside>
 
@@ -168,14 +168,18 @@
 
     <section class="phpdocumentor-description"><p>This class provides a robust observer pattern implementation with priority-based
 execution, auto-disconnect capability, and support for both callable functions
-and Receiver objects.</p>
+and Receiver objects. It is ideal for event-driven architectures and decoupled
+communication between components.</p>
 <p>Features:</p>
 <ul>
 <li>Priority-based receiver execution (higher priority executes first)</li>
 <li>Auto-disconnect for one-time listeners</li>
 <li>Type-safe receiver management</li>
-<li>Efficient sorting and execution</li>
+<li>Efficient sorting and execution order</li>
+<li>Supports both object receivers implementing <code class="prettyprint">Receiver</code> and PHP callables</li>
 </ul>
+<p>WeakReferences are used for object receivers to allow proper garbage collection
+without preventing objects from being destroyed.</p>
 </section>
 
 
@@ -340,6 +344,13 @@ $signal-&gt;emit('Processing data');
 </dt>
 <dd>The number of currently connected receivers.</dd>
 
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
+    <a class="" href="classes/oihana-signals-Signal.html#property_throwable">$throwable</a>
+    <span>
+                        &nbsp;: bool            </span>
+</dt>
+<dd>Indicates whether exceptions from receivers are propagated.</dd>
+
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
     <a class="" href="classes/oihana-signals-Signal.html#property_receivers">$receivers</a>
     <span>
@@ -425,7 +436,7 @@ $signal-&gt;emit('Processing data');
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/signals/Signal.php"><a href="files/src-oihana-signals-signal.html"><abbr title="src/oihana/signals/Signal.php">Signal.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">129</span>
+    <span class="phpdocumentor-element-found-in__line">140</span>
 
     </aside>
 
@@ -473,7 +484,7 @@ $signal-&gt;emit('Processing data');
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/signals/Signal.php"><a href="files/src-oihana-signals-signal.html"><abbr title="src/oihana/signals/Signal.php">Signal.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">145</span>
+    <span class="phpdocumentor-element-found-in__line">156</span>
 
     </aside>
 
@@ -539,6 +550,45 @@ echo $signal-&gt;length; // 1
         class="
             phpdocumentor-element
             -property
+            -public
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_throwable">
+        $throwable
+        <a href="classes/oihana-signals-Signal.html#property_throwable" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/signals/Signal.php"><a href="files/src-oihana-signals-signal.html"><abbr title="src/oihana/signals/Signal.php">Signal.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">165</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Indicates whether exceptions from receivers are propagated.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__type">bool</span>
+    <span class="phpdocumentor-signature__name">$throwable</span>
+     = <span class="phpdocumentor-signature__default-value">true</span></code>
+
+    
+    
+    
+
+    
+
+    
+
+</article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
             -protected
                                                                     "
 >
@@ -552,7 +602,7 @@ echo $signal-&gt;length; // 1
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/signals/Signal.php"><a href="files/src-oihana-signals-signal.html"><abbr title="src/oihana/signals/Signal.php">Signal.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">458</span>
+    <span class="phpdocumentor-element-found-in__line">453</span>
 
     </aside>
 
@@ -599,7 +649,7 @@ its priority, and auto-disconnect flag.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/signals/Signal.php"><a href="files/src-oihana-signals-signal.html"><abbr title="src/oihana/signals/Signal.php">Signal.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">114</span>
+    <span class="phpdocumentor-element-found-in__line">123</span>
 
     </aside>
 
@@ -607,7 +657,7 @@ its priority, and auto-disconnect flag.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, callable|<a href="classes/oihana-signals-Receiver.html"><abbr title="\oihana\signals\Receiver">Receiver</abbr></a>&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$receivers</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, callable|<a href="classes/oihana-signals-Receiver.html"><abbr title="\oihana\signals\Receiver">Receiver</abbr></a>&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$receivers</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$throwable</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">true</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -622,6 +672,15 @@ its priority, and auto-disconnect flag.</p>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>Optional array of initial receivers to connect.
 Each receiver will be connected with default priority (0).</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$throwable</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">true</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Indicates if the signal should throw exceptions when a receiver fails (default <code class="prettyprint">true</code>).</p>
 </section>
 
             </dd>
@@ -671,7 +730,7 @@ $signal = new Signal([
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/signals/Signal.php"><a href="files/src-oihana-signals-signal.html"><abbr title="src/oihana/signals/Signal.php">Signal.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">189</span>
+    <span class="phpdocumentor-element-found-in__line">201</span>
 
     </aside>
 
@@ -684,9 +743,8 @@ $signal = new Signal([
     <div class="phpdocumentor-label-line">
         </div>
     
-        <section class="phpdocumentor-description"><p>Receivers are executed in order of priority (highest first). If the same
-receiver is already connected, this method returns false and does not
-create a duplicate connection.</p>
+        <section class="phpdocumentor-description"><p>Receivers are executed in order of priority (highest first). Duplicate
+receivers are ignored.</p>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -696,11 +754,7 @@ create a duplicate connection.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">callable|<a href="classes/oihana-signals-Receiver.html"><abbr title="\oihana\signals\Receiver">Receiver</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The receiver to connect. Can be:</p>
-<ul>
-<li>A callable (function, closure, arrow function)</li>
-<li>An object implementing the Receiver interface</li>
-</ul>
+                    <section class="phpdocumentor-description"><p>The receiver to connect.</p>
 </section>
 
             </dd>
@@ -718,7 +772,7 @@ create a duplicate connection.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>If true, receiver is automatically disconnected after first emit. Default: false</p>
+                    <section class="phpdocumentor-description"><p>Auto-disconnect after first execution. Default: false</p>
 </section>
 
             </dd>
@@ -766,11 +820,7 @@ $signal-&gt;connect( $handler ); // false (already connected)
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>True if the receiver was successfully connected, false if:</p>
-<ul>
-<li>The receiver is already connected</li>
-<li>The receiver is not callable and not a Receiver object</li>
-</ul>
+                <section class="phpdocumentor-description"><p>True if successfully connected, false if duplicate or invalid receiver.</p>
 </section>
 
             </section>
@@ -790,7 +840,7 @@ $signal-&gt;connect( $handler ); // false (already connected)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/signals/Signal.php"><a href="files/src-oihana-signals-signal.html"><abbr title="src/oihana/signals/Signal.php">Signal.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">235</span>
+    <span class="phpdocumentor-element-found-in__line">242</span>
 
     </aside>
 
@@ -860,7 +910,7 @@ if ( $signal-&gt;connected() ) {
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/signals/Signal.php"><a href="files/src-oihana-signals-signal.html"><abbr title="src/oihana/signals/Signal.php">Signal.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">272</span>
+    <span class="phpdocumentor-element-found-in__line">273</span>
 
     </aside>
 
@@ -882,8 +932,7 @@ if ( $signal-&gt;connected() ) {
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The receiver to disconnect.
-If null, disconnects ALL receivers.
-If specified, disconnects only that receiver.</p>
+Null disconnects all.</p>
 </section>
 
             </dd>
@@ -927,14 +976,7 @@ $signal-&gt;disconnect(); // false (no receivers to disconnect)
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>True if:</p>
-<ul>
-<li>A specific receiver was found and disconnected</li>
-<li>All receivers were disconnected (when $receiver is null and receivers exist)
-False if:</li>
-<li>The specified receiver was not found</li>
-<li>No receivers exist when trying to disconnect all</li>
-</ul>
+                <section class="phpdocumentor-description"><p>True if disconnection occurred, false otherwise.</p>
 </section>
 
             </section>
@@ -954,7 +996,7 @@ False if:</li>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/signals/Signal.php"><a href="files/src-oihana-signals-signal.html"><abbr title="src/oihana/signals/Signal.php">Signal.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">345</span>
+    <span class="phpdocumentor-element-found-in__line">338</span>
 
     </aside>
 
@@ -978,8 +1020,7 @@ with autoDisconnect are automatically removed after being called.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Zero or more values to pass to each receiver.
-All receivers receive the same values.</p>
+                    <section class="phpdocumentor-description"><p>Zero or more values to pass to each receiver.</p>
 </section>
 
             </dd>
@@ -993,6 +1034,16 @@ All receivers receive the same values.</p>
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Throwable">Throwable</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If a receiver throws and $throwable is true.</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">example</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
@@ -1043,7 +1094,7 @@ $signal-&gt;emit(); // Doesn't print (already disconnected)
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/signals/Signal.php"><a href="files/src-oihana-signals-signal.html"><abbr title="src/oihana/signals/Signal.php">Signal.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">394</span>
+    <span class="phpdocumentor-element-found-in__line">401</span>
 
     </aside>
 
@@ -1064,7 +1115,7 @@ $signal-&gt;emit(); // Doesn't print (already disconnected)
                 : <span class="phpdocumentor-signature__argument__return-type">callable|<a href="classes/oihana-signals-Receiver.html"><abbr title="\oihana\signals\Receiver">Receiver</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The receiver to search for.</p>
+                    <section class="phpdocumentor-description"><p>The receiver to check.</p>
 </section>
 
             </dd>
@@ -1104,7 +1155,7 @@ echo $signal-&gt;hasReceiver( $handler ); // false
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>True if the receiver is connected, false otherwise.</p>
+                <section class="phpdocumentor-description"><p>True if connected, false otherwise.</p>
 </section>
 
             </section>
@@ -1124,7 +1175,7 @@ echo $signal-&gt;hasReceiver( $handler ); // false
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/signals/Signal.php"><a href="files/src-oihana-signals-signal.html"><abbr title="src/oihana/signals/Signal.php">Signal.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">437</span>
+    <span class="phpdocumentor-element-found-in__line">436</span>
 
     </aside>
 
@@ -1306,6 +1357,7 @@ echo count($receivers); // 2
                 <li>
                     <ul class="phpdocumentor-list -clean">
                                                     <li class=""><a href="classes/oihana-signals-Signal.html#property_length">$length</a></li>
+                                                    <li class=""><a href="classes/oihana-signals-Signal.html#property_throwable">$throwable</a></li>
                                                     <li class=""><a href="classes/oihana-signals-Signal.html#property_receivers">$receivers</a></li>
                                             </ul>
                 </li>

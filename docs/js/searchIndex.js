@@ -2738,13 +2738,33 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\traits\\signals\\HasReplaceSignals\u003A\u003A\u0024afterReplace",
             "name": "afterReplace",
-            "summary": "Signal\u0020emitted\u0020after\u0020a\u0020document\u0020has\u0020been\u0020deleted.",
+            "summary": "Signal\u0020emitted\u0020after\u0020a\u0020document\u0020has\u0020been\u0020replaced.",
             "url": "classes/oihana-models-traits-signals-HasReplaceSignals.html#property_afterReplace"
         },                {
             "fqsen": "\\oihana\\models\\traits\\signals\\HasReplaceSignals\u003A\u003A\u0024beforeReplace",
             "name": "beforeReplace",
-            "summary": "Signal\u0020emitted\u0020before\u0020a\u0020document\u0020is\u0020deleted.",
+            "summary": "Signal\u0020emitted\u0020before\u0020a\u0020document\u0020is\u0020replaced.",
             "url": "classes/oihana-models-traits-signals-HasReplaceSignals.html#property_beforeReplace"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasTruncateSignals",
+            "name": "HasTruncateSignals",
+            "summary": "Provides\u0020truncated\u0020signals.",
+            "url": "classes/oihana-models-traits-signals-HasTruncateSignals.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasTruncateSignals\u003A\u003AinitializeTruncateSignals\u0028\u0029",
+            "name": "initializeTruncateSignals",
+            "summary": "Initializes\u0020the\u0020truncate\u0020signals.",
+            "url": "classes/oihana-models-traits-signals-HasTruncateSignals.html#method_initializeTruncateSignals"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasTruncateSignals\u003A\u003A\u0024afterTruncate",
+            "name": "afterTruncate",
+            "summary": "Signal\u0020emitted\u0020after\u0020a\u0020collection\u0020has\u0020been\u0020truncated.",
+            "url": "classes/oihana-models-traits-signals-HasTruncateSignals.html#property_afterTruncate"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasTruncateSignals\u003A\u003A\u0024beforeTruncate",
+            "name": "beforeTruncate",
+            "summary": "Signal\u0020emitted\u0020before\u0020a\u0020colection\u0020is\u0020truncated.",
+            "url": "classes/oihana-models-traits-signals-HasTruncateSignals.html#property_beforeTruncate"
         },                {
             "fqsen": "\\oihana\\models\\traits\\signals\\HasUpdateSignals",
             "name": "HasUpdateSignals",
@@ -2758,13 +2778,33 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\traits\\signals\\HasUpdateSignals\u003A\u003A\u0024afterUpdate",
             "name": "afterUpdate",
-            "summary": "Signal\u0020emitted\u0020after\u0020a\u0020document\u0020has\u0020been\u0020deleted.",
+            "summary": "Signal\u0020emitted\u0020after\u0020a\u0020document\u0020has\u0020been\u0020updated.",
             "url": "classes/oihana-models-traits-signals-HasUpdateSignals.html#property_afterUpdate"
         },                {
             "fqsen": "\\oihana\\models\\traits\\signals\\HasUpdateSignals\u003A\u003A\u0024beforeUpdate",
             "name": "beforeUpdate",
-            "summary": "Signal\u0020emitted\u0020before\u0020a\u0020document\u0020is\u0020deleted.",
+            "summary": "Signal\u0020emitted\u0020before\u0020a\u0020document\u0020is\u0020updated.",
             "url": "classes/oihana-models-traits-signals-HasUpdateSignals.html#property_beforeUpdate"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasUpsertSignals",
+            "name": "HasUpsertSignals",
+            "summary": "Provides\u0020upsert\u002Drelated\u0020signals.",
+            "url": "classes/oihana-models-traits-signals-HasUpsertSignals.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasUpsertSignals\u003A\u003AinitializeUpsertSignals\u0028\u0029",
+            "name": "initializeUpsertSignals",
+            "summary": "Initializes\u0020the\u0020upsert\u0020signals.",
+            "url": "classes/oihana-models-traits-signals-HasUpsertSignals.html#method_initializeUpsertSignals"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasUpsertSignals\u003A\u003A\u0024afterUpsert",
+            "name": "afterUpsert",
+            "summary": "Signal\u0020emitted\u0020after\u0020a\u0020document\u0020has\u0020been\u0020upserted.",
+            "url": "classes/oihana-models-traits-signals-HasUpsertSignals.html#property_afterUpsert"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasUpsertSignals\u003A\u003A\u0024beforeUpsert",
+            "name": "beforeUpsert",
+            "summary": "Signal\u0020emitted\u0020before\u0020a\u0020document\u0020is\u0020upserted.",
+            "url": "classes/oihana-models-traits-signals-HasUpsertSignals.html#property_beforeUpsert"
         },                {
             "fqsen": "\\oihana\\mysql\\enums\\MysqlParam",
             "name": "MysqlParam",
@@ -3960,6 +4000,11 @@ Search.appendIndex(
             "name": "length",
             "summary": "The\u0020number\u0020of\u0020currently\u0020connected\u0020receivers.",
             "url": "classes/oihana-signals-Signal.html#property_length"
+        },                {
+            "fqsen": "\\oihana\\signals\\Signal\u003A\u003A\u0024throwable",
+            "name": "throwable",
+            "summary": "Indicates\u0020whether\u0020exceptions\u0020from\u0020receivers\u0020are\u0020propagated.",
+            "url": "classes/oihana-signals-Signal.html#property_throwable"
         },                {
             "fqsen": "\\oihana\\signals\\Signal\u003A\u003A\u0024receivers",
             "name": "receivers",
