@@ -47,7 +47,7 @@ trait HasDeleteSignals
     public ?Signal $beforeDelete = null ;
 
     /**
-     * Initializes the deletion signals.
+     * Initializes the deletion-related signals.
      *
      * Creates new Signal instances for `$beforeDelete` and `$afterDelete`.
      *
@@ -63,6 +63,24 @@ trait HasDeleteSignals
     {
         $this->afterDelete  = new Signal() ;
         $this->beforeDelete = new Signal() ;
+        return $this ;
+    }
+
+    /**
+     * Release the deletion-related signals.
+     *
+     * Nullify and disconnect the `$beforeDelete` and `$afterDelete` signals.
+     *
+     * @return static Returns `$this` for method chaining.
+     */
+    public function releaseDeleteSignals():static
+    {
+        $this->afterDelete?->disconnect() ;
+        $this->beforeDelete?->disconnect() ;
+
+        $this->afterDelete  = null ;
+        $this->beforeDelete = null ;
+
         return $this ;
     }
 }

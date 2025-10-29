@@ -39,7 +39,7 @@ trait HasReplaceSignals
     public ?Signal $beforeReplace = null ;
 
     /**
-     * Initializes the replace signals.
+     * Initializes the replace-related signals.
      *
      * Creates new Signal instances for `$beforeReplace` and `$afterReplace`.
      *
@@ -55,6 +55,24 @@ trait HasReplaceSignals
     {
         $this->afterReplace  = new Signal() ;
         $this->beforeReplace = new Signal() ;
+        return $this ;
+    }
+
+    /**
+     * Release the replace-related signals.
+     *
+     * Nullify and disconnect the `afterReplace` and `beforeInsert` signals.
+     *
+     * @return static Returns `$this` for method chaining.
+     */
+    public function releaseReplaceSignals():static
+    {
+        $this->afterReplace?->disconnect() ;
+        $this->beforeReplace?->disconnect() ;
+
+        $this->afterReplace  = null ;
+        $this->beforeReplace = null ;
+
         return $this ;
     }
 }

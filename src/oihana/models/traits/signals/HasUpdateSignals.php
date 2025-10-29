@@ -39,7 +39,7 @@ trait HasUpdateSignals
     public ?Signal $beforeUpdate = null ;
 
     /**
-     * Initializes the update signals.
+     * Initializes the update-related signals.
      *
      * Creates new Signal instances for `$beforeUpdate` and `$afterUpdate`.
      *
@@ -55,6 +55,24 @@ trait HasUpdateSignals
     {
         $this->afterUpdate  = new Signal() ;
         $this->beforeUpdate = new Signal() ;
+        return $this ;
+    }
+
+    /**
+     * Release the update-related signals.
+     *
+     * Nullify and disconnect the `afterUpdate` and `beforeUpdate` signals.
+     *
+     * @return static Returns `$this` for method chaining.
+     */
+    public function releaseDeleteSignals():static
+    {
+        $this->afterUpdate?->disconnect() ;
+        $this->beforeUpdate?->disconnect() ;
+
+        $this->afterUpdate  = null ;
+        $this->beforeUpdate = null ;
+
         return $this ;
     }
 }

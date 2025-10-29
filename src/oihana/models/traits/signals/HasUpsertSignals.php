@@ -39,7 +39,7 @@ trait HasUpsertSignals
     public ?Signal $beforeUpsert = null ;
 
     /**
-     * Initializes the upsert signals.
+     * Initializes the upsert-related signals.
      *
      * Creates new Signal instances for `$beforeUpsert` and `$afterUpsert`.
      *
@@ -55,6 +55,24 @@ trait HasUpsertSignals
     {
         $this->afterUpsert  = new Signal() ;
         $this->beforeUpsert = new Signal() ;
+        return $this ;
+    }
+
+    /**
+     * Release the upsert-related signals.
+     *
+     * Nullify and disconnect the `afterUpsert` and `beforeUpsert` signals.
+     *
+     * @return static Returns `$this` for method chaining.
+     */
+    public function releaseDeleteSignals():static
+    {
+        $this->afterUpsert?->disconnect() ;
+        $this->beforeUpsert?->disconnect() ;
+
+        $this->afterUpsert  = null ;
+        $this->beforeUpsert = null ;
+
         return $this ;
     }
 }

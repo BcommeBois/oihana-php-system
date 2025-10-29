@@ -30,7 +30,7 @@ trait HasTruncateSignals
     public ?Signal $afterTruncate = null ;
 
     /**
-     * Signal emitted before a colection is truncated.
+     * Signal emitted before a collection is truncated.
      *
      * Observers connected to this signal receive the document that is about to be deleted.
      *
@@ -39,7 +39,7 @@ trait HasTruncateSignals
     public ?Signal $beforeTruncate = null ;
 
     /**
-     * Initializes the truncate signals.
+     * Initializes the truncated-related signals.
      *
      * Creates new Signal instances for `$beforeTruncate` and `$afterTruncate`.
      *
@@ -55,6 +55,24 @@ trait HasTruncateSignals
     {
         $this->afterTruncate  = new Signal() ;
         $this->beforeTruncate = new Signal() ;
+        return $this ;
+    }
+
+    /**
+     * Release the truncated-related signals.
+     *
+     * Nullify and disconnect the `afterTruncate` and `beforeTruncate` signals.
+     *
+     * @return static Returns `$this` for method chaining.
+     */
+    public function releaseDeleteSignals():static
+    {
+        $this->afterTruncate?->disconnect() ;
+        $this->beforeTruncate?->disconnect() ;
+
+        $this->afterTruncate  = null ;
+        $this->beforeTruncate = null ;
+
         return $this ;
     }
 }
