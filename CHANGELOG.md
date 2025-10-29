@@ -11,20 +11,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - oihana\controllers\helpers\getController
 
 - oihana\models\helpers\cacheCollection
+- oihana\models\helpers\documentUrl
+- oihana\models\helpers\getDocumentModel
 - oihana\models\helpers\getModel
-
-- oihana\mysql\enums\traits\MysqlParamTrait
-- oihana\mysql\enums\MysqlParam
-- oihana\mysql\enums\MysqlPrivileges
-- oihana\mysql\traits\MysqlAssertionsTrait
-- oihana\mysql\traits\MysqlDatabaseTrait
-- oihana\mysql\traits\MysqlPrivilegeTrait
-- oihana\mysql\traits\MysqlRootTrait
-- oihana\mysql\traits\MysqlTableTrait
-- oihana\mysql\traits\MysqlUserTrait
-- oihana\mysql\MysqlDSN
-- oihana\mysql\MysqlModel
-- oihana\mysql\MysqlPDOBuilder
+- oihana\models\helpers\resolveDependency
 
 - oihana\models\enums\Alter
 - oihana\models\enums\NoticeType
@@ -41,6 +31,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - oihana\models\notices\BeforeUpdate
 - oihana\models\notices\BeforeUpsert
 - oihana\models\traits\alters\AlterNotPropertyTrait
+
+- oihana\mysql\enums\traits\MysqlParamTrait
+- oihana\mysql\enums\MysqlParam
+- oihana\mysql\enums\MysqlPrivileges
+- oihana\mysql\traits\MysqlAssertionsTrait
+- oihana\mysql\traits\MysqlDatabaseTrait
+- oihana\mysql\traits\MysqlPrivilegeTrait
+- oihana\mysql\traits\MysqlRootTrait
+- oihana\mysql\traits\MysqlTableTrait
+- oihana\mysql\traits\MysqlUserTrait
+- oihana\mysql\MysqlDSN
+- oihana\mysql\MysqlModel
+- oihana\mysql\MysqlPDOBuilder
 
 - oihana\signal\Message
 - oihana\signal\Notice
