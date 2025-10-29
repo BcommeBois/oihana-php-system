@@ -65,7 +65,7 @@ trait HasUpsertSignals
      *
      * @return static Returns `$this` for method chaining.
      */
-    public function releaseDeleteSignals():static
+    public function releaseUpsertSignals():static
     {
         $this->afterUpsert?->disconnect() ;
         $this->beforeUpsert?->disconnect() ;

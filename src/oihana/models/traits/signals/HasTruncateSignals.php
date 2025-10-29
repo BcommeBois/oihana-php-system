@@ -65,7 +65,7 @@ trait HasTruncateSignals
      *
      * @return static Returns `$this` for method chaining.
      */
-    public function releaseDeleteSignals():static
+    public function releaseTruncateSignals():static
     {
         $this->afterTruncate?->disconnect() ;
         $this->beforeTruncate?->disconnect() ;

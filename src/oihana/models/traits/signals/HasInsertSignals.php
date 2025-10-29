@@ -73,7 +73,7 @@ trait HasInsertSignals
      *
      * @return static Returns `$this` for method chaining.
      */
-    public function releaseDeleteSignals():static
+    public function releaseInsertSignals():static
     {
         $this->afterInsert?->disconnect() ;
         $this->beforeInsert?->disconnect() ;

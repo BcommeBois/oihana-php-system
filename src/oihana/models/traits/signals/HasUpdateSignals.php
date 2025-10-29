@@ -65,7 +65,7 @@ trait HasUpdateSignals
      *
      * @return static Returns `$this` for method chaining.
      */
-    public function releaseDeleteSignals():static
+    public function releaseUpdateSignals():static
     {
         $this->afterUpdate?->disconnect() ;
         $this->beforeUpdate?->disconnect() ;
