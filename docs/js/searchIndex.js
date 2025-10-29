@@ -2066,6 +2066,11 @@ Search.appendIndex(
             "summary": "Resolves\u0020a\u0020model\u0020instance\u0020from\u0020a\u0020PSR\u002D11\u0020container\u0020or\u0020returns\u0020a\u0020default.",
             "url": "namespaces/oihana-controllers-helpers.html#function_getModel"
         },                {
+            "fqsen": "\\oihana\\controllers\\helpers\\resolveDependency\u0028\u0029",
+            "name": "resolveDependency",
+            "summary": "Resolves\u0020a\u0020dependency\u0020definition\u0020from\u0020a\u0020PSR\u002D11\u0020container\u0020or\u0020returns\u0020a\u0020default\u0020value.",
+            "url": "namespaces/oihana-controllers-helpers.html#function_resolveDependency"
+        },                {
             "fqsen": "\\oihana\\models\\interfaces\\CountModel",
             "name": "CountModel",
             "summary": "Count\u0020the\u0020number\u0020of\u0020documents\u0020in\u0020the\u0020model.",
@@ -3895,6 +3900,16 @@ Search.appendIndex(
             "name": "__construct",
             "summary": "Creates\u0020a\u0020new\u0020Notice.",
             "url": "classes/oihana-signals-Notice.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\signals\\Notice\u003A\u003AjsonSerialize\u0028\u0029",
+            "name": "jsonSerialize",
+            "summary": "Serializes\u0020the\u0020current\u0020object\u0020into\u0020a\u0020JSON\u0020array.",
+            "url": "classes/oihana-signals-Notice.html#method_jsonSerialize"
+        },                {
+            "fqsen": "\\oihana\\signals\\Notice\u003A\u003AtoArray\u0028\u0029",
+            "name": "toArray",
+            "summary": "Returns\u0020the\u0020array\u0020representation\u0020of\u0020the\u0020notice\u0020object.",
+            "url": "classes/oihana-signals-Notice.html#method_toArray"
         },                {
             "fqsen": "\\oihana\\signals\\Notice\u003A\u003A\u0024context",
             "name": "context",

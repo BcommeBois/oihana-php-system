@@ -37,6 +37,10 @@ use MatthiasMullie\Scrapbook\Psr16\SimpleCache;
  * @throws NotFoundException   If the cache definition is not registered in the container.
  *
  * @see https://www.scrapbook.cash
+ *
+ * @package oihana\models
+ * @author  Marc Alcaraz (ekameleon)
+ * @since   1.0.0
  */
 function cacheCollection
 (

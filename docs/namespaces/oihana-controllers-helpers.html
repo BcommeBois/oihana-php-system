@@ -186,6 +186,13 @@
 </dt>
 <dd>Resolves a model instance from a PSR-11 container or returns a default.</dd>
 
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/oihana-controllers-helpers.html#function_resolveDependency">resolveDependency()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Resolves a dependency definition from a PSR-11 container or returns a default value.</dd>
+
     </dl>
 
         
@@ -300,7 +307,7 @@ if it is an instance of <a href="classes/oihana-controllers-Controller.html"><ab
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/helpers/getDocumentModel.php"><a href="files/src-oihana-models-helpers-getdocumentmodel.html"><abbr title="src/oihana/models/helpers/getDocumentModel.php">getDocumentModel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">28</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
     </aside>
 
@@ -377,6 +384,23 @@ definition. The definition can be:</p>
 </section>
 
                                     </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (ekameleon)</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
+                                    </dd>
                                             </dl>
 
             <section>
@@ -398,7 +422,7 @@ definition. The definition can be:</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/helpers/getModel.php"><a href="files/src-oihana-models-helpers-getmodel.html"><abbr title="src/oihana/models/helpers/getModel.php">getModel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
@@ -482,6 +506,23 @@ definition. The definition can be:</p>
 </section>
 
                                     </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (ekameleon)</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
+                                    </dd>
                                             </dl>
 
             <section>
@@ -489,6 +530,128 @@ definition. The definition can be:</p>
         <span class="phpdocumentor-signature__response_type"><a href="classes/oihana-models-Model.html"><abbr title="\oihana\models\Model">Model</abbr></a>|null</span>
                     &mdash;
                 <section class="phpdocumentor-description"><p>The resolved <code class="prettyprint">Model</code> instance, the provided default, or <code class="prettyprint">null</code> if none found.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_resolveDependency">
+        resolveDependency()
+        <a href="namespaces/oihana-controllers-helpers.html#function_resolveDependency" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/helpers/resolveDependency.php"><a href="files/src-oihana-models-helpers-resolvedependency.html"><abbr title="src/oihana/models/helpers/resolveDependency.php">resolveDependency.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">34</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Resolves a dependency definition from a PSR-11 container or returns a default value.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">resolveDependency</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dependency</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$default</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"><p>This function attempts to retrieve a service or object from a PSR-11 container
+if a string identifier is provided. If the container is null, the dependency is
+not found, or the input is not a string, the provided default value is returned.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$dependency</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The container entry ID to resolve.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$container</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional PSR-11 container to resolve the dependency from.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$default</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Value to return if the dependency cannot be resolved.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="namespaces/oihana-controllers-helpers.html#function_resolveDependency#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If an error occurs while retrieving the dependency from the container.</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
+                                                            
+                                                 <section class="phpdocumentor-description"><p>If a string definition is provided but not found in the container.</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$logger = resolveDependency(LoggerInterface::class, $container, new NullLogger());
+</code></pre>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (ekameleon)</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">mixed</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Returns the resolved dependency from the container, or <code class="prettyprint">$default</code> if not found.</p>
 </section>
 
             </section>
@@ -612,6 +775,7 @@ definition. The definition can be:</p>
                                                     <li class=""><a href="namespaces/oihana-controllers-helpers.html#function_getController">getController()</a></li>
                                                     <li class=""><a href="namespaces/oihana-controllers-helpers.html#function_getDocumentModel">getDocumentModel()</a></li>
                                                     <li class=""><a href="namespaces/oihana-controllers-helpers.html#function_getModel">getModel()</a></li>
+                                                    <li class=""><a href="namespaces/oihana-controllers-helpers.html#function_resolveDependency">resolveDependency()</a></li>
                                             </ul>
                 </li>
                     </ul>
