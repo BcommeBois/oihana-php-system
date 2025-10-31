@@ -273,7 +273,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\GetParamTrait",
             "name": "GetParamTrait",
-            "summary": "Trait\u0020GetParamTrait",
+            "summary": "Provides\u0020flexible\u0020access\u0020to\u0020request\u0020parameters\u0020from\u0020query\u0020strings\u0020and\u0020request\u0020bodies.",
             "url": "classes/oihana-controllers-traits-GetParamTrait.html"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\GetParamTrait\u003A\u003AinitializeParamsStrategy\u0028\u0029",
@@ -305,6 +305,11 @@ Search.appendIndex(
             "name": "getQueryParam",
             "summary": "Get\u0020a\u0020single\u0020parameter\u0020from\u0020query\u0020string.",
             "url": "classes/oihana-controllers-traits-GetParamTrait.html#method_getQueryParam"
+        },                {
+            "fqsen": "\\oihana\\controllers\\traits\\GetParamTrait\u003A\u003AgetParamArray\u0028\u0029",
+            "name": "getParamArray",
+            "summary": "Get\u0020an\u0020array\u0020parameter\u0020from\u0020request.",
+            "url": "classes/oihana-controllers-traits-GetParamTrait.html#method_getParamArray"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\GetParamTrait\u003A\u003AgetParamBool\u0028\u0029",
             "name": "getParamBool",
@@ -2698,8 +2703,13 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\traits\\signals\\HasDeleteSignals\u003A\u003AinitializeDeleteSignals\u0028\u0029",
             "name": "initializeDeleteSignals",
-            "summary": "Initializes\u0020the\u0020deletion\u0020signals.",
+            "summary": "Initializes\u0020the\u0020deletion\u002Drelated\u0020signals.",
             "url": "classes/oihana-models-traits-signals-HasDeleteSignals.html#method_initializeDeleteSignals"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasDeleteSignals\u003A\u003AreleaseDeleteSignals\u0028\u0029",
+            "name": "releaseDeleteSignals",
+            "summary": "Release\u0020the\u0020deletion\u002Drelated\u0020signals.",
+            "url": "classes/oihana-models-traits-signals-HasDeleteSignals.html#method_releaseDeleteSignals"
         },                {
             "fqsen": "\\oihana\\models\\traits\\signals\\HasDeleteSignals\u003A\u003A\u0024afterDelete",
             "name": "afterDelete",
@@ -2718,8 +2728,13 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\traits\\signals\\HasInsertSignals\u003A\u003AinitializeInsertSignals\u0028\u0029",
             "name": "initializeInsertSignals",
-            "summary": "Initializes\u0020the\u0020insertion\u0020signals.",
+            "summary": "Initializes\u0020the\u0020insertion\u002Drelated\u0020signals.",
             "url": "classes/oihana-models-traits-signals-HasInsertSignals.html#method_initializeInsertSignals"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasInsertSignals\u003A\u003AreleaseInsertSignals\u0028\u0029",
+            "name": "releaseInsertSignals",
+            "summary": "Release\u0020the\u0020insertion\u002Drelated\u0020signals.",
+            "url": "classes/oihana-models-traits-signals-HasInsertSignals.html#method_releaseInsertSignals"
         },                {
             "fqsen": "\\oihana\\models\\traits\\signals\\HasInsertSignals\u003A\u003A\u0024afterInsert",
             "name": "afterInsert",
@@ -2738,8 +2753,13 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\traits\\signals\\HasReplaceSignals\u003A\u003AinitializeReplaceSignals\u0028\u0029",
             "name": "initializeReplaceSignals",
-            "summary": "Initializes\u0020the\u0020replace\u0020signals.",
+            "summary": "Initializes\u0020the\u0020replace\u002Drelated\u0020signals.",
             "url": "classes/oihana-models-traits-signals-HasReplaceSignals.html#method_initializeReplaceSignals"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasReplaceSignals\u003A\u003AreleaseReplaceSignals\u0028\u0029",
+            "name": "releaseReplaceSignals",
+            "summary": "Release\u0020the\u0020replace\u002Drelated\u0020signals.",
+            "url": "classes/oihana-models-traits-signals-HasReplaceSignals.html#method_releaseReplaceSignals"
         },                {
             "fqsen": "\\oihana\\models\\traits\\signals\\HasReplaceSignals\u003A\u003A\u0024afterReplace",
             "name": "afterReplace",
@@ -2758,8 +2778,13 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\traits\\signals\\HasTruncateSignals\u003A\u003AinitializeTruncateSignals\u0028\u0029",
             "name": "initializeTruncateSignals",
-            "summary": "Initializes\u0020the\u0020truncate\u0020signals.",
+            "summary": "Initializes\u0020the\u0020truncated\u002Drelated\u0020signals.",
             "url": "classes/oihana-models-traits-signals-HasTruncateSignals.html#method_initializeTruncateSignals"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasTruncateSignals\u003A\u003AreleaseTruncateSignals\u0028\u0029",
+            "name": "releaseTruncateSignals",
+            "summary": "Release\u0020the\u0020truncated\u002Drelated\u0020signals.",
+            "url": "classes/oihana-models-traits-signals-HasTruncateSignals.html#method_releaseTruncateSignals"
         },                {
             "fqsen": "\\oihana\\models\\traits\\signals\\HasTruncateSignals\u003A\u003A\u0024afterTruncate",
             "name": "afterTruncate",
@@ -2768,7 +2793,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\traits\\signals\\HasTruncateSignals\u003A\u003A\u0024beforeTruncate",
             "name": "beforeTruncate",
-            "summary": "Signal\u0020emitted\u0020before\u0020a\u0020colection\u0020is\u0020truncated.",
+            "summary": "Signal\u0020emitted\u0020before\u0020a\u0020collection\u0020is\u0020truncated.",
             "url": "classes/oihana-models-traits-signals-HasTruncateSignals.html#property_beforeTruncate"
         },                {
             "fqsen": "\\oihana\\models\\traits\\signals\\HasUpdateSignals",
@@ -2778,8 +2803,13 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\traits\\signals\\HasUpdateSignals\u003A\u003AinitializeUpdateSignals\u0028\u0029",
             "name": "initializeUpdateSignals",
-            "summary": "Initializes\u0020the\u0020update\u0020signals.",
+            "summary": "Initializes\u0020the\u0020update\u002Drelated\u0020signals.",
             "url": "classes/oihana-models-traits-signals-HasUpdateSignals.html#method_initializeUpdateSignals"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasUpdateSignals\u003A\u003AreleaseUpdateSignals\u0028\u0029",
+            "name": "releaseUpdateSignals",
+            "summary": "Release\u0020the\u0020update\u002Drelated\u0020signals.",
+            "url": "classes/oihana-models-traits-signals-HasUpdateSignals.html#method_releaseUpdateSignals"
         },                {
             "fqsen": "\\oihana\\models\\traits\\signals\\HasUpdateSignals\u003A\u003A\u0024afterUpdate",
             "name": "afterUpdate",
@@ -2798,8 +2828,13 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\traits\\signals\\HasUpsertSignals\u003A\u003AinitializeUpsertSignals\u0028\u0029",
             "name": "initializeUpsertSignals",
-            "summary": "Initializes\u0020the\u0020upsert\u0020signals.",
+            "summary": "Initializes\u0020the\u0020upsert\u002Drelated\u0020signals.",
             "url": "classes/oihana-models-traits-signals-HasUpsertSignals.html#method_initializeUpsertSignals"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\signals\\HasUpsertSignals\u003A\u003AreleaseUpsertSignals\u0028\u0029",
+            "name": "releaseUpsertSignals",
+            "summary": "Release\u0020the\u0020upsert\u002Drelated\u0020signals.",
+            "url": "classes/oihana-models-traits-signals-HasUpsertSignals.html#method_releaseUpsertSignals"
         },                {
             "fqsen": "\\oihana\\models\\traits\\signals\\HasUpsertSignals\u003A\u003A\u0024afterUpsert",
             "name": "afterUpsert",

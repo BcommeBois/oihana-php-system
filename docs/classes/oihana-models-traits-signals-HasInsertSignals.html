@@ -248,7 +248,14 @@ $document-&gt;afterInsert?-&gt;connect(fn($doc) =&gt; echo &quot;Inserted docume
     <span>
                                 &nbsp;: static    </span>
 </dt>
-<dd>Initializes the insertion signals.</dd>
+<dd>Initializes the insertion-related signals.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-models-traits-signals-HasInsertSignals.html#method_releaseInsertSignals">releaseInsertSignals()</a>
+    <span>
+                                &nbsp;: static    </span>
+</dt>
+<dd>Release the insertion-related signals.</dd>
 
     </dl>
 
@@ -372,7 +379,7 @@ $document-&gt;afterInsert?-&gt;connect(fn($doc) =&gt; echo &quot;Inserted docume
 
     </aside>
 
-        <p class="phpdocumentor-summary">Initializes the insertion signals.</p>
+        <p class="phpdocumentor-summary">Initializes the insertion-related signals.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -404,6 +411,51 @@ $document-&gt;afterInsert?-&gt;connect(fn($doc) =&gt; echo &quot;Inserted docume
 
                                     </dd>
                                             </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">static</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Returns <code class="prettyprint">$this</code> for method chaining.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_releaseInsertSignals">
+        releaseInsertSignals()
+        <a href="classes/oihana-models-traits-signals-HasInsertSignals.html#method_releaseInsertSignals" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/signals/HasInsertSignals.php"><a href="files/src-oihana-models-traits-signals-hasinsertsignals.html"><abbr title="src/oihana/models/traits/signals/HasInsertSignals.php">HasInsertSignals.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">76</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Release the insertion-related signals.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">releaseInsertSignals</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Nullify and disconnect the <code class="prettyprint">afterInsert</code> and <code class="prettyprint">beforeInsert</code> signals.</p>
+</section>
+
+    
+    
 
     
 
@@ -539,6 +591,7 @@ $document-&gt;afterInsert?-&gt;connect(fn($doc) =&gt; echo &quot;Inserted docume
             <li>
                 <ul class="phpdocumentor-list -clean">
                                             <li class=""><a href="classes/oihana-models-traits-signals-HasInsertSignals.html#method_initializeInsertSignals">initializeInsertSignals()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-signals-HasInsertSignals.html#method_releaseInsertSignals">releaseInsertSignals()</a></li>
                                     </ul>
             </li>
                     </ul>

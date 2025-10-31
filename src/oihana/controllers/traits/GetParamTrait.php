@@ -21,8 +21,6 @@ use function oihana\core\accessors\hasKeyValue;
 use function oihana\core\accessors\setKeyValue;
 
 /**
- * Trait GetParamTrait
- *
  * Provides flexible access to request parameters from query strings and request bodies.
  * Supports dot notation for nested keys (e.g., 'geo.latitude', 'address.postalCode').
  *
@@ -214,6 +212,34 @@ trait GetParamTrait
     }
 
     /**
+     * Get an array parameter from request.
+     * Returns null if not found and defaultValue is not set.
+     *
+     * @param  Request|null $request
+     * @param  string       $name
+     * @param  array        $args
+     * @param  array|null   $defaultValue
+     * @param  bool         $throwable
+     *
+     * @return ?array
+     *
+     * @throws NotFoundException
+     */
+    protected function getParamArray
+    (
+        ?Request $request ,
+        string   $name    ,
+        array    $args         = [] ,
+        ?array   $defaultValue = null ,
+        bool     $throwable    = false
+    )
+    :?array
+    {
+        $value = $this->getParam( $request , $name , $args , $throwable ) ;
+        return is_array( $value ) ? $value : $defaultValue ;
+    }
+
+    /**
      * Get a boolean parameter from request.
      * Returns null if not found and defaultValue is not set.
      *
@@ -227,7 +253,15 @@ trait GetParamTrait
      *
      * @throws NotFoundException
      */
-    protected function getParamBool( ?Request $request , string $name , array $args = [] , ?bool $defaultValue = null , bool $throwable = false ) :?bool
+    protected function getParamBool
+    (
+        ?Request $request ,
+        string   $name ,
+        array    $args         = [] ,
+        ?bool    $defaultValue = null ,
+        bool     $throwable    = false
+    )
+    :?bool
     {
         $value = $this->getParam( $request , $name , $args , $throwable ) ;
         return $value == Boolean::TRUE || $value == Boolean::FALSE ? ( $value == Boolean::TRUE ) : $defaultValue ;
@@ -244,7 +278,15 @@ trait GetParamTrait
      * @return float|null
      * @throws NotFoundException
      */
-    protected function getParamFloat(?Request $request , string $name , array $args = [] , ?float $defaultValue = null , bool $throwable = false ) :?float
+    protected function getParamFloat
+    (
+        ?Request $request ,
+        string   $name ,
+        array    $args         = [] ,
+        ?float   $defaultValue = null ,
+        bool     $throwable    = false
+    )
+    :?float
     {
         $value = $this->getParam( $request , $name , $args , $throwable ) ;
         return isset( $value ) ? (float) $value : $defaultValue ;
@@ -256,12 +298,12 @@ trait GetParamTrait
     protected function getParamFloatWithRange
     (
         ?Request $request ,
-        string $name ,
-        float $min ,
-        float $max ,
-        mixed $defaultValue = null ,
-        array $args = [] ,
-        bool $throwable = false
+        string   $name ,
+        float    $min ,
+        float    $max ,
+        mixed    $defaultValue = null ,
+        array    $args         = [] ,
+        bool     $throwable    = false
     )
     :?float
     {
@@ -279,7 +321,15 @@ trait GetParamTrait
      * @return int|null
      * @throws NotFoundException
      */
-    protected function getParamInt( ?Request $request , $name , array $args = [] , ?int $defaultValue = null , bool $throwable = false ) :?int
+    protected function getParamInt
+    (
+        ?Request $request ,
+        string   $name ,
+        array    $args         = [] ,
+        ?int     $defaultValue = null ,
+        bool     $throwable    = false
+    )
+    :?int
     {
         $value = $this->getParam( $request , $name , $args , $throwable ) ;
         return isset($value) ? (int) $value : $defaultValue ;
@@ -288,7 +338,17 @@ trait GetParamTrait
     /**
      * @throws NotFoundException
      */
-    protected function getParamIntWithRange(?Request $request , string $name , int $min , int $max , mixed $defaultValue = null , array $args = [] , bool $throwable = false ) :?int
+    protected function getParamIntWithRange
+    (
+        ?Request $request ,
+        string   $name ,
+        int      $min ,
+        int      $max ,
+        mixed    $defaultValue = null ,
+        array    $args         = [] ,
+        bool     $throwable    = false
+    )
+    :?int
     {
         return $this->getParamNumberWithRange( $request , $name , FILTER_VALIDATE_INT , $min , $max , $defaultValue , $args , $throwable) ;
     }
@@ -375,8 +435,8 @@ trait GetParamTrait
      * @param Request|null $request
      * @param string $name
      * @param int $filter FILTER_VALIDATE_INT or FILTER_VALIDATE_FLOAT
-     * @param int|float $min
-     * @param int|float $max
+     * @param int $min
+     * @param int $max
      * @param int|float|null $defaultValue
      * @param array $args
      * @param bool $throwable
@@ -420,7 +480,8 @@ trait GetParamTrait
         array    $args = [] ,
         ?string  $defaultValue = null ,
         bool     $throwable = false
-    ) :?string
+    )
+    :?string
     {
         return $this->getParam( $request , $name , $args , $throwable ) ?? $defaultValue ;
     }

@@ -242,7 +242,14 @@ is updated, allowing observers to react to the update event.</p>
     <span>
                                 &nbsp;: static    </span>
 </dt>
-<dd>Initializes the update signals.</dd>
+<dd>Initializes the update-related signals.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-models-traits-signals-HasUpdateSignals.html#method_releaseUpdateSignals">releaseUpdateSignals()</a>
+    <span>
+                                &nbsp;: static    </span>
+</dt>
+<dd>Release the update-related signals.</dd>
 
     </dl>
 
@@ -366,7 +373,7 @@ is updated, allowing observers to react to the update event.</p>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Initializes the update signals.</p>
+        <p class="phpdocumentor-summary">Initializes the update-related signals.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -398,6 +405,51 @@ is updated, allowing observers to react to the update event.</p>
 
                                     </dd>
                                             </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">static</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Returns <code class="prettyprint">$this</code> for method chaining.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_releaseUpdateSignals">
+        releaseUpdateSignals()
+        <a href="classes/oihana-models-traits-signals-HasUpdateSignals.html#method_releaseUpdateSignals" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/signals/HasUpdateSignals.php"><a href="files/src-oihana-models-traits-signals-hasupdatesignals.html"><abbr title="src/oihana/models/traits/signals/HasUpdateSignals.php">HasUpdateSignals.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">68</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Release the update-related signals.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">releaseUpdateSignals</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Nullify and disconnect the <code class="prettyprint">afterUpdate</code> and <code class="prettyprint">beforeUpdate</code> signals.</p>
+</section>
+
+    
+    
 
     
 
@@ -533,6 +585,7 @@ is updated, allowing observers to react to the update event.</p>
             <li>
                 <ul class="phpdocumentor-list -clean">
                                             <li class=""><a href="classes/oihana-models-traits-signals-HasUpdateSignals.html#method_initializeUpdateSignals">initializeUpdateSignals()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-signals-HasUpdateSignals.html#method_releaseUpdateSignals">releaseUpdateSignals()</a></li>
                                     </ul>
             </li>
                     </ul>

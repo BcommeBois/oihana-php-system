@@ -227,7 +227,7 @@ is truncated, allowing observers to react to the update event.</p>
     <span>
                         &nbsp;: <a href="classes/oihana-signals-Signal.html"><abbr title="\oihana\signals\Signal">Signal</abbr></a>|null            </span>
 </dt>
-<dd>Signal emitted before a colection is truncated.</dd>
+<dd>Signal emitted before a collection is truncated.</dd>
 
     </dl>
 
@@ -242,7 +242,14 @@ is truncated, allowing observers to react to the update event.</p>
     <span>
                                 &nbsp;: static    </span>
 </dt>
-<dd>Initializes the truncate signals.</dd>
+<dd>Initializes the truncated-related signals.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-models-traits-signals-HasTruncateSignals.html#method_releaseTruncateSignals">releaseTruncateSignals()</a>
+    <span>
+                                &nbsp;: static    </span>
+</dt>
+<dd>Release the truncated-related signals.</dd>
 
     </dl>
 
@@ -320,7 +327,7 @@ is truncated, allowing observers to react to the update event.</p>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Signal emitted before a colection is truncated.</p>
+        <p class="phpdocumentor-summary">Signal emitted before a collection is truncated.</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
@@ -366,7 +373,7 @@ is truncated, allowing observers to react to the update event.</p>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Initializes the truncate signals.</p>
+        <p class="phpdocumentor-summary">Initializes the truncated-related signals.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -398,6 +405,51 @@ is truncated, allowing observers to react to the update event.</p>
 
                                     </dd>
                                             </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">static</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Returns <code class="prettyprint">$this</code> for method chaining.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_releaseTruncateSignals">
+        releaseTruncateSignals()
+        <a href="classes/oihana-models-traits-signals-HasTruncateSignals.html#method_releaseTruncateSignals" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/signals/HasTruncateSignals.php"><a href="files/src-oihana-models-traits-signals-hastruncatesignals.html"><abbr title="src/oihana/models/traits/signals/HasTruncateSignals.php">HasTruncateSignals.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">68</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Release the truncated-related signals.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">releaseTruncateSignals</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Nullify and disconnect the <code class="prettyprint">afterTruncate</code> and <code class="prettyprint">beforeTruncate</code> signals.</p>
+</section>
+
+    
+    
 
     
 
@@ -533,6 +585,7 @@ is truncated, allowing observers to react to the update event.</p>
             <li>
                 <ul class="phpdocumentor-list -clean">
                                             <li class=""><a href="classes/oihana-models-traits-signals-HasTruncateSignals.html#method_initializeTruncateSignals">initializeTruncateSignals()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-signals-HasTruncateSignals.html#method_releaseTruncateSignals">releaseTruncateSignals()</a></li>
                                     </ul>
             </li>
                     </ul>
