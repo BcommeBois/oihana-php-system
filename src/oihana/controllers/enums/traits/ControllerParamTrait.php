@@ -35,6 +35,11 @@ trait ControllerParamTrait
     public const string ALL = 'all' ;
 
     /**
+     * The 'args' parameter.
+     */
+    public const string ARGS = 'all' ;
+
+    /**
      * The 'baseUrl' parameter.
      */
     public const string BASE_URL = 'baseUrl' ;
