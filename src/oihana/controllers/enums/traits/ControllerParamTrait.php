@@ -37,7 +37,7 @@ trait ControllerParamTrait
     /**
      * The 'args' parameter.
      */
-    public const string ARGS = 'all' ;
+    public const string ARGS = 'args' ;
 
     /**
      * The 'baseUrl' parameter.
