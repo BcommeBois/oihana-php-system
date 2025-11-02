@@ -15,6 +15,8 @@ use oihana\models\enums\ModelParam;
 use oihana\models\interfaces\ExistModel;
 use oihana\models\traits\DocumentsTrait;
 
+use function oihana\controllers\helpers\getDocumentsModel;
+
 /**
  * Provides utilities for validating "owner" arguments against specific Documents model references.
  *
@@ -50,8 +52,7 @@ trait CheckOwnerArgumentsTrait
             {
                 if( array_key_exists( $arg , $args ) )
                 {
-                    // TODO use the function getDocumentsModel( $documents, $this->container )
-                    $documents = $this->getDocumentsModel( $documents ) ;
+                    $documents = getDocumentsModel( $documents , $this->container ) ;
                     if( $documents instanceof ExistModel )
                     {
                         if( !$documents->exist( [ ModelParam::VALUE => $args[ $arg ] ] ) )
@@ -65,7 +66,7 @@ trait CheckOwnerArgumentsTrait
                         (
                             sprintf
                             (
-                                "The %s argument can\'t be checked with a null or bad Documents model reference." ,
+                                "The %s argument can't be checked with a null or bad Documents model reference." ,
                                 $arg
                             )
                         ) ;

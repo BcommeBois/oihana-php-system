@@ -9,21 +9,51 @@ use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
 /**
- * Resolves a DocumentsModel instance from a PSR-11 container or returns a default.
+ * Resolves a {@see DocumentsModel} instance from a PSR-11 container or returns a default.
  *
- * This function attempts to retrieve a `DocumentsModel` instance based on the provided
- * definition. The definition can be:
- * - A `DocumentsModel` instance (returned directly),
- * - A string identifier for a model in a PSR-11 container.
+ * This helper function provides a flexible way to obtain a `DocumentsModel` instance:
  *
- * @param string|DocumentsModel|null $definition The definition, which can be: a DocumentsModel instance, a string identifier in the container, or null.
- * @param ContainerInterface|null    $container  Optional PSR-11 container used to resolve a string definition.
- * @param DocumentsModel|null        $default    Optional fallback model returned if none could be resolved.
+ * - If `$definition` is already a `DocumentsModel`, it is returned as-is.
+ * - If `$definition` is a string and `$container` implements {@see ContainerInterface},
+ * the function attempts to resolve the corresponding service from the container.
+ * - If resolution fails, the provided `$default` (if any) is returned instead.
  *
- * @return DocumentsModel|null The resolved `DocumentsModel` instance, the provided default, or `null` if none found.
+ * This pattern allows for safe dependency resolution in controllers or services,
+ * without requiring explicit type-checking or container awareness in user code.
  *
- * @throws ContainerExceptionInterface If an error occurs while retrieving the model from the container.
- * @throws NotFoundExceptionInterface  If a string definition is provided but not found in the container.
+ * @param string|DocumentsModel|null $definition The model definition — either:
+ * - a `DocumentsModel` instance (returned directly),
+ * - a string service identifier (resolved from `$container`),
+ * - or `null` (uses `$default`).
+ * @param ContainerInterface|null $container Optional PSR-11 container to resolve string identifiers.
+ * @param DocumentsModel|null $default Optional fallback model if no valid instance is found.
+ *
+ * @return DocumentsModel|null The resolved model, the provided default, or `null` if none.
+ *
+ * @throws ContainerExceptionInterface If the container encounters an internal error.
+ * @throws NotFoundExceptionInterface  If `$definition` is a string not found in the container.
+ *
+ * @example
+ * ```php
+ * use oihana\controllers\helpers\getDocumentsModel;
+ * use oihana\models\interfaces\DocumentsModel;
+ * use Psr\Container\ContainerInterface;
+ *
+ * // Case 1: Direct instance
+ * $model = new MyDocumentsModel();
+ * echo getDocumentsModel( $model ) === $model ? 'ok' : 'fail' ; // ok
+ *
+ * // Case 2: String identifier resolved via container
+ * $container = new Container(); // implements ContainerInterface
+ * $container->set( 'mainModel', new MyDocumentsModel() );
+ *
+ * $resolved = getDocumentsModel( 'mainModel', $container );
+ * echo $resolved instanceof DocumentsModel ? 'ok' : 'fail' ;   // ok
+ *
+ * // Case 3: Fallback to default model
+ * $default = new DefaultDocumentsModel();
+ * echo getDocumentsModel( 'unknown', $container, $default ) === $default ? 'ok' : 'fail' ; // ok
+ * ```
  *
  * @package oihana\models
  * @author  Marc Alcaraz (ekameleon)

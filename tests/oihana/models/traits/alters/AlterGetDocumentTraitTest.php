@@ -16,7 +16,7 @@ use Psr\Container\NotFoundExceptionInterface;
 
 use oihana\models\enums\Alter;
 
-use tests\oihana\models\mocks\MockDocumentModel;
+use tests\oihana\models\mocks\MockDocumentsModel;
 use tests\oihana\models\mocks\MockAlterDocument;
 
 /**
@@ -40,7 +40,7 @@ class AlterGetDocumentTraitTest extends TestCase
      */
     public function testGetDocumentWithDefaultKey()
     {
-        $mockModel = new MockDocumentModel();
+        $mockModel = new MockDocumentsModel();
         $mockModel->addDocument(['id' => 123, 'name' => 'John Doe', 'email' => 'john@example.com']);
 
         $processor = new MockAlterDocument([
@@ -66,7 +66,7 @@ class AlterGetDocumentTraitTest extends TestCase
      */
     public function testGetDocumentWithCustomKey()
     {
-        $mockModel = new MockDocumentModel();
+        $mockModel = new MockDocumentsModel();
         $mockModel->addDocument(['id' => 456, 'slug' => 'jane-doe', 'name' => 'Jane Doe']);
 
         $processor = new MockAlterDocument([
@@ -92,7 +92,7 @@ class AlterGetDocumentTraitTest extends TestCase
      */
     public function testGetDocumentWithNullValue()
     {
-        $mockModel = new MockDocumentModel();
+        $mockModel = new MockDocumentsModel();
 
         $processor = new MockAlterDocument([
             'author' => [Alter::GET, 'UserModel']
@@ -115,7 +115,7 @@ class AlterGetDocumentTraitTest extends TestCase
      */
     public function testGetDocumentNotFound()
     {
-        $mockModel = new MockDocumentModel();
+        $mockModel = new MockDocumentsModel();
         $mockModel->addDocument(['id' => 123, 'name' => 'John Doe']);
 
         $processor = new MockAlterDocument([
@@ -160,7 +160,7 @@ class AlterGetDocumentTraitTest extends TestCase
      */
     public function testGetDocumentSequentialArray()
     {
-        $mockModel = new MockDocumentModel();
+        $mockModel = new MockDocumentsModel();
         $mockModel->addDocument(['id' => 1, 'name' => 'User One']);
         $mockModel->addDocument(['id' => 2, 'name' => 'User Two']);
         $mockModel->addDocument(['id' => 3, 'name' => 'User Three']);
@@ -193,7 +193,7 @@ class AlterGetDocumentTraitTest extends TestCase
      */
     public function testGetDocumentWithObject()
     {
-        $mockModel = new MockDocumentModel();
+        $mockModel = new MockDocumentsModel();
         $mockModel->addDocument(['id' => 789, 'name' => 'Object User']);
 
         $processor = new MockAlterDocument([
@@ -221,7 +221,7 @@ class AlterGetDocumentTraitTest extends TestCase
      */
     public function testGetDocumentWithStringId()
     {
-        $mockModel = new MockDocumentModel();
+        $mockModel = new MockDocumentsModel();
         $mockModel->addDocument(['id' => 'abc-123', 'name' => 'String ID User']);
 
         $processor = new MockAlterDocument([
@@ -246,7 +246,7 @@ class AlterGetDocumentTraitTest extends TestCase
      */
     public function testGetDocumentWithNumericStringId()
     {
-        $mockModel = new MockDocumentModel();
+        $mockModel = new MockDocumentsModel();
         $mockModel->addDocument(['id' => '42', 'name' => 'Numeric String User']);
 
         $processor = new MockAlterDocument([
@@ -271,7 +271,7 @@ class AlterGetDocumentTraitTest extends TestCase
      */
     public function testGetDocumentWithMultipleFields()
     {
-        $mockModel = new MockDocumentModel();
+        $mockModel = new MockDocumentsModel();
         $mockModel->addDocument([
             'id' => 100,
             'name' => 'Full User',
@@ -305,7 +305,7 @@ class AlterGetDocumentTraitTest extends TestCase
      */
     public function testGetDocumentChainedWithNormalize()
     {
-        $mockModel = new MockDocumentModel();
+        $mockModel = new MockDocumentsModel();
         $mockModel->addDocument
         ([
             'id' => 200,
@@ -341,7 +341,7 @@ class AlterGetDocumentTraitTest extends TestCase
      */
     public function testGetDocumentWithZeroId()
     {
-        $mockModel = new MockDocumentModel();
+        $mockModel = new MockDocumentsModel();
         $mockModel->addDocument(['id' => 0, 'name' => 'Zero ID User']);
 
         $processor = new MockAlterDocument([
@@ -366,7 +366,7 @@ class AlterGetDocumentTraitTest extends TestCase
      */
     public function testGetDocumentWithEmptyString()
     {
-        $mockModel = new MockDocumentModel();
+        $mockModel = new MockDocumentsModel();
 
         $processor = new MockAlterDocument
         ([
@@ -391,10 +391,10 @@ class AlterGetDocumentTraitTest extends TestCase
      */
     public function testGetDocumentWithMultipleProperties()
     {
-        $userModel = new MockDocumentModel();
+        $userModel = new MockDocumentsModel();
         $userModel->addDocument(['id' => 1, 'name' => 'John']);
 
-        $categoryModel = new MockDocumentModel();
+        $categoryModel = new MockDocumentsModel();
         $categoryModel->addDocument(['id' => 10, 'title' => 'Tech']);
 
         $processor = new MockAlterDocument([
@@ -427,7 +427,7 @@ class AlterGetDocumentTraitTest extends TestCase
      */
     public function testGetDocumentWithNestedDocuments()
     {
-        $userModel = new MockDocumentModel();
+        $userModel = new MockDocumentsModel();
         $userModel->addDocument([
             'id' => 1,
             'name' => 'John',
@@ -480,7 +480,7 @@ class AlterGetDocumentTraitTest extends TestCase
      */
     public function testGetDocumentWithBooleanValue()
     {
-        $mockModel = new MockDocumentModel();
+        $mockModel = new MockDocumentsModel();
         $mockModel->addDocument(['id' => true, 'name' => 'Boolean User']);
 
         $processor = new MockAlterDocument([
@@ -505,7 +505,7 @@ class AlterGetDocumentTraitTest extends TestCase
      */
     public function testGetDocumentWithEmailKey()
     {
-        $mockModel = new MockDocumentModel();
+        $mockModel = new MockDocumentsModel();
         $mockModel->addDocument([
             'id' => 1,
             'email' => 'user@example.com',
@@ -535,7 +535,7 @@ class AlterGetDocumentTraitTest extends TestCase
      */
     public function testGetDocumentMixedSequentialArray()
     {
-        $mockModel = new MockDocumentModel();
+        $mockModel = new MockDocumentsModel();
         $mockModel->addDocument(['id' => 1, 'name' => 'User One']);
         $mockModel->addDocument(['id' => 2, 'name' => 'User Two']);
 
@@ -567,7 +567,7 @@ class AlterGetDocumentTraitTest extends TestCase
      */
     public function testGetDocumentWithComplexChaining()
     {
-        $mockModel = new MockDocumentModel();
+        $mockModel = new MockDocumentsModel();
         $mockModel->addDocument([
             'id' => 1,
             'name' => '  John Doe  ',
@@ -601,7 +601,7 @@ class AlterGetDocumentTraitTest extends TestCase
      */
     public function testGetDocumentWithUuidKey()
     {
-        $mockModel = new MockDocumentModel();
+        $mockModel = new MockDocumentsModel();
         $uuid = '550e8400-e29b-41d4-a716-446655440000';
         $mockModel->addDocument([
             'uuid' => $uuid,
@@ -631,7 +631,7 @@ class AlterGetDocumentTraitTest extends TestCase
      */
     public function testGetDocumentPreservesOtherProperties()
     {
-        $mockModel = new MockDocumentModel();
+        $mockModel = new MockDocumentsModel();
         $mockModel->addDocument(['id' => 1, 'name' => 'John']);
 
         $processor = new MockAlterDocument([

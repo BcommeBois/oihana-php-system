@@ -23,7 +23,7 @@ use oihana\models\interfaces\DocumentsModel;
  * @author  Marc Alcaraz (ekameleon)
  * @since   1.0.0
  */
-class MockDocumentModel implements DocumentsModel
+class MockDocumentsModel implements DocumentsModel
 {
     /**
      * In-memory storage for documents

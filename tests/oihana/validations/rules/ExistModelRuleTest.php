@@ -9,7 +9,7 @@ use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
 use Somnambulist\Components\Validation\Exceptions\ParameterException;
-use tests\oihana\models\mocks\MockDocumentModel;
+use tests\oihana\models\mocks\MockDocumentsModel;
 
 final class ExistModelRuleTest extends TestCase
 {
@@ -20,7 +20,7 @@ final class ExistModelRuleTest extends TestCase
      */
     public function testBasicExistModelRule(): void
     {
-        $model = new MockDocumentModel() ;
+        $model = new MockDocumentsModel() ;
 
         $model->addDocument( ['id' => 1 , 'name' => 'John' ] );
 
@@ -46,7 +46,7 @@ final class ExistModelRuleTest extends TestCase
      */
     public function testExistModelRuleWithCustomKey(): void
     {
-        $model = new MockDocumentModel() ;
+        $model = new MockDocumentsModel() ;
 
         $model->addDocument( ['id' => 1 , 'name' => 'John' ] );
 
