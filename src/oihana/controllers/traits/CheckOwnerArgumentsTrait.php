@@ -18,10 +18,36 @@ use oihana\models\traits\DocumentsTrait;
 use function oihana\controllers\helpers\getDocumentsModel;
 
 /**
- * Provides utilities for validating "owner" arguments against specific Documents model references.
+ * Utilities to validate "owner" arguments against Documents models.
  *
  * This is mainly used to ensure that arguments passed to `get()`, `list()`, `count()` or `exist()` methods
  * actually correspond to existing document records.
+ *
+ * ```php
+ * $controller = new class
+ * {
+ *     use \oihana\controllers\traits\CheckOwnerArgumentsTrait;
+ * };
+ *
+ * // Initialize owner definitions
+ * $controller->initializeOwner
+ * ([
+ *     'owner' =>
+ *     [
+ *         'userId' => $userModel,
+ *         'accountId' => $accountModel,
+ *     ]
+ * ]);
+ *
+ * // Validate arguments (throws Error404 if a value is not found)
+ * $controller->checkOwnerArguments
+ * ([
+ *     'userId'    => 123,
+ *     'accountId' => 456,
+ * ]);
+ *
+ * // It's safe to call with missing args: they will be ignored
+ * $controller->checkOwnerArguments([ 'userId' => 123 ]);
  *
  * @package oihana\models\traits
  */
@@ -30,13 +56,24 @@ trait CheckOwnerArgumentsTrait
     use DocumentsTrait ;
 
     /**
-     * The collection of all owner's arguments to check in the get|list|count|exist methods.
+     * @var array<string, mixed>|null Collection of owner's arguments to check
      */
     public ?array $owner = null ;
 
     /**
-     * Check all the 'owner' arguments with a specific Documents model reference.
-     * @param array $args
+     * Check all 'owner' arguments against their Documents model.
+     *
+     * Example:
+     * ```php
+     * $controller->owner =
+     * [
+     *     'userId' => $userModel,
+     * ];
+     * $controller->checkOwnerArguments([ 'userId' => 1 ]);
+     * ```
+     *
+     * @param array $args array<string, mixed> $args Arguments to validate
+     *
      * @throws ContainerExceptionInterface
      * @throws DependencyException
      * @throws Error404
@@ -46,39 +83,51 @@ trait CheckOwnerArgumentsTrait
      */
     public function checkOwnerArguments( array $args = [] ) :void
     {
-        if( is_array( $this->owner ) && count( $this->owner ) > 0 )
+        if ( empty( $this->owner ) )
         {
-            foreach( $this->owner as $arg => $documents )
+            return ;
+        }
+
+        foreach( $this->owner as $arg => $documents )
+        {
+            if ( !array_key_exists( $arg , $args ) )
             {
-                if( array_key_exists( $arg , $args ) )
+                continue;
+            }
+
+            $documents = getDocumentsModel( $documents , $this->container ) ;
+
+            if( $documents instanceof ExistModel )
+            {
+                if( !$documents->exist( [ ModelParam::VALUE => $args[ $arg ] ] ) )
                 {
-                    $documents = getDocumentsModel( $documents , $this->container ) ;
-                    if( $documents instanceof ExistModel )
-                    {
-                        if( !$documents->exist( [ ModelParam::VALUE => $args[ $arg ] ] ) )
-                        {
-                            throw new Error404( sprintf( 'The %s argument is not found.' , $arg ) ) ;
-                        }
-                    }
-                    else
-                    {
-                        throw new Error500
-                        (
-                            sprintf
-                            (
-                                "The %s argument can't be checked with a null or bad Documents model reference." ,
-                                $arg
-                            )
-                        ) ;
-                    }
+                    throw new Error404( sprintf( 'The %s argument is not found.' , $arg ) ) ;
                 }
+            }
+            else
+            {
+                throw new Error500
+                (
+                    sprintf
+                    (
+                        "The %s argument can't be checked with a null or bad Documents model reference." ,
+                        $arg
+                    )
+                ) ;
             }
         }
     }
 
     /**
-     * Initialize the owner definition.
-     * @param array $init
+     * Initialize the owner definition from an array.
+     *
+     * Example:
+     * ```php
+     * $controller->initializeOwner([ 'owner' => [ 'userId' => $userModel ] ]);
+     * ```
+     *
+     * @param array<string, mixed> $init Initialization array
+     *
      * @return static
      */
     public function initializeOwner( array $init = [] ):static
