@@ -37,7 +37,7 @@
             "src/oihana/init/setIniIfExists.php",
             "src/oihana/models/helpers/cacheCollection.php",
             "src/oihana/models/helpers/documentUrl.php",
-            "src/oihana/models/helpers/getDocumentModel.php" ,
+            "src/oihana/models/helpers/getDocumentsModel.php" ,
             "src/oihana/models/helpers/getModel.php" ,
             "src/oihana/models/helpers/resolveDependency.php" ,
             "src/oihana/routes/helpers/withPlaceholder.php"

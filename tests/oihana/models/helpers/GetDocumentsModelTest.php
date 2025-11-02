@@ -4,14 +4,17 @@ namespace oihana\models\helpers;
 
 use DI\Container;
 
-use oihana\models\interfaces\DocumentsModel;
 use PHPUnit\Framework\TestCase;
+
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
-use function oihana\controllers\helpers\getDocumentModel;
 
-class GetDocumentModelTest extends TestCase
+use oihana\models\interfaces\DocumentsModel;
+
+use function oihana\controllers\helpers\getDocumentsModel;
+
+class GetDocumentsModelTest extends TestCase
 {
     private Container      $container ;
     private DocumentsModel $model ;
@@ -33,7 +36,7 @@ class GetDocumentModelTest extends TestCase
      */
     public function testReturnsInstanceIfProvided(): void
     {
-        $result = getDocumentModel($this->model);
+        $result = getDocumentsModel($this->model);
         $this->assertSame($this->model, $result);
     }
 
@@ -43,7 +46,7 @@ class GetDocumentModelTest extends TestCase
      */
     public function testReturnsInstanceFromContainer(): void
     {
-        $result = getDocumentModel('my_model', $this->container);
+        $result = getDocumentsModel('my_model', $this->container);
         $this->assertSame($this->model, $result);
     }
 
@@ -54,7 +57,7 @@ class GetDocumentModelTest extends TestCase
     public function testReturnsDefaultIfStringNotFound(): void
     {
         $default = $this->createStub(DocumentsModel::class);
-        $result = getDocumentModel('unknown_model', $this->container, $default);
+        $result = getDocumentsModel('unknown_model', $this->container, $default);
         $this->assertSame($default, $result);
     }
 
@@ -65,7 +68,7 @@ class GetDocumentModelTest extends TestCase
     public function testReturnsDefaultIfDefinitionIsNull(): void
     {
         $default = $this->createStub(DocumentsModel::class);
-        $result = getDocumentModel(null, $this->container, $default);
+        $result = getDocumentsModel(null, $this->container, $default);
         $this->assertSame($default, $result);
     }
 
@@ -75,7 +78,7 @@ class GetDocumentModelTest extends TestCase
      */
     public function testReturnsNullIfDefinitionIsNullAndNoDefault(): void
     {
-        $result = getDocumentModel(null, $this->container);
+        $result = getDocumentsModel(null, $this->container);
         $this->assertNull($result);
     }
 
@@ -90,7 +93,7 @@ class GetDocumentModelTest extends TestCase
         $mockContainer->method('has')->willReturn(true);
         $mockContainer->method('get')->willThrowException(new class extends \Exception implements ContainerExceptionInterface {});
 
-        getDocumentModel('some_model', $mockContainer);
+        getDocumentsModel('some_model', $mockContainer);
     }
 
     /**
@@ -105,7 +108,7 @@ class GetDocumentModelTest extends TestCase
         $default = $this->createStub(DocumentsModel::class);
 
         // Normalement, ça retourne le default, donc pas d'exception
-        $result = getDocumentModel('some_model', $mockContainer, $default);
+        $result = getDocumentsModel('some_model', $mockContainer, $default);
         $this->assertSame($default, $result);
     }
 }

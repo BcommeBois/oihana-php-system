@@ -2,16 +2,18 @@
 
 namespace oihana\models\traits\alters;
 
+use Throwable;
+
 use DI\Container;
 use DI\DependencyException;
 use DI\NotFoundException;
-use oihana\models\enums\ModelParam;
-use oihana\models\traits\DocumentsTrait;
+
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
-use Throwable;
-use function oihana\controllers\helpers\getDocumentModel;
+use oihana\models\enums\ModelParam;
+
+use function oihana\controllers\helpers\getDocumentsModel;
 
 /**
  * Provides logic to retrieve a document using a Documents model based on a given value and definition.
@@ -64,7 +66,7 @@ trait AlterGetDocumentPropertyTrait
     {
         if( isset( $value ) )
         {
-            $model = getDocumentModel( $definition[0] ?? null , $container ) ;
+            $model = getDocumentsModel( $definition[0] ?? null , $container ) ;
             if( isset( $model ) )
             {
                 try

@@ -29,7 +29,7 @@ use Psr\Container\NotFoundExceptionInterface;
  * @author  Marc Alcaraz (ekameleon)
  * @since   1.0.0
  */
-function getDocumentModel
+function getDocumentsModel
 (
     string|null|DocumentsModel $definition = null ,
     ?ContainerInterface        $container  = null ,
