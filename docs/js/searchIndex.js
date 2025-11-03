@@ -203,22 +203,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\CheckOwnerArgumentsTrait",
             "name": "CheckOwnerArgumentsTrait",
-            "summary": "Provides\u0020utilities\u0020for\u0020validating\u0020\u0022owner\u0022\u0020arguments\u0020against\u0020specific\u0020Documents\u0020model\u0020references.",
+            "summary": "Utilities\u0020to\u0020validate\u0020\u0022owner\u0022\u0020arguments\u0020against\u0020Documents\u0020models.",
             "url": "classes/oihana-controllers-traits-CheckOwnerArgumentsTrait.html"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\CheckOwnerArgumentsTrait\u003A\u003AcheckOwnerArguments\u0028\u0029",
             "name": "checkOwnerArguments",
-            "summary": "Check\u0020all\u0020the\u0020\u0027owner\u0027\u0020arguments\u0020with\u0020a\u0020specific\u0020Documents\u0020model\u0020reference.",
+            "summary": "Check\u0020all\u0020\u0027owner\u0027\u0020arguments\u0020against\u0020their\u0020Documents\u0020model.",
             "url": "classes/oihana-controllers-traits-CheckOwnerArgumentsTrait.html#method_checkOwnerArguments"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\CheckOwnerArgumentsTrait\u003A\u003AinitializeOwner\u0028\u0029",
             "name": "initializeOwner",
-            "summary": "Initialize\u0020the\u0020owner\u0020definition.",
+            "summary": "Initialize\u0020the\u0020owner\u0020definition\u0020from\u0020an\u0020array.",
             "url": "classes/oihana-controllers-traits-CheckOwnerArgumentsTrait.html#method_initializeOwner"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\CheckOwnerArgumentsTrait\u003A\u003A\u0024owner",
             "name": "owner",
-            "summary": "The\u0020collection\u0020of\u0020all\u0020owner\u0027s\u0020arguments\u0020to\u0020check\u0020in\u0020the\u0020get\u007Clist\u007Ccount\u007Cexist\u0020methods.",
+            "summary": "",
             "url": "classes/oihana-controllers-traits-CheckOwnerArgumentsTrait.html#property_owner"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\FileTrait",
@@ -2061,10 +2061,10 @@ Search.appendIndex(
             "summary": "Generates\u0020a\u0020full\u0020document\u0020URL\u0020based\u0020on\u0020the\u0020project\u0027s\u0020base\u0020URL.",
             "url": "namespaces/oihana-models-helpers.html#function_documentUrl"
         },                {
-            "fqsen": "\\oihana\\controllers\\helpers\\getDocumentModel\u0028\u0029",
-            "name": "getDocumentModel",
-            "summary": "Resolves\u0020a\u0020DocumentsModel\u0020instance\u0020from\u0020a\u0020PSR\u002D11\u0020container\u0020or\u0020returns\u0020a\u0020default.",
-            "url": "namespaces/oihana-controllers-helpers.html#function_getDocumentModel"
+            "fqsen": "\\oihana\\controllers\\helpers\\getDocumentsModel\u0028\u0029",
+            "name": "getDocumentsModel",
+            "summary": "Resolves\u0020a\u0020\u007B\u0040see\u0020DocumentsModel\u007D\u0020instance\u0020from\u0020a\u0020PSR\u002D11\u0020container\u0020or\u0020returns\u0020a\u0020default.",
+            "url": "namespaces/oihana-controllers-helpers.html#function_getDocumentsModel"
         },                {
             "fqsen": "\\oihana\\controllers\\helpers\\getModel\u0028\u0029",
             "name": "getModel",
@@ -2180,6 +2180,16 @@ Search.appendIndex(
             "name": "truncate",
             "summary": "Truncate\u0020the\u0020collection\u0020and\u0020remove\u0020all\u0020documents.",
             "url": "classes/oihana-models-interfaces-TruncateModel.html#method_truncate"
+        },                {
+            "fqsen": "\\oihana\\models\\interfaces\\UpdateDateModel",
+            "name": "UpdateDateModel",
+            "summary": "Update\u0020a\u0020single\u0020date\u0020property\u0020in\u0020a\u0020document\u0020with\u0020the\u0020current\u0020date.",
+            "url": "classes/oihana-models-interfaces-UpdateDateModel.html"
+        },                {
+            "fqsen": "\\oihana\\models\\interfaces\\UpdateDateModel\u003A\u003AupdateDate\u0028\u0029",
+            "name": "updateDate",
+            "summary": "Update\u0020a\u0020single\u0020date\u0020property\u0020in\u0020a\u0020document\u0020with\u0020the\u0020current\u0020date\u0020.",
+            "url": "classes/oihana-models-interfaces-UpdateDateModel.html#method_updateDate"
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\UpdateModel",
             "name": "UpdateModel",

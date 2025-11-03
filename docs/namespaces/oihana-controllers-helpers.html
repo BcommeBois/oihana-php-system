@@ -173,11 +173,11 @@
 <dd>Retrieves a controller instance from a PSR-11 container if available.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
-    <a class="" href="namespaces/oihana-controllers-helpers.html#function_getDocumentModel">getDocumentModel()</a>
+    <a class="" href="namespaces/oihana-controllers-helpers.html#function_getDocumentsModel">getDocumentsModel()</a>
     <span>
                                 &nbsp;: <a href="classes/oihana-models-interfaces-DocumentsModel.html"><abbr title="\oihana\models\interfaces\DocumentsModel">DocumentsModel</abbr></a>|null    </span>
 </dt>
-<dd>Resolves a DocumentsModel instance from a PSR-11 container or returns a default.</dd>
+<dd>Resolves a {@see DocumentsModel} instance from a PSR-11 container or returns a default.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a class="" href="namespaces/oihana-controllers-helpers.html#function_getModel">getModel()</a>
@@ -299,31 +299,34 @@ if it is an instance of <a href="classes/oihana-controllers-Controller.html"><ab
 
 </article>
                     <article class="phpdocumentor-element -function - ">
-    <h4 class="phpdocumentor-element__name" id="function_getDocumentModel">
-        getDocumentModel()
-        <a href="namespaces/oihana-controllers-helpers.html#function_getDocumentModel" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="function_getDocumentsModel">
+        getDocumentsModel()
+        <a href="namespaces/oihana-controllers-helpers.html#function_getDocumentsModel" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/helpers/getDocumentModel.php"><a href="files/src-oihana-models-helpers-getdocumentmodel.html"><abbr title="src/oihana/models/helpers/getDocumentModel.php">getDocumentModel.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/helpers/getDocumentsModel.php"><a href="files/src-oihana-models-helpers-getdocumentsmodel.html"><abbr title="src/oihana/models/helpers/getDocumentsModel.php">getDocumentsModel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">62</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Resolves a DocumentsModel instance from a PSR-11 container or returns a default.</p>
+        <p class="phpdocumentor-summary">Resolves a {@see DocumentsModel} instance from a PSR-11 container or returns a default.</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">getDocumentModel</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|<a href="classes/oihana-models-interfaces-DocumentsModel.html"><abbr title="\oihana\models\interfaces\DocumentsModel">DocumentsModel</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$definition</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/oihana-models-interfaces-DocumentsModel.html"><abbr title="\oihana\models\interfaces\DocumentsModel">DocumentsModel</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$default</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/oihana-models-interfaces-DocumentsModel.html"><abbr title="\oihana\models\interfaces\DocumentsModel">DocumentsModel</abbr></a>|null</span></code>
+                    <span class="phpdocumentor-signature__name">getDocumentsModel</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|<a href="classes/oihana-models-interfaces-DocumentsModel.html"><abbr title="\oihana\models\interfaces\DocumentsModel">DocumentsModel</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$definition</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/oihana-models-interfaces-DocumentsModel.html"><abbr title="\oihana\models\interfaces\DocumentsModel">DocumentsModel</abbr></a>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$default</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/oihana-models-interfaces-DocumentsModel.html"><abbr title="\oihana\models\interfaces\DocumentsModel">DocumentsModel</abbr></a>|null</span></code>
 
-        <section class="phpdocumentor-description"><p>This function attempts to retrieve a <code class="prettyprint">DocumentsModel</code> instance based on the provided
-definition. The definition can be:</p>
+        <section class="phpdocumentor-description"><p>This helper function provides a flexible way to obtain a <code class="prettyprint">DocumentsModel</code> instance:</p>
 <ul>
-<li>A <code class="prettyprint">DocumentsModel</code> instance (returned directly),</li>
-<li>A string identifier for a model in a PSR-11 container.</li>
+<li>If <code class="prettyprint">$definition</code> is already a <code class="prettyprint">DocumentsModel</code>, it is returned as-is.</li>
+<li>If <code class="prettyprint">$definition</code> is a string and <code class="prettyprint">$container</code> implements <abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>,
+the function attempts to resolve the corresponding service from the container.</li>
+<li>If resolution fails, the provided <code class="prettyprint">$default</code> (if any) is returned instead.</li>
 </ul>
+<p>This pattern allows for safe dependency resolution in controllers or services,
+without requiring explicit type-checking or container awareness in user code.</p>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -333,7 +336,12 @@ definition. The definition can be:</p>
                 : <span class="phpdocumentor-signature__argument__return-type">string|<a href="classes/oihana-models-interfaces-DocumentsModel.html"><abbr title="\oihana\models\interfaces\DocumentsModel">DocumentsModel</abbr></a>|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The definition, which can be: a DocumentsModel instance, a string identifier in the container, or null.</p>
+                    <section class="phpdocumentor-description"><p>The model definition — either:</p>
+<ul>
+<li>a <code class="prettyprint">DocumentsModel</code> instance (returned directly),</li>
+<li>a string service identifier (resolved from <code class="prettyprint">$container</code>),</li>
+<li>or <code class="prettyprint">null</code> (uses <code class="prettyprint">$default</code>).</li>
+</ul>
 </section>
 
             </dd>
@@ -342,7 +350,7 @@ definition. The definition can be:</p>
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Optional PSR-11 container used to resolve a string definition.</p>
+                    <section class="phpdocumentor-description"><p>Optional PSR-11 container to resolve string identifiers.</p>
 </section>
 
             </dd>
@@ -351,7 +359,7 @@ definition. The definition can be:</p>
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/oihana-models-interfaces-DocumentsModel.html"><abbr title="\oihana\models\interfaces\DocumentsModel">DocumentsModel</abbr></a>|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Optional fallback model returned if none could be resolved.</p>
+                    <section class="phpdocumentor-description"><p>Optional fallback model if no valid instance is found.</p>
 </section>
 
             </dd>
@@ -360,7 +368,7 @@ definition. The definition can be:</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="namespaces/oihana-controllers-helpers.html#function_getDocumentModel#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="namespaces/oihana-controllers-helpers.html#function_getDocumentsModel#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -370,7 +378,7 @@ definition. The definition can be:</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If an error occurs while retrieving the model from the container.</p>
+                                                 <section class="phpdocumentor-description"><p>If the container encounters an internal error.</p>
 </section>
 
                                     </dd>
@@ -380,7 +388,34 @@ definition. The definition can be:</p>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If a string definition is provided but not found in the container.</p>
+                                                 <section class="phpdocumentor-description"><p>If <code class="prettyprint">$definition</code> is a string not found in the container.</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">use oihana\controllers\helpers\getDocumentsModel;
+use oihana\models\interfaces\DocumentsModel;
+use Psr\Container\ContainerInterface;
+
+// Case 1: Direct instance
+$model = new MyDocumentsModel();
+echo getDocumentsModel( $model ) === $model ? 'ok' : 'fail' ; // ok
+
+// Case 2: String identifier resolved via container
+$container = new Container(); // implements ContainerInterface
+$container-&gt;set( 'mainModel', new MyDocumentsModel() );
+
+$resolved = getDocumentsModel( 'mainModel', $container );
+echo $resolved instanceof DocumentsModel ? 'ok' : 'fail' ;   // ok
+
+// Case 3: Fallback to default model
+$default = new DefaultDocumentsModel();
+echo getDocumentsModel( 'unknown', $container, $default ) === $default ? 'ok' : 'fail' ; // ok
+</code></pre>
 </section>
 
                                     </dd>
@@ -407,7 +442,7 @@ definition. The definition can be:</p>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/oihana-models-interfaces-DocumentsModel.html"><abbr title="\oihana\models\interfaces\DocumentsModel">DocumentsModel</abbr></a>|null</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>The resolved <code class="prettyprint">DocumentsModel</code> instance, the provided default, or <code class="prettyprint">null</code> if none found.</p>
+                <section class="phpdocumentor-description"><p>The resolved model, the provided default, or <code class="prettyprint">null</code> if none.</p>
 </section>
 
             </section>
@@ -773,7 +808,7 @@ not found, or the input is not a string, the provided default value is returned.
                 <li>
                     <ul class="phpdocumentor-list -clean">
                                                     <li class=""><a href="namespaces/oihana-controllers-helpers.html#function_getController">getController()</a></li>
-                                                    <li class=""><a href="namespaces/oihana-controllers-helpers.html#function_getDocumentModel">getDocumentModel()</a></li>
+                                                    <li class=""><a href="namespaces/oihana-controllers-helpers.html#function_getDocumentsModel">getDocumentsModel()</a></li>
                                                     <li class=""><a href="namespaces/oihana-controllers-helpers.html#function_getModel">getModel()</a></li>
                                                     <li class=""><a href="namespaces/oihana-controllers-helpers.html#function_resolveDependency">resolveDependency()</a></li>
                                             </ul>

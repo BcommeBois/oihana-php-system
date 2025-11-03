@@ -151,15 +151,40 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/CheckOwnerArgumentsTrait.php"><a href="files/src-oihana-controllers-traits-checkownerargumentstrait.html"><abbr title="src/oihana/controllers/traits/CheckOwnerArgumentsTrait.php">CheckOwnerArgumentsTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">54</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Provides utilities for validating &quot;owner&quot; arguments against specific Documents model references.</p>
+            <p class="phpdocumentor-summary">Utilities to validate &quot;owner&quot; arguments against Documents models.</p>
 
 
     <section class="phpdocumentor-description"><p>This is mainly used to ensure that arguments passed to <code class="prettyprint">get()</code>, <code class="prettyprint">list()</code>, <code class="prettyprint">count()</code> or <code class="prettyprint">exist()</code> methods
 actually correspond to existing document records.</p>
+<pre class="prettyprint"><code class="language-php">$controller = new class
+{
+    use \oihana\controllers\traits\CheckOwnerArgumentsTrait;
+};
+
+// Initialize owner definitions
+$controller-&gt;initializeOwner
+([
+    'owner' =&gt;
+    [
+        'userId' =&gt; $userModel,
+        'accountId' =&gt; $accountModel,
+    ]
+]);
+
+// Validate arguments (throws Error404 if a value is not found)
+$controller-&gt;checkOwnerArguments
+([
+    'userId'    =&gt; 123,
+    'accountId' =&gt; 456,
+]);
+
+// It's safe to call with missing args: they will be ignored
+$controller-&gt;checkOwnerArguments([ 'userId' =&gt; 123 ]);
+</code></pre>
 </section>
 
 
@@ -191,9 +216,8 @@ actually correspond to existing document records.</p>
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-controllers-traits-CheckOwnerArgumentsTrait.html#property_owner">$owner</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|null            </span>
+                        &nbsp;: array&lt;string, mixed&gt;|null            </span>
 </dt>
-<dd>The collection of all owner&#039;s arguments to check in the get|list|count|exist methods.</dd>
 
     </dl>
 
@@ -215,7 +239,7 @@ actually correspond to existing document records.</p>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Check all the &#039;owner&#039; arguments with a specific Documents model reference.</dd>
+<dd>Check all &#039;owner&#039; arguments against their Documents model.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-models-traits-DocumentsTrait.html#method_getDocumentsModel">getDocumentsModel()</a>
@@ -229,7 +253,7 @@ actually correspond to existing document records.</p>
     <span>
                                 &nbsp;: static    </span>
 </dt>
-<dd>Initialize the owner definition.</dd>
+<dd>Initialize the owner definition from an array.</dd>
 
     </dl>
 
@@ -262,21 +286,22 @@ actually correspond to existing document records.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/CheckOwnerArgumentsTrait.php"><a href="files/src-oihana-controllers-traits-checkownerargumentstrait.html"><abbr title="src/oihana/controllers/traits/CheckOwnerArgumentsTrait.php">CheckOwnerArgumentsTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">33</span>
+    <span class="phpdocumentor-element-found-in__line">61</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">The collection of all owner&#039;s arguments to check in the get|list|count|exist methods.</p>
-
+    
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
         <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;|null</span>
+            <span class="phpdocumentor-signature__type">array&lt;string, mixed&gt;|null</span>
     <span class="phpdocumentor-signature__name">$owner</span>
      = <span class="phpdocumentor-signature__default-value">null</span></code>
 
     
-    
+        <section class="phpdocumentor-description"><p>Collection of owner's arguments to check</p>
+</section>
+
     
 
     
@@ -393,11 +418,11 @@ actually correspond to existing document records.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/CheckOwnerArgumentsTrait.php"><a href="files/src-oihana-controllers-traits-checkownerargumentstrait.html"><abbr title="src/oihana/controllers/traits/CheckOwnerArgumentsTrait.php">CheckOwnerArgumentsTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">84</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Check all the &#039;owner&#039; arguments with a specific Documents model reference.</p>
+        <p class="phpdocumentor-summary">Check all &#039;owner&#039; arguments against their Documents model.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -406,7 +431,15 @@ actually correspond to existing document records.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>Example:</p>
+<pre class="prettyprint"><code class="language-php">$controller-&gt;owner =
+[
+    'userId' =&gt; $userModel,
+];
+$controller-&gt;checkOwnerArguments([ 'userId' =&gt; 1 ]);
+</code></pre>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -414,7 +447,9 @@ actually correspond to existing document records.</p>
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>array&lt;string, mixed&gt; $args Arguments to validate</p>
+</section>
+
             </dd>
             </dl>
 
@@ -581,28 +616,34 @@ actually correspond to existing document records.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/CheckOwnerArgumentsTrait.php"><a href="files/src-oihana-controllers-traits-checkownerargumentstrait.html"><abbr title="src/oihana/controllers/traits/CheckOwnerArgumentsTrait.php">CheckOwnerArgumentsTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">83</span>
+    <span class="phpdocumentor-element-found-in__line">133</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Initialize the owner definition.</p>
+        <p class="phpdocumentor-summary">Initialize the owner definition from an array.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">initializeOwner</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+                    <span class="phpdocumentor-signature__name">initializeOwner</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>Example:</p>
+<pre class="prettyprint"><code class="language-php">$controller-&gt;initializeOwner([ 'owner' =&gt; [ 'userId' =&gt; $userModel ] ]);
+</code></pre>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$init</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Initialization array</p>
+</section>
+
             </dd>
             </dl>
 

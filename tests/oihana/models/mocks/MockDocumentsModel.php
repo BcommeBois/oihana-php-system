@@ -4,6 +4,7 @@ namespace tests\oihana\models\mocks;
 
 use oihana\models\enums\ModelParam;
 use oihana\models\interfaces\DocumentsModel;
+use org\schema\constants\Schema;
 
 /**
  * Mock implementation of a Documents model for testing purposes.
@@ -329,7 +330,8 @@ class MockDocumentsModel implements DocumentsModel
             return null;
         }
 
-        foreach ($this->documents as $index => $doc) {
+        foreach ($this->documents as $index => $doc)
+        {
             if (isset($doc[$key]) && $doc[$key] === $value) {
                 // Preserve the search key in the new document
                 if (!isset($document[$key])) {
@@ -355,9 +357,9 @@ class MockDocumentsModel implements DocumentsModel
      */
     public function update(array $init = []): mixed
     {
-        $key = $init[ModelParam::KEY] ?? 'id';
+        $key   = $init[ModelParam::KEY] ?? 'id';
         $value = $init[ModelParam::VALUE] ?? null;
-        $data = $init['data'] ?? $init;
+        $data  = $init['data'] ?? $init;
 
         if ($value === null) {
             return null;
@@ -369,6 +371,36 @@ class MockDocumentsModel implements DocumentsModel
         foreach ($this->documents as $index => $document) {
             if (isset($document[$key]) && $document[$key] === $value) {
                 $this->documents[$index] = array_merge($document, $data);
+                return $this->documents[$index];
+            }
+        }
+
+        return null;
+    }
+
+    /**
+     * Update the date property (default: Schema::MODIFIED) of a document.
+     *
+     * @param array  $init Parameters:
+     *   - ModelParam::KEY: Property key to search by (default: 'id')
+     *   - ModelParam::VALUE: Value to search for
+     * @param string $property The property name to update (default: Schema::MODIFIED)
+     * @return mixed The updated document or null if not found
+     */
+    public function updateDate(array $init = [], string $property = Schema::MODIFIED): mixed
+    {
+        $key   = $init[ ModelParam::KEY   ] ?? 'id' ;
+        $value = $init[ ModelParam::VALUE ] ?? null ;
+
+        if ($value === null) {
+            return null;
+        }
+
+        foreach ($this->documents as $index => $document)
+        {
+            if (isset($document[$key]) && $document[$key] === $value)
+            {
+                $this->documents[$index][$property] = date('c'); // ISO 8601 format
                 return $this->documents[$index];
             }
         }
