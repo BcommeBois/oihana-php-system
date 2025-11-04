@@ -4856,6 +4856,11 @@ Search.appendIndex(
             "summary": "Generates\u0020the\u0020\u0027regex\u003A\/your\u002Dregex\/\u0027\u0020rule\u0020expression.",
             "url": "namespaces/oihana-validations-rules-helpers.html#function_regex"
         },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\rules\u0028\u0029",
+            "name": "rules",
+            "summary": "Generates\u0020a\u0020concatenated\u0020validation\u0020rules\u0020string\u0020from\u0020multiple\u0020rules.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_rules"
+        },                {
             "fqsen": "\\oihana\\validations\\rules\\helpers\\same\u0028\u0029",
             "name": "same",
             "summary": "Generates\u0020the\u0020\u0027same\u003AanotherField\u0027\u0020rule\u0020expression.",

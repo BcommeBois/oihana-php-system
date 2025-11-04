@@ -2,6 +2,7 @@
 
 namespace tests\oihana\validations\rules\helpers;
 
+use oihana\validations\enums\Rules;
 use PHPUnit\Framework\TestCase;
 
 use function oihana\validations\rules\helpers\after;
@@ -16,12 +17,34 @@ use function oihana\validations\rules\helpers\length;
 use function oihana\validations\rules\helpers\max;
 use function oihana\validations\rules\helpers\min;
 use function oihana\validations\rules\helpers\regex;
+use function oihana\validations\rules\helpers\rules;
 use function oihana\validations\rules\helpers\same;
 use function oihana\validations\rules\helpers\startsWith;
 use function oihana\validations\rules\helpers\url;
 
 final class HelpersTest extends TestCase
 {
+    public function testRules(): void
+    {
+        $this->assertEquals
+        (
+            expected : 'required|min:5|max:10' ,
+            actual   : rules( [ Rules::REQUIRED , min(5) , max(10) ] ) ,
+        );
+
+        $this->assertEquals
+        (
+            expected : 'required|min:5|max:10' ,
+            actual   : rules( Rules::REQUIRED , min(5) , max(10) ) ,
+        );
+
+        $this->assertEquals
+        (
+            expected : 'required|min:5|max:10' ,
+            actual   : rules( [ Rules::REQUIRED , min(5) ] , max(10) ) ,
+        );
+    }
+
     public function testAfter(): void
     {
         $this->assertEquals( 'after:2016-12-31' , after('2016-12-31') ) ;
