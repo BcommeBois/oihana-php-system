@@ -72,7 +72,7 @@ class ExistModelRule extends ContainerRule
      * The internal message pattern.
      * @var string
      */
-    protected string $message = ":attribute is not registered in the model: ':model' with the value: :value";
+    protected string $message = ":attribute is not registered in the model ':model' with the value: :value";
 
     /**
      * Checks whether the given value satisfies the condition.
