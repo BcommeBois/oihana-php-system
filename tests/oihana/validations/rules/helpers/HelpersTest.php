@@ -6,16 +6,23 @@ use oihana\validations\enums\Rules;
 use PHPUnit\Framework\TestCase;
 
 use function oihana\validations\rules\helpers\after;
+use function oihana\validations\rules\helpers\arrayCanOnlyHaveKeys;
+use function oihana\validations\rules\helpers\arrayMustHaveKeys;
 use function oihana\validations\rules\helpers\before;
 use function oihana\validations\rules\helpers\between;
 use function oihana\validations\rules\helpers\date;
+use function oihana\validations\rules\helpers\defaultValue;
 use function oihana\validations\rules\helpers\different;
 use function oihana\validations\rules\helpers\digits;
 use function oihana\validations\rules\helpers\digitsBetween;
 use function oihana\validations\rules\helpers\endsWith;
+use function oihana\validations\rules\helpers\extension;
+use function oihana\validations\rules\helpers\in;
 use function oihana\validations\rules\helpers\length;
 use function oihana\validations\rules\helpers\max;
+use function oihana\validations\rules\helpers\mimes;
 use function oihana\validations\rules\helpers\min;
+use function oihana\validations\rules\helpers\notIn;
 use function oihana\validations\rules\helpers\prohibitedIf;
 use function oihana\validations\rules\helpers\prohibitedUnless;
 use function oihana\validations\rules\helpers\regex;
@@ -59,6 +66,16 @@ final class HelpersTest extends TestCase
         $this->assertEquals( 'after:2016-12-31' , after('2016-12-31') ) ;
     }
 
+    public function testArrayCanOnlyHaveKeys(): void
+    {
+        $this->assertEquals( 'array_can_only_have_keys:foo,bar'  , arrayCanOnlyHaveKeys( 'foo' , 'bar' ) ) ;
+    }
+
+    public function testArrayMustHaveKeys(): void
+    {
+        $this->assertEquals( 'array_must_have_keys:foo,bar'  , arrayMustHaveKeys( 'foo' , 'bar' ) ) ;
+    }
+
     public function testBefore(): void
     {
         $this->assertEquals( 'before:2016-12-31' , before('2016-12-31') ) ;
@@ -74,6 +91,11 @@ final class HelpersTest extends TestCase
     {
         $this->assertEquals( 'date'   , date() ) ;
         $this->assertEquals( 'date:Y-m-d' , date('Y-m-d' ) ) ;
+    }
+
+    public function testDefaultValue(): void
+    {
+        $this->assertEquals( 'default:1'   , defaultValue(1) ) ;
     }
 
     public function testDifferent(): void
@@ -96,6 +118,21 @@ final class HelpersTest extends TestCase
         $this->assertEquals( 'ends_with:suffix'  , endsWith( 'suffix' ) ) ;
     }
 
+    public function testExtension(): void
+    {
+        $this->assertEquals( 'extension:jpg,png'  , extension( 'jpg' , 'png' ) ) ;
+    }
+
+    public function testMimes(): void
+    {
+        $this->assertEquals( 'mimes:jpg,png'  , mimes( 'jpg' , 'png' ) ) ;
+    }
+
+    public function testIn(): void
+    {
+        $this->assertEquals( 'in:foo,bar'  , in( 'foo' , 'bar' ) ) ;
+    }
+
     public function testLength(): void
     {
         $this->assertEquals( 'length:10' , length(10   ) ) ;
@@ -111,6 +148,11 @@ final class HelpersTest extends TestCase
     {
         $this->assertEquals( 'min:2'  , min(2    ) ) ;
         $this->assertEquals( 'min:1M' , min('1M' ) ) ;
+    }
+
+    public function testNotIn(): void
+    {
+        $this->assertEquals( 'not_in:foo,bar'  , notIn( 'foo' , 'bar' ) ) ;
     }
 
     public function testRegex(): void

@@ -12,6 +12,8 @@ use function oihana\core\strings\compile;
  * The field under this rule is not allowed unless another_field has one of these values. This is the inverse of prohibited_if.
  *
  * @param string $anotherField The another field to evaluates.
+ * @param mixed ...$values
+ *
  * @return string
  */
 function prohibitedUnless( string $anotherField , mixed ...$values  ) :string

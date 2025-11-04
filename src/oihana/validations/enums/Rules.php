@@ -68,6 +68,29 @@ class Rules
     public const string ARRAY = 'array' ;
 
     /**
+     * The array can only contain the specified keys, any keys not present will fail validation.
+     *
+     * By default, associative data has no restrictions on the key => values that can be present.
+     *
+     * For example: you have filters for a search box that are passed to SQL,
+     * only the specified keys should be allowed to be sent and not any value in the array of filters.
+     *
+     * @example
+     * ```php
+     * use Somnambulist\Components\Validation\Factory;
+     *
+     * $validation = $factory->validate([
+     * 'filters' => ['foo' => 'bar', 'baz' => 'example']
+     * ], [
+     * 'filters' => 'array|array_can_only_have_keys:foo,bar',
+     * ]);
+     *
+     * $validation->passes(); // true if filters only has the keys in array_can_only_have_keys
+     * ```
+     */
+    public const string ARRAY_CAN_ONLY_HAVE_KEYS = 'array_can_only_have_keys' ;
+
+    /**
      * The array must contain all the specified keys to be valid.
      *
      * This is useful to ensure that a nested array meets a prescribed format.
@@ -93,29 +116,6 @@ class Rules
      * ```
      */
     public const string ARRAY_MUST_HAVE_KEYS = 'array_must_have_keys' ;
-
-    /**
-     * The array can only contain the specified keys, any keys not present will fail validation.
-     *
-     * By default, associative data has no restrictions on the key => values that can be present.
-     *
-     * For example: you have filters for a search box that are passed to SQL,
-     * only the specified keys should be allowed to be sent and not any value in the array of filters.
-     *
-     * @example
-     * ```php
-     * use Somnambulist\Components\Validation\Factory;
-     *
-     * $validation = $factory->validate([
-     * 'filters' => ['foo' => 'bar', 'baz' => 'example']
-     * ], [
-     * 'filters' => 'array|array_can_only_have_keys:foo,bar',
-     * ]);
-     *
-     * $validation->passes(); // true if filters only has the keys in array_can_only_have_keys
-     * ```
-     */
-    public const string ARRAY_CAN_ONLY_HAVE_KEYS = 'array_can_only_have_keys' ;
 
     /**
      * The field under this rule must be a date before the given maximum.
