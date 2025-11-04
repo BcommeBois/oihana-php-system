@@ -446,8 +446,7 @@ class Rules
      * This is the inverse of prohibited_if.
      */
     public const string PROHIBITED_UNLESS = 'prohibited_unless' ;
-
-
+    
     /**
      * The field under this rule must match the given regex.
      *
@@ -518,6 +517,40 @@ class Rules
     public const string REQUIRED_UNLESS = 'required_unless' ;
 
     /**
+     * The field under validation must be present and not empty only if any of the other specified fields are present.
+     *
+     * ```php
+     * required_with:field_1,field_2,...
+     * ```
+     *
+     * Note: the behaviour of this rule can be circumvented if the rule this is defined on is sometimes or nullable.
+     *
+     * For example: if a is "required_with:b", but a is also only sometimes present,
+     * then the required_with will never trigger as the sometimes rule will negate it. a would also
+     * need to be explicitly passed to trigger the rule.
+     */
+    public const string REQUIRED_WITH = 'required_with' ;
+
+    /**
+     * The field under validation must be present and not empty only if all the other specified fields are present.
+     *
+     * ```php
+     * required_with_all:field_1,field_2,...
+     * ```
+     */
+    public const string REQUIRED_WITH_ALL = 'required_with_all' ;
+
+    /**
+     * The field under validation must be present and not empty only when any of the other specified fields are not present.
+     */
+    public const string REQUIRED_WITHOUT = 'required_without' ;
+
+    /**
+     * The field under validation must be present and not empty only when all the other specified fields are not present.
+     */
+    public const string REQUIRED_WITHOUT_ALL = 'required_without_all' ;
+
+    /**
      * The field under validation requires that the specified fields are present in the input data and are not empty.
      *
      * ```php
@@ -532,20 +565,6 @@ class Rules
      */
     public const string REQUIRES = 'requires' ;
 
-    /**
-     * The field under validation must be present and not empty only if any of the other specified fields are present.
-     *
-     * ```php
-     * required_with:field_1,field_2,...
-     * ```
-     *
-     * Note: the behaviour of this rule can be circumvented if the rule this is defined on is sometimes or nullable.
-     *
-     * For example: if a is "required_with:b", but a is also only sometimes present,
-     * then the required_with will never trigger as the sometimes rule will negate it. a would also
-     * need to be explicitly passed to trigger the rule.
-     */
-    public const string REQUIRED_WITH = 'required_with' ;
 
     /**
      * The field value under this rule must have the same value as another_field.

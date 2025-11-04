@@ -17,6 +17,13 @@ use function oihana\validations\rules\helpers\length;
 use function oihana\validations\rules\helpers\max;
 use function oihana\validations\rules\helpers\min;
 use function oihana\validations\rules\helpers\regex;
+use function oihana\validations\rules\helpers\requiredIf;
+use function oihana\validations\rules\helpers\requiredUnless;
+use function oihana\validations\rules\helpers\requiredWith;
+use function oihana\validations\rules\helpers\requiredWithAll;
+use function oihana\validations\rules\helpers\requiredWithout;
+use function oihana\validations\rules\helpers\requiredWithoutAll;
+use function oihana\validations\rules\helpers\requires;
 use function oihana\validations\rules\helpers\rules;
 use function oihana\validations\rules\helpers\same;
 use function oihana\validations\rules\helpers\startsWith;
@@ -107,6 +114,41 @@ final class HelpersTest extends TestCase
     public function testRegex(): void
     {
         $this->assertEquals( 'regex:/(this|that|value)/'  , regex( '/(this|that|value)/' ) ) ;
+    }
+
+    public function testRequiredIf(): void
+    {
+        $this->assertEquals( 'required_if:name,foo,bar'  , requiredIf( 'name' , 'foo' , 'bar' ) ) ;
+    }
+
+    public function testRequiredUnless(): void
+    {
+        $this->assertEquals( 'required_unless:name,foo,bar'  , requiredUnless( 'name' , 'foo' , 'bar' ) ) ;
+    }
+
+    public function testRequiredWith(): void
+    {
+        $this->assertEquals( 'required_with:email,password'  , requiredWith( 'email' , 'password' ) ) ;
+    }
+
+    public function testRequiredWithAll(): void
+    {
+        $this->assertEquals( 'required_with_all:email,password'  , requiredWithAll( 'email' , 'password' ) ) ;
+    }
+
+    public function testRequiredWithout(): void
+    {
+        $this->assertEquals( 'required_without:email,password'  , requiredWithout( 'email' , 'password' ) ) ;
+    }
+
+    public function testRequiredWithoutAll(): void
+    {
+        $this->assertEquals( 'required_without_all:email,password'  , requiredWithoutAll( 'email' , 'password' ) ) ;
+    }
+
+    public function testRequires(): void
+    {
+        $this->assertEquals( 'requires:email,password'  , requires( 'email' , 'password' ) ) ;
     }
 
     public function testSame(): void
