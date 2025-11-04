@@ -138,14 +138,15 @@
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana.html">oihana</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-validations.html">validations</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-validations-rules.html">rules</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-validations-rules-models.html">models</a></li>
     </ul>
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    ExistModelRule
+    UniqueModelRule
 
         <span class="phpdocumentor-element__extends">
-        extends <a href="classes/oihana-validations-rules-ContainerRule.html"><abbr title="\oihana\validations\rules\ContainerRule">ContainerRule</abbr></a>
+        extends <a href="classes/oihana-validations-rules-models-ExistModelRule.html"><abbr title="\oihana\validations\rules\models\ExistModelRule">ExistModelRule</abbr></a>
     </span>
     
     
@@ -158,17 +159,111 @@
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/ExistModelRule.php"><a href="files/src-oihana-validations-rules-existmodelrule.html"><abbr title="src/oihana/validations/rules/ExistModelRule.php">ExistModelRule.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/models/UniqueModelRule.php"><a href="files/src-oihana-validations-rules-models-uniquemodelrule.html"><abbr title="src/oihana/validations/rules/models/UniqueModelRule.php">UniqueModelRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">19</span>
+    <span class="phpdocumentor-element-found-in__line">78</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">An abstract rule to defines rules with an internal DI container reference.</p>
+            <p class="phpdocumentor-summary">Rule: Validates that a given value is **unique** within a model managed by the DI container.</p>
 
 
+    <section class="phpdocumentor-description"><p>This rule extends <a href="classes/oihana-validations-rules-models-ExistModelRule.html"><abbr title="\oihana\validations\rules\models\ExistModelRule">ExistModelRule</abbr></a> and inverts its logic:
+it passes only if the provided value <strong>does not already exist</strong> in the target model.</p>
+<p>The model must implement <a href="classes/oihana-models-interfaces-ExistModel.html"><abbr title="\oihana\models\interfaces\ExistModel">ExistModel</abbr></a>, which defines
+the <code class="prettyprint">exist(array $criteria): bool</code> method used for lookups.</p>
+<hr />
+<h3><strong>Usage</strong></h3>
+<pre class="prettyprint"><code class="language-php">use oihana\validations\rules\UniqueModelRule;
+use Somnambulist\Components\Validation\Validator;
+use Psr\Container\ContainerInterface;
+
+// Assume $container provides access to models implementing ExistModel.
+
+$rule = new UniqueModelRule
+(
+    $container,
+    [
+        UniqueModelRule::MODEL =&gt; 'user.model',
+        UniqueModelRule::KEY   =&gt; 'email',
+    ]
+);
+
+$validator = new Validator
+(
+    ['email' =&gt; 'john@example.com'],
+    ['email' =&gt; [$rule]]
+);
+
+$validator-&gt;passes(); // true if no existing user with this email
+$validator-&gt;fails();  // true if a user with this email already exists
+</code></pre>
+<hr />
+<h3><strong>Behavior</strong></h3>
+<ul>
+<li>Inherits all initialization logic from <a href="classes/oihana-validations-rules-models-ExistModelRule.html"><abbr title="\oihana\validations\rules\models\ExistModelRule">ExistModelRule</abbr></a>.</li>
+<li>Calls <a href="classes/oihana-validations-rules-models-ExistModelRule.html#method_check"><abbr title="\oihana\validations\rules\models\ExistModelRule::check()">ExistModelRule::check()</abbr></a> internally and returns its logical negation.</li>
+<li>Requires that:
+<ul>
+<li>the model exists in the DI container,</li>
+<li>the model implements <a href="classes/oihana-models-interfaces-ExistModel.html"><abbr title="\oihana\models\interfaces\ExistModel">ExistModel</abbr></a>,</li>
+<li>the model correctly responds to <code class="prettyprint">exist([ModelParam::KEY =&gt; ..., ModelParam::VALUE =&gt; ...])</code>.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3><strong>Custom Error Messages</strong></h3>
+<pre class="prettyprint"><code class="language-php">$rule = new UniqueModelRule($container, 'user.model', 'email');
+$rule-&gt;message(':attribute already exists in :model.');
+</code></pre>
+<hr />
+</section>
 
 
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-validations-rules-models-UniqueModelRule.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/oihana-validations-rules-models-ExistModelRule.html"><abbr title="\oihana\validations\rules\models\ExistModelRule">ExistModelRule</abbr></a></span>
+                                        
+                                                 <section class="phpdocumentor-description"><p>The base class that checks for existence in a model.</p>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><a href="classes/oihana-models-interfaces-ExistModel.html"><abbr title="\oihana\models\interfaces\ExistModel">ExistModel</abbr></a></span>
+                                        
+                                                 <section class="phpdocumentor-description"><p>Interface that must be implemented by model classes.</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
 
 
 
@@ -176,7 +271,7 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/oihana-validations-rules-ExistModelRule.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-validations-rules-models-UniqueModelRule.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -188,19 +283,19 @@
 
 <h4 id="toc-constants">
     Constants
-    <a href="classes/oihana-validations-rules-ExistModelRule.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-validations-rules-models-UniqueModelRule.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a class="" href="classes/oihana-validations-rules-ExistModelRule.html#constant_DEFAULT_KEY">DEFAULT_KEY</a>
+    <a class="" href="classes/oihana-validations-rules-models-ExistModelRule.html#constant_DEFAULT_KEY">DEFAULT_KEY</a>
     <span>
         &nbsp;= \org\schema\constants\Schema::ID                            </span>
 </dt>
 <dd>The default &#039;key&#039; value.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a class="" href="classes/oihana-validations-rules-ExistModelRule.html#constant_KEY">KEY</a>
+    <a class="" href="classes/oihana-validations-rules-models-ExistModelRule.html#constant_KEY">KEY</a>
     <span>
         &nbsp;= &#039;key&#039;                            </span>
 </dt>
@@ -221,7 +316,7 @@
 <dd>The &#039;logger&#039; parameter constant.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a class="" href="classes/oihana-validations-rules-ExistModelRule.html#constant_MODEL">MODEL</a>
+    <a class="" href="classes/oihana-validations-rules-models-ExistModelRule.html#constant_MODEL">MODEL</a>
     <span>
         &nbsp;= &#039;model&#039;                            </span>
 </dt>
@@ -232,7 +327,7 @@
 
 <h4 id="toc-properties">
     Properties
-    <a href="classes/oihana-validations-rules-ExistModelRule.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-validations-rules-models-UniqueModelRule.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
@@ -251,14 +346,14 @@
 <dd>The DI container reference.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a class="" href="classes/oihana-validations-rules-ExistModelRule.html#property_fillableParams">$fillableParams</a>
+    <a class="" href="classes/oihana-validations-rules-models-ExistModelRule.html#property_fillableParams">$fillableParams</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
 <dd>The internal list of fillable parameters.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a class="" href="classes/oihana-validations-rules-ExistModelRule.html#property_message">$message</a>
+    <a class="" href="classes/oihana-validations-rules-models-UniqueModelRule.html#property_message">$message</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
@@ -268,16 +363,16 @@
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/oihana-validations-rules-ExistModelRule.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-validations-rules-models-UniqueModelRule.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-validations-rules-ExistModelRule.html#method___construct">__construct()</a>
+    <a class="" href="classes/oihana-validations-rules-models-ExistModelRule.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Creates a new ContainerRule instance.</dd>
+<dd>Creates a new ExistModelRule instance.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-traits-ToStringTrait.html#method___toString">__toString()</a>
@@ -294,7 +389,7 @@
 <dd>Action must be taken immediately.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-validations-rules-ExistModelRule.html#method_check">check()</a>
+    <a class="" href="classes/oihana-validations-rules-models-UniqueModelRule.html#method_check">check()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
@@ -358,7 +453,7 @@ be logged and monitored.</dd>
 <dd>Initializes the logger reference for the current instance.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-validations-rules-ExistModelRule.html#method_key">key()</a>
+    <a class="" href="classes/oihana-validations-rules-models-ExistModelRule.html#method_key">key()</a>
     <span>
                                 &nbsp;: $this    </span>
 </dt>
@@ -372,7 +467,7 @@ be logged and monitored.</dd>
 <dd>Logs with an arbitrary level.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-validations-rules-ExistModelRule.html#method_model">model()</a>
+    <a class="" href="classes/oihana-validations-rules-models-ExistModelRule.html#method_model">model()</a>
     <span>
                                 &nbsp;: $this    </span>
 </dt>
@@ -400,20 +495,20 @@ be logged and monitored.</dd>
     <section class="phpdocumentor-constants">
         <h3 class="phpdocumentor-elements__header" id="constants">
             Constants
-            <a href="classes/oihana-validations-rules-ExistModelRule.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/oihana-validations-rules-models-UniqueModelRule.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_DEFAULT_KEY">
         DEFAULT_KEY
-        <a href="classes/oihana-validations-rules-ExistModelRule.html#constant_DEFAULT_KEY" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-validations-rules-models-ExistModelRule.html#constant_DEFAULT_KEY" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/ExistModelRule.php"><a href="files/src-oihana-validations-rules-existmodelrule.html"><abbr title="src/oihana/validations/rules/ExistModelRule.php">ExistModelRule.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/models/ExistModelRule.php"><a href="files/src-oihana-validations-rules-models-existmodelrule.html"><abbr title="src/oihana/validations/rules/models/ExistModelRule.php">ExistModelRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">53</span>
+    <span class="phpdocumentor-element-found-in__line">103</span>
 
     </aside>
 
@@ -438,14 +533,14 @@ be logged and monitored.</dd>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_KEY">
         KEY
-        <a href="classes/oihana-validations-rules-ExistModelRule.html#constant_KEY" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-validations-rules-models-ExistModelRule.html#constant_KEY" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/ExistModelRule.php"><a href="files/src-oihana-validations-rules-existmodelrule.html"><abbr title="src/oihana/validations/rules/ExistModelRule.php">ExistModelRule.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/models/ExistModelRule.php"><a href="files/src-oihana-validations-rules-models-existmodelrule.html"><abbr title="src/oihana/validations/rules/models/ExistModelRule.php">ExistModelRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">58</span>
+    <span class="phpdocumentor-element-found-in__line">108</span>
 
     </aside>
 
@@ -534,14 +629,14 @@ be logged and monitored.</dd>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_MODEL">
         MODEL
-        <a href="classes/oihana-validations-rules-ExistModelRule.html#constant_MODEL" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-validations-rules-models-ExistModelRule.html#constant_MODEL" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/ExistModelRule.php"><a href="files/src-oihana-validations-rules-existmodelrule.html"><abbr title="src/oihana/validations/rules/ExistModelRule.php">ExistModelRule.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/models/ExistModelRule.php"><a href="files/src-oihana-validations-rules-models-existmodelrule.html"><abbr title="src/oihana/validations/rules/models/ExistModelRule.php">ExistModelRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">63</span>
+    <span class="phpdocumentor-element-found-in__line">113</span>
 
     </aside>
 
@@ -569,7 +664,7 @@ be logged and monitored.</dd>
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/oihana-validations-rules-ExistModelRule.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/oihana-validations-rules-models-UniqueModelRule.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -659,15 +754,15 @@ be logged and monitored.</dd>
 >
     <h4 class="phpdocumentor-element__name" id="property_fillableParams">
         $fillableParams
-        <a href="classes/oihana-validations-rules-ExistModelRule.html#property_fillableParams" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-validations-rules-models-ExistModelRule.html#property_fillableParams" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                             </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/ExistModelRule.php"><a href="files/src-oihana-validations-rules-existmodelrule.html"><abbr title="src/oihana/validations/rules/ExistModelRule.php">ExistModelRule.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/models/ExistModelRule.php"><a href="files/src-oihana-validations-rules-models-existmodelrule.html"><abbr title="src/oihana/validations/rules/models/ExistModelRule.php">ExistModelRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">69</span>
+    <span class="phpdocumentor-element-found-in__line">119</span>
 
     </aside>
 
@@ -698,15 +793,15 @@ be logged and monitored.</dd>
 >
     <h4 class="phpdocumentor-element__name" id="property_message">
         $message
-        <a href="classes/oihana-validations-rules-ExistModelRule.html#property_message" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-validations-rules-models-UniqueModelRule.html#property_message" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                             </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/ExistModelRule.php"><a href="files/src-oihana-validations-rules-existmodelrule.html"><abbr title="src/oihana/validations/rules/ExistModelRule.php">ExistModelRule.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/models/UniqueModelRule.php"><a href="files/src-oihana-validations-rules-models-uniquemodelrule.html"><abbr title="src/oihana/validations/rules/models/UniqueModelRule.php">UniqueModelRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">75</span>
+    <span class="phpdocumentor-element-found-in__line">84</span>
 
     </aside>
 
@@ -717,7 +812,7 @@ be logged and monitored.</dd>
         <span class="phpdocumentor-signature__visibility">protected</span>
             <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$message</span>
-     = <span class="phpdocumentor-signature__default-value">&quot;:attribute is not registered in the model: &#039;:model&#039; with the value: :value&quot;</span></code>
+     = <span class="phpdocumentor-signature__default-value">&quot;:attribute must be unique in the model &#039;:model&#039;, the value &#039;:value&#039; already exist.&quot;</span></code>
 
     
     
@@ -733,7 +828,7 @@ be logged and monitored.</dd>
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/oihana-validations-rules-ExistModelRule.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/oihana-validations-rules-models-UniqueModelRule.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -744,17 +839,17 @@ be logged and monitored.</dd>
 >
     <h4 class="phpdocumentor-element__name" id="method___construct">
         __construct()
-        <a href="classes/oihana-validations-rules-ExistModelRule.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-validations-rules-models-ExistModelRule.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/ExistModelRule.php"><a href="files/src-oihana-validations-rules-existmodelrule.html"><abbr title="src/oihana/validations/rules/ExistModelRule.php">ExistModelRule.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/models/ExistModelRule.php"><a href="files/src-oihana-validations-rules-models-existmodelrule.html"><abbr title="src/oihana/validations/rules/models/ExistModelRule.php">ExistModelRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">30</span>
+    <span class="phpdocumentor-element-found-in__line">80</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Creates a new ContainerRule instance.</p>
+        <p class="phpdocumentor-summary">Creates a new ExistModelRule instance.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -796,7 +891,7 @@ be logged and monitored.</dd>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-validations-rules-ExistModelRule.html#method___construct#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-validations-rules-models-ExistModelRule.html#method___construct#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -943,13 +1038,13 @@ trigger the SMS alerts and wake you up.</p>
 >
     <h4 class="phpdocumentor-element__name" id="method_check">
         check()
-        <a href="classes/oihana-validations-rules-ExistModelRule.html#method_check" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-validations-rules-models-UniqueModelRule.html#method_check" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/ExistModelRule.php"><a href="files/src-oihana-validations-rules-existmodelrule.html"><abbr title="src/oihana/validations/rules/ExistModelRule.php">ExistModelRule.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/models/UniqueModelRule.php"><a href="files/src-oihana-validations-rules-models-uniquemodelrule.html"><abbr title="src/oihana/validations/rules/models/UniqueModelRule.php">UniqueModelRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">88</span>
+    <span class="phpdocumentor-element-found-in__line">97</span>
 
     </aside>
 
@@ -979,7 +1074,7 @@ trigger the SMS alerts and wake you up.</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-validations-rules-ExistModelRule.html#method_check#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-validations-rules-models-UniqueModelRule.html#method_check#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -1559,13 +1654,13 @@ a valid logger string. Defaults to <code class="prettyprint">true</code>.</p>
 >
     <h4 class="phpdocumentor-element__name" id="method_key">
         key()
-        <a href="classes/oihana-validations-rules-ExistModelRule.html#method_key" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-validations-rules-models-ExistModelRule.html#method_key" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/ExistModelRule.php"><a href="files/src-oihana-validations-rules-existmodelrule.html"><abbr title="src/oihana/validations/rules/ExistModelRule.php">ExistModelRule.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/models/ExistModelRule.php"><a href="files/src-oihana-validations-rules-models-existmodelrule.html"><abbr title="src/oihana/validations/rules/models/ExistModelRule.php">ExistModelRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">121</span>
+    <span class="phpdocumentor-element-found-in__line">171</span>
 
     </aside>
 
@@ -1669,13 +1764,13 @@ a valid logger string. Defaults to <code class="prettyprint">true</code>.</p>
 >
     <h4 class="phpdocumentor-element__name" id="method_model">
         model()
-        <a href="classes/oihana-validations-rules-ExistModelRule.html#method_model" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-validations-rules-models-ExistModelRule.html#method_model" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/ExistModelRule.php"><a href="files/src-oihana-validations-rules-existmodelrule.html"><abbr title="src/oihana/validations/rules/ExistModelRule.php">ExistModelRule.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/models/ExistModelRule.php"><a href="files/src-oihana-validations-rules-models-existmodelrule.html"><abbr title="src/oihana/validations/rules/models/ExistModelRule.php">ExistModelRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">134</span>
+    <span class="phpdocumentor-element-found-in__line">184</span>
 
     </aside>
 
@@ -1825,7 +1920,7 @@ that are not necessarily wrong.</p>
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/validations/rules/ExistModelRule.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/validations/rules/models/UniqueModelRule.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -1926,19 +2021,19 @@ that are not necessarily wrong.</p>
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                        <li><a href="classes/oihana-validations-rules-ExistModelRule.html#toc-constants">Constants</a></li>
-                                                            <li><a href="classes/oihana-validations-rules-ExistModelRule.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/oihana-validations-rules-ExistModelRule.html#toc-methods">Methods</a></li>
+                                        <li><a href="classes/oihana-validations-rules-models-UniqueModelRule.html#toc-constants">Constants</a></li>
+                                                            <li><a href="classes/oihana-validations-rules-models-UniqueModelRule.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/oihana-validations-rules-models-UniqueModelRule.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li class=""><a href="classes/oihana-validations-rules-ExistModelRule.html#constant_DEFAULT_KEY">DEFAULT_KEY</a></li>
-                                                    <li class=""><a href="classes/oihana-validations-rules-ExistModelRule.html#constant_KEY">KEY</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-rules-models-ExistModelRule.html#constant_DEFAULT_KEY">DEFAULT_KEY</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-rules-models-ExistModelRule.html#constant_KEY">KEY</a></li>
                                                     <li class=""><a href="classes/oihana-logging-LoggerTrait.html#constant_LOGGABLE">LOGGABLE</a></li>
                                                     <li class=""><a href="classes/oihana-logging-LoggerTrait.html#constant_LOGGER">LOGGER</a></li>
-                                                    <li class=""><a href="classes/oihana-validations-rules-ExistModelRule.html#constant_MODEL">MODEL</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-rules-models-ExistModelRule.html#constant_MODEL">MODEL</a></li>
                                             </ul>
                 </li>
             
@@ -1947,18 +2042,18 @@ that are not necessarily wrong.</p>
                     <ul class="phpdocumentor-list -clean">
                                                     <li class=""><a href="classes/oihana-logging-LoggerTrait.html#property_loggable">$loggable</a></li>
                                                     <li class=""><a href="classes/oihana-validations-rules-ContainerRule.html#property_container">$container</a></li>
-                                                    <li class=""><a href="classes/oihana-validations-rules-ExistModelRule.html#property_fillableParams">$fillableParams</a></li>
-                                                    <li class=""><a href="classes/oihana-validations-rules-ExistModelRule.html#property_message">$message</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-rules-models-ExistModelRule.html#property_fillableParams">$fillableParams</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-rules-models-UniqueModelRule.html#property_message">$message</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-validations-rules-ExistModelRule.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/oihana-validations-rules-models-ExistModelRule.html#method___construct">__construct()</a></li>
                                             <li class=""><a href="classes/oihana-traits-ToStringTrait.html#method___toString">__toString()</a></li>
                                             <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_alert">alert()</a></li>
-                                            <li class=""><a href="classes/oihana-validations-rules-ExistModelRule.html#method_check">check()</a></li>
+                                            <li class=""><a href="classes/oihana-validations-rules-models-UniqueModelRule.html#method_check">check()</a></li>
                                             <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_critical">critical()</a></li>
                                             <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_debug">debug()</a></li>
                                             <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_emergency">emergency()</a></li>
@@ -1967,9 +2062,9 @@ that are not necessarily wrong.</p>
                                             <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_info">info()</a></li>
                                             <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_initializeLoggable">initializeLoggable()</a></li>
                                             <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_initializeLogger">initializeLogger()</a></li>
-                                            <li class=""><a href="classes/oihana-validations-rules-ExistModelRule.html#method_key">key()</a></li>
+                                            <li class=""><a href="classes/oihana-validations-rules-models-ExistModelRule.html#method_key">key()</a></li>
                                             <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_log">log()</a></li>
-                                            <li class=""><a href="classes/oihana-validations-rules-ExistModelRule.html#method_model">model()</a></li>
+                                            <li class=""><a href="classes/oihana-validations-rules-models-ExistModelRule.html#method_model">model()</a></li>
                                             <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_notice">notice()</a></li>
                                             <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_warning">warning()</a></li>
                                     </ul>
@@ -1991,7 +2086,7 @@ that are not necessarily wrong.</p>
     </section>
 </section>
         </div>
-        <a href="classes/oihana-validations-rules-ExistModelRule.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/oihana-validations-rules-models-UniqueModelRule.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

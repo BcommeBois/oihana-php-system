@@ -4791,56 +4791,6 @@ Search.appendIndex(
             "summary": "The\u0020DI\u0020container\u0020reference.",
             "url": "classes/oihana-validations-rules-ContainerRule.html#property_container"
         },                {
-            "fqsen": "\\oihana\\validations\\rules\\ExistModelRule",
-            "name": "ExistModelRule",
-            "summary": "An\u0020abstract\u0020rule\u0020to\u0020defines\u0020rules\u0020with\u0020an\u0020internal\u0020DI\u0020container\u0020reference.",
-            "url": "classes/oihana-validations-rules-ExistModelRule.html"
-        },                {
-            "fqsen": "\\oihana\\validations\\rules\\ExistModelRule\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Creates\u0020a\u0020new\u0020ContainerRule\u0020instance.",
-            "url": "classes/oihana-validations-rules-ExistModelRule.html#method___construct"
-        },                {
-            "fqsen": "\\oihana\\validations\\rules\\ExistModelRule\u003A\u003Acheck\u0028\u0029",
-            "name": "check",
-            "summary": "Checks\u0020whether\u0020the\u0020given\u0020value\u0020satisfies\u0020the\u0020condition.",
-            "url": "classes/oihana-validations-rules-ExistModelRule.html#method_check"
-        },                {
-            "fqsen": "\\oihana\\validations\\rules\\ExistModelRule\u003A\u003Akey\u0028\u0029",
-            "name": "key",
-            "summary": "Defines\u0020the\u0020optional\u0020key\u0020to\u0020find\u0020the\u0020ressource\u0020in\u0020the\u0020model.",
-            "url": "classes/oihana-validations-rules-ExistModelRule.html#method_key"
-        },                {
-            "fqsen": "\\oihana\\validations\\rules\\ExistModelRule\u003A\u003Amodel\u0028\u0029",
-            "name": "model",
-            "summary": "Defines\u0020the\u0020model\u0020identifier\u0020to\u0020find\u0020it\u0020in\u0020the\u0020DI\u0020container.",
-            "url": "classes/oihana-validations-rules-ExistModelRule.html#method_model"
-        },                {
-            "fqsen": "\\oihana\\validations\\rules\\ExistModelRule\u003A\u003ADEFAULT_KEY",
-            "name": "DEFAULT_KEY",
-            "summary": "The\u0020default\u0020\u0027key\u0027\u0020value.",
-            "url": "classes/oihana-validations-rules-ExistModelRule.html#constant_DEFAULT_KEY"
-        },                {
-            "fqsen": "\\oihana\\validations\\rules\\ExistModelRule\u003A\u003AKEY",
-            "name": "KEY",
-            "summary": "The\u0020\u0027key\u0027\u0020parameter\u0020key.",
-            "url": "classes/oihana-validations-rules-ExistModelRule.html#constant_KEY"
-        },                {
-            "fqsen": "\\oihana\\validations\\rules\\ExistModelRule\u003A\u003AMODEL",
-            "name": "MODEL",
-            "summary": "The\u0020\u0027model\u0027\u0020parameter\u0020key.",
-            "url": "classes/oihana-validations-rules-ExistModelRule.html#constant_MODEL"
-        },                {
-            "fqsen": "\\oihana\\validations\\rules\\ExistModelRule\u003A\u003A\u0024fillableParams",
-            "name": "fillableParams",
-            "summary": "The\u0020internal\u0020list\u0020of\u0020fillable\u0020parameters.",
-            "url": "classes/oihana-validations-rules-ExistModelRule.html#property_fillableParams"
-        },                {
-            "fqsen": "\\oihana\\validations\\rules\\ExistModelRule\u003A\u003A\u0024message",
-            "name": "message",
-            "summary": "The\u0020internal\u0020message\u0020pattern.",
-            "url": "classes/oihana-validations-rules-ExistModelRule.html#property_message"
-        },                {
             "fqsen": "\\oihana\\validations\\rules\\InstanceOfRule",
             "name": "InstanceOfRule",
             "summary": "Ensures\u0020that\u0020a\u0020given\u0020value\u0020is\u0020instance\u0020of\u0020the\u0020specified\u0020class\u0020name.",
@@ -4925,6 +4875,71 @@ Search.appendIndex(
             "name": "message",
             "summary": "The\u0020internal\u0020message\u0020pattern.",
             "url": "classes/oihana-validations-rules-JWTAlgorithmRule.html#property_message"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\models\\ExistModelRule",
+            "name": "ExistModelRule",
+            "summary": "Rule\u003A\u0020Checks\u0020if\u0020a\u0020given\u0020value\u0020exists\u0020in\u0020a\u0020model\u0020retrieved\u0020from\u0020a\u0020DI\u0020container.",
+            "url": "classes/oihana-validations-rules-models-ExistModelRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\models\\ExistModelRule\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020ExistModelRule\u0020instance.",
+            "url": "classes/oihana-validations-rules-models-ExistModelRule.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\models\\ExistModelRule\u003A\u003Acheck\u0028\u0029",
+            "name": "check",
+            "summary": "Checks\u0020whether\u0020the\u0020given\u0020value\u0020satisfies\u0020the\u0020condition.",
+            "url": "classes/oihana-validations-rules-models-ExistModelRule.html#method_check"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\models\\ExistModelRule\u003A\u003Akey\u0028\u0029",
+            "name": "key",
+            "summary": "Defines\u0020the\u0020optional\u0020key\u0020to\u0020find\u0020the\u0020ressource\u0020in\u0020the\u0020model.",
+            "url": "classes/oihana-validations-rules-models-ExistModelRule.html#method_key"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\models\\ExistModelRule\u003A\u003Amodel\u0028\u0029",
+            "name": "model",
+            "summary": "Defines\u0020the\u0020model\u0020identifier\u0020to\u0020find\u0020it\u0020in\u0020the\u0020DI\u0020container.",
+            "url": "classes/oihana-validations-rules-models-ExistModelRule.html#method_model"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\models\\ExistModelRule\u003A\u003ADEFAULT_KEY",
+            "name": "DEFAULT_KEY",
+            "summary": "The\u0020default\u0020\u0027key\u0027\u0020value.",
+            "url": "classes/oihana-validations-rules-models-ExistModelRule.html#constant_DEFAULT_KEY"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\models\\ExistModelRule\u003A\u003AKEY",
+            "name": "KEY",
+            "summary": "The\u0020\u0027key\u0027\u0020parameter\u0020key.",
+            "url": "classes/oihana-validations-rules-models-ExistModelRule.html#constant_KEY"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\models\\ExistModelRule\u003A\u003AMODEL",
+            "name": "MODEL",
+            "summary": "The\u0020\u0027model\u0027\u0020parameter\u0020key.",
+            "url": "classes/oihana-validations-rules-models-ExistModelRule.html#constant_MODEL"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\models\\ExistModelRule\u003A\u003A\u0024fillableParams",
+            "name": "fillableParams",
+            "summary": "The\u0020internal\u0020list\u0020of\u0020fillable\u0020parameters.",
+            "url": "classes/oihana-validations-rules-models-ExistModelRule.html#property_fillableParams"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\models\\ExistModelRule\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "The\u0020internal\u0020message\u0020pattern.",
+            "url": "classes/oihana-validations-rules-models-ExistModelRule.html#property_message"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\models\\UniqueModelRule",
+            "name": "UniqueModelRule",
+            "summary": "Rule\u003A\u0020Validates\u0020that\u0020a\u0020given\u0020value\u0020is\u0020\u002A\u002Aunique\u002A\u002A\u0020within\u0020a\u0020model\u0020managed\u0020by\u0020the\u0020DI\u0020container.",
+            "url": "classes/oihana-validations-rules-models-UniqueModelRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\models\\UniqueModelRule\u003A\u003Acheck\u0028\u0029",
+            "name": "check",
+            "summary": "Checks\u0020whether\u0020the\u0020given\u0020value\u0020satisfies\u0020the\u0020condition.",
+            "url": "classes/oihana-validations-rules-models-UniqueModelRule.html#method_check"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\models\\UniqueModelRule\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "The\u0020internal\u0020message\u0020pattern.",
+            "url": "classes/oihana-validations-rules-models-UniqueModelRule.html#property_message"
         },                {
             "fqsen": "\\oihana\\validations\\rules\\PostalCodeRule",
             "name": "PostalCodeRule",
@@ -5210,5 +5225,10 @@ Search.appendIndex(
             "name": "rules",
             "summary": "",
             "url": "namespaces/oihana-validations-rules.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\models",
+            "name": "models",
+            "summary": "",
+            "url": "namespaces/oihana-validations-rules-models.html"
         }            ]
 );

@@ -1,25 +1,75 @@
 <?php
 
-namespace oihana\validations\rules ;
+namespace oihana\validations\rules\models ;
 
 use oihana\enums\Char;
 use oihana\models\enums\ModelParam;
 use oihana\models\interfaces\ExistModel;
-
+use oihana\validations\rules\ContainerRule;
 use org\schema\constants\Schema;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
-
 use Somnambulist\Components\Validation\Exceptions\ParameterException;
 
 /**
- * An abstract rule to defines rules with an internal DI container reference.
+ * Rule: Checks if a given value exists in a model retrieved from a DI container.
+ *
+ * This rule validates that a specific value is present in a model implementing
+ * the {@see ExistModel} interface. The model is retrieved from a PSR-11
+ * compatible container, allowing dynamic resolution of dependencies.
+ *
+ * **Usage**
+ *
+ * ```php
+ * use DI\Container;
+ * use oihana\validations\rules\models\ExistModelRule;
+ * use tests\oihana\models\mocks\MockDocumentsModel;
+ *
+ * $model = new MockDocumentsModel();
+ * $model->addDocument(['id' => 1, 'name' => 'John']);
+ *
+ * $container = new Container();
+ * $container->set('model', $model);
+ *
+ * $rule = new ExistModelRule($container, ['model' => 'model']);
+ * $rule->check(1);       // true
+ * $rule->check('Alice'); // false
+ *
+ * // With custom key
+ * $rule = new ExistModelRule($container, ['model' => 'model', 'key' => 'name']);
+ * $rule->check('John');  // true
+ * $rule->check('Alice'); // false
+ * ```
+ *
+ * **Constructor Parameters**
+ *
+ * - `ContainerInterface $container` : PSR-11 container reference
+ * - `string|array $init` : Model identifier or array of initialization parameters
+ * - `?string $key` : Optional key to use if `$init` is a string
+ *
+ * **Options**
+ *
+ * The rule accepts the following keys in `$init`:
+ * - `ExistModelRule::MODEL` : The container identifier of the model
+ * - `ExistModelRule::KEY`   : The key in the model to check against (default: {@see Schema::ID})
+ *
+ * **Exceptions**
+ *
+ * Throws {@see ParameterException} if required parameters (`MODEL` or `KEY`) are missing.
+ * Throws {@see ContainerExceptionInterface} or {@see NotFoundExceptionInterface} if container access fails.
+ *
+ * @see ExistModel The interface that the model must implement to support existence checking
+ * @see ContainerRule The abstract base class providing container access
+ *
+ * @package oihana\validations\rules\models
+ * @author  Marc Alcaraz
+ * @since   1.0.0
  */
 class ExistModelRule extends ContainerRule
 {
     /**
-     * Creates a new ContainerRule instance.
+     * Creates a new ExistModelRule instance.
      *
      * @param ContainerInterface $container The DI container reference.
      * @param array|string       $init      The options to passed-in the rule.
@@ -89,6 +139,7 @@ class ExistModelRule extends ContainerRule
     {
         $this->assertHasRequiredParameters( $this->fillableParams );
 
+        $key   = $this->parameter(self::KEY ) ;
         $model = $this->parameter(self::MODEL ) ;
 
         if( !is_string( $model ) || !$this->container->has( $model ) )
@@ -96,7 +147,6 @@ class ExistModelRule extends ContainerRule
             return false ;
         }
 
-        $key   = $this->parameter(self::KEY ) ;
         $model = $this->container->get( $model ) ;
 
         if( $model instanceof ExistModel )

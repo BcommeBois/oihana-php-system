@@ -1,15 +1,18 @@
 <?php
 
-namespace oihana\validations\rules;
+namespace tests\oihana\validations\rules\models;
 
 use DI\Container;
+
+use oihana\validations\rules\models\ExistModelRule;
 use PHPUnit\Framework\TestCase;
 
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
 
-use Somnambulist\Components\Validation\Exceptions\ParameterException;
 use tests\oihana\models\mocks\MockDocumentsModel;
+
+use Somnambulist\Components\Validation\Exceptions\ParameterException;
 
 final class ExistModelRuleTest extends TestCase
 {
