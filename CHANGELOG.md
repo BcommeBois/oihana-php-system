@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+### Added
+
+- Validations
+  - oihana\validations\rules\ConstantsRule
+  - oihana\validations\rules\JWTAlgorithmRule
+
 ## [0.0.2] - 2025-10-29 (alpha)
 
 ### Added

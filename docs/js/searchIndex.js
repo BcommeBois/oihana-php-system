@@ -4731,6 +4731,51 @@ Search.appendIndex(
             "summary": "The\u0020default\u0020error\u0020message\u0020used\u0020when\u0020validation\u0020fails.",
             "url": "classes/oihana-validations-rules-ColorRule.html#property_message"
         },                {
+            "fqsen": "\\oihana\\validations\\rules\\ConstantsRule",
+            "name": "ConstantsRule",
+            "summary": "Rule\u003A\u0020Validates\u0020that\u0020a\u0020given\u0020value\u0020is\u0020part\u0020of\u0020the\u0020constants\u0020defined\nin\u0020a\u0020class\u0020using\u0020\u007B\u0040see\u0020ConstantsTrait\u007D.",
+            "url": "classes/oihana-validations-rules-ConstantsRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ConstantsRule\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020ConstantsRule\u0020instance.",
+            "url": "classes/oihana-validations-rules-ConstantsRule.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ConstantsRule\u003A\u003A\u0024cases",
+            "name": "cases",
+            "summary": "The\u0020list\u0020of\u0020valid\u0020constant\u0020values\u0020used\u0020by\u0020this\u0020rule.",
+            "url": "classes/oihana-validations-rules-ConstantsRule.html#property_cases"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ConstantsRule\u003A\u003AclassName\u0028\u0029",
+            "name": "className",
+            "summary": "Sets\u0020the\u0020class\u0020name\u0020that\u0020provides\u0020the\u0020constants.",
+            "url": "classes/oihana-validations-rules-ConstantsRule.html#method_className"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ConstantsRule\u003A\u003Acheck\u0028\u0029",
+            "name": "check",
+            "summary": "Checks\u0020if\u0020the\u0020given\u0020value\u0020is\u0020one\u0020of\u0020the\u0020allowed\u0020constant\u0020values.",
+            "url": "classes/oihana-validations-rules-ConstantsRule.html#method_check"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ConstantsRule\u003A\u003ACLASS_NAME",
+            "name": "CLASS_NAME",
+            "summary": "The\u0020parameter\u0020key\u0020for\u0020the\u0020constants\u0020class\u0020name.",
+            "url": "classes/oihana-validations-rules-ConstantsRule.html#constant_CLASS_NAME"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ConstantsRule\u003A\u003ACASES",
+            "name": "CASES",
+            "summary": "The\u0020parameter\u0020key\u0020used\u0020to\u0020store\u0020the\u0020valid\u0020constants\u0020list.",
+            "url": "classes/oihana-validations-rules-ConstantsRule.html#constant_CASES"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ConstantsRule\u003A\u003A\u0024fillableParams",
+            "name": "fillableParams",
+            "summary": "The\u0020parameters\u0020that\u0020must\u0020be\u0020present\u0020for\u0020the\u0020rule\u0020to\u0020function.",
+            "url": "classes/oihana-validations-rules-ConstantsRule.html#property_fillableParams"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ConstantsRule\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "The\u0020internal\u0020message\u0020pattern.",
+            "url": "classes/oihana-validations-rules-ConstantsRule.html#property_message"
+        },                {
             "fqsen": "\\oihana\\validations\\rules\\ContainerRule",
             "name": "ContainerRule",
             "summary": "An\u0020abstract\u0020rule\u0020to\u0020defines\u0020rules\u0020with\u0020an\u0020internal\u0020DI\u0020container\u0020reference.",
@@ -4865,6 +4910,21 @@ Search.appendIndex(
             "name": "pattern",
             "summary": "The\u0020regular\u0020expression\u0020pattern\u0020used\u0020for\u0020validation.",
             "url": "classes/oihana-validations-rules-ISO8601DateRule.html#property_pattern"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\JWTAlgorithmRule",
+            "name": "JWTAlgorithmRule",
+            "summary": "Rule\u003A\u0020Validates\u0020that\u0020a\u0020given\u0020value\u0020is\u0020a\u0020supported\u0020JSON\u0020Web\u0020Token\u0020\u0028JWT\u0029\nsigning\u0020algorithm\u0020as\u0020defined\u0020in\u0020\u007B\u0040see\u0020JWTAlgorithm\u007D.",
+            "url": "classes/oihana-validations-rules-JWTAlgorithmRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\JWTAlgorithmRule\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020JWTAlgorithmRule\u0020instance.",
+            "url": "classes/oihana-validations-rules-JWTAlgorithmRule.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\JWTAlgorithmRule\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "The\u0020internal\u0020message\u0020pattern.",
+            "url": "classes/oihana-validations-rules-JWTAlgorithmRule.html#property_message"
         },                {
             "fqsen": "\\oihana\\validations\\rules\\PostalCodeRule",
             "name": "PostalCodeRule",
