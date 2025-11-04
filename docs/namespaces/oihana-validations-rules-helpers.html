@@ -244,11 +244,75 @@
 <dd>Generates the &#039;min:value&#039; rule expression.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/oihana-validations-rules-helpers.html#function_prohibitedIf">prohibitedIf()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Generates the &#039;prohibited_if:anotherField&#039; rule expression.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/oihana-validations-rules-helpers.html#function_prohibitedUnless">prohibitedUnless()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Generates the &#039;prohibited_unless:anotherField&#039; rule expression.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a class="" href="namespaces/oihana-validations-rules-helpers.html#function_regex">regex()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
 <dd>Generates the &#039;regex:/your-regex/&#039; rule expression.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/oihana-validations-rules-helpers.html#function_requiredIf">requiredIf()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Generates the &#039;required_if:anotherField,value1,value2,...&#039; rule expression.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/oihana-validations-rules-helpers.html#function_requiredUnless">requiredUnless()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Generates the &#039;required_unless:anotherField,value1,value2,...&#039; rule expression.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/oihana-validations-rules-helpers.html#function_requiredWith">requiredWith()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Generates the &#039;required_with:field1,field2,...&#039; rule expression.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/oihana-validations-rules-helpers.html#function_requiredWithAll">requiredWithAll()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>The field under validation must be present and not empty only
+if all the other specified fields are present.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/oihana-validations-rules-helpers.html#function_requiredWithout">requiredWithout()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Generates the &#039;required_without:field1,field2,...&#039; rule expression.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/oihana-validations-rules-helpers.html#function_requiredWithoutAll">requiredWithoutAll()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Generates the &#039;required_without_all:field1,field2,...&#039; rule expression.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/oihana-validations-rules-helpers.html#function_requires">requires()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Generates the &#039;requires:field1,field2,...&#039; rule expression.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a class="" href="namespaces/oihana-validations-rules-helpers.html#function_rules">rules()</a>
@@ -834,6 +898,108 @@ its size as a numeric value instead of the number of characters.</p>
 
 </article>
                     <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_prohibitedIf">
+        prohibitedIf()
+        <a href="namespaces/oihana-validations-rules-helpers.html#function_prohibitedIf" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/helpers/prohibitedIf.php"><a href="files/src-oihana-validations-rules-helpers-prohibitedif.html"><abbr title="src/oihana/validations/rules/helpers/prohibitedIf.php">prohibitedIf.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">19</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Generates the &#039;prohibited_if:anotherField&#039; rule expression.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">prohibitedIf</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$anotherField</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__variadic-operator">...</span><span class="phpdocumentor-signature__argument__name">$values</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"><p>The field under this rule is not allowed if another_field is provided with any of the value(s).</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$anotherField</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The another field to evaluates.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$values</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_prohibitedUnless">
+        prohibitedUnless()
+        <a href="namespaces/oihana-validations-rules-helpers.html#function_prohibitedUnless" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/helpers/prohibitedUnless.php"><a href="files/src-oihana-validations-rules-helpers-prohibitedunless.html"><abbr title="src/oihana/validations/rules/helpers/prohibitedUnless.php">prohibitedUnless.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">17</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Generates the &#039;prohibited_unless:anotherField&#039; rule expression.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">prohibitedUnless</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$anotherField</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__variadic-operator">...</span><span class="phpdocumentor-signature__argument__name">$values</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"><p>The field under this rule is not allowed unless another_field has one of these values. This is the inverse of prohibited_if.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$anotherField</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The another field to evaluates.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$values</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
     <h4 class="phpdocumentor-element__name" id="function_regex">
         regex()
         <a href="namespaces/oihana-validations-rules-helpers.html#function_regex" class="headerlink"><i class="fas fa-link"></i></a>
@@ -876,6 +1042,333 @@ $validation = new Factory()-&gt;validate
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$regex</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_requiredIf">
+        requiredIf()
+        <a href="namespaces/oihana-validations-rules-helpers.html#function_requiredIf" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/helpers/requiredIf.php"><a href="files/src-oihana-validations-rules-helpers-requiredif.html"><abbr title="src/oihana/validations/rules/helpers/requiredIf.php">requiredIf.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">20</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Generates the &#039;required_if:anotherField,value1,value2,...&#039; rule expression.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">requiredIf</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$anotherField</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__variadic-operator">...</span><span class="phpdocumentor-signature__argument__name">$values</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"><p>The field under this rule must be present and not empty if the another_field field is equal to any value.</p>
+<p>For example required_if:something,1,yes,on will be required if something's value is one of 1, '1', 'yes', or 'on'.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$anotherField</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The another field to evaluates.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$values</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_requiredUnless">
+        requiredUnless()
+        <a href="namespaces/oihana-validations-rules-helpers.html#function_requiredUnless" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/helpers/requiredUnless.php"><a href="files/src-oihana-validations-rules-helpers-requiredunless.html"><abbr title="src/oihana/validations/rules/helpers/requiredUnless.php">requiredUnless.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">18</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Generates the &#039;required_unless:anotherField,value1,value2,...&#039; rule expression.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">requiredUnless</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$anotherField</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__variadic-operator">...</span><span class="phpdocumentor-signature__argument__name">$values</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"><p>The field under validation must be present and not empty unless the another_field field is equal to any value.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$anotherField</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The another field to evaluates.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$values</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_requiredWith">
+        requiredWith()
+        <a href="namespaces/oihana-validations-rules-helpers.html#function_requiredWith" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/helpers/requiredWith.php"><a href="files/src-oihana-validations-rules-helpers-requiredwith.html"><abbr title="src/oihana/validations/rules/helpers/requiredWith.php">requiredWith.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">27</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Generates the &#039;required_with:field1,field2,...&#039; rule expression.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">requiredWith</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__variadic-operator">...</span><span class="phpdocumentor-signature__argument__name">$fields</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"><p>The field under validation must be present and not empty only
+if any of the other specified fields are present.</p>
+<p>Note: the behaviour of this rule can be circumvented if the rule this
+is defined on is sometimes or nullable.</p>
+<p>For example:
+if a is &quot;required_with:b&quot;, but a is also only sometimes present,
+then the required_with will never trigger as the sometimes rule will negate it.
+a would also need to be explicitly passed to trigger the rule.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$fields</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_requiredWithAll">
+        requiredWithAll()
+        <a href="namespaces/oihana-validations-rules-helpers.html#function_requiredWithAll" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/helpers/requiredWithAll.php"><a href="files/src-oihana-validations-rules-helpers-requiredwithall.html"><abbr title="src/oihana/validations/rules/helpers/requiredWithAll.php">requiredWithAll.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">17</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The field under validation must be present and not empty only
+if all the other specified fields are present.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">requiredWithAll</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__variadic-operator">...</span><span class="phpdocumentor-signature__argument__name">$fields</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$fields</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_requiredWithout">
+        requiredWithout()
+        <a href="namespaces/oihana-validations-rules-helpers.html#function_requiredWithout" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/helpers/requiredWithout.php"><a href="files/src-oihana-validations-rules-helpers-requiredwithout.html"><abbr title="src/oihana/validations/rules/helpers/requiredWithout.php">requiredWithout.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">19</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Generates the &#039;required_without:field1,field2,...&#039; rule expression.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">requiredWithout</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__variadic-operator">...</span><span class="phpdocumentor-signature__argument__name">$fields</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"><p>The field under validation must be present and not empty only
+when any of the other specified fields are not present.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$fields</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_requiredWithoutAll">
+        requiredWithoutAll()
+        <a href="namespaces/oihana-validations-rules-helpers.html#function_requiredWithoutAll" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/helpers/requiredWithoutAll.php"><a href="files/src-oihana-validations-rules-helpers-requiredwithoutall.html"><abbr title="src/oihana/validations/rules/helpers/requiredWithoutAll.php">requiredWithoutAll.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">19</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Generates the &#039;required_without_all:field1,field2,...&#039; rule expression.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">requiredWithoutAll</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__variadic-operator">...</span><span class="phpdocumentor-signature__argument__name">$fields</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"><p>The field under validation must be present
+and not empty only when all the other specified fields are not present.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$fields</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_requires">
+        requires()
+        <a href="namespaces/oihana-validations-rules-helpers.html#function_requires" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/helpers/requires.php"><a href="files/src-oihana-validations-rules-helpers-requires.html"><abbr title="src/oihana/validations/rules/helpers/requires.php">requires.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">25</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Generates the &#039;requires:field1,field2,...&#039; rule expression.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">requires</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__variadic-operator">...</span><span class="phpdocumentor-signature__argument__name">$fields</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+        <section class="phpdocumentor-description"><p>The field under validation requires that the specified
+fields are present in the input data and are not empty.</p>
+<p>For example: field b &quot;requires:a&quot;; if a is either not present, or has an &quot;empty&quot; value,
+then the validation fails. &quot;empty&quot; is false, empty string, or null.</p>
+<p>This is an extension of required_with, however the rule will fail when used with sometimes or nullable.
+For example: if b &quot;requires:a&quot; and &quot;a&quot; is allowed to be nullable,
+b will fail as it explicitly requires a with a value.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$fields</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
@@ -1247,7 +1740,16 @@ The default is to validate the common format: any_scheme://.... You can specify 
                                                     <li class=""><a href="namespaces/oihana-validations-rules-helpers.html#function_length">length()</a></li>
                                                     <li class=""><a href="namespaces/oihana-validations-rules-helpers.html#function_max">max()</a></li>
                                                     <li class=""><a href="namespaces/oihana-validations-rules-helpers.html#function_min">min()</a></li>
+                                                    <li class=""><a href="namespaces/oihana-validations-rules-helpers.html#function_prohibitedIf">prohibitedIf()</a></li>
+                                                    <li class=""><a href="namespaces/oihana-validations-rules-helpers.html#function_prohibitedUnless">prohibitedUnless()</a></li>
                                                     <li class=""><a href="namespaces/oihana-validations-rules-helpers.html#function_regex">regex()</a></li>
+                                                    <li class=""><a href="namespaces/oihana-validations-rules-helpers.html#function_requiredIf">requiredIf()</a></li>
+                                                    <li class=""><a href="namespaces/oihana-validations-rules-helpers.html#function_requiredUnless">requiredUnless()</a></li>
+                                                    <li class=""><a href="namespaces/oihana-validations-rules-helpers.html#function_requiredWith">requiredWith()</a></li>
+                                                    <li class=""><a href="namespaces/oihana-validations-rules-helpers.html#function_requiredWithAll">requiredWithAll()</a></li>
+                                                    <li class=""><a href="namespaces/oihana-validations-rules-helpers.html#function_requiredWithout">requiredWithout()</a></li>
+                                                    <li class=""><a href="namespaces/oihana-validations-rules-helpers.html#function_requiredWithoutAll">requiredWithoutAll()</a></li>
+                                                    <li class=""><a href="namespaces/oihana-validations-rules-helpers.html#function_requires">requires()</a></li>
                                                     <li class=""><a href="namespaces/oihana-validations-rules-helpers.html#function_rules">rules()</a></li>
                                                     <li class=""><a href="namespaces/oihana-validations-rules-helpers.html#function_same">same()</a></li>
                                                     <li class=""><a href="namespaces/oihana-validations-rules-helpers.html#function_startsWith">startsWith()</a></li>

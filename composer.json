@@ -55,6 +55,8 @@
             "src/oihana/validations/rules/helpers/length.php",
             "src/oihana/validations/rules/helpers/max.php",
             "src/oihana/validations/rules/helpers/min.php" ,
+            "src/oihana/validations/rules/helpers/prohibitedIf.php" ,
+            "src/oihana/validations/rules/helpers/prohibitedUnless.php" ,
             "src/oihana/validations/rules/helpers/regex.php" ,
             "src/oihana/validations/rules/helpers/requiredIf.php" ,
             "src/oihana/validations/rules/helpers/requiredUnless.php" ,

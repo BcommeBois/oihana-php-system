@@ -446,7 +446,7 @@ class Rules
      * This is the inverse of prohibited_if.
      */
     public const string PROHIBITED_UNLESS = 'prohibited_unless' ;
-    
+
     /**
      * The field under this rule must match the given regex.
      *

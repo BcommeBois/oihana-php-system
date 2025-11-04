@@ -4636,15 +4636,30 @@ Search.appendIndex(
             "summary": "The\u0020field\u0020under\u0020validation\u0020must\u0020be\u0020present\u0020and\u0020not\u0020empty\u0020unless\u0020the\u0020another_field\u0020field\u0020is\u0020equal\u0020to\u0020any\u0020value.",
             "url": "classes/oihana-validations-enums-Rules.html#constant_REQUIRED_UNLESS"
         },                {
-            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AREQUIRES",
-            "name": "REQUIRES",
-            "summary": "The\u0020field\u0020under\u0020validation\u0020requires\u0020that\u0020the\u0020specified\u0020fields\u0020are\u0020present\u0020in\u0020the\u0020input\u0020data\u0020and\u0020are\u0020not\u0020empty.",
-            "url": "classes/oihana-validations-enums-Rules.html#constant_REQUIRES"
-        },                {
             "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AREQUIRED_WITH",
             "name": "REQUIRED_WITH",
             "summary": "The\u0020field\u0020under\u0020validation\u0020must\u0020be\u0020present\u0020and\u0020not\u0020empty\u0020only\u0020if\u0020any\u0020of\u0020the\u0020other\u0020specified\u0020fields\u0020are\u0020present.",
             "url": "classes/oihana-validations-enums-Rules.html#constant_REQUIRED_WITH"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AREQUIRED_WITH_ALL",
+            "name": "REQUIRED_WITH_ALL",
+            "summary": "The\u0020field\u0020under\u0020validation\u0020must\u0020be\u0020present\u0020and\u0020not\u0020empty\u0020only\u0020if\u0020all\u0020the\u0020other\u0020specified\u0020fields\u0020are\u0020present.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_REQUIRED_WITH_ALL"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AREQUIRED_WITHOUT",
+            "name": "REQUIRED_WITHOUT",
+            "summary": "The\u0020field\u0020under\u0020validation\u0020must\u0020be\u0020present\u0020and\u0020not\u0020empty\u0020only\u0020when\u0020any\u0020of\u0020the\u0020other\u0020specified\u0020fields\u0020are\u0020not\u0020present.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_REQUIRED_WITHOUT"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AREQUIRED_WITHOUT_ALL",
+            "name": "REQUIRED_WITHOUT_ALL",
+            "summary": "The\u0020field\u0020under\u0020validation\u0020must\u0020be\u0020present\u0020and\u0020not\u0020empty\u0020only\u0020when\u0020all\u0020the\u0020other\u0020specified\u0020fields\u0020are\u0020not\u0020present.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_REQUIRED_WITHOUT_ALL"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AREQUIRES",
+            "name": "REQUIRES",
+            "summary": "The\u0020field\u0020under\u0020validation\u0020requires\u0020that\u0020the\u0020specified\u0020fields\u0020are\u0020present\u0020in\u0020the\u0020input\u0020data\u0020and\u0020are\u0020not\u0020empty.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_REQUIRES"
         },                {
             "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ASAME",
             "name": "SAME",
@@ -4851,10 +4866,55 @@ Search.appendIndex(
             "summary": "Generates\u0020the\u0020\u0027min\u003Avalue\u0027\u0020rule\u0020expression.",
             "url": "namespaces/oihana-validations-rules-helpers.html#function_min"
         },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\prohibitedIf\u0028\u0029",
+            "name": "prohibitedIf",
+            "summary": "Generates\u0020the\u0020\u0027prohibited_if\u003AanotherField\u0027\u0020rule\u0020expression.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_prohibitedIf"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\prohibitedUnless\u0028\u0029",
+            "name": "prohibitedUnless",
+            "summary": "Generates\u0020the\u0020\u0027prohibited_unless\u003AanotherField\u0027\u0020rule\u0020expression.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_prohibitedUnless"
+        },                {
             "fqsen": "\\oihana\\validations\\rules\\helpers\\regex\u0028\u0029",
             "name": "regex",
             "summary": "Generates\u0020the\u0020\u0027regex\u003A\/your\u002Dregex\/\u0027\u0020rule\u0020expression.",
             "url": "namespaces/oihana-validations-rules-helpers.html#function_regex"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\requiredIf\u0028\u0029",
+            "name": "requiredIf",
+            "summary": "Generates\u0020the\u0020\u0027required_if\u003AanotherField,value1,value2,...\u0027\u0020rule\u0020expression.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_requiredIf"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\requiredUnless\u0028\u0029",
+            "name": "requiredUnless",
+            "summary": "Generates\u0020the\u0020\u0027required_unless\u003AanotherField,value1,value2,...\u0027\u0020rule\u0020expression.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_requiredUnless"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\requiredWith\u0028\u0029",
+            "name": "requiredWith",
+            "summary": "Generates\u0020the\u0020\u0027required_with\u003Afield1,field2,...\u0027\u0020rule\u0020expression.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_requiredWith"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\requiredWithAll\u0028\u0029",
+            "name": "requiredWithAll",
+            "summary": "The\u0020field\u0020under\u0020validation\u0020must\u0020be\u0020present\u0020and\u0020not\u0020empty\u0020only\nif\u0020all\u0020the\u0020other\u0020specified\u0020fields\u0020are\u0020present.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_requiredWithAll"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\requiredWithout\u0028\u0029",
+            "name": "requiredWithout",
+            "summary": "Generates\u0020the\u0020\u0027required_without\u003Afield1,field2,...\u0027\u0020rule\u0020expression.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_requiredWithout"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\requiredWithoutAll\u0028\u0029",
+            "name": "requiredWithoutAll",
+            "summary": "Generates\u0020the\u0020\u0027required_without_all\u003Afield1,field2,...\u0027\u0020rule\u0020expression.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_requiredWithoutAll"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\requires\u0028\u0029",
+            "name": "requires",
+            "summary": "Generates\u0020the\u0020\u0027requires\u003Afield1,field2,...\u0027\u0020rule\u0020expression.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_requires"
         },                {
             "fqsen": "\\oihana\\validations\\rules\\helpers\\rules\u0028\u0029",
             "name": "rules",

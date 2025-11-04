@@ -16,6 +16,8 @@ use function oihana\validations\rules\helpers\endsWith;
 use function oihana\validations\rules\helpers\length;
 use function oihana\validations\rules\helpers\max;
 use function oihana\validations\rules\helpers\min;
+use function oihana\validations\rules\helpers\prohibitedIf;
+use function oihana\validations\rules\helpers\prohibitedUnless;
 use function oihana\validations\rules\helpers\regex;
 use function oihana\validations\rules\helpers\requiredIf;
 use function oihana\validations\rules\helpers\requiredUnless;
@@ -114,6 +116,16 @@ final class HelpersTest extends TestCase
     public function testRegex(): void
     {
         $this->assertEquals( 'regex:/(this|that|value)/'  , regex( '/(this|that|value)/' ) ) ;
+    }
+
+    public function testProhibitedIf(): void
+    {
+        $this->assertEquals( 'prohibited_if:password,foo,bar'  , prohibitedIf( 'password' , 'foo' , 'bar' ) ) ;
+    }
+
+    public function testProhibitedUnless(): void
+    {
+        $this->assertEquals( 'prohibited_unless:password,foo,bar'  , prohibitedUnless( 'password' , 'foo' , 'bar'  ) ) ;
     }
 
     public function testRequiredIf(): void
