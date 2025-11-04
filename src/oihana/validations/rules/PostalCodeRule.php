@@ -84,7 +84,7 @@ class PostalCodeRule extends Rule
      * The internal message pattern.
      * @var string
      */
-    protected string $message = ":attribute is not a valid postal code.";
+    protected string $message = ":attribute is not a valid postal code with the value ':value'.";
 
     /**
      * The country code of the postalCode regex pattern.
