@@ -9,10 +9,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Added
 
 - Validations
-  - oihana\validations\rules\ConstantsRule
-  - oihana\validations\rules\JWTAlgorithmRule
-  - oihana\validations\rules\models\ExistModelRule
-  - oihana\validations\rules\models\UniqueModelRule
+  - Helpers: after, before, between, date, different, digits, digitsBetween, endsWith, length, max, min, regex, same, startsWith, url
+  - Rules: 
+    - ConstantsRule
+    - JWTAlgorithmRule
+    - models\ExistModelRule
+    - models\UniqueModelRule
 
 ## [0.0.2] - 2025-10-29 (alpha)
 

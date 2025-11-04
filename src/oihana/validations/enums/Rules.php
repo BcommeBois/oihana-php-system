@@ -548,6 +548,11 @@ class Rules
     public const string REQUIRED_WITH = 'required_with' ;
 
     /**
+     * The field value under this rule must have the same value as another_field.
+     */
+    public const string SAME = 'same' ;
+
+    /**
      * Sometimes attributes can be left off or can be null.
      *
      * These cases should be handled carefully and have different results after validation.

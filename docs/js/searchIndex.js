@@ -4646,6 +4646,11 @@ Search.appendIndex(
             "summary": "The\u0020field\u0020under\u0020validation\u0020must\u0020be\u0020present\u0020and\u0020not\u0020empty\u0020only\u0020if\u0020any\u0020of\u0020the\u0020other\u0020specified\u0020fields\u0020are\u0020present.",
             "url": "classes/oihana-validations-enums-Rules.html#constant_REQUIRED_WITH"
         },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ASAME",
+            "name": "SAME",
+            "summary": "The\u0020field\u0020value\u0020under\u0020this\u0020rule\u0020must\u0020have\u0020the\u0020same\u0020value\u0020as\u0020another_field.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_SAME"
+        },                {
             "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ASOMETIMES",
             "name": "SOMETIMES",
             "summary": "Sometimes\u0020attributes\u0020can\u0020be\u0020left\u0020off\u0020or\u0020can\u0020be\u0020null.",
@@ -4790,6 +4795,81 @@ Search.appendIndex(
             "name": "container",
             "summary": "The\u0020DI\u0020container\u0020reference.",
             "url": "classes/oihana-validations-rules-ContainerRule.html#property_container"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\after\u0028\u0029",
+            "name": "after",
+            "summary": "Generates\u0020the\u0020\u0027after\u003Adate\u0027\u0020rule\u0020expression.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_after"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\before\u0028\u0029",
+            "name": "before",
+            "summary": "Generates\u0020the\u0020\u0027before\u003Adate\u0027\u0020rule\u0020expression.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_before"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\between\u0028\u0029",
+            "name": "between",
+            "summary": "Generates\u0020the\u0020\u0027between\u003Amin,max\u0027\u0020rule\u0020expression.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_between"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\date\u0028\u0029",
+            "name": "date",
+            "summary": "Generates\u0020the\u0020\u0027date\u005B\u003Aformat\u005D\u0027\u0020rule\u0020expression.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_date"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\different\u0028\u0029",
+            "name": "different",
+            "summary": "Generates\u0020the\u0020\u0027different\u003AanotherField\u0027\u0020rule\u0020expression.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_different"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\digits\u0028\u0029",
+            "name": "digits",
+            "summary": "Generates\u0020the\u0020\u0027digits\u003Avalue\u0027\u0020rule\u0020expression.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_digits"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\digitsBetween\u0028\u0029",
+            "name": "digitsBetween",
+            "summary": "Generates\u0020the\u0020\u0027digits_between\u003Amin,max\u0027\u0020rule\u0020expression.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_digitsBetween"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\endsWith\u0028\u0029",
+            "name": "endsWith",
+            "summary": "Generates\u0020the\u0020\u0027ends_with\u003AanotherField\u0027\u0020rule\u0020expression.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_endsWith"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\length\u0028\u0029",
+            "name": "length",
+            "summary": "Generates\u0020the\u0020\u0027length\u003Anumber\u0027\u0020rule\u0020expression.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_length"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\max\u0028\u0029",
+            "name": "max",
+            "summary": "Generates\u0020the\u0020\u0027max\u003Avalue\u0027\u0020rule\u0020expression.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_max"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\min\u0028\u0029",
+            "name": "min",
+            "summary": "Generates\u0020the\u0020\u0027min\u003Avalue\u0027\u0020rule\u0020expression.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_min"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\regex\u0028\u0029",
+            "name": "regex",
+            "summary": "Generates\u0020the\u0020\u0027regex\u003A\/your\u002Dregex\/\u0027\u0020rule\u0020expression.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_regex"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\same\u0028\u0029",
+            "name": "same",
+            "summary": "Generates\u0020the\u0020\u0027same\u003AanotherField\u0027\u0020rule\u0020expression.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_same"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\startsWith\u0028\u0029",
+            "name": "startsWith",
+            "summary": "Generates\u0020the\u0020\u0027starts_with\u003AanotherField\u0027\u0020rule\u0020expression.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_startsWith"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\url\u0028\u0029",
+            "name": "url",
+            "summary": "Generates\u0020the\u0020\u0027url\u005B\u003Ascheme\u005D\u0027\u0020rule\u0020expression.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_url"
         },                {
             "fqsen": "\\oihana\\validations\\rules\\InstanceOfRule",
             "name": "InstanceOfRule",
@@ -5225,6 +5305,11 @@ Search.appendIndex(
             "name": "rules",
             "summary": "",
             "url": "namespaces/oihana-validations-rules.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers",
+            "name": "helpers",
+            "summary": "",
+            "url": "namespaces/oihana-validations-rules-helpers.html"
         },                {
             "fqsen": "\\oihana\\validations\\rules\\models",
             "name": "models",

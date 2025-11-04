@@ -28,6 +28,7 @@
         "files":
         [
             "src/oihana/controllers/helpers/getController.php",
+            
             "src/oihana/init/initConfig.php",
             "src/oihana/init/initContainer.php",
             "src/oihana/init/initDefaultTimezone.php",
@@ -35,12 +36,29 @@
             "src/oihana/init/initErrors.php",
             "src/oihana/init/initMemoryLimit.php",
             "src/oihana/init/setIniIfExists.php",
+            
             "src/oihana/models/helpers/cacheCollection.php",
             "src/oihana/models/helpers/documentUrl.php",
             "src/oihana/models/helpers/getDocumentsModel.php" ,
             "src/oihana/models/helpers/getModel.php" ,
             "src/oihana/models/helpers/resolveDependency.php" ,
-            "src/oihana/routes/helpers/withPlaceholder.php"
+            "src/oihana/routes/helpers/withPlaceholder.php",
+            
+            "src/oihana/validations/rules/helpers/after.php",
+            "src/oihana/validations/rules/helpers/before.php",
+            "src/oihana/validations/rules/helpers/between.php",
+            "src/oihana/validations/rules/helpers/date.php",
+            "src/oihana/validations/rules/helpers/different.php",
+            "src/oihana/validations/rules/helpers/digits.php",
+            "src/oihana/validations/rules/helpers/digitsBetween.php",
+            "src/oihana/validations/rules/helpers/endsWith.php",
+            "src/oihana/validations/rules/helpers/length.php",
+            "src/oihana/validations/rules/helpers/max.php",
+            "src/oihana/validations/rules/helpers/min.php" ,
+            "src/oihana/validations/rules/helpers/regex.php" ,
+            "src/oihana/validations/rules/helpers/same.php",
+            "src/oihana/validations/rules/helpers/startsWith.php",
+            "src/oihana/validations/rules/helpers/url.php"
         ]
     },
     "autoload-dev": {
