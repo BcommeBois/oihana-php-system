@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
   - Rules: 
     - ConstantsRule
     - JWTAlgorithmRule
+    - EqualRule, GreaterThanOrEqualRule, GreaterThanRule, LessThan, LessThanOrEqualRule
     - models\ExistModelRule
     - models\UniqueModelRule
 

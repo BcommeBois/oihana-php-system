@@ -207,6 +207,11 @@ class Rules
     public const string CALLBACK = 'callback' ;
 
     /**
+     * Ensures that a given value matches a valid color expression (e.g. "#ff0000").
+     */
+    public const string COLOR = 'color' ;
+
+    /**
      * The field under this rule must be valid date following a given format.
      * Parameter format is optional, default format is Y-m-d.
      */
@@ -279,6 +284,11 @@ class Rules
     public const string ENDS_WITH = 'ends_with' ;
 
     /**
+     * Ensures a given value is **equal to** another field's value or to a fixed numeric constant
+     */
+    public const string EQUAL = 'equal' ;
+
+    /**
      * The field under this rule must end with an extension corresponding to one of those listed.
      *
      * This is useful for validating a file type for a given path or url.
@@ -290,6 +300,16 @@ class Rules
      * The field under validation must be an float.
      */
     public const string FLOAT = 'float' ;
+
+    /**
+     * Ensures a given value is **greater than** another field's value or to a fixed numeric constant
+     */
+    public const string GREATER_THAN = 'gt' ;
+
+    /**
+     * Ensures a given value is **greater than or equal to** another field's value or to a fixed numeric constant
+     */
+    public const string GREATER_THAN_OR_EQUAL = 'gte' ;
 
     /**
      * The field under this rule must be included in the given list of values.
@@ -356,6 +376,16 @@ class Rules
      * The field under this validation must be a string of exactly the length specified.
      */
     public const string LENGTH = 'length' ;
+
+    /**
+     * Ensures a given value is **less than** another field's value or to a fixed numeric constant
+     */
+    public const string LESS_THAN = 'lt' ;
+
+    /**
+     * Ensures a given value is **less than or equal to** another field's value or to a fixed numeric constant
+     */
+    public const string LESS_THAN_OR_EQUAL = 'lte' ;
 
     /**
      * The field under this validation must be in lowercase.

@@ -13,7 +13,6 @@ use Somnambulist\Components\Validation\Rule;
  * $rule = new InstanceOfRule(DateTime::class);
  * $rule->check(new DateTime()) ; // true
  * $rule->check(new stdClass()) ; // false
- * $rule-
  *
  * @package oihana\api\validations\rules
  * @author  Marc Alcaraz (ekameleon)
