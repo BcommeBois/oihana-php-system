@@ -4511,6 +4511,11 @@ Search.appendIndex(
             "summary": "The\u0020field\u0020under\u0020validation\u0020must\u0020be\u0020numeric\u0020and\u0020have\u0020a\u0020length\u0020between\u0020the\u0020given\u0020min\u0020and\u0020max.",
             "url": "classes/oihana-validations-enums-Rules.html#constant_DIGITS_BETWEEN"
         },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AELEVATION",
+            "name": "ELEVATION",
+            "summary": "Ensures\u0020that\u0020a\u0020value\u0020represents\u0020a\u0020valid\u0020elevation\u0020\u0028altitude\u0029\u0020in\u0020meters.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_ELEVATION"
+        },                {
             "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AEMAIL",
             "name": "EMAIL",
             "summary": "The\u0020field\u0020under\u0020this\u0020validation\u0020must\u0020be\u0020a\u0020valid\u0020email\u0020address\u0020according\u0020to\u0020the\u0020built\u002Din\u0020PHP\u0020filter\u0020extension.",
@@ -4523,7 +4528,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AEQUAL",
             "name": "EQUAL",
-            "summary": "Ensures\u0020a\u0020given\u0020value\u0020is\u0020\u002A\u002Aequal\u0020to\u002A\u002A\u0020another\u0020field\u0027s\u0020value\u0020or\u0020to\u0020a\u0020fixed\u0020numeric\u0020constant",
+            "summary": "Ensures\u0020a\u0020given\u0020value\u0020is\u0020\u002A\u002Aequal\u0020to\u002A\u002A\u0020another\u0020field\u0027s\u0020value\u0020or\u0020to\u0020a\u0020fixed\u0020numeric\u0020constant.",
             "url": "classes/oihana-validations-enums-Rules.html#constant_EQUAL"
         },                {
             "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AEXTENSION",
@@ -4538,12 +4543,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AGREATER_THAN",
             "name": "GREATER_THAN",
-            "summary": "Ensures\u0020a\u0020given\u0020value\u0020is\u0020\u002A\u002Agreater\u0020than\u002A\u002A\u0020another\u0020field\u0027s\u0020value\u0020or\u0020to\u0020a\u0020fixed\u0020numeric\u0020constant",
+            "summary": "Ensures\u0020a\u0020given\u0020value\u0020is\u0020\u002A\u002Agreater\u0020than\u002A\u002A\u0020another\u0020field\u0027s\u0020value\u0020or\u0020to\u0020a\u0020fixed\u0020numeric\u0020constant.",
             "url": "classes/oihana-validations-enums-Rules.html#constant_GREATER_THAN"
         },                {
             "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AGREATER_THAN_OR_EQUAL",
             "name": "GREATER_THAN_OR_EQUAL",
-            "summary": "Ensures\u0020a\u0020given\u0020value\u0020is\u0020\u002A\u002Agreater\u0020than\u0020or\u0020equal\u0020to\u002A\u002A\u0020another\u0020field\u0027s\u0020value\u0020or\u0020to\u0020a\u0020fixed\u0020numeric\u0020constant",
+            "summary": "Ensures\u0020a\u0020given\u0020value\u0020is\u0020\u002A\u002Agreater\u0020than\u0020or\u0020equal\u0020to\u002A\u002A\u0020another\u0020field\u0027s\u0020value\u0020or\u0020to\u0020a\u0020fixed\u0020numeric\u0020constant.",
             "url": "classes/oihana-validations-enums-Rules.html#constant_GREATER_THAN_OR_EQUAL"
         },                {
             "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AIN",
@@ -4576,6 +4581,11 @@ Search.appendIndex(
             "summary": "The\u0020field\u0020under\u0020this\u0020validation\u0020must\u0020be\u0020a\u0020valid\u0020JSON\u0020string.",
             "url": "classes/oihana-validations-enums-Rules.html#constant_JSON"
         },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ALATITUDE",
+            "name": "LATITUDE",
+            "summary": "Validates\u0020that\u0020a\u0020value\u0020represents\u0020a\u0020valid\u0020geographic\u0020latitude.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_LATITUDE"
+        },                {
             "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ALENGTH",
             "name": "LENGTH",
             "summary": "The\u0020field\u0020under\u0020this\u0020validation\u0020must\u0020be\u0020a\u0020string\u0020of\u0020exactly\u0020the\u0020length\u0020specified.",
@@ -4583,13 +4593,18 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ALESS_THAN",
             "name": "LESS_THAN",
-            "summary": "Ensures\u0020a\u0020given\u0020value\u0020is\u0020\u002A\u002Aless\u0020than\u002A\u002A\u0020another\u0020field\u0027s\u0020value\u0020or\u0020to\u0020a\u0020fixed\u0020numeric\u0020constant",
+            "summary": "Ensures\u0020a\u0020given\u0020value\u0020is\u0020\u002A\u002Aless\u0020than\u002A\u002A\u0020another\u0020field\u0027s\u0020value\u0020or\u0020to\u0020a\u0020fixed\u0020numeric\u0020constant.",
             "url": "classes/oihana-validations-enums-Rules.html#constant_LESS_THAN"
         },                {
             "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ALESS_THAN_OR_EQUAL",
             "name": "LESS_THAN_OR_EQUAL",
-            "summary": "Ensures\u0020a\u0020given\u0020value\u0020is\u0020\u002A\u002Aless\u0020than\u0020or\u0020equal\u0020to\u002A\u002A\u0020another\u0020field\u0027s\u0020value\u0020or\u0020to\u0020a\u0020fixed\u0020numeric\u0020constant",
+            "summary": "Ensures\u0020a\u0020given\u0020value\u0020is\u0020\u002A\u002Aless\u0020than\u0020or\u0020equal\u0020to\u002A\u002A\u0020another\u0020field\u0027s\u0020value\u0020or\u0020to\u0020a\u0020fixed\u0020numeric\u0020constant.",
             "url": "classes/oihana-validations-enums-Rules.html#constant_LESS_THAN_OR_EQUAL"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ALONGITUDE",
+            "name": "LONGITUDE",
+            "summary": "Validates\u0020that\u0020a\u0020value\u0020represents\u0020a\u0020valid\u0020geographic\u0020longitude.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_LONGITUDE"
         },                {
             "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ALOWERCASE",
             "name": "LOWERCASE",
@@ -4640,6 +4655,11 @@ Search.appendIndex(
             "name": "PROHIBITED_UNLESS",
             "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020is\u0020not\u0020allowed\u0020unless\u0020another_field\u0020has\u0020one\u0020of\u0020these\u0020values.",
             "url": "classes/oihana-validations-enums-Rules.html#constant_PROHIBITED_UNLESS"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ARANGE",
+            "name": "RANGE",
+            "summary": "Validates\u0020that\u0020a\u0020numeric\u0020value\u0020lies\u0020between\u0020a\u0020minimum\u0020and\u0020a\u0020maximum\u0020value\u0020\u0028inclusive\u0029.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_RANGE"
         },                {
             "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AREGEX",
             "name": "REGEX",
@@ -4726,6 +4746,86 @@ Search.appendIndex(
             "summary": "The\u0020field\u0020under\u0020this\u0020validation\u0020must\u0020be\u0020a\u0020valid\u0020UUID\u0020and\u0020not\u0020the\u0020nil\u0020UUID\u0020string.",
             "url": "classes/oihana-validations-enums-Rules.html#constant_UUID"
         },                {
+            "fqsen": "\\oihana\\validations\\rules\\abstracts\\AbstractRangeRule",
+            "name": "AbstractRangeRule",
+            "summary": "Base\u0020class\u0020for\u0020validation\u0020rules\u0020ensuring\u0020a\u0020numeric\u0020value\u0020lies\u0020within\u0020a\u0020specific\u0020range.",
+            "url": "classes/oihana-validations-rules-abstracts-AbstractRangeRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\abstracts\\AbstractRangeRule\u003A\u003Acheck\u0028\u0029",
+            "name": "check",
+            "summary": "Check\u0020if\u0020the\u0020given\u0020value\u0020lies\u0020within\u0020the\u0020defined\u0020range.",
+            "url": "classes/oihana-validations-rules-abstracts-AbstractRangeRule.html#method_check"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\abstracts\\AbstractRangeRule\u003A\u003AgetMin\u0028\u0029",
+            "name": "getMin",
+            "summary": "Gets\u0020the\u0020minimum\u0020bound.",
+            "url": "classes/oihana-validations-rules-abstracts-AbstractRangeRule.html#method_getMin"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\abstracts\\AbstractRangeRule\u003A\u003AgetMax\u0028\u0029",
+            "name": "getMax",
+            "summary": "Gets\u0020the\u0020maximum\u0020bound.",
+            "url": "classes/oihana-validations-rules-abstracts-AbstractRangeRule.html#method_getMax"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\abstracts\\AbstractRangeRule\u003A\u003A\u0024min",
+            "name": "min",
+            "summary": "Lower\u0020numeric\u0020bound\u0020\u0028inclusive\u0029.",
+            "url": "classes/oihana-validations-rules-abstracts-AbstractRangeRule.html#property_min"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\abstracts\\AbstractRangeRule\u003A\u003A\u0024max",
+            "name": "max",
+            "summary": "Upper\u0020numeric\u0020bound\u0020\u0028inclusive\u0029.",
+            "url": "classes/oihana-validations-rules-abstracts-AbstractRangeRule.html#property_max"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\abstracts\\AbstractRangeRule\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "Default\u0020message\u0020template.",
+            "url": "classes/oihana-validations-rules-abstracts-AbstractRangeRule.html#property_message"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\abstracts\\ComparisonRule",
+            "name": "ComparisonRule",
+            "summary": "Base\u0020class\u0020for\u0020numeric\u0020comparison\u0020rules.",
+            "url": "classes/oihana-validations-rules-abstracts-ComparisonRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\abstracts\\ComparisonRule\u003A\u003Acheck\u0028\u0029",
+            "name": "check",
+            "summary": "Performs\u0020the\u0020comparison\u0020between\u0020the\u0020attribute\u0020value\u0020and\u0020the\u0020comparison\u0020value.",
+            "url": "classes/oihana-validations-rules-abstracts-ComparisonRule.html#method_check"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\abstracts\\ComparisonRule\u003A\u003Acompare\u0028\u0029",
+            "name": "compare",
+            "summary": "Must\u0020be\u0020implemented\u0020by\u0020subclasses\u0020to\u0020perform\u0020the\u0020actual\u0020comparison.",
+            "url": "classes/oihana-validations-rules-abstracts-ComparisonRule.html#method_compare"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\abstracts\\ComparisonRule\u003A\u003AgetComparisonValue\u0028\u0029",
+            "name": "getComparisonValue",
+            "summary": "Get\u0020the\u0020comparison\u0020value\u0020from\u0020either\u0020a\u0020field\u0020name\u0020or\u0020a\u0020direct\u0020value",
+            "url": "classes/oihana-validations-rules-abstracts-ComparisonRule.html#method_getComparisonValue"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\abstracts\\ComparisonRule\u003A\u003ACOMPARISON_FIELD",
+            "name": "COMPARISON_FIELD",
+            "summary": "The\u0020\u0027comparison_field\u0027\u0020parameter.",
+            "url": "classes/oihana-validations-rules-abstracts-ComparisonRule.html#constant_COMPARISON_FIELD"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\abstracts\\ComparisonRule\u003A\u003A\u0024fillableParams",
+            "name": "fillableParams",
+            "summary": "",
+            "url": "classes/oihana-validations-rules-abstracts-ComparisonRule.html#property_fillableParams"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\abstracts\\ContainerRule",
+            "name": "ContainerRule",
+            "summary": "An\u0020abstract\u0020rule\u0020to\u0020defines\u0020rules\u0020with\u0020an\u0020internal\u0020DI\u0020container\u0020reference.",
+            "url": "classes/oihana-validations-rules-abstracts-ContainerRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\abstracts\\ContainerRule\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020ContainerRule\u0020instance.",
+            "url": "classes/oihana-validations-rules-abstracts-ContainerRule.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\abstracts\\ContainerRule\u003A\u003A\u0024container",
+            "name": "container",
+            "summary": "The\u0020DI\u0020container\u0020reference.",
+            "url": "classes/oihana-validations-rules-abstracts-ContainerRule.html#property_container"
+        },                {
             "fqsen": "\\oihana\\validations\\rules\\ColorRule",
             "name": "ColorRule",
             "summary": "Rule\u003A\u0020Ensures\u0020that\u0020a\u0020given\u0020value\u0020matches\u0020a\u0020valid\u0020color\u0020expression\u0020\u0028e.g.\u0020\u0022\u0023ff0000\u0022\u0029.",
@@ -4781,36 +4881,6 @@ Search.appendIndex(
             "summary": "The\u0020default\u0020error\u0020message\u0020used\u0020when\u0020validation\u0020fails.",
             "url": "classes/oihana-validations-rules-ColorRule.html#property_message"
         },                {
-            "fqsen": "\\oihana\\validations\\rules\\ComparisonRule",
-            "name": "ComparisonRule",
-            "summary": "Base\u0020class\u0020for\u0020numeric\u0020comparison\u0020rules.",
-            "url": "classes/oihana-validations-rules-ComparisonRule.html"
-        },                {
-            "fqsen": "\\oihana\\validations\\rules\\ComparisonRule\u003A\u003Acheck\u0028\u0029",
-            "name": "check",
-            "summary": "Performs\u0020the\u0020comparison\u0020between\u0020the\u0020attribute\u0020value\u0020and\u0020the\u0020comparison\u0020value.",
-            "url": "classes/oihana-validations-rules-ComparisonRule.html#method_check"
-        },                {
-            "fqsen": "\\oihana\\validations\\rules\\ComparisonRule\u003A\u003Acompare\u0028\u0029",
-            "name": "compare",
-            "summary": "Must\u0020be\u0020implemented\u0020by\u0020subclasses\u0020to\u0020perform\u0020the\u0020actual\u0020comparison.",
-            "url": "classes/oihana-validations-rules-ComparisonRule.html#method_compare"
-        },                {
-            "fqsen": "\\oihana\\validations\\rules\\ComparisonRule\u003A\u003AgetComparisonValue\u0028\u0029",
-            "name": "getComparisonValue",
-            "summary": "Get\u0020the\u0020comparison\u0020value\u0020from\u0020either\u0020a\u0020field\u0020name\u0020or\u0020a\u0020direct\u0020value",
-            "url": "classes/oihana-validations-rules-ComparisonRule.html#method_getComparisonValue"
-        },                {
-            "fqsen": "\\oihana\\validations\\rules\\ComparisonRule\u003A\u003ACOMPARISON_FIELD",
-            "name": "COMPARISON_FIELD",
-            "summary": "The\u0020\u0027comparison_field\u0027\u0020parameter.",
-            "url": "classes/oihana-validations-rules-ComparisonRule.html#constant_COMPARISON_FIELD"
-        },                {
-            "fqsen": "\\oihana\\validations\\rules\\ComparisonRule\u003A\u003A\u0024fillableParams",
-            "name": "fillableParams",
-            "summary": "",
-            "url": "classes/oihana-validations-rules-ComparisonRule.html#property_fillableParams"
-        },                {
             "fqsen": "\\oihana\\validations\\rules\\ConstantsRule",
             "name": "ConstantsRule",
             "summary": "Rule\u003A\u0020Validates\u0020that\u0020a\u0020given\u0020value\u0020is\u0020part\u0020of\u0020the\u0020constants\u0020defined\nin\u0020a\u0020class\u0020using\u0020\u007B\u0040see\u0020ConstantsTrait\u007D.",
@@ -4856,21 +4926,6 @@ Search.appendIndex(
             "summary": "The\u0020internal\u0020message\u0020pattern.",
             "url": "classes/oihana-validations-rules-ConstantsRule.html#property_message"
         },                {
-            "fqsen": "\\oihana\\validations\\rules\\ContainerRule",
-            "name": "ContainerRule",
-            "summary": "An\u0020abstract\u0020rule\u0020to\u0020defines\u0020rules\u0020with\u0020an\u0020internal\u0020DI\u0020container\u0020reference.",
-            "url": "classes/oihana-validations-rules-ContainerRule.html"
-        },                {
-            "fqsen": "\\oihana\\validations\\rules\\ContainerRule\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Creates\u0020a\u0020new\u0020ContainerRule\u0020instance.",
-            "url": "classes/oihana-validations-rules-ContainerRule.html#method___construct"
-        },                {
-            "fqsen": "\\oihana\\validations\\rules\\ContainerRule\u003A\u003A\u0024container",
-            "name": "container",
-            "summary": "The\u0020DI\u0020container\u0020reference.",
-            "url": "classes/oihana-validations-rules-ContainerRule.html#property_container"
-        },                {
             "fqsen": "\\oihana\\validations\\rules\\EqualRule",
             "name": "EqualRule",
             "summary": "Validation\u0020rule\u0020that\u0020ensures\u0020a\u0020given\u0020value\u0020is\u0020\u002A\u002Aequal\u0020to\u002A\u002A\u0020another\u0020field\u0027s\u0020value\u0020or\u0020to\u0020a\u0020fixed\u0020numeric\u0020constant.",
@@ -4885,6 +4940,66 @@ Search.appendIndex(
             "name": "message",
             "summary": "",
             "url": "classes/oihana-validations-rules-EqualRule.html#property_message"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\geo\\ElevationRule",
+            "name": "ElevationRule",
+            "summary": "Ensures\u0020that\u0020a\u0020value\u0020represents\u0020a\u0020valid\u0020elevation\u0020\u0028altitude\u0029\u0020in\u0020meters.",
+            "url": "classes/oihana-validations-rules-geo-ElevationRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\geo\\ElevationRule\u003A\u003A\u0024min",
+            "name": "min",
+            "summary": "Minimum\u0020allowed\u0020elevation\u0020\u0028in\u0020meters\u0029.",
+            "url": "classes/oihana-validations-rules-geo-ElevationRule.html#property_min"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\geo\\ElevationRule\u003A\u003A\u0024max",
+            "name": "max",
+            "summary": "Maximum\u0020allowed\u0020elevation\u0020\u0028in\u0020meters\u0029.",
+            "url": "classes/oihana-validations-rules-geo-ElevationRule.html#property_max"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\geo\\ElevationRule\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "Custom\u0020error\u0020message.",
+            "url": "classes/oihana-validations-rules-geo-ElevationRule.html#property_message"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\geo\\LatitudeRule",
+            "name": "LatitudeRule",
+            "summary": "Validates\u0020that\u0020a\u0020value\u0020represents\u0020a\u0020valid\u0020geographic\u0020latitude.",
+            "url": "classes/oihana-validations-rules-geo-LatitudeRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\geo\\LatitudeRule\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "The\u0020default\u0020error\u0020message\u0020for\u0020invalid\u0020latitude\u0020values.",
+            "url": "classes/oihana-validations-rules-geo-LatitudeRule.html#property_message"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\geo\\LatitudeRule\u003A\u003A\u0024max",
+            "name": "max",
+            "summary": "Upper\u0020numeric\u0020bound\u0020\u0028inclusive\u0029.",
+            "url": "classes/oihana-validations-rules-geo-LatitudeRule.html#property_max"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\geo\\LatitudeRule\u003A\u003A\u0024min",
+            "name": "min",
+            "summary": "Lower\u0020numeric\u0020bound\u0020\u0028inclusive\u0029.",
+            "url": "classes/oihana-validations-rules-geo-LatitudeRule.html#property_min"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\geo\\LongitudeRule",
+            "name": "LongitudeRule",
+            "summary": "Validates\u0020that\u0020a\u0020value\u0020represents\u0020a\u0020valid\u0020geographic\u0020latitude.",
+            "url": "classes/oihana-validations-rules-geo-LongitudeRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\geo\\LongitudeRule\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "The\u0020default\u0020error\u0020message\u0020for\u0020invalid\u0020longitude\u0020values.",
+            "url": "classes/oihana-validations-rules-geo-LongitudeRule.html#property_message"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\geo\\LongitudeRule\u003A\u003A\u0024max",
+            "name": "max",
+            "summary": "Upper\u0020numeric\u0020bound\u0020\u0028inclusive\u0029.",
+            "url": "classes/oihana-validations-rules-geo-LongitudeRule.html#property_max"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\geo\\LongitudeRule\u003A\u003A\u0024min",
+            "name": "min",
+            "summary": "Lower\u0020numeric\u0020bound\u0020\u0028inclusive\u0029.",
+            "url": "classes/oihana-validations-rules-geo-LongitudeRule.html#property_min"
         },                {
             "fqsen": "\\oihana\\validations\\rules\\GreaterThanOrEqualRule",
             "name": "GreaterThanOrEqualRule",
@@ -5301,6 +5416,36 @@ Search.appendIndex(
             "summary": "The\u0020internal\u0020message\u0020pattern.",
             "url": "classes/oihana-validations-rules-PostalCodeRule.html#property_message"
         },                {
+            "fqsen": "\\oihana\\validations\\rules\\RangeRule",
+            "name": "RangeRule",
+            "summary": "Validates\u0020that\u0020a\u0020numeric\u0020value\u0020lies\u0020between\u0020a\u0020minimum\u0020and\u0020a\u0020maximum\u0020value\u0020\u0028inclusive\u0029.",
+            "url": "classes/oihana-validations-rules-RangeRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\RangeRule\u003A\u003Acheck\u0028\u0029",
+            "name": "check",
+            "summary": "Check\u0020if\u0020the\u0020given\u0020value\u0020is\u0020within\u0020the\u0020min\/max\u0020parameters.",
+            "url": "classes/oihana-validations-rules-RangeRule.html#method_check"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\RangeRule\u003A\u003AMAX",
+            "name": "MAX",
+            "summary": "The\u0020\u0027max\u0027\u0020parameter.",
+            "url": "classes/oihana-validations-rules-RangeRule.html#constant_MAX"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\RangeRule\u003A\u003AMIN",
+            "name": "MIN",
+            "summary": "The\u0020\u0027min\u0027\u0020parameter.",
+            "url": "classes/oihana-validations-rules-RangeRule.html#constant_MIN"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\RangeRule\u003A\u003A\u0024fillableParams",
+            "name": "fillableParams",
+            "summary": "Parameter\u0020names\u0020expected\u0020by\u0020this\u0020rule.",
+            "url": "classes/oihana-validations-rules-RangeRule.html#property_fillableParams"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\RangeRule\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "Default\u0020error\u0020message.",
+            "url": "classes/oihana-validations-rules-RangeRule.html#property_message"
+        },                {
             "fqsen": "\\oihana\\validations\\rules\\StartsWithRule",
             "name": "StartsWithRule",
             "summary": "Rule\u003A\u0020Ensures\u0020that\u0020a\u0020given\u0020value\u0020starts\u0020with\u0020a\u0020specified\u0020prefix.",
@@ -5541,10 +5686,20 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/oihana-validations.html"
         },                {
+            "fqsen": "\\oihana\\validations\\rules\\abstracts",
+            "name": "abstracts",
+            "summary": "",
+            "url": "namespaces/oihana-validations-rules-abstracts.html"
+        },                {
             "fqsen": "\\oihana\\validations\\rules",
             "name": "rules",
             "summary": "",
             "url": "namespaces/oihana-validations-rules.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\geo",
+            "name": "geo",
+            "summary": "",
+            "url": "namespaces/oihana-validations-rules-geo.html"
         },                {
             "fqsen": "\\oihana\\validations\\rules\\helpers",
             "name": "helpers",

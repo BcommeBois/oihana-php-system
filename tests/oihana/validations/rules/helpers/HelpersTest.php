@@ -168,6 +168,7 @@ final class HelpersTest extends TestCase
 
     public function testMin(): void
     {
+        $this->assertEquals( 'min:-90'  , min(-90 ) ) ;
         $this->assertEquals( 'min:2'  , min(2    ) ) ;
         $this->assertEquals( 'min:1M' , min('1M' ) ) ;
     }

@@ -1,15 +1,13 @@
 <?php
 
-namespace oihana\validations\rules ;
-
-use Psr\Container\ContainerExceptionInterface;
-use Psr\Container\ContainerInterface;
-use Psr\Container\NotFoundExceptionInterface;
-
-use Somnambulist\Components\Validation\Rule;
+namespace oihana\validations\rules\abstracts ;
 
 use oihana\logging\LoggerTrait;
 use oihana\traits\ToStringTrait;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\ContainerInterface;
+use Psr\Container\NotFoundExceptionInterface;
+use Somnambulist\Components\Validation\Rule;
 
 /**
  * An abstract rule to defines rules with an internal DI container reference.

@@ -1,6 +1,6 @@
 <?php
 
-namespace oihana\validations\rules ;
+namespace oihana\validations\rules\abstracts ;
 
 use Somnambulist\Components\Validation\Exceptions\ParameterException;
 use Somnambulist\Components\Validation\Rule;

@@ -14,10 +14,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
     - rule() and rules() functions
   - Rules: 
     - ConstantsRule
-    - JWTAlgorithmRule
-    - EqualRule, GreaterThanOrEqualRule, GreaterThanRule, LessThan, LessThanOrEqualRule
-    - models\ExistModelRule
-    - models\UniqueModelRule
+    - auth: JWTAlgorithmRule
+    - numeric: EqualRule, GreaterThanOrEqualRule, GreaterThanRule, LessThan, LessThanOrEqualRule, RangeRule
+    - geo: LatitudeRule, LongitudeRule, ElevationRule
+    - models: ExistModelRule, UniqueModelRule
 
 ## [0.0.2] - 2025-10-29 (alpha)
 

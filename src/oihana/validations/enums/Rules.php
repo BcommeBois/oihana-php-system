@@ -3,6 +3,16 @@
 namespace oihana\validations\enums ;
 
 use oihana\reflect\traits\ConstantsTrait;
+use oihana\validations\rules\ColorRule;
+use oihana\validations\rules\EqualRule;
+use oihana\validations\rules\geo\ElevationRule;
+use oihana\validations\rules\geo\LatitudeRule;
+use oihana\validations\rules\geo\LongitudeRule;
+use oihana\validations\rules\GreaterThanOrEqualRule;
+use oihana\validations\rules\LessThanOrEqualRule;
+use oihana\validations\rules\LessThanRule;
+use oihana\validations\rules\RangeRule;
+use PHPUnit\Framework\Constraint\GreaterThan;
 
 /**
  * The available rules constants.
@@ -208,6 +218,7 @@ class Rules
 
     /**
      * Ensures that a given value matches a valid color expression (e.g. "#ff0000").
+     * @see ColorRule
      */
     public const string COLOR = 'color' ;
 
@@ -272,6 +283,12 @@ class Rules
     public const string DIGITS_BETWEEN = 'digits_between' ;
 
     /**
+     * Ensures that a value represents a valid elevation (altitude) in meters.
+     * @see ElevationRule
+     */
+    public const string ELEVATION = 'elevation' ;
+
+    /**
      * The field under this validation must be a valid email address according to the built-in PHP filter extension.
      * See {@see FILTER_VALIDATE_EMAIL} for details.
      */
@@ -284,7 +301,8 @@ class Rules
     public const string ENDS_WITH = 'ends_with' ;
 
     /**
-     * Ensures a given value is **equal to** another field's value or to a fixed numeric constant
+     * Ensures a given value is **equal to** another field's value or to a fixed numeric constant.
+     * @see EqualRule
      */
     public const string EQUAL = 'equal' ;
 
@@ -302,12 +320,14 @@ class Rules
     public const string FLOAT = 'float' ;
 
     /**
-     * Ensures a given value is **greater than** another field's value or to a fixed numeric constant
+     * Ensures a given value is **greater than** another field's value or to a fixed numeric constant.
+     * @see GreaterThan
      */
     public const string GREATER_THAN = 'gt' ;
 
     /**
-     * Ensures a given value is **greater than or equal to** another field's value or to a fixed numeric constant
+     * Ensures a given value is **greater than or equal to** another field's value or to a fixed numeric constant.
+     * @see GreaterThanOrEqualRule
      */
     public const string GREATER_THAN_OR_EQUAL = 'gte' ;
 
@@ -373,19 +393,33 @@ class Rules
     public const string JSON = 'json' ;
 
     /**
+     * Validates that a value represents a valid geographic latitude.
+     * @see LatitudeRule
+     */
+    public const string LATITUDE = 'latitude' ;
+
+    /**
      * The field under this validation must be a string of exactly the length specified.
      */
     public const string LENGTH = 'length' ;
 
     /**
-     * Ensures a given value is **less than** another field's value or to a fixed numeric constant
+     * Ensures a given value is **less than** another field's value or to a fixed numeric constant.
+     * @see LessThanRule
      */
     public const string LESS_THAN = 'lt' ;
 
     /**
-     * Ensures a given value is **less than or equal to** another field's value or to a fixed numeric constant
+     * Ensures a given value is **less than or equal to** another field's value or to a fixed numeric constant.
+     * @see LessThanOrEqualRule
      */
     public const string LESS_THAN_OR_EQUAL = 'lte' ;
+
+    /**
+     * Validates that a value represents a valid geographic longitude.
+     * @see LongitudeRule
+     */
+    public const string LONGITUDE = 'longitude' ;
 
     /**
      * The field under this validation must be in lowercase.
@@ -476,6 +510,12 @@ class Rules
      * This is the inverse of prohibited_if.
      */
     public const string PROHIBITED_UNLESS = 'prohibited_unless' ;
+
+    /**
+     * Validates that a numeric value lies between a minimum and a maximum value (inclusive).
+     * @see RangeRule
+     */
+    public const string RANGE = 'range' ;
 
     /**
      * The field under this rule must match the given regex.

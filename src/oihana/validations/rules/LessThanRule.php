@@ -2,6 +2,8 @@
 
 namespace oihana\validations\rules ;
 
+use oihana\validations\rules\abstracts\ComparisonRule;
+
 /**
  * Validation rule that ensures a given value is **less than** another field's value
  * or to a fixed numeric constant.

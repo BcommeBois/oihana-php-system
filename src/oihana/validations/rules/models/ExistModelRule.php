@@ -5,7 +5,7 @@ namespace oihana\validations\rules\models ;
 use oihana\enums\Char;
 use oihana\models\enums\ModelParam;
 use oihana\models\interfaces\ExistModel;
-use oihana\validations\rules\ContainerRule;
+use oihana\validations\rules\abstracts\ContainerRule;
 use org\schema\constants\Schema;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
