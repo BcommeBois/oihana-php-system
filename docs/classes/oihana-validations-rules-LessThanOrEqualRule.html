@@ -142,10 +142,10 @@
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    InstanceOfRule
+    LessThanOrEqualRule
 
         <span class="phpdocumentor-element__extends">
-        extends <abbr title="\Somnambulist\Components\Validation\Rule">Rule</abbr>
+        extends <a href="classes/oihana-validations-rules-ComparisonRule.html"><abbr title="\oihana\validations\rules\ComparisonRule">ComparisonRule</abbr></a>
     </span>
     
     
@@ -158,26 +158,40 @@
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/InstanceOfRule.php"><a href="files/src-oihana-validations-rules-instanceofrule.html"><abbr title="src/oihana/validations/rules/InstanceOfRule.php">InstanceOfRule.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/LessThanOrEqualRule.php"><a href="files/src-oihana-validations-rules-lessthanorequalrule.html"><abbr title="src/oihana/validations/rules/LessThanOrEqualRule.php">LessThanOrEqualRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Ensures that a given value is instance of the specified class name.</p>
+            <p class="phpdocumentor-summary">Validation rule that ensures a given value is **less than or equal to** another field&#039;s value
+or to a fixed numeric constant.</p>
 
 
-    <section class="phpdocumentor-description"><p>Example:</p>
-<pre class="prettyprint"><code class="language-php">$rule = new InstanceOfRule(DateTime::class);
-$rule-&gt;check(new DateTime()) ; // true
-$rule-&gt;check(new stdClass()) ; // false
+    <section class="phpdocumentor-description"><p>This rule can be used to enforce constraints between numeric fields (e.g. durations, limits, quotas)
+or to validate a value against a fixed threshold.</p>
+<h3>Usage examples</h3>
+<pre class="prettyprint"><code class="language-php">// Compare with another field
+$validation = $validator-&gt;validate($data,
+[
+    'implicitHybridTokenLifetime' =&gt; 'lte_field:maximumAccessTokenExpiration',
+]);
+
+// Compare with a fixed value
+$validation = $validator-&gt;validate($data,
+[
+    'timeout' =&gt; 'lte_field:3600',
+]);
+</code></pre>
+<p>When validation fails, the default message is:</p>
+<pre class="prettyprint"><code class="prettyprint">The :attribute must be less than or equal to :comparison_field.
 </code></pre>
 </section>
 
 
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-validations-rules-InstanceOfRule.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-validations-rules-LessThanOrEqualRule.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -206,7 +220,7 @@ $rule-&gt;check(new stdClass()) ; // false
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/oihana-validations-rules-InstanceOfRule.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-validations-rules-LessThanOrEqualRule.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -218,74 +232,66 @@ $rule-&gt;check(new stdClass()) ; // false
 
 <h4 id="toc-constants">
     Constants
-    <a href="classes/oihana-validations-rules-InstanceOfRule.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-validations-rules-LessThanOrEqualRule.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a class="" href="classes/oihana-validations-rules-InstanceOfRule.html#constant_CLASS_NAME">CLASS_NAME</a>
+    <a class="" href="classes/oihana-validations-rules-ComparisonRule.html#constant_COMPARISON_FIELD">COMPARISON_FIELD</a>
     <span>
-        &nbsp;= &#039;className&#039;                            </span>
+        &nbsp;= &#039;comparison_field&#039;                            </span>
 </dt>
-<dd>The &quot;className&quot; parameter key.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a class="" href="classes/oihana-validations-rules-InstanceOfRule.html#constant_NAME">NAME</a>
-    <span>
-        &nbsp;= &#039;instanceOf&#039;                            </span>
-</dt>
-<dd>The rule name.</dd>
+<dd>The &#039;comparison_field&#039; parameter.</dd>
 
     </dl>
 
 
 <h4 id="toc-properties">
     Properties
-    <a href="classes/oihana-validations-rules-InstanceOfRule.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-validations-rules-LessThanOrEqualRule.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a class="" href="classes/oihana-validations-rules-InstanceOfRule.html#property_fillableParams">$fillableParams</a>
+    <a class="" href="classes/oihana-validations-rules-ComparisonRule.html#property_fillableParams">$fillableParams</a>
     <span>
-                        &nbsp;: array&lt;string|int, mixed&gt;|array&lt;string|int, string&gt;            </span>
+                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a class="" href="classes/oihana-validations-rules-InstanceOfRule.html#property_message">$message</a>
+    <a class="" href="classes/oihana-validations-rules-LessThanOrEqualRule.html#property_message">$message</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
-<dd>The error message used when validation fails.</dd>
 
     </dl>
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/oihana-validations-rules-InstanceOfRule.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-validations-rules-LessThanOrEqualRule.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-validations-rules-InstanceOfRule.html#method___construct">__construct()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-<dd>Creates a new InstanceOfRule instance.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-validations-rules-InstanceOfRule.html#method_check">check()</a>
+    <a class="" href="classes/oihana-validations-rules-ComparisonRule.html#method_check">check()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
-<dd>Checks if the provided value is an instance of the configured class name.</dd>
+<dd>Performs the comparison between the attribute value and the comparison value.</dd>
 
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-validations-rules-InstanceOfRule.html#method_className">className()</a>
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a class="" href="classes/oihana-validations-rules-LessThanOrEqualRule.html#method_compare">compare()</a>
     <span>
-                                &nbsp;: static    </span>
+                                &nbsp;: bool    </span>
 </dt>
-<dd>Sets the class name to check instances against.</dd>
+<dd>Must be implemented by subclasses to perform the actual comparison.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+    <a class="" href="classes/oihana-validations-rules-ComparisonRule.html#method_getComparisonValue">getComparisonValue()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Get the comparison value from either a field name or a direct value</dd>
 
     </dl>
 
@@ -295,63 +301,31 @@ $rule-&gt;check(new stdClass()) ; // false
     <section class="phpdocumentor-constants">
         <h3 class="phpdocumentor-elements__header" id="constants">
             Constants
-            <a href="classes/oihana-validations-rules-InstanceOfRule.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/oihana-validations-rules-LessThanOrEqualRule.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_CLASS_NAME">
-        CLASS_NAME
-        <a href="classes/oihana-validations-rules-InstanceOfRule.html#constant_CLASS_NAME" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_COMPARISON_FIELD">
+        COMPARISON_FIELD
+        <a href="classes/oihana-validations-rules-ComparisonRule.html#constant_COMPARISON_FIELD" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/InstanceOfRule.php"><a href="files/src-oihana-validations-rules-instanceofrule.html"><abbr title="src/oihana/validations/rules/InstanceOfRule.php">InstanceOfRule.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/ComparisonRule.php"><a href="files/src-oihana-validations-rules-comparisonrule.html"><abbr title="src/oihana/validations/rules/ComparisonRule.php">ComparisonRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">35</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">The &quot;className&quot; parameter key.</p>
+        <p class="phpdocumentor-summary">The &#039;comparison_field&#039; parameter.</p>
 
     
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">CLASS_NAME</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;className&#039;</span>
-</code>
-
-
-    
-    
-    
-
-    
-
-</article>
-                    <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_NAME">
-        NAME
-        <a href="classes/oihana-validations-rules-InstanceOfRule.html#constant_NAME" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/InstanceOfRule.php"><a href="files/src-oihana-validations-rules-instanceofrule.html"><abbr title="src/oihana/validations/rules/InstanceOfRule.php">InstanceOfRule.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">40</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">The rule name.</p>
-
-    
-    <code class="phpdocumentor-signature phpdocumentor-code ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">NAME</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;instanceOf&#039;</span>
+    <span class="phpdocumentor-signature__name">COMPARISON_FIELD</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;comparison_field&#039;</span>
 </code>
 
 
@@ -368,7 +342,7 @@ $rule-&gt;check(new stdClass()) ; // false
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/oihana-validations-rules-InstanceOfRule.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/oihana-validations-rules-LessThanOrEqualRule.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -380,15 +354,15 @@ $rule-&gt;check(new stdClass()) ; // false
 >
     <h4 class="phpdocumentor-element__name" id="property_fillableParams">
         $fillableParams
-        <a href="classes/oihana-validations-rules-InstanceOfRule.html#property_fillableParams" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-validations-rules-ComparisonRule.html#property_fillableParams" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                             </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/InstanceOfRule.php"><a href="files/src-oihana-validations-rules-instanceofrule.html"><abbr title="src/oihana/validations/rules/InstanceOfRule.php">InstanceOfRule.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/ComparisonRule.php"><a href="files/src-oihana-validations-rules-comparisonrule.html"><abbr title="src/oihana/validations/rules/ComparisonRule.php">ComparisonRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">25</span>
 
     </aside>
 
@@ -396,14 +370,12 @@ $rule-&gt;check(new stdClass()) ; // false
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
         <span class="phpdocumentor-signature__visibility">protected</span>
-            <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;|array&lt;string|int, string&gt;</span>
+            <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
     <span class="phpdocumentor-signature__name">$fillableParams</span>
-     = <span class="phpdocumentor-signature__default-value">[self::CLASS_NAME]</span></code>
+     = <span class="phpdocumentor-signature__default-value">[self::COMPARISON_FIELD]</span></code>
 
     
-        <section class="phpdocumentor-description"><p>The list of required parameters.</p>
-</section>
-
+    
     
 
     
@@ -420,26 +392,25 @@ $rule-&gt;check(new stdClass()) ; // false
 >
     <h4 class="phpdocumentor-element__name" id="property_message">
         $message
-        <a href="classes/oihana-validations-rules-InstanceOfRule.html#property_message" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-validations-rules-LessThanOrEqualRule.html#property_message" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                             </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/InstanceOfRule.php"><a href="files/src-oihana-validations-rules-instanceofrule.html"><abbr title="src/oihana/validations/rules/InstanceOfRule.php">InstanceOfRule.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/LessThanOrEqualRule.php"><a href="files/src-oihana-validations-rules-lessthanorequalrule.html"><abbr title="src/oihana/validations/rules/LessThanOrEqualRule.php">LessThanOrEqualRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">51</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">The error message used when validation fails.</p>
-
+    
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
         <span class="phpdocumentor-signature__visibility">protected</span>
             <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$message</span>
-     = <span class="phpdocumentor-signature__default-value">&quot;:attribute must be an instanceof :className&quot;</span></code>
+     = <span class="phpdocumentor-signature__default-value">&#039;The :attribute must be less than or equal to :comparison_field.&#039;</span></code>
 
     
     
@@ -455,7 +426,7 @@ $rule-&gt;check(new stdClass()) ; // false
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/oihana-validations-rules-InstanceOfRule.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/oihana-validations-rules-LessThanOrEqualRule.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -464,66 +435,19 @@ $rule-&gt;check(new stdClass()) ; // false
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method___construct">
-        __construct()
-        <a href="classes/oihana-validations-rules-InstanceOfRule.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/InstanceOfRule.php"><a href="files/src-oihana-validations-rules-instanceofrule.html"><abbr title="src/oihana/validations/rules/InstanceOfRule.php">InstanceOfRule.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">27</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Creates a new InstanceOfRule instance.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$className</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$className</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The class name expression to evaluate.</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-    
-
-    
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="method_check">
         check()
-        <a href="classes/oihana-validations-rules-InstanceOfRule.html#method_check" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-validations-rules-ComparisonRule.html#method_check" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/InstanceOfRule.php"><a href="files/src-oihana-validations-rules-instanceofrule.html"><abbr title="src/oihana/validations/rules/InstanceOfRule.php">InstanceOfRule.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/ComparisonRule.php"><a href="files/src-oihana-validations-rules-comparisonrule.html"><abbr title="src/oihana/validations/rules/ComparisonRule.php">ComparisonRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">62</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Checks if the provided value is an instance of the configured class name.</p>
+        <p class="phpdocumentor-summary">Performs the comparison between the attribute value and the comparison value.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -540,7 +464,7 @@ $rule-&gt;check(new stdClass()) ; // false
                 : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The value to check.</p>
+                    <section class="phpdocumentor-description"><p>The value of the current attribute being validated.</p>
 </section>
 
             </dd>
@@ -549,7 +473,7 @@ $rule-&gt;check(new stdClass()) ; // false
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-validations-rules-InstanceOfRule.html#method_check#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-validations-rules-ComparisonRule.html#method_check#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -559,7 +483,7 @@ $rule-&gt;check(new stdClass()) ; // false
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\Somnambulist\Components\Validation\Exceptions\ParameterException">ParameterException</abbr></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If the required parameter <code class="prettyprint">className</code> is missing.</p>
+                                                 <section class="phpdocumentor-description"><p>If the comparison parameter is missing.</p>
 </section>
 
                                     </dd>
@@ -571,7 +495,7 @@ $rule-&gt;check(new stdClass()) ; // false
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Returns true if the value is an instance of the specified class; otherwise, false.</p>
+                <section class="phpdocumentor-description"><p>True if the comparison succeeds, false otherwise.</p>
 </section>
 
             </section>
@@ -580,26 +504,26 @@ $rule-&gt;check(new stdClass()) ; // false
                     <article
         class="phpdocumentor-element
             -method
-            -public
+            -protected
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_className">
-        className()
-        <a href="classes/oihana-validations-rules-InstanceOfRule.html#method_className" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_compare">
+        compare()
+        <a href="classes/oihana-validations-rules-LessThanOrEqualRule.html#method_compare" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/InstanceOfRule.php"><a href="files/src-oihana-validations-rules-instanceofrule.html"><abbr title="src/oihana/validations/rules/InstanceOfRule.php">InstanceOfRule.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/LessThanOrEqualRule.php"><a href="files/src-oihana-validations-rules-lessthanorequalrule.html"><abbr title="src/oihana/validations/rules/LessThanOrEqualRule.php">LessThanOrEqualRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">76</span>
+    <span class="phpdocumentor-element-found-in__line">40</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Sets the class name to check instances against.</p>
+        <p class="phpdocumentor-summary">Must be implemented by subclasses to perform the actual comparison.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">className</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">compare</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">float|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$a</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">float|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$b</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -608,11 +532,20 @@ $rule-&gt;check(new stdClass()) ; // false
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$value</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                <span class="phpdocumentor-signature__argument__name">$a</span>
+                : <span class="phpdocumentor-signature__argument__return-type">float|int</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The fully qualified class name.</p>
+                    <section class="phpdocumentor-description"><p>The attribute value.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$b</span>
+                : <span class="phpdocumentor-signature__argument__return-type">float|int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The comparison value.</p>
 </section>
 
             </dd>
@@ -624,13 +557,58 @@ $rule-&gt;check(new stdClass()) ; // false
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">static</span>
+        <span class="phpdocumentor-signature__response_type">bool</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Returns the current instance for fluent chaining.</p>
+                <section class="phpdocumentor-description"><p>True if the rule condition is met.</p>
 </section>
 
             </section>
 
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -protected
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getComparisonValue">
+        getComparisonValue()
+        <a href="classes/oihana-validations-rules-ComparisonRule.html#method_getComparisonValue" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/ComparisonRule.php"><a href="files/src-oihana-validations-rules-comparisonrule.html"><abbr title="src/oihana/validations/rules/ComparisonRule.php">ComparisonRule.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">74</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Get the comparison value from either a field name or a direct value</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">protected</span>
+                    <span class="phpdocumentor-signature__name">getComparisonValue</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$fieldOrValue</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$fieldOrValue</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+    
+
+    
 </article>
             </section>
 
@@ -638,7 +616,7 @@ $rule-&gt;check(new stdClass()) ; // false
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/validations/rules/InstanceOfRule.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/validations/rules/LessThanOrEqualRule.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -739,33 +717,32 @@ $rule-&gt;check(new stdClass()) ; // false
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                        <li><a href="classes/oihana-validations-rules-InstanceOfRule.html#toc-constants">Constants</a></li>
-                                                            <li><a href="classes/oihana-validations-rules-InstanceOfRule.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/oihana-validations-rules-InstanceOfRule.html#toc-methods">Methods</a></li>
+                                        <li><a href="classes/oihana-validations-rules-LessThanOrEqualRule.html#toc-constants">Constants</a></li>
+                                                            <li><a href="classes/oihana-validations-rules-LessThanOrEqualRule.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/oihana-validations-rules-LessThanOrEqualRule.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li class=""><a href="classes/oihana-validations-rules-InstanceOfRule.html#constant_CLASS_NAME">CLASS_NAME</a></li>
-                                                    <li class=""><a href="classes/oihana-validations-rules-InstanceOfRule.html#constant_NAME">NAME</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-rules-ComparisonRule.html#constant_COMPARISON_FIELD">COMPARISON_FIELD</a></li>
                                             </ul>
                 </li>
             
                             <li class="phpdocumentor-on-this-page-section__title">Properties</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
-                                                    <li class=""><a href="classes/oihana-validations-rules-InstanceOfRule.html#property_fillableParams">$fillableParams</a></li>
-                                                    <li class=""><a href="classes/oihana-validations-rules-InstanceOfRule.html#property_message">$message</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-rules-ComparisonRule.html#property_fillableParams">$fillableParams</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-rules-LessThanOrEqualRule.html#property_message">$message</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-validations-rules-InstanceOfRule.html#method___construct">__construct()</a></li>
-                                            <li class=""><a href="classes/oihana-validations-rules-InstanceOfRule.html#method_check">check()</a></li>
-                                            <li class=""><a href="classes/oihana-validations-rules-InstanceOfRule.html#method_className">className()</a></li>
+                                            <li class=""><a href="classes/oihana-validations-rules-ComparisonRule.html#method_check">check()</a></li>
+                                            <li class=""><a href="classes/oihana-validations-rules-LessThanOrEqualRule.html#method_compare">compare()</a></li>
+                                            <li class=""><a href="classes/oihana-validations-rules-ComparisonRule.html#method_getComparisonValue">getComparisonValue()</a></li>
                                     </ul>
             </li>
                     </ul>
@@ -785,7 +762,7 @@ $rule-&gt;check(new stdClass()) ; // false
     </section>
 </section>
         </div>
-        <a href="classes/oihana-validations-rules-InstanceOfRule.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/oihana-validations-rules-LessThanOrEqualRule.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

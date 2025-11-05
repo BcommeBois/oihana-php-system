@@ -4481,6 +4481,11 @@ Search.appendIndex(
             "summary": "Define\u0020a\u0020custom\u0020callback\u0020to\u0020validate\u0020the\u0020value.\u0020This\u0020rule\u0020cannot\u0020be\u0020registered\u0020using\u0020the\u0020string\u0020syntax.",
             "url": "classes/oihana-validations-enums-Rules.html#constant_CALLBACK"
         },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ACOLOR",
+            "name": "COLOR",
+            "summary": "Ensures\u0020that\u0020a\u0020given\u0020value\u0020matches\u0020a\u0020valid\u0020color\u0020expression\u0020\u0028e.g.\u0020\u0022\u0023ff0000\u0022\u0029.",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_COLOR"
+        },                {
             "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ADATE",
             "name": "DATE",
             "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020must\u0020be\u0020valid\u0020date\u0020following\u0020a\u0020given\u0020format.",
@@ -4516,6 +4521,11 @@ Search.appendIndex(
             "summary": "The\u0020field\u0020under\u0020this\u0020validation\u0020must\u0020end\u0020with\u0020another_field.",
             "url": "classes/oihana-validations-enums-Rules.html#constant_ENDS_WITH"
         },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AEQUAL",
+            "name": "EQUAL",
+            "summary": "Ensures\u0020a\u0020given\u0020value\u0020is\u0020\u002A\u002Aequal\u0020to\u002A\u002A\u0020another\u0020field\u0027s\u0020value\u0020or\u0020to\u0020a\u0020fixed\u0020numeric\u0020constant",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_EQUAL"
+        },                {
             "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AEXTENSION",
             "name": "EXTENSION",
             "summary": "The\u0020field\u0020under\u0020this\u0020rule\u0020must\u0020end\u0020with\u0020an\u0020extension\u0020corresponding\u0020to\u0020one\u0020of\u0020those\u0020listed.",
@@ -4525,6 +4535,16 @@ Search.appendIndex(
             "name": "FLOAT",
             "summary": "The\u0020field\u0020under\u0020validation\u0020must\u0020be\u0020an\u0020float.",
             "url": "classes/oihana-validations-enums-Rules.html#constant_FLOAT"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AGREATER_THAN",
+            "name": "GREATER_THAN",
+            "summary": "Ensures\u0020a\u0020given\u0020value\u0020is\u0020\u002A\u002Agreater\u0020than\u002A\u002A\u0020another\u0020field\u0027s\u0020value\u0020or\u0020to\u0020a\u0020fixed\u0020numeric\u0020constant",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_GREATER_THAN"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AGREATER_THAN_OR_EQUAL",
+            "name": "GREATER_THAN_OR_EQUAL",
+            "summary": "Ensures\u0020a\u0020given\u0020value\u0020is\u0020\u002A\u002Agreater\u0020than\u0020or\u0020equal\u0020to\u002A\u002A\u0020another\u0020field\u0027s\u0020value\u0020or\u0020to\u0020a\u0020fixed\u0020numeric\u0020constant",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_GREATER_THAN_OR_EQUAL"
         },                {
             "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003AIN",
             "name": "IN",
@@ -4560,6 +4580,16 @@ Search.appendIndex(
             "name": "LENGTH",
             "summary": "The\u0020field\u0020under\u0020this\u0020validation\u0020must\u0020be\u0020a\u0020string\u0020of\u0020exactly\u0020the\u0020length\u0020specified.",
             "url": "classes/oihana-validations-enums-Rules.html#constant_LENGTH"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ALESS_THAN",
+            "name": "LESS_THAN",
+            "summary": "Ensures\u0020a\u0020given\u0020value\u0020is\u0020\u002A\u002Aless\u0020than\u002A\u002A\u0020another\u0020field\u0027s\u0020value\u0020or\u0020to\u0020a\u0020fixed\u0020numeric\u0020constant",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_LESS_THAN"
+        },                {
+            "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ALESS_THAN_OR_EQUAL",
+            "name": "LESS_THAN_OR_EQUAL",
+            "summary": "Ensures\u0020a\u0020given\u0020value\u0020is\u0020\u002A\u002Aless\u0020than\u0020or\u0020equal\u0020to\u002A\u002A\u0020another\u0020field\u0027s\u0020value\u0020or\u0020to\u0020a\u0020fixed\u0020numeric\u0020constant",
+            "url": "classes/oihana-validations-enums-Rules.html#constant_LESS_THAN_OR_EQUAL"
         },                {
             "fqsen": "\\oihana\\validations\\enums\\Rules\u003A\u003ALOWERCASE",
             "name": "LOWERCASE",
@@ -4751,6 +4781,36 @@ Search.appendIndex(
             "summary": "The\u0020default\u0020error\u0020message\u0020used\u0020when\u0020validation\u0020fails.",
             "url": "classes/oihana-validations-rules-ColorRule.html#property_message"
         },                {
+            "fqsen": "\\oihana\\validations\\rules\\ComparisonRule",
+            "name": "ComparisonRule",
+            "summary": "Base\u0020class\u0020for\u0020numeric\u0020comparison\u0020rules.",
+            "url": "classes/oihana-validations-rules-ComparisonRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ComparisonRule\u003A\u003Acheck\u0028\u0029",
+            "name": "check",
+            "summary": "Performs\u0020the\u0020comparison\u0020between\u0020the\u0020attribute\u0020value\u0020and\u0020the\u0020comparison\u0020value.",
+            "url": "classes/oihana-validations-rules-ComparisonRule.html#method_check"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ComparisonRule\u003A\u003Acompare\u0028\u0029",
+            "name": "compare",
+            "summary": "Must\u0020be\u0020implemented\u0020by\u0020subclasses\u0020to\u0020perform\u0020the\u0020actual\u0020comparison.",
+            "url": "classes/oihana-validations-rules-ComparisonRule.html#method_compare"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ComparisonRule\u003A\u003AgetComparisonValue\u0028\u0029",
+            "name": "getComparisonValue",
+            "summary": "Get\u0020the\u0020comparison\u0020value\u0020from\u0020either\u0020a\u0020field\u0020name\u0020or\u0020a\u0020direct\u0020value",
+            "url": "classes/oihana-validations-rules-ComparisonRule.html#method_getComparisonValue"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ComparisonRule\u003A\u003ACOMPARISON_FIELD",
+            "name": "COMPARISON_FIELD",
+            "summary": "The\u0020\u0027comparison_field\u0027\u0020parameter.",
+            "url": "classes/oihana-validations-rules-ComparisonRule.html#constant_COMPARISON_FIELD"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\ComparisonRule\u003A\u003A\u0024fillableParams",
+            "name": "fillableParams",
+            "summary": "",
+            "url": "classes/oihana-validations-rules-ComparisonRule.html#property_fillableParams"
+        },                {
             "fqsen": "\\oihana\\validations\\rules\\ConstantsRule",
             "name": "ConstantsRule",
             "summary": "Rule\u003A\u0020Validates\u0020that\u0020a\u0020given\u0020value\u0020is\u0020part\u0020of\u0020the\u0020constants\u0020defined\nin\u0020a\u0020class\u0020using\u0020\u007B\u0040see\u0020ConstantsTrait\u007D.",
@@ -4810,6 +4870,51 @@ Search.appendIndex(
             "name": "container",
             "summary": "The\u0020DI\u0020container\u0020reference.",
             "url": "classes/oihana-validations-rules-ContainerRule.html#property_container"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\EqualRule",
+            "name": "EqualRule",
+            "summary": "Validation\u0020rule\u0020that\u0020ensures\u0020a\u0020given\u0020value\u0020is\u0020\u002A\u002Aequal\u0020to\u002A\u002A\u0020another\u0020field\u0027s\u0020value\u0020or\u0020to\u0020a\u0020fixed\u0020numeric\u0020constant.",
+            "url": "classes/oihana-validations-rules-EqualRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\EqualRule\u003A\u003Acompare\u0028\u0029",
+            "name": "compare",
+            "summary": "Must\u0020be\u0020implemented\u0020by\u0020subclasses\u0020to\u0020perform\u0020the\u0020actual\u0020comparison.",
+            "url": "classes/oihana-validations-rules-EqualRule.html#method_compare"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\EqualRule\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "",
+            "url": "classes/oihana-validations-rules-EqualRule.html#property_message"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\GreaterThanOrEqualRule",
+            "name": "GreaterThanOrEqualRule",
+            "summary": "Validation\u0020rule\u0020that\u0020ensures\u0020a\u0020given\u0020value\u0020is\u0020\u002A\u002Agreater\u0020than\u0020or\u0020equal\u0020to\u002A\u002A\u0020another\u0020field\u0027s\u0020value\nor\u0020to\u0020a\u0020fixed\u0020numeric\u0020constant.",
+            "url": "classes/oihana-validations-rules-GreaterThanOrEqualRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\GreaterThanOrEqualRule\u003A\u003Acompare\u0028\u0029",
+            "name": "compare",
+            "summary": "Must\u0020be\u0020implemented\u0020by\u0020subclasses\u0020to\u0020perform\u0020the\u0020actual\u0020comparison.",
+            "url": "classes/oihana-validations-rules-GreaterThanOrEqualRule.html#method_compare"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\GreaterThanOrEqualRule\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "",
+            "url": "classes/oihana-validations-rules-GreaterThanOrEqualRule.html#property_message"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\GreaterThanRule",
+            "name": "GreaterThanRule",
+            "summary": "Validation\u0020rule\u0020that\u0020ensures\u0020a\u0020given\u0020value\u0020is\u0020\u002A\u002Agreater\u0020than\u0020or\u0020equal\u0020to\u002A\u002A\u0020another\u0020field\u0027s\u0020value\nor\u0020to\u0020a\u0020fixed\u0020numeric\u0020constant.",
+            "url": "classes/oihana-validations-rules-GreaterThanRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\GreaterThanRule\u003A\u003Acompare\u0028\u0029",
+            "name": "compare",
+            "summary": "Must\u0020be\u0020implemented\u0020by\u0020subclasses\u0020to\u0020perform\u0020the\u0020actual\u0020comparison.",
+            "url": "classes/oihana-validations-rules-GreaterThanRule.html#method_compare"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\GreaterThanRule\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "",
+            "url": "classes/oihana-validations-rules-GreaterThanRule.html#property_message"
         },                {
             "fqsen": "\\oihana\\validations\\rules\\helpers\\after\u0028\u0029",
             "name": "after",
@@ -5055,6 +5160,36 @@ Search.appendIndex(
             "name": "message",
             "summary": "The\u0020internal\u0020message\u0020pattern.",
             "url": "classes/oihana-validations-rules-JWTAlgorithmRule.html#property_message"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\LessThanOrEqualRule",
+            "name": "LessThanOrEqualRule",
+            "summary": "Validation\u0020rule\u0020that\u0020ensures\u0020a\u0020given\u0020value\u0020is\u0020\u002A\u002Aless\u0020than\u0020or\u0020equal\u0020to\u002A\u002A\u0020another\u0020field\u0027s\u0020value\nor\u0020to\u0020a\u0020fixed\u0020numeric\u0020constant.",
+            "url": "classes/oihana-validations-rules-LessThanOrEqualRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\LessThanOrEqualRule\u003A\u003Acompare\u0028\u0029",
+            "name": "compare",
+            "summary": "Must\u0020be\u0020implemented\u0020by\u0020subclasses\u0020to\u0020perform\u0020the\u0020actual\u0020comparison.",
+            "url": "classes/oihana-validations-rules-LessThanOrEqualRule.html#method_compare"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\LessThanOrEqualRule\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "",
+            "url": "classes/oihana-validations-rules-LessThanOrEqualRule.html#property_message"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\LessThanRule",
+            "name": "LessThanRule",
+            "summary": "Validation\u0020rule\u0020that\u0020ensures\u0020a\u0020given\u0020value\u0020is\u0020\u002A\u002Aless\u0020than\u002A\u002A\u0020another\u0020field\u0027s\u0020value\nor\u0020to\u0020a\u0020fixed\u0020numeric\u0020constant.",
+            "url": "classes/oihana-validations-rules-LessThanRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\LessThanRule\u003A\u003Acompare\u0028\u0029",
+            "name": "compare",
+            "summary": "Must\u0020be\u0020implemented\u0020by\u0020subclasses\u0020to\u0020perform\u0020the\u0020actual\u0020comparison.",
+            "url": "classes/oihana-validations-rules-LessThanRule.html#method_compare"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\LessThanRule\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "",
+            "url": "classes/oihana-validations-rules-LessThanRule.html#property_message"
         },                {
             "fqsen": "\\oihana\\validations\\rules\\models\\ExistModelRule",
             "name": "ExistModelRule",

@@ -323,6 +323,13 @@
 <dd>Define a custom callback to validate the value. This rule cannot be registered using the string syntax.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_COLOR">COLOR</a>
+    <span>
+        &nbsp;= &#039;color&#039;                            </span>
+</dt>
+<dd>Ensures that a given value matches a valid color expression (e.g. &quot;#ff0000&quot;).</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a class="" href="classes/oihana-validations-enums-Rules.html#constant_DATE">DATE</a>
     <span>
         &nbsp;= &#039;date&#039;                            </span>
@@ -372,6 +379,13 @@
 <dd>The field under this validation must end with another_field.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_EQUAL">EQUAL</a>
+    <span>
+        &nbsp;= &#039;equal&#039;                            </span>
+</dt>
+<dd>Ensures a given value is **equal to** another field&#039;s value or to a fixed numeric constant</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a class="" href="classes/oihana-validations-enums-Rules.html#constant_EXTENSION">EXTENSION</a>
     <span>
         &nbsp;= &#039;extension&#039;                            </span>
@@ -384,6 +398,20 @@
         &nbsp;= &#039;float&#039;                            </span>
 </dt>
 <dd>The field under validation must be an float.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_GREATER_THAN">GREATER_THAN</a>
+    <span>
+        &nbsp;= &#039;gt&#039;                            </span>
+</dt>
+<dd>Ensures a given value is **greater than** another field&#039;s value or to a fixed numeric constant</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_GREATER_THAN_OR_EQUAL">GREATER_THAN_OR_EQUAL</a>
+    <span>
+        &nbsp;= &#039;gte&#039;                            </span>
+</dt>
+<dd>Ensures a given value is **greater than or equal to** another field&#039;s value or to a fixed numeric constant</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a class="" href="classes/oihana-validations-enums-Rules.html#constant_IN">IN</a>
@@ -433,6 +461,20 @@
         &nbsp;= &#039;length&#039;                            </span>
 </dt>
 <dd>The field under this validation must be a string of exactly the length specified.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_LESS_THAN">LESS_THAN</a>
+    <span>
+        &nbsp;= &#039;lt&#039;                            </span>
+</dt>
+<dd>Ensures a given value is **less than** another field&#039;s value or to a fixed numeric constant</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-validations-enums-Rules.html#constant_LESS_THAN_OR_EQUAL">LESS_THAN_OR_EQUAL</a>
+    <span>
+        &nbsp;= &#039;lte&#039;                            </span>
+</dt>
+<dd>Ensures a given value is **less than or equal to** another field&#039;s value or to a fixed numeric constant</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a class="" href="classes/oihana-validations-enums-Rules.html#constant_LOWERCASE">LOWERCASE</a>
@@ -1269,6 +1311,38 @@ Instead, set the message string directly before returning true/false via $this-&
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_COLOR">
+        COLOR
+        <a href="classes/oihana-validations-enums-Rules.html#constant_COLOR" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">212</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Ensures that a given value matches a valid color expression (e.g. &quot;#ff0000&quot;).</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">COLOR</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;color&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_DATE">
         DATE
         <a href="classes/oihana-validations-enums-Rules.html#constant_DATE" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1278,7 +1352,7 @@ Instead, set the message string directly before returning true/false via $this-&
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">213</span>
+    <span class="phpdocumentor-element-found-in__line">218</span>
 
     </aside>
 
@@ -1312,7 +1386,7 @@ Instead, set the message string directly before returning true/false via $this-&
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">240</span>
+    <span class="phpdocumentor-element-found-in__line">245</span>
 
     </aside>
 
@@ -1378,7 +1452,7 @@ $published = $valid_data['published'];
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">249</span>
+    <span class="phpdocumentor-element-found-in__line">254</span>
 
     </aside>
 
@@ -1427,7 +1501,7 @@ $published = $valid_data['published'];
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">258</span>
+    <span class="phpdocumentor-element-found-in__line">263</span>
 
     </aside>
 
@@ -1476,7 +1550,7 @@ $published = $valid_data['published'];
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">267</span>
+    <span class="phpdocumentor-element-found-in__line">272</span>
 
     </aside>
 
@@ -1525,7 +1599,7 @@ $published = $valid_data['published'];
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">273</span>
+    <span class="phpdocumentor-element-found-in__line">278</span>
 
     </aside>
 
@@ -1559,7 +1633,7 @@ $published = $valid_data['published'];
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">279</span>
+    <span class="phpdocumentor-element-found-in__line">284</span>
 
     </aside>
 
@@ -1584,6 +1658,38 @@ $published = $valid_data['published'];
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_EQUAL">
+        EQUAL
+        <a href="classes/oihana-validations-enums-Rules.html#constant_EQUAL" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">289</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Ensures a given value is **equal to** another field&#039;s value or to a fixed numeric constant</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">EQUAL</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;equal&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_EXTENSION">
         EXTENSION
         <a href="classes/oihana-validations-enums-Rules.html#constant_EXTENSION" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1593,7 +1699,7 @@ $published = $valid_data['published'];
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">287</span>
+    <span class="phpdocumentor-element-found-in__line">297</span>
 
     </aside>
 
@@ -1628,7 +1734,7 @@ The mimes rule should be used for validating uploads.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">292</span>
+    <span class="phpdocumentor-element-found-in__line">302</span>
 
     </aside>
 
@@ -1651,6 +1757,70 @@ The mimes rule should be used for validating uploads.</p>
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_GREATER_THAN">
+        GREATER_THAN
+        <a href="classes/oihana-validations-enums-Rules.html#constant_GREATER_THAN" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">307</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Ensures a given value is **greater than** another field&#039;s value or to a fixed numeric constant</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">GREATER_THAN</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;gt&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_GREATER_THAN_OR_EQUAL">
+        GREATER_THAN_OR_EQUAL
+        <a href="classes/oihana-validations-enums-Rules.html#constant_GREATER_THAN_OR_EQUAL" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">312</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Ensures a given value is **greater than or equal to** another field&#039;s value or to a fixed numeric constant</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">GREATER_THAN_OR_EQUAL</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;gte&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_IN">
         IN
         <a href="classes/oihana-validations-enums-Rules.html#constant_IN" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1660,7 +1830,7 @@ The mimes rule should be used for validating uploads.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">328</span>
+    <span class="phpdocumentor-element-found-in__line">348</span>
 
     </aside>
 
@@ -1721,7 +1891,7 @@ $validation = $factory-&gt;validate($data,
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">333</span>
+    <span class="phpdocumentor-element-found-in__line">353</span>
 
     </aside>
 
@@ -1753,7 +1923,7 @@ $validation = $factory-&gt;validate($data,
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">338</span>
+    <span class="phpdocumentor-element-found-in__line">358</span>
 
     </aside>
 
@@ -1785,7 +1955,7 @@ $validation = $factory-&gt;validate($data,
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">343</span>
+    <span class="phpdocumentor-element-found-in__line">363</span>
 
     </aside>
 
@@ -1817,7 +1987,7 @@ $validation = $factory-&gt;validate($data,
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">348</span>
+    <span class="phpdocumentor-element-found-in__line">368</span>
 
     </aside>
 
@@ -1849,7 +2019,7 @@ $validation = $factory-&gt;validate($data,
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">353</span>
+    <span class="phpdocumentor-element-found-in__line">373</span>
 
     </aside>
 
@@ -1881,7 +2051,7 @@ $validation = $factory-&gt;validate($data,
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">358</span>
+    <span class="phpdocumentor-element-found-in__line">378</span>
 
     </aside>
 
@@ -1904,6 +2074,70 @@ $validation = $factory-&gt;validate($data,
 
 </article>
                     <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_LESS_THAN">
+        LESS_THAN
+        <a href="classes/oihana-validations-enums-Rules.html#constant_LESS_THAN" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">383</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Ensures a given value is **less than** another field&#039;s value or to a fixed numeric constant</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">LESS_THAN</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;lt&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_LESS_THAN_OR_EQUAL">
+        LESS_THAN_OR_EQUAL
+        <a href="classes/oihana-validations-enums-Rules.html#constant_LESS_THAN_OR_EQUAL" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">388</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Ensures a given value is **less than or equal to** another field&#039;s value or to a fixed numeric constant</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">LESS_THAN_OR_EQUAL</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;lte&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_LOWERCASE">
         LOWERCASE
         <a href="classes/oihana-validations-enums-Rules.html#constant_LOWERCASE" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1913,7 +2147,7 @@ $validation = $factory-&gt;validate($data,
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">363</span>
+    <span class="phpdocumentor-element-found-in__line">393</span>
 
     </aside>
 
@@ -1945,7 +2179,7 @@ $validation = $factory-&gt;validate($data,
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">381</span>
+    <span class="phpdocumentor-element-found-in__line">411</span>
 
     </aside>
 
@@ -2002,7 +2236,7 @@ $validation = $factory-&gt;validate($data,
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">386</span>
+    <span class="phpdocumentor-element-found-in__line">416</span>
 
     </aside>
 
@@ -2034,7 +2268,7 @@ $validation = $factory-&gt;validate($data,
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">411</span>
+    <span class="phpdocumentor-element-found-in__line">441</span>
 
     </aside>
 
@@ -2096,7 +2330,7 @@ instead of the number of characters.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">422</span>
+    <span class="phpdocumentor-element-found-in__line">452</span>
 
     </aside>
 
@@ -2132,7 +2366,7 @@ instead of the number of characters.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">427</span>
+    <span class="phpdocumentor-element-found-in__line">457</span>
 
     </aside>
 
@@ -2164,7 +2398,7 @@ instead of the number of characters.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">432</span>
+    <span class="phpdocumentor-element-found-in__line">462</span>
 
     </aside>
 
@@ -2196,7 +2430,7 @@ instead of the number of characters.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">437</span>
+    <span class="phpdocumentor-element-found-in__line">467</span>
 
     </aside>
 
@@ -2228,7 +2462,7 @@ instead of the number of characters.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">442</span>
+    <span class="phpdocumentor-element-found-in__line">472</span>
 
     </aside>
 
@@ -2260,7 +2494,7 @@ instead of the number of characters.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">448</span>
+    <span class="phpdocumentor-element-found-in__line">478</span>
 
     </aside>
 
@@ -2294,7 +2528,7 @@ instead of the number of characters.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">472</span>
+    <span class="phpdocumentor-element-found-in__line">502</span>
 
     </aside>
 
@@ -2343,7 +2577,7 @@ $validation = (new Factory())-&gt;validate
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">478</span>
+    <span class="phpdocumentor-element-found-in__line">508</span>
 
     </aside>
 
@@ -2377,7 +2611,7 @@ $validation = (new Factory())-&gt;validate
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">498</span>
+    <span class="phpdocumentor-element-found-in__line">528</span>
 
     </aside>
 
@@ -2455,7 +2689,7 @@ Empty values such as null, empty arrays, or empty strings are considered invalid
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">509</span>
+    <span class="phpdocumentor-element-found-in__line">539</span>
 
     </aside>
 
@@ -2491,7 +2725,7 @@ Empty values such as null, empty arrays, or empty strings are considered invalid
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">517</span>
+    <span class="phpdocumentor-element-found-in__line">547</span>
 
     </aside>
 
@@ -2526,7 +2760,7 @@ Empty values such as null, empty arrays, or empty strings are considered invalid
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">532</span>
+    <span class="phpdocumentor-element-found-in__line">562</span>
 
     </aside>
 
@@ -2565,7 +2799,7 @@ need to be explicitly passed to trigger the rule.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">541</span>
+    <span class="phpdocumentor-element-found-in__line">571</span>
 
     </aside>
 
@@ -2600,7 +2834,7 @@ need to be explicitly passed to trigger the rule.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">546</span>
+    <span class="phpdocumentor-element-found-in__line">576</span>
 
     </aside>
 
@@ -2632,7 +2866,7 @@ need to be explicitly passed to trigger the rule.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">551</span>
+    <span class="phpdocumentor-element-found-in__line">581</span>
 
     </aside>
 
@@ -2664,7 +2898,7 @@ need to be explicitly passed to trigger the rule.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">566</span>
+    <span class="phpdocumentor-element-found-in__line">596</span>
 
     </aside>
 
@@ -2703,7 +2937,7 @@ For example: if b &quot;requires:a&quot; and &quot;a&quot; is allowed to be null
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">572</span>
+    <span class="phpdocumentor-element-found-in__line">602</span>
 
     </aside>
 
@@ -2735,7 +2969,7 @@ For example: if b &quot;requires:a&quot; and &quot;a&quot; is allowed to be null
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">586</span>
+    <span class="phpdocumentor-element-found-in__line">616</span>
 
     </aside>
 
@@ -2788,7 +3022,7 @@ For example: if b &quot;requires:a&quot; and &quot;a&quot; is allowed to be null
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">592</span>
+    <span class="phpdocumentor-element-found-in__line">622</span>
 
     </aside>
 
@@ -2822,7 +3056,7 @@ For example: if b &quot;requires:a&quot; and &quot;a&quot; is allowed to be null
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">597</span>
+    <span class="phpdocumentor-element-found-in__line">627</span>
 
     </aside>
 
@@ -2854,7 +3088,7 @@ For example: if b &quot;requires:a&quot; and &quot;a&quot; is allowed to be null
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">602</span>
+    <span class="phpdocumentor-element-found-in__line">632</span>
 
     </aside>
 
@@ -2886,7 +3120,7 @@ For example: if b &quot;requires:a&quot; and &quot;a&quot; is allowed to be null
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">621</span>
+    <span class="phpdocumentor-element-found-in__line">651</span>
 
     </aside>
 
@@ -2944,7 +3178,7 @@ For example: if b &quot;requires:a&quot; and &quot;a&quot; is allowed to be null
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/enums/Rules.php"><a href="files/src-oihana-validations-enums-rules.html"><abbr title="src/oihana/validations/enums/Rules.php">Rules.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">626</span>
+    <span class="phpdocumentor-element-found-in__line">656</span>
 
     </aside>
 
@@ -3096,6 +3330,7 @@ For example: if b &quot;requires:a&quot; and &quot;a&quot; is allowed to be null
                                                     <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_BETWEEN">BETWEEN</a></li>
                                                     <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_BOOLEAN">BOOLEAN</a></li>
                                                     <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_CALLBACK">CALLBACK</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_COLOR">COLOR</a></li>
                                                     <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_DATE">DATE</a></li>
                                                     <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_DEFAULT">DEFAULT</a></li>
                                                     <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_DIFFERENT">DIFFERENT</a></li>
@@ -3103,8 +3338,11 @@ For example: if b &quot;requires:a&quot; and &quot;a&quot; is allowed to be null
                                                     <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_DIGITS_BETWEEN">DIGITS_BETWEEN</a></li>
                                                     <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_EMAIL">EMAIL</a></li>
                                                     <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_ENDS_WITH">ENDS_WITH</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_EQUAL">EQUAL</a></li>
                                                     <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_EXTENSION">EXTENSION</a></li>
                                                     <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_FLOAT">FLOAT</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_GREATER_THAN">GREATER_THAN</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_GREATER_THAN_OR_EQUAL">GREATER_THAN_OR_EQUAL</a></li>
                                                     <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_IN">IN</a></li>
                                                     <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_INTEGER">INTEGER</a></li>
                                                     <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_IP">IP</a></li>
@@ -3112,6 +3350,8 @@ For example: if b &quot;requires:a&quot; and &quot;a&quot; is allowed to be null
                                                     <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_IPV6">IPV6</a></li>
                                                     <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_JSON">JSON</a></li>
                                                     <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_LENGTH">LENGTH</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_LESS_THAN">LESS_THAN</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_LESS_THAN_OR_EQUAL">LESS_THAN_OR_EQUAL</a></li>
                                                     <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_LOWERCASE">LOWERCASE</a></li>
                                                     <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_MAX">MAX</a></li>
                                                     <li class=""><a href="classes/oihana-validations-enums-Rules.html#constant_MIMES">MIMES</a></li>
