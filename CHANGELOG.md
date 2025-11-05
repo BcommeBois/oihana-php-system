@@ -10,9 +10,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 - Validations
   - Helpers:
-    - after, before, between, date, different, digits, digitsBetween, 
-      endsWith, length, max, min, regex, same, startsWith, url
-    - rules()
+    - after, before, between, date, different, digits, digitsBetween, endsWith, length, max, min, regex, same, startsWith, url
+    - rule() and rules() functions
   - Rules: 
     - ConstantsRule
     - JWTAlgorithmRule

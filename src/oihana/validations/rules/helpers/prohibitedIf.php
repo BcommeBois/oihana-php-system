@@ -16,7 +16,7 @@ use function oihana\core\strings\compile;
  *
  * @return string
  */
-function prohibitedIf( string $anotherField , mixed ...$values  ) :string
+function prohibitedIf( string $anotherField , mixed ...$values ) :string
 {
     return compile
     ([

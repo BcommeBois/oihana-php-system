@@ -33,6 +33,7 @@ use function oihana\validations\rules\helpers\requiredWithAll;
 use function oihana\validations\rules\helpers\requiredWithout;
 use function oihana\validations\rules\helpers\requiredWithoutAll;
 use function oihana\validations\rules\helpers\requires;
+use function oihana\validations\rules\helpers\rule;
 use function oihana\validations\rules\helpers\rules;
 use function oihana\validations\rules\helpers\same;
 use function oihana\validations\rules\helpers\startsWith;
@@ -40,6 +41,27 @@ use function oihana\validations\rules\helpers\url;
 
 final class HelpersTest extends TestCase
 {
+    public function testRule(): void
+    {
+        $this->assertEquals
+        (
+            expected : 'my_rule' ,
+            actual   : rule( 'my_rule' ) ,
+        );
+
+        $this->assertEquals
+        (
+            expected : 'my_rule:5' ,
+            actual   : rule( 'my_rule' , 5 ) ,
+        );
+
+        $this->assertEquals
+        (
+            expected : 'my_rule:5,hello' ,
+            actual   : rule( 'my_rule' , 5 , 'hello' ) ,
+        );
+    }
+
     public function testRules(): void
     {
         $this->assertEquals

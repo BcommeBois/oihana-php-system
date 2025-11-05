@@ -72,6 +72,7 @@
             "src/oihana/validations/rules/helpers/requiredWithout.php" ,
             "src/oihana/validations/rules/helpers/requiredWithoutAll.php" ,
             "src/oihana/validations/rules/helpers/requires.php" ,
+            "src/oihana/validations/rules/helpers/rule.php" ,
             "src/oihana/validations/rules/helpers/rules.php" ,
             "src/oihana/validations/rules/helpers/same.php",
             "src/oihana/validations/rules/helpers/startsWith.php",

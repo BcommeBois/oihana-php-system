@@ -5056,6 +5056,11 @@ Search.appendIndex(
             "summary": "Generates\u0020the\u0020\u0027requires\u003Afield1,field2,...\u0027\u0020rule\u0020expression.",
             "url": "namespaces/oihana-validations-rules-helpers.html#function_requires"
         },                {
+            "fqsen": "\\oihana\\validations\\rules\\helpers\\rule\u0028\u0029",
+            "name": "rule",
+            "summary": "Generates\u0020a\u0020\u0027rule_name\u005B\u003Avalue1,value2,...\u005D\u0027\u0020rule\u0020expression.",
+            "url": "namespaces/oihana-validations-rules-helpers.html#function_rule"
+        },                {
             "fqsen": "\\oihana\\validations\\rules\\helpers\\rules\u0028\u0029",
             "name": "rules",
             "summary": "Generates\u0020a\u0020concatenated\u0020validation\u0020rules\u0020string\u0020from\u0020multiple\u0020rules.",
