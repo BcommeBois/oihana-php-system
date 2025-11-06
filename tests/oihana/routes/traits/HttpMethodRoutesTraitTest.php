@@ -17,13 +17,7 @@ class HttpMethodRoutesTraitTest extends TestCase
             use HttpMethodRoutesTrait;
 
             public Container $container;
-            public string $controllerID;
-
-            public function cleanParams(array $params): array
-            {
-                return $params;
-            }
-        };
+          };
     }
 
     public function testInitializeMethodsSetsProperties()

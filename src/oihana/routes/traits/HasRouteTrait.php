@@ -3,6 +3,7 @@
 namespace oihana\routes\traits;
 
 use oihana\routes\enums\RouteFlag;
+use oihana\routes\Route;
 
 trait HasRouteTrait
 {
@@ -11,11 +12,6 @@ trait HasRouteTrait
      * @var int
      */
     public int $flags = RouteFlag::DEFAULT ;
-
-    /**
-     * The "flags" key parameter.
-     */
-    public const string FLAGS = 'flags' ;
 
     /**
      * Initialize the internal flags.
@@ -30,7 +26,7 @@ trait HasRouteTrait
             return $this ;
         }
 
-        if (isset( $init[ self::FLAGS ] ) && is_int($init[ self::FLAGS ] ) )
+        if (isset( $init[ Route::FLAGS ] ) && is_int( $init[ Route::FLAGS ] ) )
         {
             $this->flags = $init[ self::FLAGS ] ;
             return $this ;
@@ -156,7 +152,7 @@ trait HasRouteTrait
      *
      * @return static
      */
-    public function setFlags(int $flags): static
+    public function setFlags( int $flags ) :static
     {
         $this->flags = $flags;
         return $this;
