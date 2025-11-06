@@ -84,7 +84,7 @@ class Route
      */
     public const string CLAZZ              = 'clazz'            ;
     public const string CONTROLLER_ID      = 'controllerID'     ;
-    public const string FLAGS              = 'flags'     ;
+    public const string FLAGS              = 'flags'            ;
     public const string METHOD             = 'method'           ;
     public const string NAME               = 'name'             ;
     public const string OWNER_PATTERN      = 'ownerPattern'     ;
