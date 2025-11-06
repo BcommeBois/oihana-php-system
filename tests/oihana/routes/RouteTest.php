@@ -67,25 +67,6 @@ class RouteTest extends TestCase
      * @throws DependencyException
      * @throws NotFoundException
      */
-    public function testCleanParamsRemovesEmptyValues(): void
-    {
-        $route = new Route($this->container);
-
-        $result = $route->cleanParams
-        ([
-            'a' => 'ok',
-            'b' => '',
-            'c' => null,
-            'd' => 0,
-        ]);
-
-        $this->assertSame(['a' => 'ok', 'd' => 0], $result);
-    }
-
-    /**
-     * @throws DependencyException
-     * @throws NotFoundException
-     */
     public function testDotifyReplacesSlashes(): void
     {
         $route = new Route($this->container);

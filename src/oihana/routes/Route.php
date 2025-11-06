@@ -15,6 +15,7 @@ use oihana\routes\http\GetRoute;
 use oihana\traits\ContainerTrait;
 use oihana\traits\ToStringTrait;
 
+use function oihana\core\arrays\clean;
 use function oihana\core\arrays\isAssociative;
 
 /**
@@ -185,21 +186,6 @@ class Route
     }
 
     /**
-     * Removes null or empty string values from an array of parameters.
-     *
-     * @param array $params Parameters to clean
-     * @return array Filtered parameters
-     */
-    public function cleanParams( array $params = [] ) :array
-    {
-        return array_filter
-        (
-            $params ,
-            fn( $value ) => ( !is_null( $value ) && $value !== Char::EMPTY )
-        ) ;
-    }
-
-    /**
      * Creates a new Route instance from a definition array or Route object.
      *
      * @param array|Route|null $definition Route definition or existing Route
@@ -215,7 +201,7 @@ class Route
         if( is_array( $definition ) && isAssociative( $definition ) )
         {
             $clazz = $definition[ self::CLAZZ ] ?? GetRoute::class ;
-            $route = new $clazz( $this->container , $this->cleanParams
+            $route = new $clazz( $this->container , clean
             ([
                 Route::CONTROLLER_ID => $definition[ Route::CONTROLLER_ID ] ?? $this->controllerID ?? null ,
                 Route::METHOD        => $definition[ Route::METHOD        ] ?? null ,

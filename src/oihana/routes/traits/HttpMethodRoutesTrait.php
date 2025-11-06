@@ -4,6 +4,7 @@ namespace oihana\routes\traits;
 
 use DI\DependencyException;
 use DI\NotFoundException;
+use InvalidArgumentException;
 use oihana\enums\Char;
 use oihana\enums\http\HttpMethod;
 use oihana\routes\http\DeleteRoute;
@@ -13,6 +14,7 @@ use oihana\routes\http\PatchRoute;
 use oihana\routes\http\PostRoute;
 use oihana\routes\http\PutRoute;
 use oihana\routes\Route;
+use function oihana\core\arrays\clean;
 
 trait HttpMethodRoutesTrait
 {
@@ -20,30 +22,35 @@ trait HttpMethodRoutesTrait
 
     public ?string $delete = null ;
     public ?string $get    = null ;
+    public ?string $list   = null ;
     public ?string $patch  = null ;
     public ?string $post   = null ;
     public ?string $put    = null ;
 
     /**
-     * Initialize the internal flags.
-     * @param array $init
-     * @return void
+     * Initializes or overrides HTTP method handlers based on the given init array.
+     *
+     * @param array $init Initialization or override parameters.
+     * @return static
      */
-    protected function initializeMethods( array $init = [] ) :void
+    public function initializeMethods( array $init = [] ) :static
     {
         $this->delete = $init[ HttpMethod::delete ] ?? $this->delete ;
         $this->get    = $init[ HttpMethod::get    ] ?? $this->get    ;
+        $this->list   = $init[ HttpMethod::list   ] ?? $this->list   ;
         $this->patch  = $init[ HttpMethod::patch  ] ?? $this->patch  ;
         $this->post   = $init[ HttpMethod::post   ] ?? $this->post   ;
         $this->put    = $init[ HttpMethod::put    ] ?? $this->put    ;
+
+        return $this ;
     }
 
     /**
      * Generates a special GET count route reference.
      */
-    protected function count( array &$routes , string $route , ?string $method = HttpMethod::count ) :void
+    public function count( array &$routes , string $route , ?string $method = HttpMethod::count ) :void
     {
-        if( $this->hasCount )
+        if( $this->hasCount() )
         {
             $this->method( GetRoute::class , $routes , $route . Char::SLASH . HttpMethod::count , $method ) ;
         }
@@ -52,9 +59,9 @@ trait HttpMethodRoutesTrait
     /**
      * Generates a new DELETE route reference.
      */
-    protected function delete( array &$routes , string $route , ?string $method = null ) :void
+    public function delete( array &$routes , string $route , ?string $method = null ) :void
     {
-        if( $this->hasDelete )
+        if( $this->hasDelete() )
         {
             $this->method( DeleteRoute::class , $routes , $route , $method ?? $this->delete ) ;
         }
@@ -63,9 +70,9 @@ trait HttpMethodRoutesTrait
     /**
      * Generates a new GET route reference.
      */
-    protected function get( array &$routes , string $route , ?string $method = null ) :void
+    public function get( array &$routes , string $route , ?string $method = null ) :void
     {
-        if( $this->hasGet )
+        if( $this->hasGet() )
         {
             $this->method( GetRoute::class , $routes , $route , $method ?? $this->get ) ;
         }
@@ -74,11 +81,11 @@ trait HttpMethodRoutesTrait
     /**
      * Generates a new GET (LIST) route reference.
      */
-    protected function list( array &$routes , string $route , ?string $method = HttpMethod::list ) :void
+    public function list( array &$routes , string $route , ?string $method = HttpMethod::list ) :void
     {
-        if( $this->hasList )
+        if( $this->hasList() )
         {
-            $this->method( GetRoute::class , $routes , $route , $method ) ;
+            $this->method( GetRoute::class , $routes , $route , $method ?? $this->list ) ;
         }
     }
 
@@ -90,9 +97,14 @@ trait HttpMethodRoutesTrait
      * @param ?string $method
      * @return void
      */
-    protected function method( string $clazz , array &$routes , string $route , ?string $method = null ) :void
+    public function method( string $clazz , array &$routes , string $route , ?string $method = null ) :void
     {
-        $routes[] = new $clazz( $this->container , $this->cleanParams
+        if ( !is_subclass_of( $clazz , Route::class ) )
+        {
+            throw new InvalidArgumentException( "Invalid route class: $clazz" ) ;
+        }
+
+        $routes[] = new $clazz( $this->container , clean
         ([
             Route::CONTROLLER_ID => $this->controllerID ,
             Route::METHOD        => $method ,
@@ -105,7 +117,7 @@ trait HttpMethodRoutesTrait
      * @throws DependencyException
      * @throws NotFoundException
      */
-    protected function options( array &$routes , string $route , bool $flag = true ) :void
+    public function options( array &$routes , string $route , bool $flag = true ) :void
     {
         if ( $flag )
         {
@@ -123,9 +135,9 @@ trait HttpMethodRoutesTrait
     /**
      * Generates a new PATCH route reference.
      */
-    protected function patch( array &$routes , string $route , ?string $method = null ) :void
+    public function patch( array &$routes , string $route , ?string $method = null ) :void
     {
-        if( $this->hasPatch )
+        if( $this->hasPatch() )
         {
             $this->method( PatchRoute::class , $routes , $route , $method ?? $this->patch ) ;
         }
@@ -134,9 +146,9 @@ trait HttpMethodRoutesTrait
     /**
      * Generates a new POST route reference.
      */
-    protected function post( array &$routes , string $route , ?string $method = null ) :void
+    public function post( array &$routes , string $route , ?string $method = null ) :void
     {
-        if( $this->hasPost )
+        if( $this->hasPost() )
         {
             $this->method( PostRoute::class , $routes , $route , $method ?? $this->post ) ;
         }
@@ -145,9 +157,9 @@ trait HttpMethodRoutesTrait
     /**
      * Generates a new PUT route reference.
      */
-    protected function put( array &$routes , string $route , ?string $method = null ) :void
+    public function put( array &$routes , string $route , ?string $method = null ) :void
     {
-        if( $this->hasPut )
+        if( $this->hasPut() )
         {
             $this->method( PutRoute::class , $routes , $route , $method ?? $this->put ) ;
         }

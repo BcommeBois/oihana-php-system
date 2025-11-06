@@ -18,47 +18,42 @@ class HasRouteTraitTest extends TestCase
         $this->mock = new class
         {
             use HasRouteTrait;
-
-            public function callInitialize( array $init = [] ): void
-            {
-                $this->initializeFlags( $init ) ;
-            }
         };
     }
 
     public function test_default_flags_are_true_by_default(): void
     {
-        $this->mock->callInitialize([]);
+        $this->mock->initializeFlags([]);
         foreach ($this->getAllFlags() as $flag)
         {
-            $this->assertTrue($this->mock->$flag, "Flag $flag should default to true");
+            $this->assertTrue($this->mock->{$flag}(), "Flag $flag should default to true");
         }
     }
 
     public function test_default_flag_can_disable_all(): void
     {
-        $this->mock->callInitialize([RouteFlag::DEFAULT_FLAG => false]);
+        $this->mock->initializeFlags([RouteFlag::DEFAULT_FLAG => false]);
 
         foreach ($this->getAllFlags() as $flag)
         {
-            $this->assertFalse($this->mock->$flag, "Flag $flag should be false when DEFAULT_FLAG=false");
+            $this->assertFalse($this->mock->{$flag}(), "Flag $flag should be false when DEFAULT_FLAG=false");
         }
     }
 
     public function test_partial_initialization_overrides_some_flags(): void
     {
-        $this->mock->callInitialize([
+        $this->mock->initializeFlags([
             RouteFlag::DEFAULT_FLAG => false,
             RouteFlag::HAS_GET      => true,
             RouteFlag::HAS_POST     => true,
         ]);
 
-        $this->assertTrue($this->mock->hasGet);
-        $this->assertTrue($this->mock->hasPost);
+        $this->assertTrue($this->mock->hasGet());
+        $this->assertTrue($this->mock->hasPost());
 
         // all others should remain false
         foreach ($this->getAllFlags(['hasGet', 'hasPost']) as $flag) {
-            $this->assertFalse($this->mock->$flag, "Flag $flag should remain false");
+            $this->assertFalse($this->mock->{$flag}(), "Flag $flag should remain false");
         }
     }
 
@@ -76,12 +71,71 @@ class HasRouteTraitTest extends TestCase
             RouteFlag::HAS_PUT             => true,
         ];
 
-        $this->mock->callInitialize($init);
+        $this->mock->initializeFlags($init);
 
         foreach ( $init as $const => $expected )
         {
-            $this->assertSame( $expected , $this->mock->{ $const }, "Flag $const mismatch");
+            // Map constant to method name (lower camel case)
+            $method = lcfirst(str_replace('HAS_', 'has', ucwords(strtolower(str_replace('_', ' ', $const)))));
+            $this->assertSame( $expected , $this->mock->{$method}(), "Flag $const mismatch");
         }
+    }
+
+    public function test_enable_and_disable_flags(): void
+    {
+        $this->mock->initializeFlags([]);
+
+        // Initially all flags true
+        $this->assertTrue($this->mock->hasGet());
+        $this->assertTrue($this->mock->hasPost());
+
+        // Disable HAS_GET and HAS_POST
+        $this->mock->disableFlags(RouteFlag::GET | RouteFlag::POST );
+        $this->assertFalse($this->mock->hasGet());
+        $this->assertFalse($this->mock->hasPost());
+
+        // Enable HAS_GET again
+        $this->mock->enableFlags(RouteFlag::GET );
+        $this->assertTrue($this->mock->hasGet());
+        $this->assertFalse($this->mock->hasPost());
+    }
+
+    public function test_describe_flags_returns_human_readable_string(): void
+    {
+        $this->mock->initializeFlags([
+            RouteFlag::HAS_GET => true,
+            RouteFlag::HAS_POST => false,
+            RouteFlag::HAS_PUT => true,
+        ]);
+
+        $description = $this->mock->describeFlags();
+        $this->assertIsString($description);
+        $this->assertStringContainsString('GET', $description);
+        $this->assertStringContainsString('PUT', $description);
+        $this->assertStringNotContainsString('POST', $description);
+    }
+
+    public function test_initialize_with_integer(): void
+    {
+        $this->mock->initializeFlags(RouteFlag::READ_ONLY);
+
+        $this->assertTrue($this->mock->hasGet());
+        $this->assertTrue($this->mock->hasList());
+        $this->assertTrue($this->mock->hasCount());
+        $this->assertFalse($this->mock->hasPost());
+    }
+    public function test_set_and_get_flags(): void
+    {
+        $this->mock->setFlags(RouteFlag::WRITE);
+        $this->assertSame(RouteFlag::WRITE, $this->mock->getFlags());
+        $this->assertTrue($this->mock->hasDelete());
+        $this->assertFalse($this->mock->hasList());
+    }
+
+    public function test_describe_none_returns_NONE(): void
+    {
+        $this->mock->setFlags(RouteFlag::NONE);
+        $this->assertSame('NONE', $this->mock->describeFlags());
     }
 
     protected function getAllFlags(array $exclude = []): array
@@ -93,4 +147,6 @@ class HasRouteTraitTest extends TestCase
         ];
         return array_values(array_diff($flags, $exclude));
     }
+
+
 }

@@ -14,8 +14,8 @@ class DocumentRoute extends Route
     public function __construct( Container $container , array $init = [] )
     {
         parent::__construct( $container , $init ) ;
-        $this->initializeFlags( $init ) ;
-        $this->initializeMethods( $init ) ;
+        $this->initializeFlags   ( $init )
+             ->initializeMethods ( $init ) ;
     }
 
     use HttpMethodRoutesTrait ;
@@ -36,16 +36,16 @@ class DocumentRoute extends Route
             // COUNT/LIST/POST : /route
             $this->list    ( $routes , $route ) ;
             $this->count   ( $routes , $route ) ;
-            $this->options ( $routes , $route , $this->hasPost ) ;
+            $this->options ( $routes , $route , $this->hasPost() ) ;
             $this->post    ( $routes , $route ) ;
 
             // DELETE/GET/PATCH/PUT : /route/{id:[0-9]+}
             $docRoute = withPlaceholder( $route , $this->routePlaceholder ) ;
 
             // DELETE (`hasDeleteMultiple` === true ) -> /route[/{id:[0-9]+}]
-            $deleteRoute = withPlaceholder( $route , $this->routePlaceholder , $this->hasDeleteMultiple ) ;
+            $deleteRoute = withPlaceholder( $route , $this->routePlaceholder , $this->hasDeleteMultiple() ) ;
 
-            $this->options ( $routes , $docRoute , $this->hasGet || $this->hasDelete || $this->hasPatch || $this->hasPut ) ;
+            $this->options ( $routes , $docRoute , $this->hasGet() || $this->hasDelete() || $this->hasPatch() || $this->hasPut() ) ;
             $this->delete  ( $routes , $deleteRoute ) ;
             $this->get     ( $routes , $docRoute    ) ;
             $this->patch   ( $routes , $docRoute    ) ;
