@@ -7,6 +7,7 @@ use Exception;
 
 use oihana\controllers\enums\ControllerParam;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use function oihana\controllers\helpers\getParam;
 
 trait PrepareTimezone
 {
@@ -28,7 +29,7 @@ trait PrepareTimezone
         {
             $params[ ControllerParam::TIMEZONE ]
             = $timezone
-            = new DateTimeZone( $this->getParam( $request , ControllerParam::TIMEZONE ) ?? $timeOptions[ ControllerParam::TIMEZONE_DEFAULT ] ?? $defaultValue ) ;
+            = new DateTimeZone( getParam( $request , ControllerParam::TIMEZONE ) ?? $timeOptions[ ControllerParam::TIMEZONE_DEFAULT ] ?? $defaultValue ) ;
         }
     }
 }

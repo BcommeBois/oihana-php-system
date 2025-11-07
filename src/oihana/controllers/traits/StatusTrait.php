@@ -6,6 +6,7 @@ use oihana\enums\Char;
 use oihana\enums\http\HttpStatusCode;
 use oihana\enums\Output;
 use oihana\logging\LoggerTrait;
+
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -94,12 +95,11 @@ trait StatusTrait
 
     /**
      * Outputs a success message with a JSON response. If the $response parameter is null, returns the $data parameter value.
-     * Ex:
-     * return $this->success( $request , $response , $data , [ Output::PARAMS => $request->getParams() ] ) ;
-     * @param ?Request $request The HTTP request reference.
+     *
+     * @param ?Request  $request  The HTTP request reference.
      * @param ?Response $response The HTTP Response reference.
-     * @param mixed $data The data object to returns (output a JSON object).
-     * @param ?array $init An associative definition to initialize the output object with the optional properties :
+     * @param mixed     $data     The data object to returns (output a JSON object).
+     * @param ?array    $init     An associative definition to initialize the output object with the optional properties :
      * <ul>
      * <i>count (int)  - The optional number of elements.</i>
      * <i>owner (object|array) - The optional owner reference.</i>
@@ -109,7 +109,13 @@ trait StatusTrait
      * <i>total (int)  - The optional total number of elements.</i>
      * <i>url (string) - The optional url to display.</i>
      * </ul>
+     *
      * @return mixed
+     *
+     * @example
+     * ```php
+     * return $this->success( $request , $response , $data , [ Output::PARAMS => $request->getParams() ] ) ;
+     * ```
      */
     public function success
     (

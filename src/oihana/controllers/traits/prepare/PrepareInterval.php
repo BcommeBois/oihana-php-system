@@ -5,12 +5,16 @@ namespace oihana\controllers\traits\prepare;
 use DI\NotFoundException;
 
 use oihana\controllers\enums\ControllerParam;
+use oihana\controllers\traits\GetParamTrait;
 use oihana\enums\FilterOption;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
+use function oihana\controllers\helpers\getParam;
 
 trait PrepareInterval
 {
+    use GetParamTrait ;
+
     /**
      * @throws NotFoundException
      */
@@ -19,7 +23,12 @@ trait PrepareInterval
         $register = false ;
         if( isset( $request ) )
         {
-            $value = $this->getParam( $request , ControllerParam::INTERVAL ) ;
+            $value = getParam
+            (
+                $request ,
+                ControllerParam::INTERVAL ,
+                strategy: $this->paramsStrategy
+            ) ;
             if( isset( $value ) )
             {
                 $register = true ;

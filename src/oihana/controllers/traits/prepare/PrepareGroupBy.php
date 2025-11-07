@@ -5,6 +5,7 @@ namespace oihana\controllers\traits\prepare;
 use DI\NotFoundException;
 use oihana\controllers\enums\ControllerParam;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use function oihana\controllers\helpers\getParam;
 
 trait PrepareGroupBy
 {
@@ -15,7 +16,7 @@ trait PrepareGroupBy
     {
         if( isset( $request ) )
         {
-            $value = $this->getParam( $request , ControllerParam::GROUP_BY );
+            $value = getParam( $request , ControllerParam::GROUP_BY );
             if( isset( $value ) )
             {
                 $groupBy = $value ;

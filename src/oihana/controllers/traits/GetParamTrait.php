@@ -454,7 +454,6 @@ trait GetParamTrait
         int            $max ,
         null|int|float $defaultValue = null ,
         array          $args         = [] ,
-        string         $strategy     = HttpParamStrategy::BOTH ,
         bool           $throwable    = false
     )
     :mixed

@@ -7,6 +7,8 @@ use oihana\controllers\enums\ControllerParam;
 use oihana\controllers\traits\ApiTrait;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
+use function oihana\controllers\helpers\getParam;
+
 trait PrepareOrder
 {
     use ApiTrait ;
@@ -18,7 +20,7 @@ trait PrepareOrder
     {
         if( isset( $request ) )
         {
-            $value = $this->getParam( $request , ControllerParam::ORDER );
+            $value = getParam( $request , ControllerParam::ORDER );
 
             if( !empty( $value ) )
             {
