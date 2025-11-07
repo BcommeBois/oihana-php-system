@@ -4,7 +4,9 @@ namespace oihana\routes\traits;
 
 use DI\DependencyException;
 use DI\NotFoundException;
+
 use InvalidArgumentException;
+
 use oihana\enums\Char;
 use oihana\enums\http\HttpMethod;
 use oihana\routes\http\DeleteRoute;
@@ -14,8 +16,10 @@ use oihana\routes\http\PatchRoute;
 use oihana\routes\http\PostRoute;
 use oihana\routes\http\PutRoute;
 use oihana\routes\Route;
+
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
+
 use function oihana\core\arrays\clean;
 
 trait HttpMethodRoutesTrait
@@ -43,7 +47,6 @@ trait HttpMethodRoutesTrait
         $this->patch  = $init[ HttpMethod::patch  ] ?? $this->patch  ;
         $this->post   = $init[ HttpMethod::post   ] ?? $this->post   ;
         $this->put    = $init[ HttpMethod::put    ] ?? $this->put    ;
-
         return $this ;
     }
 
