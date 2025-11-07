@@ -6,6 +6,9 @@ use DI\Container;
 use DI\DependencyException;
 use DI\NotFoundException;
 
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
+
 use oihana\enums\http\HttpMethod;
 use oihana\routes\Route;
 
@@ -17,6 +20,8 @@ class MethodRoute extends Route
      * @param array $init The optional settings object.
      * @throws DependencyException
      * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     public function __construct( Container $container , array $init = [] )
     {
@@ -47,20 +52,16 @@ class MethodRoute extends Route
             $controller = $this->container->get( $this->controllerID ) ;
             if( isset( $controller ) && method_exists( $controller , $this->method ) )
             {
-                // if( $this->verbose )
-                // {
-                //     $this->logger->info( $this . ' invoke name: ' . $this->getName() );
-                // }
                 $this->app->{ static::INTERNAL_METHOD }( $this->getRoute() , [ $controller , $this->method ] )->setName( $this->getName() ) ;
             }
             else
             {
-                $this->logger->warning( $this . ' invoke failed, the method "' . $this->method . '" is not defined in the controller "' . $this->controllerID . '".' );
+                $this->warning( $this . ' invoke failed, the method "' . $this->method . '" is not defined in the controller "' . $this->controllerID . '".' );
             }
         }
         else
         {
-            $this->logger->warning( $this . ' invoke failed, the controller "' . $this->controllerID . '" is not registered in the DI container.' );
+            $this->warning( $this . ' invoke failed, the controller "' . $this->controllerID . '" is not registered in the DI container.' );
         }
     }
 }

@@ -7,6 +7,8 @@ use DI\DependencyException;
 use DI\NotFoundException;
 
 use oihana\routes\traits\HttpMethodRoutesTrait;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use function oihana\routes\helpers\withPlaceholder;
 
 class DocumentRoute extends Route
@@ -24,6 +26,8 @@ class DocumentRoute extends Route
      * Initialize the current route.
      * @throws DependencyException
      * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     public function __invoke(): void
     {

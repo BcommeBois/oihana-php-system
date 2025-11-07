@@ -42,6 +42,8 @@
             "src/oihana/models/helpers/getDocumentsModel.php" ,
             "src/oihana/models/helpers/getModel.php" ,
             "src/oihana/models/helpers/resolveDependency.php" ,
+            
+            "src/oihana/routes/helpers/responsePassthrough.php",
             "src/oihana/routes/helpers/withPlaceholder.php",
             
             "src/oihana/validations/rules/helpers/after.php",

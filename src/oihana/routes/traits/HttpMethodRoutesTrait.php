@@ -14,6 +14,8 @@ use oihana\routes\http\PatchRoute;
 use oihana\routes\http\PostRoute;
 use oihana\routes\http\PutRoute;
 use oihana\routes\Route;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use function oihana\core\arrays\clean;
 
 trait HttpMethodRoutesTrait
@@ -114,8 +116,15 @@ trait HttpMethodRoutesTrait
 
     /**
      * Generates a new OPTIONS route reference.
+     *
+     * @param array $routes
+     * @param string $route
+     * @param bool $flag
+     *
      * @throws DependencyException
      * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     public function options( array &$routes , string $route , bool $flag = true ) :void
     {

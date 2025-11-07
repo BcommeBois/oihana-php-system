@@ -6,9 +6,11 @@ use DI\Container;
 use DI\DependencyException;
 use DI\NotFoundException;
 
-use Psr\Log\LoggerInterface;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
-use Slim\App;
+use oihana\controllers\traits\AppTrait;
+use oihana\logging\LoggerTrait;
 
 use oihana\enums\Char;
 use oihana\routes\http\GetRoute;
@@ -27,7 +29,7 @@ class Route
      * Initializes a route instance with optional parameters.
      *
      * @param Container $container DI container
-     * @param array     $init Optional route initialization array:
+     * @param array $init Optional route initialization array:
      *  - 'controllerID': Optional controller identifier.
      *  - 'name': Optional route name (defaults to generated name).
      *  - 'ownerPattern': Optional owner route pattern (default '{owner:[0-9]+}').
@@ -41,13 +43,15 @@ class Route
      *
      * @throws DependencyException
      * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     public function __construct( Container $container , array $init = [] )
     {
         $this->container = $container ;
-        $this->app       = $container->get( App::class ) ;
-        $this->logger    = $this->container->get( LoggerInterface::class ) ;
-        $this->settings  = $init ; // TODO remove it - use only to initialize the constructor
+
+        $this->initializeApp    ( $init , $container )
+             ->initializeLogger ( $init , $container ) ;
 
         $this->controllerID     = $init[ self::CONTROLLER_ID     ] ?? $this->controllerID ;
         $this->name             = $init[ self::NAME              ] ?? $this->name ;
@@ -58,10 +62,11 @@ class Route
         $this->routePlaceholder = $init[ self::ROUTE_PLACEHOLDER ] ?? $this->routePlaceholder ;
         $this->routes           = $init[ self::ROUTES            ] ?? $this->routes ;
         $this->suffix           = $init[ self::SUFFIX            ] ?? $this->suffix ;
-        $this->verbose          = $init[ self::VERBOSE           ] ?? $this->verbose ;
     }
 
-    use ContainerTrait ,
+    use AppTrait ,
+        ContainerTrait ,
+        LoggerTrait ,
         ToStringTrait  ;
 
     /**
@@ -82,6 +87,7 @@ class Route
     /**
      * Array keys for route initialization
      */
+    public const string APP                = 'app'              ;
     public const string CLAZZ              = 'clazz'            ;
     public const string CONTROLLER_ID      = 'controllerID'     ;
     public const string FLAGS              = 'flags'            ;
@@ -98,22 +104,11 @@ class Route
     public const string ROUTE_PLACEHOLDER  = 'routePattern'     ;
     public const string ROUTES             = 'routes'           ;
     public const string SUFFIX             = 'suffix'           ;
-    public const string VERBOSE            = 'verbose'          ;
-
-    /**
-     * @var App Slim App instance
-     */
-    protected App $app ;
 
     /**
      * @var string|null Controller ID registered in DI container
      */
     public ?string $controllerID = null ;
-
-    /**
-     * @var LoggerInterface Logger instance
-     */
-    public LoggerInterface $logger ;
 
     /**
      * @var string|null Route name
@@ -151,19 +146,9 @@ class Route
     public ?array $routes = null ;
 
     /**
-     * @var array Initial settings passed to constructor.
-     */
-    public array $settings ;
-
-    /**
      * @var string Route name suffix
      */
     public string $suffix = Char::EMPTY ;
-
-    /**
-     * @var bool Verbose mode flag
-     */
-    public bool $verbose = true ;
 
     /**
      * Invokes all nested routes if defined.

@@ -69,12 +69,15 @@ trait AppTrait
     /**
      * Initializes the internal `app` property.
      *
-     * This method retrieves the Slim App instance from either the provided
-     * initialization array or the DI container. It throws an exception if
-     * no valid App instance can be found.
+     * This method retrieves the Slim App instance with a specific priority:
+     * 1. From the provided initialization array (e.g., ['app' => App instance]).
+     * 2. If not in the array, from the DI container (using App::class or a custom key from init).
      *
-     * @param array $init Optional initialization array (e.g., ['app' => App instance]).
-     * @param ContainerInterface|null $container Optional DI container for retrieving the App instance.
+     * It throws an exception if no valid App instance can be found.
+     * This priority allows for easy overriding/mocking during tests.
+     *
+     * @param array $init Optional initialization array.
+     * @param ContainerInterface|null $container Optional DI container.
      *
      * @return static Returns the current controller instance for method chaining.
      *
@@ -84,16 +87,19 @@ trait AppTrait
      */
     public function initializeApp( array $init = [] , ?ContainerInterface $container = null  ):static
     {
-        $app = $init[ ControllerParam::APP ] ?? null;
+        $app = $init[ ControllerParam::APP ] ?? App::class ;
 
-        if( $container instanceof ContainerInterface && $container->has( App::class ) )
+        if( !$app instanceof App && is_string( $app ) && $container?->has( $app ) )
         {
-            $app = $container->get( App::class ) ;
+            $app = $container->get( $app ) ;
         }
 
         if( !$app instanceof App )
         {
-            throw new RuntimeException( 'The controller `app` property must be defined.' ) ;
+            throw new RuntimeException
+            (
+                'Could not initialize App. It was not provided in the init array (under the "'. ControllerParam::APP .'" key) and could not be found in the DI container.'
+            ) ;
         }
 
         $this->app = $app ;

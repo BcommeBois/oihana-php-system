@@ -3,8 +3,8 @@
 namespace oihana\routes\http;
 
 use oihana\routes\Route;
-use Psr\Http\Message\ResponseInterface as Response;
-use Psr\Http\Message\ServerRequestInterface as Request;
+
+use function oihana\routes\helpers\responsePassthrough;
 
 class OptionsRoute extends Route
 {
@@ -13,6 +13,6 @@ class OptionsRoute extends Route
      */
     public function __invoke(): void
     {
-        $this->app->options( $this->getRoute() , fn( Request $request , Response $response ) => $response ); ;
+        $this->app->options( $this->getRoute() , responsePassthrough(...) ) ;
     }
 }
