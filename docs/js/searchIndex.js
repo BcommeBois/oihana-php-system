@@ -101,10 +101,70 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/oihana-controllers-enums-TwigParam.html#constant_TWIG"
         },                {
+            "fqsen": "\\oihana\\controllers\\helpers\\getBodyParam\u0028\u0029",
+            "name": "getBodyParam",
+            "summary": "Retrieves\u0020a\u0020single\u0020parameter\u0020from\u0020the\u0020HTTP\u0020request\u0020body.",
+            "url": "namespaces/oihana-controllers-helpers.html#function_getBodyParam"
+        },                {
+            "fqsen": "\\oihana\\controllers\\helpers\\getBodyParams\u0028\u0029",
+            "name": "getBodyParams",
+            "summary": "Retrieves\u0020multiple\u0020parameters\u0020from\u0020the\u0020HTTP\u0020request\u0020body.",
+            "url": "namespaces/oihana-controllers-helpers.html#function_getBodyParams"
+        },                {
             "fqsen": "\\oihana\\controllers\\helpers\\getController\u0028\u0029",
             "name": "getController",
             "summary": "Retrieves\u0020a\u0020controller\u0020instance\u0020from\u0020a\u0020PSR\u002D11\u0020container\u0020if\u0020available.",
             "url": "namespaces/oihana-controllers-helpers.html#function_getController"
+        },                {
+            "fqsen": "\\oihana\\controllers\\helpers\\getParam\u0028\u0029",
+            "name": "getParam",
+            "summary": "Retrieves\u0020a\u0020parameter\u0020from\u0020the\u0020HTTP\u0020request,\u0020supporting\u0020query\u0020string,\u0020body,\u0020or\u0020both.",
+            "url": "namespaces/oihana-controllers-helpers.html#function_getParam"
+        },                {
+            "fqsen": "\\oihana\\controllers\\helpers\\getParamArray\u0028\u0029",
+            "name": "getParamArray",
+            "summary": "Retrieves\u0020a\u0020parameter\u0020from\u0020the\u0020HTTP\u0020request\u0020and\u0020ensures\u0020it\u0020is\u0020an\u0020array.",
+            "url": "namespaces/oihana-controllers-helpers.html#function_getParamArray"
+        },                {
+            "fqsen": "\\oihana\\controllers\\helpers\\getParamBool\u0028\u0029",
+            "name": "getParamBool",
+            "summary": "Retrieves\u0020a\u0020parameter\u0020from\u0020the\u0020HTTP\u0020request\u0020and\u0020ensures\u0020it\u0020is\u0020a\u0020boolean.",
+            "url": "namespaces/oihana-controllers-helpers.html#function_getParamBool"
+        },                {
+            "fqsen": "\\oihana\\controllers\\helpers\\getParamFloat\u0028\u0029",
+            "name": "getParamFloat",
+            "summary": "Retrieves\u0020a\u0020parameter\u0020from\u0020the\u0020HTTP\u0020request\u0020and\u0020ensures\u0020it\u0020is\u0020a\u0020float\u0020number.",
+            "url": "namespaces/oihana-controllers-helpers.html#function_getParamFloat"
+        },                {
+            "fqsen": "\\oihana\\controllers\\helpers\\getParamFloatRange\u0028\u0029",
+            "name": "getParamFloatRange",
+            "summary": "Retrieves\u0020a\u0020float\u0020parameter\u0020from\u0020the\u0020request\u0020and\u0020clamps\u0020it\u0020within\u0020a\u0020given\u0020range.",
+            "url": "namespaces/oihana-controllers-helpers.html#function_getParamFloatRange"
+        },                {
+            "fqsen": "\\oihana\\controllers\\helpers\\getParamInt\u0028\u0029",
+            "name": "getParamInt",
+            "summary": "Retrieves\u0020a\u0020parameter\u0020from\u0020the\u0020HTTP\u0020request\u0020and\u0020ensures\u0020it\u0020is\u0020a\u0020int\u0020number.",
+            "url": "namespaces/oihana-controllers-helpers.html#function_getParamInt"
+        },                {
+            "fqsen": "\\oihana\\controllers\\helpers\\getParamIntRange\u0028\u0029",
+            "name": "getParamIntRange",
+            "summary": "Retrieves\u0020an\u0020integer\u0020parameter\u0020from\u0020the\u0020request\u0020and\u0020clamps\u0020it\u0020within\u0020a\u0020given\u0020range.",
+            "url": "namespaces/oihana-controllers-helpers.html#function_getParamIntRange"
+        },                {
+            "fqsen": "\\oihana\\controllers\\helpers\\getParamNumberRange\u0028\u0029",
+            "name": "getParamNumberRange",
+            "summary": "Retrieves\u0020a\u0020numeric\u0020parameter\u0020from\u0020the\u0020request\u0020and\u0020clamps\u0020it\u0020within\u0020a\u0020given\u0020range.",
+            "url": "namespaces/oihana-controllers-helpers.html#function_getParamNumberRange"
+        },                {
+            "fqsen": "\\oihana\\controllers\\helpers\\getParamString\u0028\u0029",
+            "name": "getParamString",
+            "summary": "Retrieves\u0020a\u0020parameter\u0020from\u0020the\u0020HTTP\u0020request\u0020and\u0020ensures\u0020it\u0020is\u0020a\u0020string.",
+            "url": "namespaces/oihana-controllers-helpers.html#function_getParamString"
+        },                {
+            "fqsen": "\\oihana\\controllers\\helpers\\getQueryParam\u0028\u0029",
+            "name": "getQueryParam",
+            "summary": "Retrieves\u0020a\u0020single\u0020parameter\u0020from\u0020the\u0020HTTP\u0020request\u0020query\u0020string.",
+            "url": "namespaces/oihana-controllers-helpers.html#function_getQueryParam"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\ApiTrait",
             "name": "ApiTrait",
@@ -3456,25 +3516,35 @@ Search.appendIndex(
             "summary": "Initialize\u0020the\u0020current\u0020route.",
             "url": "classes/oihana-routes-DocumentRoute.html#method___invoke"
         },                {
-            "fqsen": "\\oihana\\routes\\enums\\NoBodyResponse",
-            "name": "NoBodyResponse",
-            "summary": "Special\u0020response\u0020indicators",
-            "url": "classes/oihana-routes-enums-NoBodyResponse.html"
-        },                {
-            "fqsen": "\\oihana\\routes\\enums\\NoBodyResponse\u003A\u003ADEFAULT",
-            "name": "DEFAULT",
-            "summary": "",
-            "url": "classes/oihana-routes-enums-NoBodyResponse.html#constant_DEFAULT"
-        },                {
-            "fqsen": "\\oihana\\routes\\enums\\NoBodyResponse\u003A\u003ACLAZZ",
-            "name": "CLAZZ",
-            "summary": "",
-            "url": "classes/oihana-routes-enums-NoBodyResponse.html#constant_CLAZZ"
-        },                {
             "fqsen": "\\oihana\\routes\\enums\\RouteFlag",
             "name": "RouteFlag",
             "summary": "",
             "url": "classes/oihana-routes-enums-RouteFlag.html"
+        },                {
+            "fqsen": "\\oihana\\routes\\enums\\RouteFlag\u003A\u003AconvertLegacyArray\u0028\u0029",
+            "name": "convertLegacyArray",
+            "summary": "Converts\u0020legacy\u0020boolean\u0020array\u0020format\u0020to\u0020bitmask.",
+            "url": "classes/oihana-routes-enums-RouteFlag.html#method_convertLegacyArray"
+        },                {
+            "fqsen": "\\oihana\\routes\\enums\\RouteFlag\u003A\u003Adescribe\u0028\u0029",
+            "name": "describe",
+            "summary": "Gets\u0020a\u0020human\u002Dreadable\u0020description\u0020of\u0020the\u0020flags\u0020in\u0020a\u0020bitmask.",
+            "url": "classes/oihana-routes-enums-RouteFlag.html#method_describe"
+        },                {
+            "fqsen": "\\oihana\\routes\\enums\\RouteFlag\u003A\u003AgetFlags\u0028\u0029",
+            "name": "getFlags",
+            "summary": "Gets\u0020a\u0020list\u0020of\u0020all\u0020individual\u0020flags\u0020present\u0020in\u0020a\u0020bitmask.",
+            "url": "classes/oihana-routes-enums-RouteFlag.html#method_getFlags"
+        },                {
+            "fqsen": "\\oihana\\routes\\enums\\RouteFlag\u003A\u003Ahas\u0028\u0029",
+            "name": "has",
+            "summary": "Checks\u0020whether\u0020a\u0020specific\u0020flag\u0020is\u0020set\u0020in\u0020a\u0020bitmask.",
+            "url": "classes/oihana-routes-enums-RouteFlag.html#method_has"
+        },                {
+            "fqsen": "\\oihana\\routes\\enums\\RouteFlag\u003A\u003AisValid\u0028\u0029",
+            "name": "isValid",
+            "summary": "Validates\u0020that\u0020a\u0020bitmask\u0020contains\u0020only\u0020valid\u0020RouteFlag\u0020values.",
+            "url": "classes/oihana-routes-enums-RouteFlag.html#method_isValid"
         },                {
             "fqsen": "\\oihana\\routes\\enums\\RouteFlag\u003A\u003ADEFAULT_FLAG",
             "name": "DEFAULT_FLAG",
@@ -3521,6 +3591,91 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/oihana-routes-enums-RouteFlag.html#constant_HAS_PUT"
         },                {
+            "fqsen": "\\oihana\\routes\\enums\\RouteFlag\u003A\u003ANONE",
+            "name": "NONE",
+            "summary": "No\u0020routes\u0020enabled",
+            "url": "classes/oihana-routes-enums-RouteFlag.html#constant_NONE"
+        },                {
+            "fqsen": "\\oihana\\routes\\enums\\RouteFlag\u003A\u003ACOUNT",
+            "name": "COUNT",
+            "summary": "Enable\u0020COUNT\u0020route",
+            "url": "classes/oihana-routes-enums-RouteFlag.html#constant_COUNT"
+        },                {
+            "fqsen": "\\oihana\\routes\\enums\\RouteFlag\u003A\u003ADELETE",
+            "name": "DELETE",
+            "summary": "Enable\u0020DELETE\u0020route",
+            "url": "classes/oihana-routes-enums-RouteFlag.html#constant_DELETE"
+        },                {
+            "fqsen": "\\oihana\\routes\\enums\\RouteFlag\u003A\u003ADELETE_MULTIPLE",
+            "name": "DELETE_MULTIPLE",
+            "summary": "Enable\u0020DELETE\u0020with\u0020multiple\u0020IDs\u0020support",
+            "url": "classes/oihana-routes-enums-RouteFlag.html#constant_DELETE_MULTIPLE"
+        },                {
+            "fqsen": "\\oihana\\routes\\enums\\RouteFlag\u003A\u003AGET",
+            "name": "GET",
+            "summary": "Enable\u0020GET\u0020route",
+            "url": "classes/oihana-routes-enums-RouteFlag.html#constant_GET"
+        },                {
+            "fqsen": "\\oihana\\routes\\enums\\RouteFlag\u003A\u003ALIST",
+            "name": "LIST",
+            "summary": "Enable\u0020LIST\u0020route",
+            "url": "classes/oihana-routes-enums-RouteFlag.html#constant_LIST"
+        },                {
+            "fqsen": "\\oihana\\routes\\enums\\RouteFlag\u003A\u003APATCH",
+            "name": "PATCH",
+            "summary": "Enable\u0020PATCH\u0020route",
+            "url": "classes/oihana-routes-enums-RouteFlag.html#constant_PATCH"
+        },                {
+            "fqsen": "\\oihana\\routes\\enums\\RouteFlag\u003A\u003APOST",
+            "name": "POST",
+            "summary": "Enable\u0020POST\u0020route",
+            "url": "classes/oihana-routes-enums-RouteFlag.html#constant_POST"
+        },                {
+            "fqsen": "\\oihana\\routes\\enums\\RouteFlag\u003A\u003APUT",
+            "name": "PUT",
+            "summary": "Enable\u0020PUT\u0020route",
+            "url": "classes/oihana-routes-enums-RouteFlag.html#constant_PUT"
+        },                {
+            "fqsen": "\\oihana\\routes\\enums\\RouteFlag\u003A\u003AALL",
+            "name": "ALL",
+            "summary": "All\u0020valid\u0020flags\u0020combined\u0020\u0028used\u0020for\u0020validation\u0029",
+            "url": "classes/oihana-routes-enums-RouteFlag.html#constant_ALL"
+        },                {
+            "fqsen": "\\oihana\\routes\\enums\\RouteFlag\u003A\u003ADEFAULT",
+            "name": "DEFAULT",
+            "summary": "Default\u0020routes\u003A\u0020all\u0020CRUD\u0020operations\u0020enabled",
+            "url": "classes/oihana-routes-enums-RouteFlag.html#constant_DEFAULT"
+        },                {
+            "fqsen": "\\oihana\\routes\\enums\\RouteFlag\u003A\u003AREAD_ONLY",
+            "name": "READ_ONLY",
+            "summary": "Read\u002Donly\u0020routes\u0020\u0028GET,\u0020LIST,\u0020COUNT\u0029",
+            "url": "classes/oihana-routes-enums-RouteFlag.html#constant_READ_ONLY"
+        },                {
+            "fqsen": "\\oihana\\routes\\enums\\RouteFlag\u003A\u003AWRITE",
+            "name": "WRITE",
+            "summary": "Write\u0020routes\u0020\u0028POST,\u0020PUT,\u0020PATCH,\u0020DELETE\u0029",
+            "url": "classes/oihana-routes-enums-RouteFlag.html#constant_WRITE"
+        },                {
+            "fqsen": "\\oihana\\routes\\enums\\RouteFlag\u003A\u003ACRUD",
+            "name": "CRUD",
+            "summary": "Basic\u0020CRUD\u0020without\u0020count",
+            "url": "classes/oihana-routes-enums-RouteFlag.html#constant_CRUD"
+        },                {
+            "fqsen": "\\oihana\\routes\\enums\\RouteFlag\u003A\u003AFLAGS",
+            "name": "FLAGS",
+            "summary": "The\u0020default\u0020list\u0020of\u0020flags.",
+            "url": "classes/oihana-routes-enums-RouteFlag.html#constant_FLAGS"
+        },                {
+            "fqsen": "\\oihana\\routes\\enums\\RouteFlag\u003A\u003AFLAGS_NAME",
+            "name": "FLAGS_NAME",
+            "summary": "The\u0020list\u0020of\u0020flag\u0027s\u0020name.",
+            "url": "classes/oihana-routes-enums-RouteFlag.html#constant_FLAGS_NAME"
+        },                {
+            "fqsen": "\\oihana\\routes\\helpers\\responsePassthrough\u0028\u0029",
+            "name": "responsePassthrough",
+            "summary": "Returns\u0020a\u0020passthrough\u0020handler\u0020that\u0020simply\u0020returns\u0020the\u0020response\u0020unchanged.",
+            "url": "namespaces/oihana-routes-helpers.html#function_responsePassthrough"
+        },                {
             "fqsen": "\\oihana\\routes\\helpers\\withPlaceholder\u0028\u0029",
             "name": "withPlaceholder",
             "summary": "Builds\u0020a\u0020Slim\u002Dframework\u002Dcompatible\u0020route\u0020by\u0020appending\u0020a\u0020placeholder.",
@@ -3528,52 +3683,72 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\routes\\http\\DeleteRoute",
             "name": "DeleteRoute",
-            "summary": "Represents\u0020a\u0020route\u0020definition\u0020and\u0020handles\u0020route\u0020creation\u0020and\u0020execution.",
+            "summary": "Represents\u0020a\u0020route\u0020that\u0020registers\u0020an\u0020HTTP\u0020DELETE\u0020verb.",
             "url": "classes/oihana-routes-http-DeleteRoute.html"
+        },                {
+            "fqsen": "\\oihana\\routes\\http\\DeleteRoute\u003A\u003AregisterRoute\u0028\u0029",
+            "name": "registerRoute",
+            "summary": "Implements\u0020the\u0020template\u0020method\u0020to\u0020register\u0020the\u0020route\u0020with\u0020the\u0020HTTP\u0020DELETE\u0020verb.",
+            "url": "classes/oihana-routes-http-DeleteRoute.html#method_registerRoute"
         },                {
             "fqsen": "\\oihana\\routes\\http\\DeleteRoute\u003A\u003AINTERNAL_METHOD",
             "name": "INTERNAL_METHOD",
-            "summary": "The\u0020default\u0020internal\u0020method\u0020name\u0020of\u0020the\u0020controller\u0020to\u0020invoke\u0020with\u0020this\u0020route.",
+            "summary": "By\u0020convention,\u0020a\u0020DELETE\u0020route\u0020calls\u0020the\u0020\u0027delete\u0027\u0020method\non\u0020the\u0020controller,\u0020unless\u0020specified\u0020otherwise\u0020in\u0020\u0024init.",
             "url": "classes/oihana-routes-http-DeleteRoute.html#constant_INTERNAL_METHOD"
         },                {
             "fqsen": "\\oihana\\routes\\http\\GetRoute",
             "name": "GetRoute",
-            "summary": "Represents\u0020a\u0020route\u0020definition\u0020and\u0020handles\u0020route\u0020creation\u0020and\u0020execution.",
+            "summary": "Represents\u0020a\u0020route\u0020that\u0020registers\u0020an\u0020HTTP\u0020GET\u0020verb.",
             "url": "classes/oihana-routes-http-GetRoute.html"
+        },                {
+            "fqsen": "\\oihana\\routes\\http\\GetRoute\u003A\u003AregisterRoute\u0028\u0029",
+            "name": "registerRoute",
+            "summary": "Implements\u0020the\u0020template\u0020method\u0020to\u0020register\u0020the\u0020route\u0020with\u0020the\u0020HTTP\u0020GET\u0020verb.",
+            "url": "classes/oihana-routes-http-GetRoute.html#method_registerRoute"
         },                {
             "fqsen": "\\oihana\\routes\\http\\GetRoute\u003A\u003AINTERNAL_METHOD",
             "name": "INTERNAL_METHOD",
-            "summary": "The\u0020default\u0020internal\u0020method\u0020name\u0020of\u0020the\u0020controller\u0020to\u0020invoke\u0020with\u0020this\u0020route.",
+            "summary": "By\u0020convention,\u0020a\u0020GET\u0020route\u0020calls\u0020the\u0020\u0027get\u0027\u0020method\non\u0020the\u0020controller,\u0020unless\u0020specified\u0020otherwise\u0020in\u0020\u0024init.",
             "url": "classes/oihana-routes-http-GetRoute.html#constant_INTERNAL_METHOD"
         },                {
-            "fqsen": "\\oihana\\routes\\http\\MethodRoute",
-            "name": "MethodRoute",
-            "summary": "Represents\u0020a\u0020route\u0020definition\u0020and\u0020handles\u0020route\u0020creation\u0020and\u0020execution.",
-            "url": "classes/oihana-routes-http-MethodRoute.html"
+            "fqsen": "\\oihana\\routes\\http\\HttpMethodRoute",
+            "name": "HttpMethodRoute",
+            "summary": "Abstract\u0020base\u0020class\u0020for\u0020routes\u0020mapped\u0020to\u0020a\u0020controller\u0020method.",
+            "url": "classes/oihana-routes-http-HttpMethodRoute.html"
         },                {
-            "fqsen": "\\oihana\\routes\\http\\MethodRoute\u003A\u003A__construct\u0028\u0029",
+            "fqsen": "\\oihana\\routes\\http\\HttpMethodRoute\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
             "summary": "Creates\u0020a\u0020new\u0020MethodRoute\u0020instance.",
-            "url": "classes/oihana-routes-http-MethodRoute.html#method___construct"
+            "url": "classes/oihana-routes-http-HttpMethodRoute.html#method___construct"
         },                {
-            "fqsen": "\\oihana\\routes\\http\\MethodRoute\u003A\u003A__invoke\u0028\u0029",
+            "fqsen": "\\oihana\\routes\\http\\HttpMethodRoute\u003A\u003AinitializeMethod\u0028\u0029",
+            "name": "initializeMethod",
+            "summary": "Initialize\u0020the\u0020internal\u0020method\u0020property.",
+            "url": "classes/oihana-routes-http-HttpMethodRoute.html#method_initializeMethod"
+        },                {
+            "fqsen": "\\oihana\\routes\\http\\HttpMethodRoute\u003A\u003A__invoke\u0028\u0029",
             "name": "__invoke",
-            "summary": "Called\u0020when\u0020a\u0020script\u0020tries\u0020to\u0020call\u0020the\u0020instance\u0020as\u0020a\u0020function.",
-            "url": "classes/oihana-routes-http-MethodRoute.html#method___invoke"
+            "summary": "Main\u0020entry\u0020point.",
+            "url": "classes/oihana-routes-http-HttpMethodRoute.html#method___invoke"
         },                {
-            "fqsen": "\\oihana\\routes\\http\\MethodRoute\u003A\u003AINTERNAL_METHOD",
+            "fqsen": "\\oihana\\routes\\http\\HttpMethodRoute\u003A\u003AregisterRoute\u0028\u0029",
+            "name": "registerRoute",
+            "summary": "Template\u0020method\u0020\u0028abstract\u0029\u0020that\u0020children\u0020must\u0020implement.",
+            "url": "classes/oihana-routes-http-HttpMethodRoute.html#method_registerRoute"
+        },                {
+            "fqsen": "\\oihana\\routes\\http\\HttpMethodRoute\u003A\u003AINTERNAL_METHOD",
             "name": "INTERNAL_METHOD",
-            "summary": "The\u0020default\u0020internal\u0020method\u0020name\u0020of\u0020the\u0020controller\u0020to\u0020invoke\u0020with\u0020this\u0020route.",
-            "url": "classes/oihana-routes-http-MethodRoute.html#constant_INTERNAL_METHOD"
+            "summary": "The\u0020\u002Adefault\u002A\u0020controller\u0020method\u0020name\u0020to\u0020invoke.",
+            "url": "classes/oihana-routes-http-HttpMethodRoute.html#constant_INTERNAL_METHOD"
         },                {
-            "fqsen": "\\oihana\\routes\\http\\MethodRoute\u003A\u003A\u0024method",
+            "fqsen": "\\oihana\\routes\\http\\HttpMethodRoute\u003A\u003A\u0024method",
             "name": "method",
             "summary": "The\u0020name\u0020of\u0020the\u0020method\u0020to\u0020call\u0020in\u0020the\u0020controller\u0020to\u0020invoke\u0020with\u0020this\u0020route.",
-            "url": "classes/oihana-routes-http-MethodRoute.html#property_method"
+            "url": "classes/oihana-routes-http-HttpMethodRoute.html#property_method"
         },                {
             "fqsen": "\\oihana\\routes\\http\\OptionsRoute",
             "name": "OptionsRoute",
-            "summary": "Represents\u0020a\u0020route\u0020definition\u0020and\u0020handles\u0020route\u0020creation\u0020and\u0020execution.",
+            "summary": "Represents\u0020a\u0020route\u0020that\u0020registers\u0020an\u0020HTTP\u0020OPTIONS\u0020verb.",
             "url": "classes/oihana-routes-http-OptionsRoute.html"
         },                {
             "fqsen": "\\oihana\\routes\\http\\OptionsRoute\u003A\u003A__invoke\u0028\u0029",
@@ -3583,32 +3758,47 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\routes\\http\\PatchRoute",
             "name": "PatchRoute",
-            "summary": "Represents\u0020a\u0020route\u0020definition\u0020and\u0020handles\u0020route\u0020creation\u0020and\u0020execution.",
+            "summary": "Represents\u0020a\u0020route\u0020that\u0020registers\u0020an\u0020HTTP\u0020PATCH\u0020verb.",
             "url": "classes/oihana-routes-http-PatchRoute.html"
+        },                {
+            "fqsen": "\\oihana\\routes\\http\\PatchRoute\u003A\u003AregisterRoute\u0028\u0029",
+            "name": "registerRoute",
+            "summary": "Implements\u0020the\u0020template\u0020method\u0020to\u0020register\u0020the\u0020route\u0020with\u0020the\u0020HTTP\u0020DELETE\u0020verb.",
+            "url": "classes/oihana-routes-http-PatchRoute.html#method_registerRoute"
         },                {
             "fqsen": "\\oihana\\routes\\http\\PatchRoute\u003A\u003AINTERNAL_METHOD",
             "name": "INTERNAL_METHOD",
-            "summary": "The\u0020default\u0020internal\u0020method\u0020name\u0020of\u0020the\u0020controller\u0020to\u0020invoke\u0020with\u0020this\u0020route.",
+            "summary": "By\u0020convention,\u0020a\u0020PATCH\u0020route\u0020calls\u0020the\u0020\u0027patch\u0027\u0020method\non\u0020the\u0020controller,\u0020unless\u0020specified\u0020otherwise\u0020in\u0020\u0024init.",
             "url": "classes/oihana-routes-http-PatchRoute.html#constant_INTERNAL_METHOD"
         },                {
             "fqsen": "\\oihana\\routes\\http\\PostRoute",
             "name": "PostRoute",
-            "summary": "Represents\u0020a\u0020route\u0020definition\u0020and\u0020handles\u0020route\u0020creation\u0020and\u0020execution.",
+            "summary": "Represents\u0020a\u0020route\u0020that\u0020registers\u0020an\u0020HTTP\u0020POST\u0020verb.",
             "url": "classes/oihana-routes-http-PostRoute.html"
+        },                {
+            "fqsen": "\\oihana\\routes\\http\\PostRoute\u003A\u003AregisterRoute\u0028\u0029",
+            "name": "registerRoute",
+            "summary": "Implements\u0020the\u0020template\u0020method\u0020to\u0020register\u0020the\u0020route\u0020with\u0020the\u0020HTTP\u0020POST\u0020verb.",
+            "url": "classes/oihana-routes-http-PostRoute.html#method_registerRoute"
         },                {
             "fqsen": "\\oihana\\routes\\http\\PostRoute\u003A\u003AINTERNAL_METHOD",
             "name": "INTERNAL_METHOD",
-            "summary": "The\u0020default\u0020internal\u0020method\u0020name\u0020of\u0020the\u0020controller\u0020to\u0020invoke\u0020with\u0020this\u0020route.",
+            "summary": "By\u0020convention,\u0020a\u0020POST\u0020route\u0020calls\u0020the\u0020\u0027post\u0027\u0020method\non\u0020the\u0020controller,\u0020unless\u0020specified\u0020otherwise\u0020in\u0020\u0024init.",
             "url": "classes/oihana-routes-http-PostRoute.html#constant_INTERNAL_METHOD"
         },                {
             "fqsen": "\\oihana\\routes\\http\\PutRoute",
             "name": "PutRoute",
-            "summary": "Represents\u0020a\u0020route\u0020definition\u0020and\u0020handles\u0020route\u0020creation\u0020and\u0020execution.",
+            "summary": "Represents\u0020a\u0020route\u0020that\u0020registers\u0020an\u0020HTTP\u0020PUT\u0020verb.",
             "url": "classes/oihana-routes-http-PutRoute.html"
+        },                {
+            "fqsen": "\\oihana\\routes\\http\\PutRoute\u003A\u003AregisterRoute\u0028\u0029",
+            "name": "registerRoute",
+            "summary": "Implements\u0020the\u0020template\u0020method\u0020to\u0020register\u0020the\u0020route\u0020with\u0020the\u0020HTTP\u0020PUT\u0020verb.",
+            "url": "classes/oihana-routes-http-PutRoute.html#method_registerRoute"
         },                {
             "fqsen": "\\oihana\\routes\\http\\PutRoute\u003A\u003AINTERNAL_METHOD",
             "name": "INTERNAL_METHOD",
-            "summary": "The\u0020default\u0020internal\u0020method\u0020name\u0020of\u0020the\u0020controller\u0020to\u0020invoke\u0020with\u0020this\u0020route.",
+            "summary": "By\u0020convention,\u0020a\u0020PUT\u0020route\u0020calls\u0020the\u0020\u0027put\u0027\u0020method\non\u0020the\u0020controller,\u0020unless\u0020specified\u0020otherwise\u0020in\u0020\u0024init.",
             "url": "classes/oihana-routes-http-PutRoute.html#constant_INTERNAL_METHOD"
         },                {
             "fqsen": "\\oihana\\routes\\I18nRoute",
@@ -3616,14 +3806,9 @@ Search.appendIndex(
             "summary": "Represents\u0020a\u0020route\u0020definition\u0020and\u0020handles\u0020route\u0020creation\u0020and\u0020execution.",
             "url": "classes/oihana-routes-I18nRoute.html"
         },                {
-            "fqsen": "\\oihana\\routes\\I18nRoute\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Initializes\u0020a\u0020route\u0020instance\u0020with\u0020optional\u0020parameters.",
-            "url": "classes/oihana-routes-I18nRoute.html#method___construct"
-        },                {
             "fqsen": "\\oihana\\routes\\I18nRoute\u003A\u003A__invoke\u0028\u0029",
             "name": "__invoke",
-            "summary": "Invokes\u0020all\u0020nested\u0020routes\u0020if\u0020defined.",
+            "summary": "Initialize\u0020the\u0020current\u0020route.",
             "url": "classes/oihana-routes-I18nRoute.html#method___invoke"
         },                {
             "fqsen": "\\oihana\\routes\\Route",
@@ -3640,11 +3825,6 @@ Search.appendIndex(
             "name": "__invoke",
             "summary": "Invokes\u0020all\u0020nested\u0020routes\u0020if\u0020defined.",
             "url": "classes/oihana-routes-Route.html#method___invoke"
-        },                {
-            "fqsen": "\\oihana\\routes\\Route\u003A\u003AcleanParams\u0028\u0029",
-            "name": "cleanParams",
-            "summary": "Removes\u0020null\u0020or\u0020empty\u0020string\u0020values\u0020from\u0020an\u0020array\u0020of\u0020parameters.",
-            "url": "classes/oihana-routes-Route.html#method_cleanParams"
         },                {
             "fqsen": "\\oihana\\routes\\Route\u003A\u003Acreate\u0028\u0029",
             "name": "create",
@@ -3686,15 +3866,25 @@ Search.appendIndex(
             "summary": "Default\u0020owner\u0020pattern\u0020for\u0020numeric\u0020owner\u0020IDs",
             "url": "classes/oihana-routes-Route.html#constant_DEFAULT_OWNER_PLACEHOLDER"
         },                {
+            "fqsen": "\\oihana\\routes\\Route\u003A\u003AAPP",
+            "name": "APP",
+            "summary": "Array\u0020keys\u0020for\u0020route\u0020initialization",
+            "url": "classes/oihana-routes-Route.html#constant_APP"
+        },                {
             "fqsen": "\\oihana\\routes\\Route\u003A\u003ACLAZZ",
             "name": "CLAZZ",
-            "summary": "Array\u0020keys\u0020for\u0020route\u0020initialization",
+            "summary": "",
             "url": "classes/oihana-routes-Route.html#constant_CLAZZ"
         },                {
             "fqsen": "\\oihana\\routes\\Route\u003A\u003ACONTROLLER_ID",
             "name": "CONTROLLER_ID",
             "summary": "",
             "url": "classes/oihana-routes-Route.html#constant_CONTROLLER_ID"
+        },                {
+            "fqsen": "\\oihana\\routes\\Route\u003A\u003AFLAGS",
+            "name": "FLAGS",
+            "summary": "",
+            "url": "classes/oihana-routes-Route.html#constant_FLAGS"
         },                {
             "fqsen": "\\oihana\\routes\\Route\u003A\u003AMETHOD",
             "name": "METHOD",
@@ -3761,25 +3951,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/oihana-routes-Route.html#constant_SUFFIX"
         },                {
-            "fqsen": "\\oihana\\routes\\Route\u003A\u003AVERBOSE",
-            "name": "VERBOSE",
-            "summary": "",
-            "url": "classes/oihana-routes-Route.html#constant_VERBOSE"
-        },                {
-            "fqsen": "\\oihana\\routes\\Route\u003A\u003A\u0024app",
-            "name": "app",
-            "summary": "",
-            "url": "classes/oihana-routes-Route.html#property_app"
-        },                {
             "fqsen": "\\oihana\\routes\\Route\u003A\u003A\u0024controllerID",
             "name": "controllerID",
             "summary": "",
             "url": "classes/oihana-routes-Route.html#property_controllerID"
-        },                {
-            "fqsen": "\\oihana\\routes\\Route\u003A\u003A\u0024logger",
-            "name": "logger",
-            "summary": "",
-            "url": "classes/oihana-routes-Route.html#property_logger"
         },                {
             "fqsen": "\\oihana\\routes\\Route\u003A\u003A\u0024name",
             "name": "name",
@@ -3816,20 +3991,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/oihana-routes-Route.html#property_routes"
         },                {
-            "fqsen": "\\oihana\\routes\\Route\u003A\u003A\u0024settings",
-            "name": "settings",
-            "summary": "",
-            "url": "classes/oihana-routes-Route.html#property_settings"
-        },                {
             "fqsen": "\\oihana\\routes\\Route\u003A\u003A\u0024suffix",
             "name": "suffix",
             "summary": "",
             "url": "classes/oihana-routes-Route.html#property_suffix"
-        },                {
-            "fqsen": "\\oihana\\routes\\Route\u003A\u003A\u0024verbose",
-            "name": "verbose",
-            "summary": "",
-            "url": "classes/oihana-routes-Route.html#property_verbose"
         },                {
             "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait",
             "name": "HasRouteTrait",
@@ -3841,45 +4006,75 @@ Search.appendIndex(
             "summary": "Initialize\u0020the\u0020internal\u0020flags.",
             "url": "classes/oihana-routes-traits-HasRouteTrait.html#method_initializeFlags"
         },                {
-            "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003A\u0024hasCount",
+            "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003AhasCount\u0028\u0029",
             "name": "hasCount",
-            "summary": "",
-            "url": "classes/oihana-routes-traits-HasRouteTrait.html#property_hasCount"
+            "summary": "Check\u0020if\u0020COUNT\u0020route\u0020is\u0020enabled",
+            "url": "classes/oihana-routes-traits-HasRouteTrait.html#method_hasCount"
         },                {
-            "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003A\u0024hasDelete",
+            "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003AhasDelete\u0028\u0029",
             "name": "hasDelete",
-            "summary": "",
-            "url": "classes/oihana-routes-traits-HasRouteTrait.html#property_hasDelete"
+            "summary": "Check\u0020if\u0020DELETE\u0020route\u0020is\u0020enabled",
+            "url": "classes/oihana-routes-traits-HasRouteTrait.html#method_hasDelete"
         },                {
-            "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003A\u0024hasDeleteMultiple",
+            "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003AhasDeleteMultiple\u0028\u0029",
             "name": "hasDeleteMultiple",
-            "summary": "",
-            "url": "classes/oihana-routes-traits-HasRouteTrait.html#property_hasDeleteMultiple"
+            "summary": "Check\u0020if\u0020DELETE_MULTIPLE\u0020is\u0020enabled",
+            "url": "classes/oihana-routes-traits-HasRouteTrait.html#method_hasDeleteMultiple"
         },                {
-            "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003A\u0024hasGet",
+            "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003AhasGet\u0028\u0029",
             "name": "hasGet",
-            "summary": "",
-            "url": "classes/oihana-routes-traits-HasRouteTrait.html#property_hasGet"
+            "summary": "Check\u0020if\u0020GET\u0020route\u0020is\u0020enabled",
+            "url": "classes/oihana-routes-traits-HasRouteTrait.html#method_hasGet"
         },                {
-            "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003A\u0024hasList",
+            "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003AhasList\u0028\u0029",
             "name": "hasList",
-            "summary": "",
-            "url": "classes/oihana-routes-traits-HasRouteTrait.html#property_hasList"
+            "summary": "Check\u0020if\u0020LIST\u0020route\u0020is\u0020enabled",
+            "url": "classes/oihana-routes-traits-HasRouteTrait.html#method_hasList"
         },                {
-            "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003A\u0024hasPatch",
+            "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003AhasPatch\u0028\u0029",
             "name": "hasPatch",
-            "summary": "",
-            "url": "classes/oihana-routes-traits-HasRouteTrait.html#property_hasPatch"
+            "summary": "Check\u0020if\u0020PATCH\u0020route\u0020is\u0020enabled",
+            "url": "classes/oihana-routes-traits-HasRouteTrait.html#method_hasPatch"
         },                {
-            "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003A\u0024hasPost",
+            "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003AhasPost\u0028\u0029",
             "name": "hasPost",
-            "summary": "",
-            "url": "classes/oihana-routes-traits-HasRouteTrait.html#property_hasPost"
+            "summary": "Check\u0020if\u0020POST\u0020route\u0020is\u0020enabled",
+            "url": "classes/oihana-routes-traits-HasRouteTrait.html#method_hasPost"
         },                {
-            "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003A\u0024hasPut",
+            "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003AhasPut\u0028\u0029",
             "name": "hasPut",
-            "summary": "",
-            "url": "classes/oihana-routes-traits-HasRouteTrait.html#property_hasPut"
+            "summary": "Check\u0020if\u0020PUT\u0020route\u0020is\u0020enabled",
+            "url": "classes/oihana-routes-traits-HasRouteTrait.html#method_hasPut"
+        },                {
+            "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003AdescribeFlags\u0028\u0029",
+            "name": "describeFlags",
+            "summary": "Get\u0020a\u0020human\u002Dreadable\u0020description\u0020of\u0020enabled\u0020routes",
+            "url": "classes/oihana-routes-traits-HasRouteTrait.html#method_describeFlags"
+        },                {
+            "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003AenableFlags\u0028\u0029",
+            "name": "enableFlags",
+            "summary": "Enable\u0020specific\u0020route\u0020flags",
+            "url": "classes/oihana-routes-traits-HasRouteTrait.html#method_enableFlags"
+        },                {
+            "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003AdisableFlags\u0028\u0029",
+            "name": "disableFlags",
+            "summary": "Disable\u0020specific\u0020route\u0020flags",
+            "url": "classes/oihana-routes-traits-HasRouteTrait.html#method_disableFlags"
+        },                {
+            "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003AgetFlags\u0028\u0029",
+            "name": "getFlags",
+            "summary": "Get\u0020current\u0020flags",
+            "url": "classes/oihana-routes-traits-HasRouteTrait.html#method_getFlags"
+        },                {
+            "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003AsetFlags\u0028\u0029",
+            "name": "setFlags",
+            "summary": "Set\u0020flags\u0020\u0028replacing\u0020current\u0020flags\u0029",
+            "url": "classes/oihana-routes-traits-HasRouteTrait.html#method_setFlags"
+        },                {
+            "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003A\u0024flags",
+            "name": "flags",
+            "summary": "Bitmask\u0020representing\u0020enabled\u0020routes",
+            "url": "classes/oihana-routes-traits-HasRouteTrait.html#property_flags"
         },                {
             "fqsen": "\\oihana\\routes\\traits\\HttpMethodRoutesTrait",
             "name": "HttpMethodRoutesTrait",
@@ -3888,7 +4083,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\routes\\traits\\HttpMethodRoutesTrait\u003A\u003AinitializeMethods\u0028\u0029",
             "name": "initializeMethods",
-            "summary": "Initialize\u0020the\u0020internal\u0020flags.",
+            "summary": "Initializes\u0020or\u0020overrides\u0020HTTP\u0020method\u0020handlers\u0020based\u0020on\u0020the\u0020given\u0020init\u0020array.",
             "url": "classes/oihana-routes-traits-HttpMethodRoutesTrait.html#method_initializeMethods"
         },                {
             "fqsen": "\\oihana\\routes\\traits\\HttpMethodRoutesTrait\u003A\u003Acount\u0028\u0029",
@@ -3906,10 +4101,10 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/oihana-routes-traits-HttpMethodRoutesTrait.html#property_get"
         },                {
-            "fqsen": "\\oihana\\routes\\traits\\HttpMethodRoutesTrait\u003A\u003Alist\u0028\u0029",
+            "fqsen": "\\oihana\\routes\\traits\\HttpMethodRoutesTrait\u003A\u003A\u0024list",
             "name": "list",
-            "summary": "Generates\u0020a\u0020new\u0020GET\u0020\u0028LIST\u0029\u0020route\u0020reference.",
-            "url": "classes/oihana-routes-traits-HttpMethodRoutesTrait.html#method_list"
+            "summary": "",
+            "url": "classes/oihana-routes-traits-HttpMethodRoutesTrait.html#property_list"
         },                {
             "fqsen": "\\oihana\\routes\\traits\\HttpMethodRoutesTrait\u003A\u003Amethod\u0028\u0029",
             "name": "method",

@@ -192,10 +192,73 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_ALL">ALL</a>
+    <span>
+        &nbsp;= self::COUNT | self::DELETE | self::DELETE_MULTIPLE | self::GET | self::LIST | self::PATCH | self::POST | self::PUT                            </span>
+</dt>
+<dd>All valid flags combined (used for validation)</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_COUNT">COUNT</a>
+    <span>
+        &nbsp;= 1 &lt;&lt; 0                            </span>
+</dt>
+<dd>Enable COUNT route</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_CRUD">CRUD</a>
+    <span>
+        &nbsp;= self::GET | self::LIST | self::POST | self::PUT | self::DELETE                            </span>
+</dt>
+<dd>Basic CRUD without count</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_DEFAULT">DEFAULT</a>
+    <span>
+        &nbsp;= self::COUNT | self::DELETE | self::DELETE_MULTIPLE | self::GET | self::LIST | self::PATCH | self::POST | self::PUT                            </span>
+</dt>
+<dd>Default routes: all CRUD operations enabled</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_DEFAULT_FLAG">DEFAULT_FLAG</a>
     <span>
         &nbsp;= &#039;defaultFlag&#039;                            </span>
 </dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_DELETE">DELETE</a>
+    <span>
+        &nbsp;= 1 &lt;&lt; 1                            </span>
+</dt>
+<dd>Enable DELETE route</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_DELETE_MULTIPLE">DELETE_MULTIPLE</a>
+    <span>
+        &nbsp;= 1 &lt;&lt; 2                            </span>
+</dt>
+<dd>Enable DELETE with multiple IDs support</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_FLAGS">FLAGS</a>
+    <span>
+        &nbsp;= [self::COUNT, self::DELETE, self::DELETE_MULTIPLE, self::GET, self::LIST, self::PATCH, self::POST, self::PUT]                            </span>
+</dt>
+<dd>The default list of flags.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_FLAGS_NAME">FLAGS_NAME</a>
+    <span>
+        &nbsp;= [self::COUNT =&gt; &#039;COUNT&#039;, self::DELETE =&gt; &#039;DELETE&#039;, self::DELETE_MULTIPLE =&gt; &#039;DELETE_MULTIPLE&#039;, self::GET =&gt; &#039;GET&#039;, self::LIST =&gt; &#039;LIST&#039;, self::PATCH =&gt; &#039;PATCH&#039;, self::POST =&gt; &#039;POST&#039;, self::PUT =&gt; &#039;PUT&#039;]                            </span>
+</dt>
+<dd>The list of flag&#039;s name.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_GET">GET</a>
+    <span>
+        &nbsp;= 1 &lt;&lt; 3                            </span>
+</dt>
+<dd>Enable GET route</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_COUNT">HAS_COUNT</a>
@@ -245,10 +308,101 @@
         &nbsp;= &#039;hasPut&#039;                            </span>
 </dt>
 
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_LIST">LIST</a>
+    <span>
+        &nbsp;= 1 &lt;&lt; 4                            </span>
+</dt>
+<dd>Enable LIST route</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_NONE">NONE</a>
+    <span>
+        &nbsp;= 0                            </span>
+</dt>
+<dd>No routes enabled</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_PATCH">PATCH</a>
+    <span>
+        &nbsp;= 1 &lt;&lt; 5                            </span>
+</dt>
+<dd>Enable PATCH route</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_POST">POST</a>
+    <span>
+        &nbsp;= 1 &lt;&lt; 6                            </span>
+</dt>
+<dd>Enable POST route</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_PUT">PUT</a>
+    <span>
+        &nbsp;= 1 &lt;&lt; 7                            </span>
+</dt>
+<dd>Enable PUT route</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_READ_ONLY">READ_ONLY</a>
+    <span>
+        &nbsp;= self::GET | self::LIST | self::COUNT                            </span>
+</dt>
+<dd>Read-only routes (GET, LIST, COUNT)</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#constant_WRITE">WRITE</a>
+    <span>
+        &nbsp;= self::POST | self::PUT | self::PATCH | self::DELETE | self::DELETE_MULTIPLE                            </span>
+</dt>
+<dd>Write routes (POST, PUT, PATCH, DELETE)</dd>
+
     </dl>
 
 
 
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/oihana-routes-enums-RouteFlag.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#method_convertLegacyArray">convertLegacyArray()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+<dd>Converts legacy boolean array format to bitmask.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#method_describe">describe()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Gets a human-readable description of the flags in a bitmask.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#method_getFlags">getFlags()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, int&gt;    </span>
+</dt>
+<dd>Gets a list of all individual flags present in a bitmask.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#method_has">has()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Checks whether a specific flag is set in a bitmask.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-routes-enums-RouteFlag.html#method_isValid">isValid()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Validates that a bitmask contains only valid RouteFlag values.</dd>
+
+    </dl>
 
 
 
@@ -259,6 +413,134 @@
             <a href="classes/oihana-routes-enums-RouteFlag.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_ALL">
+        ALL
+        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_ALL" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">78</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">All valid flags combined (used for validation)</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">ALL</span>
+    = <span class="phpdocumentor-signature__default-value">self::COUNT | self::DELETE | self::DELETE_MULTIPLE | self::GET | self::LIST | self::PATCH | self::POST | self::PUT</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_COUNT">
+        COUNT
+        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_COUNT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">31</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Enable COUNT route</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">int</span>
+    <span class="phpdocumentor-signature__name">COUNT</span>
+    = <span class="phpdocumentor-signature__default-value">1 &lt;&lt; 0</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_CRUD">
+        CRUD
+        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_CRUD" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">122</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Basic CRUD without count</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">CRUD</span>
+    = <span class="phpdocumentor-signature__default-value">self::GET | self::LIST | self::POST | self::PUT | self::DELETE</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_DEFAULT">
+        DEFAULT
+        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_DEFAULT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">91</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Default routes: all CRUD operations enabled</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">DEFAULT</span>
+    = <span class="phpdocumentor-signature__default-value">self::COUNT | self::DELETE | self::DELETE_MULTIPLE | self::GET | self::LIST | self::PATCH | self::POST | self::PUT</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_DEFAULT_FLAG">
         DEFAULT_FLAG
@@ -280,6 +562,166 @@
         <span class="phpdocumentor-signature__type">mixed</span>
     <span class="phpdocumentor-signature__name">DEFAULT_FLAG</span>
     = <span class="phpdocumentor-signature__default-value">&#039;defaultFlag&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_DELETE">
+        DELETE
+        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_DELETE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">37</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Enable DELETE route</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">int</span>
+    <span class="phpdocumentor-signature__name">DELETE</span>
+    = <span class="phpdocumentor-signature__default-value">1 &lt;&lt; 1</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_DELETE_MULTIPLE">
+        DELETE_MULTIPLE
+        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_DELETE_MULTIPLE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">43</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Enable DELETE with multiple IDs support</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">int</span>
+    <span class="phpdocumentor-signature__name">DELETE_MULTIPLE</span>
+    = <span class="phpdocumentor-signature__default-value">1 &lt;&lt; 2</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_FLAGS">
+        FLAGS
+        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_FLAGS" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">132</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The default list of flags.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">FLAGS</span>
+    = <span class="phpdocumentor-signature__default-value">[self::COUNT, self::DELETE, self::DELETE_MULTIPLE, self::GET, self::LIST, self::PATCH, self::POST, self::PUT]</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_FLAGS_NAME">
+        FLAGS_NAME
+        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_FLAGS_NAME" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">147</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The list of flag&#039;s name.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">FLAGS_NAME</span>
+    = <span class="phpdocumentor-signature__default-value">[self::COUNT =&gt; &#039;COUNT&#039;, self::DELETE =&gt; &#039;DELETE&#039;, self::DELETE_MULTIPLE =&gt; &#039;DELETE_MULTIPLE&#039;, self::GET =&gt; &#039;GET&#039;, self::LIST =&gt; &#039;LIST&#039;, self::PATCH =&gt; &#039;PATCH&#039;, self::POST =&gt; &#039;POST&#039;, self::PUT =&gt; &#039;PUT&#039;]</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_GET">
+        GET
+        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_GET" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">49</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Enable GET route</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">int</span>
+    <span class="phpdocumentor-signature__name">GET</span>
+    = <span class="phpdocumentor-signature__default-value">1 &lt;&lt; 3</span>
 </code>
 
 
@@ -538,11 +980,619 @@
     
 
 </article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_LIST">
+        LIST
+        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_LIST" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">55</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Enable LIST route</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">int</span>
+    <span class="phpdocumentor-signature__name">LIST</span>
+    = <span class="phpdocumentor-signature__default-value">1 &lt;&lt; 4</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_NONE">
+        NONE
+        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_NONE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">25</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">No routes enabled</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">int</span>
+    <span class="phpdocumentor-signature__name">NONE</span>
+    = <span class="phpdocumentor-signature__default-value">0</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PATCH">
+        PATCH
+        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_PATCH" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">61</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Enable PATCH route</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">int</span>
+    <span class="phpdocumentor-signature__name">PATCH</span>
+    = <span class="phpdocumentor-signature__default-value">1 &lt;&lt; 5</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_POST">
+        POST
+        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_POST" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">67</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Enable POST route</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">int</span>
+    <span class="phpdocumentor-signature__name">POST</span>
+    = <span class="phpdocumentor-signature__default-value">1 &lt;&lt; 6</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_PUT">
+        PUT
+        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_PUT" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">73</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Enable PUT route</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">int</span>
+    <span class="phpdocumentor-signature__name">PUT</span>
+    = <span class="phpdocumentor-signature__default-value">1 &lt;&lt; 7</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_READ_ONLY">
+        READ_ONLY
+        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_READ_ONLY" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">104</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Read-only routes (GET, LIST, COUNT)</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">READ_ONLY</span>
+    = <span class="phpdocumentor-signature__default-value">self::GET | self::LIST | self::COUNT</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_WRITE">
+        WRITE
+        <a href="classes/oihana-routes-enums-RouteFlag.html#constant_WRITE" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">112</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Write routes (POST, PUT, PATCH, DELETE)</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">WRITE</span>
+    = <span class="phpdocumentor-signature__default-value">self::POST | self::PUT | self::PATCH | self::DELETE | self::DELETE_MULTIPLE</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
             </section>
 
         
 
-        
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/oihana-routes-enums-RouteFlag.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_convertLegacyArray">
+        convertLegacyArray()
+        <a href="classes/oihana-routes-enums-RouteFlag.html#method_convertLegacyArray" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">166</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Converts legacy boolean array format to bitmask.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">convertLegacyArray</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$init</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Legacy initialization array</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">int</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The resulting bitmask</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_describe">
+        describe()
+        <a href="classes/oihana-routes-enums-RouteFlag.html#method_describe" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">210</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Gets a human-readable description of the flags in a bitmask.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">describe</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$mask</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$separator</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;, &#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$mask</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The bitmask value to describe.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$separator</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">&#039;, &#039;</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The separator between the flag descriptions.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-routes-enums-RouteFlag.html#method_describe#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">use oihana\routes\enums\RouteFlag;
+
+$mask = RouteFlag::GET | RouteFlag::POST;
+echo RouteFlag::describe($mask); // Outputs: &quot;GET, POST&quot;
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>A comma-separated (by default) string of flag names.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getFlags">
+        getFlags()
+        <a href="classes/oihana-routes-enums-RouteFlag.html#method_getFlags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">246</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Gets a list of all individual flags present in a bitmask.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">getFlags</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$mask</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, int&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$mask</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The bitmask value to decompose.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-routes-enums-RouteFlag.html#method_getFlags#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">use oihana\routes\enums\RouteFlag;
+
+$mask = RouteFlag::GET | RouteFlag::POST | RouteFlag::PUT;
+$flags = RouteFlag::getFlags($mask);
+// Returns [8, 64, 128] (the individual flag values)
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, int&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>An array of individual flag values present in the mask.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_has">
+        has()
+        <a href="classes/oihana-routes-enums-RouteFlag.html#method_has" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">279</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Checks whether a specific flag is set in a bitmask.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">has</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$mask</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$flag</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$mask</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The bitmask value, potentially containing multiple flags combined with <code class="prettyprint">|</code>.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$flag</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The specific flag to check for in the mask.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-routes-enums-RouteFlag.html#method_has#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">use oihana\routes\enums\RouteFlag;
+
+$mask = RouteFlag::GET | RouteFlag::POST;
+
+RouteFlag::has($mask, RouteFlag::GET);   // Returns true
+RouteFlag::has($mask, RouteFlag::PATCH); // Returns false
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Returns <code class="prettyprint">true</code> if the given flag is present in the mask, <code class="prettyprint">false</code> otherwise.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isValid">
+        isValid()
+        <a href="classes/oihana-routes-enums-RouteFlag.html#method_isValid" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/enums/RouteFlag.php"><a href="files/src-oihana-routes-enums-routeflag.html"><abbr title="src/oihana/routes/enums/RouteFlag.php">RouteFlag.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">300</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Validates that a bitmask contains only valid RouteFlag values.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">isValid</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$mask</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$mask</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The bitmask value to validate.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-routes-enums-RouteFlag.html#method_isValid#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">use oihana\routes\enums\RouteFlag;
+
+RouteFlag::isValid(RouteFlag::GET | RouteFlag::POST); // Returns true
+RouteFlag::isValid(RouteFlag::DEFAULT);               // Returns true
+RouteFlag::isValid(1024);                             // Returns false (invalid flag)
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Returns <code class="prettyprint">true</code> if the mask contains only valid flags, <code class="prettyprint">false</code> otherwise.</p>
+</section>
+
+            </section>
+
+</article>
+            </section>
+
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
@@ -649,12 +1699,22 @@
             <li>
                 <ul class="phpdocumentor-list -clean">
                                         <li><a href="classes/oihana-routes-enums-RouteFlag.html#toc-constants">Constants</a></li>
-                                                                            </ul>
+                                                                                <li><a href="classes/oihana-routes-enums-RouteFlag.html#toc-methods">Methods</a></li>
+                                    </ul>
             </li>
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_ALL">ALL</a></li>
+                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_COUNT">COUNT</a></li>
+                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_CRUD">CRUD</a></li>
+                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_DEFAULT">DEFAULT</a></li>
                                                     <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_DEFAULT_FLAG">DEFAULT_FLAG</a></li>
+                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_DELETE">DELETE</a></li>
+                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_DELETE_MULTIPLE">DELETE_MULTIPLE</a></li>
+                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_FLAGS">FLAGS</a></li>
+                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_FLAGS_NAME">FLAGS_NAME</a></li>
+                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_GET">GET</a></li>
                                                     <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_COUNT">HAS_COUNT</a></li>
                                                     <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_DELETE">HAS_DELETE</a></li>
                                                     <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_DELETE_MULTIPLE">HAS_DELETE_MULTIPLE</a></li>
@@ -663,10 +1723,27 @@
                                                     <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_PATCH">HAS_PATCH</a></li>
                                                     <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_POST">HAS_POST</a></li>
                                                     <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_HAS_PUT">HAS_PUT</a></li>
+                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_LIST">LIST</a></li>
+                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_NONE">NONE</a></li>
+                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_PATCH">PATCH</a></li>
+                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_POST">POST</a></li>
+                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_PUT">PUT</a></li>
+                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_READ_ONLY">READ_ONLY</a></li>
+                                                    <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#constant_WRITE">WRITE</a></li>
                                             </ul>
                 </li>
             
             
+                        <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#method_convertLegacyArray">convertLegacyArray()</a></li>
+                                            <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#method_describe">describe()</a></li>
+                                            <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#method_getFlags">getFlags()</a></li>
+                                            <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#method_has">has()</a></li>
+                                            <li class=""><a href="classes/oihana-routes-enums-RouteFlag.html#method_isValid">isValid()</a></li>
+                                    </ul>
+            </li>
                     </ul>
     </section>
 

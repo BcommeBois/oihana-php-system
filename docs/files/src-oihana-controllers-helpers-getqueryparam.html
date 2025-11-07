@@ -138,7 +138,7 @@
     </ul>
 
     <article class="phpdocumentor-element -file">
-        <h2 class="phpdocumentor-content__title">NoBodyResponse.php</h2>
+        <h2 class="phpdocumentor-content__title">getQueryParam.php</h2>
 
         
         
@@ -149,37 +149,159 @@
         
 <h3 id="toc">
     Table of Contents
-    <a href="files/src-oihana-routes-enums-nobodyresponse.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="files/src-oihana-controllers-helpers-getqueryparam.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
 
 
 
-    <h4 id="toc-classes">
-        Classes
-        <a href="files/src-oihana-routes-enums-nobodyresponse.html#toc-classes" class="headerlink"><i class="fas fa-link"></i></a>
+
+
+
+
+
+
+
+<h4 id="toc-functions">
+    Functions
+    <a href="files/src-oihana-controllers-helpers-getqueryparam.html#toc-functions" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/oihana-controllers-helpers.html#function_getQueryParam">getQueryParam()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Retrieves a single parameter from the HTTP request query string.</dd>
+
+    </dl>
+
+
+        
+
+            <section class="phpdocumentor-functions">
+        <h3 class="phpdocumentor-elements__header" id="functions">
+            Functions
+            <a href="files/src-oihana-controllers-helpers-getqueryparam.html#functions" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_getQueryParam">
+        getQueryParam()
+        <a href="namespaces/oihana-controllers-helpers.html#function_getQueryParam" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
-    <dl class="phpdocumentor-table-of-contents">
-                    <dt class="phpdocumentor-table-of-contents__entry -class"><a href="classes/oihana-routes-enums-NoBodyResponse.html"><abbr title="\oihana\routes\enums\NoBodyResponse">NoBodyResponse</abbr></a></dt><dd>Special response indicators</dd>    </dl>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/helpers/getQueryParam.php"><a href="files/src-oihana-controllers-helpers-getqueryparam.html"><abbr title="src/oihana/controllers/helpers/getQueryParam.php">getQueryParam.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">52</span>
 
+    </aside>
 
+        <p class="phpdocumentor-summary">Retrieves a single parameter from the HTTP request query string.</p>
 
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">getQueryParam</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
+        <section class="phpdocumentor-description"><p>This helper extracts a value from the query parameters (<code class="prettyprint">$request-&gt;getQueryParams()</code>),
+supporting <strong>dot notation</strong> for nested structures (e.g. <code class="prettyprint">'filter.page'</code>).</p>
+<p>It internally uses <abbr title="\oihana\controllers\helpers\hasKeyValue()">hasKeyValue()</abbr> and <abbr title="\oihana\controllers\helpers\getKeyValue()">getKeyValue()</abbr> from the
+<code class="prettyprint">oihana\core\accessors</code> namespace.</p>
+<p>If the request is <code class="prettyprint">null</code>, or if the specified parameter does not exist, the function returns <code class="prettyprint">null</code>.</p>
+</section>
 
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$request</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr>|null</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The PSR-7 server request instance.
+If <code class="prettyprint">null</code>, no extraction is performed.</p>
+</section>
 
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The query parameter name or nested key path (e.g. <code class="prettyprint">'filter.page'</code>).</p>
+</section>
 
+            </dd>
+            </dl>
 
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="namespaces/oihana-controllers-helpers.html#function_getQueryParam#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
-        
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Retrieve a flat parameter:</p>
+<pre class="prettyprint"><code class="language-php">// URL: /api/users?name=Alice&amp;age=30
+echo getQueryParam($request, 'name'); // 'Alice'
+echo getQueryParam($request, 'age');  // '30'
+</code></pre>
+<p>Retrieve a nested parameter using dot notation:</p>
+<pre class="prettyprint"><code class="language-php">// URL: /api/users?filter[page]=2&amp;filter[limit]=10
+echo getQueryParam($request, 'filter.page');  // '2'
+echo getQueryParam($request, 'filter.limit'); // '10'
+</code></pre>
+<p>Handle missing keys or null request:</p>
+<pre class="prettyprint"><code class="language-php">getQueryParam(null, 'foo');            // null
+getQueryParam($request, 'not.exists'); // null
+</code></pre>
+</section>
 
-        
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (ekameleon)</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">mixed</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The parameter value if found, or <code class="prettyprint">null</code> otherwise.</p>
+</section>
+
+            </section>
+
+</article>
+            </section>
+
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/routes/enums/NoBodyResponse.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/controllers/helpers/getQueryParam.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -280,11 +402,17 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                                                        <li><a href="files/src-oihana-routes-enums-nobodyresponse.html#toc-classes">Classes</a></li>
-                                                                                                                    </ul>
+                                                                                                                                                                                        <li><a href="files/src-oihana-controllers-helpers-getqueryparam.html#toc-functions">Functions</a></li>
+                                    </ul>
             </li>
 
             
+                            <li class="phpdocumentor-on-this-page-section__title">Functions</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="namespaces/oihana-controllers-helpers.html#function_getQueryParam">getQueryParam()</a></li>
+                                            </ul>
+                </li>
                     </ul>
     </section>
 
@@ -302,7 +430,7 @@
     </section>
 </section>
         </div>
-        <a href="files/src-oihana-routes-enums-nobodyresponse.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="files/src-oihana-controllers-helpers-getqueryparam.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

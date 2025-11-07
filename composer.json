@@ -27,7 +27,19 @@
         },
         "files":
         [
+            "src/oihana/controllers/helpers/getBodyParam.php",
+            "src/oihana/controllers/helpers/getBodyParams.php",
             "src/oihana/controllers/helpers/getController.php",
+            "src/oihana/controllers/helpers/getParam.php",
+            "src/oihana/controllers/helpers/getParamArray.php",
+            "src/oihana/controllers/helpers/getParamBool.php",
+            "src/oihana/controllers/helpers/getParamFloat.php",
+            "src/oihana/controllers/helpers/getParamFloatRange.php",
+            "src/oihana/controllers/helpers/getParamInt.php",
+            "src/oihana/controllers/helpers/getParamIntRange.php",
+            "src/oihana/controllers/helpers/getParamNumberRange.php",
+            "src/oihana/controllers/helpers/getParamString.php",
+            "src/oihana/controllers/helpers/getQueryParam.php",
             
             "src/oihana/init/initConfig.php",
             "src/oihana/init/initContainer.php",

@@ -8,6 +8,8 @@ use DI\Container;
 use DI\DependencyException;
 use DI\NotFoundException;
 
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Slim\App;
 
 use Psr\Log\LoggerInterface;
@@ -31,8 +33,10 @@ class RouteTest extends TestCase
     }
 
     /**
+     * @throws ContainerExceptionInterface
      * @throws DependencyException
      * @throws NotFoundException
+     * @throws NotFoundExceptionInterface
      */
     public function testConstructorSetsDefaults(): void
     {
@@ -41,12 +45,13 @@ class RouteTest extends TestCase
         $this->assertSame(Route::DEFAULT_PREFIX, $route->prefix);
         $this->assertSame(Route::DEFAULT_OWNER_PLACEHOLDER, $route->ownerPlaceholder);
         $this->assertSame(Route::DEFAULT_ROUTE_PLACEHOLDER, $route->routePlaceholder);
-        $this->assertTrue($route->verbose);
     }
 
     /**
      * @throws DependencyException
      * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     public function testConstructorAcceptsInitValues(): void
     {
@@ -64,8 +69,10 @@ class RouteTest extends TestCase
     }
 
     /**
+     * @throws ContainerExceptionInterface
      * @throws DependencyException
      * @throws NotFoundException
+     * @throws NotFoundExceptionInterface
      */
     public function testDotifyReplacesSlashes(): void
     {
@@ -75,8 +82,10 @@ class RouteTest extends TestCase
     }
 
     /**
+     * @throws ContainerExceptionInterface
      * @throws DependencyException
      * @throws NotFoundException
+     * @throws NotFoundExceptionInterface
      */
     public function testGetRouteAlwaysStartsWithSlash(): void
     {
@@ -88,8 +97,10 @@ class RouteTest extends TestCase
     }
 
     /**
+     * @throws ContainerExceptionInterface
      * @throws DependencyException
      * @throws NotFoundException
+     * @throws NotFoundExceptionInterface
      */
     public function testGetNameCombinesPrefixAndSuffix(): void
     {
@@ -104,8 +115,10 @@ class RouteTest extends TestCase
     }
 
     /**
+     * @throws ContainerExceptionInterface
      * @throws DependencyException
      * @throws NotFoundException
+     * @throws NotFoundExceptionInterface
      */
     public function testGetNameDotifiesRouteWhenNoName(): void
     {
@@ -117,8 +130,10 @@ class RouteTest extends TestCase
     }
 
     /**
+     * @throws ContainerExceptionInterface
      * @throws DependencyException
      * @throws NotFoundException
+     * @throws NotFoundExceptionInterface
      */
     public function testCreateReturnsNullForInvalidInput(): void
     {
@@ -129,8 +144,10 @@ class RouteTest extends TestCase
     }
 
     /**
+     * @throws ContainerExceptionInterface
      * @throws DependencyException
      * @throws NotFoundException
+     * @throws NotFoundExceptionInterface
      */
     public function testCreateReturnsSameInstanceForRouteObject(): void
     {
@@ -141,8 +158,10 @@ class RouteTest extends TestCase
     }
 
     /**
+     * @throws ContainerExceptionInterface
      * @throws DependencyException
      * @throws NotFoundException
+     * @throws NotFoundExceptionInterface
      */
     public function testCreateReturnsNewRouteForDefinitionArray(): void
     {
@@ -160,8 +179,10 @@ class RouteTest extends TestCase
     }
 
     /**
+     * @throws ContainerExceptionInterface
      * @throws DependencyException
      * @throws NotFoundException
+     * @throws NotFoundExceptionInterface
      */
     public function testExecuteCallsCallable(): void
     {
@@ -172,8 +193,10 @@ class RouteTest extends TestCase
     }
 
     /**
+     * @throws ContainerExceptionInterface
      * @throws DependencyException
      * @throws NotFoundException
+     * @throws NotFoundExceptionInterface
      */
     public function testExecuteCallsAllCallableInArray(): void
     {
@@ -187,8 +210,10 @@ class RouteTest extends TestCase
     }
 
     /**
+     * @throws ContainerExceptionInterface
      * @throws DependencyException
      * @throws NotFoundException
+     * @throws NotFoundExceptionInterface
      */
     public function testInvokeDoesNothingIfNoRoutes(): void
     {

@@ -166,6 +166,13 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/oihana-routes-helpers.html#function_responsePassthrough">responsePassthrough()</a>
+    <span>
+                                &nbsp;: callable    </span>
+</dt>
+<dd>Returns a passthrough handler that simply returns the response unchanged.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a class="" href="namespaces/oihana-routes-helpers.html#function_withPlaceholder">withPlaceholder()</a>
     <span>
                                 &nbsp;: string    </span>
@@ -182,6 +189,80 @@
             <a href="namespaces/oihana-routes-helpers.html#functions" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_responsePassthrough">
+        responsePassthrough()
+        <a href="namespaces/oihana-routes-helpers.html#function_responsePassthrough" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/helpers/responsePassthrough.php"><a href="files/src-oihana-routes-helpers-responsepassthrough.html"><abbr title="src/oihana/routes/helpers/responsePassthrough.php">responsePassthrough.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">36</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns a passthrough handler that simply returns the response unchanged.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">responsePassthrough</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">callable</span></code>
+
+        <section class="phpdocumentor-description"><p>This is useful for routes that don't need to perform any processing,
+such as OPTIONS requests that only need to return CORS headers or
+other middleware-handled responses.</p>
+<h2>Usage Examples</h2>
+<pre class="prettyprint"><code class="language-php">use function oihana\routes\helpers\responsePassthrough;
+
+// Simple OPTIONS route
+$app-&gt;options('/api/users', responsePassthrough(...));
+
+// HEAD route that mirrors GET
+$app-&gt;head('/api/users', responsePassthrough(...));
+
+// Any route where middleware handles everything
+$app-&gt;get('/health', responsePassthrough(...));
+</code></pre>
+</section>
+
+    
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="namespaces/oihana-routes-helpers.html#function_responsePassthrough#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (ekameleon)</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">callable</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>A PSR-15 compatible request handler that returns the response as-is.</p>
+</section>
+
+            </section>
+
+</article>
                     <article class="phpdocumentor-element -function - ">
     <h4 class="phpdocumentor-element__name" id="function_withPlaceholder">
         withPlaceholder()
@@ -418,6 +499,7 @@ withPlaceholder('/user-', 'id', false, false);
                             <li class="phpdocumentor-on-this-page-section__title">Functions</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="namespaces/oihana-routes-helpers.html#function_responsePassthrough">responsePassthrough()</a></li>
                                                     <li class=""><a href="namespaces/oihana-routes-helpers.html#function_withPlaceholder">withPlaceholder()</a></li>
                                             </ul>
                 </li>

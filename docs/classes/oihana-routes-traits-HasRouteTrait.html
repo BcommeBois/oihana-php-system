@@ -148,7 +148,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/traits/HasRouteTrait.php"><a href="files/src-oihana-routes-traits-hasroutetrait.html"><abbr title="src/oihana/routes/traits/HasRouteTrait.php">HasRouteTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7</span>
+    <span class="phpdocumentor-element-found-in__line">8</span>
 
     </aside>
 
@@ -182,52 +182,11 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/oihana-routes-traits-HasRouteTrait.html#property_hasCount">$hasCount</a>
+    <a class="" href="classes/oihana-routes-traits-HasRouteTrait.html#property_flags">$flags</a>
     <span>
-                        &nbsp;: bool            </span>
+                        &nbsp;: int            </span>
 </dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/oihana-routes-traits-HasRouteTrait.html#property_hasDelete">$hasDelete</a>
-    <span>
-                        &nbsp;: bool            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/oihana-routes-traits-HasRouteTrait.html#property_hasDeleteMultiple">$hasDeleteMultiple</a>
-    <span>
-                        &nbsp;: bool            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/oihana-routes-traits-HasRouteTrait.html#property_hasGet">$hasGet</a>
-    <span>
-                        &nbsp;: bool            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/oihana-routes-traits-HasRouteTrait.html#property_hasList">$hasList</a>
-    <span>
-                        &nbsp;: bool            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/oihana-routes-traits-HasRouteTrait.html#property_hasPatch">$hasPatch</a>
-    <span>
-                        &nbsp;: bool            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/oihana-routes-traits-HasRouteTrait.html#property_hasPost">$hasPost</a>
-    <span>
-                        &nbsp;: bool            </span>
-</dt>
-
-            <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/oihana-routes-traits-HasRouteTrait.html#property_hasPut">$hasPut</a>
-    <span>
-                        &nbsp;: bool            </span>
-</dt>
+<dd>Bitmask representing enabled routes</dd>
 
     </dl>
 
@@ -237,12 +196,103 @@
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-routes-traits-HasRouteTrait.html#method_describeFlags">describeFlags()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Get a human-readable description of enabled routes</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-routes-traits-HasRouteTrait.html#method_disableFlags">disableFlags()</a>
+    <span>
+                                &nbsp;: static    </span>
+</dt>
+<dd>Disable specific route flags</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-routes-traits-HasRouteTrait.html#method_enableFlags">enableFlags()</a>
+    <span>
+                                &nbsp;: static    </span>
+</dt>
+<dd>Enable specific route flags</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-routes-traits-HasRouteTrait.html#method_getFlags">getFlags()</a>
+    <span>
+                                &nbsp;: int    </span>
+</dt>
+<dd>Get current flags</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-routes-traits-HasRouteTrait.html#method_hasCount">hasCount()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Check if COUNT route is enabled</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-routes-traits-HasRouteTrait.html#method_hasDelete">hasDelete()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Check if DELETE route is enabled</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-routes-traits-HasRouteTrait.html#method_hasDeleteMultiple">hasDeleteMultiple()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Check if DELETE_MULTIPLE is enabled</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-routes-traits-HasRouteTrait.html#method_hasGet">hasGet()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Check if GET route is enabled</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-routes-traits-HasRouteTrait.html#method_hasList">hasList()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Check if LIST route is enabled</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-routes-traits-HasRouteTrait.html#method_hasPatch">hasPatch()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Check if PATCH route is enabled</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-routes-traits-HasRouteTrait.html#method_hasPost">hasPost()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Check if POST route is enabled</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-routes-traits-HasRouteTrait.html#method_hasPut">hasPut()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Check if PUT route is enabled</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-routes-traits-HasRouteTrait.html#method_initializeFlags">initializeFlags()</a>
     <span>
-                                &nbsp;: void    </span>
+                                &nbsp;: static    </span>
 </dt>
 <dd>Initialize the internal flags.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-routes-traits-HasRouteTrait.html#method_setFlags">setFlags()</a>
+    <span>
+                                &nbsp;: static    </span>
+</dt>
+<dd>Set flags (replacing current flags)</dd>
 
     </dl>
 
@@ -265,199 +315,9 @@
             -public
                                                                     "
 >
-    <h4 class="phpdocumentor-element__name" id="property_hasCount">
-        $hasCount
-        <a href="classes/oihana-routes-traits-HasRouteTrait.html#property_hasCount" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                            </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/traits/HasRouteTrait.php"><a href="files/src-oihana-routes-traits-hasroutetrait.html"><abbr title="src/oihana/routes/traits/HasRouteTrait.php">HasRouteTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">9</span>
-
-    </aside>
-
-    
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-        <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__type">bool</span>
-    <span class="phpdocumentor-signature__name">$hasCount</span>
-    </code>
-
-    
-    
-    
-
-    
-
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -public
-                                                                    "
->
-    <h4 class="phpdocumentor-element__name" id="property_hasDelete">
-        $hasDelete
-        <a href="classes/oihana-routes-traits-HasRouteTrait.html#property_hasDelete" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                            </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/traits/HasRouteTrait.php"><a href="files/src-oihana-routes-traits-hasroutetrait.html"><abbr title="src/oihana/routes/traits/HasRouteTrait.php">HasRouteTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">10</span>
-
-    </aside>
-
-    
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-        <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__type">bool</span>
-    <span class="phpdocumentor-signature__name">$hasDelete</span>
-    </code>
-
-    
-    
-    
-
-    
-
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -public
-                                                                    "
->
-    <h4 class="phpdocumentor-element__name" id="property_hasDeleteMultiple">
-        $hasDeleteMultiple
-        <a href="classes/oihana-routes-traits-HasRouteTrait.html#property_hasDeleteMultiple" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                            </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/traits/HasRouteTrait.php"><a href="files/src-oihana-routes-traits-hasroutetrait.html"><abbr title="src/oihana/routes/traits/HasRouteTrait.php">HasRouteTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">11</span>
-
-    </aside>
-
-    
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-        <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__type">bool</span>
-    <span class="phpdocumentor-signature__name">$hasDeleteMultiple</span>
-    </code>
-
-    
-    
-    
-
-    
-
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -public
-                                                                    "
->
-    <h4 class="phpdocumentor-element__name" id="property_hasGet">
-        $hasGet
-        <a href="classes/oihana-routes-traits-HasRouteTrait.html#property_hasGet" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                            </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/traits/HasRouteTrait.php"><a href="files/src-oihana-routes-traits-hasroutetrait.html"><abbr title="src/oihana/routes/traits/HasRouteTrait.php">HasRouteTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">12</span>
-
-    </aside>
-
-    
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-        <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__type">bool</span>
-    <span class="phpdocumentor-signature__name">$hasGet</span>
-    </code>
-
-    
-    
-    
-
-    
-
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -public
-                                                                    "
->
-    <h4 class="phpdocumentor-element__name" id="property_hasList">
-        $hasList
-        <a href="classes/oihana-routes-traits-HasRouteTrait.html#property_hasList" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                            </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/traits/HasRouteTrait.php"><a href="files/src-oihana-routes-traits-hasroutetrait.html"><abbr title="src/oihana/routes/traits/HasRouteTrait.php">HasRouteTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">13</span>
-
-    </aside>
-
-    
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-        <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__type">bool</span>
-    <span class="phpdocumentor-signature__name">$hasList</span>
-    </code>
-
-    
-    
-    
-
-    
-
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -public
-                                                                    "
->
-    <h4 class="phpdocumentor-element__name" id="property_hasPatch">
-        $hasPatch
-        <a href="classes/oihana-routes-traits-HasRouteTrait.html#property_hasPatch" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_flags">
+        $flags
+        <a href="classes/oihana-routes-traits-HasRouteTrait.html#property_flags" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                             </span>
@@ -469,89 +329,14 @@
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Bitmask representing enabled routes</p>
+
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
         <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__type">bool</span>
-    <span class="phpdocumentor-signature__name">$hasPatch</span>
-    </code>
-
-    
-    
-    
-
-    
-
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -public
-                                                                    "
->
-    <h4 class="phpdocumentor-element__name" id="property_hasPost">
-        $hasPost
-        <a href="classes/oihana-routes-traits-HasRouteTrait.html#property_hasPost" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                            </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/traits/HasRouteTrait.php"><a href="files/src-oihana-routes-traits-hasroutetrait.html"><abbr title="src/oihana/routes/traits/HasRouteTrait.php">HasRouteTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">15</span>
-
-    </aside>
-
-    
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-        <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__type">bool</span>
-    <span class="phpdocumentor-signature__name">$hasPost</span>
-    </code>
-
-    
-    
-    
-
-    
-
-    
-
-</article>
-                    <article
-        class="
-            phpdocumentor-element
-            -property
-            -public
-                                                                    "
->
-    <h4 class="phpdocumentor-element__name" id="property_hasPut">
-        $hasPut
-        <a href="classes/oihana-routes-traits-HasRouteTrait.html#property_hasPut" class="headerlink"><i class="fas fa-link"></i></a>
-
-        <span class="phpdocumentor-element__modifiers">
-                                            </span>
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/traits/HasRouteTrait.php"><a href="files/src-oihana-routes-traits-hasroutetrait.html"><abbr title="src/oihana/routes/traits/HasRouteTrait.php">HasRouteTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">16</span>
-
-    </aside>
-
-    
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-        <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__type">bool</span>
-    <span class="phpdocumentor-signature__name">$hasPut</span>
-    </code>
+            <span class="phpdocumentor-signature__type">int</span>
+    <span class="phpdocumentor-signature__name">$flags</span>
+     = <span class="phpdocumentor-signature__default-value">\oihana\routes\enums\RouteFlag::DEFAULT</span></code>
 
     
     
@@ -573,7 +358,507 @@
                     <article
         class="phpdocumentor-element
             -method
-            -protected
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_describeFlags">
+        describeFlags()
+        <a href="classes/oihana-routes-traits-HasRouteTrait.html#method_describeFlags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/traits/HasRouteTrait.php"><a href="files/src-oihana-routes-traits-hasroutetrait.html"><abbr title="src/oihana/routes/traits/HasRouteTrait.php">HasRouteTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">109</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Get a human-readable description of enabled routes</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">describeFlags</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Description of enabled routes</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_disableFlags">
+        disableFlags()
+        <a href="classes/oihana-routes-traits-HasRouteTrait.html#method_disableFlags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/traits/HasRouteTrait.php"><a href="files/src-oihana-routes-traits-hasroutetrait.html"><abbr title="src/oihana/routes/traits/HasRouteTrait.php">HasRouteTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">132</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Disable specific route flags</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">disableFlags</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$flags</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$flags</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Flags to disable</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">static</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_enableFlags">
+        enableFlags()
+        <a href="classes/oihana-routes-traits-HasRouteTrait.html#method_enableFlags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/traits/HasRouteTrait.php"><a href="files/src-oihana-routes-traits-hasroutetrait.html"><abbr title="src/oihana/routes/traits/HasRouteTrait.php">HasRouteTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">120</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Enable specific route flags</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">enableFlags</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$flags</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$flags</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Flags to enable</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">static</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_getFlags">
+        getFlags()
+        <a href="classes/oihana-routes-traits-HasRouteTrait.html#method_getFlags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/traits/HasRouteTrait.php"><a href="files/src-oihana-routes-traits-hasroutetrait.html"><abbr title="src/oihana/routes/traits/HasRouteTrait.php">HasRouteTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">143</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Get current flags</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getFlags</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">int</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Current flags bitmask</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_hasCount">
+        hasCount()
+        <a href="classes/oihana-routes-traits-HasRouteTrait.html#method_hasCount" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/traits/HasRouteTrait.php"><a href="files/src-oihana-routes-traits-hasroutetrait.html"><abbr title="src/oihana/routes/traits/HasRouteTrait.php">HasRouteTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">43</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Check if COUNT route is enabled</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">hasCount</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_hasDelete">
+        hasDelete()
+        <a href="classes/oihana-routes-traits-HasRouteTrait.html#method_hasDelete" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/traits/HasRouteTrait.php"><a href="files/src-oihana-routes-traits-hasroutetrait.html"><abbr title="src/oihana/routes/traits/HasRouteTrait.php">HasRouteTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">51</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Check if DELETE route is enabled</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">hasDelete</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_hasDeleteMultiple">
+        hasDeleteMultiple()
+        <a href="classes/oihana-routes-traits-HasRouteTrait.html#method_hasDeleteMultiple" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/traits/HasRouteTrait.php"><a href="files/src-oihana-routes-traits-hasroutetrait.html"><abbr title="src/oihana/routes/traits/HasRouteTrait.php">HasRouteTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">59</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Check if DELETE_MULTIPLE is enabled</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">hasDeleteMultiple</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_hasGet">
+        hasGet()
+        <a href="classes/oihana-routes-traits-HasRouteTrait.html#method_hasGet" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/traits/HasRouteTrait.php"><a href="files/src-oihana-routes-traits-hasroutetrait.html"><abbr title="src/oihana/routes/traits/HasRouteTrait.php">HasRouteTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">67</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Check if GET route is enabled</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">hasGet</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_hasList">
+        hasList()
+        <a href="classes/oihana-routes-traits-HasRouteTrait.html#method_hasList" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/traits/HasRouteTrait.php"><a href="files/src-oihana-routes-traits-hasroutetrait.html"><abbr title="src/oihana/routes/traits/HasRouteTrait.php">HasRouteTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">75</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Check if LIST route is enabled</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">hasList</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_hasPatch">
+        hasPatch()
+        <a href="classes/oihana-routes-traits-HasRouteTrait.html#method_hasPatch" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/traits/HasRouteTrait.php"><a href="files/src-oihana-routes-traits-hasroutetrait.html"><abbr title="src/oihana/routes/traits/HasRouteTrait.php">HasRouteTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">83</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Check if PATCH route is enabled</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">hasPatch</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_hasPost">
+        hasPost()
+        <a href="classes/oihana-routes-traits-HasRouteTrait.html#method_hasPost" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/traits/HasRouteTrait.php"><a href="files/src-oihana-routes-traits-hasroutetrait.html"><abbr title="src/oihana/routes/traits/HasRouteTrait.php">HasRouteTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">91</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Check if POST route is enabled</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">hasPost</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_hasPut">
+        hasPut()
+        <a href="classes/oihana-routes-traits-HasRouteTrait.html#method_hasPut" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/traits/HasRouteTrait.php"><a href="files/src-oihana-routes-traits-hasroutetrait.html"><abbr title="src/oihana/routes/traits/HasRouteTrait.php">HasRouteTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">99</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Check if PUT route is enabled</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">hasPut</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
                                                         "
 >
     <h4 class="phpdocumentor-element__name" id="method_initializeFlags">
@@ -584,15 +869,15 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/traits/HasRouteTrait.php"><a href="files/src-oihana-routes-traits-hasroutetrait.html"><abbr title="src/oihana/routes/traits/HasRouteTrait.php">HasRouteTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">23</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 
     </aside>
 
         <p class="phpdocumentor-summary">Initialize the internal flags.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">initializeFlags</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">initializeFlags</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -602,7 +887,7 @@
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$init</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -613,7 +898,62 @@
 
     
 
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">static</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_setFlags">
+        setFlags()
+        <a href="classes/oihana-routes-traits-HasRouteTrait.html#method_setFlags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/routes/traits/HasRouteTrait.php"><a href="files/src-oihana-routes-traits-hasroutetrait.html"><abbr title="src/oihana/routes/traits/HasRouteTrait.php">HasRouteTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">155</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Set flags (replacing current flags)</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">setFlags</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$flags</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
     
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$flags</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>New flags value</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">static</span>
+            </section>
+
 </article>
             </section>
 
@@ -729,20 +1069,26 @@
                                     <li class="phpdocumentor-on-this-page-section__title">Properties</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-routes-traits-HasRouteTrait.html#property_hasCount">$hasCount</a></li>
-                                            <li class=""><a href="classes/oihana-routes-traits-HasRouteTrait.html#property_hasDelete">$hasDelete</a></li>
-                                            <li class=""><a href="classes/oihana-routes-traits-HasRouteTrait.html#property_hasDeleteMultiple">$hasDeleteMultiple</a></li>
-                                            <li class=""><a href="classes/oihana-routes-traits-HasRouteTrait.html#property_hasGet">$hasGet</a></li>
-                                            <li class=""><a href="classes/oihana-routes-traits-HasRouteTrait.html#property_hasList">$hasList</a></li>
-                                            <li class=""><a href="classes/oihana-routes-traits-HasRouteTrait.html#property_hasPatch">$hasPatch</a></li>
-                                            <li class=""><a href="classes/oihana-routes-traits-HasRouteTrait.html#property_hasPost">$hasPost</a></li>
-                                            <li class=""><a href="classes/oihana-routes-traits-HasRouteTrait.html#property_hasPut">$hasPut</a></li>
+                                            <li class=""><a href="classes/oihana-routes-traits-HasRouteTrait.html#property_flags">$flags</a></li>
                                     </ul>
             </li>
                                     <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/oihana-routes-traits-HasRouteTrait.html#method_describeFlags">describeFlags()</a></li>
+                                            <li class=""><a href="classes/oihana-routes-traits-HasRouteTrait.html#method_disableFlags">disableFlags()</a></li>
+                                            <li class=""><a href="classes/oihana-routes-traits-HasRouteTrait.html#method_enableFlags">enableFlags()</a></li>
+                                            <li class=""><a href="classes/oihana-routes-traits-HasRouteTrait.html#method_getFlags">getFlags()</a></li>
+                                            <li class=""><a href="classes/oihana-routes-traits-HasRouteTrait.html#method_hasCount">hasCount()</a></li>
+                                            <li class=""><a href="classes/oihana-routes-traits-HasRouteTrait.html#method_hasDelete">hasDelete()</a></li>
+                                            <li class=""><a href="classes/oihana-routes-traits-HasRouteTrait.html#method_hasDeleteMultiple">hasDeleteMultiple()</a></li>
+                                            <li class=""><a href="classes/oihana-routes-traits-HasRouteTrait.html#method_hasGet">hasGet()</a></li>
+                                            <li class=""><a href="classes/oihana-routes-traits-HasRouteTrait.html#method_hasList">hasList()</a></li>
+                                            <li class=""><a href="classes/oihana-routes-traits-HasRouteTrait.html#method_hasPatch">hasPatch()</a></li>
+                                            <li class=""><a href="classes/oihana-routes-traits-HasRouteTrait.html#method_hasPost">hasPost()</a></li>
+                                            <li class=""><a href="classes/oihana-routes-traits-HasRouteTrait.html#method_hasPut">hasPut()</a></li>
                                             <li class=""><a href="classes/oihana-routes-traits-HasRouteTrait.html#method_initializeFlags">initializeFlags()</a></li>
+                                            <li class=""><a href="classes/oihana-routes-traits-HasRouteTrait.html#method_setFlags">setFlags()</a></li>
                                     </ul>
             </li>
                     </ul>

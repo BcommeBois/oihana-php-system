@@ -8,6 +8,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Added
 
+- Controllers
+  - Helpers
+    - getBodyParam()
+    - getBodyParams()
+    - getQueryParam()
+    - getParam()
+      - getParamArray() 
+      - getParamBool()
+      - getParamFloat() 
+      - getParamFloatRange() 
+      - getParamInt()
+      - getParamIntRange()
+      - getParamNumberRange()
+      - getParamString()
 - Validations
   - Helpers:
     - after, before, between, date, different, digits, digitsBetween, endsWith, length, max, min, regex, same, startsWith, url
