@@ -5421,6 +5421,21 @@ Search.appendIndex(
             "summary": "Generates\u0020the\u0020\u0027url\u005B\u003Ascheme\u005D\u0027\u0020rule\u0020expression.",
             "url": "namespaces/oihana-validations-rules-helpers.html#function_url"
         },                {
+            "fqsen": "\\oihana\\validations\\rules\\http\\HttpMethodRule",
+            "name": "HttpMethodRule",
+            "summary": "Rule\u003A\u0020Validates\u0020that\u0020a\u0020given\u0020value\u0020is\u0020a\u0020supported\u0020HTTP\u0020method\u0020as\u0020defined\u0020in\u0020\u007B\u0040see\u0020HttpMethod\u007D.",
+            "url": "classes/oihana-validations-rules-http-HttpMethodRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\http\\HttpMethodRule\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020HttpMethodRule\u0020instance.",
+            "url": "classes/oihana-validations-rules-http-HttpMethodRule.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\http\\HttpMethodRule\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "The\u0020internal\u0020message\u0020pattern.",
+            "url": "classes/oihana-validations-rules-http-HttpMethodRule.html#property_message"
+        },                {
             "fqsen": "\\oihana\\validations\\rules\\InstanceOfRule",
             "name": "InstanceOfRule",
             "summary": "Ensures\u0020that\u0020a\u0020given\u0020value\u0020is\u0020instance\u0020of\u0020the\u0020specified\u0020class\u0020name.",
@@ -5920,6 +5935,11 @@ Search.appendIndex(
             "name": "helpers",
             "summary": "",
             "url": "namespaces/oihana-validations-rules-helpers.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\http",
+            "name": "http",
+            "summary": "",
+            "url": "namespaces/oihana-validations-rules-http.html"
         },                {
             "fqsen": "\\oihana\\validations\\rules\\models",
             "name": "models",
