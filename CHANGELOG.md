@@ -29,6 +29,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
   - Rules: 
     - ConstantsRule
     - auth: JWTAlgorithmRule, EffectRule
+    - http: HttpMethodRule
     - numeric: EqualRule, GreaterThanOrEqualRule, GreaterThanRule, LessThan, LessThanOrEqualRule, RangeRule
     - geo: LatitudeRule, LongitudeRule, ElevationRule
     - models: ExistModelRule, UniqueModelRule
