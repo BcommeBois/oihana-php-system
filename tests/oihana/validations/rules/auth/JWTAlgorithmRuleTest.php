@@ -1,16 +1,13 @@
 <?php
 
-namespace tests\oihana\validations\rules;
+namespace tests\oihana\validations\rules\auth;
 
-use ReflectionClass;
+use oihana\validations\rules\auth\JWTAlgorithmRule;
+use oihana\validations\rules\ConstantsRule;
 use PHPUnit\Framework\TestCase;
-use PHPUnit\TextUI\XmlConfiguration\Validator;
-
-use oihana\validations\rules\JWTAlgorithmRule;
-
-use xyz\oihana\schema\constants\JWTAlgorithm;
-
+use ReflectionClass;
 use Somnambulist\Components\Validation\Exceptions\ParameterException;
+use xyz\oihana\schema\constants\JWTAlgorithm;
 
 final class JWTAlgorithmRuleTest extends TestCase
 {
@@ -24,7 +21,7 @@ final class JWTAlgorithmRuleTest extends TestCase
         $this->assertSame
         (
             JWTAlgorithm::enums(),
-            $rule->parameter(JWTAlgorithmRule::CASES),
+            $rule->parameter(ConstantsRule::CASES),
             'The default case list should match JWTAlgorithm::enums()'
         );
     }
@@ -38,9 +35,10 @@ final class JWTAlgorithmRuleTest extends TestCase
 
         $rule = new JWTAlgorithmRule($custom);
 
-        $this->assertSame(
+        $this->assertSame
+        (
             $custom,
-            $rule->parameter(JWTAlgorithmRule::CASES),
+            $rule->parameter(ConstantsRule::CASES),
             'The custom algorithm list should override the default one.'
         );
     }
@@ -64,6 +62,7 @@ final class JWTAlgorithmRuleTest extends TestCase
 
     /**
      * Verifies that invalid algorithm names fail validation.
+     * @throws ParameterException
      */
     public function testInvalidAlgorithmFails(): void
     {
@@ -71,9 +70,11 @@ final class JWTAlgorithmRuleTest extends TestCase
 
         $invalid = ['MD5', 'SHA1', 'HMAC', 'PS1024', ''];
 
-        foreach ($invalid as $alg) {
-            $this->assertFalse(
-                $rule->check($alg),
+        foreach ($invalid as $alg)
+        {
+            $this->assertFalse
+            (
+                $rule->check( $alg ) ,
                 "Expected algorithm '{$alg}' to be invalid."
             );
         }

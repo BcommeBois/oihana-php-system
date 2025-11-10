@@ -73,10 +73,10 @@ class ISO8601DateRule extends Rule
     {
         if ( $value === null || $value === '' )
         {
-            return false;
+            return false ;
         }
 
-        if ( !is_string($value) && !$value instanceof Stringable )
+        if ( !is_string( $value ) && !$value instanceof Stringable )
         {
             return false ;
         }

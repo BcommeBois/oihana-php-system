@@ -135,36 +135,21 @@
             <div class="phpdocumentor-column -nine phpdocumentor-content">
                                 <section>
                                         <ul class="phpdocumentor-breadcrumbs">
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana.html">oihana</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-controllers.html">controllers</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-controllers-traits.html">traits</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-controllers-traits-prepare.html">prepare</a></li>
     </ul>
 
-    <article class="phpdocumentor-element -trait">
-        <h2 class="phpdocumentor-content__title">
-    PrepareGroupBy
-    </h2>
+    <article class="phpdocumentor-element -file">
+        <h2 class="phpdocumentor-content__title">getParamInModel.php</h2>
 
-        <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/prepare/PrepareGroupBy.php"><a href="files/src-oihana-controllers-traits-prepare-preparegroupby.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareGroupBy.php">PrepareGroupBy.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">10</span>
-
-    </aside>
-
+        
+        
+        
         
 
 
-
-
-
-
-
-
+        
 <h3 id="toc">
     Table of Contents
-    <a href="classes/oihana-controllers-traits-prepare-PrepareGroupBy.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="files/src-oihana-controllers-helpers-getparaminmodel.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -177,60 +162,68 @@
 
 
 
-<h4 id="toc-methods">
-    Methods
-    <a href="classes/oihana-controllers-traits-prepare-PrepareGroupBy.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+<h4 id="toc-functions">
+    Functions
+    <a href="files/src-oihana-controllers-helpers-getparaminmodel.html#toc-functions" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a class="" href="classes/oihana-controllers-traits-prepare-PrepareGroupBy.html#method_prepareGroupBy">prepareGroupBy()</a>
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/oihana-controllers-helpers.html#function_getParam">getParam()</a>
     <span>
-                                &nbsp;: void    </span>
+                                &nbsp;: mixed    </span>
 </dt>
+<dd>Retrieves a parameter from the HTTP request, supporting query string, body, or both.</dd>
 
     </dl>
 
 
-
-
         
 
-        
-
-            <section class="phpdocumentor-methods">
-        <h3 class="phpdocumentor-elements__header" id="methods">
-            Methods
-            <a href="classes/oihana-controllers-traits-prepare-PrepareGroupBy.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <section class="phpdocumentor-functions">
+        <h3 class="phpdocumentor-elements__header" id="functions">
+            Functions
+            <a href="files/src-oihana-controllers-helpers-getparaminmodel.html#functions" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_prepareGroupBy">
-        prepareGroupBy()
-        <a href="classes/oihana-controllers-traits-prepare-PrepareGroupBy.html#method_prepareGroupBy" class="headerlink"><i class="fas fa-link"></i></a>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_getParam">
+        getParam()
+        <a href="namespaces/oihana-controllers-helpers.html#function_getParam" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/prepare/PrepareGroupBy.php"><a href="files/src-oihana-controllers-traits-prepare-preparegroupby.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareGroupBy.php">PrepareGroupBy.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/helpers/getParamInModel.php"><a href="files/src-oihana-controllers-helpers-getparaminmodel.html"><abbr title="src/oihana/controllers/helpers/getParamInModel.php">getParamInModel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">61</span>
 
     </aside>
 
+        <p class="phpdocumentor-summary">Retrieves a parameter from the HTTP request, supporting query string, body, or both.</p>
+
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">prepareGroupBy</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$params</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$groupBy</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">getParam</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$default</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$strategy</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">HttpParamStrategy::BOTH</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$throwable</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
+        <section class="phpdocumentor-description"><p>This helper searches for the requested parameter <code class="prettyprint">$name</code> in the request according to the
+specified <code class="prettyprint">$strategy</code>:</p>
+<ul>
+<li><code class="prettyprint">HttpParamStrategy::QUERY</code>  → only query string parameters.</li>
+<li><code class="prettyprint">HttpParamStrategy::BODY</code>   → only parsed body parameters.</li>
+<li><code class="prettyprint">HttpParamStrategy::BOTH</code>   → query string first, then body.</li>
+</ul>
+<p>Nested keys are supported via dot notation (e.g., <code class="prettyprint">'user.profile.email'</code>).
+Body parameters are normalized to an associative array using <abbr title="\oihana\controllers\helpers\toAssociativeArray()">toAssociativeArray()</abbr>.</p>
+<p>If the parameter is not found:</p>
+<ul>
+<li>Returns the corresponding value in <code class="prettyprint">$default[$name]</code> if present.</li>
+<li>Returns <code class="prettyprint">null</code> if no default is provided.</li>
+<li>Throws <code class="prettyprint">DI\NotFoundException</code> if <code class="prettyprint">$throwable</code> is true.</li>
+</ul>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -238,28 +231,52 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr>|null</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The PSR-7 server request instance.</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$params</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null</span>
+                <span class="phpdocumentor-signature__argument__name">$name</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The parameter name or dot-notated path.</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$groupBy</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
-                            </dt>
+                <span class="phpdocumentor-signature__argument__name">$default</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Optional default values as an associative array.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$strategy</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">HttpParamStrategy::BOTH</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>One of <code class="prettyprint">HttpParamStrategy::QUERY|BODY|BOTH</code>. Default: BOTH.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$throwable</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Whether to throw a <code class="prettyprint">NotFoundException</code> if parameter is missing. Default: false.</p>
+</section>
+
             </dd>
             </dl>
 
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-controllers-traits-prepare-PrepareGroupBy.html#method_prepareGroupBy#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="namespaces/oihana-controllers-helpers.html#function_getParam#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -269,13 +286,60 @@
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\DI\NotFoundException">NotFoundException</abbr></span>
                                                             
+                                                 <section class="phpdocumentor-description"><p>If <code class="prettyprint">$throwable</code> is true and the parameter is not found.</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (ekameleon)</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
                                              
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">// Query parameter only
+$request = ...; // ?name=Alice
+getParam($request, 'name', [], HttpParamStrategy::QUERY);
+
+// Body parameter only
+$request = ...; // ['user' =&gt; ['email' =&gt; 'a@b.c']]
+getParam($request, 'user.email', [], HttpParamStrategy::BODY);
+
+// Both sources, with fallback
+getParam($request, 'foo', ['foo' =&gt; 'default'], HttpParamStrategy::BOTH);
+
+// Throw exception if missing
+getParam($request, 'bar', [], HttpParamStrategy::BOTH, true);
+</code></pre>
+</section>
+
                                     </dd>
                                             </dl>
 
-    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">mixed</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The parameter value if found, otherwise the default value or null.</p>
+</section>
 
-    
+            </section>
+
 </article>
             </section>
 
@@ -283,7 +347,7 @@
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/controllers/traits/prepare/PrepareGroupBy.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/controllers/helpers/getParamInModel.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -376,7 +440,7 @@
     </article>
                                 </section>
                 <section class="phpdocumentor-on-this-page__sidebar">
-                                
+                            
     <section class="phpdocumentor-on-this-page__content">
         <strong class="phpdocumentor-on-this-page__title">On this page</strong>
 
@@ -384,15 +448,17 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                                <li><a href="classes/oihana-controllers-traits-prepare-PrepareGroupBy.html#toc-methods">Methods</a></li>
+                                                                                                                                                                                        <li><a href="files/src-oihana-controllers-helpers-getparaminmodel.html#toc-functions">Functions</a></li>
                                     </ul>
             </li>
-                                                <li class="phpdocumentor-on-this-page-section__title">Methods</li>
-            <li>
-                <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-controllers-traits-prepare-PrepareGroupBy.html#method_prepareGroupBy">prepareGroupBy()</a></li>
-                                    </ul>
-            </li>
+
+            
+                            <li class="phpdocumentor-on-this-page-section__title">Functions</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="namespaces/oihana-controllers-helpers.html#function_getParam">getParam()</a></li>
+                                            </ul>
+                </li>
                     </ul>
     </section>
 
@@ -410,7 +476,7 @@
     </section>
 </section>
         </div>
-        <a href="classes/oihana-controllers-traits-prepare-PrepareGroupBy.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="files/src-oihana-controllers-helpers-getparaminmodel.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

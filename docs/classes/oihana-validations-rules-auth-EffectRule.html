@@ -138,11 +138,12 @@
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana.html">oihana</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-validations.html">validations</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-validations-rules.html">rules</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-validations-rules-auth.html">auth</a></li>
     </ul>
 
     <article class="phpdocumentor-element -class">
         <h2 class="phpdocumentor-content__title">
-    JWTAlgorithmRule
+    EffectRule
 
         <span class="phpdocumentor-element__extends">
         extends <a href="classes/oihana-validations-rules-ConstantsRule.html"><abbr title="\oihana\validations\rules\ConstantsRule">ConstantsRule</abbr></a>
@@ -158,55 +159,38 @@
 </div>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/JWTAlgorithmRule.php"><a href="files/src-oihana-validations-rules-jwtalgorithmrule.html"><abbr title="src/oihana/validations/rules/JWTAlgorithmRule.php">JWTAlgorithmRule.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/auth/EffectRule.php"><a href="files/src-oihana-validations-rules-auth-effectrule.html"><abbr title="src/oihana/validations/rules/auth/EffectRule.php">EffectRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">62</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Rule: Validates that a given value is a supported JSON Web Token (JWT)
-signing algorithm as defined in {@see JWTAlgorithm}.</p>
+            <p class="phpdocumentor-summary">Ensures a value is a valid Effect for Casbin/RBAC permissions.</p>
 
 
-    <section class="phpdocumentor-description"><hr />
-<p><strong>Usage</strong></p>
-<p>This rule ensures that the provided value matches one of the allowed
-JWT signing algorithms, typically one of:</p>
-<pre class="prettyprint"><code class="prettyprint">HS256, HS384, HS512, RS256, RS384, RS512, PS256, PS384, PS512, none
-</code></pre>
-<hr />
-<p><strong>Examples</strong></p>
+    <section class="phpdocumentor-description"><p>This rule validates that a given value is one of the supported Effects:</p>
+<ul>
+<li><code class="prettyprint">allow</code></li>
+<li><code class="prettyprint">deny</code></li>
+</ul>
+<p><strong>Usage Example</strong></p>
 <pre class="prettyprint"><code class="language-php">use oihana\validations\rules\JWTAlgorithmRule;
 use Somnambulist\Components\Validation\Validator;
 
-$rule = new JWTAlgorithmRule() ;
+$rule = new EffectRule() ;
 
-$validator = new Validator(
-    ['alg' =&gt; 'HS256'],
-    ['alg' =&gt; [ $rule ]]
-);
-
+$validator = new Validator( ['effect' =&gt; 'deny'] , ['effect' =&gt; $rule] );
 $validator-&gt;passes(); // true
 
-$validator = new Validator(
-    ['alg' =&gt; 'MD5'],
-    ['alg' =&gt; [$rule]]
-);
-
-$validator-&gt;fails(); // true — &quot;alg is not a valid JWT signing algorithm.&quot;
-</code></pre>
-<hr />
-<p><strong>Customization</strong></p>
-<p>You can restrict validation to a subset of algorithms:</p>
-<pre class="prettyprint"><code class="language-php">$rule = new JWTAlgorithmRule(['HS256', 'RS256']);
-$rule-&gt;check('RS512'); // false
+$validator = new Validator( ['effect' =&gt; 'unknown'] , ['effect' =&gt; $rule] );
+$validator-&gt;fails(); // true — &quot;effect is not a valid. Allowed values are 'allow' or 'deny'.&quot;
 </code></pre>
 </section>
 
 
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-validations-rules-JWTAlgorithmRule.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-validations-rules-auth-EffectRule.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -214,9 +198,9 @@ $rule-&gt;check('RS512'); // false
                     <span class="phpdocumentor-tag__name">see</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
-                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\xyz\oihana\schema\constants\JWTAlgorithm">JWTAlgorithm</abbr></span>
+                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\xyz\oihana\schema\constants\Effect">Effect</abbr></span>
                                         
-                                                 <section class="phpdocumentor-description"><p>List of supported algorithms and their characteristics.</p>
+                                                 <section class="phpdocumentor-description"><p>The supported effects for Casbin permissions or RBAC rules.</p>
 </section>
 
                                     </dd>
@@ -245,7 +229,7 @@ $rule-&gt;check('RS512'); // false
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/oihana-validations-rules-JWTAlgorithmRule.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-validations-rules-auth-EffectRule.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -257,7 +241,7 @@ $rule-&gt;check('RS512'); // false
 
 <h4 id="toc-constants">
     Constants
-    <a href="classes/oihana-validations-rules-JWTAlgorithmRule.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-validations-rules-auth-EffectRule.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
@@ -280,7 +264,7 @@ $rule-&gt;check('RS512'); // false
 
 <h4 id="toc-properties">
     Properties
-    <a href="classes/oihana-validations-rules-JWTAlgorithmRule.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-validations-rules-auth-EffectRule.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
@@ -299,7 +283,7 @@ $rule-&gt;check('RS512'); // false
 <dd>The parameters that must be present for the rule to function.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -protected">
-    <a class="" href="classes/oihana-validations-rules-JWTAlgorithmRule.html#property_message">$message</a>
+    <a class="" href="classes/oihana-validations-rules-auth-EffectRule.html#property_message">$message</a>
     <span>
                         &nbsp;: string            </span>
 </dt>
@@ -309,16 +293,16 @@ $rule-&gt;check('RS512'); // false
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/oihana-validations-rules-JWTAlgorithmRule.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-validations-rules-auth-EffectRule.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-validations-rules-JWTAlgorithmRule.html#method___construct">__construct()</a>
+    <a class="" href="classes/oihana-validations-rules-auth-EffectRule.html#method___construct">__construct()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Creates a new JWTAlgorithmRule instance.</dd>
+<dd>Creates a new EffectRule instance.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-validations-rules-ConstantsRule.html#method_cases">cases()</a>
@@ -349,7 +333,7 @@ $rule-&gt;check('RS512'); // false
     <section class="phpdocumentor-constants">
         <h3 class="phpdocumentor-elements__header" id="constants">
             Constants
-            <a href="classes/oihana-validations-rules-JWTAlgorithmRule.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/oihana-validations-rules-auth-EffectRule.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article class="phpdocumentor-element -constant -public ">
@@ -422,7 +406,7 @@ $rule-&gt;check('RS512'); // false
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/oihana-validations-rules-JWTAlgorithmRule.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/oihana-validations-rules-auth-EffectRule.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -512,15 +496,15 @@ $rule-&gt;check('RS512'); // false
 >
     <h4 class="phpdocumentor-element__name" id="property_message">
         $message
-        <a href="classes/oihana-validations-rules-JWTAlgorithmRule.html#property_message" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-validations-rules-auth-EffectRule.html#property_message" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                             </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/JWTAlgorithmRule.php"><a href="files/src-oihana-validations-rules-jwtalgorithmrule.html"><abbr title="src/oihana/validations/rules/JWTAlgorithmRule.php">JWTAlgorithmRule.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/auth/EffectRule.php"><a href="files/src-oihana-validations-rules-auth-effectrule.html"><abbr title="src/oihana/validations/rules/auth/EffectRule.php">EffectRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">84</span>
+    <span class="phpdocumentor-element-found-in__line">59</span>
 
     </aside>
 
@@ -531,7 +515,7 @@ $rule-&gt;check('RS512'); // false
         <span class="phpdocumentor-signature__visibility">protected</span>
             <span class="phpdocumentor-signature__type">string</span>
     <span class="phpdocumentor-signature__name">$message</span>
-     = <span class="phpdocumentor-signature__default-value">&quot;:attribute is not a valid JWT signing algorithm.&quot;</span></code>
+     = <span class="phpdocumentor-signature__default-value">&quot;:attribute is not a valid. Allowed values are &#039;allow&#039; or &#039;deny&#039;.&quot;</span></code>
 
     
     
@@ -547,7 +531,7 @@ $rule-&gt;check('RS512'); // false
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/oihana-validations-rules-JWTAlgorithmRule.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/oihana-validations-rules-auth-EffectRule.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -558,44 +542,31 @@ $rule-&gt;check('RS512'); // false
 >
     <h4 class="phpdocumentor-element__name" id="method___construct">
         __construct()
-        <a href="classes/oihana-validations-rules-JWTAlgorithmRule.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-validations-rules-auth-EffectRule.html#method___construct" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/JWTAlgorithmRule.php"><a href="files/src-oihana-validations-rules-jwtalgorithmrule.html"><abbr title="src/oihana/validations/rules/JWTAlgorithmRule.php">JWTAlgorithmRule.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/validations/rules/auth/EffectRule.php"><a href="files/src-oihana-validations-rules-auth-effectrule.html"><abbr title="src/oihana/validations/rules/auth/EffectRule.php">EffectRule.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">75</span>
+    <span class="phpdocumentor-element-found-in__line">50</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Creates a new JWTAlgorithmRule instance.</p>
+        <p class="phpdocumentor-summary">Creates a new EffectRule instance.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$cases</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
     
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$cases</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Optional list of allowed algorithms.
-Defaults to all algorithms from <abbr title="\xyz\oihana\schema\constants\JWTAlgorithm::enums()">JWTAlgorithm::enums()</abbr>.</p>
-</section>
-
-            </dd>
-            </dl>
-
+    
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-validations-rules-JWTAlgorithmRule.html#method___construct#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-validations-rules-auth-EffectRule.html#method___construct#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -604,7 +575,11 @@ Defaults to all algorithms from <abbr title="\xyz\oihana\schema\constants\JWTAlg
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
-                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$rule = new JWTAlgorithmRule(['HS256', 'RS256']);
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$rule = new EffectRule();
+
+$rule-&gt;check('allow') ; // valid
+$rule-&gt;check('deny') ; // valid
+$rule-&gt;check('unknown') ; // invalid
 ``
 </code></pre>
 </section>
@@ -844,7 +819,7 @@ $rule-&gt;check('MD5');   // false
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/validations/rules/JWTAlgorithmRule.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/validations/rules/auth/EffectRule.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -945,9 +920,9 @@ $rule-&gt;check('MD5');   // false
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                        <li><a href="classes/oihana-validations-rules-JWTAlgorithmRule.html#toc-constants">Constants</a></li>
-                                                            <li><a href="classes/oihana-validations-rules-JWTAlgorithmRule.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/oihana-validations-rules-JWTAlgorithmRule.html#toc-methods">Methods</a></li>
+                                        <li><a href="classes/oihana-validations-rules-auth-EffectRule.html#toc-constants">Constants</a></li>
+                                                            <li><a href="classes/oihana-validations-rules-auth-EffectRule.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/oihana-validations-rules-auth-EffectRule.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
                             <li class="phpdocumentor-on-this-page-section__title">Constants</li>
@@ -963,14 +938,14 @@ $rule-&gt;check('MD5');   // false
                     <ul class="phpdocumentor-list -clean">
                                                     <li class=""><a href="classes/oihana-validations-rules-ConstantsRule.html#property_cases">$cases</a></li>
                                                     <li class=""><a href="classes/oihana-validations-rules-ConstantsRule.html#property_fillableParams">$fillableParams</a></li>
-                                                    <li class=""><a href="classes/oihana-validations-rules-JWTAlgorithmRule.html#property_message">$message</a></li>
+                                                    <li class=""><a href="classes/oihana-validations-rules-auth-EffectRule.html#property_message">$message</a></li>
                                             </ul>
                 </li>
             
                         <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-validations-rules-JWTAlgorithmRule.html#method___construct">__construct()</a></li>
+                                            <li class=""><a href="classes/oihana-validations-rules-auth-EffectRule.html#method___construct">__construct()</a></li>
                                             <li class=""><a href="classes/oihana-validations-rules-ConstantsRule.html#method_cases">cases()</a></li>
                                             <li class=""><a href="classes/oihana-validations-rules-ConstantsRule.html#method_check">check()</a></li>
                                             <li class=""><a href="classes/oihana-validations-rules-ConstantsRule.html#method_className">className()</a></li>
@@ -993,7 +968,7 @@ $rule-&gt;check('MD5');   // false
     </section>
 </section>
         </div>
-        <a href="classes/oihana-validations-rules-JWTAlgorithmRule.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/oihana-validations-rules-auth-EffectRule.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

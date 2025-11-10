@@ -5021,6 +5021,36 @@ Search.appendIndex(
             "summary": "The\u0020DI\u0020container\u0020reference.",
             "url": "classes/oihana-validations-rules-abstracts-ContainerRule.html#property_container"
         },                {
+            "fqsen": "\\oihana\\validations\\rules\\auth\\EffectRule",
+            "name": "EffectRule",
+            "summary": "Ensures\u0020a\u0020value\u0020is\u0020a\u0020valid\u0020Effect\u0020for\u0020Casbin\/RBAC\u0020permissions.",
+            "url": "classes/oihana-validations-rules-auth-EffectRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\auth\\EffectRule\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020EffectRule\u0020instance.",
+            "url": "classes/oihana-validations-rules-auth-EffectRule.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\auth\\EffectRule\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "The\u0020internal\u0020message\u0020pattern.",
+            "url": "classes/oihana-validations-rules-auth-EffectRule.html#property_message"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\auth\\JWTAlgorithmRule",
+            "name": "JWTAlgorithmRule",
+            "summary": "Rule\u003A\u0020Validates\u0020that\u0020a\u0020given\u0020value\u0020is\u0020a\u0020supported\u0020JSON\u0020Web\u0020Token\u0020\u0028JWT\u0029\nsigning\u0020algorithm\u0020as\u0020defined\u0020in\u0020\u007B\u0040see\u0020JWTAlgorithm\u007D.",
+            "url": "classes/oihana-validations-rules-auth-JWTAlgorithmRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\auth\\JWTAlgorithmRule\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020JWTAlgorithmRule\u0020instance.",
+            "url": "classes/oihana-validations-rules-auth-JWTAlgorithmRule.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\auth\\JWTAlgorithmRule\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "The\u0020internal\u0020message\u0020pattern.",
+            "url": "classes/oihana-validations-rules-auth-JWTAlgorithmRule.html#property_message"
+        },                {
             "fqsen": "\\oihana\\validations\\rules\\ColorRule",
             "name": "ColorRule",
             "summary": "Rule\u003A\u0020Ensures\u0020that\u0020a\u0020given\u0020value\u0020matches\u0020a\u0020valid\u0020color\u0020expression\u0020\u0028e.g.\u0020\u0022\u0023ff0000\u0022\u0029.",
@@ -5461,21 +5491,6 @@ Search.appendIndex(
             "summary": "The\u0020regular\u0020expression\u0020pattern\u0020used\u0020for\u0020validation.",
             "url": "classes/oihana-validations-rules-ISO8601DateRule.html#property_pattern"
         },                {
-            "fqsen": "\\oihana\\validations\\rules\\JWTAlgorithmRule",
-            "name": "JWTAlgorithmRule",
-            "summary": "Rule\u003A\u0020Validates\u0020that\u0020a\u0020given\u0020value\u0020is\u0020a\u0020supported\u0020JSON\u0020Web\u0020Token\u0020\u0028JWT\u0029\nsigning\u0020algorithm\u0020as\u0020defined\u0020in\u0020\u007B\u0040see\u0020JWTAlgorithm\u007D.",
-            "url": "classes/oihana-validations-rules-JWTAlgorithmRule.html"
-        },                {
-            "fqsen": "\\oihana\\validations\\rules\\JWTAlgorithmRule\u003A\u003A__construct\u0028\u0029",
-            "name": "__construct",
-            "summary": "Creates\u0020a\u0020new\u0020JWTAlgorithmRule\u0020instance.",
-            "url": "classes/oihana-validations-rules-JWTAlgorithmRule.html#method___construct"
-        },                {
-            "fqsen": "\\oihana\\validations\\rules\\JWTAlgorithmRule\u003A\u003A\u0024message",
-            "name": "message",
-            "summary": "The\u0020internal\u0020message\u0020pattern.",
-            "url": "classes/oihana-validations-rules-JWTAlgorithmRule.html#property_message"
-        },                {
             "fqsen": "\\oihana\\validations\\rules\\LessThanOrEqualRule",
             "name": "LessThanOrEqualRule",
             "summary": "Validation\u0020rule\u0020that\u0020ensures\u0020a\u0020given\u0020value\u0020is\u0020\u002A\u002Aless\u0020than\u0020or\u0020equal\u0020to\u002A\u002A\u0020another\u0020field\u0027s\u0020value\nor\u0020to\u0020a\u0020fixed\u0020numeric\u0020constant.",
@@ -5885,6 +5900,11 @@ Search.appendIndex(
             "name": "abstracts",
             "summary": "",
             "url": "namespaces/oihana-validations-rules-abstracts.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\auth",
+            "name": "auth",
+            "summary": "",
+            "url": "namespaces/oihana-validations-rules-auth.html"
         },                {
             "fqsen": "\\oihana\\validations\\rules",
             "name": "rules",

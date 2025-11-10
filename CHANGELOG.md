@@ -28,7 +28,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
     - rule() and rules() functions
   - Rules: 
     - ConstantsRule
-    - auth: JWTAlgorithmRule
+    - auth: JWTAlgorithmRule, EffectRule
     - numeric: EqualRule, GreaterThanOrEqualRule, GreaterThanRule, LessThan, LessThanOrEqualRule, RangeRule
     - geo: LatitudeRule, LongitudeRule, ElevationRule
     - models: ExistModelRule, UniqueModelRule

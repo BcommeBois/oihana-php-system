@@ -1,9 +1,9 @@
 <?php
 
-namespace oihana\validations\rules ;
+namespace oihana\validations\rules\auth ;
 
+use oihana\validations\rules\ConstantsRule;
 use xyz\oihana\schema\constants\JWTAlgorithm;
-
 
 /**
  * Rule: Validates that a given value is a supported JSON Web Token (JWT)
