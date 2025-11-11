@@ -49,7 +49,6 @@ trait LanguagesTrait
      */
     public const string LANGUAGES = 'languages' ;
 
-
     /**
      * Initialize the internal `$languages` property from an array or a PSR-11 container.
      *

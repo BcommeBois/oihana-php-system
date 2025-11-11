@@ -244,6 +244,11 @@ trait ControllerParamTrait
     public const string RULES = 'rules' ;
 
     /**
+     * The 'sanitize' parameter.
+     */
+    public const string SANITIZE = 'sanitize' ;
+
+    /**
      * The 'schema' parameter.
      */
     public const string SCHEMA = 'schema' ;
