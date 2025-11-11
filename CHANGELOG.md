@@ -18,6 +18,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
       - getParamBool()
       - getParamFloat() 
       - getParamFloatRange() 
+      - getParamI18n()
       - getParamInt()
       - getParamIntRange()
       - getParamNumberRange()
@@ -27,7 +28,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
     - after, before, between, date, different, digits, digitsBetween, endsWith, length, max, min, regex, same, startsWith, url
     - rule() and rules() functions
   - Rules: 
-    - ConstantsRule
+    - ConstantsRule, I18nRule
     - auth: JWTAlgorithmRule, EffectRule
     - http: HttpMethodRule
     - numeric: EqualRule, GreaterThanOrEqualRule, GreaterThanRule, LessThan, LessThanOrEqualRule, RangeRule
