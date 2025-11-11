@@ -148,54 +148,56 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/LanguagesTrait.php"><a href="files/src-oihana-controllers-traits-languagestrait.html"><abbr title="src/oihana/controllers/traits/LanguagesTrait.php">LanguagesTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">55</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Provides helper methods to manage multilingual (i18n) content in controllers.</p>
+            <p class="phpdocumentor-summary">Trait LanguagesTrait</p>
 
 
-    <section class="phpdocumentor-description"><p>This trait allows a controller to:</p>
+    <section class="phpdocumentor-description"><p>Provides a helper method to initialize and store the list of supported languages
+for a controller.</p>
+<p>This trait manages:</p>
 <ul>
-<li>Initialize and store a list of valid languages (<code class="prettyprint">$languages</code>) from an array or a PSR-11 container.</li>
-<li>Filter client-provided arrays of translations to keep only supported languages.</li>
-<li>Retrieve the appropriate translation for a given language, with fallback to the default language.</li>
+<li>The <code class="prettyprint">$languages</code> property containing valid language codes.</li>
+<li>The initialization of <code class="prettyprint">$languages</code> from an array or a PSR-11 container.</li>
 </ul>
 <p>Example usage:</p>
-<pre class="prettyprint"><code class="language-php">// Initialize with an array of supported languages
-$this-&gt;initializeLanguages(['languages' =&gt; ['fr', 'en']]);
+<pre class="prettyprint"><code class="language-php">$this-&gt;initializeLanguages(['languages' =&gt; ['fr', 'en']]);
 
-// Filter a multilingual array to keep only supported languages
-$input =
-[
-   'fr' =&gt; 'Bonjour &lt;span style=&quot;color:red&quot;&gt;monde&lt;/span&gt;',
-   'en' =&gt; 'Hello &lt;span style=&quot;color:red&quot;&gt;world&lt;/span&gt;',
-   'de' =&gt; 'Hallo Welt'
-];
+// Or with a PSR-11 container
+$this-&gt;initializeLanguages([], $container);
 
-$filtered = $this-&gt;filterLanguages($input);
-// $filtered =
-// [
-//    'fr' =&gt; 'Bonjour &lt;span style=&quot;color:red&quot;&gt;monde&lt;/span&gt;',
-//    'en' =&gt; 'Hello &lt;span style=&quot;color:red&quot;&gt;world&lt;/span&gt;'
-// ]
-
-// Filter and remove inline styles for HTML output
-$filteredHtml = $this-&gt;filterLanguages($input, true);
-// $filteredHtml = [
-//     'fr' =&gt; 'Bonjour &lt;span&gt;monde&lt;/span&gt;',
-//     'en' =&gt; 'Hello &lt;span&gt;world&lt;/span&gt;'
-// ]
-
-// Retrieve translation for a given language
-$textEn = $this-&gt;translate($filtered, 'en'); // 'Hello &lt;span&gt;world&lt;/span&gt;'
-
-// Retrieve translation with fallback to default language if requested language is missing
-$textDe = $this-&gt;translate($filtered, 'de'); // 'Bonjour &lt;span&gt;monde&lt;/span&gt;' (fallback to 'fr')
+// Access the languages
+echo $this-&gt;languages; // ['fr', 'en']
 </code></pre>
 </section>
 
 
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-controllers-traits-LanguagesTrait.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (ekameleon)</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
 
 
 
@@ -213,6 +215,20 @@ $textDe = $this-&gt;translate($filtered, 'de'); // 'Bonjour &lt;span&gt;monde&lt
 
 
 
+<h4 id="toc-constants">
+    Constants
+    <a href="classes/oihana-controllers-traits-LanguagesTrait.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-controllers-traits-LanguagesTrait.html#constant_LANGUAGES">LANGUAGES</a>
+    <span>
+        &nbsp;= &#039;languages&#039;                            </span>
+</dt>
+<dd>Key used to initialize languages in an array or container.</dd>
+
+    </dl>
 
 
 <h4 id="toc-properties">
@@ -226,7 +242,7 @@ $textDe = $this-&gt;translate($filtered, 'de'); // 'Bonjour &lt;span&gt;monde&lt
     <span>
                         &nbsp;: array&lt;string|int, string&gt;            </span>
 </dt>
-<dd>The enumeration of all valid languages used by the controller.</dd>
+<dd>Array of valid language codes supported by the controller.</dd>
 
     </dl>
 
@@ -237,25 +253,11 @@ $textDe = $this-&gt;translate($filtered, 'de'); // 'Bonjour &lt;span&gt;monde&lt
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-controllers-traits-LanguagesTrait.html#method_filterLanguages">filterLanguages()</a>
-    <span>
-                                &nbsp;: array&lt;string, mixed&gt;|null    </span>
-</dt>
-<dd>Filter an array of translations according to the available languages.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-controllers-traits-LanguagesTrait.html#method_initializeLanguages">initializeLanguages()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
 <dd>Initialize the internal `$languages` property from an array or a PSR-11 container.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-controllers-traits-LanguagesTrait.html#method_translate">translate()</a>
-    <span>
-                                &nbsp;: mixed    </span>
-</dt>
-<dd>Retrieve the translation for a specific language, or fallback to the default language.</dd>
 
     </dl>
 
@@ -263,6 +265,45 @@ $textDe = $this-&gt;translate($filtered, 'de'); // 'Bonjour &lt;span&gt;monde&lt
 
 
         
+    <section class="phpdocumentor-constants">
+        <h3 class="phpdocumentor-elements__header" id="constants">
+            Constants
+            <a href="classes/oihana-controllers-traits-LanguagesTrait.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_LANGUAGES">
+        LANGUAGES
+        <a href="classes/oihana-controllers-traits-LanguagesTrait.html#constant_LANGUAGES" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/LanguagesTrait.php"><a href="files/src-oihana-controllers-traits-languagestrait.html"><abbr title="src/oihana/controllers/traits/LanguagesTrait.php">LanguagesTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">50</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Key used to initialize languages in an array or container.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">LANGUAGES</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;languages&#039;</span>
+</code>
+
+
+    
+    
+    
+
+    
+
+</article>
+            </section>
 
         
     <section class="phpdocumentor-properties">
@@ -288,11 +329,11 @@ $textDe = $this-&gt;translate($filtered, 'de'); // 'Bonjour &lt;span&gt;monde&lt
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/LanguagesTrait.php"><a href="files/src-oihana-controllers-traits-languagestrait.html"><abbr title="src/oihana/controllers/traits/LanguagesTrait.php">LanguagesTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">61</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">The enumeration of all valid languages used by the controller.</p>
+        <p class="phpdocumentor-summary">Array of valid language codes supported by the controller.</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
@@ -324,73 +365,6 @@ $textDe = $this-&gt;translate($filtered, 'de'); // 'Bonjour &lt;span&gt;monde&lt
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_filterLanguages">
-        filterLanguages()
-        <a href="classes/oihana-controllers-traits-LanguagesTrait.html#method_filterLanguages" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/LanguagesTrait.php"><a href="files/src-oihana-controllers-traits-languagestrait.html"><abbr title="src/oihana/controllers/traits/LanguagesTrait.php">LanguagesTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">74</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Filter an array of translations according to the available languages.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">filterLanguages</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$field</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$html</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string, mixed&gt;|null</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-        <section class="phpdocumentor-description"><p>This helper transforms an input array from the client to prepare a multilingual (i18n) property.
-Example input: <code class="prettyprint">[ 'fr' =&gt; 'bonjour', 'en' =&gt; 'hello' ]</code></p>
-</section>
-
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$field</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string, mixed&gt;|null</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The input array of translations.</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$html</span>
-                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>If true, strip inline styles from HTML content.</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string, mixed&gt;|null</span>
-                    &mdash;
-                <section class="phpdocumentor-description"><p>Filtered translations matching available languages, or null if input is empty.</p>
-</section>
-
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
     <h4 class="phpdocumentor-element__name" id="method_initializeLanguages">
         initializeLanguages()
         <a href="classes/oihana-controllers-traits-LanguagesTrait.html#method_initializeLanguages" class="headerlink"><i class="fas fa-link"></i></a>
@@ -399,7 +373,7 @@ Example input: <code class="prettyprint">[ 'fr' =&gt; 'bonjour', 'en' =&gt; 'hel
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/LanguagesTrait.php"><a href="files/src-oihana-controllers-traits-languagestrait.html"><abbr title="src/oihana/controllers/traits/LanguagesTrait.php">LanguagesTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">107</span>
+    <span class="phpdocumentor-element-found-in__line">67</span>
 
     </aside>
 
@@ -412,7 +386,10 @@ Example input: <code class="prettyprint">[ 'fr' =&gt; 'bonjour', 'en' =&gt; 'hel
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>This method first checks the provided <code class="prettyprint">$init</code> array for a key 'languages'.
+If not found, it optionally checks a PSR-11 container for fallback configuration.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -420,7 +397,7 @@ Example input: <code class="prettyprint">[ 'fr' =&gt; 'bonjour', 'en' =&gt; 'hel
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Optional initialization array, expected key: ControllerParam::LANGUAGES</p>
+                    <section class="phpdocumentor-description"><p>Optional array with key 'languages' containing supported language codes.</p>
 </section>
 
             </dd>
@@ -429,7 +406,7 @@ Example input: <code class="prettyprint">[ 'fr' =&gt; 'bonjour', 'en' =&gt; 'hel
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Optional PSR-11 container for fallback configuration</p>
+                    <section class="phpdocumentor-description"><p>Optional PSR-11 container for fallback configuration.</p>
 </section>
 
             </dd>
@@ -448,7 +425,7 @@ Example input: <code class="prettyprint">[ 'fr' =&gt; 'bonjour', 'en' =&gt; 'hel
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If the container fails to retrieve the languages</p>
+                                                 <section class="phpdocumentor-description"><p>If the container fails to retrieve the languages.</p>
 </section>
 
                                     </dd>
@@ -458,7 +435,7 @@ Example input: <code class="prettyprint">[ 'fr' =&gt; 'bonjour', 'en' =&gt; 'hel
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
                                                             
-                                                 <section class="phpdocumentor-description"><p>If the requested languages key is not found in the container</p>
+                                                 <section class="phpdocumentor-description"><p>If the requested languages key is not found in the container.</p>
 </section>
 
                                     </dd>
@@ -469,68 +446,8 @@ Example input: <code class="prettyprint">[ 'fr' =&gt; 'bonjour', 'en' =&gt; 'hel
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">static</span>
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_translate">
-        translate()
-        <a href="classes/oihana-controllers-traits-LanguagesTrait.html#method_translate" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/LanguagesTrait.php"><a href="files/src-oihana-controllers-traits-languagestrait.html"><abbr title="src/oihana/controllers/traits/LanguagesTrait.php">LanguagesTrait.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">129</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Retrieve the translation for a specific language, or fallback to the default language.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">translate</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$texts</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$lang</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$texts</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string, mixed&gt;</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Array of translations keyed by language codes.</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$lang</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The desired language code. If null, returns the full array.</p>
-</section>
-
-            </dd>
-            </dl>
-
-    
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">mixed</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>The translated text for the requested language, fallback, or full array if no match.</p>
+                <section class="phpdocumentor-description"><p>Returns the current instance for method chaining.</p>
 </section>
 
             </section>
@@ -643,8 +560,15 @@ Example input: <code class="prettyprint">[ 'fr' =&gt; 'bonjour', 'en' =&gt; 'hel
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
+                                        <li><a href="classes/oihana-controllers-traits-LanguagesTrait.html#toc-constants">Constants</a></li>
                                                             <li><a href="classes/oihana-controllers-traits-LanguagesTrait.html#toc-properties">Properties</a></li>
                                                             <li><a href="classes/oihana-controllers-traits-LanguagesTrait.html#toc-methods">Methods</a></li>
+                                    </ul>
+            </li>
+                        <li class="phpdocumentor-on-this-page-section__title">Constants</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/oihana-controllers-traits-LanguagesTrait.html#constant_LANGUAGES">LANGUAGES</a></li>
                                     </ul>
             </li>
                                     <li class="phpdocumentor-on-this-page-section__title">Properties</li>
@@ -656,9 +580,7 @@ Example input: <code class="prettyprint">[ 'fr' =&gt; 'bonjour', 'en' =&gt; 'hel
                                     <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-controllers-traits-LanguagesTrait.html#method_filterLanguages">filterLanguages()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-LanguagesTrait.html#method_initializeLanguages">initializeLanguages()</a></li>
-                                            <li class=""><a href="classes/oihana-controllers-traits-LanguagesTrait.html#method_translate">translate()</a></li>
                                     </ul>
             </li>
                     </ul>

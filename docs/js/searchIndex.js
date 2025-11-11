@@ -101,6 +101,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/oihana-controllers-enums-TwigParam.html#constant_TWIG"
         },                {
+            "fqsen": "\\oihana\\controllers\\helpers\\filterLanguages\u0028\u0029",
+            "name": "filterLanguages",
+            "summary": "Filter\u0020an\u0020array\u0020or\u0020object\u0020of\u0020translations\u0020according\u0020to\u0020the\u0020given\u0020or\u0020available\u0020languages.",
+            "url": "namespaces/oihana-controllers-helpers.html#function_filterLanguages"
+        },                {
             "fqsen": "\\oihana\\controllers\\helpers\\getBodyParam\u0028\u0029",
             "name": "getBodyParam",
             "summary": "Retrieves\u0020a\u0020single\u0020parameter\u0020from\u0020the\u0020HTTP\u0020request\u0020body.",
@@ -165,6 +170,11 @@ Search.appendIndex(
             "name": "getQueryParam",
             "summary": "Retrieves\u0020a\u0020single\u0020parameter\u0020from\u0020the\u0020HTTP\u0020request\u0020query\u0020string.",
             "url": "namespaces/oihana-controllers-helpers.html#function_getQueryParam"
+        },                {
+            "fqsen": "\\oihana\\controllers\\helpers\\translate\u0028\u0029",
+            "name": "translate",
+            "summary": "Retrieve\u0020the\u0020translation\u0020for\u0020a\u0020specific\u0020language,\u0020with\u0020optional\u0020fallback\u0020to\u0020a\u0020default\u0020language.",
+            "url": "namespaces/oihana-controllers-helpers.html#function_translate"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\ApiTrait",
             "name": "ApiTrait",
@@ -543,27 +553,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\LanguagesTrait",
             "name": "LanguagesTrait",
-            "summary": "Provides\u0020helper\u0020methods\u0020to\u0020manage\u0020multilingual\u0020\u0028i18n\u0029\u0020content\u0020in\u0020controllers.",
+            "summary": "Trait\u0020LanguagesTrait",
             "url": "classes/oihana-controllers-traits-LanguagesTrait.html"
-        },                {
-            "fqsen": "\\oihana\\controllers\\traits\\LanguagesTrait\u003A\u003AfilterLanguages\u0028\u0029",
-            "name": "filterLanguages",
-            "summary": "Filter\u0020an\u0020array\u0020of\u0020translations\u0020according\u0020to\u0020the\u0020available\u0020languages.",
-            "url": "classes/oihana-controllers-traits-LanguagesTrait.html#method_filterLanguages"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\LanguagesTrait\u003A\u003AinitializeLanguages\u0028\u0029",
             "name": "initializeLanguages",
             "summary": "Initialize\u0020the\u0020internal\u0020\u0060\u0024languages\u0060\u0020property\u0020from\u0020an\u0020array\u0020or\u0020a\u0020PSR\u002D11\u0020container.",
             "url": "classes/oihana-controllers-traits-LanguagesTrait.html#method_initializeLanguages"
         },                {
-            "fqsen": "\\oihana\\controllers\\traits\\LanguagesTrait\u003A\u003Atranslate\u0028\u0029",
-            "name": "translate",
-            "summary": "Retrieve\u0020the\u0020translation\u0020for\u0020a\u0020specific\u0020language,\u0020or\u0020fallback\u0020to\u0020the\u0020default\u0020language.",
-            "url": "classes/oihana-controllers-traits-LanguagesTrait.html#method_translate"
-        },                {
             "fqsen": "\\oihana\\controllers\\traits\\LanguagesTrait\u003A\u003A\u0024languages",
             "name": "languages",
-            "summary": "The\u0020enumeration\u0020of\u0020all\u0020valid\u0020languages\u0020used\u0020by\u0020the\u0020controller.",
+            "summary": "Array\u0020of\u0020valid\u0020language\u0020codes\u0020supported\u0020by\u0020the\u0020controller.",
             "url": "classes/oihana-controllers-traits-LanguagesTrait.html#property_languages"
         },                {
             "fqsen": "\\oihana\\controllers\\traits\\LimitTrait",
@@ -5435,6 +5435,41 @@ Search.appendIndex(
             "name": "message",
             "summary": "The\u0020internal\u0020message\u0020pattern.",
             "url": "classes/oihana-validations-rules-http-HttpMethodRule.html#property_message"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\I18nRule",
+            "name": "I18nRule",
+            "summary": "Validates\u0020a\u0020multilingual\u0020\u0028i18n\u0029\u0020field\u0020ensuring\u003A\n\u0020\u0020\u002D\u0020Only\u0020allowed\u0020language\u0020codes\u0020are\u0020present.",
+            "url": "classes/oihana-validations-rules-I18nRule.html"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\I18nRule\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Creates\u0020a\u0020new\u0020LanguagesRule\u0020instance.",
+            "url": "classes/oihana-validations-rules-I18nRule.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\I18nRule\u003A\u003Alanguages\u0028\u0029",
+            "name": "languages",
+            "summary": "Sets\u0020allowed\u0020languages.",
+            "url": "classes/oihana-validations-rules-I18nRule.html#method_languages"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\I18nRule\u003A\u003Acheck\u0028\u0029",
+            "name": "check",
+            "summary": "Validates\u0020that\u0020each\u0020field\u0020in\u0020the\u0020payload\u0020contains\u0020only\u0020allowed\u0020languages\nand\u0020that\u0020values\u0020are\u0020string\u0020or\u0020null.",
+            "url": "classes/oihana-validations-rules-I18nRule.html#method_check"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\I18nRule\u003A\u003ALANGUAGES",
+            "name": "LANGUAGES",
+            "summary": "The\u0020\u0027languages\u0027\u0020parameter\u0020key.",
+            "url": "classes/oihana-validations-rules-I18nRule.html#constant_LANGUAGES"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\I18nRule\u003A\u003A\u0024fillableParams",
+            "name": "fillableParams",
+            "summary": "The\u0020list\u0020of\u0020required\u0020parameters.",
+            "url": "classes/oihana-validations-rules-I18nRule.html#property_fillableParams"
+        },                {
+            "fqsen": "\\oihana\\validations\\rules\\I18nRule\u003A\u003A\u0024message",
+            "name": "message",
+            "summary": "The\u0020error\u0020message\u0020used\u0020when\u0020validation\u0020fails.",
+            "url": "classes/oihana-validations-rules-I18nRule.html#property_message"
         },                {
             "fqsen": "\\oihana\\validations\\rules\\InstanceOfRule",
             "name": "InstanceOfRule",

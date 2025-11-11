@@ -166,6 +166,13 @@
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/oihana-controllers-helpers.html#function_filterLanguages">filterLanguages()</a>
+    <span>
+                                &nbsp;: array&lt;string, string|null&gt;|null    </span>
+</dt>
+<dd>Filter an array or object of translations according to the given or available languages.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a class="" href="namespaces/oihana-controllers-helpers.html#function_getBodyParam">getBodyParam()</a>
     <span>
                                 &nbsp;: mixed    </span>
@@ -264,6 +271,13 @@
 <dd>Retrieves a single parameter from the HTTP request query string.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -function -">
+    <a class="" href="namespaces/oihana-controllers-helpers.html#function_translate">translate()</a>
+    <span>
+                                &nbsp;: mixed    </span>
+</dt>
+<dd>Retrieve the translation for a specific language, with optional fallback to a default language.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -function -">
     <a class="" href="namespaces/oihana-controllers-helpers.html#function_getDocumentsModel">getDocumentsModel()</a>
     <span>
                                 &nbsp;: <a href="classes/oihana-models-interfaces-DocumentsModel.html"><abbr title="\oihana\models\interfaces\DocumentsModel">DocumentsModel</abbr></a>|null    </span>
@@ -294,6 +308,140 @@
             <a href="namespaces/oihana-controllers-helpers.html#functions" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
+                    <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_filterLanguages">
+        filterLanguages()
+        <a href="namespaces/oihana-controllers-helpers.html#function_filterLanguages" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/helpers/filterLanguages.php"><a href="files/src-oihana-controllers-helpers-filterlanguages.html"><abbr title="src/oihana/controllers/helpers/filterLanguages.php">filterLanguages.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">58</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Filter an array or object of translations according to the given or available languages.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">filterLanguages</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string, string&gt;|object|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$fields</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$languages</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$sanitize</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string, string|null&gt;|null</span></code>
+
+        <section class="phpdocumentor-description"><p>This helper transforms an input array/object from the client to prepare a multilingual (i18n) property.
+It keeps only string or null values, allows optional transformation or sanitization via a callback.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$fields</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string, string&gt;|object|null</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Input array or object of translations.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$languages</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional array of languages to filter the i18n definitions.
+If null, no filtering is applied.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$sanitize</span>
+                : <span class="phpdocumentor-signature__argument__return-type">callable|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional callback to transform or sanitize each value.
+Signature: <code class="prettyprint">fn(string|null $value, string $lang): string|null</code></p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="namespaces/oihana-controllers-helpers.html#function_filterLanguages#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$translations = [
+'fr' =&gt; 'Bonjour &lt;span style=&quot;color:red&quot;&gt;monde&lt;/span&gt;',
+'en' =&gt; 'Hello &lt;span style=&quot;color:red&quot;&gt;world&lt;/span&gt;',
+'de' =&gt; 42, // ignored because not string/null
+'es' =&gt; null
+];
+
+// Basic filtering for 'fr' and 'en'
+$filtered = filterLanguages($translations, ['fr', 'en']);
+// [
+//     'fr' =&gt; 'Bonjour &lt;span style=&quot;color:red&quot;&gt;monde&lt;/span&gt;',
+//     'en' =&gt; 'Hello &lt;span style=&quot;color:red&quot;&gt;world&lt;/span&gt;'
+// ]
+
+// Filtering with HTML sanitization
+$sanitized = filterLanguages($translations, ['fr', 'en'], function($value, $lang) {
+if (is_string($value)) {
+return preg_replace('/(&lt;[^&gt;]+) style=&quot;.*?&quot;/i', '$1', $value);
+}
+return $value;
+});
+// [
+//     'fr' =&gt; 'Bonjour &lt;span&gt;monde&lt;/span&gt;',
+//     'en' =&gt; 'Hello &lt;span&gt;world&lt;/span&gt;'
+// ]
+
+// Filtering with custom transformation: uppercase strings
+$upper = filterLanguages($translations, ['fr', 'en'], fn($v, $lang) =&gt; is_string($v) ? strtoupper($v) : $v);
+// [
+//     'fr' =&gt; 'BONJOUR &lt;SPAN STYLE=&quot;COLOR:RED&quot;&gt;MONDE&lt;/SPAN&gt;',
+//     'en' =&gt; 'HELLO &lt;SPAN STYLE=&quot;COLOR:RED&quot;&gt;WORLD&lt;/SPAN&gt;'
+// ]
+</code></pre>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (ekameleon)</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string, string|null&gt;|null</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Filtered translations matching the languages, or null if input is empty.</p>
+</section>
+
+            </section>
+
+</article>
                     <article class="phpdocumentor-element -function - ">
     <h4 class="phpdocumentor-element__name" id="function_getBodyParam">
         getBodyParam()
@@ -2264,6 +2412,113 @@ getQueryParam($request, 'not.exists'); // null
 
 </article>
                     <article class="phpdocumentor-element -function - ">
+    <h4 class="phpdocumentor-element__name" id="function_translate">
+        translate()
+        <a href="namespaces/oihana-controllers-helpers.html#function_translate" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/helpers/translate.php"><a href="files/src-oihana-controllers-helpers-translate.html"><abbr title="src/oihana/controllers/helpers/translate.php">translate.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">39</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Retrieve the translation for a specific language, with optional fallback to a default language.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility"></span>
+                    <span class="phpdocumentor-signature__name">translate</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string, mixed&gt;|object|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$fields</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$lang</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$default</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+
+        <section class="phpdocumentor-description"><p>This version is safer: if the requested language and the fallback are missing, it returns <code class="prettyprint">null</code>
+instead of returning the full array/object.</p>
+<p>Example usage:</p>
+<pre class="prettyprint"><code class="language-php">$translations =
+[
+    'fr' =&gt; 'Bonjour',
+    'en' =&gt; 'Hello',
+    'es' =&gt; 'Hola'
+];
+
+translate( $translations , 'en' );        // 'Hello'
+translate( $translations , 'de' , 'fr' ); // 'Bonjour' (fallback)
+translate( $translations , 'it' , 'de' ); // null
+translate( $translations );               // ['fr' =&gt; 'Bonjour', 'en' =&gt; 'Hello', 'es' =&gt; 'Hola']
+
+$translationsObj = (object) $translations ;
+translate( $translationsObj , null ) ; // (object) ['fr' =&gt; 'Bonjour', 'en' =&gt; 'Hello', 'es' =&gt; 'Hola']
+</code></pre>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$fields</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string, mixed&gt;|object|null</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Array or object of translations keyed by language codes.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$lang</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Desired language code. If null, returns all translations.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$default</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional fallback language code if <code class="prettyprint">$lang</code> is missing.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="namespaces/oihana-controllers-helpers.html#function_translate#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (ekameleon)</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">mixed</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Returns the translation for the requested language, the fallback, all translations (if <code class="prettyprint">$lang</code> is null), or <code class="prettyprint">null</code> if no match.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article class="phpdocumentor-element -function - ">
     <h4 class="phpdocumentor-element__name" id="function_getDocumentsModel">
         getDocumentsModel()
         <a href="namespaces/oihana-controllers-helpers.html#function_getDocumentsModel" class="headerlink"><i class="fas fa-link"></i></a>
@@ -2772,6 +3027,7 @@ not found, or the input is not a string, the provided default value is returned.
                             <li class="phpdocumentor-on-this-page-section__title">Functions</li>
                 <li>
                     <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="namespaces/oihana-controllers-helpers.html#function_filterLanguages">filterLanguages()</a></li>
                                                     <li class=""><a href="namespaces/oihana-controllers-helpers.html#function_getBodyParam">getBodyParam()</a></li>
                                                     <li class=""><a href="namespaces/oihana-controllers-helpers.html#function_getBodyParams">getBodyParams()</a></li>
                                                     <li class=""><a href="namespaces/oihana-controllers-helpers.html#function_getController">getController()</a></li>
@@ -2789,6 +3045,7 @@ not found, or the input is not a string, the provided default value is returned.
                                                     <li class=""><a href="namespaces/oihana-controllers-helpers.html#function_getParamString">getParamString()</a></li>
                                                     <li class=""><a href="namespaces/oihana-controllers-helpers.html#function_getQueryParam">getQueryParam()</a></li>
                                                     <li class=""><a href="namespaces/oihana-controllers-helpers.html#function_resolveDependency">resolveDependency()</a></li>
+                                                    <li class=""><a href="namespaces/oihana-controllers-helpers.html#function_translate">translate()</a></li>
                                             </ul>
                 </li>
                     </ul>
