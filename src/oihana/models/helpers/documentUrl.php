@@ -42,7 +42,7 @@ use function oihana\files\path\joinPaths;
  * @throws ContainerExceptionInterface If an error occurs while retrieving the base URL from the container.
  * @throws NotFoundExceptionInterface If the base URL definition is not found in the container.
  *
- * @package oihana\models
+ * @package oihana\models\helpers
  * @author  Marc Alcaraz (ekameleon)
  * @since   1.0.0
  */

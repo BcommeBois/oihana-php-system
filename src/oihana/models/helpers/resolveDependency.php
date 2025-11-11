@@ -27,7 +27,7 @@ use Psr\Container\NotFoundExceptionInterface;
  * $logger = resolveDependency(LoggerInterface::class, $container, new NullLogger());
  * ```
  *
- * @package oihana\models
+ * @package oihana\models\helpers
  * @author  Marc Alcaraz (ekameleon)
  * @since   1.0.0
  */

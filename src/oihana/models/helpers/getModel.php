@@ -31,7 +31,7 @@ use Psr\Container\NotFoundExceptionInterface;
  * @throws ContainerExceptionInterface If an error occurs while retrieving the model from the container.
  * @throws NotFoundExceptionInterface  If a string definition is provided but not found in the container.
  *
- * @package oihana\models
+ * @package oihana\models\helpers
  * @author  Marc Alcaraz (ekameleon)
  * @since   1.0.0
  */

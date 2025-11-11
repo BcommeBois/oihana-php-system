@@ -55,7 +55,7 @@ use Psr\Container\NotFoundExceptionInterface;
  * echo getDocumentsModel( 'unknown', $container, $default ) === $default ? 'ok' : 'fail' ; // ok
  * ```
  *
- * @package oihana\models
+ * @package oihana\models\helpers
  * @author  Marc Alcaraz (ekameleon)
  * @since   1.0.0
  */

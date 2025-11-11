@@ -38,7 +38,7 @@ use MatthiasMullie\Scrapbook\Psr16\SimpleCache;
  *
  * @see https://www.scrapbook.cash
  *
- * @package oihana\models
+ * @package oihana\models\helpers
  * @author  Marc Alcaraz (ekameleon)
  * @since   1.0.0
  */
