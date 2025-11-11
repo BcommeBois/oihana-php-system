@@ -146,6 +146,11 @@ Search.appendIndex(
             "summary": "Retrieves\u0020a\u0020float\u0020parameter\u0020from\u0020the\u0020request\u0020and\u0020clamps\u0020it\u0020within\u0020a\u0020given\u0020range.",
             "url": "namespaces/oihana-controllers-helpers.html#function_getParamFloatRange"
         },                {
+            "fqsen": "\\oihana\\controllers\\helpers\\getParamI18n\u0028\u0029",
+            "name": "getParamI18n",
+            "summary": "Retrieves\u0020an\u0020i18n\u0020parameter\u0020from\u0020the\u0020HTTP\u0020request,\u0020optionally\u0020filtered\u0020by\u0020allowed\u0020languages.",
+            "url": "namespaces/oihana-controllers-helpers.html#function_getParamI18n"
+        },                {
             "fqsen": "\\oihana\\controllers\\helpers\\getParamInt\u0028\u0029",
             "name": "getParamInt",
             "summary": "Retrieves\u0020a\u0020parameter\u0020from\u0020the\u0020HTTP\u0020request\u0020and\u0020ensures\u0020it\u0020is\u0020a\u0020int\u0020number.",

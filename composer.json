@@ -37,6 +37,7 @@
             "src/oihana/controllers/helpers/getParamBool.php",
             "src/oihana/controllers/helpers/getParamFloat.php",
             "src/oihana/controllers/helpers/getParamFloatRange.php",
+            "src/oihana/controllers/helpers/getParamI18n.php",
             "src/oihana/controllers/helpers/getParamInt.php",
             "src/oihana/controllers/helpers/getParamIntRange.php",
             "src/oihana/controllers/helpers/getParamNumberRange.php",
