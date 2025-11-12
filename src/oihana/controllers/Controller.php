@@ -37,25 +37,44 @@ use oihana\traits\ContainerTrait;
 use oihana\traits\ToStringTrait;
 
 /**
- * Base abstract Controller.
+ * Abstract base Controller for all application endpoints.
  *
- * Provides the foundational logic for all controllers, including:
- * dependency injection, logging, routing, validation, caching,
- * JSON handling, benchmarking, configuration, and API initialization.
+ * Provides a unified foundation for controllers, integrating:
+ * - Dependency injection (PSR-11 compatible)
+ * - Routing context & helpers
+ * - JSON / HTTP response utilities
+ * - Validation, logging, configuration, and benchmarking
+ * - Pagination, cache, and mock data management
  *
- * This class is meant to be extended by all application controllers.
+ * Extend this class to create your own route handlers.
+ *
+ * Example:
+ * ```php
+ * class UserController extends Controller
+ * {
+ *     public function list(Request $request, Response $response): Response
+ *    {
+ *         $users = $this->repository->findAll();
+ *         return $this->jsonResponse($response, $users);
+ *     }
+ * }
+ * ```
  *
  * @package oihana\controllers
+ * @author Marc Alcaraz (ekameleon)
+ * @since 1.0.0
  */
 abstract class Controller
 {
     /**
      * Creates a new Controller instance.
      *
+     * Initializes all traits and dependencies using the DI container.
+     *
      * @param Container $container The DI container reference to initialize the controller.
-     * @param array $init The optional properties to passed-in to initialize the object.
-     * - string $path : The path expression of the component.
-     * - Validator $validator : The optional validator of the controller (by default use a basic Validator instance).
+     * @param array     $init      The optional properties to passed-in to initialize the object.
+     *                              - string $path : The path expression of the component.
+     *                              - Validator $validator : The optional validator of the controller (by default use a basic Validator instance).
      *
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
@@ -101,7 +120,7 @@ abstract class Controller
         ValidatorTrait  ;
 
     /**
-     * The optional conditions settings to validate things.
+     * Conditions or validation rules for the controller.
      */
     public ?array $conditions ;
 
@@ -135,9 +154,24 @@ abstract class Controller
         return $thing ;
     }
 
+
     /**
-     * Returns the current Request route reference.
+     * Returns allowed HTTP methods for the current route.
+     *
+     * @param ?Request $request Optional request.
+     *
+     * @return string[] List of allowed HTTP methods.
+     */
+    public function getAllowedMethods( ?Request $request ) :array
+    {
+        return isset( $request ) ? RouteContext::fromRequest( $request )->getRoutingResults()->getAllowedMethods() : [] ;
+    }
+
+    /**
+     * Returns the current route associated with the request.
+     *
      * @param ?Request $request
+     *
      * @return RouteInterface|null
      */
     public function getRoute( ?Request $request ) :?RouteInterface
@@ -146,11 +180,13 @@ abstract class Controller
     }
 
     /**
-     * Redirect to a specific URL target.
-     * @param Response $response
-     * @param string $url
-     * @param int $status
-     * @return Response
+     * Creates an HTTP redirect response.
+     *
+     * @param Response $response The PSR-7 response object.
+     * @param string $url The target URL.
+     * @param int $status Optional HTTP status code (default 302).
+     *
+     * @return Response The response with redirect headers.
      */
     public function redirectResponse( Response $response , string $url , int $status = HttpStatusCode::FOUND ) :Response
     {

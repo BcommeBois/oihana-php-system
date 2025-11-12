@@ -99,7 +99,7 @@ trait MysqlUserTrait
                 x509_subject
             FROM mysql.user 
             WHERE User = :user AND Host = :host
-        ";
+            ";
 
             $statement = $this->pdo?->prepare($query);
 
