@@ -76,12 +76,31 @@ final class GetParamBoolTest extends TestCase
     /**
      * @throws NotFoundException
      */
-    public function testReturnsDefaultIfValueIsNotBoolean()
+    public function testReturnsBooleanForStringAndNumericValues()
     {
-        $request = $this->createRequest(['flag' => 'yes']);
-        $this->assertTrue(getParamBool($request, 'flag', [], true));
-        $this->assertFalse(getParamBool($request, 'flag', [], false));
-        $this->assertNull(getParamBool($request, 'flag'));
+        $request = $this->createRequest([
+            'a' => 'true',
+            'b' => 'false',
+            'c' => '1',
+            'd' => '0',
+            'e' => 'yes',
+            'f' => 'no',
+            'g' => 'on',
+            'h' => 'off',
+            'i' => 1,
+            'j' => 0
+        ]);
+
+        $this->assertTrue(getParamBool($request, 'a'));
+        $this->assertFalse(getParamBool($request, 'b'));
+        $this->assertTrue(getParamBool($request, 'c'));
+        $this->assertFalse(getParamBool($request, 'd'));
+        $this->assertTrue(getParamBool($request, 'e'));
+        $this->assertFalse(getParamBool($request, 'f'));
+        $this->assertTrue(getParamBool($request, 'g'));
+        $this->assertFalse(getParamBool($request, 'h'));
+        $this->assertTrue(getParamBool($request, 'i'));
+        $this->assertFalse(getParamBool($request, 'j'));
     }
 
     /**
@@ -93,4 +112,6 @@ final class GetParamBoolTest extends TestCase
         $this->assertTrue(getParamBool(null, 'any', [], true));
         $this->assertFalse(getParamBool(null, 'any', [], false));
     }
+
+
 }

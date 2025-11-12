@@ -3,7 +3,7 @@ Search.appendIndex(
                 {
             "fqsen": "\\oihana\\controllers\\Controller",
             "name": "Controller",
-            "summary": "Base\u0020abstract\u0020Controller.",
+            "summary": "Abstract\u0020base\u0020Controller\u0020for\u0020all\u0020application\u0020endpoints.",
             "url": "classes/oihana-controllers-Controller.html"
         },                {
             "fqsen": "\\oihana\\controllers\\Controller\u003A\u003A__construct\u0028\u0029",
@@ -16,19 +16,24 @@ Search.appendIndex(
             "summary": "Alter\u0020the\u0020specific\u0020thing.",
             "url": "classes/oihana-controllers-Controller.html#method_alter"
         },                {
+            "fqsen": "\\oihana\\controllers\\Controller\u003A\u003AgetAllowedMethods\u0028\u0029",
+            "name": "getAllowedMethods",
+            "summary": "Returns\u0020allowed\u0020HTTP\u0020methods\u0020for\u0020the\u0020current\u0020route.",
+            "url": "classes/oihana-controllers-Controller.html#method_getAllowedMethods"
+        },                {
             "fqsen": "\\oihana\\controllers\\Controller\u003A\u003AgetRoute\u0028\u0029",
             "name": "getRoute",
-            "summary": "Returns\u0020the\u0020current\u0020Request\u0020route\u0020reference.",
+            "summary": "Returns\u0020the\u0020current\u0020route\u0020associated\u0020with\u0020the\u0020request.",
             "url": "classes/oihana-controllers-Controller.html#method_getRoute"
         },                {
             "fqsen": "\\oihana\\controllers\\Controller\u003A\u003AredirectResponse\u0028\u0029",
             "name": "redirectResponse",
-            "summary": "Redirect\u0020to\u0020a\u0020specific\u0020URL\u0020target.",
+            "summary": "Creates\u0020an\u0020HTTP\u0020redirect\u0020response.",
             "url": "classes/oihana-controllers-Controller.html#method_redirectResponse"
         },                {
             "fqsen": "\\oihana\\controllers\\Controller\u003A\u003A\u0024conditions",
             "name": "conditions",
-            "summary": "The\u0020optional\u0020conditions\u0020settings\u0020to\u0020validate\u0020things.",
+            "summary": "Conditions\u0020or\u0020validation\u0020rules\u0020for\u0020the\u0020controller.",
             "url": "classes/oihana-controllers-Controller.html#property_conditions"
         },                {
             "fqsen": "\\oihana\\controllers\\Controller\u003A\u003A\u0024fullPath",
@@ -133,7 +138,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\controllers\\helpers\\getParamBool\u0028\u0029",
             "name": "getParamBool",
-            "summary": "Retrieves\u0020a\u0020parameter\u0020from\u0020the\u0020HTTP\u0020request\u0020and\u0020ensures\u0020it\u0020is\u0020a\u0020boolean.",
+            "summary": "Retrieves\u0020a\u0020parameter\u0020from\u0020the\u0020HTTP\u0020request\u0020and\u0020converts\u0020it\u0020to\u0020a\u0020boolean.",
             "url": "namespaces/oihana-controllers-helpers.html#function_getParamBool"
         },                {
             "fqsen": "\\oihana\\controllers\\helpers\\getParamFloat\u0028\u0029",

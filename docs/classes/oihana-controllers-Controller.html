@@ -161,20 +161,59 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/Controller.php"><a href="files/src-oihana-controllers-controller.html"><abbr title="src/oihana/controllers/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">50</span>
+    <span class="phpdocumentor-element-found-in__line">67</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Base abstract Controller.</p>
+            <p class="phpdocumentor-summary">Abstract base Controller for all application endpoints.</p>
 
 
-    <section class="phpdocumentor-description"><p>Provides the foundational logic for all controllers, including:
-dependency injection, logging, routing, validation, caching,
-JSON handling, benchmarking, configuration, and API initialization.</p>
-<p>This class is meant to be extended by all application controllers.</p>
+    <section class="phpdocumentor-description"><p>Provides a unified foundation for controllers, integrating:</p>
+<ul>
+<li>Dependency injection (PSR-11 compatible)</li>
+<li>Routing context &amp; helpers</li>
+<li>JSON / HTTP response utilities</li>
+<li>Validation, logging, configuration, and benchmarking</li>
+<li>Pagination, cache, and mock data management</li>
+</ul>
+<p>Extend this class to create your own route handlers.</p>
+<p>Example:</p>
+<pre class="prettyprint"><code class="language-php">class UserController extends Controller
+{
+    public function list(Request $request, Response $response): Response
+   {
+        $users = $this-&gt;repository-&gt;findAll();
+        return $this-&gt;jsonResponse($response, $users);
+    }
+}
+</code></pre>
 </section>
 
 
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-controllers-Controller.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (ekameleon)</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
 
 
 
@@ -247,7 +286,7 @@ JSON handling, benchmarking, configuration, and API initialization.</p>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;|null            </span>
 </dt>
-<dd>The optional conditions settings to validate things.</dd>
+<dd>Conditions or validation rules for the controller.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-traits-ConfigTrait.html#property_config">$config</a>
@@ -474,6 +513,13 @@ be logged and monitored.</dd>
 <dd>Formats a specific error status message with a code and an errors array representation of all errors.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-controllers-Controller.html#method_getAllowedMethods">getAllowedMethods()</a>
+    <span>
+                                &nbsp;: array&lt;string|int, string&gt;    </span>
+</dt>
+<dd>Returns allowed HTTP methods for the current route.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-controllers-traits-AppTrait.html#method_getBasePath">getBasePath()</a>
     <span>
                                 &nbsp;: string    </span>
@@ -534,7 +580,7 @@ be logged and monitored.</dd>
     <span>
                                 &nbsp;: <abbr title="\Slim\Interfaces\RouteInterface">RouteInterface</abbr>|null    </span>
 </dt>
-<dd>Returns the current Request route reference.</dd>
+<dd>Returns the current route associated with the request.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-controllers-traits-AppTrait.html#method_getUrl">getUrl()</a>
@@ -709,7 +755,7 @@ be logged and monitored.</dd>
     <span>
                                 &nbsp;: <abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr>    </span>
 </dt>
-<dd>Redirect to a specific URL target.</dd>
+<dd>Creates an HTTP redirect response.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-controllers-traits-BenchTrait.html#method_startBench">startBench()</a>
@@ -1031,11 +1077,11 @@ be logged and monitored.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/Controller.php"><a href="files/src-oihana-controllers-controller.html"><abbr title="src/oihana/controllers/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">106</span>
+    <span class="phpdocumentor-element-found-in__line">125</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">The optional conditions settings to validate things.</p>
+        <p class="phpdocumentor-summary">Conditions or validation rules for the controller.</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
@@ -1228,7 +1274,7 @@ be logged and monitored.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/Controller.php"><a href="files/src-oihana-controllers-controller.html"><abbr title="src/oihana/controllers/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">111</span>
+    <span class="phpdocumentor-element-found-in__line">130</span>
 
     </aside>
 
@@ -1384,7 +1430,7 @@ be logged and monitored.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/Controller.php"><a href="files/src-oihana-controllers-controller.html"><abbr title="src/oihana/controllers/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">122</span>
+    <span class="phpdocumentor-element-found-in__line">141</span>
 
     </aside>
 
@@ -1501,7 +1547,7 @@ be logged and monitored.</dd>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/Controller.php"><a href="files/src-oihana-controllers-controller.html"><abbr title="src/oihana/controllers/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">116</span>
+    <span class="phpdocumentor-element-found-in__line">135</span>
 
     </aside>
 
@@ -1815,7 +1861,7 @@ used to modify HTTP response headers for caching.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/Controller.php"><a href="files/src-oihana-controllers-controller.html"><abbr title="src/oihana/controllers/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">66</span>
+    <span class="phpdocumentor-element-found-in__line">85</span>
 
     </aside>
 
@@ -1828,7 +1874,9 @@ used to modify HTTP response headers for caching.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>Initializes all traits and dependencies using the DI container.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -2188,7 +2236,7 @@ If the HTTP cache provider is <strong>not</strong> initialized, the response is 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/Controller.php"><a href="files/src-oihana-controllers-controller.html"><abbr title="src/oihana/controllers/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">133</span>
+    <span class="phpdocumentor-element-found-in__line">152</span>
 
     </aside>
 
@@ -2676,6 +2724,61 @@ be logged and monitored.</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_getAllowedMethods">
+        getAllowedMethods()
+        <a href="classes/oihana-controllers-Controller.html#method_getAllowedMethods" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/Controller.php"><a href="files/src-oihana-controllers-controller.html"><abbr title="src/oihana/controllers/Controller.php">Controller.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">165</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Returns allowed HTTP methods for the current route.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getAllowedMethods</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$request</span>
+                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr>|null</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional request.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>List of allowed HTTP methods.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_getBasePath">
         getBasePath()
         <a href="classes/oihana-controllers-traits-AppTrait.html#method_getBasePath" class="headerlink"><i class="fas fa-link"></i></a>
@@ -3138,11 +3241,11 @@ to generate URLs relative to the application root.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/Controller.php"><a href="files/src-oihana-controllers-controller.html"><abbr title="src/oihana/controllers/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">143</span>
+    <span class="phpdocumentor-element-found-in__line">177</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns the current Request route reference.</p>
+        <p class="phpdocumentor-summary">Returns the current route associated with the request.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -5088,11 +5191,11 @@ from the DI container if available.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/Controller.php"><a href="files/src-oihana-controllers-controller.html"><abbr title="src/oihana/controllers/Controller.php">Controller.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">155</span>
+    <span class="phpdocumentor-element-found-in__line">191</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Redirect to a specific URL target.</p>
+        <p class="phpdocumentor-summary">Creates an HTTP redirect response.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -5109,21 +5212,27 @@ from the DI container if available.</p>
                 : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The PSR-7 response object.</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$url</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The target URL.</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$status</span>
                 : <span class="phpdocumentor-signature__argument__return-type">int</span>
                  = <span class="phpdocumentor-signature__argument__default-value">HttpStatusCode::FOUND</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Optional HTTP status code (default 302).</p>
+</section>
+
             </dd>
             </dl>
 
@@ -5134,6 +5243,10 @@ from the DI container if available.</p>
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><abbr title="\Psr\Http\Message\ResponseInterface">ResponseInterface</abbr></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The response with redirect headers.</p>
+</section>
+
             </section>
 
 </article>
@@ -6792,6 +6905,7 @@ If the HTTP cache provider is <strong>not</strong> initialized, the response is 
                                             <li class=""><a href="classes/oihana-controllers-traits-BenchTrait.html#method_endBench">endBench()</a></li>
                                             <li class=""><a href="classes/oihana-logging-LoggerTrait.html#method_error">error()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-StatusTrait.html#method_fail">fail()</a></li>
+                                            <li class=""><a href="classes/oihana-controllers-Controller.html#method_getAllowedMethods">getAllowedMethods()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-AppTrait.html#method_getBasePath">getBasePath()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-GetParamTrait.html#method_getBodyParam">getBodyParam()</a></li>
                                             <li class=""><a href="classes/oihana-controllers-traits-GetParamTrait.html#method_getBodyParams">getBodyParams()</a></li>

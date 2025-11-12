@@ -174,7 +174,7 @@
     <span>
                                 &nbsp;: bool|null    </span>
 </dt>
-<dd>Retrieves a parameter from the HTTP request and ensures it is a boolean.</dd>
+<dd>Retrieves a parameter from the HTTP request and converts it to a boolean.</dd>
 
     </dl>
 
@@ -196,24 +196,30 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/helpers/getParamBool.php"><a href="files/src-oihana-controllers-helpers-getparambool.html"><abbr title="src/oihana/controllers/helpers/getParamBool.php">getParamBool.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">43</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Retrieves a parameter from the HTTP request and ensures it is a boolean.</p>
+        <p class="phpdocumentor-summary">Retrieves a parameter from the HTTP request and converts it to a boolean.</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
                     <span class="phpdocumentor-signature__name">getParamBool</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$args</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$defaultValue</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$strategy</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">HttpParamStrategy::BOTH</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$throwable</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool|null</span></code>
 
-        <section class="phpdocumentor-description"><p>This helper calls <a href="namespaces/oihana-controllers-helpers.html#function_getParam"><abbr title="\oihana\controllers\helpers\getParam()">getParam()</abbr></a> and interprets the value according to
-<abbr title="\oihana\enums\Boolean::TRUE">Boolean::TRUE</abbr> and <abbr title="\oihana\enums\Boolean::FALSE">Boolean::FALSE</abbr>:</p>
+        <section class="phpdocumentor-description"><p>This helper calls <a href="namespaces/oihana-controllers-helpers.html#function_getParam"><abbr title="\oihana\controllers\helpers\getParam()">getParam()</abbr></a> and converts the returned value to a PHP boolean
+according to standard boolean representations:</p>
 <ul>
-<li>If the value matches <code class="prettyprint">Boolean::TRUE</code> or <code class="prettyprint">Boolean::FALSE</code>, it is converted to a PHP boolean.</li>
-<li>Otherwise, the <code class="prettyprint">$defaultValue</code> is returned.</li>
-<li>If <code class="prettyprint">$throwable</code> is true, a <abbr title="\DI\NotFoundException">NotFoundException</abbr> may be thrown by <code class="prettyprint">getParam()</code>.</li>
+<li><code class="prettyprint">true</code>/<code class="prettyprint">false</code> (boolean)</li>
+<li><code class="prettyprint">&quot;true&quot;</code> / <code class="prettyprint">&quot;false&quot;</code> (string)</li>
+<li><code class="prettyprint">&quot;1&quot;</code> / <code class="prettyprint">&quot;0&quot;</code> (string)</li>
+<li><code class="prettyprint">&quot;yes&quot;</code> / <code class="prettyprint">&quot;no&quot;</code> (string)</li>
+<li><code class="prettyprint">&quot;on&quot;</code> / <code class="prettyprint">&quot;off&quot;</code> (string)</li>
+<li><code class="prettyprint">1</code> / <code class="prettyprint">0</code> (integer)</li>
 </ul>
+<p>If the value cannot be interpreted as a boolean, the provided <code class="prettyprint">$defaultValue</code> is returned.
+If <code class="prettyprint">$request</code> is null or the parameter is missing, <code class="prettyprint">$defaultValue</code> is returned unless
+<code class="prettyprint">$throwable</code> is set to true, in which case a <abbr title="\DI\NotFoundException">NotFoundException</abbr> is thrown.</p>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -241,7 +247,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Optional default values passed to <code class="prettyprint">getParam()</code>.</p>
+                    <section class="phpdocumentor-description"><p>Optional defaults passed to <a href="namespaces/oihana-controllers-helpers.html#function_getParam"><abbr title="\oihana\controllers\helpers\getParam()">getParam()</abbr></a>.</p>
 </section>
 
             </dd>
@@ -259,7 +265,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
                  = <span class="phpdocumentor-signature__argument__default-value">HttpParamStrategy::BOTH</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Which source to search: <code class="prettyprint">HttpParamStrategy::BOTH|QUERY|BODY</code>. Default is BOTH.</p>
+                    <section class="phpdocumentor-description"><p>Source to search: <code class="prettyprint">HttpParamStrategy::BOTH|QUERY|BODY</code>. Default is BOTH.</p>
 </section>
 
             </dd>
@@ -268,7 +274,7 @@
                 : <span class="phpdocumentor-signature__argument__return-type">bool</span>
                  = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Whether to throw a <code class="prettyprint">NotFoundException</code> if parameter is missing. Default false.</p>
+                    <section class="phpdocumentor-description"><p>Whether to throw <abbr title="\DI\NotFoundException">NotFoundException</abbr> if parameter is missing. Default false.</p>
 </section>
 
             </dd>
@@ -299,8 +305,14 @@
                                                  <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">// Query string: ?active=true
 $active = getParamBool($request, 'active', [], false);
 
-// Body: ['enabled' =&gt; Boolean::FALSE]
+// Body parameters: ['enabled' =&gt; '0']
 $enabled = getParamBool($request, 'enabled', [], true);
+
+// Missing parameter with default fallback
+$flag = getParamBool($request, 'flag', [], true);
+
+// Throw exception if parameter missing
+$required = getParamBool($request, 'required', [], null, HttpParamStrategy::BOTH, true);
 </code></pre>
 </section>
 
@@ -328,7 +340,7 @@ $enabled = getParamBool($request, 'enabled', [], true);
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool|null</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>The parameter value if it is a boolean, otherwise <code class="prettyprint">$defaultValue</code> or null.</p>
+                <section class="phpdocumentor-description"><p>The boolean value of the parameter, or <code class="prettyprint">$defaultValue</code>/null if not found or unrecognized.</p>
 </section>
 
             </section>
