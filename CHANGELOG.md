@@ -35,6 +35,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
     - geo: LatitudeRule, LongitudeRule, ElevationRule
     - models: ExistModelRule, UniqueModelRule
 
+### Removed
+
+Use now the oihana-php-signals library and remove : 
+- src\oihana\signal\Message
+- src\oihana\signal\Notice
+- src\oihana\signal\Payload
+- src\oihana\signal\Receiver
+- src\oihana\signal\Signal
+- src\oihana\signal\SignalEntry
+- src\oihana\signal\Signaler
+
 ## [0.0.2] - 2025-10-29 (alpha)
 
 ### Added

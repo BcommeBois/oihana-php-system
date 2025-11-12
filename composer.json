@@ -114,6 +114,7 @@
         "oihana/php-enums": "dev-main",
         "oihana/php-files": "dev-main",
         "oihana/php-schema": "dev-main",
+        "oihana/php-signals": "dev-main",
         "oihana/php-standards": "dev-main",
         "monolog/monolog": "^3.9",
         "php-di/php-di": "^7.0",
