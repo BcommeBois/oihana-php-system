@@ -3,7 +3,6 @@
 namespace oihana\controllers\helpers ;
 
 use DI\NotFoundException;
-use oihana\enums\Boolean;
 use oihana\enums\http\HttpParamStrategy;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
