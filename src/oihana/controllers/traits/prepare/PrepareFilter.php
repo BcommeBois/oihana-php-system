@@ -5,6 +5,7 @@ namespace oihana\controllers\traits\prepare;
 use oihana\controllers\enums\ControllerParam;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
+use function oihana\controllers\helpers\getQueryParam;
 use function oihana\core\strings\urlencode;
 
 trait PrepareFilter
@@ -20,7 +21,7 @@ trait PrepareFilter
     {
         if( isset( $request ) )
         {
-            $param = $this->getQueryParam( $request , ControllerParam::FILTER ) ;
+            $param = getQueryParam( $request , ControllerParam::FILTER ) ;
             if( is_string( $param )  )
             {
                 if( json_validate( $param ) )

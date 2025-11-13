@@ -5,6 +5,7 @@ namespace oihana\controllers\traits\prepare;
 use oihana\enums\Boolean;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
+use function oihana\controllers\helpers\getQueryParam;
 
 trait PrepareBoolean
 {
@@ -23,7 +24,7 @@ trait PrepareBoolean
         $flag = false ;
         if( isset( $request ) )
         {
-            $value = $this->getQueryParam( $request , $name ) ; // query param only (not body).
+            $value = getQueryParam( $request , $name ) ; // query param only (not body).
             if( isset( $value ) )
             {
                 $flag = true ;

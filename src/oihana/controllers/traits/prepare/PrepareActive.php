@@ -4,6 +4,7 @@ namespace oihana\controllers\traits\prepare;
 
 use oihana\controllers\enums\ControllerParam;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use function oihana\controllers\helpers\getQueryParam;
 
 trait PrepareActive
 {
@@ -12,7 +13,7 @@ trait PrepareActive
         $active = $args[ ControllerParam::ACTIVE ] ?? $defaultValue ;
         if( isset( $request ) )
         {
-            $param = $this->getQueryParam( $request , ControllerParam::ACTIVE ) ; // query param only (not body)
+            $param = getQueryParam( $request , ControllerParam::ACTIVE ) ; // query param only (not body)
             if( $param == '0' || $param == 'false' || $param == 'FALSE' )
             {
                 $active = false ;

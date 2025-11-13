@@ -7,6 +7,7 @@ use org\schema\constants\Prop;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
 
+use function oihana\controllers\helpers\getQueryParam;
 use function oihana\core\date\isDate;
 
 trait PrepareDate
@@ -29,7 +30,7 @@ trait PrepareDate
 
         if( $request )
         {
-            $queryParam = $this->getQueryParam( $request , $name ) ;
+            $queryParam = getQueryParam( $request , $name ) ;
             if( isDate( $queryParam , $format ) )
             {
                 $value = $queryParam ;

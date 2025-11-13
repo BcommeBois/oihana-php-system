@@ -4,6 +4,7 @@ namespace oihana\controllers\traits\prepare;
 
 use oihana\controllers\enums\ControllerParam;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use function oihana\controllers\helpers\getQueryParam;
 
 trait PrepareSearch
 {
@@ -12,7 +13,7 @@ trait PrepareSearch
         $search = $args[ ControllerParam::SEARCH ] ?? null ;
         if( isset( $request ) )
         {
-            $search = $this->getQueryParam( $request , ControllerParam::SEARCH ) ; // query param only (not body)
+            $search = getQueryParam( $request , ControllerParam::SEARCH ) ; // query param only (not body)
             if( isset( $search ) && is_array( $params ) )
             {
                 $params[ ControllerParam::SEARCH ] = $search ;

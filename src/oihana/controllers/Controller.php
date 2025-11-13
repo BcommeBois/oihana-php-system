@@ -20,7 +20,7 @@ use Slim\Routing\RouteContext;
 use oihana\controllers\traits\ApiTrait;
 use oihana\controllers\traits\AppTrait;
 use oihana\controllers\traits\BenchTrait;
-use oihana\controllers\traits\GetParamTrait;
+use oihana\controllers\traits\ParamsStrategyTrait;
 use oihana\controllers\traits\HttpCacheTrait;
 use oihana\controllers\traits\JsonTrait;
 use oihana\controllers\traits\MockTrait;
@@ -102,22 +102,22 @@ abstract class Controller
              ->initializeValidator      ( $init ) ; // https://github.com/somnambulist-tech/validation
     }
 
-    use ApiTrait        ,
-        AppTrait        ,
-        BenchTrait      ,
-        ContainerTrait  ,
-        ConfigTrait     ,
-        GetParamTrait   ,
-        HttpCacheTrait  ,
-        JsonTrait       ,
-        LoggerTrait     ,
-        MockTrait       ,
-        PaginationTrait ,
-        PathTrait       ,
-        RouterTrait     ,
-        StatusTrait     ,
-        ToStringTrait   ,
-        ValidatorTrait  ;
+    use ApiTrait            ,
+        AppTrait            ,
+        BenchTrait          ,
+        ContainerTrait      ,
+        ConfigTrait         ,
+        HttpCacheTrait      ,
+        JsonTrait           ,
+        LoggerTrait         ,
+        MockTrait           ,
+        PaginationTrait     ,
+        ParamsStrategyTrait ,
+        PathTrait           ,
+        RouterTrait         ,
+        StatusTrait         ,
+        ToStringTrait       ,
+        ValidatorTrait      ;
 
     /**
      * Conditions or validation rules for the controller.
@@ -153,7 +153,6 @@ abstract class Controller
     {
         return $thing ;
     }
-
 
     /**
      * Returns allowed HTTP methods for the current route.

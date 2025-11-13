@@ -4,17 +4,16 @@ namespace oihana\controllers\traits\prepare;
 
 use xyz\oihana\schema\Pagination;
 
-use oihana\controllers\traits\GetParamTrait;
 use oihana\controllers\traits\LimitTrait;
 use oihana\controllers\traits\PaginationTrait;
 use oihana\enums\FilterOption;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
+use function oihana\controllers\helpers\getQueryParam;
 
 trait PrepareLimit
 {
-    use GetParamTrait ,
-        PaginationTrait ,
+    use PaginationTrait ,
         LimitTrait ;
 
     /**
@@ -40,7 +39,7 @@ trait PrepareLimit
         $flag = false ;
         if( isset( $request ) )
         {
-            $param = $this->getQueryParam( $request , $property ); // query param only (not body).
+            $param = getQueryParam( $request , $property ); // query param only (not body).
             if( isset( $param ) )
             {
                 $flag = true ;

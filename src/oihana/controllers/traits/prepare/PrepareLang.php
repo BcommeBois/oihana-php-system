@@ -6,6 +6,7 @@ use oihana\controllers\enums\ControllerParam;
 use oihana\controllers\traits\LanguagesTrait;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
+use function oihana\controllers\helpers\getQueryParam;
 
 trait PrepareLang
 {
@@ -16,7 +17,7 @@ trait PrepareLang
         $lang = $args[ ControllerParam::LANG ] ?? null ;
         if( isset( $request ) )
         {
-            $value = $this->getQueryParam( $request , ControllerParam::LANG ) ; // query param only (not body)
+            $value = getQueryParam( $request , ControllerParam::LANG ) ; // query param only (not body)
             if( !empty( $value ) )
             {
                 if( in_array( $value , $this->languages ) )

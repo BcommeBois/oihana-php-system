@@ -2,14 +2,12 @@
 
 namespace oihana\controllers\traits\prepare;
 
-use oihana\controllers\traits\GetParamTrait;
 use oihana\enums\FilterOption;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use function oihana\controllers\helpers\getQueryParam;
 
 trait PrepareInt
 {
-    use GetParamTrait ;
-
     /**
      * Prepare an integer parameter.
      * @param Request|null $request
@@ -27,7 +25,7 @@ trait PrepareInt
 
         if( isset( $request ) )
         {
-            $param = $this->getQueryParam( $request , $name ) ;
+            $param = getQueryParam( $request , $name ) ;
             if( isset( $param ) )
             {
                 $flag = true ;

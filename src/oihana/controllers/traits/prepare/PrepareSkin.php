@@ -5,6 +5,7 @@ namespace oihana\controllers\traits\prepare;
 use oihana\controllers\enums\ControllerParam;
 use oihana\controllers\enums\Skin;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use function oihana\controllers\helpers\getQueryParam;
 
 /**
  * Provides utilities to manage and prepare "skins" for controllers.
@@ -122,7 +123,7 @@ trait PrepareSkin
 
         if ( isset( $request ) )
         {
-            $value = $this->getQueryParam( $request , ControllerParam::SKIN ) ; // get only the query param (not body)
+            $value = getQueryParam( $request , ControllerParam::SKIN ) ; // get only the query param (not body)
             if( $this->isValidSkin( $value ) )
             {
                 $skin     = $value ;

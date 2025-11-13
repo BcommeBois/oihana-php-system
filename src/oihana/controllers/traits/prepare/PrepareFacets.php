@@ -5,6 +5,7 @@ namespace oihana\controllers\traits\prepare;
 use oihana\controllers\enums\ControllerParam;
 use oihana\controllers\traits\ParamsTrait;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use function oihana\controllers\helpers\getQueryParam;
 
 trait PrepareFacets
 {
@@ -25,7 +26,7 @@ trait PrepareFacets
             // ----------- Use the parameters in the url query to inject facets
             $this->prepareParamsFacets( $request , $args , $facets , $params ) ;
             // -----------
-            $values = $this->getQueryParam( $request , ControllerParam::FACETS ) ;
+            $values = getQueryParam( $request , ControllerParam::FACETS ) ;
             if( is_string( $values ) )
             {
                 if( json_validate( $values ) )
@@ -85,7 +86,7 @@ trait PrepareFacets
                 $paramsDefinition = array_filter( $definitions , fn( $item ) => $item == ControllerParam::FACETS || ( isset( $item[ ControllerParam::TYPE ] ) && $item[ ControllerParam::TYPE ] == ControllerParam::FACETS ) ) ;
                 foreach( $paramsDefinition as $key => $definition )
                 {
-                    $value = $this->getQueryParam( $request , $key ) ;
+                    $value = getQueryParam( $request , $key ) ;
                     if( isset( $value ) && json_validate( $value ) )
                     {
                         $params[ $key ] = urlencode( $value ) ;

@@ -3,14 +3,12 @@
 namespace oihana\controllers\traits\prepare;
 
 use oihana\controllers\enums\ControllerParam;
-use oihana\controllers\traits\GetParamTrait;
 use oihana\enums\Char;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use function oihana\controllers\helpers\getQueryParam;
 
 trait PrepareIDs
 {
-    use GetParamTrait ;
-
     /**
      * The default ids representation, a string list with comma separator or an array.
      * @var null|string|array
@@ -48,7 +46,7 @@ trait PrepareIDs
 
         if ( isset( $request ) )
         {
-            $param = $this->getQueryParam( $request , $name ) ; // get only the query param (not body)
+            $param = getQueryParam( $request , $name ) ; // get only the query param (not body)
             if( is_string( $param ) )
             {
                 $register = true ;

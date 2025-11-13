@@ -8,6 +8,9 @@ use DI\NotFoundException;
 use oihana\enums\Char;
 use oihana\enums\http\HttpMethod;
 
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
+
 use function oihana\routes\helpers\withPlaceholder;
 
 class I18nRoute extends DocumentRoute
@@ -15,6 +18,8 @@ class I18nRoute extends DocumentRoute
     /**
      * @throws DependencyException
      * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     public function __invoke(): void
     {

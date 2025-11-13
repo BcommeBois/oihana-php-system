@@ -6,6 +6,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 use oihana\controllers\enums\ControllerParam;
 use oihana\traits\SortDefaultTrait;
+use function oihana\controllers\helpers\getQueryParam;
 
 trait PrepareSort
 {
@@ -25,7 +26,7 @@ trait PrepareSort
         $sort = $args[ $name ] ?? null ;
         if( isset( $request ) )
         {
-            $value = $this->getQueryParam( $request , $name ); // query param only (not body param)
+            $value = getQueryParam( $request , $name ); // query param only (not body param)
             if( isset( $value ) )
             {
                 $params[ $name ] = $sort = $value ;

@@ -2,33 +2,20 @@
 
 namespace oihana\controllers\traits\prepare;
 
-use DI\NotFoundException;
-
 use oihana\controllers\enums\ControllerParam;
-use oihana\controllers\traits\GetParamTrait;
 use oihana\enums\FilterOption;
 
 use Psr\Http\Message\ServerRequestInterface as Request;
-use function oihana\controllers\helpers\getParam;
+use function oihana\controllers\helpers\getQueryParam;
 
 trait PrepareInterval
 {
-    use GetParamTrait ;
-
-    /**
-     * @throws NotFoundException
-     */
     protected function prepareInterval(?Request $request , array &$params , ?string &$interval , ?array $timeOptions ) :void
     {
         $register = false ;
         if( isset( $request ) )
         {
-            $value = getParam
-            (
-                $request ,
-                ControllerParam::INTERVAL ,
-                strategy: $this->paramsStrategy
-            ) ;
+            $value = getQueryParam( $request , ControllerParam::INTERVAL ) ;
             if( isset( $value ) )
             {
                 $register = true ;
