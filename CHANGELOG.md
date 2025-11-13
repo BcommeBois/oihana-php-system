@@ -23,6 +23,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
       - getParamIntRange()
       - getParamNumberRange()
       - getParamString()
+- Models
+  - Traits
+    - PropertyTrait
 - Validations
   - Helpers:
     - after, before, between, date, different, digits, digitsBetween, endsWith, length, max, min, regex, same, startsWith, url

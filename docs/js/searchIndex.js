@@ -2691,6 +2691,21 @@ Search.appendIndex(
             "summary": "The\u0020model\u0020reference.",
             "url": "classes/oihana-models-traits-ModelTrait.html#property_model"
         },                {
+            "fqsen": "\\oihana\\models\\traits\\PropertyTrait",
+            "name": "PropertyTrait",
+            "summary": "Provides\u0020a\u0020\u0060property\u0060\u0020reference.",
+            "url": "classes/oihana-models-traits-PropertyTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\PropertyTrait\u003A\u003AinitializeProperty\u0028\u0029",
+            "name": "initializeProperty",
+            "summary": "Initialize\u0020the\u0020\u0060property\u0060\u0020reference\u0020from\u0020an\u0020associative\u0020array.",
+            "url": "classes/oihana-models-traits-PropertyTrait.html#method_initializeProperty"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\PropertyTrait\u003A\u003A\u0024property",
+            "name": "property",
+            "summary": "The\u0020\u0060property\u0060\u0020reference.",
+            "url": "classes/oihana-models-traits-PropertyTrait.html#property_property"
+        },                {
             "fqsen": "\\oihana\\models\\traits\\SchemaTrait",
             "name": "SchemaTrait",
             "summary": "Provides\u0020methods\u0020for\u0020initialize\u0020a\u0020\u0027schema\u0027\u0020property.",
