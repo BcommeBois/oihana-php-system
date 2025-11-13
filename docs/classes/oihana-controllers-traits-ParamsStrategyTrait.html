@@ -134,25 +134,22 @@
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana.html">oihana</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-controllers.html">controllers</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-controllers-traits.html">traits</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-controllers-traits-prepare.html">prepare</a></li>
     </ul>
 
     <article class="phpdocumentor-element -trait">
         <h2 class="phpdocumentor-content__title">
-    PrepareLang
-            <span class="phpdocumentor-trait__extends">
-            uses
-                            <a href="classes/oihana-controllers-traits-LanguagesTrait.html"><abbr title="\oihana\controllers\traits\LanguagesTrait">trait:short</abbr></a>                    </span>
+    ParamsStrategyTrait
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/prepare/PrepareLang.php"><a href="files/src-oihana-controllers-traits-prepare-preparelang.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareLang.php">PrepareLang.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/ParamsStrategyTrait.php"><a href="files/src-oihana-controllers-traits-paramsstrategytrait.html"><abbr title="src/oihana/controllers/traits/ParamsStrategyTrait.php">ParamsStrategyTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11</span>
+    <span class="phpdocumentor-element-found-in__line">12</span>
 
     </aside>
 
-        
+            <p class="phpdocumentor-summary">Provides a property to retrieve params in the Http request parameters or body.</p>
+
 
 
 
@@ -163,7 +160,7 @@
 
 <h3 id="toc">
     Table of Contents
-    <a href="classes/oihana-controllers-traits-prepare-PrepareLang.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-controllers-traits-ParamsStrategyTrait.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -175,53 +172,47 @@
 
 <h4 id="toc-constants">
     Constants
-    <a href="classes/oihana-controllers-traits-prepare-PrepareLang.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-controllers-traits-ParamsStrategyTrait.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a class="" href="classes/oihana-controllers-traits-LanguagesTrait.html#constant_LANGUAGES">LANGUAGES</a>
+    <a class="" href="classes/oihana-controllers-traits-ParamsStrategyTrait.html#constant_PARAMS_STRATEGY">PARAMS_STRATEGY</a>
     <span>
-        &nbsp;= &#039;languages&#039;                            </span>
+        &nbsp;= &#039;paramsStrategy&#039;                            </span>
 </dt>
-<dd>Key used to initialize languages in an array or container.</dd>
+<dd>The &#039;paramsStrategy&#039; parameter.</dd>
 
     </dl>
 
 
 <h4 id="toc-properties">
     Properties
-    <a href="classes/oihana-controllers-traits-prepare-PrepareLang.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-controllers-traits-ParamsStrategyTrait.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/oihana-controllers-traits-LanguagesTrait.html#property_languages">$languages</a>
+    <a class="" href="classes/oihana-controllers-traits-ParamsStrategyTrait.html#property_paramsStrategy">$paramsStrategy</a>
     <span>
-                        &nbsp;: array&lt;string|int, string&gt;            </span>
+                        &nbsp;: string            </span>
 </dt>
-<dd>Array of valid language codes supported by the controller.</dd>
+<dd>Strategy to fetch parameters: &#039;both&#039; (default), &#039;body&#039; only, or &#039;query&#039; only.</dd>
 
     </dl>
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/oihana-controllers-traits-prepare-PrepareLang.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-controllers-traits-ParamsStrategyTrait.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-controllers-traits-LanguagesTrait.html#method_initializeLanguages">initializeLanguages()</a>
+    <a class="" href="classes/oihana-controllers-traits-ParamsStrategyTrait.html#method_initializeParamsStrategy">initializeParamsStrategy()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
-<dd>Initialize the internal `$languages` property from an array or a PSR-11 container.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -protected">
-    <a class="" href="classes/oihana-controllers-traits-prepare-PrepareLang.html#method_prepareLang">prepareLang()</a>
-    <span>
-                                &nbsp;: string|null    </span>
-</dt>
+<dd>Initialize the params strategy : &#039;both&#039; (default), &#039;body&#039; (only), &#039;query&#039; (only).</dd>
 
     </dl>
 
@@ -232,31 +223,31 @@
     <section class="phpdocumentor-constants">
         <h3 class="phpdocumentor-elements__header" id="constants">
             Constants
-            <a href="classes/oihana-controllers-traits-prepare-PrepareLang.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/oihana-controllers-traits-ParamsStrategyTrait.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article class="phpdocumentor-element -constant -public ">
-    <h4 class="phpdocumentor-element__name" id="constant_LANGUAGES">
-        LANGUAGES
-        <a href="classes/oihana-controllers-traits-LanguagesTrait.html#constant_LANGUAGES" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="constant_PARAMS_STRATEGY">
+        PARAMS_STRATEGY
+        <a href="classes/oihana-controllers-traits-ParamsStrategyTrait.html#constant_PARAMS_STRATEGY" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/LanguagesTrait.php"><a href="files/src-oihana-controllers-traits-languagestrait.html"><abbr title="src/oihana/controllers/traits/LanguagesTrait.php">LanguagesTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/ParamsStrategyTrait.php"><a href="files/src-oihana-controllers-traits-paramsstrategytrait.html"><abbr title="src/oihana/controllers/traits/ParamsStrategyTrait.php">ParamsStrategyTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">50</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Key used to initialize languages in an array or container.</p>
+        <p class="phpdocumentor-summary">The &#039;paramsStrategy&#039; parameter.</p>
 
     
     <code class="phpdocumentor-signature phpdocumentor-code ">
     <span class="phpdocumentor-signature__visibility">public</span>
         <span class="phpdocumentor-signature__type">mixed</span>
-    <span class="phpdocumentor-signature__name">LANGUAGES</span>
-    = <span class="phpdocumentor-signature__default-value">&#039;languages&#039;</span>
+    <span class="phpdocumentor-signature__name">PARAMS_STRATEGY</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;paramsStrategy&#039;</span>
 </code>
 
 
@@ -273,7 +264,7 @@
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/oihana-controllers-traits-prepare-PrepareLang.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/oihana-controllers-traits-ParamsStrategyTrait.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -283,28 +274,28 @@
             -public
                                                                     "
 >
-    <h4 class="phpdocumentor-element__name" id="property_languages">
-        $languages
-        <a href="classes/oihana-controllers-traits-LanguagesTrait.html#property_languages" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_paramsStrategy">
+        $paramsStrategy
+        <a href="classes/oihana-controllers-traits-ParamsStrategyTrait.html#property_paramsStrategy" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                             </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/LanguagesTrait.php"><a href="files/src-oihana-controllers-traits-languagestrait.html"><abbr title="src/oihana/controllers/traits/LanguagesTrait.php">LanguagesTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/ParamsStrategyTrait.php"><a href="files/src-oihana-controllers-traits-paramsstrategytrait.html"><abbr title="src/oihana/controllers/traits/ParamsStrategyTrait.php">ParamsStrategyTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">18</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Array of valid language codes supported by the controller.</p>
+        <p class="phpdocumentor-summary">Strategy to fetch parameters: &#039;both&#039; (default), &#039;body&#039; only, or &#039;query&#039; only.</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
         <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
-    <span class="phpdocumentor-signature__name">$languages</span>
-     = <span class="phpdocumentor-signature__default-value">[]</span></code>
+            <span class="phpdocumentor-signature__type">string</span>
+    <span class="phpdocumentor-signature__name">$paramsStrategy</span>
+     = <span class="phpdocumentor-signature__default-value">\oihana\enums\http\HttpParamStrategy::BOTH</span></code>
 
     
     
@@ -320,7 +311,7 @@
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/oihana-controllers-traits-prepare-PrepareLang.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/oihana-controllers-traits-ParamsStrategyTrait.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -329,153 +320,48 @@
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_initializeLanguages">
-        initializeLanguages()
-        <a href="classes/oihana-controllers-traits-LanguagesTrait.html#method_initializeLanguages" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_initializeParamsStrategy">
+        initializeParamsStrategy()
+        <a href="classes/oihana-controllers-traits-ParamsStrategyTrait.html#method_initializeParamsStrategy" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/LanguagesTrait.php"><a href="files/src-oihana-controllers-traits-languagestrait.html"><abbr title="src/oihana/controllers/traits/LanguagesTrait.php">LanguagesTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/ParamsStrategyTrait.php"><a href="files/src-oihana-controllers-traits-paramsstrategytrait.html"><abbr title="src/oihana/controllers/traits/ParamsStrategyTrait.php">ParamsStrategyTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">66</span>
+    <span class="phpdocumentor-element-found-in__line">32</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Initialize the internal `$languages` property from an array or a PSR-11 container.</p>
+        <p class="phpdocumentor-summary">Initialize the params strategy : &#039;both&#039; (default), &#039;body&#039; (only), &#039;query&#039; (only).</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">initializeLanguages</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$container</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+                    <span class="phpdocumentor-signature__name">initializeParamsStrategy</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$strategy</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
-        <section class="phpdocumentor-description"><p>This method first checks the provided <code class="prettyprint">$init</code> array for a key 'languages'.
-If not found, it optionally checks a PSR-11 container for fallback configuration.</p>
-</section>
-
+    
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$init</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Optional array with key 'languages' containing supported language codes.</p>
-</section>
-
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$container</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Container\ContainerInterface">ContainerInterface</abbr>|null</span>
+                <span class="phpdocumentor-signature__argument__name">$strategy</span>
+                : <span class="phpdocumentor-signature__argument__return-type">string|array&lt;string|int, mixed&gt;|null</span>
                  = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Optional PSR-11 container for fallback configuration.</p>
+                    <section class="phpdocumentor-description"><p>$strategy Either a string strategy or an array with key ControllerParam::PARAMS_STRATEGY.</p>
 </section>
 
             </dd>
             </dl>
 
     
-    <h5 class="phpdocumentor-tag-list__heading" id="tags">
-        Tags
-        <a href="classes/oihana-controllers-traits-LanguagesTrait.html#method_initializeLanguages#tags" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h5>
-    <dl class="phpdocumentor-tag-list">
-                                    <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
-                                                            
-                                                 <section class="phpdocumentor-description"><p>If the container fails to retrieve the languages.</p>
-</section>
-
-                                    </dd>
-                            <dt class="phpdocumentor-tag-list__entry">
-                    <span class="phpdocumentor-tag__name">throws</span>
-                </dt>
-                <dd class="phpdocumentor-tag-list__definition">
-                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
-                                                            
-                                                 <section class="phpdocumentor-description"><p>If the requested languages key is not found in the container.</p>
-</section>
-
-                                    </dd>
-                                            </dl>
 
     
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">static</span>
-                    &mdash;
-                <section class="phpdocumentor-description"><p>Returns the current instance for method chaining.</p>
-</section>
-
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -protected
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_prepareLang">
-        prepareLang()
-        <a href="classes/oihana-controllers-traits-prepare-PrepareLang.html#method_prepareLang" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/controllers/traits/prepare/PrepareLang.php"><a href="files/src-oihana-controllers-traits-prepare-preparelang.html"><abbr title="src/oihana/controllers/traits/prepare/PrepareLang.php">PrepareLang.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">15</span>
-
-    </aside>
-
-    
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">prepareLang</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr>|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$request</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$args</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$params</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$request</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><abbr title="\Psr\Http\Message\ServerRequestInterface">ServerRequestInterface</abbr>|null</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$args</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$params</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">string|null</span>
             </section>
 
 </article>
@@ -485,7 +371,7 @@ If not found, it optionally checks a PSR-11 container for fallback configuration
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/controllers/traits/prepare/PrepareLang.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/controllers/traits/ParamsStrategyTrait.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -586,28 +472,27 @@ If not found, it optionally checks a PSR-11 container for fallback configuration
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                        <li><a href="classes/oihana-controllers-traits-prepare-PrepareLang.html#toc-constants">Constants</a></li>
-                                                            <li><a href="classes/oihana-controllers-traits-prepare-PrepareLang.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/oihana-controllers-traits-prepare-PrepareLang.html#toc-methods">Methods</a></li>
+                                        <li><a href="classes/oihana-controllers-traits-ParamsStrategyTrait.html#toc-constants">Constants</a></li>
+                                                            <li><a href="classes/oihana-controllers-traits-ParamsStrategyTrait.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/oihana-controllers-traits-ParamsStrategyTrait.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
                         <li class="phpdocumentor-on-this-page-section__title">Constants</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-controllers-traits-LanguagesTrait.html#constant_LANGUAGES">LANGUAGES</a></li>
+                                            <li class=""><a href="classes/oihana-controllers-traits-ParamsStrategyTrait.html#constant_PARAMS_STRATEGY">PARAMS_STRATEGY</a></li>
                                     </ul>
             </li>
                                     <li class="phpdocumentor-on-this-page-section__title">Properties</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-controllers-traits-LanguagesTrait.html#property_languages">$languages</a></li>
+                                            <li class=""><a href="classes/oihana-controllers-traits-ParamsStrategyTrait.html#property_paramsStrategy">$paramsStrategy</a></li>
                                     </ul>
             </li>
                                     <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-controllers-traits-LanguagesTrait.html#method_initializeLanguages">initializeLanguages()</a></li>
-                                            <li class=""><a href="classes/oihana-controllers-traits-prepare-PrepareLang.html#method_prepareLang">prepareLang()</a></li>
+                                            <li class=""><a href="classes/oihana-controllers-traits-ParamsStrategyTrait.html#method_initializeParamsStrategy">initializeParamsStrategy()</a></li>
                                     </ul>
             </li>
                     </ul>
@@ -627,7 +512,7 @@ If not found, it optionally checks a PSR-11 container for fallback configuration
     </section>
 </section>
         </div>
-        <a href="classes/oihana-controllers-traits-prepare-PrepareLang.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/oihana-controllers-traits-ParamsStrategyTrait.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 
