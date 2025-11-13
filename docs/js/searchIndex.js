@@ -2696,6 +2696,11 @@ Search.appendIndex(
             "summary": "Provides\u0020a\u0020\u0060property\u0060\u0020reference.",
             "url": "classes/oihana-models-traits-PropertyTrait.html"
         },                {
+            "fqsen": "\\oihana\\models\\traits\\PropertyTrait\u003A\u003AassertProperty\u0028\u0029",
+            "name": "assertProperty",
+            "summary": "Asserts\u0020the\u0020existence\u0020of\u0020the\u0020\u0027property\u0027\u0020key.",
+            "url": "classes/oihana-models-traits-PropertyTrait.html#method_assertProperty"
+        },                {
             "fqsen": "\\oihana\\models\\traits\\PropertyTrait\u003A\u003AinitializeProperty\u0028\u0029",
             "name": "initializeProperty",
             "summary": "Initialize\u0020the\u0020\u0060property\u0060\u0020reference\u0020from\u0020an\u0020associative\u0020array.",

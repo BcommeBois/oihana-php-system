@@ -2,6 +2,8 @@
 
 namespace oihana\models\traits;
 
+use UnexpectedValueException;
+
 /**
  * Provides a `property` reference.
  *
@@ -47,6 +49,22 @@ trait PropertyTrait
      */
     public const string PROPERTY = 'property' ;
 
+    /**
+     * Asserts the existence of the 'property' key.
+     *
+     * @return static
+     *
+     * @throws UnexpectedValueException If the "property" key is not set.
+     */
+    public function assertProperty():static
+    {
+        if( !isset( $this->property ) )
+        {
+            throw new UnexpectedValueException( 'The "property" key is not set.' ) ;
+        }
+
+        return $this ;
+    }
 
     /**
      * Initialize the `property` reference from an associative array.
@@ -67,7 +85,7 @@ trait PropertyTrait
      * $model->initializeProperty(['property' => 'bar'])->someOtherMethod();
      * ```
      */
-    protected function initializeProperty( array $init = [] ):static
+    public function initializeProperty( array $init = [] ):static
     {
         $this->property = $init[ self::PROPERTY ] ?? null ;
         return $this ;
