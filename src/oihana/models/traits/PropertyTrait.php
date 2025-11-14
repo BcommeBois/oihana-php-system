@@ -9,7 +9,6 @@ use UnexpectedValueException;
  *
  * This trait allows a class to define a property reference that can be initialized
  * from an associative array (commonly used for hydration or model initialization).
- * It depends on the {@see DocumentsTrait} for any document-related functionality.
  *
  * Usage:
  * ```php
@@ -29,8 +28,6 @@ use UnexpectedValueException;
  */
 trait PropertyTrait
 {
-    use DocumentsTrait ;
-
     /**
      * The `property` reference.
      *
