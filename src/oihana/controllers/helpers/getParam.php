@@ -30,7 +30,7 @@ use function oihana\core\objects\toAssociativeArray;
  * @param Request|null $request    The PSR-7 server request instance.
  * @param string       $name       The parameter name or dot-notated path.
  * @param array        $default    Optional default values as an associative array.
- * @param string       $strategy   One of `HttpParamStrategy::QUERY|BODY|BOTH`. Default: BOTH.
+ * @param ?string      $strategy   One of `HttpParamStrategy::QUERY|BODY|BOTH`. Default: BOTH.
  * @param bool         $throwable  Whether to throw a `NotFoundException` if parameter is missing. Default: false.
  *
  * @return mixed The parameter value if found, otherwise the default value or null.
@@ -63,7 +63,7 @@ function getParam
     ?Request $request   ,
     string   $name      ,
     array    $default   = [] ,
-    string   $strategy  = HttpParamStrategy::BOTH ,
+    ?string  $strategy  = HttpParamStrategy::BOTH ,
     bool     $throwable = false
 )
 :mixed

@@ -17,7 +17,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
  * @param int          $max          Maximum allowed integer value.
  * @param int|null     $defaultValue Value returned if the parameter is missing or not numeric. Default null.
  * @param array        $args         Optional defaults passed to {@see getParam()}.
- * @param string       $strategy     Which source to search: `HttpParamStrategy::BOTH|QUERY|BODY`. Default BOTH.
+ * @param ?string      $strategy     Which source to search: `HttpParamStrategy::BOTH|QUERY|BODY`. Default BOTH.
  * @param bool         $throwable    Whether to throw {@see NotFoundException} if the parameter is missing. Default false.
  *
  * @return int|null The integer value clamped to [$min, $max], or `$defaultValue`/null if missing or invalid.
@@ -41,7 +41,7 @@ function getParamIntRange
     int      $max,
     ?int     $defaultValue = null ,
     array    $args         = [] ,
-    string   $strategy     = HttpParamStrategy::BOTH ,
+    ?string  $strategy     = HttpParamStrategy::BOTH ,
     bool     $throwable    = false
 )
 : ?int

@@ -21,7 +21,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
  * @param int|float          $max          Maximum allowed value.
  * @param int|float|null     $defaultValue Value returned if missing or invalid. Default null.
  * @param array              $args         Optional defaults passed to {@see getParam()}.
- * @param string             $strategy     Source to search: BOTH, QUERY, BODY. Default BOTH.
+ * @param ?string            $strategy     Source to search: BOTH, QUERY, BODY. Default BOTH.
  * @param bool               $throwable    Whether to throw {@see NotFoundException} if missing. Default false.
  *
  * @return int|float|null The numeric value clamped to the range [$min, $max], or `$defaultValue`/null if missing or invalid.
@@ -52,7 +52,7 @@ function getParamNumberRange
     int|float      $max ,
     null|int|float $defaultValue = null ,
     array          $args         = [] ,
-    string         $strategy     = HttpParamStrategy::BOTH ,
+    ?string        $strategy     = HttpParamStrategy::BOTH ,
     bool           $throwable    = false
 )
 :int|float|null

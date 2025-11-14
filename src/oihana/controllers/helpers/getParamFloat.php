@@ -17,7 +17,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
  * @param string       $name         The parameter name or dot-notated path.
  * @param array        $args         Optional default values passed to `getParam()`.
  * @param float|null   $defaultValue Value returned if the parameter is missing or not set. Default is null.
- * @param string       $strategy     Which source to search: `HttpParamStrategy::BOTH|QUERY|BODY`. Default is BOTH.
+ * @param ?string      $strategy     Which source to search: `HttpParamStrategy::BOTH|QUERY|BODY`. Default is BOTH.
  * @param bool         $throwable    Whether to throw a `NotFoundException` if parameter is missing. Default false.
  *
  * @return float|null The parameter value cast to float if present, otherwise `$defaultValue` or null.
@@ -46,7 +46,7 @@ function getParamFloat
     string   $name    ,
     array    $args         = [] ,
     ?float   $defaultValue = null ,
-    string   $strategy     = HttpParamStrategy::BOTH ,
+    ?string  $strategy     = HttpParamStrategy::BOTH ,
     bool     $throwable    = false
 )
 :?float

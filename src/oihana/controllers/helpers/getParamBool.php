@@ -22,12 +22,12 @@ use Psr\Http\Message\ServerRequestInterface as Request;
  * If `$request` is null or the parameter is missing, `$defaultValue` is returned unless
  * `$throwable` is set to true, in which case a {@see NotFoundException} is thrown.
  *
- * @param Request|null $request The PSR-7 server request instance.
- * @param string $name The parameter name or dot-notated path.
- * @param array $args Optional defaults passed to {@see getParam()}.
- * @param bool|null $defaultValue Value returned if the parameter is missing or not a boolean. Default is null.
- * @param string $strategy Source to search: `HttpParamStrategy::BOTH|QUERY|BODY`. Default is BOTH.
- * @param bool $throwable Whether to throw {@see NotFoundException} if parameter is missing. Default false.
+ * @param Request|null $request      The PSR-7 server request instance.
+ * @param string       $name         The parameter name or dot-notated path.
+ * @param array        $args         Optional defaults passed to {@see getParam()}.
+ * @param bool|null    $defaultValue Value returned if the parameter is missing or not a boolean. Default is null.
+ * @param ?string      $strategy     Source to search: `HttpParamStrategy::BOTH|QUERY|BODY`. Default is BOTH.
+ * @param bool         $throwable    Whether to throw {@see NotFoundException} if parameter is missing. Default false.
  *
  * @return bool|null The boolean value of the parameter, or `$defaultValue`/null if not found or unrecognized.
  *
@@ -58,7 +58,7 @@ function getParamBool
     string   $name    ,
     array    $args         = [] ,
     ?bool    $defaultValue = null ,
-    string   $strategy     = HttpParamStrategy::BOTH ,
+    ?string  $strategy     = HttpParamStrategy::BOTH ,
     bool     $throwable    = false
 )
 :?bool

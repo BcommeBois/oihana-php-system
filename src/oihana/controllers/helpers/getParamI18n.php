@@ -26,7 +26,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
  * @param array              $default    Optional default values as an associative array.
  * @param array<string>|null $languages  Optional array of languages to filter the i18n definitions. If null, no filtering is applied.
  * @param callable|null      $sanitize   Optional callback to transform or sanitize each value. Signature: `fn(string|null $value, string $lang): string|null`
- * @param string             $strategy   One of `HttpParamStrategy::QUERY|BODY|BOTH`. Default: BOTH.
+ * @param ?string            $strategy   One of `HttpParamStrategy::QUERY|BODY|BOTH`. Default: BOTH.
  * @param bool               $throwable  Whether to throw a `NotFoundException` if parameter is missing. Default: false.
  *
  * @return ?array The i18n value if found, otherwise the default value or null.
@@ -58,7 +58,7 @@ function getParamI18n
     array     $default   = [] ,
     ?array    $languages = null ,
     ?callable $sanitize  = null ,
-    string    $strategy  = HttpParamStrategy::BOTH ,
+    ?string   $strategy  = HttpParamStrategy::BOTH ,
     bool      $throwable = false
 )
 :?array
