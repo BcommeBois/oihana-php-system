@@ -3,6 +3,7 @@
 namespace oihana\routes\enums;
 
 use oihana\reflect\traits\ConstantsTrait;
+use function oihana\core\bits\hasFlag;
 
 class RouteFlag
 {
@@ -218,7 +219,7 @@ class RouteFlag
 
         foreach ( self::FLAGS_NAME as $flag => $name )
         {
-            if ( self::has( $mask , $flag ) )
+            if ( hasFlag( $mask , $flag ) )
             {
                 $descriptions[] = $name ;
             }
@@ -249,9 +250,9 @@ class RouteFlag
 
         foreach ( self::FLAGS as $flag )
         {
-            if ( self::has( $mask , $flag ) )
+            if ( hasFlag( $mask , $flag ) )
             {
-                $flags[] = $flag;
+                $flags[] = $flag ;
             }
         }
 

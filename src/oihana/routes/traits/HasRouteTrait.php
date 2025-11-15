@@ -4,6 +4,7 @@ namespace oihana\routes\traits;
 
 use oihana\routes\enums\RouteFlag;
 use oihana\routes\Route;
+use function oihana\core\bits\hasFlag;
 
 trait HasRouteTrait
 {
@@ -42,7 +43,7 @@ trait HasRouteTrait
      */
     public function hasCount(): bool
     {
-        return RouteFlag::has( $this->flags , RouteFlag::COUNT ) ;
+        return hasFlag( $this->flags , RouteFlag::COUNT ) ;
     }
 
     /**
@@ -50,7 +51,7 @@ trait HasRouteTrait
      */
     public function hasDelete(): bool
     {
-        return RouteFlag::has( $this->flags , RouteFlag::DELETE ) ;
+        return hasFlag( $this->flags , RouteFlag::DELETE ) ;
     }
 
     /**
@@ -58,7 +59,7 @@ trait HasRouteTrait
      */
     public function hasDeleteMultiple(): bool
     {
-        return RouteFlag::has( $this->flags , RouteFlag::DELETE_MULTIPLE ) ;
+        return hasFlag( $this->flags , RouteFlag::DELETE_MULTIPLE ) ;
     }
 
     /**
@@ -66,7 +67,7 @@ trait HasRouteTrait
      */
     public function hasGet(): bool
     {
-        return RouteFlag::has( $this->flags , RouteFlag::GET ) ;
+        return hasFlag( $this->flags , RouteFlag::GET ) ;
     }
 
     /**
@@ -74,7 +75,7 @@ trait HasRouteTrait
      */
     public function hasList(): bool
     {
-        return RouteFlag::has( $this->flags , RouteFlag::LIST ) ;
+        return hasFlag( $this->flags , RouteFlag::LIST ) ;
     }
 
     /**
@@ -82,7 +83,7 @@ trait HasRouteTrait
      */
     public function hasPatch(): bool
     {
-        return RouteFlag::has( $this->flags , RouteFlag::PATCH ) ;
+        return hasFlag( $this->flags , RouteFlag::PATCH ) ;
     }
 
     /**
@@ -90,7 +91,7 @@ trait HasRouteTrait
      */
     public function hasPost(): bool
     {
-        return RouteFlag::has( $this->flags , RouteFlag::POST ) ;
+        return hasFlag( $this->flags , RouteFlag::POST ) ;
     }
 
     /**
@@ -98,7 +99,7 @@ trait HasRouteTrait
      */
     public function hasPut(): bool
     {
-        return RouteFlag::has( $this->flags , RouteFlag::PUT ) ;
+        return hasFlag( $this->flags , RouteFlag::PUT ) ;
     }
 
     /**
@@ -133,28 +134,5 @@ trait HasRouteTrait
     {
         $this->flags &= ~$flags ;
         return $this ;
-    }
-
-    /**
-     * Get current flags
-     *
-     * @return int Current flags bitmask
-     */
-    public function getFlags(): int
-    {
-        return $this->flags;
-    }
-
-    /**
-     * Set flags (replacing current flags)
-     *
-     * @param int $flags New flags value
-     *
-     * @return static
-     */
-    public function setFlags( int $flags ) :static
-    {
-        $this->flags = $flags;
-        return $this;
     }
 }

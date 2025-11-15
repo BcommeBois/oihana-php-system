@@ -124,17 +124,10 @@ class HasRouteTraitTest extends TestCase
         $this->assertTrue($this->mock->hasCount());
         $this->assertFalse($this->mock->hasPost());
     }
-    public function test_set_and_get_flags(): void
-    {
-        $this->mock->setFlags(RouteFlag::WRITE);
-        $this->assertSame(RouteFlag::WRITE, $this->mock->getFlags());
-        $this->assertTrue($this->mock->hasDelete());
-        $this->assertFalse($this->mock->hasList());
-    }
 
     public function test_describe_none_returns_NONE(): void
     {
-        $this->mock->setFlags(RouteFlag::NONE);
+        $this->mock->flags = RouteFlag::NONE ;
         $this->assertSame('NONE', $this->mock->describeFlags());
     }
 
