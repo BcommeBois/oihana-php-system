@@ -2,6 +2,7 @@
 
 namespace oihana\traits;
 
+use DateInterval;
 use DI\Container;
 use DI\DependencyException;
 use DI\NotFoundException;
@@ -95,17 +96,29 @@ trait CacheableTrait
     }
 
     /**
-     * Set a key/value in the cache.
-     * @param string $key
-     * @param mixed $value
-     * @return bool
-     * @throws InvalidArgumentException
+     * Persists data in the cache, uniquely referenced by a key with an optional expiration TTL time.
+     *
+     * @param string                $key   The key of the item to store.
+     * @param mixed                 $value The value of the item to store, must be serializable.
+     * @param null|int|DateInterval $ttl   Optional TTL value of this item.
+     *                                     If no value is sent and the driver supports TTL then the library may set
+     *                                     a default value for it or let the driver take care of that.
+     *
+     * @return bool True on success and false on failure.
+     *
+     * @throws InvalidArgumentException MUST be thrown if the $key string is not a legal value.
      */
-    public function setCache( string $key , mixed $value ):bool
+    public function setCache
+    (
+        string                $key ,
+        mixed                 $value ,
+        null|int|DateInterval $ttl = null
+    )
+    :bool
     {
         if( $this->cacheable )
         {
-            return $this->cache?->set( $key , $value ) ?? false ;
+            return $this->cache?->set( $key , $value , $ttl ) ?? false ;
         }
         return false ;
     }
