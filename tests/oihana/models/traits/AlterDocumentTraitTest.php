@@ -520,7 +520,7 @@ class AlterDocumentTraitTest extends TestCase
             'price' =>
             [
                 Alter::MAP ,
-                function( array|object &$document , ?Container $container , string $key, mixed $value ) :int|float
+                function( array|object &$document , ?Container $container , string $key , mixed $value ) :int|float
                 {
                     $document['total'] = $document['price'] + ( $value * ( $document['vat'] ?? 0 ) );
                     return $value ; // do nothing

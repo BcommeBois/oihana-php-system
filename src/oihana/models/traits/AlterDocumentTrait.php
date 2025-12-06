@@ -58,7 +58,8 @@ use function oihana\core\arrays\toArray;
  *             'tags'  => [ Alter::ARRAY , Alter::CLEAN ],
  *             'meta'  => [ Alter::JSON_PARSE ],
  *             'link'  => [ Alter::URL , '/product/' ],
- *             'score' => [ Alter::CALL , fn($value) => $value * 10 ],
+ *             'score' => [ Alter::CALL , fn( $value ) => $value * 10 ],
+ *             'total' => [ ALTER::MAP , fn( &$document ) => $document['price'] + ( $document['price'] * ( $document['vat'] ?? 0 ) ) ] ,
  *             'geo'   => [ Alter::NORMALIZE , [ Alter::HYDRATE , GeoCoordinates::class ] ],
  *             'name'  => [ Alter::TRIM , Alter::UPPERCASE , Alter::NORMALIZE ],
  *         ];
@@ -76,7 +77,7 @@ use function oihana\core\arrays\toArray;
  * - Alter::INT             → Convert to integer (or array of integers).
  * - Alter::JSON_PARSE      → Parse JSON string.
  * - Alter::JSON_STRINGIFY  → Convert value to JSON string.
- * - Alter::MAP             → A a property of a document (or the document structure) and using a custom "map" callback.
+ * - Alter::MAP             → Map a property of a document (or all the document structure) - Can transform or update the document.
  * - Alter::NORMALIZE       → Normalize a document property using configurable flags.
  * - Alter::NOT             → Invert boolean values.
  * - Alter::URL             → Generate a URL from a property.
@@ -230,6 +231,7 @@ trait AlterDocumentTrait
      * - Alter::INT            — Casts the value to integer
      * - Alter::JSON_PARSE     — Parses a JSON string into a PHP value
      * - Alter::JSON_STRINGIFY — Encodes a value into a JSON string
+     * - Alter::MAP            — Normalize a document property using configurable flags
      * - Alter::NORMALIZE      — Normalize a document property using configurable flags
      * - Alter::NOT            — Invert boolean values
      * - Alter::URL            — Generates a URL based on document properties

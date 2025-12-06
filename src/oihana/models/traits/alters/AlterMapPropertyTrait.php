@@ -38,9 +38,17 @@ trait AlterMapPropertyTrait
      * @example
      * ```php
      * $document = ['price' => 10 , 'vat' => '0.2' ];
-     * $callback = fn( array $document , $container , $key, $value, $params) => $value + ( $value * ( $document['vat'] ?? 0 ) ) ;
+     * $callback = fn( array &$document , $container , $key, $value, $params) => $value + ( $value * ( $document['vat'] ?? 0 ) ) ;
      *
-     * $newValue = $this->alterMapProperty($document, null, 'price', $document['price'], [$callback], $modified);
+     * $newValue = $this->alterMapProperty
+     * (
+     *      $document ,
+     *      null ,
+     *      'price',
+     *      $document['price'],
+     *      $callback ,
+     *      $modified
+     * );
      * // $newValue = 12
      * // $modified = true
      * ```
