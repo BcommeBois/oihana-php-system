@@ -55,8 +55,8 @@ final class OptionsRouteTest extends TestCase
         $registeredCallable = $registeredRoute->getCallable();
         $this->assertIsCallable($registeredCallable);
 
-        $requestStub  = $this->createMock(Request::class);
-        $responseStub = $this->createMock(Response::class);
+        $requestStub  = $this->createStub(Request::class);
+        $responseStub = $this->createStub(Response::class);
 
         $actualHandler = $registeredCallable($requestStub, $responseStub);
         $this->assertIsCallable($actualHandler, 'The register callable must return a real handler (arrow function)');

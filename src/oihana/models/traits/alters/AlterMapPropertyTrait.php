@@ -4,6 +4,7 @@ namespace oihana\models\traits\alters;
 
 use DI\Container;
 
+use InvalidArgumentException;
 use function oihana\core\callables\resolveCallable;
 
 trait AlterMapPropertyTrait
@@ -32,7 +33,7 @@ trait AlterMapPropertyTrait
      *
      * @return mixed The altered value for the property.
      *
-     * @throws \InvalidArgumentException If the callable cannot be resolved.
+     * @throws InvalidArgumentException If the callable cannot be resolved.
      *
      * @example
      * ```php

@@ -12,7 +12,7 @@ final class GetParamArrayTest extends TestCase
 {
     private function createRequest(array $query = [], $body = null): ServerRequestInterface
     {
-        $request = $this->getMockBuilder(ServerRequestInterface::class)->getMock();
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getQueryParams')->willReturn($query);
         $request->method('getParsedBody')->willReturn($body);
         return $request;

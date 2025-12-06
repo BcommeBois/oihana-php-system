@@ -39,7 +39,8 @@ namespace oihana\models\traits\alters;
  * // ]
  * ```
  *
- * @package oihana\traits\alters
+ * @package oihana\models\traits\alters
+ * @author  Marc Alcaraz (ekameleon)
  * @since   1.0.0
  */
 trait AlterValueTrait

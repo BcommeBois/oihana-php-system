@@ -60,7 +60,7 @@ class DocumentUrlTest extends TestCase
      */
     public function testTrailingSlashWithContainer()
     {
-        $container = $this->createMock(ContainerInterface::class);
+        $container = $this->createStub(ContainerInterface::class);
         $container->method('has')->willReturn(true);
         $container->method('get')->willReturn('https://example.com');
 
@@ -74,7 +74,7 @@ class DocumentUrlTest extends TestCase
      */
     public function testCustomDefinitionKey()
     {
-        $container = $this->createMock(ContainerInterface::class);
+        $container = $this->createStub(ContainerInterface::class);
         $container->method('has')->with('customUrl')->willReturn(true);
         $container->method('get')->with('customUrl')->willReturn('https://cdn.example.com');
 
@@ -88,7 +88,7 @@ class DocumentUrlTest extends TestCase
      */
     public function testMissingDefinitionFallsBackToPath()
     {
-        $container = $this->createMock(ContainerInterface::class);
+        $container = $this->createStub(ContainerInterface::class);
         $container->method('has')->willReturn(false);
 
         $url = documentUrl('uploads/file.txt', $container);
@@ -101,7 +101,7 @@ class DocumentUrlTest extends TestCase
      */
     public function testEmptyPathAndContainer()
     {
-        $container = $this->createMock(ContainerInterface::class);
+        $container = $this->createStub(ContainerInterface::class);
         $container->method('has')->willReturn(true);
         $container->method('get')->willReturn('https://example.com');
 

@@ -17,7 +17,7 @@ final class GetBodyParamTest extends TestCase
 
     public function testReturnsNullWhenBodyIsEmpty(): void
     {
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getParsedBody')->willReturn([]);
 
         $this->assertNull( getBodyParam( $request , 'foo' ) ) ;
@@ -25,7 +25,7 @@ final class GetBodyParamTest extends TestCase
 
     public function testReturnsValueForSimpleKey(): void
     {
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getParsedBody')->willReturn([
             'name' => 'Alice',
             'age'  => 30,
@@ -46,7 +46,7 @@ final class GetBodyParamTest extends TestCase
             ],
         ];
 
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getParsedBody')->willReturn($body);
 
         $this->assertSame('test@example.com', getBodyParam($request, 'user.profile.email'));
@@ -55,7 +55,7 @@ final class GetBodyParamTest extends TestCase
 
     public function testReturnsNullForMissingKey(): void
     {
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getParsedBody')->willReturn(['foo' => 'bar']);
 
         $this->assertNull(getBodyParam($request, 'baz'));
@@ -72,7 +72,7 @@ final class GetBodyParamTest extends TestCase
             ],
         ];
 
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getParsedBody')->willReturn($body);
 
         $this->assertSame(42.123, getBodyParam($request, 'geo.latitude'));
@@ -89,7 +89,7 @@ final class GetBodyParamTest extends TestCase
             ],
         ];
 
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getParsedBody')->willReturn($body);
 
         // getParsedBody() est casté en array dans la fonction

@@ -94,7 +94,7 @@ trait AlterHydratePropertyTrait
         {
             if ( is_a( $schema , Thing::class , true ) )
             {
-                $newValue = new $schema( $value ) ;
+                $newValue = new $schema( $value ) ; // TODO remove it ? use only the hydrate method ?
             }
             else
             {

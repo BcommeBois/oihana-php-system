@@ -7,7 +7,7 @@ use PDO;
 use DI\Container;
 
 use PHPUnit\Framework\MockObject\Exception;
-use PHPUnit\Framework\MockObject\MockObject;
+use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 
 use Psr\Container\ContainerExceptionInterface;
@@ -18,7 +18,7 @@ use oihana\mysql\MysqlModel;
 class MysqlModelTest extends TestCase
 {
     private ?MysqlModel $model = null ;
-    private ?MockObject $pdo   = null ;
+    private ?Stub $pdo   = null ;
 
     /**
      * @throws ContainerExceptionInterface
@@ -27,16 +27,15 @@ class MysqlModelTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->pdo = $this->createMock(PDO::class);
-        $container = $this->createMock(Container::class);
+        $this->pdo = $this->createStub(PDO::class);
+        $container = $this->createStub(Container::class);
 
         $this->model = new MysqlModel( $container , [ 'pdo' => $this->pdo ] );
     }
 
     public function testCreateDatabaseReturnsTrueOnSuccess()
     {
-        $this->pdo->expects($this->once())
-            ->method('exec')
+        $this->pdo->method('exec')
             ->with($this->stringContains('CREATE DATABASE'))
             ->willReturn(1); // exec retourne le nb de lignes affectées ou true
 

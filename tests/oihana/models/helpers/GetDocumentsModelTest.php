@@ -89,7 +89,7 @@ class GetDocumentsModelTest extends TestCase
     {
         $this->expectException(ContainerExceptionInterface::class);
 
-        $mockContainer = $this->createMock(ContainerInterface::class);
+        $mockContainer = $this->createStub(ContainerInterface::class);
         $mockContainer->method('has')->willReturn(true);
         $mockContainer->method('get')->willThrowException(new class extends \Exception implements ContainerExceptionInterface {});
 
@@ -102,7 +102,7 @@ class GetDocumentsModelTest extends TestCase
      */
     public function testThrowsNotFoundExceptionIfContainerDoesNotHave(): void
     {
-        $mockContainer = $this->createMock(ContainerInterface::class);
+        $mockContainer = $this->createStub(ContainerInterface::class);
         $mockContainer->method('has')->willReturn(false);
 
         $default = $this->createStub(DocumentsModel::class);

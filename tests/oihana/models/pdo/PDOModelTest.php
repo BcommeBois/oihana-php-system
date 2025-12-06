@@ -34,7 +34,7 @@ class PDOModelTest extends TestCase
      */
     public function testConstructorInitializesPropertiesAndPdo(): void
     {
-        $pdo = $this->createMock(PDO::class ) ;
+        $pdo = $this->createStub(PDO::class ) ;
 
         // Configure container to return the PDO mock for service 'my_pdo'
         $this->container->set('my_pdo' , $pdo ) ;
@@ -88,7 +88,7 @@ class PDOModelTest extends TestCase
         $stmt->expects($this->once())->method('closeCursor');
         $stmt->expects($this->once())->method('setFetchMode');
 
-        $pdo = $this->createMock(PDO::class);
+        $pdo = $this->createStub(PDO::class);
         $pdo->method('prepare')->willReturn($stmt);
 
         $model = new PDOModel($this->container);
@@ -119,7 +119,7 @@ class PDOModelTest extends TestCase
         $stmt->expects($this->once())->method('closeCursor');
         $stmt->expects($this->once())->method('setFetchMode');
 
-        $pdo = $this->createMock(PDO::class);
+        $pdo = $this->createStub(PDO::class);
         $pdo->method('prepare')->willReturn($stmt);
 
         $model = new PDOModel($this->container);
@@ -144,7 +144,7 @@ class PDOModelTest extends TestCase
         $stmt->expects($this->once())->method('fetchColumn')->with(0)->willReturn(42);
         $stmt->expects($this->once())->method('closeCursor');
 
-        $pdo = $this->createMock(PDO::class);
+        $pdo = $this->createStub(PDO::class);
         $pdo->method('prepare')->willReturn($stmt);
 
         $model = new PDOModel($this->container);
@@ -164,7 +164,7 @@ class PDOModelTest extends TestCase
         $stmt = $this->createMock(PDOStatement::class);
         $stmt->expects($this->once())->method('execute')->willReturn(false);
 
-        $pdo = $this->createMock(PDO::class);
+        $pdo = $this->createStub(PDO::class);
         $pdo->method('prepare')->willReturn($stmt);
 
         $model = new PDOModel($this->container);

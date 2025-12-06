@@ -26,7 +26,7 @@ final class GetParamTest extends TestCase
      */
     public function testReturnsValueFromQuery(): void
     {
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getQueryParams')->willReturn([
             'name' => 'Alice',
             'age'  => '30',
@@ -41,7 +41,7 @@ final class GetParamTest extends TestCase
      */
     public function testReturnsValueFromBody(): void
     {
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getParsedBody')->willReturn
         ([
             'user' => [
@@ -56,7 +56,7 @@ final class GetParamTest extends TestCase
 
     public function testReturnsValueFromBothQueryAndBody(): void
     {
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getQueryParams')->willReturn(['name' => 'QueryName']);
         $request->method('getParsedBody')->willReturn(['name' => 'BodyName']);
 
@@ -69,7 +69,7 @@ final class GetParamTest extends TestCase
      */
     public function testReturnsDefaultForMissingKey(): void
     {
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getQueryParams')->willReturn([]);
         $request->method('getParsedBody')->willReturn([]);
 
@@ -82,7 +82,7 @@ final class GetParamTest extends TestCase
         $this->expectException(NotFoundException::class);
         $this->expectExceptionMessage('The parameter "missing" was not found.');
 
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getQueryParams')->willReturn([]);
         $request->method('getParsedBody')->willReturn([]);
 
@@ -94,7 +94,7 @@ final class GetParamTest extends TestCase
      */
     public function testHandlesNestedArraysAndDotNotation(): void
     {
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getParsedBody')->willReturn([
             'geo' => [
                 'latitude'  => 42.123,

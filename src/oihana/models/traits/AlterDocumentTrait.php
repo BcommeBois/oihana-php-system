@@ -76,6 +76,7 @@ use function oihana\core\arrays\toArray;
  * - Alter::INT             → Convert to integer (or array of integers).
  * - Alter::JSON_PARSE      → Parse JSON string.
  * - Alter::JSON_STRINGIFY  → Convert value to JSON string.
+ * - Alter::MAP             → A a property of a document (or the document structure) and using a custom "map" callback.
  * - Alter::NORMALIZE       → Normalize a document property using configurable flags.
  * - Alter::NOT             → Invert boolean values.
  * - Alter::URL             → Generate a URL from a property.

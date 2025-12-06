@@ -16,7 +16,7 @@ class GetParamI18nTest extends TestCase
      */
     public function testRetrieveFromQuery(): void
     {
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getQueryParams')->willReturn([
             'description' => ['fr' => 'Bonjour', 'en' => 'Hello', 'de' => 'Hallo']
         ]);
@@ -31,7 +31,7 @@ class GetParamI18nTest extends TestCase
      */
     public function testRetrieveFromBody(): void
     {
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getQueryParams')->willReturn([]);
         $request->method('getParsedBody')->willReturn([
             'description' => ['fr' => 'Salut', 'en' => 'Hi', 'de' => 'Hallo']
@@ -46,7 +46,7 @@ class GetParamI18nTest extends TestCase
      */
     public function testSanitizeCallbackApplied(): void
     {
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getQueryParams')->willReturn([
             'description' => ['fr' => '<b>Bonjour</b>', 'en' => '<b>Hello</b>']
         ]);
@@ -68,7 +68,7 @@ class GetParamI18nTest extends TestCase
      */
     public function testDefaultValueUsed(): void
     {
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getQueryParams')->willReturn([]);
         $request->method('getParsedBody')->willReturn([]);
 
@@ -81,7 +81,7 @@ class GetParamI18nTest extends TestCase
     {
         $this->expectException( NotFoundException::class);
 
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getQueryParams')->willReturn([]);
         $request->method('getParsedBody')->willReturn([]);
 
@@ -103,7 +103,7 @@ class GetParamI18nTest extends TestCase
      */
     public function testFilterLanguagesEmpty(): void
     {
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
 
         $request->method('getQueryParams')->willReturn
         ([

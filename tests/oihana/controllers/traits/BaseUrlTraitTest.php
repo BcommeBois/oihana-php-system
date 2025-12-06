@@ -37,7 +37,7 @@ final class BaseUrlTraitTest extends TestCase
 
     public function testInitializeBaseUrlFromContainer()
     {
-        $container = $this->createMock(ContainerInterface::class);
+        $container = $this->createStub(ContainerInterface::class);
         $container->method('has')->willReturn(true);
         $container->method('get')->willReturn('/from-container');
 
@@ -48,7 +48,7 @@ final class BaseUrlTraitTest extends TestCase
 
     public function testInitializeBaseUrlWithEmptyFallback()
     {
-        $container = $this->createMock(ContainerInterface::class);
+        $container = $this->createStub(ContainerInterface::class);
         $container->method('has')->willReturn(false);
 
         $this->mock->initializeBaseUrl([], $container);
@@ -58,10 +58,10 @@ final class BaseUrlTraitTest extends TestCase
 
     public function testGetCurrentPathFromRequest()
     {
-        $uri = $this->createMock(UriInterface::class);
+        $uri = $this->createStub(UriInterface::class);
         $uri->method('getPath')->willReturn('/users/123');
 
-        $request = $this->createMock(RequestInterface::class);
+        $request = $this->createStub(RequestInterface::class);
         $request->method('getUri')->willReturn($uri);
 
         $this->mock->baseUrl = '/api';
@@ -83,10 +83,10 @@ final class BaseUrlTraitTest extends TestCase
 
     public function testGetCurrentPathWithParamsAndUseNow()
     {
-        $uri = $this->createMock(UriInterface::class);
+        $uri = $this->createStub(UriInterface::class);
         $uri->method('getPath')->willReturn('/products');
 
-        $request = $this->createMock(RequestInterface::class);
+        $request = $this->createStub(RequestInterface::class);
         $request->method('getUri')->willReturn($uri);
 
         $this->mock->baseUrl = '/shop';
@@ -130,10 +130,10 @@ final class BaseUrlTraitTest extends TestCase
 
     public function testGetPathWithParamsAndUseNow()
     {
-        $uri = $this->createMock(UriInterface::class);
+        $uri = $this->createStub(UriInterface::class);
         $uri->method('getPath')->willReturn('/events');
 
-        $request = $this->createMock(RequestInterface::class);
+        $request = $this->createStub(RequestInterface::class);
         $request->method('getUri')->willReturn($uri);
 
         $this->mock->baseUrl = '/app';

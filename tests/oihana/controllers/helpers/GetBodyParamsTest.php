@@ -17,7 +17,7 @@ final class GetBodyParamsTest extends TestCase
 
     public function testReturnsEmptyArrayWhenBodyIsEmpty(): void
     {
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getParsedBody')->willReturn([]);
 
         $this->assertSame([], getBodyParams($request, ['foo', 'bar']));
@@ -25,7 +25,7 @@ final class GetBodyParamsTest extends TestCase
 
     public function testReturnsValuesForSimpleKeys(): void
     {
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getParsedBody')->willReturn
         ([
             'name' => 'Alice',
@@ -51,7 +51,7 @@ final class GetBodyParamsTest extends TestCase
             ],
         ];
 
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getParsedBody')->willReturn($body);
 
         $expected =
@@ -76,7 +76,7 @@ final class GetBodyParamsTest extends TestCase
     {
         $body = ['foo' => 'bar'];
 
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getParsedBody')->willReturn($body);
 
         // Key exists → included, missing key → ignored
@@ -98,7 +98,7 @@ final class GetBodyParamsTest extends TestCase
             ],
         ];
 
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getParsedBody')->willReturn($body);
 
         $expected = [
@@ -125,7 +125,7 @@ final class GetBodyParamsTest extends TestCase
             'b' => 2,
         ];
 
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getParsedBody')->willReturn($body);
 
         $expected = [
@@ -149,7 +149,7 @@ final class GetBodyParamsTest extends TestCase
             ],
         ];
 
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getParsedBody')->willReturn($body);
 
         $expected = [

@@ -24,8 +24,8 @@ class RouteTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->app     = $this->createMock(App::class);
-        $this->logger  = $this->createMock(LoggerInterface::class);
+        $this->app     = $this->createStub(App::class);
+        $this->logger  = $this->createStub(LoggerInterface::class);
         $this->container = new Container() ;
 
         $this->container->set( App::class            , $this->app    ) ;

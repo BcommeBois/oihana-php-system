@@ -15,7 +15,7 @@ final class GetQueryParamTest extends TestCase
 
     public function testReturnsNullWhenQueryParamsAreEmpty(): void
     {
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getQueryParams')->willReturn([]);
 
         $this->assertNull(getQueryParam($request, 'foo'));
@@ -23,7 +23,7 @@ final class GetQueryParamTest extends TestCase
 
     public function testReturnsValueForSimpleKey(): void
     {
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getQueryParams')->willReturn
         ([
             'name' => 'Alice',
@@ -36,7 +36,7 @@ final class GetQueryParamTest extends TestCase
 
     public function testReturnsValueForNestedKeyUsingDotNotation(): void
     {
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getQueryParams')->willReturn
         ([
             'filter' => [
@@ -51,7 +51,7 @@ final class GetQueryParamTest extends TestCase
 
     public function testReturnsNullForMissingKey(): void
     {
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getQueryParams')->willReturn
         ([
             'foo' => 'bar',
@@ -63,7 +63,7 @@ final class GetQueryParamTest extends TestCase
 
     public function testHandlesNestedArraysAndMixedTypes(): void
     {
-        $request = $this->createMock(ServerRequestInterface::class);
+        $request = $this->createStub(ServerRequestInterface::class);
         $request->method('getQueryParams')->willReturn
         ([
             'user' =>

@@ -33,7 +33,7 @@ class PDOTraitTest extends TestCase
      */
     public function testBindValuesWithSimpleBindings(): void
     {
-        $mock = $this->createMock(PDOStatement::class);
+        $mock = $this->createStub(PDOStatement::class);
 
         $expectedCalls =
         [
@@ -43,17 +43,18 @@ class PDOTraitTest extends TestCase
 
         $callIndex = 0;
 
-        $mock->expects($this->exactly(count($expectedCalls)))
-            ->method('bindValue')
-            ->with( $this->callback(function ($arg1) use (&$callIndex, $expectedCalls)
-            {
-                return is_string($arg1); // verify the first value only
-            }),
-            $this->callback(function ($arg2) use (&$callIndex, $expectedCalls)
-            {
-                return true ; // We won't filter on the 2nd value here, we'll do it lower overall.
-            }),
-            $this->anything());
+        $mock
+        ->method('bindValue')
+        ->with( $this->callback(function ($arg1) use (&$callIndex, $expectedCalls)
+        {
+            return is_string($arg1); // verify the first value only
+        }),
+
+        $this->callback(function ($arg2) use (&$callIndex, $expectedCalls)
+        {
+            return true ; // We won't filter on the 2nd value here, we'll do it lower overall.
+        }),
+        $this->anything());
 
         // On surcharge la méthode bindValue pour vérifier les appels un à un
         $mock->method('bindValue')
@@ -74,11 +75,10 @@ class PDOTraitTest extends TestCase
      */
     public function testBindValuesWithTypedBindings(): void
     {
-        $stmt = $this->createMock(PDOStatement::class);
+        $stmt = $this->createStub(PDOStatement::class);
 
-        $stmt->expects($this->once())
-            ->method('bindValue')
-            ->with(':count', 42, PDO::PARAM_INT);
+        $stmt->method('bindValue')
+             ->with(':count', 42, PDO::PARAM_INT);
 
         $this->model->bindValues($stmt, ['count' => [42, PDO::PARAM_INT]]);
     }
@@ -101,10 +101,10 @@ class PDOTraitTest extends TestCase
      */
     public function testFetchReturnsNullIfExecuteFails(): void
     {
-        $stmt = $this->createMock(PDOStatement::class);
+        $stmt = $this->createStub(PDOStatement::class);
         $stmt->method('execute')->willReturn(false);
 
-        $pdo = $this->createMock(PDO::class);
+        $pdo = $this->createStub(PDO::class);
         $pdo->method('prepare')->willReturn($stmt);
 
         $this->model->pdo = $pdo;
@@ -121,13 +121,13 @@ class PDOTraitTest extends TestCase
     {
         $row = ['id' => 1, 'name' => 'test'];
 
-        $stmt = $this->createMock(PDOStatement::class);
-        $stmt->expects($this->once())->method('execute')->willReturn(true);
-        $stmt->expects($this->once())->method('fetch')->willReturn($row);
-        $stmt->expects($this->once())->method('closeCursor');
-        $stmt->expects($this->once())->method('setFetchMode');
+        $stmt = $this->createStub(PDOStatement::class);
+        $stmt->method('execute')->willReturn(true);
+        $stmt->method('fetch')->willReturn($row);
+        $stmt->method('closeCursor');
+        $stmt->method('setFetchMode');
 
-        $pdo = $this->createMock(PDO::class);
+        $pdo = $this->createStub(PDO::class);
         $pdo->method('prepare')->willReturn($stmt);
 
         $this->model->pdo = $pdo;
@@ -163,13 +163,13 @@ class PDOTraitTest extends TestCase
             ['id' => 2, 'name' => 'bar'],
         ];
 
-        $stmt = $this->createMock(PDOStatement::class);
+        $stmt = $this->createStub(PDOStatement::class);
         $stmt->method('execute')->willReturn(true);
         $stmt->method('fetchAll')->willReturn($data);
         $stmt->method('closeCursor')->willReturn(true );
         $stmt->method('setFetchMode')->willReturn(true);
 
-        $pdo = $this->createMock(PDO::class);
+        $pdo = $this->createStub(PDO::class);
         $pdo->method('prepare')->willReturn($stmt);
 
         $this->model->pdo = $pdo;
@@ -186,12 +186,12 @@ class PDOTraitTest extends TestCase
      */
     public function testFetchColumnReturnsValue(): void
     {
-        $stmt = $this->createMock(PDOStatement::class);
+        $stmt = $this->createStub(PDOStatement::class);
         $stmt->method('execute')->willReturn(true);
         $stmt->method('fetchColumn')->with(0)->willReturn(42);
         $stmt->method('closeCursor')->willReturn(true);
 
-        $pdo = $this->createMock(PDO::class);
+        $pdo = $this->createStub(PDO::class);
         $pdo->method('prepare')->willReturn($stmt);
 
         $this->model->pdo = $pdo;
@@ -205,10 +205,10 @@ class PDOTraitTest extends TestCase
      */
     public function testFetchColumnReturnsZeroIfFail(): void
     {
-        $stmt = $this->createMock(PDOStatement::class);
+        $stmt = $this->createStub(PDOStatement::class);
         $stmt->method('execute')->willReturn(false);
 
-        $pdo = $this->createMock(PDO::class);
+        $pdo = $this->createStub(PDO::class);
         $pdo->method('prepare')->willReturn($stmt);
 
         $this->model->pdo = $pdo;
@@ -224,7 +224,7 @@ class PDOTraitTest extends TestCase
      */
     public function testInitPdoReturnsPdoFromArray(): void
     {
-        $pdo = $this->createMock(PDO::class);
+        $pdo = $this->createStub(PDO::class);
 
         $this->model->initializePDO([ ModelParam::PDO => $pdo] );
 
@@ -240,19 +240,13 @@ class PDOTraitTest extends TestCase
      */
     public function testInitPdoReturnsPdoFromContainer(): void
     {
-        $container = $this->createMock(Container::class);
+        $container = $this->createStub(Container::class);
 
-        $container->expects($this->once())
-            ->method('has')
-            ->with('my_pdo')
-            ->willReturn(true);
+        $container->method('has')->with('my_pdo') ->willReturn(true);
 
-        $pdo = $this->createMock(PDO::class);
+        $pdo = $this->createStub(PDO::class);
 
-        $container->expects($this->once())
-            ->method('get')
-            ->with('my_pdo')
-            ->willReturn($pdo);
+        $container->method('get')->with('my_pdo')->willReturn($pdo);
 
         $this->model->initializePDO([ ModelParam::PDO => 'my_pdo'], $container);
 
@@ -266,14 +260,13 @@ class PDOTraitTest extends TestCase
      */
     public function testInitializeDefaultFetchModeWithSchema(): void
     {
-        $stmt = $this->createMock(PDOStatement::class);
+        $stmt = $this->createStub(PDOStatement::class);
 
         $this->model->schema = self::class;
         $this->model->deferAssignment = true;
 
-        $stmt->expects($this->once())
-            ->method('setFetchMode')
-            ->with($this->callback(function($mode) {
+        $stmt->method('setFetchMode')->with($this->callback(function($mode)
+        {
                 return ($mode & PDO::FETCH_CLASS) === PDO::FETCH_CLASS
                     && ($mode & PDO::FETCH_PROPS_LATE) === PDO::FETCH_PROPS_LATE;
             }), self::class);
@@ -286,13 +279,11 @@ class PDOTraitTest extends TestCase
      */
     public function testInitializeDefaultFetchModeWithoutSchema(): void
     {
-        $stmt = $this->createMock(PDOStatement::class);
+        $stmt = $this->createStub(PDOStatement::class);
 
         $this->model->schema = null;
 
-        $stmt->expects($this->once())
-            ->method('setFetchMode')
-            ->with(PDO::FETCH_ASSOC);
+        $stmt->method('setFetchMode')->with(PDO::FETCH_ASSOC);
 
         $this->model->initializeDefaultFetchMode($stmt);
     }

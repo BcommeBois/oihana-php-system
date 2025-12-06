@@ -29,10 +29,10 @@ final class StatusTraitTest extends TestCase
             }
         };
 
-        $this->stream = $this->createMock(StreamInterface::class);
+        $this->stream = $this->createStub(StreamInterface::class);
         $this->stream->method('write')->willReturnCallback(fn($data) => strlen((string)$data));
 
-        $this->response = $this->createMock(ResponseInterface::class);
+        $this->response = $this->createStub(ResponseInterface::class);
         $this->response->method('getBody')->willReturn($this->stream);
         $this->response->method('withStatus')->willReturnSelf();
         $this->response->method('withHeader')->willReturnSelf();

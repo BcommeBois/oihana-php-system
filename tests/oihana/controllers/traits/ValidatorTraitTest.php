@@ -146,7 +146,7 @@ final class ValidatorTraitTest extends TestCase
      */
     public function testAddRulesWithRuleInstances(): void
     {
-        $mockRule = $this->createMock(Rule::class ) ;
+        $mockRule = $this->createStub(Rule::class ) ;
 
         $this->controller->addRules
         ([
@@ -162,7 +162,8 @@ final class ValidatorTraitTest extends TestCase
      */
     public function testAddRulesWithContainerStringReferences(): void
     {
-        $mockRule = $this->createMock(Rule::class);
+        $mockRule = $this->createStub(Rule::class);
+
         $this->container->set('my_custom_rule', $mockRule);
 
         $this->controller->addRules([

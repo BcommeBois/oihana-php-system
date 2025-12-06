@@ -22,8 +22,8 @@ final class GetControllerTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->mockController = $this->createMock(Controller::class);
-        $this->container      = $this->createMock(ContainerInterface::class);
+        $this->mockController = $this->createStub(Controller::class);
+        $this->container      = $this->createStub(ContainerInterface::class);
     }
 
     /**
@@ -58,7 +58,7 @@ final class GetControllerTest extends TestCase
      */
     public function testReturnsDefaultWhenDefinitionIsNull(): void
     {
-        $defaultController = $this->createMock(Controller::class);
+        $defaultController = $this->createStub(Controller::class);
         $result = getController(null, null, $defaultController);
         $this->assertSame($defaultController, $result);
     }
@@ -84,7 +84,7 @@ final class GetControllerTest extends TestCase
      */
     public function testArrayWithoutControllerKeyReturnsDefault(): void
     {
-        $defaultController = $this->createMock(Controller::class);
+        $defaultController = $this->createStub(Controller::class);
         $definition = ['other_key' => 'value'];
         $result = getController($definition, null, $defaultController);
         $this->assertSame($defaultController, $result);
@@ -113,7 +113,7 @@ final class GetControllerTest extends TestCase
      */
     public function testReturnsDefaultWhenStringNotInContainer(): void
     {
-        $defaultController = $this->createMock(Controller::class);
+        $defaultController = $this->createStub(Controller::class);
         $this->container->method('has')->with('controller_id')->willReturn(false);
 
         $result = getController('controller_id', $this->container, $defaultController);
@@ -125,7 +125,7 @@ final class GetControllerTest extends TestCase
      */
     public function testReturnsDefaultWhenContainerIsNull(): void
     {
-        $defaultController = $this->createMock(Controller::class);
+        $defaultController = $this->createStub(Controller::class);
         $result = getController('controller_id', null, $defaultController);
         $this->assertSame($defaultController, $result);
     }
@@ -135,7 +135,7 @@ final class GetControllerTest extends TestCase
      */
     public function testReturnsDefaultWhenContainerReturnsNonController(): void
     {
-        $defaultController = $this->createMock(Controller::class);
+        $defaultController = $this->createStub(Controller::class);
         $this->container->method('has')->with('controller_id')->willReturn(true);
         $this->container->method('get')->with('controller_id')->willReturn('not a controller');
 
@@ -164,7 +164,7 @@ final class GetControllerTest extends TestCase
      */
     public function testDirectInstanceTakesPrecedence(): void
     {
-        $defaultController = $this->createMock(Controller::class);
+        $defaultController = $this->createStub(Controller::class);
 
         $result = getController($this->mockController, $this->container, $defaultController);
         $this->assertSame($this->mockController, $result);

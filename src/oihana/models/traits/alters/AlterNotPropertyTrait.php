@@ -32,7 +32,7 @@ namespace oihana\models\traits\alters;
  * - `array<bool>`    → returns a new array with all elements inverted.
  * - any other value  → cast to boolean and inverted.
  *
- * @package oihana\traits\alters
+ * @package oihana\models\traits\alters
  * @author  Marc Alcaraz (ekameleon)
  * @since   1.0.0
  */
