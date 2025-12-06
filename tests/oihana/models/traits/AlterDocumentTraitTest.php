@@ -26,6 +26,24 @@ class AlterDocumentTraitTest extends TestCase
      * @throws ContainerExceptionInterface
      * @throws DependencyException
      * @throws ReflectionException
+     */
+    public function testAlterWithScalarWhenAltersEmpty()
+    {
+        $processor = new MockAlterDocument(); // No alters defined
+
+        $input = 'some value';
+        $output = $processor->process($input);
+
+        // Scalar returned unchanged even with empty alters
+        $this->assertSame('some value', $output);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws ReflectionException
      *
      */
     public function testFloatAlteration()
@@ -359,6 +377,8 @@ class AlterDocumentTraitTest extends TestCase
         $this->assertSame([42, 'string', 3.14, true, null], $output);
     }
 
+    // --------- Alter::INT
+
     /**
      * @throws NotFoundExceptionInterface
      * @throws NotFoundException
@@ -392,23 +412,9 @@ class AlterDocumentTraitTest extends TestCase
         $this->assertNull($output[4]);
     }
 
-    /**
-     * @throws NotFoundExceptionInterface
-     * @throws NotFoundException
-     * @throws ContainerExceptionInterface
-     * @throws DependencyException
-     * @throws ReflectionException
-     */
-    public function testAlterWithScalarWhenAltersEmpty()
-    {
-        $processor = new MockAlterDocument(); // No alters defined
 
-        $input = 'some value';
-        $output = $processor->process($input);
 
-        // Scalar returned unchanged even with empty alters
-        $this->assertSame('some value', $output);
-    }
+    // --------- Alter::FLOAT
 
     /**
      * @throws NotFoundExceptionInterface
@@ -434,6 +440,8 @@ class AlterDocumentTraitTest extends TestCase
 
         fclose($resource);
     }
+
+    // --------- Alter::MAP
 
     /**
      * @throws NotFoundExceptionInterface
