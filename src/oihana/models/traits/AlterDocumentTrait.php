@@ -23,6 +23,7 @@ use oihana\models\traits\alters\AlterIntPropertyTrait;
 use oihana\models\traits\alters\AlterJSONParsePropertyTrait;
 use oihana\models\traits\alters\AlterJSONStringifyPropertyTrait;
 use oihana\models\traits\alters\AlterKeyTrait;
+use oihana\models\traits\alters\AlterMapPropertyTrait;
 use oihana\models\traits\alters\AlterNormalizePropertyTrait;
 use oihana\models\traits\alters\AlterNotPropertyTrait;
 use oihana\models\traits\alters\AlterUrlPropertyTrait;
@@ -106,6 +107,7 @@ trait AlterDocumentTrait
         AlterIntPropertyTrait ,
         AlterJSONParsePropertyTrait ,
         AlterJSONStringifyPropertyTrait ,
+        AlterMapPropertyTrait ,
         AlterNormalizePropertyTrait ,
         AlterNotPropertyTrait ,
         AlterUrlPropertyTrait ,
@@ -425,7 +427,7 @@ trait AlterDocumentTrait
         string       $key ,
         mixed        $value ,
         array        $params ,
-        array|object $document ,
+        array|object &$document ,
         ?Container   $container = null ,
         bool         &$modified = false ,
     )
@@ -442,6 +444,7 @@ trait AlterDocumentTrait
             Alter::INT            => $this->alterIntProperty           ( $value    , $modified ) ,
             Alter::JSON_PARSE     => $this->alterJsonParseProperty     ( $value    , $params , $modified ) ,
             Alter::JSON_STRINGIFY => $this->alterJsonStringifyProperty ( $value    , $params , $modified ),
+            Alter::MAP            => $this->alterMapProperty           ( $document , $container , $key , $value , $params , $modified ),
             Alter::NORMALIZE      => $this->alterNormalizeProperty     ( $value    , $params , $modified ),
             Alter::NOT            => $this->alterNotProperty           ( $value    , $modified ),
             Alter::URL            => $this->alterUrlProperty           ( $document , $params , $container , $modified ) ,

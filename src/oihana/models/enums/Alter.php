@@ -15,7 +15,7 @@ use oihana\reflect\traits\ConstantsTrait;
  * - Converting a value to a specific type (`INT`, `FLOAT`)
  * - Cleaning or normalizing arrays or strings (`CLEAN`, `NORMALIZE`)
  * - Parsing or serializing JSON (`JSON_PARSE`, `JSON_STRINGIFY`)
- * - Applying custom callbacks (`CALL`)
+ * - Applying custom callbacks (`CALL`) or map (`MAP`)
  * - Extracting values via getters (`GET`)
  * - Handling URLs or array transformations (`URL`, `ARRAY`)
  *
@@ -39,6 +39,7 @@ class Alter
     public const string INT            = 'int' ;
     public const string JSON_PARSE     = 'jsonParse' ;
     public const string JSON_STRINGIFY = 'jsonStringify' ;
+    public const string MAP            = 'map' ;
     public const string NORMALIZE      = 'normalize' ;
     public const string NOT            = 'not' ;
     public const string URL            = 'url' ;

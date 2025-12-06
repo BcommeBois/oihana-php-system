@@ -2,6 +2,7 @@
 
 namespace tests\oihana\models\traits ;
 
+use DI\Container;
 use PHPUnit\Framework\TestCase;
 
 use ReflectionException;
@@ -432,5 +433,129 @@ class AlterDocumentTraitTest extends TestCase
         $this->assertSame($resource, $output);
 
         fclose($resource);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws ReflectionException
+     */
+    public function testMapAlteration()
+    {
+        $processor = new MockAlterDocument
+        ([
+            'price' =>
+            [
+                Alter::MAP ,
+                function( array|object $document , ?Container $container , string $key, mixed $value, array $params = [] ) :float|int
+                {
+                    return $value + ( $value * ( $document['vat'] ?? 0 ) );
+                }
+            ]
+        ]);
+
+        $document = [
+            'price' => 100 ,
+            'vat'   => 0.2
+        ];
+
+        $output = $processor->process( $document );
+
+        $this->assertSame(120, (int) $output['price']);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws ReflectionException
+     */
+    public function testMapAlterationWithKey()
+    {
+        $processor = new MockAlterDocument
+        ([
+            'price' =>
+            [
+                Alter::MAP ,
+                function( array|object $document , ?Container $container , string $key, mixed $value, array $params = [] ) :float|int
+                {
+                    return $document[$key] + ( $value * ( $document['vat'] ?? 0 ) );
+                }
+            ]
+        ]);
+
+        $document =
+        [
+            'price' => 100 ,
+            'vat'   => 0.2
+        ];
+
+        $output = $processor->process( $document );
+
+        $this->assertSame(120, (int) $output['price']);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws ReflectionException
+     */
+    public function testMapOnly()
+    {
+        $processor = new MockAlterDocument
+        ([
+            'price' =>
+            [
+                Alter::MAP ,
+                function( array|object &$document , ?Container $container , string $key, mixed $value ) :int|float
+                {
+                    $document['total'] = $document['price'] + ( $value * ( $document['vat'] ?? 0 ) );
+                    return $value ; // do nothing
+                }
+            ]
+        ]);
+
+        $document =
+        [
+            'price' => 100 ,
+            'vat'   => 0.2
+        ];
+
+        $output = $processor->process( $document );
+
+        $this->assertSame(100, (int) $output['price']);
+        // $this->assertSame(120, (int) $output['total']);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws ReflectionException
+     */
+    public function testMapWithDefaultParams()
+    {
+        $processor = new MockAlterDocument
+        ([
+            'price' =>
+            [
+                Alter::MAP ,
+                function( array|object $document , ?Container $container , string $key, mixed $value, array $params = [] ) :float|int
+                {
+                    return $document[$key] + ( $value * ( $document['vat'] ?? $params[0] ?? 0 ) );
+                },
+                0.2 // default
+            ]
+        ]);
+
+        $document = [ 'price' => 100 , 'vat' => null ] ; // vat is null
+        $output = $processor->process( $document );
+        $this->assertSame(120, (int) $output['price']);
     }
 }
