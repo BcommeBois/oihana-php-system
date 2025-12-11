@@ -1286,6 +1286,11 @@ Search.appendIndex(
             "summary": "Returns\u0020all\u0020registered\u0020loggers.",
             "url": "classes/oihana-logging-CompositeLogger.html#method_getLoggers"
         },                {
+            "fqsen": "\\oihana\\logging\\CompositeLogger\u003A\u003AhasLogger\u0028\u0029",
+            "name": "hasLogger",
+            "summary": "Checks\u0020if\u0020a\u0020logger\u0020is\u0020registered\u0020in\u0020the\u0020composite.",
+            "url": "classes/oihana-logging-CompositeLogger.html#method_hasLogger"
+        },                {
             "fqsen": "\\oihana\\logging\\CompositeLogger\u003A\u003AremoveLogger\u0028\u0029",
             "name": "removeLogger",
             "summary": "Removes\u0020a\u0020logger\u0020from\u0020the\u0020composite\u0020by\u0020reference.",

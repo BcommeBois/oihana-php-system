@@ -23,6 +23,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
       - getParamIntRange()
       - getParamNumberRange()
       - getParamString()
+- Logging
+  - Adds the CompositeLogger class
 - Models
   - Traits
     - PropertyTrait
