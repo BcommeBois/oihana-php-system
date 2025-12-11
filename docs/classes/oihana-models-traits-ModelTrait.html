@@ -181,10 +181,8 @@
                                     </dd>
                                             </dl>
 
-
-
-
-
+    
+    
 <h3 id="toc">
     Table of Contents
     <a href="classes/oihana-models-traits-ModelTrait.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -296,9 +294,8 @@
     
     
 
-    
-
-    
+        
+        
 
 </article>
             </section>
@@ -331,7 +328,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">assertExistInModel</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">object|string|int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$document</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/oihana-models-interfaces-ExistModel.html"><abbr title="\oihana\models\interfaces\ExistModel">ExistModel</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$model</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">Char::EMPTY</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&#039;id&#039;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">assertExistInModel</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">object|string|int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$document</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__type"><a href="classes/oihana-models-interfaces-ExistModel.html"><abbr title="\oihana\models\interfaces\ExistModel">ExistModel</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$model</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$name</span><span> = </span><span class="phpdocumentor-signature__argument__default-value"><abbr title="\oihana\enums\Char::EMPTY">Char::EMPTY</abbr></span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$key</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">'id'</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -340,8 +337,8 @@
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$document</span>
-                : <span class="phpdocumentor-signature__argument__return-type">object|string|int|null</span>
+                <span class="phpdocumentor-argument-list__argument__name">$document</span>
+                : <span class="phpdocumentor-argument-list__argument__type">object|string|int|null</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The document to validate.</p>
@@ -349,8 +346,8 @@
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$model</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/oihana-models-interfaces-ExistModel.html"><abbr title="\oihana\models\interfaces\ExistModel">ExistModel</abbr></a></span>
+                <span class="phpdocumentor-argument-list__argument__name">$model</span>
+                : <span class="phpdocumentor-argument-list__argument__type"><a href="classes/oihana-models-interfaces-ExistModel.html"><abbr title="\oihana\models\interfaces\ExistModel">ExistModel</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The OpenEdge model reference.</p>
@@ -358,18 +355,18 @@
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$name</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">Char::EMPTY</span>            </dt>
+                <span class="phpdocumentor-argument-list__argument__name">$name</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value"><abbr title="\oihana\enums\Char::EMPTY">Char::EMPTY</abbr></span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The optional name of the resource to validate (use it in the error message).</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$key</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">&#039;id&#039;</span>            </dt>
+                <span class="phpdocumentor-argument-list__argument__name">$key</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string|null</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">'id'</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
@@ -392,8 +389,8 @@
                                     </dd>
                                             </dl>
 
+        
     
-
     
 </article>
                     <article
@@ -418,7 +415,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getDocumentsModel</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/oihana-models-interfaces-DocumentsModel.html"><abbr title="\oihana\models\interfaces\DocumentsModel">DocumentsModel</abbr></a>|string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$documents</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/oihana-models-interfaces-DocumentsModel.html"><abbr title="\oihana\models\interfaces\DocumentsModel">DocumentsModel</abbr></a>|null</span></code>
+                    <span class="phpdocumentor-signature__name">getDocumentsModel</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type"><a href="classes/oihana-models-interfaces-DocumentsModel.html"><abbr title="\oihana\models\interfaces\DocumentsModel">DocumentsModel</abbr></a>|string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$documents</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/oihana-models-interfaces-DocumentsModel.html"><abbr title="\oihana\models\interfaces\DocumentsModel">DocumentsModel</abbr></a>|null</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -427,8 +424,8 @@
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$documents</span>
-                : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/oihana-models-interfaces-DocumentsModel.html"><abbr title="\oihana\models\interfaces\DocumentsModel">DocumentsModel</abbr></a>|string|null</span>
+                <span class="phpdocumentor-argument-list__argument__name">$documents</span>
+                : <span class="phpdocumentor-argument-list__argument__type"><a href="classes/oihana-models-interfaces-DocumentsModel.html"><abbr title="\oihana\models\interfaces\DocumentsModel">DocumentsModel</abbr></a>|string|null</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
@@ -476,8 +473,8 @@
                                     </dd>
                                             </dl>
 
+        
     
-
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><a href="classes/oihana-models-interfaces-DocumentsModel.html"><abbr title="\oihana\models\interfaces\DocumentsModel">DocumentsModel</abbr></a>|null</span>
@@ -532,8 +529,8 @@
                                     </dd>
                                             </dl>
 
+        
     
-
     
 </article>
                     <article
@@ -558,7 +555,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">protected</span>
-                    <span class="phpdocumentor-signature__name">initializeModel</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+                    <span class="phpdocumentor-signature__name">initializeModel</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -567,9 +564,9 @@
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$init</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+                <span class="phpdocumentor-argument-list__argument__name">$init</span>
+                : <span class="phpdocumentor-argument-list__argument__type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
@@ -616,8 +613,8 @@
                                     </dd>
                                             </dl>
 
+        
     
-
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">static</span>

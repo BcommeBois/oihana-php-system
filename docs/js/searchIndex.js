@@ -1261,6 +1261,91 @@ Search.appendIndex(
             "summary": "Set\u0020a\u0020PHP\u0020ini\u0020directive\u0020from\u0020a\u0020scalar\u0020or\u0020from\u0020a\u0020config\u0020array\u0020if\u0020the\u0020value\u0020exists\u0020and\u0020is\u0020not\u0020empty.",
             "url": "namespaces/oihana-init.html#function_setIniIfExists"
         },                {
+            "fqsen": "\\oihana\\logging\\CompositeLogger",
+            "name": "CompositeLogger",
+            "summary": "A\u0020simple\u0020composite\u0020logger\u0020that\u0020broadcasts\u0020log\u0020messages\u0020to\u0020multiple\u0020logger\u0020instances.",
+            "url": "classes/oihana-logging-CompositeLogger.html"
+        },                {
+            "fqsen": "\\oihana\\logging\\CompositeLogger\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Constructor\u0020optionally\u0020accepting\u0020an\u0020array\u0020of\u0020loggers.",
+            "url": "classes/oihana-logging-CompositeLogger.html#method___construct"
+        },                {
+            "fqsen": "\\oihana\\logging\\CompositeLogger\u003A\u003AaddLogger\u0028\u0029",
+            "name": "addLogger",
+            "summary": "Adds\u0020a\u0020logger\u0020to\u0020the\u0020composite.",
+            "url": "classes/oihana-logging-CompositeLogger.html#method_addLogger"
+        },                {
+            "fqsen": "\\oihana\\logging\\CompositeLogger\u003A\u003Aclear\u0028\u0029",
+            "name": "clear",
+            "summary": "Removes\u0020all\u0020registered\u0020loggers.",
+            "url": "classes/oihana-logging-CompositeLogger.html#method_clear"
+        },                {
+            "fqsen": "\\oihana\\logging\\CompositeLogger\u003A\u003AgetLoggers\u0028\u0029",
+            "name": "getLoggers",
+            "summary": "Returns\u0020all\u0020registered\u0020loggers.",
+            "url": "classes/oihana-logging-CompositeLogger.html#method_getLoggers"
+        },                {
+            "fqsen": "\\oihana\\logging\\CompositeLogger\u003A\u003AremoveLogger\u0028\u0029",
+            "name": "removeLogger",
+            "summary": "Removes\u0020a\u0020logger\u0020from\u0020the\u0020composite\u0020by\u0020reference.",
+            "url": "classes/oihana-logging-CompositeLogger.html#method_removeLogger"
+        },                {
+            "fqsen": "\\oihana\\logging\\CompositeLogger\u003A\u003Aemergency\u0028\u0029",
+            "name": "emergency",
+            "summary": "\u007B\u0040inheritdoc\u007D",
+            "url": "classes/oihana-logging-CompositeLogger.html#method_emergency"
+        },                {
+            "fqsen": "\\oihana\\logging\\CompositeLogger\u003A\u003Aalert\u0028\u0029",
+            "name": "alert",
+            "summary": "\u007B\u0040inheritdoc\u007D",
+            "url": "classes/oihana-logging-CompositeLogger.html#method_alert"
+        },                {
+            "fqsen": "\\oihana\\logging\\CompositeLogger\u003A\u003Acritical\u0028\u0029",
+            "name": "critical",
+            "summary": "\u007B\u0040inheritdoc\u007D",
+            "url": "classes/oihana-logging-CompositeLogger.html#method_critical"
+        },                {
+            "fqsen": "\\oihana\\logging\\CompositeLogger\u003A\u003Aerror\u0028\u0029",
+            "name": "error",
+            "summary": "\u007B\u0040inheritdoc\u007D",
+            "url": "classes/oihana-logging-CompositeLogger.html#method_error"
+        },                {
+            "fqsen": "\\oihana\\logging\\CompositeLogger\u003A\u003Awarning\u0028\u0029",
+            "name": "warning",
+            "summary": "\u007B\u0040inheritdoc\u007D",
+            "url": "classes/oihana-logging-CompositeLogger.html#method_warning"
+        },                {
+            "fqsen": "\\oihana\\logging\\CompositeLogger\u003A\u003Anotice\u0028\u0029",
+            "name": "notice",
+            "summary": "\u007B\u0040inheritdoc\u007D",
+            "url": "classes/oihana-logging-CompositeLogger.html#method_notice"
+        },                {
+            "fqsen": "\\oihana\\logging\\CompositeLogger\u003A\u003Ainfo\u0028\u0029",
+            "name": "info",
+            "summary": "\u007B\u0040inheritdoc\u007D",
+            "url": "classes/oihana-logging-CompositeLogger.html#method_info"
+        },                {
+            "fqsen": "\\oihana\\logging\\CompositeLogger\u003A\u003Adebug\u0028\u0029",
+            "name": "debug",
+            "summary": "\u007B\u0040inheritdoc\u007D",
+            "url": "classes/oihana-logging-CompositeLogger.html#method_debug"
+        },                {
+            "fqsen": "\\oihana\\logging\\CompositeLogger\u003A\u003Alog\u0028\u0029",
+            "name": "log",
+            "summary": "\u007B\u0040inheritdoc\u007D",
+            "url": "classes/oihana-logging-CompositeLogger.html#method_log"
+        },                {
+            "fqsen": "\\oihana\\logging\\CompositeLogger\u003A\u003A\u0024count",
+            "name": "count",
+            "summary": "Indicates\u0020the\u0020number\u0020of\u0020registered\u0020loggers.",
+            "url": "classes/oihana-logging-CompositeLogger.html#property_count"
+        },                {
+            "fqsen": "\\oihana\\logging\\CompositeLogger\u003A\u003A\u0024loggers",
+            "name": "loggers",
+            "summary": "WeakMap\u0020storing\u0020loggers\u0020with\u0020automatic\u0020garbage\u0020collection.",
+            "url": "classes/oihana-logging-CompositeLogger.html#property_loggers"
+        },                {
             "fqsen": "\\oihana\\logging\\enums\\LoggerParam",
             "name": "LoggerParam",
             "summary": "",
@@ -1956,6 +2041,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/oihana-models-enums-Alter.html#constant_JSON_STRINGIFY"
         },                {
+            "fqsen": "\\oihana\\models\\enums\\Alter\u003A\u003AMAP",
+            "name": "MAP",
+            "summary": "",
+            "url": "classes/oihana-models-enums-Alter.html#constant_MAP"
+        },                {
             "fqsen": "\\oihana\\models\\enums\\Alter\u003A\u003ANORMALIZE",
             "name": "NORMALIZE",
             "summary": "",
@@ -2493,22 +2583,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\traits\\alters\\AlterCallablePropertyTrait",
             "name": "AlterCallablePropertyTrait",
-            "summary": "",
+            "summary": "Provides\u0020support\u0020for\u0020altering\u0020a\u0020property\u0020value\u0020using\u0020a\u0020user\u002Ddefined\u0020callable.",
             "url": "classes/oihana-models-traits-alters-AlterCallablePropertyTrait.html"
         },                {
             "fqsen": "\\oihana\\models\\traits\\alters\\AlterCallablePropertyTrait\u003A\u003AalterCallableProperty\u0028\u0029",
             "name": "alterCallableProperty",
-            "summary": "Call\u0020a\u0020function\u0020to\u0020alter\u0020a\u0020property.",
+            "summary": "Alters\u0020a\u0020value\u0020by\u0020invoking\u0020a\u0020user\u002Ddefined\u0020callable.",
             "url": "classes/oihana-models-traits-alters-AlterCallablePropertyTrait.html#method_alterCallableProperty"
         },                {
             "fqsen": "\\oihana\\models\\traits\\alters\\AlterFloatPropertyTrait",
             "name": "AlterFloatPropertyTrait",
-            "summary": "",
+            "summary": "Provides\u0020a\u0020standardized\u0020way\u0020to\u0020cast\u0020a\u0020property\u0020value\u0020to\u0020\u0060float\u0060\u0020within\u0020the\u0020AlterDocument\u0020system.",
             "url": "classes/oihana-models-traits-alters-AlterFloatPropertyTrait.html"
         },                {
             "fqsen": "\\oihana\\models\\traits\\alters\\AlterFloatPropertyTrait\u003A\u003AalterFloatProperty\u0028\u0029",
             "name": "alterFloatProperty",
-            "summary": "Cast\u0020a\u0020value\u0020to\u0020float.\u0020If\u0020the\u0020value\u0020is\u0020an\u0020array,\u0020all\u0020elements\u0020in\u0020the\u0020array\u0020are\u0020casted.",
+            "summary": "Casts\u0020a\u0020value\u0020\u0028or\u0020every\u0020element\u0020of\u0020an\u0020array\u0029\u0020to\u0020float.",
             "url": "classes/oihana-models-traits-alters-AlterFloatPropertyTrait.html#method_alterFloatProperty"
         },                {
             "fqsen": "\\oihana\\models\\traits\\alters\\AlterGetDocumentPropertyTrait",
@@ -2538,7 +2628,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\traits\\alters\\AlterIntPropertyTrait\u003A\u003AalterIntProperty\u0028\u0029",
             "name": "alterIntProperty",
-            "summary": "Cast\u0020a\u0020value\u0020to\u0020integer.",
+            "summary": "Casts\u0020a\u0020value\u0020\u0028or\u0020all\u0020elements\u0020of\u0020an\u0020array\u0029\u0020to\u0020integer.",
             "url": "classes/oihana-models-traits-alters-AlterIntPropertyTrait.html#method_alterIntProperty"
         },                {
             "fqsen": "\\oihana\\models\\traits\\alters\\AlterJSONParsePropertyTrait",
@@ -2563,7 +2653,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\traits\\alters\\AlterKeyTrait",
             "name": "AlterKeyTrait",
-            "summary": "Provides\u0020a\u0020default\u0020key\u0020to\u0020use\u0020in\u0020the\u0020alter\u0020methods.",
+            "summary": "Provides\u0020support\u0020for\u0020defining\u0020and\u0020initializing\u0020the\u0020default\u0020\u0022alter\u0020key\u0022.",
             "url": "classes/oihana-models-traits-alters-AlterKeyTrait.html"
         },                {
             "fqsen": "\\oihana\\models\\traits\\alters\\AlterKeyTrait\u003A\u003AinitializeAlterKey\u0028\u0029",
@@ -2576,9 +2666,19 @@ Search.appendIndex(
             "summary": "The\u0020default\u0020alter\u0020key\u0020reference.",
             "url": "classes/oihana-models-traits-alters-AlterKeyTrait.html#property_alterKey"
         },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterMapPropertyTrait",
+            "name": "AlterMapPropertyTrait",
+            "summary": "",
+            "url": "classes/oihana-models-traits-alters-AlterMapPropertyTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterMapPropertyTrait\u003A\u003AalterMapProperty\u0028\u0029",
+            "name": "alterMapProperty",
+            "summary": "Provides\u0020a\u0020mechanism\u0020to\u0020alter\u0020a\u0020property\u0020of\u0020a\u0020document\u0020using\u0020a\u0020custom\u0020\u0022map\u0022\u0020callback.",
+            "url": "classes/oihana-models-traits-alters-AlterMapPropertyTrait.html#method_alterMapProperty"
+        },                {
             "fqsen": "\\oihana\\models\\traits\\alters\\AlterNormalizePropertyTrait",
             "name": "AlterNormalizePropertyTrait",
-            "summary": "",
+            "summary": "Provides\u0020a\u0020method\u0020to\u0020normalize\u0020a\u0020property\u0020value\u0020according\u0020to\u0020configurable\u0020cleaning\u0020flags.",
             "url": "classes/oihana-models-traits-alters-AlterNormalizePropertyTrait.html"
         },                {
             "fqsen": "\\oihana\\models\\traits\\alters\\AlterNormalizePropertyTrait\u003A\u003AalterNormalizeProperty\u0028\u0029",
@@ -4021,16 +4121,6 @@ Search.appendIndex(
             "summary": "Disable\u0020specific\u0020route\u0020flags",
             "url": "classes/oihana-routes-traits-HasRouteTrait.html#method_disableFlags"
         },                {
-            "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003AgetFlags\u0028\u0029",
-            "name": "getFlags",
-            "summary": "Get\u0020current\u0020flags",
-            "url": "classes/oihana-routes-traits-HasRouteTrait.html#method_getFlags"
-        },                {
-            "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003AsetFlags\u0028\u0029",
-            "name": "setFlags",
-            "summary": "Set\u0020flags\u0020\u0028replacing\u0020current\u0020flags\u0029",
-            "url": "classes/oihana-routes-traits-HasRouteTrait.html#method_setFlags"
-        },                {
             "fqsen": "\\oihana\\routes\\traits\\HasRouteTrait\u003A\u003A\u0024flags",
             "name": "flags",
             "summary": "Bitmask\u0020representing\u0020enabled\u0020routes",
@@ -4123,7 +4213,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\traits\\CacheableTrait\u003A\u003AsetCache\u0028\u0029",
             "name": "setCache",
-            "summary": "Set\u0020a\u0020key\/value\u0020in\u0020the\u0020cache.",
+            "summary": "Persists\u0020data\u0020in\u0020the\u0020cache,\u0020uniquely\u0020referenced\u0020by\u0020a\u0020key\u0020with\u0020an\u0020optional\u0020expiration\u0020TTL\u0020time.",
             "url": "classes/oihana-traits-CacheableTrait.html#method_setCache"
         },                {
             "fqsen": "\\oihana\\traits\\CacheableTrait\u003A\u003AsetCacheMultiple\u0028\u0029",
@@ -5631,15 +5721,15 @@ Search.appendIndex(
             "summary": "",
             "url": "namespaces/oihana-init.html"
         },                {
-            "fqsen": "\\oihana\\logging\\enums",
-            "name": "enums",
-            "summary": "",
-            "url": "namespaces/oihana-logging-enums.html"
-        },                {
             "fqsen": "\\oihana\\logging",
             "name": "logging",
             "summary": "",
             "url": "namespaces/oihana-logging.html"
+        },                {
+            "fqsen": "\\oihana\\logging\\enums",
+            "name": "enums",
+            "summary": "",
+            "url": "namespaces/oihana-logging-enums.html"
         },                {
             "fqsen": "\\oihana\\logging\\monolog\\processors",
             "name": "processors",

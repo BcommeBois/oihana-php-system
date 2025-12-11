@@ -145,13 +145,20 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/alters/AlterKeyTrait.php"><a href="files/src-oihana-models-traits-alters-alterkeytrait.html"><abbr title="src/oihana/models/traits/alters/AlterKeyTrait.php">AlterKeyTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Provides a default key to use in the alter methods.</p>
+            <p class="phpdocumentor-summary">Provides support for defining and initializing the default &quot;alter key&quot;.</p>
 
 
+    <section class="phpdocumentor-description"><p>The alter key is used by alteration traits (e.g., <a href="classes/oihana-models-traits-alters-AlterUrlPropertyTrait.html"><abbr title="\oihana\models\traits\alters\AlterUrlPropertyTrait">AlterUrlPropertyTrait</abbr></a>)
+to resolve which property or contextual key should be used when applying
+transformations in a model's alteration pipeline.</p>
+<p>By default, the alter key is initialized to <abbr title="\org\schema\constants\Schema::ID">Schema::ID</abbr>, but it can
+be overridden at construction time or during initialization using the
+<abbr title="\oihana\models\enums\ModelParam::ALTER_KEY">ModelParam::ALTER_KEY</abbr> parameter.</p>
+</section>
 
 
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
@@ -179,10 +186,8 @@
                                     </dd>
                                             </dl>
 
-
-
-
-
+    
+    
 <h3 id="toc">
     Table of Contents
     <a href="classes/oihana-models-traits-alters-AlterKeyTrait.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -256,7 +261,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/alters/AlterKeyTrait.php"><a href="files/src-oihana-models-traits-alters-alterkeytrait.html"><abbr title="src/oihana/models/traits/alters/AlterKeyTrait.php">AlterKeyTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">22</span>
+    <span class="phpdocumentor-element-found-in__line">30</span>
 
     </aside>
 
@@ -288,9 +293,8 @@
                                     </dd>
                                             </dl>
 
-    
-
-    
+        
+        
 
 </article>
             </section>
@@ -315,7 +319,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/alters/AlterKeyTrait.php"><a href="files/src-oihana-models-traits-alters-alterkeytrait.html"><abbr title="src/oihana/models/traits/alters/AlterKeyTrait.php">AlterKeyTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">29</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
@@ -323,7 +327,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">initializeAlterKey</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+                    <span class="phpdocumentor-signature__name">initializeAlterKey</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -332,9 +336,9 @@
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$init</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+                <span class="phpdocumentor-argument-list__argument__name">$init</span>
+                : <span class="phpdocumentor-argument-list__argument__type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                 
             </dd>
@@ -342,8 +346,8 @@
 
     
 
+        
     
-
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">static</span>

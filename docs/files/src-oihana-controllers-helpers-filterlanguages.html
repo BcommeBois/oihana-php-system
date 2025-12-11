@@ -201,7 +201,7 @@
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility"></span>
-                    <span class="phpdocumentor-signature__name">filterLanguages</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string, string&gt;|object|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$fields</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$languages</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">callable|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$sanitize</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string, string|null&gt;|null</span></code>
+                    <span class="phpdocumentor-signature__name">filterLanguages</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">array&lt;string, string&gt;|object|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$fields</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__type">array&lt;string|int, string&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$languages</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__type">callable|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$sanitize</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string, string|null&gt;|null</span></code>
 
         <section class="phpdocumentor-description"><p>This helper transforms an input array/object from the client to prepare a multilingual (i18n) property.
 It keeps only string or null values, allows optional transformation or sanitization via a callback.</p>
@@ -210,8 +210,8 @@ It keeps only string or null values, allows optional transformation or sanitizat
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$fields</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string, string&gt;|object|null</span>
+                <span class="phpdocumentor-argument-list__argument__name">$fields</span>
+                : <span class="phpdocumentor-argument-list__argument__type">array&lt;string, string&gt;|object|null</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>Input array or object of translations.</p>
@@ -219,9 +219,9 @@ It keeps only string or null values, allows optional transformation or sanitizat
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$languages</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, string&gt;|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+                <span class="phpdocumentor-argument-list__argument__name">$languages</span>
+                : <span class="phpdocumentor-argument-list__argument__type">array&lt;string|int, string&gt;|null</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>Optional array of languages to filter the i18n definitions.
 If null, no filtering is applied.</p>
@@ -229,9 +229,9 @@ If null, no filtering is applied.</p>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$sanitize</span>
-                : <span class="phpdocumentor-signature__argument__return-type">callable|null</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+                <span class="phpdocumentor-argument-list__argument__name">$sanitize</span>
+                : <span class="phpdocumentor-argument-list__argument__type">callable|null</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>Optional callback to transform or sanitize each value.
 Signature: <code class="prettyprint">fn(string|null $value, string $lang): string|null</code></p>

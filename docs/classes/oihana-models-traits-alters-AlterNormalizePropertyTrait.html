@@ -145,19 +145,128 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/alters/AlterNormalizePropertyTrait.php"><a href="files/src-oihana-models-traits-alters-alternormalizepropertytrait.html"><abbr title="src/oihana/models/traits/alters/AlterNormalizePropertyTrait.php">AlterNormalizePropertyTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">9</span>
+    <span class="phpdocumentor-element-found-in__line">66</span>
 
     </aside>
 
-        
+            <p class="phpdocumentor-summary">Provides a method to normalize a property value according to configurable cleaning flags.</p>
 
 
+    <section class="phpdocumentor-description"><p>This trait is typically used in alteration pipelines to ensure that values
+are cleaned, trimmed, and standardized before being stored or further processed.</p>
+<p>The normalization behavior is controlled via <abbr title="\oihana\core\arrays\CleanFlag">CleanFlag</abbr> constants:</p>
+<ul>
+<li>By default, <code class="prettyprint">CleanFlag::DEFAULT | CleanFlag::RETURN_NULL</code> is applied.</li>
+<li>Custom flags can be provided as the first element of the <code class="prettyprint">$definition</code> array.</li>
+</ul>
+<p>Normalization handles:</p>
+<ul>
+<li>Arrays recursively, removing empty values, nulls, or falsy values according to flags.</li>
+<li>Strings by trimming and optionally converting empty strings to null.</li>
+<li>Scalars are generally returned as-is unless <code class="prettyprint">CleanFlag::FALSY</code> is used.</li>
+<li>Objects are returned as-is unless empty <code class="prettyprint">stdClass</code> and <code class="prettyprint">CleanFlag::RETURN_NULL</code> is set.</li>
+</ul>
+<p>The <code class="prettyprint">$modified</code> flag is set to <code class="prettyprint">true</code> if the resulting value differs from the original.</p>
+</section>
 
 
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-models-traits-alters-AlterNormalizePropertyTrait.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (ekameleon)</p>
+</section>
 
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (ekameleon)</p>
+</section>
 
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\oihana\models\traits\alters\normalize">normalize</abbr></span>
+                                        
+                                                 <section class="phpdocumentor-description"><p>For the underlying normalization logic.</p>
+</section>
 
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">see</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                    <span class="phpdocumentor-tag-link"><abbr title="\oihana\core\arrays\CleanFlag">CleanFlag</abbr></span>
+                                        
+                                                 <section class="phpdocumentor-description"><p>For the enumeration of cleaning modes.</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">use oihana\models\traits\alters\AlterNormalizePropertyTrait;
+use oihana\core\arrays\CleanFlag;
+
+class Product {
+    use AlterNormalizePropertyTrait;
+}
+
+$product = new Product();
+$modified = false;
+
+// Default normalization
+$value = $product-&gt;alterNormalizeProperty(['', ' foo ', null], [], $modified);
+// Result: ['foo']
+// $modified === true
+
+// Custom flags
+$value = $product-&gt;alterNormalizeProperty('   ', [CleanFlag::TRIM | CleanFlag::EMPTY], $modified);
+// Result: null
+// $modified === true
+
+// Scalars remain unchanged if not affected by flags
+$value = $product-&gt;alterNormalizeProperty(42, [], $modified);
+// Result: 42
+// $modified === false
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+    
+    
 <h3 id="toc">
     Table of Contents
     <a href="classes/oihana-models-traits-alters-AlterNormalizePropertyTrait.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -215,7 +324,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/alters/AlterNormalizePropertyTrait.php"><a href="files/src-oihana-models-traits-alters-alternormalizepropertytrait.html"><abbr title="src/oihana/models/traits/alters/AlterNormalizePropertyTrait.php">AlterNormalizePropertyTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">94</span>
 
     </aside>
 
@@ -223,7 +332,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">alterNormalizeProperty</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$definition</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$modified</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">alterNormalizeProperty</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$definition</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$modified</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -238,8 +347,8 @@
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$value</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                <span class="phpdocumentor-argument-list__argument__name">$value</span>
+                : <span class="phpdocumentor-argument-list__argument__type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>The value to normalize</p>
@@ -247,18 +356,18 @@
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$definition</span>
-                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">[]</span>            </dt>
+                <span class="phpdocumentor-argument-list__argument__name">$definition</span>
+                : <span class="phpdocumentor-argument-list__argument__type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>Optional flags array: [CleanFlag value, ...other params]</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$modified</span>
-                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+                <span class="phpdocumentor-argument-list__argument__name">$modified</span>
+                : <span class="phpdocumentor-argument-list__argument__type">bool</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
                     <section class="phpdocumentor-description"><p>Reference flag indicating if the value was modified</p>
 </section>
@@ -293,8 +402,8 @@ $this-&gt;alterNormalizeProperty($value, [CleanFlag::NULLS]);
                                     </dd>
                                             </dl>
 
+        
     
-
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">mixed</span>

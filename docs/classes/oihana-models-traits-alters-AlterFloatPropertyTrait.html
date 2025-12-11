@@ -145,19 +145,60 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/alters/AlterFloatPropertyTrait.php"><a href="files/src-oihana-models-traits-alters-alterfloatpropertytrait.html"><abbr title="src/oihana/models/traits/alters/AlterFloatPropertyTrait.php">AlterFloatPropertyTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
-        
+            <p class="phpdocumentor-summary">Provides a standardized way to cast a property value to `float` within the AlterDocument system.</p>
 
 
+    <section class="phpdocumentor-description"><p>This alteration is typically declared as:</p>
+<pre class="prettyprint"><code class="language-php">'price' =&gt; Alter::FLOAT
+</code></pre>
+<p>or inside a chained definition:</p>
+<pre class="prettyprint"><code class="language-php">'prices' =&gt; [ Alter::ARRAY, Alter::FLOAT ]
+</code></pre>
+<p>Behavior details:</p>
+<ul>
+<li>If the input is already a <code class="prettyprint">float</code>, it is returned unchanged and <code class="prettyprint">$modified</code>
+remains <code class="prettyprint">false</code>.</li>
+<li>If the input is an array, <strong>each element</strong> is converted using <code class="prettyprint">floatval()</code>.</li>
+<li>If the input is any scalar (string, int, bool), it is cast using <code class="prettyprint">floatval()</code>.</li>
+<li>Non-scalar, non-array values should generally not occur, but if they do,
+PHP's <code class="prettyprint">floatval()</code> semantics apply.</li>
+</ul>
+<p>This alteration is useful for ensuring numeric consistency when working
+with user input, JSON data, APIs, DTO hydration, or internal normalization.</p>
+</section>
 
 
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-models-traits-alters-AlterFloatPropertyTrait.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (ekameleon)</p>
+</section>
 
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
 
-
+    
+    
 <h3 id="toc">
     Table of Contents
     <a href="classes/oihana-models-traits-alters-AlterFloatPropertyTrait.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -182,9 +223,9 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-models-traits-alters-AlterFloatPropertyTrait.html#method_alterFloatProperty">alterFloatProperty()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;|float    </span>
+                                &nbsp;: float|array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd>Cast a value to float. If the value is an array, all elements in the array are casted.</dd>
+<dd>Casts a value (or every element of an array) to float.</dd>
 
     </dl>
 
@@ -215,48 +256,99 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/alters/AlterFloatPropertyTrait.php"><a href="files/src-oihana-models-traits-alters-alterfloatpropertytrait.html"><abbr title="src/oihana/models/traits/alters/AlterFloatPropertyTrait.php">AlterFloatPropertyTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">16</span>
+    <span class="phpdocumentor-element-found-in__line">77</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Cast a value to float. If the value is an array, all elements in the array are casted.</p>
+        <p class="phpdocumentor-summary">Casts a value (or every element of an array) to float.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">alterFloatProperty</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$modified</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|float</span></code>
+                    <span class="phpdocumentor-signature__name">alterFloatProperty</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$modified</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">float|array&lt;string|int, mixed&gt;</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
-        <section class="phpdocumentor-description"><pre class="prettyprint"><code class="prettyprint">Property::PRICE =&gt; [ Alter::FLOAT ] ,
-</code></pre>
+        <section class="phpdocumentor-description"><p>This method ensures that the resulting value is always of type <code class="prettyprint">float</code>
+(or an array of floats). It also sets <code class="prettyprint">$modified</code> to <code class="prettyprint">true</code> when any
+transformation occurs.</p>
+<p>Rules:</p>
+<ul>
+<li>If <code class="prettyprint">$value</code> is already a float → returned as is, not marked modified.</li>
+<li>If <code class="prettyprint">$value</code> is an array → each element converted via <code class="prettyprint">floatval()</code>.</li>
+<li>Otherwise → <code class="prettyprint">$value</code> is cast to float.</li>
+</ul>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$value</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                <span class="phpdocumentor-argument-list__argument__name">$value</span>
+                : <span class="phpdocumentor-argument-list__argument__type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The value to convert. Can be scalar or array.</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$modified</span>
-                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+                <span class="phpdocumentor-argument-list__argument__name">$modified</span>
+                : <span class="phpdocumentor-argument-list__argument__type">bool</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Output flag set to <code class="prettyprint">true</code> if a cast was performed.</p>
+</section>
+
             </dd>
             </dl>
 
     
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-models-traits-alters-AlterFloatPropertyTrait.html#method_alterFloatProperty#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">$value = '12.5';
+$new   = $this-&gt;alterFloatProperty($value, $modified);
+
+// $new      = 12.5
+// $modified = true
+</code></pre>
+</section>
+
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">example</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Array usage</p>
+<pre class="prettyprint"><code class="language-php">$value = ['1.2', '3.4', 5];
+$new   = $this-&gt;alterFloatProperty($value, $modified);
+
+// $new      = [1.2, 3.4, 5.0]
+// $modified = true
+</code></pre>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+        
     
-
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|float</span>
+        <span class="phpdocumentor-signature__response_type">float|array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The float-cast value or an array of float-cast values.</p>
+</section>
+
             </section>
 
 </article>

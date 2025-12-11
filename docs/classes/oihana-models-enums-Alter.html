@@ -171,7 +171,7 @@ when normalizing or processing data within models or collections.</p>
 <li>Converting a value to a specific type (<code class="prettyprint">INT</code>, <code class="prettyprint">FLOAT</code>)</li>
 <li>Cleaning or normalizing arrays or strings (<code class="prettyprint">CLEAN</code>, <code class="prettyprint">NORMALIZE</code>)</li>
 <li>Parsing or serializing JSON (<code class="prettyprint">JSON_PARSE</code>, <code class="prettyprint">JSON_STRINGIFY</code>)</li>
-<li>Applying custom callbacks (<code class="prettyprint">CALL</code>)</li>
+<li>Applying custom callbacks (<code class="prettyprint">CALL</code>) or map (<code class="prettyprint">MAP</code>)</li>
 <li>Extracting values via getters (<code class="prettyprint">GET</code>)</li>
 <li>Handling URLs or array transformations (<code class="prettyprint">URL</code>, <code class="prettyprint">ARRAY</code>)</li>
 </ul>
@@ -213,10 +213,8 @@ when normalizing or processing data within models or collections.</p>
                                     </dd>
                                             </dl>
 
-
-
-
-
+    
+    
 <h3 id="toc">
     Table of Contents
     <a href="classes/oihana-models-enums-Alter.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -296,6 +294,12 @@ when normalizing or processing data within models or collections.</p>
 </dt>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-models-enums-Alter.html#constant_MAP">MAP</a>
+    <span>
+        &nbsp;= &#039;map&#039;                            </span>
+</dt>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
     <a class="" href="classes/oihana-models-enums-Alter.html#constant_NORMALIZE">NORMALIZE</a>
     <span>
         &nbsp;= &#039;normalize&#039;                            </span>
@@ -361,9 +365,8 @@ when normalizing or processing data within models or collections.</p>
     
     
 
-    
-
-</article>
+        
+    </article>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_CALL">
         CALL
@@ -392,9 +395,8 @@ when normalizing or processing data within models or collections.</p>
     
     
 
-    
-
-</article>
+        
+    </article>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_CLEAN">
         CLEAN
@@ -423,9 +425,8 @@ when normalizing or processing data within models or collections.</p>
     
     
 
-    
-
-</article>
+        
+    </article>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_FLOAT">
         FLOAT
@@ -454,9 +455,8 @@ when normalizing or processing data within models or collections.</p>
     
     
 
-    
-
-</article>
+        
+    </article>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_GET">
         GET
@@ -485,9 +485,8 @@ when normalizing or processing data within models or collections.</p>
     
     
 
-    
-
-</article>
+        
+    </article>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_HYDRATE">
         HYDRATE
@@ -516,9 +515,8 @@ when normalizing or processing data within models or collections.</p>
     
     
 
-    
-
-</article>
+        
+    </article>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_INT">
         INT
@@ -547,9 +545,8 @@ when normalizing or processing data within models or collections.</p>
     
     
 
-    
-
-</article>
+        
+    </article>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_JSON_PARSE">
         JSON_PARSE
@@ -578,9 +575,8 @@ when normalizing or processing data within models or collections.</p>
     
     
 
-    
-
-</article>
+        
+    </article>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_JSON_STRINGIFY">
         JSON_STRINGIFY
@@ -609,9 +605,8 @@ when normalizing or processing data within models or collections.</p>
     
     
 
-    
-
-</article>
+        
+    </article>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_LIST">
         LIST
@@ -640,9 +635,38 @@ when normalizing or processing data within models or collections.</p>
     
     
 
+        
+    </article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_MAP">
+        MAP
+        <a href="classes/oihana-models-enums-Alter.html#constant_MAP" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/enums/Alter.php"><a href="files/src-oihana-models-enums-alter.html"><abbr title="src/oihana/models/enums/Alter.php">Alter.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">42</span>
+
+    </aside>
+
+    
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">MAP</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;map&#039;</span>
+</code>
+
+
+    
+    
     
 
-</article>
+        
+    </article>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_NORMALIZE">
         NORMALIZE
@@ -653,7 +677,7 @@ when normalizing or processing data within models or collections.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/enums/Alter.php"><a href="files/src-oihana-models-enums-alter.html"><abbr title="src/oihana/models/enums/Alter.php">Alter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">42</span>
+    <span class="phpdocumentor-element-found-in__line">43</span>
 
     </aside>
 
@@ -671,9 +695,8 @@ when normalizing or processing data within models or collections.</p>
     
     
 
-    
-
-</article>
+        
+    </article>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_NOT">
         NOT
@@ -684,7 +707,7 @@ when normalizing or processing data within models or collections.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/enums/Alter.php"><a href="files/src-oihana-models-enums-alter.html"><abbr title="src/oihana/models/enums/Alter.php">Alter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">43</span>
+    <span class="phpdocumentor-element-found-in__line">44</span>
 
     </aside>
 
@@ -702,9 +725,8 @@ when normalizing or processing data within models or collections.</p>
     
     
 
-    
-
-</article>
+        
+    </article>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_URL">
         URL
@@ -715,7 +737,7 @@ when normalizing or processing data within models or collections.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/enums/Alter.php"><a href="files/src-oihana-models-enums-alter.html"><abbr title="src/oihana/models/enums/Alter.php">Alter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">44</span>
+    <span class="phpdocumentor-element-found-in__line">45</span>
 
     </aside>
 
@@ -733,9 +755,8 @@ when normalizing or processing data within models or collections.</p>
     
     
 
-    
-
-</article>
+        
+    </article>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_VALUE">
         VALUE
@@ -746,7 +767,7 @@ when normalizing or processing data within models or collections.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/enums/Alter.php"><a href="files/src-oihana-models-enums-alter.html"><abbr title="src/oihana/models/enums/Alter.php">Alter.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">45</span>
+    <span class="phpdocumentor-element-found-in__line">46</span>
 
     </aside>
 
@@ -764,9 +785,8 @@ when normalizing or processing data within models or collections.</p>
     
     
 
-    
-
-</article>
+        
+    </article>
             </section>
 
         
@@ -893,6 +913,7 @@ when normalizing or processing data within models or collections.</p>
                                                     <li class=""><a href="classes/oihana-models-enums-Alter.html#constant_JSON_PARSE">JSON_PARSE</a></li>
                                                     <li class=""><a href="classes/oihana-models-enums-Alter.html#constant_JSON_STRINGIFY">JSON_STRINGIFY</a></li>
                                                     <li class=""><a href="classes/oihana-models-enums-Alter.html#constant_LIST">LIST</a></li>
+                                                    <li class=""><a href="classes/oihana-models-enums-Alter.html#constant_MAP">MAP</a></li>
                                                     <li class=""><a href="classes/oihana-models-enums-Alter.html#constant_NORMALIZE">NORMALIZE</a></li>
                                                     <li class=""><a href="classes/oihana-models-enums-Alter.html#constant_NOT">NOT</a></li>
                                                     <li class=""><a href="classes/oihana-models-enums-Alter.html#constant_URL">URL</a></li>

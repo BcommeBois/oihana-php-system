@@ -190,11 +190,33 @@ $count = $product-&gt;alterIntProperty(5, $modified);
 </section>
 
 
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-models-traits-alters-AlterIntPropertyTrait.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (ekameleon)</p>
+</section>
 
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
 
-
-
+    
+    
 <h3 id="toc">
     Table of Contents
     <a href="classes/oihana-models-traits-alters-AlterIntPropertyTrait.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
@@ -219,9 +241,9 @@ $count = $product-&gt;alterIntProperty(5, $modified);
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-models-traits-alters-AlterIntPropertyTrait.html#method_alterIntProperty">alterIntProperty()</a>
     <span>
-                                &nbsp;: array&lt;string|int, mixed&gt;|int    </span>
+                                &nbsp;: int|array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd>Cast a value to integer.</dd>
+<dd>Casts a value (or all elements of an array) to integer.</dd>
 
     </dl>
 
@@ -252,49 +274,92 @@ $count = $product-&gt;alterIntProperty(5, $modified);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/alters/AlterIntPropertyTrait.php"><a href="files/src-oihana-models-traits-alters-alterintpropertytrait.html"><abbr title="src/oihana/models/traits/alters/AlterIntPropertyTrait.php">AlterIntPropertyTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">62</span>
+    <span class="phpdocumentor-element-found-in__line">100</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Cast a value to integer.</p>
+        <p class="phpdocumentor-summary">Casts a value (or all elements of an array) to integer.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">alterIntProperty</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$modified</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span></code>
+                    <span class="phpdocumentor-signature__name">alterIntProperty</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$value</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__reference-operator">&amp;</span><span class="phpdocumentor-signature__argument__name">$modified</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">false</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int|array&lt;string|int, mixed&gt;</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
-        <section class="phpdocumentor-description"><p>If the value is an array, all elements in the array are casted.</p>
-<pre class="prettyprint"><code class="prettyprint">Property::PRICE =&gt; [ Alter::INT ] ,
+        <section class="phpdocumentor-description"><p>This alteration is typically used within property transformation
+pipelines to ensure that the resulting value is strictly of type <code class="prettyprint">int</code>.</p>
+<p>Behavior:</p>
+<ul>
+<li>If <code class="prettyprint">$value</code> is an array, each element is individually cast using <abbr title="\oihana\models\traits\alters\intval()">intval()</abbr>.</li>
+<li>If <code class="prettyprint">$value</code> is already an integer, it is returned unchanged and <code class="prettyprint">$modified</code>
+remains <code class="prettyprint">false</code>.</li>
+<li>If <code class="prettyprint">$value</code> is not an integer, it is cast to integer and <code class="prettyprint">$modified</code>
+becomes <code class="prettyprint">true</code>.</li>
+</ul>
+<p>The <code class="prettyprint">$modified</code> flag will be set to <code class="prettyprint">true</code> whenever at least one casting
+occurs (i.e., when the original value or any array element was not already
+an integer).</p>
+<p>Example:</p>
+<pre class="prettyprint"><code class="language-php">use oihana\traits\alters\AlterIntPropertyTrait;
+
+class Product {
+    use AlterIntPropertyTrait;
+}
+
+$product  = new Product();
+$modified = false;
+
+// Casting a single value
+$id = $product-&gt;alterIntProperty(&quot;42&quot;, $modified);
+// $id === 42
+// $modified === true
+
+// Casting an array of values
+$values = $product-&gt;alterIntProperty([&quot;10&quot;, &quot;20&quot;, &quot;30&quot;], $modified);
+// $values === [10, 20, 30]
+// $modified === true
+
+// Already an int
+$count = $product-&gt;alterIntProperty(5, $modified);
+// $count === 5
+// $modified === false
 </code></pre>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$value</span>
-                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                <span class="phpdocumentor-argument-list__argument__name">$value</span>
+                : <span class="phpdocumentor-argument-list__argument__type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>The input value, scalar or array.</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$modified</span>
-                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
-                 = <span class="phpdocumentor-signature__argument__default-value">false</span>            </dt>
+                <span class="phpdocumentor-argument-list__argument__name">$modified</span>
+                : <span class="phpdocumentor-argument-list__argument__type">bool</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">false</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Reference flag indicating if any cast occurred.</p>
+</section>
+
             </dd>
             </dl>
 
     
 
+        
     
-
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|int</span>
+        <span class="phpdocumentor-signature__response_type">int|array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>The cast integer or array of integers.</p>
+</section>
+
             </section>
 
 </article>
