@@ -5,6 +5,7 @@ namespace oihana\models\traits;
 use DI\DependencyException;
 use DI\NotFoundException;
 
+use oihana\core\arrays\CleanFlag;
 use ReflectionException;
 
 use Psr\Container\ContainerExceptionInterface;
@@ -14,6 +15,7 @@ use oihana\models\enums\ModelParam;
 use oihana\traits\ContainerTrait;
 
 use function oihana\core\accessors\hasKeyValue;
+use function oihana\core\arrays\clean;
 use function oihana\core\arrays\isAssociative;
 
 /**
@@ -103,6 +105,7 @@ trait AlterBindVarsTrait
      *
      * @param array|null  $bindVars The bind variables definition to transform. Should be an associative array or a list of associative arrays.
      * @param string|null $context  Optional context key to select a specific set of alterations from `$this->bindAlters`.
+     * @param int         $flags    $flags A bitmask of `CleanFlag` values. Defaults to `CleanFlag::DEFAULT`.
      *
      * @return array|null The transformed bind variables array, preserving the input structure. Returns the original input if no alterations apply.
      *
@@ -141,7 +144,7 @@ trait AlterBindVarsTrait
      * // ]
      * ```
      */
-    public function alterBindVars( ?array $bindVars , ?string $context = null ) :?array
+    public function alterBindVars( ?array $bindVars , ?string $context = null , int $flags = CleanFlag::DEFAULT ) :?array
     {
         if ( $bindVars === null || !isAssociative( $bindVars ) )
         {
@@ -168,7 +171,7 @@ trait AlterBindVarsTrait
             }
         }
 
-        return $bindVars ;
+        return clean( $bindVars , $flags ) ;
     }
 
     /**
