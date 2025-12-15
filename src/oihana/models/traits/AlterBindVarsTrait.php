@@ -144,11 +144,17 @@ trait AlterBindVarsTrait
      * // ]
      * ```
      */
-    public function alterBindVars( ?array $bindVars , ?string $context = null , int $flags = CleanFlag::DEFAULT ) :?array
+    public function alterBindVars
+    (
+        ?array  $bindVars ,
+        ?string $context  = null ,
+        int     $flags    = CleanFlag::DEFAULT
+    )
+    :?array
     {
-        if ( $bindVars === null || !isAssociative( $bindVars ) )
+        if ( empty( $bindVars ) || !isAssociative( $bindVars )  )
         {
-            return $bindVars ;
+            return clean( $bindVars , $flags ) ;
         }
 
         $alters ??= $this->bindAlters ;
@@ -160,7 +166,7 @@ trait AlterBindVarsTrait
 
         if ( count( $alters ) === 0 )
         {
-            return $bindVars ;
+            return clean( $bindVars , $flags ) ;
         }
 
         foreach ( $alters as $key => $definition )
@@ -175,7 +181,7 @@ trait AlterBindVarsTrait
     }
 
     /**
-     * Initialize the 'alters' property.
+     * Initialize the 'bindAlters' property.
      * @param array $init
      * @return static
      */
