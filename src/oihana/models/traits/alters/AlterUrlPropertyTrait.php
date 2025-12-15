@@ -93,7 +93,7 @@ trait AlterUrlPropertyTrait
      * @param array         $options       Configuration array: [path, propertyName, containerKey, trailingSlash]
      * @param ?Container    $container     DI container for resolving base URL from service definitions.
      * @param bool          $modified      Reference flag set to true if URL alteration occurs.
-     * @param string        $propertyName  Default property name to use if not specified in options.
+     * @param ?string       $propertyName  Default property name to use if not specified in options.
      * @param string        $containerKey  Default container key for base URL if not specified in options.
      *
      * @return string The generated URL.

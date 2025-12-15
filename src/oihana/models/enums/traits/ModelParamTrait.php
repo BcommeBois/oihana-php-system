@@ -24,6 +24,11 @@ trait ModelParamTrait
     public const string BINDS = 'binds' ;
 
     /**
+     * The 'bindsAlters' parameter.
+     */
+    public const string BINDS_ALTERS = 'bindsAlters' ;
+
+    /**
      * The 'cache' parameter.
      */
     public const string CACHE = 'cache' ;
