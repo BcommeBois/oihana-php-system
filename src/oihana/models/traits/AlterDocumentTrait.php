@@ -122,21 +122,29 @@ trait AlterDocumentTrait
     public array $alters = [] ;
 
     /**
-     * Alters the given document (array or object) based on the configured `$alters` definitions.
+     * Applies defined alterations to a document (array or object) based on a set of rules.
      *
-     * This method determines if the document is a sequential array (list).
-     * If it is, the alteration is recursively applied to each item.
-     * Otherwise (associative array or object), each key listed in `$alters` is processed.
+     * This method inspects the input document and applies transformations according to the provided `$alters` definitions:
      *
-     * @param mixed $document The input to alter. Can be an associative array, object, or a list of items.
+     * - If the document is a **sequential array** (list), the alteration is recursively applied to each element.
+     * - If the document is an **associative array** or an **object**, only the keys defined in `$alters` are processed.
+     * - If a key in `$alters` is associated with a **chained alteration** (array of alters), each alteration
+     *   is applied sequentially, passing the output of one as input to the next.
+     * - Scalar values (string, int, float, bool, resource, null) are returned unchanged unless specifically targeted in `$alters`.
      *
-     * @return mixed The altered document, same structure as input.
+     * The `$alters` parameter allows temporarily overriding or extending the internal `$this->alters` property
+     * for the current method call. Passing `null` will use the trait's internal `$this->alters` array.
      *
-     * @throws ContainerExceptionInterface
-     * @throws DependencyException
-     * @throws NotFoundException
-     * @throws NotFoundExceptionInterface
-     * @throws ReflectionException
+     * @param mixed       $document The input to transform. Can be an associative array, object, or a list of items.
+     * @param array|null  $alters   Optional temporary alter definitions for this call. Keys are property names, values are `Alter::` constants or arrays of chained alters.
+     *
+     * @return mixed The transformed document, preserving the input structure (array, object, or list of arrays/objects).
+     *
+     * @throws ContainerExceptionInterface If a DI container error occurs during alteration.
+     * @throws DependencyException If a dependency cannot be resolved during alteration.
+     * @throws NotFoundException If a container service is not found during alteration.
+     * @throws NotFoundExceptionInterface If a container service is not found during alteration.
+     * @throws ReflectionException If a reflection operation fails during alteration (e.g., Hydrate or Get).
      *
      * @example
      * ```php
@@ -146,16 +154,19 @@ trait AlterDocumentTrait
      *
      *     public function __construct()
      *     {
-     *         $this->alters =
-     *         [
-     *            'price' => Alter::FLOAT,
-     *            'tags'  => [ Alter::ARRAY , Alter::CLEAN ],
-     *            'name'  => [ Alter::TRIM , Alter::UPPERCASE ], // Chained alterations
+     *         $this->alters = [
+     *             'price' => Alter::FLOAT,
+     *             'tags'  => [ Alter::ARRAY, Alter::CLEAN ],
+     *             'name'  => [ Alter::TRIM, Alter::UPPERCASE ], // Chained alterations
      *         ];
      *     }
      * }
      *
-     * $input = [ 'price' => '19.99', 'tags'  => 'foo,bar', 'name' => '  john  ' ];
+     * $input = [
+     *     'price' => '19.99',
+     *     'tags'  => 'foo,bar',
+     *     'name'  => '  john  '
+     * ];
      *
      * $processor = new Example();
      * $output = $processor->alter($input);
@@ -168,14 +179,16 @@ trait AlterDocumentTrait
      * // ]
      * ```
      */
-    public function alter( mixed $document ) :mixed
+    public function alter( mixed $document , ?array $alters = null ) :mixed
     {
         if ( !is_array( $document ) && !is_object( $document ) )
         {
             return $document ;
         }
 
-        if ( count( $this->alters ) === 0 )
+        $alters ??= $this->alters ;
+
+        if ( count( $alters ) === 0 )
         {
             return $document ;
         }
@@ -185,7 +198,7 @@ trait AlterDocumentTrait
             return array_map( fn( $value ) => $this->alter( $value ) , $document ) ;
         }
 
-        foreach ( $this->alters as $key => $definition )
+        foreach ( $alters as $key => $definition )
         {
             if ( hasKeyValue( $document , $key ) )
             {

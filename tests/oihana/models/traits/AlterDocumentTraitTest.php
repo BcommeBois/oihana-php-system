@@ -44,6 +44,42 @@ class AlterDocumentTraitTest extends TestCase
      * @throws ContainerExceptionInterface
      * @throws DependencyException
      * @throws ReflectionException
+     */
+    public function testAlterWithTemporaryAlters()
+    {
+        $processor = new MockAlterDocument
+        ([
+            'price' => Alter::INT // default
+        ]);
+
+        $input =
+        [
+            'price' => '12.5',
+            'discount' => '3.7'
+        ];
+
+        $customAlters =
+        [
+            'discount' => Alter::FLOAT
+        ];
+
+        $output = $processor->alter( $input , $customAlters ) ;
+
+        $this->assertSame('12.5', $output['price']); // always a string
+        // 'discount' casted as float
+        $this->assertSame(3.7, $output['discount']);
+
+        // $this->alters not change
+        $this->assertArrayHasKey('price', $processor->alters);
+        $this->assertArrayNotHasKey('discount', $processor->alters);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws ReflectionException
      *
      */
     public function testFloatAlteration()

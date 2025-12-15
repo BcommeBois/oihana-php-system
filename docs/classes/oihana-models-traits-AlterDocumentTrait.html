@@ -311,7 +311,7 @@ such as converting values to floats, parsing JSON, cleaning arrays, or resolving
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
-<dd>Alters the given document (array or object) based on the configured `$alters` definitions.</dd>
+<dd>Applies defined alterations to a document (array or object) based on a set of rules.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-models-traits-alters-AlterArrayCleanPropertyTrait.html#method_alterArrayCleanProperty">alterArrayCleanProperty()</a>
@@ -639,22 +639,29 @@ such as converting values to floats, parsing JSON, cleaning arrays, or resolving
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterDocumentTrait.php"><a href="files/src-oihana-models-traits-alterdocumenttrait.html"><abbr title="src/oihana/models/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">171</span>
+    <span class="phpdocumentor-element-found-in__line">182</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Alters the given document (array or object) based on the configured `$alters` definitions.</p>
+        <p class="phpdocumentor-summary">Applies defined alterations to a document (array or object) based on a set of rules.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">alter</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$document</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">alter</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$document</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$alters</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
-        <section class="phpdocumentor-description"><p>This method determines if the document is a sequential array (list).
-If it is, the alteration is recursively applied to each item.
-Otherwise (associative array or object), each key listed in <code class="prettyprint">$alters</code> is processed.</p>
+        <section class="phpdocumentor-description"><p>This method inspects the input document and applies transformations according to the provided <code class="prettyprint">$alters</code> definitions:</p>
+<ul>
+<li>If the document is a <strong>sequential array</strong> (list), the alteration is recursively applied to each element.</li>
+<li>If the document is an <strong>associative array</strong> or an <strong>object</strong>, only the keys defined in <code class="prettyprint">$alters</code> are processed.</li>
+<li>If a key in <code class="prettyprint">$alters</code> is associated with a <strong>chained alteration</strong> (array of alters), each alteration
+is applied sequentially, passing the output of one as input to the next.</li>
+<li>Scalar values (string, int, float, bool, resource, null) are returned unchanged unless specifically targeted in <code class="prettyprint">$alters</code>.</li>
+</ul>
+<p>The <code class="prettyprint">$alters</code> parameter allows temporarily overriding or extending the internal <code class="prettyprint">$this-&gt;alters</code> property
+for the current method call. Passing <code class="prettyprint">null</code> will use the trait's internal <code class="prettyprint">$this-&gt;alters</code> array.</p>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -664,7 +671,16 @@ Otherwise (associative array or object), each key listed in <code class="prettyp
                 : <span class="phpdocumentor-argument-list__argument__type">mixed</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The input to alter. Can be an associative array, object, or a list of items.</p>
+                    <section class="phpdocumentor-description"><p>The input to transform. Can be an associative array, object, or a list of items.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$alters</span>
+                : <span class="phpdocumentor-argument-list__argument__type">array&lt;string|int, mixed&gt;|null</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional temporary alter definitions for this call. Keys are property names, values are <code class="prettyprint">Alter::</code> constants or arrays of chained alters.</p>
 </section>
 
             </dd>
@@ -683,7 +699,9 @@ Otherwise (associative array or object), each key listed in <code class="prettyp
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
                                                             
-                                             
+                                                 <section class="phpdocumentor-description"><p>If a DI container error occurs during alteration.</p>
+</section>
+
                                     </dd>
                             <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">throws</span>
@@ -691,7 +709,9 @@ Otherwise (associative array or object), each key listed in <code class="prettyp
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\DI\DependencyException">DependencyException</abbr></span>
                                                             
-                                             
+                                                 <section class="phpdocumentor-description"><p>If a dependency cannot be resolved during alteration.</p>
+</section>
+
                                     </dd>
                             <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">throws</span>
@@ -699,7 +719,9 @@ Otherwise (associative array or object), each key listed in <code class="prettyp
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\DI\NotFoundException">NotFoundException</abbr></span>
                                                             
-                                             
+                                                 <section class="phpdocumentor-description"><p>If a container service is not found during alteration.</p>
+</section>
+
                                     </dd>
                             <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">throws</span>
@@ -707,7 +729,9 @@ Otherwise (associative array or object), each key listed in <code class="prettyp
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
                                                             
-                                             
+                                                 <section class="phpdocumentor-description"><p>If a container service is not found during alteration.</p>
+</section>
+
                                     </dd>
                             <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">throws</span>
@@ -715,7 +739,9 @@ Otherwise (associative array or object), each key listed in <code class="prettyp
                 <dd class="phpdocumentor-tag-list__definition">
                                                                 <span class="phpdocumentor-tag-link"><abbr title="\ReflectionException">ReflectionException</abbr></span>
                                                             
-                                             
+                                                 <section class="phpdocumentor-description"><p>If a reflection operation fails during alteration (e.g., Hydrate or Get).</p>
+</section>
+
                                     </dd>
                                                 <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">example</span>
@@ -728,16 +754,19 @@ Otherwise (associative array or object), each key listed in <code class="prettyp
 
     public function __construct()
     {
-        $this-&gt;alters =
-        [
-           'price' =&gt; Alter::FLOAT,
-           'tags'  =&gt; [ Alter::ARRAY , Alter::CLEAN ],
-           'name'  =&gt; [ Alter::TRIM , Alter::UPPERCASE ], // Chained alterations
+        $this-&gt;alters = [
+            'price' =&gt; Alter::FLOAT,
+            'tags'  =&gt; [ Alter::ARRAY, Alter::CLEAN ],
+            'name'  =&gt; [ Alter::TRIM, Alter::UPPERCASE ], // Chained alterations
         ];
     }
 }
 
-$input = [ 'price' =&gt; '19.99', 'tags'  =&gt; 'foo,bar', 'name' =&gt; '  john  ' ];
+$input = [
+    'price' =&gt; '19.99',
+    'tags'  =&gt; 'foo,bar',
+    'name'  =&gt; '  john  '
+];
 
 $processor = new Example();
 $output = $processor-&gt;alter($input);
@@ -760,7 +789,7 @@ $output = $processor-&gt;alter($input);
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">mixed</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>The altered document, same structure as input.</p>
+                <section class="phpdocumentor-description"><p>The transformed document, preserving the input structure (array, object, or list of arrays/objects).</p>
 </section>
 
             </section>
@@ -2406,7 +2435,7 @@ $result = $processor-&gt;alterNotProperty($array, $modified);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterDocumentTrait.php"><a href="files/src-oihana-models-traits-alterdocumenttrait.html"><abbr title="src/oihana/models/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">204</span>
+    <span class="phpdocumentor-element-found-in__line">217</span>
 
     </aside>
 
@@ -2455,7 +2484,7 @@ $result = $processor-&gt;alterNotProperty($array, $modified);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterDocumentTrait.php"><a href="files/src-oihana-models-traits-alterdocumenttrait.html"><abbr title="src/oihana/models/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">283</span>
+    <span class="phpdocumentor-element-found-in__line">296</span>
 
     </aside>
 
@@ -2646,7 +2675,7 @@ $result = $this-&gt;alterProperty('price', $document, Alter::FLOAT);
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterDocumentTrait.php"><a href="files/src-oihana-models-traits-alterdocumenttrait.html"><abbr title="src/oihana/models/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">317</span>
+    <span class="phpdocumentor-element-found-in__line">330</span>
 
     </aside>
 
@@ -2778,7 +2807,7 @@ becoming the input of the next.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterDocumentTrait.php"><a href="files/src-oihana-models-traits-alterdocumenttrait.html"><abbr title="src/oihana/models/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">381</span>
+    <span class="phpdocumentor-element-found-in__line">394</span>
 
     </aside>
 
@@ -2907,7 +2936,7 @@ becoming the input of the next.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterDocumentTrait.php"><a href="files/src-oihana-models-traits-alterdocumenttrait.html"><abbr title="src/oihana/models/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">427</span>
+    <span class="phpdocumentor-element-found-in__line">440</span>
 
     </aside>
 
@@ -3063,7 +3092,7 @@ becoming the input of the next.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterDocumentTrait.php"><a href="files/src-oihana-models-traits-alterdocumenttrait.html"><abbr title="src/oihana/models/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">465</span>
+    <span class="phpdocumentor-element-found-in__line">478</span>
 
     </aside>
 
@@ -3118,7 +3147,7 @@ becoming the input of the next.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterDocumentTrait.php"><a href="files/src-oihana-models-traits-alterdocumenttrait.html"><abbr title="src/oihana/models/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">484</span>
+    <span class="phpdocumentor-element-found-in__line">497</span>
 
     </aside>
 

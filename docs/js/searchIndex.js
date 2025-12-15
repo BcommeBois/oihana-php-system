@@ -2518,7 +2518,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003Aalter\u0028\u0029",
             "name": "alter",
-            "summary": "Alters\u0020the\u0020given\u0020document\u0020\u0028array\u0020or\u0020object\u0029\u0020based\u0020on\u0020the\u0020configured\u0020\u0060\u0024alters\u0060\u0020definitions.",
+            "summary": "Applies\u0020defined\u0020alterations\u0020to\u0020a\u0020document\u0020\u0028array\u0020or\u0020object\u0029\u0020based\u0020on\u0020a\u0020set\u0020of\u0020rules.",
             "url": "classes/oihana-models-traits-AlterDocumentTrait.html#method_alter"
         },                {
             "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003AinitializeAlters\u0028\u0029",
