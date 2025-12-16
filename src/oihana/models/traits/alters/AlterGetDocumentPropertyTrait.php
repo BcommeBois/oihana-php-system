@@ -64,7 +64,7 @@ trait AlterGetDocumentPropertyTrait
     )
     : mixed
     {
-        if( isset( $value ) )
+        if( !empty( $value ) )
         {
             $model = getDocumentsModel( $definition[0] ?? null , $container ) ;
             if( isset( $model ) )
