@@ -4,6 +4,7 @@ namespace oihana\models\pdo;
 
 use Exception;
 
+use Generator;
 use PDO;
 use PDOException;
 use PDOStatement;
@@ -173,6 +174,63 @@ trait PDOTrait
             $this->warning( __METHOD__ . ' failed, ' . $exception->getMessage() ) ;
         }
         return $result ;
+    }
+
+    /**
+     * Execute a SELECT query and fetch all results as a generator.
+     * Results are yielded one by one as objects or schema instances.
+     * Alteration is applied via AlterDocumentTrait.
+     *
+     * @param string $query     The SQL query to execute.
+     * @param array  $bindVars  Optional bindings for the query.
+     *
+     * @return Generator<object> A generator yielding results one by one.
+     *
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function fetchAllAsGenerator( string $query , array $bindVars = [] ): Generator
+    {
+        try
+        {
+            $statement = $this->pdo?->prepare( $query ) ;
+
+            if ( !$statement instanceof PDOStatement )
+            {
+                return ;
+            }
+
+            $this->bindValues( $statement , $bindVars ) ;
+
+            if ( !$statement->execute() )
+            {
+                return ;
+            }
+
+            $this->initializeDefaultFetchMode( $statement ) ;
+
+            try
+            {
+                while ( $row = $statement->fetch() )
+                {
+                    $result        = (object) $row ;
+                    $alteredResult = $this->alter( $result ) ;
+                    yield $alteredResult ;
+                }
+            }
+            finally
+            {
+                $statement->closeCursor() ;
+            }
+        }
+        catch ( Exception $exception )
+        {
+            $this->warning(__METHOD__ . ' failed, ' . $exception->getMessage() ) ;
+        }
+        finally
+        {
+            $statement = null ;
+        }
     }
 
     /**
