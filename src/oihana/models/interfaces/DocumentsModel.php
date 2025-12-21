@@ -54,6 +54,7 @@ interface DocumentsModel
           LastModel       , // last       ( array $init = [] ) :mixed
           ListModel       , // list       ( array $init = [] ) :array
           ReplaceModel    , // replace    ( array $init = [] ) :mixed
+          StreamModel     , // stream     ( array $init = [] ) :Generator
           UpdateModel     , // update     ( array $init = [] ) :mixed
           UpdateDateModel , // updateDate ( array $init = [] , string $property = Schema::MODIFIED ) :mixed
           UpsertModel     , // upsert     ( array $init = [] ) :mixed

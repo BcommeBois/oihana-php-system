@@ -26,6 +26,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Logging
   - Adds the CompositeLogger class
 - Models
+  - Interfaces
+    - StreamModel interface with the `public function stream( array $init = [] ):Generator` signature.
   - Traits
     - PropertyTrait
 - Validations

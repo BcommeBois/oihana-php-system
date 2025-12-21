@@ -144,13 +144,17 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/interfaces/ListModel.php"><a href="files/src-oihana-models-interfaces-listmodel.html"><abbr title="src/oihana/models/interfaces/ListModel.php">ListModel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">11</span>
+    <span class="phpdocumentor-element-found-in__line">16</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">List the documents in the model.</p>
+            <p class="phpdocumentor-summary">Interface for models that provide a list of documents or items.</p>
 
 
+    <section class="phpdocumentor-description"><p>This interface defines a method to retrieve all documents from a model
+as an array. It is suitable for cases where the dataset is small enough
+to be loaded entirely into memory.</p>
+</section>
 
 
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
@@ -206,7 +210,7 @@
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd>Returns a collection of items in the model.</dd>
+<dd>Returns a collection of items from the model.</dd>
 
     </dl>
 
@@ -235,11 +239,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/interfaces/ListModel.php"><a href="files/src-oihana-models-interfaces-listmodel.html"><abbr title="src/oihana/models/interfaces/ListModel.php">ListModel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">29</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns a collection of items in the model.</p>
+        <p class="phpdocumentor-summary">Returns a collection of items from the model.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -248,7 +252,10 @@
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>Retrieves all documents as an array. For large datasets, consider using
+a streaming approach (e.g., <a href="classes/oihana-models-interfaces-StreamModel.html"><abbr title="\oihana\models\interfaces\StreamModel">StreamModel</abbr></a>) to avoid high memory usage.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -256,7 +263,9 @@
                 : <span class="phpdocumentor-argument-list__argument__type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-argument-list__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Optional configuration array.</p>
+</section>
+
             </dd>
             </dl>
 
@@ -267,6 +276,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>An array of documents or items. The structure and type of each item depend on the model implementation.</p>
+</section>
+
             </section>
 
 </article>

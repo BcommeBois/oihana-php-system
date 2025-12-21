@@ -2,6 +2,7 @@
 
 namespace tests\oihana\models\mocks;
 
+use Generator;
 use oihana\models\enums\ModelParam;
 use oihana\models\interfaces\DocumentsModel;
 use org\schema\constants\Schema;
@@ -343,6 +344,27 @@ class MockDocumentsModel implements DocumentsModel
         }
 
         return null;
+    }
+
+    /**
+     * Stream documents from storage.
+     *
+     * Provides a generator that yields each document one by one.
+     * Supports optional filtering, offset, and limit (same as `list()`).
+     *
+     * @param array<string, mixed> $init Optional parameters:
+     *   - ModelParam::KEY: Property key to filter by
+     *   - ModelParam::VALUE: Value to match
+     *   - 'offset': Number of documents to skip
+     *   - 'limit': Maximum number of documents to yield
+     * @return Generator<array<string, mixed>>
+     */
+    public function stream( array $init = [] ): Generator
+    {
+        $documents = $this->list( $init ) ;
+        foreach ($documents as $document) {
+            yield $document;
+        }
     }
 
     /**

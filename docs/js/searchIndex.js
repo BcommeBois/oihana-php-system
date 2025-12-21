@@ -2248,12 +2248,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\ListModel",
             "name": "ListModel",
-            "summary": "List\u0020the\u0020documents\u0020in\u0020the\u0020model.",
+            "summary": "Interface\u0020for\u0020models\u0020that\u0020provide\u0020a\u0020list\u0020of\u0020documents\u0020or\u0020items.",
             "url": "classes/oihana-models-interfaces-ListModel.html"
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\ListModel\u003A\u003Alist\u0028\u0029",
             "name": "list",
-            "summary": "Returns\u0020a\u0020collection\u0020of\u0020items\u0020in\u0020the\u0020model.",
+            "summary": "Returns\u0020a\u0020collection\u0020of\u0020items\u0020from\u0020the\u0020model.",
             "url": "classes/oihana-models-interfaces-ListModel.html#method_list"
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\ReplaceModel",
@@ -2265,6 +2265,16 @@ Search.appendIndex(
             "name": "replace",
             "summary": "Replace\u0020a\u0020document\u0020into\u0020the\u0020model.",
             "url": "classes/oihana-models-interfaces-ReplaceModel.html#method_replace"
+        },                {
+            "fqsen": "\\oihana\\models\\interfaces\\StreamModel",
+            "name": "StreamModel",
+            "summary": "Interface\u0020for\u0020models\u0020that\u0020provide\u0020document\u0020streaming.",
+            "url": "classes/oihana-models-interfaces-StreamModel.html"
+        },                {
+            "fqsen": "\\oihana\\models\\interfaces\\StreamModel\u003A\u003Astream\u0028\u0029",
+            "name": "stream",
+            "summary": "Streams\u0020documents\u0020from\u0020the\u0020model.",
+            "url": "classes/oihana-models-interfaces-StreamModel.html#method_stream"
         },                {
             "fqsen": "\\oihana\\models\\interfaces\\TruncateModel",
             "name": "TruncateModel",
@@ -2471,6 +2481,11 @@ Search.appendIndex(
             "summary": "Execute\u0020a\u0020SELECT\u0020query\u0020and\u0020fetch\u0020all\u0020results.",
             "url": "classes/oihana-models-pdo-PDOTrait.html#method_fetchAll"
         },                {
+            "fqsen": "\\oihana\\models\\pdo\\PDOTrait\u003A\u003AfetchAllAsGenerator\u0028\u0029",
+            "name": "fetchAllAsGenerator",
+            "summary": "Execute\u0020a\u0020SELECT\u0020query\u0020and\u0020fetch\u0020all\u0020results\u0020as\u0020a\u0020generator.",
+            "url": "classes/oihana-models-pdo-PDOTrait.html#method_fetchAllAsGenerator"
+        },                {
             "fqsen": "\\oihana\\models\\pdo\\PDOTrait\u003A\u003AfetchColumn\u0028\u0029",
             "name": "fetchColumn",
             "summary": "Execute\u0020a\u0020query\u0020and\u0020return\u0020the\u0020value\u0020of\u0020a\u0020single\u0020column\u0020from\u0020the\u0020first\u0020row.",
@@ -2511,6 +2526,26 @@ Search.appendIndex(
             "summary": "The\u0020PDO\u0020reference.",
             "url": "classes/oihana-models-pdo-PDOTrait.html#property_pdo"
         },                {
+            "fqsen": "\\oihana\\models\\traits\\AlterBindVarsTrait",
+            "name": "AlterBindVarsTrait",
+            "summary": "Applies\u0020defined\u0020alterations\u0020to\u0020a\u0020bind\u0020variables\u0020array\u0020definition\u0020based\u0020on\u0020the\u0020configured\u0020\u0060\u0024bindAlters\u0060.",
+            "url": "classes/oihana-models-traits-AlterBindVarsTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\AlterBindVarsTrait\u003A\u003AalterBindVars\u0028\u0029",
+            "name": "alterBindVars",
+            "summary": "Applies\u0020defined\u0020alterations\u0020to\u0020a\u0020bind\u0020variables\u0020array\u0020definition\u0020based\u0020on\u0020the\u0020configured\u0020\u0060\u0024bindAlters\u0060.",
+            "url": "classes/oihana-models-traits-AlterBindVarsTrait.html#method_alterBindVars"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\AlterBindVarsTrait\u003A\u003AinitializeBindVarsAlters\u0028\u0029",
+            "name": "initializeBindVarsAlters",
+            "summary": "Initialize\u0020the\u0020\u0027bindAlters\u0027\u0020property.",
+            "url": "classes/oihana-models-traits-AlterBindVarsTrait.html#method_initializeBindVarsAlters"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\AlterBindVarsTrait\u003A\u003A\u0024bindAlters",
+            "name": "bindAlters",
+            "summary": "The\u0020enumeration\u0020of\u0020all\u0020definitions\u0020to\u0020alter\u0020on\u0020the\u0020array\u0020or\u0020object\u0020key\/value\u0020properties.",
+            "url": "classes/oihana-models-traits-AlterBindVarsTrait.html#property_bindAlters"
+        },                {
             "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait",
             "name": "AlterDocumentTrait",
             "summary": "Provides\u0020a\u0020system\u0020to\u0020alter\u0020properties\u0020of\u0020arrays\u0020or\u0020objects\u0020based\u0020on\u0020a\u0020configurable\u0020set\u0020of\u0020rules\u0020\u0028called\u0020\u0022alters\u0022\u0029.",
@@ -2525,36 +2560,6 @@ Search.appendIndex(
             "name": "initializeAlters",
             "summary": "Initialize\u0020the\u0020\u0027alters\u0027\u0020property.",
             "url": "classes/oihana-models-traits-AlterDocumentTrait.html#method_initializeAlters"
-        },                {
-            "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003AalterProperty\u0028\u0029",
-            "name": "alterProperty",
-            "summary": "Alters\u0020a\u0020specific\u0020property\u0020of\u0020the\u0020given\u0020document\u0020using\u0020one\u0020or\u0020more\u0020transformation\u0020rules.",
-            "url": "classes/oihana-models-traits-AlterDocumentTrait.html#method_alterProperty"
-        },                {
-            "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003AapplyChainedAlterations\u0028\u0029",
-            "name": "applyChainedAlterations",
-            "summary": "Applies\u0020chained\u0020alterations\u0020to\u0020a\u0020property.",
-            "url": "classes/oihana-models-traits-AlterDocumentTrait.html#method_applyChainedAlterations"
-        },                {
-            "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003AapplySingleAlteration\u0028\u0029",
-            "name": "applySingleAlteration",
-            "summary": "Applies\u0020a\u0020single\u0020alteration\u0020\u0028original\u0020behavior\u0029.",
-            "url": "classes/oihana-models-traits-AlterDocumentTrait.html#method_applySingleAlteration"
-        },                {
-            "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003AexecuteAlteration\u0028\u0029",
-            "name": "executeAlteration",
-            "summary": "Executes\u0020a\u0020specific\u0020alteration.",
-            "url": "classes/oihana-models-traits-AlterDocumentTrait.html#method_executeAlteration"
-        },                {
-            "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003AfirstIsAlter\u0028\u0029",
-            "name": "firstIsAlter",
-            "summary": "Checks\u0020if\u0020a\u0020value\u0020is\u0020an\u0020Alter\u0020enum\u0020or\u0020an\u0020array\u0020starting\u0020with\u0020an\u0020Alter\u0020enum.",
-            "url": "classes/oihana-models-traits-AlterDocumentTrait.html#method_firstIsAlter"
-        },                {
-            "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003AisChainedDefinition\u0028\u0029",
-            "name": "isChainedDefinition",
-            "summary": "Detects\u0020if\u0020the\u0020definition\u0020represents\u0020chained\u0020alterations.",
-            "url": "classes/oihana-models-traits-AlterDocumentTrait.html#method_isChainedDefinition"
         },                {
             "fqsen": "\\oihana\\models\\traits\\AlterDocumentTrait\u003A\u003A\u0024alters",
             "name": "alters",
@@ -2720,6 +2725,41 @@ Search.appendIndex(
             "name": "alterValue",
             "summary": "Replace\u0020a\u0020value\u0020with\u0020a\u0020new\u0020one\u0020if\u0020different,\u0020otherwise\u0020keep\u0020the\u0020original.",
             "url": "classes/oihana-models-traits-alters-AlterValueTrait.html#method_alterValue"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\AlterTrait",
+            "name": "AlterTrait",
+            "summary": "Provides\u0020a\u0020set\u0020of\u0020methods\u0020to\u0020alter\u0020properties\u0020of\u0020arrays\u0020or\u0020objects\u0020based\u0020on\u0020a\u0020configurable\u0020set\u0020of\u0020rules\u0020\u0028called\u0020\u0022alters\u0022\u0029.",
+            "url": "classes/oihana-models-traits-AlterTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\AlterTrait\u003A\u003AalterProperty\u0028\u0029",
+            "name": "alterProperty",
+            "summary": "Alters\u0020a\u0020specific\u0020property\u0020of\u0020the\u0020given\u0020document\u0020using\u0020one\u0020or\u0020more\u0020transformation\u0020rules.",
+            "url": "classes/oihana-models-traits-AlterTrait.html#method_alterProperty"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\AlterTrait\u003A\u003AapplyChainedAlterations\u0028\u0029",
+            "name": "applyChainedAlterations",
+            "summary": "Applies\u0020chained\u0020alterations\u0020to\u0020a\u0020property.",
+            "url": "classes/oihana-models-traits-AlterTrait.html#method_applyChainedAlterations"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\AlterTrait\u003A\u003AapplySingleAlteration\u0028\u0029",
+            "name": "applySingleAlteration",
+            "summary": "Applies\u0020a\u0020single\u0020alteration\u0020\u0028original\u0020behavior\u0029.",
+            "url": "classes/oihana-models-traits-AlterTrait.html#method_applySingleAlteration"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\AlterTrait\u003A\u003AexecuteAlteration\u0028\u0029",
+            "name": "executeAlteration",
+            "summary": "Executes\u0020a\u0020specific\u0020alteration.",
+            "url": "classes/oihana-models-traits-AlterTrait.html#method_executeAlteration"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\AlterTrait\u003A\u003AfirstIsAlter\u0028\u0029",
+            "name": "firstIsAlter",
+            "summary": "Checks\u0020if\u0020a\u0020value\u0020is\u0020an\u0020Alter\u0020enum\u0020or\u0020an\u0020array\u0020starting\u0020with\u0020an\u0020Alter\u0020enum.",
+            "url": "classes/oihana-models-traits-AlterTrait.html#method_firstIsAlter"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\AlterTrait\u003A\u003AisChainedDefinition\u0028\u0029",
+            "name": "isChainedDefinition",
+            "summary": "Detects\u0020if\u0020the\u0020definition\u0020represents\u0020chained\u0020alterations.",
+            "url": "classes/oihana-models-traits-AlterTrait.html#method_isChainedDefinition"
         },                {
             "fqsen": "\\oihana\\models\\traits\\BindsTrait",
             "name": "BindsTrait",

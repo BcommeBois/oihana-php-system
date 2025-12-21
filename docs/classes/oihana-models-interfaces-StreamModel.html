@@ -133,53 +133,163 @@
                                         <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana.html">oihana</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-models.html">models</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-models-interfaces.html">interfaces</a></li>
     </ul>
 
-    <article class="phpdocumentor-element -namespace">
-        <h2 class="phpdocumentor-content__title">traits</h2>
+    <article class="phpdocumentor-element -interface">
+        <h2 class="phpdocumentor-content__title">
+    StreamModel
+        </h2>
 
-        
+        <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/interfaces/StreamModel.php"><a href="files/src-oihana-models-interfaces-streammodel.html"><abbr title="src/oihana/models/interfaces/StreamModel.php">StreamModel.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">18</span>
+
+    </aside>
+
+            <p class="phpdocumentor-summary">Interface for models that provide document streaming.</p>
+
+
+    <section class="phpdocumentor-description"><p>This interface defines a method to retrieve documents from a model
+as a generator, allowing efficient iteration over large datasets
+without loading all documents into memory at once.</p>
+</section>
+
+
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-models-interfaces-StreamModel.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (ekameleon)</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+    
 <h3 id="toc">
     Table of Contents
-    <a href="namespaces/oihana-models-traits.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-models-interfaces-StreamModel.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
 
-<h4 id="namespaces">
-    Namespaces
-    <a href="namespaces/oihana-models-traits.html#namespaces" class="headerlink"><i class="fas fa-link"></i></a>
+
+
+
+
+
+
+
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/oihana-models-interfaces-StreamModel.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -namespace"><a href="namespaces/oihana-models-traits-alters.html"><abbr title="\oihana\models\traits\alters">alters</abbr></a></dt>
-            <dt class="phpdocumentor-table-of-contents__entry -namespace"><a href="namespaces/oihana-models-traits-signals.html"><abbr title="\oihana\models\traits\signals">signals</abbr></a></dt>
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-models-interfaces-StreamModel.html#method_stream">stream()</a>
+    <span>
+                                &nbsp;: <abbr title="\Generator">Generator</abbr>&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Streams documents from the model.</dd>
+
     </dl>
 
 
 
-    <h4 id="toc-traits">
-        Traits
-        <a href="namespaces/oihana-models-traits.html#toc-traits" class="headerlink"><i class="fas fa-link"></i></a>
+
+        
+
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/oihana-models-interfaces-StreamModel.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_stream">
+        stream()
+        <a href="classes/oihana-models-interfaces-StreamModel.html#method_stream" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
-    <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/oihana-models-traits-AlterBindVarsTrait.html"><abbr title="\oihana\models\traits\AlterBindVarsTrait">AlterBindVarsTrait</abbr></a></dt><dd>Applies defined alterations to a bind variables array definition based on the configured `$bindAlters`.</dd>        <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/oihana-models-traits-AlterDocumentTrait.html"><abbr title="\oihana\models\traits\AlterDocumentTrait">AlterDocumentTrait</abbr></a></dt><dd>Provides a system to alter properties of arrays or objects based on a configurable set of rules (called &quot;alters&quot;).</dd>        <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/oihana-models-traits-AlterTrait.html"><abbr title="\oihana\models\traits\AlterTrait">AlterTrait</abbr></a></dt><dd>Provides a set of methods to alter properties of arrays or objects based on a configurable set of rules (called &quot;alters&quot;).</dd>        <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/oihana-models-traits-BindsTrait.html"><abbr title="\oihana\models\traits\BindsTrait">BindsTrait</abbr></a></dt><dd>Provides logic for managing bind parameters used in PDO statements.</dd>        <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/oihana-models-traits-DocumentsTrait.html"><abbr title="\oihana\models\traits\DocumentsTrait">DocumentsTrait</abbr></a></dt>        <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/oihana-models-traits-ListModelTrait.html"><abbr title="\oihana\models\traits\ListModelTrait">ListModelTrait</abbr></a></dt><dd>Defines a ListModel properties in your class.</dd>        <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/oihana-models-traits-ModelTrait.html"><abbr title="\oihana\models\traits\ModelTrait">ModelTrait</abbr></a></dt><dd>Defines a Document model properties in your class.</dd>        <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/oihana-models-traits-PropertyTrait.html"><abbr title="\oihana\models\traits\PropertyTrait">PropertyTrait</abbr></a></dt><dd>Provides a `property` reference.</dd>        <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/oihana-models-traits-SchemaTrait.html"><abbr title="\oihana\models\traits\SchemaTrait">SchemaTrait</abbr></a></dt><dd>Provides methods for initialize a &#039;schema&#039; property.</dd>    </dl>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/interfaces/StreamModel.php"><a href="files/src-oihana-models-interfaces-streammodel.html"><abbr title="src/oihana/models/interfaces/StreamModel.php">StreamModel.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">31</span>
 
+    </aside>
 
+        <p class="phpdocumentor-summary">Streams documents from the model.</p>
 
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">stream</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Generator">Generator</abbr>&lt;string|int, mixed&gt;</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>This method returns a generator that yields each document one at a time.
+It is useful for iterating over large collections efficiently.</p>
+</section>
 
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$init</span>
+                : <span class="phpdocumentor-argument-list__argument__type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional configuration array.</p>
+</section>
 
+            </dd>
+            </dl>
+
+    
 
         
+    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Generator">Generator</abbr>&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Yields each document in the collection. The type of document depends on the model implementation.</p>
+</section>
 
-        
+            </section>
+
+</article>
+            </section>
+
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/models/interfaces/StreamModel.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -280,10 +390,16 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                                                                        <li><a href="namespaces/oihana-models-traits.html#toc-traits">Traits</a></li>
-                                                                                                </ul>
+                    <li><a href="classes/oihana-models-interfaces-StreamModel.html#toc-constants">Constants</a></li>
+                    <li><a href="classes/oihana-models-interfaces-StreamModel.html#toc-methods">Methods</a></li>
+                </ul>
             </li>
-
+                            <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+                <li>
+                    <ul class="phpdocumentor-list -clean">
+                                                    <li class=""><a href="classes/oihana-models-interfaces-StreamModel.html#method_stream">stream()</a></li>
+                                            </ul>
+                </li>
             
                     </ul>
     </section>
@@ -302,7 +418,7 @@
     </section>
 </section>
         </div>
-        <a href="namespaces/oihana-models-traits.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/oihana-models-interfaces-StreamModel.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

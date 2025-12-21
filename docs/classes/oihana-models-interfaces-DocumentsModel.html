@@ -141,7 +141,7 @@
     DocumentsModel
             <span class="phpdocumentor-element__extends">
             extends
-                            <a href="classes/oihana-models-interfaces-CountModel.html"><abbr title="\oihana\models\interfaces\CountModel">CountModel</abbr></a>,                             <a href="classes/oihana-models-interfaces-DeleteModel.html"><abbr title="\oihana\models\interfaces\DeleteModel">DeleteModel</abbr></a>,                             <a href="classes/oihana-models-interfaces-ExistModel.html"><abbr title="\oihana\models\interfaces\ExistModel">ExistModel</abbr></a>,                             <a href="classes/oihana-models-interfaces-GetModel.html"><abbr title="\oihana\models\interfaces\GetModel">GetModel</abbr></a>,                             <a href="classes/oihana-models-interfaces-InsertModel.html"><abbr title="\oihana\models\interfaces\InsertModel">InsertModel</abbr></a>,                             <a href="classes/oihana-models-interfaces-LastModel.html"><abbr title="\oihana\models\interfaces\LastModel">LastModel</abbr></a>,                             <a href="classes/oihana-models-interfaces-ListModel.html"><abbr title="\oihana\models\interfaces\ListModel">ListModel</abbr></a>,                             <a href="classes/oihana-models-interfaces-ReplaceModel.html"><abbr title="\oihana\models\interfaces\ReplaceModel">ReplaceModel</abbr></a>,                             <a href="classes/oihana-models-interfaces-UpdateModel.html"><abbr title="\oihana\models\interfaces\UpdateModel">UpdateModel</abbr></a>,                             <a href="classes/oihana-models-interfaces-UpdateDateModel.html"><abbr title="\oihana\models\interfaces\UpdateDateModel">UpdateDateModel</abbr></a>,                             <a href="classes/oihana-models-interfaces-UpsertModel.html"><abbr title="\oihana\models\interfaces\UpsertModel">UpsertModel</abbr></a>,                             <a href="classes/oihana-models-interfaces-TruncateModel.html"><abbr title="\oihana\models\interfaces\TruncateModel">TruncateModel</abbr></a>                    </span>
+                            <a href="classes/oihana-models-interfaces-CountModel.html"><abbr title="\oihana\models\interfaces\CountModel">CountModel</abbr></a>,                             <a href="classes/oihana-models-interfaces-DeleteModel.html"><abbr title="\oihana\models\interfaces\DeleteModel">DeleteModel</abbr></a>,                             <a href="classes/oihana-models-interfaces-ExistModel.html"><abbr title="\oihana\models\interfaces\ExistModel">ExistModel</abbr></a>,                             <a href="classes/oihana-models-interfaces-GetModel.html"><abbr title="\oihana\models\interfaces\GetModel">GetModel</abbr></a>,                             <a href="classes/oihana-models-interfaces-InsertModel.html"><abbr title="\oihana\models\interfaces\InsertModel">InsertModel</abbr></a>,                             <a href="classes/oihana-models-interfaces-LastModel.html"><abbr title="\oihana\models\interfaces\LastModel">LastModel</abbr></a>,                             <a href="classes/oihana-models-interfaces-ListModel.html"><abbr title="\oihana\models\interfaces\ListModel">ListModel</abbr></a>,                             <a href="classes/oihana-models-interfaces-ReplaceModel.html"><abbr title="\oihana\models\interfaces\ReplaceModel">ReplaceModel</abbr></a>,                             <a href="classes/oihana-models-interfaces-StreamModel.html"><abbr title="\oihana\models\interfaces\StreamModel">StreamModel</abbr></a>,                             <a href="classes/oihana-models-interfaces-UpdateModel.html"><abbr title="\oihana\models\interfaces\UpdateModel">UpdateModel</abbr></a>,                             <a href="classes/oihana-models-interfaces-UpdateDateModel.html"><abbr title="\oihana\models\interfaces\UpdateDateModel">UpdateDateModel</abbr></a>,                             <a href="classes/oihana-models-interfaces-UpsertModel.html"><abbr title="\oihana\models\interfaces\UpsertModel">UpsertModel</abbr></a>,                             <a href="classes/oihana-models-interfaces-TruncateModel.html"><abbr title="\oihana\models\interfaces\TruncateModel">TruncateModel</abbr></a>                    </span>
         </h2>
 
         <aside class="phpdocumentor-element-found-in">
@@ -271,7 +271,7 @@ array of options and returning various types depending on the context.</p>
     <span>
                                 &nbsp;: array&lt;string|int, mixed&gt;    </span>
 </dt>
-<dd>Returns a collection of items in the model.</dd>
+<dd>Returns a collection of items from the model.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-models-interfaces-ReplaceModel.html#method_replace">replace()</a>
@@ -279,6 +279,13 @@ array of options and returning various types depending on the context.</p>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Replace a document into the model.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-models-interfaces-StreamModel.html#method_stream">stream()</a>
+    <span>
+                                &nbsp;: <abbr title="\Generator">Generator</abbr>&lt;string|int, mixed&gt;    </span>
+</dt>
+<dd>Streams documents from the model.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-models-interfaces-TruncateModel.html#method_truncate">truncate()</a>
@@ -623,11 +630,11 @@ array of options and returning various types depending on the context.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/interfaces/ListModel.php"><a href="files/src-oihana-models-interfaces-listmodel.html"><abbr title="src/oihana/models/interfaces/ListModel.php">ListModel.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">29</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Returns a collection of items in the model.</p>
+        <p class="phpdocumentor-summary">Returns a collection of items from the model.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -636,7 +643,10 @@ array of options and returning various types depending on the context.</p>
     <div class="phpdocumentor-label-line">
         </div>
     
-    
+        <section class="phpdocumentor-description"><p>Retrieves all documents as an array. For large datasets, consider using
+a streaming approach (e.g., <a href="classes/oihana-models-interfaces-StreamModel.html"><abbr title="\oihana\models\interfaces\StreamModel">StreamModel</abbr></a>) to avoid high memory usage.</p>
+</section>
+
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
@@ -644,7 +654,9 @@ array of options and returning various types depending on the context.</p>
                 : <span class="phpdocumentor-argument-list__argument__type">array&lt;string|int, mixed&gt;</span>
                  = <span class="phpdocumentor-argument-list__argument__default-value">[]</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Optional configuration array.</p>
+</section>
+
             </dd>
             </dl>
 
@@ -655,6 +667,10 @@ array of options and returning various types depending on the context.</p>
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>An array of documents or items. The structure and type of each item depend on the model implementation.</p>
+</section>
+
             </section>
 
 </article>
@@ -702,6 +718,64 @@ array of options and returning various types depending on the context.</p>
         
     
     
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_stream">
+        stream()
+        <a href="classes/oihana-models-interfaces-StreamModel.html#method_stream" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/interfaces/StreamModel.php"><a href="files/src-oihana-models-interfaces-streammodel.html"><abbr title="src/oihana/models/interfaces/StreamModel.php">StreamModel.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">31</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Streams documents from the model.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">stream</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Generator">Generator</abbr>&lt;string|int, mixed&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>This method returns a generator that yields each document one at a time.
+It is useful for iterating over large collections efficiently.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$init</span>
+                : <span class="phpdocumentor-argument-list__argument__type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional configuration array.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        
+    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Generator">Generator</abbr>&lt;string|int, mixed&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Yields each document in the collection. The type of document depends on the model implementation.</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -1018,6 +1092,7 @@ array of options and returning various types depending on the context.</p>
                                                     <li class=""><a href="classes/oihana-models-interfaces-LastModel.html#method_last">last()</a></li>
                                                     <li class=""><a href="classes/oihana-models-interfaces-ListModel.html#method_list">list()</a></li>
                                                     <li class=""><a href="classes/oihana-models-interfaces-ReplaceModel.html#method_replace">replace()</a></li>
+                                                    <li class=""><a href="classes/oihana-models-interfaces-StreamModel.html#method_stream">stream()</a></li>
                                                     <li class=""><a href="classes/oihana-models-interfaces-TruncateModel.html#method_truncate">truncate()</a></li>
                                                     <li class=""><a href="classes/oihana-models-interfaces-UpdateModel.html#method_update">update()</a></li>
                                                     <li class=""><a href="classes/oihana-models-interfaces-UpdateDateModel.html#method_updateDate">updateDate()</a></li>

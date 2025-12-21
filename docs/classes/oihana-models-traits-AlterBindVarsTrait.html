@@ -138,42 +138,45 @@
 
     <article class="phpdocumentor-element -trait">
         <h2 class="phpdocumentor-content__title">
-    AlterDocumentTrait
+    AlterBindVarsTrait
             <span class="phpdocumentor-trait__extends">
             uses
                             <a href="classes/oihana-models-traits-AlterTrait.html"><abbr title="\oihana\models\traits\AlterTrait">trait:short</abbr></a>,                             <a href="classes/oihana-traits-ContainerTrait.html"><abbr title="\oihana\traits\ContainerTrait">trait:short</abbr></a>                    </span>
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterDocumentTrait.php"><a href="files/src-oihana-models-traits-alterdocumenttrait.html"><abbr title="src/oihana/models/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterBindVarsTrait.php"><a href="files/src-oihana-models-traits-alterbindvarstrait.html"><abbr title="src/oihana/models/traits/AlterBindVarsTrait.php">AlterBindVarsTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">70</span>
+    <span class="phpdocumentor-element-found-in__line">83</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Provides a system to alter properties of arrays or objects based on a configurable set of rules (called &quot;alters&quot;).</p>
+            <p class="phpdocumentor-summary">Applies defined alterations to a bind variables array definition based on the configured `$bindAlters`.</p>
 
 
-    <section class="phpdocumentor-description"><p>The alteration definitions are stored in the <code class="prettyprint">$alters</code> array and can apply various transformations to data,
-such as converting values to floats, parsing JSON, cleaning arrays, or resolving URLs.</p>
-<p>Supports chaining multiple alterations on a single property:</p>
+    <section class="phpdocumentor-description"><p>This method transforms the input <code class="prettyprint">$bindVars</code> according to the alteration rules:</p>
+<ul>
+<li>If <code class="prettyprint">$bindVars</code> is a <strong>sequential array</strong> (list of associative arrays), alterations are recursively applied to each element.</li>
+<li>If <code class="prettyprint">$bindVars</code> is an <strong>associative array</strong>, only the keys defined in the selected <code class="prettyprint">$alters</code> context are processed.</li>
+<li>Scalar values (string, int, float, bool, resource, null) are returned unchanged unless specifically targeted in <code class="prettyprint">$bindAlters</code>.</li>
+<li>Supports <strong>chained alterations</strong>: if a key in <code class="prettyprint">$alters</code> maps to an array of alters, each is applied in sequence,
+with the output of one becoming the input for the next.</li>
+</ul>
+<p>The optional <code class="prettyprint">$context</code> parameter allows selecting a specific subset of alterations defined under that context
+in <code class="prettyprint">$this-&gt;bindAlters</code>. If <code class="prettyprint">$context</code> is null, the top-level alterations array is used.</p>
 <p>Example usage:</p>
-<pre class="prettyprint"><code class="language-php">class MyProcessor
+<pre class="prettyprint"><code class="language-php">class BindVarsProcessor
 {
-    use AlterDocumentTrait;
+    use AlterBindVarsTrait;
 
     public function __construct()
     {
-        $this-&gt;alters =
+        $this-&gt;bindsAlters =
         [
-            'price' =&gt; Alter::FLOAT,
-            'tags'  =&gt; [ Alter::ARRAY , Alter::CLEAN ],
-            'meta'  =&gt; [ Alter::JSON_PARSE ],
-            'link'  =&gt; [ Alter::URL , '/product/' ],
-            'score' =&gt; [ Alter::CALL , fn( $value ) =&gt; $value * 10 ],
-            'total' =&gt; [ ALTER::MAP , fn( &amp;$document ) =&gt; $document['price'] + ( $document['price'] * ( $document['vat'] ?? 0 ) ) ] ,
-            'geo'   =&gt; [ Alter::NORMALIZE , [ Alter::HYDRATE , GeoCoordinates::class ] ],
-            'name'  =&gt; [ Alter::TRIM , Alter::UPPERCASE , Alter::NORMALIZE ],
+            'get' =&gt;
+            [
+               'id' =&gt; Alter::FLOAT,
+            ]
         ];
     }
 }
@@ -200,11 +203,43 @@ such as converting values to floats, parsing JSON, cleaning arrays, or resolving
 
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-models-traits-AlterDocumentTrait.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-models-traits-AlterBindVarsTrait.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
                                     <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\DI\DependencyException">DependencyException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\DI\NotFoundException">NotFoundException</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
                     <span class="phpdocumentor-tag__name">author</span>
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
@@ -227,7 +262,7 @@ such as converting values to floats, parsing JSON, cleaning arrays, or resolving
     
 <h3 id="toc">
     Table of Contents
-    <a href="classes/oihana-models-traits-AlterDocumentTrait.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-models-traits-AlterBindVarsTrait.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -241,12 +276,12 @@ such as converting values to floats, parsing JSON, cleaning arrays, or resolving
 
 <h4 id="toc-properties">
     Properties
-    <a href="classes/oihana-models-traits-AlterDocumentTrait.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-models-traits-AlterBindVarsTrait.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/oihana-models-traits-AlterDocumentTrait.html#property_alters">$alters</a>
+    <a class="" href="classes/oihana-models-traits-AlterBindVarsTrait.html#property_bindAlters">$bindAlters</a>
     <span>
                         &nbsp;: array&lt;string|int, mixed&gt;            </span>
 </dt>
@@ -263,23 +298,23 @@ such as converting values to floats, parsing JSON, cleaning arrays, or resolving
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/oihana-models-traits-AlterDocumentTrait.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-models-traits-AlterBindVarsTrait.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-models-traits-AlterDocumentTrait.html#method_alter">alter()</a>
+    <a class="" href="classes/oihana-models-traits-AlterBindVarsTrait.html#method_alterBindVars">alterBindVars()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: array&lt;string|int, mixed&gt;|null    </span>
 </dt>
-<dd>Applies defined alterations to a document (array or object) based on a set of rules.</dd>
+<dd>Applies defined alterations to a bind variables array definition based on the configured `$bindAlters`.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-models-traits-AlterDocumentTrait.html#method_initializeAlters">initializeAlters()</a>
+    <a class="" href="classes/oihana-models-traits-AlterBindVarsTrait.html#method_initializeBindVarsAlters">initializeBindVarsAlters()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
-<dd>Initialize the &#039;alters&#039; property.</dd>
+<dd>Initialize the &#039;bindAlters&#039; property.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -protected">
     <a class="" href="classes/oihana-models-traits-AlterTrait.html#method_alterProperty">alterProperty()</a>
@@ -334,7 +369,7 @@ such as converting values to floats, parsing JSON, cleaning arrays, or resolving
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/oihana-models-traits-AlterDocumentTrait.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/oihana-models-traits-AlterBindVarsTrait.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -344,17 +379,17 @@ such as converting values to floats, parsing JSON, cleaning arrays, or resolving
             -public
                                                                     "
 >
-    <h4 class="phpdocumentor-element__name" id="property_alters">
-        $alters
-        <a href="classes/oihana-models-traits-AlterDocumentTrait.html#property_alters" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="property_bindAlters">
+        $bindAlters
+        <a href="classes/oihana-models-traits-AlterBindVarsTrait.html#property_bindAlters" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                             </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterDocumentTrait.php"><a href="files/src-oihana-models-traits-alterdocumenttrait.html"><abbr title="src/oihana/models/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterBindVarsTrait.php"><a href="files/src-oihana-models-traits-alterbindvarstrait.html"><abbr title="src/oihana/models/traits/AlterBindVarsTrait.php">AlterBindVarsTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">78</span>
+    <span class="phpdocumentor-element-found-in__line">91</span>
 
     </aside>
 
@@ -364,7 +399,7 @@ such as converting values to floats, parsing JSON, cleaning arrays, or resolving
     <code class="phpdocumentor-code phpdocumentor-signature ">
         <span class="phpdocumentor-signature__visibility">public</span>
             <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
-    <span class="phpdocumentor-signature__name">$alters</span>
+    <span class="phpdocumentor-signature__name">$bindAlters</span>
      = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
     
@@ -418,7 +453,7 @@ such as converting values to floats, parsing JSON, cleaning arrays, or resolving
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/oihana-models-traits-AlterDocumentTrait.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/oihana-models-traits-AlterBindVarsTrait.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -427,56 +462,65 @@ such as converting values to floats, parsing JSON, cleaning arrays, or resolving
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_alter">
-        alter()
-        <a href="classes/oihana-models-traits-AlterDocumentTrait.html#method_alter" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_alterBindVars">
+        alterBindVars()
+        <a href="classes/oihana-models-traits-AlterBindVarsTrait.html#method_alterBindVars" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterDocumentTrait.php"><a href="files/src-oihana-models-traits-alterdocumenttrait.html"><abbr title="src/oihana/models/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterBindVarsTrait.php"><a href="files/src-oihana-models-traits-alterbindvarstrait.html"><abbr title="src/oihana/models/traits/AlterBindVarsTrait.php">AlterBindVarsTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">138</span>
+    <span class="phpdocumentor-element-found-in__line">147</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Applies defined alterations to a document (array or object) based on a set of rules.</p>
+        <p class="phpdocumentor-summary">Applies defined alterations to a bind variables array definition based on the configured `$bindAlters`.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">alter</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$document</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$alters</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+                    <span class="phpdocumentor-signature__name">alterBindVars</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">array&lt;string|int, mixed&gt;|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$bindVars</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__type">string|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$context</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$flags</span><span> = </span><span class="phpdocumentor-signature__argument__default-value"><abbr title="\oihana\core\arrays\CleanFlag::DEFAULT">CleanFlag::DEFAULT</abbr></span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
     
-        <section class="phpdocumentor-description"><p>This method inspects the input document and applies transformations according to the provided <code class="prettyprint">$alters</code> definitions:</p>
+        <section class="phpdocumentor-description"><p>This method transforms the input <code class="prettyprint">$bindVars</code> according to the alteration rules:</p>
 <ul>
-<li>If the document is a <strong>sequential array</strong> (list), the alteration is recursively applied to each element.</li>
-<li>If the document is an <strong>associative array</strong> or an <strong>object</strong>, only the keys defined in <code class="prettyprint">$alters</code> are processed.</li>
-<li>If a key in <code class="prettyprint">$alters</code> is associated with a <strong>chained alteration</strong> (array of alters), each alteration
-is applied sequentially, passing the output of one as input to the next.</li>
-<li>Scalar values (string, int, float, bool, resource, null) are returned unchanged unless specifically targeted in <code class="prettyprint">$alters</code>.</li>
+<li>If <code class="prettyprint">$bindVars</code> is a <strong>sequential array</strong> (list of associative arrays), alterations are recursively applied to each element.</li>
+<li>If <code class="prettyprint">$bindVars</code> is an <strong>associative array</strong>, only the keys defined in the selected <code class="prettyprint">$alters</code> context are processed.</li>
+<li>Scalar values (string, int, float, bool, resource, null) are returned unchanged unless specifically targeted in <code class="prettyprint">$bindAlters</code>.</li>
+<li>Supports <strong>chained alterations</strong>: if a key in <code class="prettyprint">$alters</code> maps to an array of alters, each is applied in sequence,
+with the output of one becoming the input for the next.</li>
 </ul>
-<p>The <code class="prettyprint">$alters</code> parameter allows temporarily overriding or extending the internal <code class="prettyprint">$this-&gt;alters</code> property
-for the current method call. Passing <code class="prettyprint">null</code> will use the trait's internal <code class="prettyprint">$this-&gt;alters</code> array.</p>
+<p>The optional <code class="prettyprint">$context</code> parameter allows selecting a specific subset of alterations defined under that context
+in <code class="prettyprint">$this-&gt;bindAlters</code>. If <code class="prettyprint">$context</code> is null, the top-level alterations array is used.</p>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
     <dl class="phpdocumentor-argument-list">
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-argument-list__argument__name">$document</span>
-                : <span class="phpdocumentor-argument-list__argument__type">mixed</span>
+                <span class="phpdocumentor-argument-list__argument__name">$bindVars</span>
+                : <span class="phpdocumentor-argument-list__argument__type">array&lt;string|int, mixed&gt;|null</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>The input to transform. Can be an associative array, object, or a list of items.</p>
+                    <section class="phpdocumentor-description"><p>The bind variables definition to transform. Should be an associative array or a list of associative arrays.</p>
 </section>
 
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-argument-list__argument__name">$alters</span>
-                : <span class="phpdocumentor-argument-list__argument__type">array&lt;string|int, mixed&gt;|null</span>
+                <span class="phpdocumentor-argument-list__argument__name">$context</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string|null</span>
                  = <span class="phpdocumentor-argument-list__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Optional temporary alter definitions for this call. Keys are property names, values are <code class="prettyprint">Alter::</code> constants or arrays of chained alters.</p>
+                    <section class="phpdocumentor-description"><p>Optional context key to select a specific set of alterations from <code class="prettyprint">$this-&gt;bindAlters</code>.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$flags</span>
+                : <span class="phpdocumentor-argument-list__argument__type">int</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value"><abbr title="\oihana\core\arrays\CleanFlag::DEFAULT">CleanFlag::DEFAULT</abbr></span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>$flags A bitmask of <code class="prettyprint">CleanFlag</code> values. Defaults to <code class="prettyprint">CleanFlag::DEFAULT</code>.</p>
 </section>
 
             </dd>
@@ -485,7 +529,7 @@ for the current method call. Passing <code class="prettyprint">null</code> will 
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-models-traits-AlterDocumentTrait.html#method_alter#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-models-traits-AlterBindVarsTrait.html#method_alterBindVars#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -544,34 +588,30 @@ for the current method call. Passing <code class="prettyprint">null</code> will 
                 </dt>
                 <dd class="phpdocumentor-tag-list__definition">
                                                                                 
-                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">class Example
+                                                 <section class="phpdocumentor-description"><pre class="prettyprint"><code class="language-php">class BindVarsProcessor
 {
-    use AlterDocumentTrait;
+use AlterBindVarsTrait;
 
     public function __construct()
     {
-        $this-&gt;alters = [
-            'price' =&gt; Alter::FLOAT,
-            'tags'  =&gt; [ Alter::ARRAY, Alter::CLEAN ],
-            'name'  =&gt; [ Alter::TRIM, Alter::UPPERCASE ], // Chained alterations
+        $this-&gt;bindAlters =
+        [
+            'get' =&gt; [
+                'id'    =&gt; Alter::INT,
+                'price' =&gt; Alter::FLOAT,
+            ],
         ];
-    }
+   }
 }
 
-$input = [
-    'price' =&gt; '19.99',
-    'tags'  =&gt; 'foo,bar',
-    'name'  =&gt; '  john  '
-];
+$processor = new BindVarsProcessor();
+$bindVars  = ['id' =&gt; '42', 'price' =&gt; '19.99'];
+$result    = $processor-&gt;alterBindVars($bindVars, 'get');
 
-$processor = new Example();
-$output = $processor-&gt;alter($input);
-
-// $output:
+// $result:
 // [
+//     'id'    =&gt; 42,
 //     'price' =&gt; 19.99,
-//     'tags'  =&gt; ['foo', 'bar'],
-//     'name'  =&gt; 'JOHN',
 // ]
 </code></pre>
 </section>
@@ -583,9 +623,9 @@ $output = $processor-&gt;alter($input);
     
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">mixed</span>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, mixed&gt;|null</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>The transformed document, preserving the input structure (array, object, or list of arrays/objects).</p>
+                <section class="phpdocumentor-description"><p>The transformed bind variables array, preserving the input structure. Returns the original input if no alterations apply.</p>
 </section>
 
             </section>
@@ -597,23 +637,23 @@ $output = $processor-&gt;alter($input);
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_initializeAlters">
-        initializeAlters()
-        <a href="classes/oihana-models-traits-AlterDocumentTrait.html#method_initializeAlters" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_initializeBindVarsAlters">
+        initializeBindVarsAlters()
+        <a href="classes/oihana-models-traits-AlterBindVarsTrait.html#method_initializeBindVarsAlters" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterDocumentTrait.php"><a href="files/src-oihana-models-traits-alterdocumenttrait.html"><abbr title="src/oihana/models/traits/AlterDocumentTrait.php">AlterDocumentTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/AlterBindVarsTrait.php"><a href="files/src-oihana-models-traits-alterbindvarstrait.html"><abbr title="src/oihana/models/traits/AlterBindVarsTrait.php">AlterBindVarsTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">173</span>
+    <span class="phpdocumentor-element-found-in__line">188</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Initialize the &#039;alters&#039; property.</p>
+        <p class="phpdocumentor-summary">Initialize the &#039;bindAlters&#039; property.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">initializeAlters</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+                    <span class="phpdocumentor-signature__name">initializeBindVarsAlters</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -1375,7 +1415,7 @@ becoming the input of the next.</p>
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/models/traits/AlterDocumentTrait.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/models/traits/AlterBindVarsTrait.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -1476,22 +1516,22 @@ becoming the input of the next.</p>
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                            <li><a href="classes/oihana-models-traits-AlterDocumentTrait.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/oihana-models-traits-AlterDocumentTrait.html#toc-methods">Methods</a></li>
+                                                            <li><a href="classes/oihana-models-traits-AlterBindVarsTrait.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/oihana-models-traits-AlterBindVarsTrait.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
                                     <li class="phpdocumentor-on-this-page-section__title">Properties</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-models-traits-AlterDocumentTrait.html#property_alters">$alters</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-AlterBindVarsTrait.html#property_bindAlters">$bindAlters</a></li>
                                             <li class=""><a href="classes/oihana-traits-ContainerTrait.html#property_container">$container</a></li>
                                     </ul>
             </li>
                                     <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-models-traits-AlterDocumentTrait.html#method_alter">alter()</a></li>
-                                            <li class=""><a href="classes/oihana-models-traits-AlterDocumentTrait.html#method_initializeAlters">initializeAlters()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-AlterBindVarsTrait.html#method_alterBindVars">alterBindVars()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-AlterBindVarsTrait.html#method_initializeBindVarsAlters">initializeBindVarsAlters()</a></li>
                                             <li class=""><a href="classes/oihana-models-traits-AlterTrait.html#method_alterProperty">alterProperty()</a></li>
                                             <li class=""><a href="classes/oihana-models-traits-AlterTrait.html#method_applyChainedAlterations">applyChainedAlterations()</a></li>
                                             <li class=""><a href="classes/oihana-models-traits-AlterTrait.html#method_applySingleAlteration">applySingleAlteration()</a></li>
@@ -1517,7 +1557,7 @@ becoming the input of the next.</p>
     </section>
 </section>
         </div>
-        <a href="classes/oihana-models-traits-AlterDocumentTrait.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/oihana-models-traits-AlterBindVarsTrait.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

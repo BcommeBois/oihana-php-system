@@ -265,6 +265,13 @@ to be provided directly or by reference (as a container service name).</p>
 <dd>Execute a SELECT query and fetch all results.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-models-pdo-PDOTrait.html#method_fetchAllAsGenerator">fetchAllAsGenerator()</a>
+    <span>
+                                &nbsp;: <abbr title="\Generator">Generator</abbr>&lt;string|int, object&gt;    </span>
+</dt>
+<dd>Execute a SELECT query and fetch all results as a generator.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-models-pdo-PDOTrait.html#method_fetchColumn">fetchColumn()</a>
     <span>
                                 &nbsp;: mixed    </span>
@@ -396,7 +403,7 @@ to be provided directly or by reference (as a container service name).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">49</span>
+    <span class="phpdocumentor-element-found-in__line">50</span>
 
     </aside>
 
@@ -474,7 +481,7 @@ to be provided directly or by reference (as a container service name).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">55</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 
     </aside>
 
@@ -517,7 +524,7 @@ to be provided directly or by reference (as a container service name).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">66</span>
+    <span class="phpdocumentor-element-found-in__line">67</span>
 
     </aside>
 
@@ -577,7 +584,7 @@ to be provided directly or by reference (as a container service name).</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">98</span>
+    <span class="phpdocumentor-element-found-in__line">99</span>
 
     </aside>
 
@@ -667,7 +674,7 @@ Alteration is applied via AlterDocumentTrait.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">149</span>
+    <span class="phpdocumentor-element-found-in__line">150</span>
 
     </aside>
 
@@ -749,6 +756,96 @@ Alteration is applied via AlterDocumentTrait.</p>
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_fetchAllAsGenerator">
+        fetchAllAsGenerator()
+        <a href="classes/oihana-models-pdo-PDOTrait.html#method_fetchAllAsGenerator" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">192</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Execute a SELECT query and fetch all results as a generator.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">fetchAllAsGenerator</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$query</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$bindVars</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Generator">Generator</abbr>&lt;string|int, object&gt;</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>Results are yielded one by one as objects or schema instances.
+Alteration is applied via AlterDocumentTrait.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$query</span>
+                : <span class="phpdocumentor-argument-list__argument__type">string</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>The SQL query to execute.</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$bindVars</span>
+                : <span class="phpdocumentor-argument-list__argument__type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional bindings for the query.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-models-pdo-PDOTrait.html#method_fetchAllAsGenerator#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\ContainerExceptionInterface">ContainerExceptionInterface</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                            <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">throws</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                <span class="phpdocumentor-tag-link"><abbr title="\Psr\Container\NotFoundExceptionInterface">NotFoundExceptionInterface</abbr></span>
+                                                            
+                                             
+                                    </dd>
+                                            </dl>
+
+        
+    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Generator">Generator</abbr>&lt;string|int, object&gt;</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>A generator yielding results one by one.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_fetchColumn">
         fetchColumn()
         <a href="classes/oihana-models-pdo-PDOTrait.html#method_fetchColumn" class="headerlink"><i class="fas fa-link"></i></a>
@@ -757,7 +854,7 @@ Alteration is applied via AlterDocumentTrait.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">187</span>
+    <span class="phpdocumentor-element-found-in__line">245</span>
 
     </aside>
 
@@ -830,7 +927,7 @@ Alteration is applied via AlterDocumentTrait.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">219</span>
+    <span class="phpdocumentor-element-found-in__line">277</span>
 
     </aside>
 
@@ -890,7 +987,7 @@ Alteration is applied via AlterDocumentTrait.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">253</span>
+    <span class="phpdocumentor-element-found-in__line">311</span>
 
     </aside>
 
@@ -940,7 +1037,7 @@ if a schema class is defined and exists.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">275</span>
+    <span class="phpdocumentor-element-found-in__line">333</span>
 
     </aside>
 
@@ -1061,7 +1158,7 @@ if a schema class is defined and exists.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">292</span>
+    <span class="phpdocumentor-element-found-in__line">350</span>
 
     </aside>
 
@@ -1144,7 +1241,7 @@ if a schema class is defined and exists.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/pdo/PDOTrait.php"><a href="files/src-oihana-models-pdo-pdotrait.html"><abbr title="src/oihana/models/pdo/PDOTrait.php">PDOTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">307</span>
+    <span class="phpdocumentor-element-found-in__line">365</span>
 
     </aside>
 
@@ -1435,6 +1532,7 @@ This ensures safe usage in SQL queries without risk of injection or syntax error
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_bindValues">bindValues()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_fetch">fetch()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_fetchAll">fetchAll()</a></li>
+                                            <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_fetchAllAsGenerator">fetchAllAsGenerator()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_fetchColumn">fetchColumn()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_fetchColumnArray">fetchColumnArray()</a></li>
                                             <li class=""><a href="classes/oihana-models-pdo-PDOTrait.html#method_initializeDefaultFetchMode">initializeDefaultFetchMode()</a></li>
