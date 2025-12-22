@@ -129,6 +129,11 @@ trait ModelParamTrait
     public const string SORT_DEFAULT = 'sortDefault' ;
 
     /**
+     * The 'ttl' parameter.
+     */
+    public const string TTL = 'ttl' ;
+
+    /**
      * The 'value' parameter.
      */
     public const string VALUE = 'value' ;

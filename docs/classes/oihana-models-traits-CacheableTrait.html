@@ -132,7 +132,8 @@
                                 <section>
                                         <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana.html">oihana</a></li>
-            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-traits.html">traits</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-models.html">models</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-models-traits.html">traits</a></li>
     </ul>
 
     <article class="phpdocumentor-element -trait">
@@ -141,26 +142,55 @@
     </h2>
 
         <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/CacheableTrait.php"><a href="files/src-oihana-traits-cacheabletrait.html"><abbr title="src/oihana/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/CacheableTrait.php"><a href="files/src-oihana-models-traits-cacheabletrait.html"><abbr title="src/oihana/models/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">18</span>
+    <span class="phpdocumentor-element-found-in__line">28</span>
 
     </aside>
 
-            <p class="phpdocumentor-summary">Provides caching functionality through a PSR-16 compliant cache implementation.</p>
+            <p class="phpdocumentor-summary">Provides a standardized caching layer for classes using PSR-16 (Simple Cache).</p>
 
 
-    <section class="phpdocumentor-description"><p>This trait enables caching support for classes by defining methods for interacting
-with a cache store as well as initialization of cache-related properties.</p>
+    <section class="phpdocumentor-description"><p>This trait manages:</p>
+<ul>
+<li><strong>Instance-level caching</strong>: Easily enable/disable cache per object.</li>
+<li><strong>Dependency Injection</strong>: Can resolve cache instances from a PSR-11 Container.</li>
+<li><strong>Flexible TTL</strong>: Defines a default Time To Live (TTL) that can be overridden at call time.</li>
+<li><strong>Fluent Initialization</strong>: Provides methods to hydrate the cache configuration from arrays.</li>
+</ul>
+<ul>
+<li>Expected configuration keys in $init arrays:</li>
+</ul>
+<ul>
+<li>'cache' (string|CacheInterface): The cache instance or its container ID.</li>
+<li>'cacheable' (bool): Toggle to enable/disable the cache functionality.</li>
+<li>'ttl' (int|DateInterval|null): The default expiration time.</li>
+</ul>
 </section>
 
 
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-models-traits-CacheableTrait.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (eKameleon)</p>
+</section>
+
+                                    </dd>
+                                            </dl>
 
     
     
 <h3 id="toc">
     Table of Contents
-    <a href="classes/oihana-traits-CacheableTrait.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-models-traits-CacheableTrait.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
@@ -172,113 +202,134 @@ with a cache store as well as initialization of cache-related properties.</p>
 
 <h4 id="toc-constants">
     Constants
-    <a href="classes/oihana-traits-CacheableTrait.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-models-traits-CacheableTrait.html#toc-constants" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a class="" href="classes/oihana-traits-CacheableTrait.html#constant_CACHE">CACHE</a>
+    <a class="" href="classes/oihana-models-traits-CacheableTrait.html#constant_CACHE">CACHE</a>
     <span>
         &nbsp;= &#039;cache&#039;                            </span>
 </dt>
 <dd>The &#039;cache&#039; parameter constant.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -constant -public">
-    <a class="" href="classes/oihana-traits-CacheableTrait.html#constant_CACHEABLE">CACHEABLE</a>
+    <a class="" href="classes/oihana-models-traits-CacheableTrait.html#constant_CACHEABLE">CACHEABLE</a>
     <span>
         &nbsp;= &#039;cacheable&#039;                            </span>
 </dt>
 <dd>The &#039;cacheable&#039; parameter constant.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -constant -public">
+    <a class="" href="classes/oihana-models-traits-CacheableTrait.html#constant_TTL">TTL</a>
+    <span>
+        &nbsp;= &#039;ttl&#039;                            </span>
+</dt>
+<dd>The &#039;ttl&#039; parameter constant.</dd>
 
     </dl>
 
 
 <h4 id="toc-properties">
     Properties
-    <a href="classes/oihana-traits-CacheableTrait.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-models-traits-CacheableTrait.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/oihana-traits-CacheableTrait.html#property_cache">$cache</a>
+    <a class="" href="classes/oihana-models-traits-CacheableTrait.html#property_cache">$cache</a>
     <span>
                         &nbsp;: <abbr title="\Psr\SimpleCache\CacheInterface">CacheInterface</abbr>|mixed|null            </span>
 </dt>
 <dd>The PSR-16 cache reference.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
-    <a class="" href="classes/oihana-traits-CacheableTrait.html#property_cacheable">$cacheable</a>
+    <a class="" href="classes/oihana-models-traits-CacheableTrait.html#property_cacheable">$cacheable</a>
     <span>
                         &nbsp;: bool            </span>
 </dt>
-<dd>Indicates if the instance use an internal PSR-16 c1ache.</dd>
+<dd>Indicates if the instance use an internal PSR-16 cache.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
+    <a class="" href="classes/oihana-models-traits-CacheableTrait.html#property_ttl">$ttl</a>
+    <span>
+                        &nbsp;: null|int|<abbr title="\DateInterval">DateInterval</abbr>            </span>
+</dt>
+<dd>Default TTL for cache items.</dd>
 
     </dl>
 
 <h4 id="toc-methods">
     Methods
-    <a href="classes/oihana-traits-CacheableTrait.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-models-traits-CacheableTrait.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-traits-CacheableTrait.html#method_clearCache">clearCache()</a>
+    <a class="" href="classes/oihana-models-traits-CacheableTrait.html#method_clearCache">clearCache()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Clear the cache.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-traits-CacheableTrait.html#method_deleteCache">deleteCache()</a>
+    <a class="" href="classes/oihana-models-traits-CacheableTrait.html#method_deleteCache">deleteCache()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
 <dd>Delete a key/value in the cache.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-traits-CacheableTrait.html#method_getCache">getCache()</a>
+    <a class="" href="classes/oihana-models-traits-CacheableTrait.html#method_getCache">getCache()</a>
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
 <dd>Returns the registered value in the cache with a specific key.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-traits-CacheableTrait.html#method_hasCache">hasCache()</a>
+    <a class="" href="classes/oihana-models-traits-CacheableTrait.html#method_hasCache">hasCache()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Indicates if the key is registered in the cache.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-traits-CacheableTrait.html#method_initializeCache">initializeCache()</a>
+    <a class="" href="classes/oihana-models-traits-CacheableTrait.html#method_initializeCache">initializeCache()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
 <dd>Initialize the cache reference.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-traits-CacheableTrait.html#method_initializeCacheable">initializeCacheable()</a>
+    <a class="" href="classes/oihana-models-traits-CacheableTrait.html#method_initializeCacheable">initializeCacheable()</a>
     <span>
                                 &nbsp;: static    </span>
 </dt>
 <dd>Initialize the cacheable property.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-traits-CacheableTrait.html#method_isCacheable">isCacheable()</a>
+    <a class="" href="classes/oihana-models-traits-CacheableTrait.html#method_initializeTtl">initializeTtl()</a>
+    <span>
+                                &nbsp;: static    </span>
+</dt>
+<dd>Initialize the TTL property.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-models-traits-CacheableTrait.html#method_isCacheable">isCacheable()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Indicates if the ressource can use the cache.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-traits-CacheableTrait.html#method_setCache">setCache()</a>
+    <a class="" href="classes/oihana-models-traits-CacheableTrait.html#method_setCache">setCache()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
 <dd>Persists data in the cache, uniquely referenced by a key with an optional expiration TTL time.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a class="" href="classes/oihana-traits-CacheableTrait.html#method_setCacheMultiple">setCacheMultiple()</a>
+    <a class="" href="classes/oihana-models-traits-CacheableTrait.html#method_setCacheMultiple">setCacheMultiple()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
@@ -293,20 +344,20 @@ with a cache store as well as initialization of cache-related properties.</p>
     <section class="phpdocumentor-constants">
         <h3 class="phpdocumentor-elements__header" id="constants">
             Constants
-            <a href="classes/oihana-traits-CacheableTrait.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/oihana-models-traits-CacheableTrait.html#constants" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_CACHE">
         CACHE
-        <a href="classes/oihana-traits-CacheableTrait.html#constant_CACHE" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-models-traits-CacheableTrait.html#constant_CACHE" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/CacheableTrait.php"><a href="files/src-oihana-traits-cacheabletrait.html"><abbr title="src/oihana/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/CacheableTrait.php"><a href="files/src-oihana-models-traits-cacheabletrait.html"><abbr title="src/oihana/models/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">23</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
@@ -330,14 +381,14 @@ with a cache store as well as initialization of cache-related properties.</p>
                     <article class="phpdocumentor-element -constant -public ">
     <h4 class="phpdocumentor-element__name" id="constant_CACHEABLE">
         CACHEABLE
-        <a href="classes/oihana-traits-CacheableTrait.html#constant_CACHEABLE" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-models-traits-CacheableTrait.html#constant_CACHEABLE" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
 
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/CacheableTrait.php"><a href="files/src-oihana-traits-cacheabletrait.html"><abbr title="src/oihana/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/CacheableTrait.php"><a href="files/src-oihana-models-traits-cacheabletrait.html"><abbr title="src/oihana/models/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">28</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
@@ -358,13 +409,44 @@ with a cache store as well as initialization of cache-related properties.</p>
 
         
     </article>
+                    <article class="phpdocumentor-element -constant -public ">
+    <h4 class="phpdocumentor-element__name" id="constant_TTL">
+        TTL
+        <a href="classes/oihana-models-traits-CacheableTrait.html#constant_TTL" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/CacheableTrait.php"><a href="files/src-oihana-models-traits-cacheabletrait.html"><abbr title="src/oihana/models/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">43</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">The &#039;ttl&#039; parameter constant.</p>
+
+    
+    <code class="phpdocumentor-signature phpdocumentor-code ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+        <span class="phpdocumentor-signature__type">mixed</span>
+    <span class="phpdocumentor-signature__name">TTL</span>
+    = <span class="phpdocumentor-signature__default-value">&#039;ttl&#039;</span>
+</code>
+
+
+    
+    
+    
+
+        
+    </article>
             </section>
 
         
     <section class="phpdocumentor-properties">
         <h3 class="phpdocumentor-elements__header" id="properties">
             Properties
-            <a href="classes/oihana-traits-CacheableTrait.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/oihana-models-traits-CacheableTrait.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -376,15 +458,15 @@ with a cache store as well as initialization of cache-related properties.</p>
 >
     <h4 class="phpdocumentor-element__name" id="property_cache">
         $cache
-        <a href="classes/oihana-traits-CacheableTrait.html#property_cache" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-models-traits-CacheableTrait.html#property_cache" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                             </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/CacheableTrait.php"><a href="files/src-oihana-traits-cacheabletrait.html"><abbr title="src/oihana/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/CacheableTrait.php"><a href="files/src-oihana-models-traits-cacheabletrait.html"><abbr title="src/oihana/models/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">34</span>
+    <span class="phpdocumentor-element-found-in__line">49</span>
 
     </aside>
 
@@ -414,19 +496,19 @@ with a cache store as well as initialization of cache-related properties.</p>
 >
     <h4 class="phpdocumentor-element__name" id="property_cacheable">
         $cacheable
-        <a href="classes/oihana-traits-CacheableTrait.html#property_cacheable" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-models-traits-CacheableTrait.html#property_cacheable" class="headerlink"><i class="fas fa-link"></i></a>
 
         <span class="phpdocumentor-element__modifiers">
                                             </span>
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/CacheableTrait.php"><a href="files/src-oihana-traits-cacheabletrait.html"><abbr title="src/oihana/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/CacheableTrait.php"><a href="files/src-oihana-models-traits-cacheabletrait.html"><abbr title="src/oihana/models/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">40</span>
+    <span class="phpdocumentor-element-found-in__line">55</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Indicates if the instance use an internal PSR-16 c1ache.</p>
+        <p class="phpdocumentor-summary">Indicates if the instance use an internal PSR-16 cache.</p>
 
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
@@ -443,12 +525,50 @@ with a cache store as well as initialization of cache-related properties.</p>
         
 
 </article>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -public
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_ttl">
+        $ttl
+        <a href="classes/oihana-models-traits-CacheableTrait.html#property_ttl" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/CacheableTrait.php"><a href="files/src-oihana-models-traits-cacheabletrait.html"><abbr title="src/oihana/models/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">61</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Default TTL for cache items.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__type">null|int|<abbr title="\DateInterval">DateInterval</abbr></span>
+    <span class="phpdocumentor-signature__name">$ttl</span>
+     = <span class="phpdocumentor-signature__default-value">null</span></code>
+
+    
+    
+    
+
+        
+        
+
+</article>
             </section>
 
             <section class="phpdocumentor-methods">
         <h3 class="phpdocumentor-elements__header" id="methods">
             Methods
-            <a href="classes/oihana-traits-CacheableTrait.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+            <a href="classes/oihana-models-traits-CacheableTrait.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
 
         </h3>
                     <article
@@ -459,13 +579,13 @@ with a cache store as well as initialization of cache-related properties.</p>
 >
     <h4 class="phpdocumentor-element__name" id="method_clearCache">
         clearCache()
-        <a href="classes/oihana-traits-CacheableTrait.html#method_clearCache" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-models-traits-CacheableTrait.html#method_clearCache" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/CacheableTrait.php"><a href="files/src-oihana-traits-cacheabletrait.html"><abbr title="src/oihana/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/CacheableTrait.php"><a href="files/src-oihana-models-traits-cacheabletrait.html"><abbr title="src/oihana/models/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">46</span>
+    <span class="phpdocumentor-element-found-in__line">67</span>
 
     </aside>
 
@@ -494,13 +614,13 @@ with a cache store as well as initialization of cache-related properties.</p>
 >
     <h4 class="phpdocumentor-element__name" id="method_deleteCache">
         deleteCache()
-        <a href="classes/oihana-traits-CacheableTrait.html#method_deleteCache" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-models-traits-CacheableTrait.html#method_deleteCache" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/CacheableTrait.php"><a href="files/src-oihana-traits-cacheabletrait.html"><abbr title="src/oihana/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/CacheableTrait.php"><a href="files/src-oihana-models-traits-cacheabletrait.html"><abbr title="src/oihana/models/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">57</span>
+    <span class="phpdocumentor-element-found-in__line">78</span>
 
     </aside>
 
@@ -528,7 +648,7 @@ with a cache store as well as initialization of cache-related properties.</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-traits-CacheableTrait.html#method_deleteCache#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-models-traits-CacheableTrait.html#method_deleteCache#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -554,13 +674,13 @@ with a cache store as well as initialization of cache-related properties.</p>
 >
     <h4 class="phpdocumentor-element__name" id="method_getCache">
         getCache()
-        <a href="classes/oihana-traits-CacheableTrait.html#method_getCache" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-models-traits-CacheableTrait.html#method_getCache" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/CacheableTrait.php"><a href="files/src-oihana-traits-cacheabletrait.html"><abbr title="src/oihana/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/CacheableTrait.php"><a href="files/src-oihana-models-traits-cacheabletrait.html"><abbr title="src/oihana/models/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">68</span>
+    <span class="phpdocumentor-element-found-in__line">89</span>
 
     </aside>
 
@@ -588,7 +708,7 @@ with a cache store as well as initialization of cache-related properties.</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-traits-CacheableTrait.html#method_getCache#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-models-traits-CacheableTrait.html#method_getCache#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -614,13 +734,13 @@ with a cache store as well as initialization of cache-related properties.</p>
 >
     <h4 class="phpdocumentor-element__name" id="method_hasCache">
         hasCache()
-        <a href="classes/oihana-traits-CacheableTrait.html#method_hasCache" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-models-traits-CacheableTrait.html#method_hasCache" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/CacheableTrait.php"><a href="files/src-oihana-traits-cacheabletrait.html"><abbr title="src/oihana/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/CacheableTrait.php"><a href="files/src-oihana-models-traits-cacheabletrait.html"><abbr title="src/oihana/models/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">79</span>
+    <span class="phpdocumentor-element-found-in__line">100</span>
 
     </aside>
 
@@ -648,7 +768,7 @@ with a cache store as well as initialization of cache-related properties.</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-traits-CacheableTrait.html#method_hasCache#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-models-traits-CacheableTrait.html#method_hasCache#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -678,13 +798,13 @@ with a cache store as well as initialization of cache-related properties.</p>
 >
     <h4 class="phpdocumentor-element__name" id="method_initializeCache">
         initializeCache()
-        <a href="classes/oihana-traits-CacheableTrait.html#method_initializeCache" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-models-traits-CacheableTrait.html#method_initializeCache" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/CacheableTrait.php"><a href="files/src-oihana-traits-cacheabletrait.html"><abbr title="src/oihana/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/CacheableTrait.php"><a href="files/src-oihana-models-traits-cacheabletrait.html"><abbr title="src/oihana/models/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">150</span>
+    <span class="phpdocumentor-element-found-in__line">181</span>
 
     </aside>
 
@@ -719,7 +839,7 @@ with a cache store as well as initialization of cache-related properties.</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-traits-CacheableTrait.html#method_initializeCache#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-models-traits-CacheableTrait.html#method_initializeCache#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -757,13 +877,13 @@ with a cache store as well as initialization of cache-related properties.</p>
 >
     <h4 class="phpdocumentor-element__name" id="method_initializeCacheable">
         initializeCacheable()
-        <a href="classes/oihana-traits-CacheableTrait.html#method_initializeCacheable" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-models-traits-CacheableTrait.html#method_initializeCacheable" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/CacheableTrait.php"><a href="files/src-oihana-traits-cacheabletrait.html"><abbr title="src/oihana/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/CacheableTrait.php"><a href="files/src-oihana-models-traits-cacheabletrait.html"><abbr title="src/oihana/models/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">169</span>
+    <span class="phpdocumentor-element-found-in__line">200</span>
 
     </aside>
 
@@ -804,15 +924,64 @@ with a cache store as well as initialization of cache-related properties.</p>
             -public
                                                         "
 >
-    <h4 class="phpdocumentor-element__name" id="method_isCacheable">
-        isCacheable()
-        <a href="classes/oihana-traits-CacheableTrait.html#method_isCacheable" class="headerlink"><i class="fas fa-link"></i></a>
+    <h4 class="phpdocumentor-element__name" id="method_initializeTtl">
+        initializeTtl()
+        <a href="classes/oihana-models-traits-CacheableTrait.html#method_initializeTtl" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/CacheableTrait.php"><a href="files/src-oihana-traits-cacheabletrait.html"><abbr title="src/oihana/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/CacheableTrait.php"><a href="files/src-oihana-models-traits-cacheabletrait.html"><abbr title="src/oihana/models/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">93</span>
+    <span class="phpdocumentor-element-found-in__line">211</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Initialize the TTL property.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">initializeTtl</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$init</span>
+                : <span class="phpdocumentor-argument-list__argument__type">array&lt;string|int, mixed&gt;</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
+            </dl>
+
+    
+
+        
+    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">static</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_isCacheable">
+        isCacheable()
+        <a href="classes/oihana-models-traits-CacheableTrait.html#method_isCacheable" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/CacheableTrait.php"><a href="files/src-oihana-models-traits-cacheabletrait.html"><abbr title="src/oihana/models/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">114</span>
 
     </aside>
 
@@ -855,13 +1024,13 @@ with a cache store as well as initialization of cache-related properties.</p>
 >
     <h4 class="phpdocumentor-element__name" id="method_setCache">
         setCache()
-        <a href="classes/oihana-traits-CacheableTrait.html#method_setCache" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-models-traits-CacheableTrait.html#method_setCache" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/CacheableTrait.php"><a href="files/src-oihana-traits-cacheabletrait.html"><abbr title="src/oihana/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/CacheableTrait.php"><a href="files/src-oihana-models-traits-cacheabletrait.html"><abbr title="src/oihana/models/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">111</span>
+    <span class="phpdocumentor-element-found-in__line">132</span>
 
     </aside>
 
@@ -900,7 +1069,7 @@ with a cache store as well as initialization of cache-related properties.</p>
                 : <span class="phpdocumentor-argument-list__argument__type">null|int|<abbr title="\DateInterval">DateInterval</abbr></span>
                  = <span class="phpdocumentor-argument-list__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                    <section class="phpdocumentor-description"><p>Optional TTL value of this item.
+                    <section class="phpdocumentor-description"><p>Optional TTL (Time to Live)value of this item.
 If no value is sent and the driver supports TTL then the library may set
 a default value for it or let the driver take care of that.</p>
 </section>
@@ -911,7 +1080,7 @@ a default value for it or let the driver take care of that.</p>
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-traits-CacheableTrait.html#method_setCache#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-models-traits-CacheableTrait.html#method_setCache#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -947,13 +1116,13 @@ a default value for it or let the driver take care of that.</p>
 >
     <h4 class="phpdocumentor-element__name" id="method_setCacheMultiple">
         setCacheMultiple()
-        <a href="classes/oihana-traits-CacheableTrait.html#method_setCacheMultiple" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-models-traits-CacheableTrait.html#method_setCacheMultiple" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
     <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/traits/CacheableTrait.php"><a href="files/src-oihana-traits-cacheabletrait.html"><abbr title="src/oihana/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/CacheableTrait.php"><a href="files/src-oihana-models-traits-cacheabletrait.html"><abbr title="src/oihana/models/traits/CacheableTrait.php">CacheableTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">133</span>
+    <span class="phpdocumentor-element-found-in__line">159</span>
 
     </aside>
 
@@ -961,7 +1130,7 @@ a default value for it or let the driver take care of that.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">setCacheMultiple</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$values</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__type">int|null&nbsp;</span><span class="phpdocumentor-signature__argument__name">$ttl</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+                    <span class="phpdocumentor-signature__name">setCacheMultiple</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$values</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__type">null|int|<abbr title="\DateInterval">DateInterval</abbr>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$ttl</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -974,21 +1143,27 @@ a default value for it or let the driver take care of that.</p>
                 : <span class="phpdocumentor-argument-list__argument__type">array&lt;string|int, mixed&gt;</span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>A list of key =&gt; value pairs for a multiple-set operation.</p>
+</section>
+
             </dd>
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-argument-list__argument__name">$ttl</span>
-                : <span class="phpdocumentor-argument-list__argument__type">int|null</span>
+                : <span class="phpdocumentor-argument-list__argument__type">null|int|<abbr title="\DateInterval">DateInterval</abbr></span>
                  = <span class="phpdocumentor-argument-list__argument__default-value">null</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>Optional TTL (Time to Live) value of this item.
+If no value is sent and the driver supports TTL then the library may set
+a default value for it or let the driver take care of that.</p>
+</section>
+
             </dd>
             </dl>
 
     
     <h5 class="phpdocumentor-tag-list__heading" id="tags">
         Tags
-        <a href="classes/oihana-traits-CacheableTrait.html#method_setCacheMultiple#tags" class="headerlink"><i class="fas fa-link"></i></a>
+        <a href="classes/oihana-models-traits-CacheableTrait.html#method_setCacheMultiple#tags" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h5>
     <dl class="phpdocumentor-tag-list">
@@ -1007,6 +1182,10 @@ a default value for it or let the driver take care of that.</p>
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">bool</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>True on success and false on failure.</p>
+</section>
+
             </section>
 
 </article>
@@ -1016,7 +1195,7 @@ a default value for it or let the driver take care of that.</p>
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/traits/CacheableTrait.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/models/traits/CacheableTrait.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -1117,37 +1296,40 @@ a default value for it or let the driver take care of that.</p>
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                        <li><a href="classes/oihana-traits-CacheableTrait.html#toc-constants">Constants</a></li>
-                                                            <li><a href="classes/oihana-traits-CacheableTrait.html#toc-properties">Properties</a></li>
-                                                            <li><a href="classes/oihana-traits-CacheableTrait.html#toc-methods">Methods</a></li>
+                                        <li><a href="classes/oihana-models-traits-CacheableTrait.html#toc-constants">Constants</a></li>
+                                                            <li><a href="classes/oihana-models-traits-CacheableTrait.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/oihana-models-traits-CacheableTrait.html#toc-methods">Methods</a></li>
                                     </ul>
             </li>
                         <li class="phpdocumentor-on-this-page-section__title">Constants</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-traits-CacheableTrait.html#constant_CACHE">CACHE</a></li>
-                                            <li class=""><a href="classes/oihana-traits-CacheableTrait.html#constant_CACHEABLE">CACHEABLE</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-CacheableTrait.html#constant_CACHE">CACHE</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-CacheableTrait.html#constant_CACHEABLE">CACHEABLE</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-CacheableTrait.html#constant_TTL">TTL</a></li>
                                     </ul>
             </li>
                                     <li class="phpdocumentor-on-this-page-section__title">Properties</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-traits-CacheableTrait.html#property_cache">$cache</a></li>
-                                            <li class=""><a href="classes/oihana-traits-CacheableTrait.html#property_cacheable">$cacheable</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-CacheableTrait.html#property_cache">$cache</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-CacheableTrait.html#property_cacheable">$cacheable</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-CacheableTrait.html#property_ttl">$ttl</a></li>
                                     </ul>
             </li>
                                     <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                            <li class=""><a href="classes/oihana-traits-CacheableTrait.html#method_clearCache">clearCache()</a></li>
-                                            <li class=""><a href="classes/oihana-traits-CacheableTrait.html#method_deleteCache">deleteCache()</a></li>
-                                            <li class=""><a href="classes/oihana-traits-CacheableTrait.html#method_getCache">getCache()</a></li>
-                                            <li class=""><a href="classes/oihana-traits-CacheableTrait.html#method_hasCache">hasCache()</a></li>
-                                            <li class=""><a href="classes/oihana-traits-CacheableTrait.html#method_initializeCache">initializeCache()</a></li>
-                                            <li class=""><a href="classes/oihana-traits-CacheableTrait.html#method_initializeCacheable">initializeCacheable()</a></li>
-                                            <li class=""><a href="classes/oihana-traits-CacheableTrait.html#method_isCacheable">isCacheable()</a></li>
-                                            <li class=""><a href="classes/oihana-traits-CacheableTrait.html#method_setCache">setCache()</a></li>
-                                            <li class=""><a href="classes/oihana-traits-CacheableTrait.html#method_setCacheMultiple">setCacheMultiple()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-CacheableTrait.html#method_clearCache">clearCache()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-CacheableTrait.html#method_deleteCache">deleteCache()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-CacheableTrait.html#method_getCache">getCache()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-CacheableTrait.html#method_hasCache">hasCache()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-CacheableTrait.html#method_initializeCache">initializeCache()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-CacheableTrait.html#method_initializeCacheable">initializeCacheable()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-CacheableTrait.html#method_initializeTtl">initializeTtl()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-CacheableTrait.html#method_isCacheable">isCacheable()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-CacheableTrait.html#method_setCache">setCache()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-CacheableTrait.html#method_setCacheMultiple">setCacheMultiple()</a></li>
                                     </ul>
             </li>
                     </ul>
@@ -1167,7 +1349,7 @@ a default value for it or let the driver take care of that.</p>
     </section>
 </section>
         </div>
-        <a href="classes/oihana-traits-CacheableTrait.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/oihana-models-traits-CacheableTrait.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 

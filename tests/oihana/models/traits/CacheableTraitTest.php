@@ -1,12 +1,13 @@
 <?php
 
-namespace tests\oihana\traits;
+namespace tests\oihana\models\traits;
 
 use DI\Container;
-
 use DI\DependencyException;
 use DI\NotFoundException;
-use oihana\traits\CacheableTrait;
+
+use oihana\models\traits\CacheableTrait;
+
 use PHPUnit\Framework\TestCase;
 
 use Psr\SimpleCache\CacheInterface;
@@ -17,6 +18,12 @@ class MockCacheable
     use CacheableTrait;
 }
 
+/**
+ * Usage
+ * ```bash
+ * composer test tests/oihana/models/traits/CacheableTraitTest.php
+ * ```
+ */
 final class CacheableTraitTest extends TestCase
 {
     private object $object;
@@ -29,12 +36,17 @@ final class CacheableTraitTest extends TestCase
         $this->object->cache = $this->mockCache ;
     }
 
-    // public function testClearCacheCallsClear(): void
-    // {
-    //     $mock = $this->createStub(CacheInterface::class ) ;
-    //     $mock->method('clear' ) ;
-    //     $this->object->clearCache();
-    // }
+    /**
+     * Test simple du clear cache.
+     */
+    public function testClearCacheCallsClear(): void
+    {
+        $this->mockCache = $this->createMock(CacheInterface::class);
+        $this->object->cache = $this->mockCache;
+
+        $this->mockCache->expects($this->once())->method('clear');
+        $this->object->clearCache();
+    }
 
     /**
      * @throws InvalidArgumentException
@@ -194,5 +206,102 @@ final class CacheableTraitTest extends TestCase
         $this->object->cacheable = true;
         $this->object->initializeCacheable();
         $this->assertTrue( $this->object->cacheable ) ;
+    }
+
+    /**
+     * Vérifie que setCache utilise le TTL de l'instance si aucun n'est fourni.
+     * @throws InvalidArgumentException
+     */
+    public function testSetCacheUsesInstanceTtlWhenNoneProvided(): void
+    {
+        $this->object->ttl = 3600;
+
+        // On crée un mock pour vérifier l'argument passé à set()
+        $this->mockCache = $this->createMock(CacheInterface::class);
+        $this->object->cache = $this->mockCache;
+
+        $this->mockCache->expects($this->once())
+            ->method('set')
+            ->with('foo', 'bar', 3600)
+            ->willReturn(true);
+
+        $this->object->setCache('foo', 'bar');
+    }
+
+    /**
+     * Vérifie que le TTL passé en argument prime sur le TTL de l'instance.
+     * @throws InvalidArgumentException
+     */
+    public function testSetCacheArgumentOverridesInstanceTtl(): void
+    {
+        $this->object->ttl = 3600;
+
+        $this->mockCache = $this->createMock(CacheInterface::class);
+        $this->object->cache = $this->mockCache;
+
+        $this->mockCache->expects($this->once())
+            ->method('set')
+            ->with('foo', 'bar', 60)
+            ->willReturn(true);
+
+        $this->object->setCache('foo', 'bar', 60);
+    }
+
+    /**
+     * Vérifie setCacheMultiple avec le TTL de l'instance.
+     * @throws InvalidArgumentException
+     */
+    public function testSetCacheMultipleUsesInstanceTtl(): void
+    {
+        $this->object->ttl = 120;
+        $values = ['a' => 1, 'b' => 2];
+
+        $this->mockCache = $this->createMock(CacheInterface::class);
+        $this->object->cache = $this->mockCache;
+
+        $this->mockCache->expects($this->once())
+            ->method('setMultiple')
+            ->with($values, 120)
+            ->willReturn(true);
+
+        $this->object->setCacheMultiple($values);
+    }
+
+    /**
+     * Test de l'initialisation du TTL via le tableau.
+     */
+    public function testInitializeTtlSetsValue(): void
+    {
+        $this->object->initializeTtl([MockCacheable::TTL => 500]);
+        $this->assertSame(500, $this->object->ttl);
+    }
+
+    /**
+     * Vérifie que initializeCache appelle bien les sous-initialisations (Ttl et Cacheable).
+     * @throws DependencyException
+     * @throws NotFoundException
+     */
+    public function testInitializeCacheTriggersSubInitializers(): void
+    {
+        $init = [
+            MockCacheable::CACHE     => $this->mockCache,
+            MockCacheable::CACHEABLE => false,
+            MockCacheable::TTL       => 999
+        ];
+
+        $this->object->initializeCache($init);
+
+        $this->assertSame($this->mockCache, $this->object->cache);
+        $this->assertFalse($this->object->cacheable);
+        $this->assertSame(999, $this->object->ttl);
+    }
+
+    /**
+     * Vérifie le comportement de isCacheable quand le cache est désactivé via init.
+     */
+    public function testIsCacheableReturnsFalseEvenIfCacheExistsButDisabled(): void
+    {
+        $this->object->cacheable = false;
+        $this->assertFalse($this->object->isCacheable());
     }
 }

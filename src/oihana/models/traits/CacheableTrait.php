@@ -1,19 +1,29 @@
 <?php
 
-namespace oihana\traits;
+namespace oihana\models\traits;
 
 use DateInterval;
 use DI\Container;
 use DI\DependencyException;
 use DI\NotFoundException;
-
 use Psr\SimpleCache\CacheInterface;
 use Psr\SimpleCache\InvalidArgumentException;
 
 /**
- * Provides caching functionality through a PSR-16 compliant cache implementation.
- * This trait enables caching support for classes by defining methods for interacting
- * with a cache store as well as initialization of cache-related properties.
+ * Provides a standardized caching layer for classes using PSR-16 (Simple Cache).
+ *
+ * This trait manages:
+ * - **Instance-level caching**: Easily enable/disable cache per object.
+ * - **Dependency Injection**: Can resolve cache instances from a PSR-11 Container.
+ * - **Flexible TTL**: Defines a default Time To Live (TTL) that can be overridden at call time.
+ * - **Fluent Initialization**: Provides methods to hydrate the cache configuration from arrays.
+ * * Expected configuration keys in $init arrays:
+ * - 'cache' (string|CacheInterface): The cache instance or its container ID.
+ * - 'cacheable' (bool): Toggle to enable/disable the cache functionality.
+ * - 'ttl' (int|DateInterval|null): The default expiration time.
+ *
+ * @author Marc Alcaraz (eKameleon)
+ * @package oihana\traits
  */
 trait CacheableTrait
 {
@@ -28,16 +38,27 @@ trait CacheableTrait
     public const string CACHEABLE = 'cacheable' ;
 
     /**
+     * The 'ttl' parameter constant.
+     */
+    public const string TTL = 'ttl' ;
+
+    /**
      * The PSR-16 cache reference.
      * @var CacheInterface|mixed|null
      */
     public ?CacheInterface $cache = null ;
 
     /**
-     * Indicates if the instance use an internal PSR-16 c1ache.
+     * Indicates if the instance use an internal PSR-16 cache.
      * @var bool
      */
     public bool $cacheable = true ;
+
+    /**
+     * Default TTL for cache items.
+     * @var null|int|DateInterval
+     */
+    public null|int|DateInterval $ttl = null ;
 
     /**
      * Clear the cache.
@@ -100,7 +121,7 @@ trait CacheableTrait
      *
      * @param string                $key   The key of the item to store.
      * @param mixed                 $value The value of the item to store, must be serializable.
-     * @param null|int|DateInterval $ttl   Optional TTL value of this item.
+     * @param null|int|DateInterval $ttl   Optional TTL (Time to Live)value of this item.
      *                                     If no value is sent and the driver supports TTL then the library may set
      *                                     a default value for it or let the driver take care of that.
      *
@@ -118,23 +139,33 @@ trait CacheableTrait
     {
         if( $this->cacheable )
         {
-            return $this->cache?->set( $key , $value , $ttl ) ?? false ;
+            return $this->cache?->set( $key , $value , $ttl ?? $this->ttl ) ?? false ;
         }
         return false ;
     }
 
     /**
      * Persists a set of key => value pairs in the cache, with an optional TTL.
-     * @param array $values
-     * @param int|null $ttl
-     * @return bool
+     *
+     * @param array                 $values A list of key => value pairs for a multiple-set operation.
+     * @param null|int|DateInterval $ttl    Optional TTL (Time to Live) value of this item.
+     *                                      If no value is sent and the driver supports TTL then the library may set
+     *                                      a default value for it or let the driver take care of that.
+     *
+     * @return bool True on success and false on failure.
+     *
      * @throws InvalidArgumentException
      */
-    public function setCacheMultiple( array $values , ?int $ttl = null ):bool
+    public function setCacheMultiple
+    (
+        array                 $values ,
+        null|int|DateInterval $ttl    = null
+    )
+    :bool
     {
         if( $this->cacheable )
         {
-            return $this->cache?->setMultiple( $values , $ttl ) ?? false ;
+            return $this->cache?->setMultiple( $values , $ttl ?? $this->ttl ) ?? false ;
         }
         return false ;
     }
@@ -158,7 +189,7 @@ trait CacheableTrait
 
         $this->cache = $cache instanceof CacheInterface ? $cache : null ;
 
-        return $this;
+        return $this->initializeCacheable( $init )->initializeTtl( $init ) ;
     }
 
     /**
@@ -170,5 +201,16 @@ trait CacheableTrait
     {
         $this->cacheable = $init[ self::CACHEABLE ] ?? $this->cacheable ;
         return $this;
+    }
+
+    /**
+     * Initialize the TTL property.
+     * @param array $init
+     * @return static
+     */
+    public function initializeTtl( array $init = [] ): static
+    {
+        $this->ttl = $init[ self::TTL ] ?? $this->ttl ;
+        return $this ;
     }
 }

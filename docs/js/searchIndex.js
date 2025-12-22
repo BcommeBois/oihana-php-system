@@ -2781,6 +2781,76 @@ Search.appendIndex(
             "summary": "The\u0020default\u0020bind\u0020values\u0020definition\u0020of\u0020the\u0020model.",
             "url": "classes/oihana-models-traits-BindsTrait.html#property_binds"
         },                {
+            "fqsen": "\\oihana\\models\\traits\\CacheableTrait",
+            "name": "CacheableTrait",
+            "summary": "Provides\u0020a\u0020standardized\u0020caching\u0020layer\u0020for\u0020classes\u0020using\u0020PSR\u002D16\u0020\u0028Simple\u0020Cache\u0029.",
+            "url": "classes/oihana-models-traits-CacheableTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\CacheableTrait\u003A\u003AclearCache\u0028\u0029",
+            "name": "clearCache",
+            "summary": "Clear\u0020the\u0020cache.",
+            "url": "classes/oihana-models-traits-CacheableTrait.html#method_clearCache"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\CacheableTrait\u003A\u003AdeleteCache\u0028\u0029",
+            "name": "deleteCache",
+            "summary": "Delete\u0020a\u0020key\/value\u0020in\u0020the\u0020cache.",
+            "url": "classes/oihana-models-traits-CacheableTrait.html#method_deleteCache"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\CacheableTrait\u003A\u003AgetCache\u0028\u0029",
+            "name": "getCache",
+            "summary": "Returns\u0020the\u0020registered\u0020value\u0020in\u0020the\u0020cache\u0020with\u0020a\u0020specific\u0020key.",
+            "url": "classes/oihana-models-traits-CacheableTrait.html#method_getCache"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\CacheableTrait\u003A\u003AhasCache\u0028\u0029",
+            "name": "hasCache",
+            "summary": "Indicates\u0020if\u0020the\u0020key\u0020is\u0020registered\u0020in\u0020the\u0020cache.",
+            "url": "classes/oihana-models-traits-CacheableTrait.html#method_hasCache"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\CacheableTrait\u003A\u003AisCacheable\u0028\u0029",
+            "name": "isCacheable",
+            "summary": "Indicates\u0020if\u0020the\u0020ressource\u0020can\u0020use\u0020the\u0020cache.",
+            "url": "classes/oihana-models-traits-CacheableTrait.html#method_isCacheable"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\CacheableTrait\u003A\u003AsetCache\u0028\u0029",
+            "name": "setCache",
+            "summary": "Persists\u0020data\u0020in\u0020the\u0020cache,\u0020uniquely\u0020referenced\u0020by\u0020a\u0020key\u0020with\u0020an\u0020optional\u0020expiration\u0020TTL\u0020time.",
+            "url": "classes/oihana-models-traits-CacheableTrait.html#method_setCache"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\CacheableTrait\u003A\u003AsetCacheMultiple\u0028\u0029",
+            "name": "setCacheMultiple",
+            "summary": "Persists\u0020a\u0020set\u0020of\u0020key\u0020\u003D\u003E\u0020value\u0020pairs\u0020in\u0020the\u0020cache,\u0020with\u0020an\u0020optional\u0020TTL.",
+            "url": "classes/oihana-models-traits-CacheableTrait.html#method_setCacheMultiple"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\CacheableTrait\u003A\u003AinitializeCache\u0028\u0029",
+            "name": "initializeCache",
+            "summary": "Initialize\u0020the\u0020cache\u0020reference.",
+            "url": "classes/oihana-models-traits-CacheableTrait.html#method_initializeCache"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\CacheableTrait\u003A\u003AinitializeCacheable\u0028\u0029",
+            "name": "initializeCacheable",
+            "summary": "Initialize\u0020the\u0020cacheable\u0020property.",
+            "url": "classes/oihana-models-traits-CacheableTrait.html#method_initializeCacheable"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\CacheableTrait\u003A\u003AinitializeTtl\u0028\u0029",
+            "name": "initializeTtl",
+            "summary": "Initialize\u0020the\u0020TTL\u0020property.",
+            "url": "classes/oihana-models-traits-CacheableTrait.html#method_initializeTtl"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\CacheableTrait\u003A\u003A\u0024cache",
+            "name": "cache",
+            "summary": "The\u0020PSR\u002D16\u0020cache\u0020reference.",
+            "url": "classes/oihana-models-traits-CacheableTrait.html#property_cache"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\CacheableTrait\u003A\u003A\u0024cacheable",
+            "name": "cacheable",
+            "summary": "Indicates\u0020if\u0020the\u0020instance\u0020use\u0020an\u0020internal\u0020PSR\u002D16\u0020cache.",
+            "url": "classes/oihana-models-traits-CacheableTrait.html#property_cacheable"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\CacheableTrait\u003A\u003A\u0024ttl",
+            "name": "ttl",
+            "summary": "Default\u0020TTL\u0020for\u0020cache\u0020items.",
+            "url": "classes/oihana-models-traits-CacheableTrait.html#property_ttl"
+        },                {
             "fqsen": "\\oihana\\models\\traits\\DocumentsTrait",
             "name": "DocumentsTrait",
             "summary": "",
@@ -4225,66 +4295,6 @@ Search.appendIndex(
             "name": "put",
             "summary": "",
             "url": "classes/oihana-routes-traits-HttpMethodRoutesTrait.html#property_put"
-        },                {
-            "fqsen": "\\oihana\\traits\\CacheableTrait",
-            "name": "CacheableTrait",
-            "summary": "Provides\u0020caching\u0020functionality\u0020through\u0020a\u0020PSR\u002D16\u0020compliant\u0020cache\u0020implementation.",
-            "url": "classes/oihana-traits-CacheableTrait.html"
-        },                {
-            "fqsen": "\\oihana\\traits\\CacheableTrait\u003A\u003AclearCache\u0028\u0029",
-            "name": "clearCache",
-            "summary": "Clear\u0020the\u0020cache.",
-            "url": "classes/oihana-traits-CacheableTrait.html#method_clearCache"
-        },                {
-            "fqsen": "\\oihana\\traits\\CacheableTrait\u003A\u003AdeleteCache\u0028\u0029",
-            "name": "deleteCache",
-            "summary": "Delete\u0020a\u0020key\/value\u0020in\u0020the\u0020cache.",
-            "url": "classes/oihana-traits-CacheableTrait.html#method_deleteCache"
-        },                {
-            "fqsen": "\\oihana\\traits\\CacheableTrait\u003A\u003AgetCache\u0028\u0029",
-            "name": "getCache",
-            "summary": "Returns\u0020the\u0020registered\u0020value\u0020in\u0020the\u0020cache\u0020with\u0020a\u0020specific\u0020key.",
-            "url": "classes/oihana-traits-CacheableTrait.html#method_getCache"
-        },                {
-            "fqsen": "\\oihana\\traits\\CacheableTrait\u003A\u003AhasCache\u0028\u0029",
-            "name": "hasCache",
-            "summary": "Indicates\u0020if\u0020the\u0020key\u0020is\u0020registered\u0020in\u0020the\u0020cache.",
-            "url": "classes/oihana-traits-CacheableTrait.html#method_hasCache"
-        },                {
-            "fqsen": "\\oihana\\traits\\CacheableTrait\u003A\u003AisCacheable\u0028\u0029",
-            "name": "isCacheable",
-            "summary": "Indicates\u0020if\u0020the\u0020ressource\u0020can\u0020use\u0020the\u0020cache.",
-            "url": "classes/oihana-traits-CacheableTrait.html#method_isCacheable"
-        },                {
-            "fqsen": "\\oihana\\traits\\CacheableTrait\u003A\u003AsetCache\u0028\u0029",
-            "name": "setCache",
-            "summary": "Persists\u0020data\u0020in\u0020the\u0020cache,\u0020uniquely\u0020referenced\u0020by\u0020a\u0020key\u0020with\u0020an\u0020optional\u0020expiration\u0020TTL\u0020time.",
-            "url": "classes/oihana-traits-CacheableTrait.html#method_setCache"
-        },                {
-            "fqsen": "\\oihana\\traits\\CacheableTrait\u003A\u003AsetCacheMultiple\u0028\u0029",
-            "name": "setCacheMultiple",
-            "summary": "Persists\u0020a\u0020set\u0020of\u0020key\u0020\u003D\u003E\u0020value\u0020pairs\u0020in\u0020the\u0020cache,\u0020with\u0020an\u0020optional\u0020TTL.",
-            "url": "classes/oihana-traits-CacheableTrait.html#method_setCacheMultiple"
-        },                {
-            "fqsen": "\\oihana\\traits\\CacheableTrait\u003A\u003AinitializeCache\u0028\u0029",
-            "name": "initializeCache",
-            "summary": "Initialize\u0020the\u0020cache\u0020reference.",
-            "url": "classes/oihana-traits-CacheableTrait.html#method_initializeCache"
-        },                {
-            "fqsen": "\\oihana\\traits\\CacheableTrait\u003A\u003AinitializeCacheable\u0028\u0029",
-            "name": "initializeCacheable",
-            "summary": "Initialize\u0020the\u0020cacheable\u0020property.",
-            "url": "classes/oihana-traits-CacheableTrait.html#method_initializeCacheable"
-        },                {
-            "fqsen": "\\oihana\\traits\\CacheableTrait\u003A\u003A\u0024cache",
-            "name": "cache",
-            "summary": "The\u0020PSR\u002D16\u0020cache\u0020reference.",
-            "url": "classes/oihana-traits-CacheableTrait.html#property_cache"
-        },                {
-            "fqsen": "\\oihana\\traits\\CacheableTrait\u003A\u003A\u0024cacheable",
-            "name": "cacheable",
-            "summary": "Indicates\u0020if\u0020the\u0020instance\u0020use\u0020an\u0020internal\u0020PSR\u002D16\u0020c1ache.",
-            "url": "classes/oihana-traits-CacheableTrait.html#property_cacheable"
         },                {
             "fqsen": "\\oihana\\traits\\ConfigTrait",
             "name": "ConfigTrait",
