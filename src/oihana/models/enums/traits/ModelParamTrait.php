@@ -34,6 +34,11 @@ trait ModelParamTrait
     public const string CACHE = 'cache' ;
 
     /**
+     * The 'conditions' parameter.
+     */
+    public const string CONDITIONS = 'conditions' ;
+
+    /**
      * The 'debug' parameter.
      */
     public const string DEBUG = 'debug' ;

@@ -2851,6 +2851,21 @@ Search.appendIndex(
             "summary": "Default\u0020TTL\u0020for\u0020cache\u0020items.",
             "url": "classes/oihana-models-traits-CacheableTrait.html#property_ttl"
         },                {
+            "fqsen": "\\oihana\\models\\traits\\ConditionsTrait",
+            "name": "ConditionsTrait",
+            "summary": "Provides\u0020support\u0020for\u0020handling\u0020model\u0020conditions.",
+            "url": "classes/oihana-models-traits-ConditionsTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\ConditionsTrait\u003A\u003AinitializeConditions\u0028\u0029",
+            "name": "initializeConditions",
+            "summary": "Initializes\u0020the\u0020model\u0020conditions\u0020from\u0020an\u0020initialization\u0020array.",
+            "url": "classes/oihana-models-traits-ConditionsTrait.html#method_initializeConditions"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\ConditionsTrait\u003A\u003A\u0024conditions",
+            "name": "conditions",
+            "summary": "Internal\u0020list\u0020of\u0020model\u0020conditions.",
+            "url": "classes/oihana-models-traits-ConditionsTrait.html#property_conditions"
+        },                {
             "fqsen": "\\oihana\\models\\traits\\DocumentsTrait",
             "name": "DocumentsTrait",
             "summary": "",

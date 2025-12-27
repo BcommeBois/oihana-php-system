@@ -133,53 +133,232 @@
                                         <ul class="phpdocumentor-breadcrumbs">
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana.html">oihana</a></li>
             <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-models.html">models</a></li>
+            <li class="phpdocumentor-breadcrumb"><a href="namespaces/oihana-models-traits.html">traits</a></li>
     </ul>
 
-    <article class="phpdocumentor-element -namespace">
-        <h2 class="phpdocumentor-content__title">traits</h2>
+    <article class="phpdocumentor-element -trait">
+        <h2 class="phpdocumentor-content__title">
+    ConditionsTrait
+    </h2>
 
-        
+        <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/ConditionsTrait.php"><a href="files/src-oihana-models-traits-conditionstrait.html"><abbr title="src/oihana/models/traits/ConditionsTrait.php">ConditionsTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">21</span>
+
+    </aside>
+
+            <p class="phpdocumentor-summary">Provides support for handling model conditions.</p>
+
+
+    <section class="phpdocumentor-description"><p>This trait defines a container for query or model conditions and
+exposes an initialization helper to hydrate them from a parameter
+array (typically coming from a model configuration or options object).</p>
+<p>The conditions structure is intentionally left flexible and may vary
+depending on the model implementation (SQL, NoSQL, in-memory, etc.).</p>
+</section>
+
+
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/oihana-models-traits-ConditionsTrait.html#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">author</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Marc Alcaraz (ekameleon)</p>
+</section>
+
+                                    </dd>
+                                                <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">1.0.0</span>
+                                                                                
+                                             
+                                    </dd>
+                                            </dl>
+
+    
+    
 <h3 id="toc">
     Table of Contents
-    <a href="namespaces/oihana-models-traits.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
+    <a href="classes/oihana-models-traits-ConditionsTrait.html#toc" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h3>
 
 
-<h4 id="namespaces">
-    Namespaces
-    <a href="namespaces/oihana-models-traits.html#namespaces" class="headerlink"><i class="fas fa-link"></i></a>
+
+
+
+
+
+
+
+<h4 id="toc-properties">
+    Properties
+    <a href="classes/oihana-models-traits-ConditionsTrait.html#toc-properties" class="headerlink"><i class="fas fa-link"></i></a>
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -namespace"><a href="namespaces/oihana-models-traits-alters.html"><abbr title="\oihana\models\traits\alters">alters</abbr></a></dt>
-            <dt class="phpdocumentor-table-of-contents__entry -namespace"><a href="namespaces/oihana-models-traits-signals.html"><abbr title="\oihana\models\traits\signals">signals</abbr></a></dt>
+            <dt class="phpdocumentor-table-of-contents__entry -property -public">
+    <a class="" href="classes/oihana-models-traits-ConditionsTrait.html#property_conditions">$conditions</a>
+    <span>
+                        &nbsp;: array&lt;string|int, mixed&gt;            </span>
+</dt>
+<dd>Internal list of model conditions.</dd>
+
+    </dl>
+
+<h4 id="toc-methods">
+    Methods
+    <a href="classes/oihana-models-traits-ConditionsTrait.html#toc-methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+</h4>
+<dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-models-traits-ConditionsTrait.html#method_initializeConditions">initializeConditions()</a>
+    <span>
+                                &nbsp;: static    </span>
+</dt>
+<dd>Initializes the model conditions from an initialization array.</dd>
+
     </dl>
 
 
 
-    <h4 id="toc-traits">
-        Traits
-        <a href="namespaces/oihana-models-traits.html#toc-traits" class="headerlink"><i class="fas fa-link"></i></a>
+
+        
+
+        
+    <section class="phpdocumentor-properties">
+        <h3 class="phpdocumentor-elements__header" id="properties">
+            Properties
+            <a href="classes/oihana-models-traits-ConditionsTrait.html#properties" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article
+        class="
+            phpdocumentor-element
+            -property
+            -public
+                                                                    "
+>
+    <h4 class="phpdocumentor-element__name" id="property_conditions">
+        $conditions
+        <a href="classes/oihana-models-traits-ConditionsTrait.html#property_conditions" class="headerlink"><i class="fas fa-link"></i></a>
+
+        <span class="phpdocumentor-element__modifiers">
+                                            </span>
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/ConditionsTrait.php"><a href="files/src-oihana-models-traits-conditionstrait.html"><abbr title="src/oihana/models/traits/ConditionsTrait.php">ConditionsTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">31</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Internal list of model conditions.</p>
+
+    
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+        <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__type">array&lt;string|int, mixed&gt;</span>
+    <span class="phpdocumentor-signature__name">$conditions</span>
+     = <span class="phpdocumentor-signature__default-value">[]</span></code>
+
+        <section class="phpdocumentor-description"><p>This array usually represents filtering rules applied to the model, such as
+WHERE (SQL) or FILTER (AQL) clauses, logical constraints, or driver-specific condition definitions.</p>
+</section>
+
+    
+    
+
+        
+        
+
+</article>
+            </section>
+
+            <section class="phpdocumentor-methods">
+        <h3 class="phpdocumentor-elements__header" id="methods">
+            Methods
+            <a href="classes/oihana-models-traits-ConditionsTrait.html#methods" class="headerlink"><i class="fas fa-link"></i></a>
+
+        </h3>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_initializeConditions">
+        initializeConditions()
+        <a href="classes/oihana-models-traits-ConditionsTrait.html#method_initializeConditions" class="headerlink"><i class="fas fa-link"></i></a>
 
     </h4>
-    <dl class="phpdocumentor-table-of-contents">
-            <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/oihana-models-traits-AlterBindVarsTrait.html"><abbr title="\oihana\models\traits\AlterBindVarsTrait">AlterBindVarsTrait</abbr></a></dt><dd>Applies defined alterations to a bind variables array definition based on the configured `$bindAlters`.</dd>        <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/oihana-models-traits-AlterDocumentTrait.html"><abbr title="\oihana\models\traits\AlterDocumentTrait">AlterDocumentTrait</abbr></a></dt><dd>Provides a system to alter properties of arrays or objects based on a configurable set of rules (called &quot;alters&quot;).</dd>        <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/oihana-models-traits-AlterTrait.html"><abbr title="\oihana\models\traits\AlterTrait">AlterTrait</abbr></a></dt><dd>Provides a set of methods to alter properties of arrays or objects based on a configurable set of rules (called &quot;alters&quot;).</dd>        <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/oihana-models-traits-BindsTrait.html"><abbr title="\oihana\models\traits\BindsTrait">BindsTrait</abbr></a></dt><dd>Provides logic for managing bind parameters used in PDO statements.</dd>        <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/oihana-models-traits-CacheableTrait.html"><abbr title="\oihana\models\traits\CacheableTrait">CacheableTrait</abbr></a></dt><dd>Provides a standardized caching layer for classes using PSR-16 (Simple Cache).</dd>        <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/oihana-models-traits-ConditionsTrait.html"><abbr title="\oihana\models\traits\ConditionsTrait">ConditionsTrait</abbr></a></dt><dd>Provides support for handling model conditions.</dd>        <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/oihana-models-traits-DocumentsTrait.html"><abbr title="\oihana\models\traits\DocumentsTrait">DocumentsTrait</abbr></a></dt>        <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/oihana-models-traits-ListModelTrait.html"><abbr title="\oihana\models\traits\ListModelTrait">ListModelTrait</abbr></a></dt><dd>Defines a ListModel properties in your class.</dd>        <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/oihana-models-traits-ModelTrait.html"><abbr title="\oihana\models\traits\ModelTrait">ModelTrait</abbr></a></dt><dd>Defines a Document model properties in your class.</dd>        <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/oihana-models-traits-PropertyTrait.html"><abbr title="\oihana\models\traits\PropertyTrait">PropertyTrait</abbr></a></dt><dd>Provides a `property` reference.</dd>        <dt class="phpdocumentor-table-of-contents__entry -trait"><a href="classes/oihana-models-traits-SchemaTrait.html"><abbr title="\oihana\models\traits\SchemaTrait">SchemaTrait</abbr></a></dt><dd>Provides methods for initialize a &#039;schema&#039; property.</dd>    </dl>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/ConditionsTrait.php"><a href="files/src-oihana-models-traits-conditionstrait.html"><abbr title="src/oihana/models/traits/ConditionsTrait.php">ConditionsTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">47</span>
 
+    </aside>
 
+        <p class="phpdocumentor-summary">Initializes the model conditions from an initialization array.</p>
 
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">initializeConditions</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__type">array&lt;string, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$init</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">[]</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">static</span></code>
 
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+        <section class="phpdocumentor-description"><p>The conditions are extracted using the <abbr title="\oihana\models\enums\ModelParam::CONDITIONS">ModelParam::CONDITIONS</abbr>
+key if present. If the key is missing, the conditions list is reset
+to an empty array.</p>
+<p>This method is typically called during model construction or
+configuration hydration.</p>
+</section>
 
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$init</span>
+                : <span class="phpdocumentor-argument-list__argument__type">array&lt;string, mixed&gt;</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">[]</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Initialization parameters</p>
+</section>
 
+            </dd>
+            </dl>
+
+    
 
         
+    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">static</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Returns the current instance for fluent usage</p>
+</section>
 
-        
+            </section>
+
+</article>
+            </section>
+
         <div class="phpdocumentor-modal" id="source-view">
     <div class="phpdocumentor-modal-bg" data-exit-button></div>
     <div class="phpdocumentor-modal-container">
         <div class="phpdocumentor-modal-content">
-            <pre style="max-height: 500px; overflow-y: scroll" data-src="" class="language-php line-numbers linkable-line-numbers"></pre>
+            <pre style="max-height: 500px; overflow-y: scroll" data-src="files/src/oihana/models/traits/ConditionsTrait.php.txt" class="language-php line-numbers linkable-line-numbers"></pre>
         </div>
         <button data-exit-button class="phpdocumentor-modal__close">&times;</button>
     </div>
@@ -272,7 +451,7 @@
     </article>
                                 </section>
                 <section class="phpdocumentor-on-this-page__sidebar">
-                            
+                                
     <section class="phpdocumentor-on-this-page__content">
         <strong class="phpdocumentor-on-this-page__title">On this page</strong>
 
@@ -280,11 +459,22 @@
             <li class="phpdocumentor-on-this-page-section__title">Table Of Contents</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
-                                                                                                                        <li><a href="namespaces/oihana-models-traits.html#toc-traits">Traits</a></li>
-                                                                                                </ul>
+                                                            <li><a href="classes/oihana-models-traits-ConditionsTrait.html#toc-properties">Properties</a></li>
+                                                            <li><a href="classes/oihana-models-traits-ConditionsTrait.html#toc-methods">Methods</a></li>
+                                    </ul>
             </li>
-
-            
+                                    <li class="phpdocumentor-on-this-page-section__title">Properties</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/oihana-models-traits-ConditionsTrait.html#property_conditions">$conditions</a></li>
+                                    </ul>
+            </li>
+                                    <li class="phpdocumentor-on-this-page-section__title">Methods</li>
+            <li>
+                <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/oihana-models-traits-ConditionsTrait.html#method_initializeConditions">initializeConditions()</a></li>
+                                    </ul>
+            </li>
                     </ul>
     </section>
 
@@ -302,7 +492,7 @@
     </section>
 </section>
         </div>
-        <a href="namespaces/oihana-models-traits.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
+        <a href="classes/oihana-models-traits-ConditionsTrait.html#top" class="phpdocumentor-back-to-top"><i class="fas fa-chevron-circle-up"></i></a>
 
     </main>
 
