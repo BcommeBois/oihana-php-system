@@ -6,6 +6,7 @@ use DI\Container;
 use DI\DependencyException;
 use DI\NotFoundException;
 
+use oihana\models\traits\alters\AlterListififyPropertyTrait;
 use ReflectionException;
 
 use Psr\Container\ContainerExceptionInterface;
@@ -92,6 +93,7 @@ trait AlterTrait
         AlterIntPropertyTrait ,
         AlterJSONParsePropertyTrait ,
         AlterJSONStringifyPropertyTrait ,
+        AlterListififyPropertyTrait ,
         AlterMapPropertyTrait ,
         AlterNormalizePropertyTrait ,
         AlterNotPropertyTrait ,
@@ -298,13 +300,14 @@ trait AlterTrait
     /**
      * Executes a specific alteration.
      *
-     * @param string|Alter $alter The alteration type
-     * @param mixed $value The value to alter
-     * @param array $params The alteration parameters
-     * @param string $key The property key (for context)
-     * @param array|object $document The full document (for context)
-     * @param ?Container $container An optional DI container reference.
-     * @param bool $modified Output parameter indicating if the value was modified
+     * @param string|Alter $alter     The alteration type
+     * @param mixed        $value     The value to alter
+     * @param array        $params    The alteration parameters
+     * @param string       $key       The property key (for context)
+     * @param array|object $document  The full document (for context)
+     * @param ?Container   $container An optional DI container reference.
+     * @param bool         $modified  Output parameter indicating if the value was modified
+     *
      * @return mixed The altered value
      *
      * @throws ContainerExceptionInterface
@@ -336,6 +339,7 @@ trait AlterTrait
             Alter::INT            => $this->alterIntProperty           ( $value    , $modified ) ,
             Alter::JSON_PARSE     => $this->alterJsonParseProperty     ( $value    , $params , $modified ) ,
             Alter::JSON_STRINGIFY => $this->alterJsonStringifyProperty ( $value    , $params , $modified ),
+            Alter::LISTIFY        => $this->alterListifyProperty       ( $value    , $params , $modified ),
             Alter::MAP            => $this->alterMapProperty           ( $document , $container , $key , $value , $params , $modified ),
             Alter::NORMALIZE      => $this->alterNormalizeProperty     ( $value    , $params , $modified ),
             Alter::NOT            => $this->alterNotProperty           ( $value    , $modified ),

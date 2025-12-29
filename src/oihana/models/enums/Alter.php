@@ -39,6 +39,7 @@ class Alter
     public const string INT            = 'int' ;
     public const string JSON_PARSE     = 'jsonParse' ;
     public const string JSON_STRINGIFY = 'jsonStringify' ;
+    public const string LISTIFY        = 'listify' ;
     public const string MAP            = 'map' ;
     public const string NORMALIZE      = 'normalize' ;
     public const string NOT            = 'not' ;

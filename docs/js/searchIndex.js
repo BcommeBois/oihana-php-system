@@ -2046,6 +2046,11 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/oihana-models-enums-Alter.html#constant_JSON_STRINGIFY"
         },                {
+            "fqsen": "\\oihana\\models\\enums\\Alter\u003A\u003ALISTIFY",
+            "name": "LISTIFY",
+            "summary": "",
+            "url": "classes/oihana-models-enums-Alter.html#constant_LISTIFY"
+        },                {
             "fqsen": "\\oihana\\models\\enums\\Alter\u003A\u003AMAP",
             "name": "MAP",
             "summary": "",
@@ -2675,6 +2680,16 @@ Search.appendIndex(
             "name": "alterKey",
             "summary": "The\u0020default\u0020alter\u0020key\u0020reference.",
             "url": "classes/oihana-models-traits-alters-AlterKeyTrait.html#property_alterKey"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterListififyPropertyTrait",
+            "name": "AlterListififyPropertyTrait",
+            "summary": "Provides\u0020a\u0020method\u0020to\u0020transform\u0020a\u0020string\u0020or\u0020array\u0020into\u0020a\u0020normalized\u0020list\u0020string.",
+            "url": "classes/oihana-models-traits-alters-AlterListififyPropertyTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\alters\\AlterListififyPropertyTrait\u003A\u003AalterListifyProperty\u0028\u0029",
+            "name": "alterListifyProperty",
+            "summary": "Transforms\u0020a\u0020string\u0020or\u0020array\u0020into\u0020a\u0020normalized\u0020list\u0020string.",
+            "url": "classes/oihana-models-traits-alters-AlterListififyPropertyTrait.html#method_alterListifyProperty"
         },                {
             "fqsen": "\\oihana\\models\\traits\\alters\\AlterMapPropertyTrait",
             "name": "AlterMapPropertyTrait",

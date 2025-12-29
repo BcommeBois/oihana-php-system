@@ -602,4 +602,246 @@ class AlterDocumentTraitTest extends TestCase
         $output = $processor->process( $document );
         $this->assertSame(120, (int) $output['price']);
     }
+
+    // --------- Alter::LISTIFY
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws ReflectionException
+     */
+    public function testListifyAlterationWithDefaultSeparators()
+    {
+        $processor = new MockAlterDocument
+        ([
+            'tags' => Alter::LISTIFY
+        ]);
+
+        $input = ['tags' => 'foo;bar;baz'];
+        $output = $processor->process($input);
+
+        $this->assertSame("foo\nbar\nbaz", $output['tags']);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws ReflectionException
+     */
+    public function testListifyAlterationWithCustomSeparators()
+    {
+        $processor = new MockAlterDocument
+        ([
+            'tags' => [Alter::LISTIFY, ',', ' | ']
+        ]);
+
+        $input = ['tags' => 'a,b,c'];
+        $output = $processor->process($input);
+
+        $this->assertSame('a | b | c', $output['tags']);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws ReflectionException
+     */
+    public function testListifyAlterationWithEmptyStringReturnsDefault()
+    {
+        $processor = new MockAlterDocument
+        ([
+            'tags' => [Alter::LISTIFY, ';', PHP_EOL, 'N/A']
+        ]);
+
+        $input = ['tags' => ';;;'];
+        $output = $processor->process($input);
+
+        $this->assertSame('N/A', $output['tags']);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws ReflectionException
+     */
+    public function testListifyAlterationWithNullReturnsDefault()
+    {
+        $processor = new MockAlterDocument
+        ([
+            'tags' => [Alter::LISTIFY, ';', PHP_EOL, 'empty']
+        ]);
+
+        $input = ['tags' => null];
+        $output = $processor->process($input);
+
+        $this->assertSame('empty', $output['tags']);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws ReflectionException
+     */
+    public function testListifyAlterationWithArrayInput()
+    {
+        $processor = new MockAlterDocument
+        ([
+            'tags' => Alter::LISTIFY
+        ]);
+
+        $input = ['tags' => ['foo', '  bar  ', '', 'baz']];
+        $output = $processor->process($input);
+
+        $this->assertSame("foo\nbar\nbaz", $output['tags']);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws ReflectionException
+     */
+    public function testListifyAlterationTrimsElements()
+    {
+        $processor = new MockAlterDocument
+        ([
+            'tags' => Alter::LISTIFY
+        ]);
+
+        $input = ['tags' => '  foo  ;  bar  ;  baz  '];
+        $output = $processor->process($input);
+
+        $this->assertSame("foo\nbar\nbaz", $output['tags']);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws ReflectionException
+     */
+    public function testListifyAlterationRemovesEmptyElements()
+    {
+        $processor = new MockAlterDocument
+        ([
+            'tags' => Alter::LISTIFY
+        ]);
+
+        $input = ['tags' => 'a;;b;;;c'];
+        $output = $processor->process($input);
+
+        $this->assertSame("a\nb\nc", $output['tags']);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws ReflectionException
+     */
+    public function testListifyAlterationWithSingleElement()
+    {
+        $processor = new MockAlterDocument
+        ([
+            'tags' => Alter::LISTIFY
+        ]);
+
+        $input = ['tags' => 'single'];
+        $output = $processor->process($input);
+
+        $this->assertSame('single', $output['tags']);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws ReflectionException
+     */
+    public function testListifyAlterationWithCommaSeparator()
+    {
+        $processor = new MockAlterDocument
+        ([
+            'items' => [Alter::LISTIFY, ',', ', ']
+        ]);
+
+        $input = ['items' => 'apple,banana,orange'];
+        $output = $processor->process($input);
+
+        $this->assertSame('apple, banana, orange', $output['items']);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws ReflectionException
+     */
+    public function testListifyAlterationWithHtmlBreaks()
+    {
+        $processor = new MockAlterDocument
+        ([
+            'lines' => [Alter::LISTIFY, ';', '<br>']
+        ]);
+
+        $input = ['lines' => 'line1;line2;line3'];
+        $output = $processor->process($input);
+
+        $this->assertSame('line1<br>line2<br>line3', $output['lines']);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws ReflectionException
+     */
+    public function testListifyAlterationWithEmptyArrayReturnsDefault()
+    {
+        $processor = new MockAlterDocument
+        ([
+            'tags' => [Alter::LISTIFY, ';', PHP_EOL, 'no tags']
+        ]);
+
+        $input = ['tags' => []];
+        $output = $processor->process($input);
+
+        $this->assertSame('no tags', $output['tags']);
+    }
+
+    /**
+     * @throws NotFoundExceptionInterface
+     * @throws NotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws ReflectionException
+     */
+    public function testListifyAlterationWithArrayOfWhitespace()
+    {
+        $processor = new MockAlterDocument
+        ([
+            'tags' => [Alter::LISTIFY, ';', PHP_EOL, 'none']
+        ]);
+
+        $input = ['tags' => ['  ', '', '   ']];
+        $output = $processor->process($input);
+
+        $this->assertSame('none', $output['tags']);
+    }
 }
