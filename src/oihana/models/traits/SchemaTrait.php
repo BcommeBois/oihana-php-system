@@ -2,6 +2,8 @@
 
 namespace oihana\models\traits;
 
+use Closure;
+use InvalidArgumentException;
 use oihana\models\enums\ModelParam;
 
 /**
@@ -15,9 +17,31 @@ trait SchemaTrait
 {
     /**
      * The internal schema to use to hydrate the resources.
-     * @var string|null
+     * @var null|string|Closure
      */
-    public ?string $schema = null ;
+    public null|string|Closure $schema = null ;
+
+    /**
+     * Check if schema is defined (either as string or callable).
+     * @return bool
+     */
+    public function hasSchema(): bool
+    {
+        return $this->schema !== null;
+    }
+
+    /**
+     * Get the resolved schema value.
+     * @return string|null
+     */
+    public function getSchema(): ?string
+    {
+        if ( is_callable( $this->schema ) )
+        {
+            return ($this->schema)() ;
+        }
+        return $this->schema ;
+    }
 
     /**
      * Initialize the 'schema' property.
@@ -26,7 +50,15 @@ trait SchemaTrait
      */
     public function initializeSchema( array $init = [] ):static
     {
-        $this->schema = $init[ ModelParam::SCHEMA ] ?? null ;
+        $value = $init[ ModelParam::SCHEMA ] ?? null ;
+
+        if ($value !== null && !is_string($value) && !( $value instanceof Closure ) )
+        {
+            throw new InvalidArgumentException('The `schema` property must be a string or Closure.') ;
+        }
+
+        $this->schema = $value ;
+
         return $this ;
     }
 }
