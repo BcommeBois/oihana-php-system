@@ -89,6 +89,7 @@ class PDOModel extends Model
              ->initializeBinds           ( $init )
              ->initializeDeferAssignment ( $init )
              ->initializeSchema          ( $init )
+             ->initializeThrowable       ( $init )
              ->initializePDO             ( $init , $container ) ;
     }
 

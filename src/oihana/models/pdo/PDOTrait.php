@@ -5,9 +5,10 @@ namespace oihana\models\pdo;
 use DI\DependencyException;
 use DI\NotFoundException;
 use Exception;
+use PDO;
+use ReflectionException;
 
 use Generator;
-use PDO;
 use PDOException;
 use PDOStatement;
 
@@ -19,10 +20,10 @@ use oihana\models\traits\AlterDocumentTrait;
 use oihana\models\traits\BindsTrait;
 use oihana\models\traits\SchemaTrait;
 use oihana\traits\ContainerTrait;
+use oihana\models\traits\ThrowableTrait;
 
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
-use ReflectionException;
 
 /**
  * Provides methods for binding values, executing queries, and retrieving results using PDO.
@@ -43,7 +44,8 @@ trait PDOTrait
     use AlterDocumentTrait ,
         BindsTrait ,
         ContainerTrait ,
-        SchemaTrait ;
+        SchemaTrait ,
+        ThrowableTrait ;
 
     /**
      * Indicates if the the constructor is called before setting properties.
