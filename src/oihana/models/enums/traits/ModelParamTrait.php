@@ -134,6 +134,11 @@ trait ModelParamTrait
     public const string SORT_DEFAULT = 'sortDefault' ;
 
     /**
+     * The 'throwable' parameter.
+     */
+    public const string THROWABLE = 'throwable' ;
+
+    /**
      * The 'ttl' parameter.
      */
     public const string TTL = 'ttl' ;
