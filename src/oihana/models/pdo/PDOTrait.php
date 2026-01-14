@@ -260,13 +260,23 @@ trait PDOTrait
      *
      * @param string $query     The SQL query to execute.
      * @param array  $bindVars  Optional bindings for the query.
+     * @param bool   $throwable Whether to rethrow exceptions instead of handling them internally (default: false).
      *
      * @return Generator<object> A generator yielding results one by one.
      *
      * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws NotFoundException
      * @throws NotFoundExceptionInterface
+     * @throws ReflectionException
      */
-    public function fetchAllAsGenerator( string $query , array $bindVars = [] ): Generator
+    public function fetchAllAsGenerator
+    (
+        string $query ,
+        array  $bindVars  = [] ,
+        bool   $throwable = false
+    )
+    : Generator
     {
         try
         {
@@ -302,6 +312,11 @@ trait PDOTrait
         }
         catch ( Exception $exception )
         {
+            if( $throwable )
+            {
+                throw $exception ;
+            }
+
             $this->warning(__METHOD__ . ' failed, ' . $exception->getMessage() ) ;
         }
         finally
