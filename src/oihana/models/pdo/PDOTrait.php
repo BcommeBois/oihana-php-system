@@ -2,6 +2,8 @@
 
 namespace oihana\models\pdo;
 
+use DI\DependencyException;
+use DI\NotFoundException;
 use Exception;
 
 use Generator;
@@ -20,6 +22,7 @@ use oihana\traits\ContainerTrait;
 
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
+use ReflectionException;
 
 /**
  * Provides methods for binding values, executing queries, and retrieving results using PDO.
@@ -89,35 +92,62 @@ trait PDOTrait
      * The result is returned as an object or as a mapped schema class if defined.
      * Alteration is applied via AlterDocumentTrait.
      *
-     * @param string $query     The SQL query to execute.
-     * @param array  $bindVars  Optional bindings for the query.
+     * @param string $query The SQL SELECT query to execute.
+     * @param array $bindVars Optional named parameter bindings for the query.
+     * Supports:
+     * - ['id' => 5]
+     * - ['id' => [5, PDO::PARAM_INT]]
      *
-     * @return mixed|null       The result object or null if not found.
-     * @throws ContainerExceptionInterface
-     * @throws NotFoundExceptionInterface
+     * @param bool $throwable Whether to rethrow exceptions instead of handling them internally (default: false).
+     *
+     * @return mixed|null The mapped result object, or null if no row is found.
+     *
+     * @throws ContainerExceptionInterface If dependency resolution fails.
+     * @throws DependencyException
+     * @throws NotFoundException
+     * @throws NotFoundExceptionInterface  If a required service is not found.
+     * @throws ReflectionException
      */
-    public function fetch( string $query , array $bindVars = [] ): mixed
+    public function fetch
+    (
+        string $query          ,
+        array  $bindVars  = [] ,
+        bool   $throwable = false
+    )
+    : mixed
     {
+        $statement = null ;
+
         try
         {
             $statement = $this->pdo?->prepare( $query ) ;
-            if( $statement instanceof PDOStatement )
+
+            if( !$statement instanceof PDOStatement )
             {
-                $this->bindValues( $statement , $bindVars ) ;
-                if( $statement->execute() )
-                {
-                    $this->initializeDefaultFetchMode( $statement ) ;
-                    $row = $statement->fetch() ;
-                    $result = $row === false ? null : (object) $row ;
-                    $statement->closeCursor() ;
-                    $statement = null ;
-                    return $this->alter( $result ) ;
-                }
+                return null ;
             }
-            $statement = null ;
+
+            $this->bindValues( $statement , $bindVars ) ;
+
+            if( !$statement->execute() )
+            {
+                return null ;
+            }
+
+            $this->initializeDefaultFetchMode( $statement ) ;
+
+            $row    = $statement->fetch() ;
+            $result = $row === false ? null : (object) $row ;
+
+            return $result !== null ? $this->alter( $result ) : null ;
         }
         catch ( Exception $exception )
         {
+            if( $throwable )
+            {
+                throw $exception ;
+            }
+
             if ( PHP_SAPI === 'cli' )
             {
                 echo PHP_EOL  ;
@@ -132,47 +162,94 @@ trait PDOTrait
                 $this->warning( __METHOD__ . ' failed, ' . $exception->getMessage() ) ;
             }
         }
+        finally
+        {
+            if( $statement instanceof PDOStatement )
+            {
+                $statement->closeCursor() ;
+            }
+
+            $statement = null ;
+        }
+
         return null ;
     }
 
     /**
-     * Execute a SELECT query and fetch all results.
+     * Execute a query and fetch all results.
+     *
      * Results are returned as an array of associative arrays or schema instances.
+     *
      * Alteration is applied via AlterDocumentTrait.
      *
-     * @param string $query     The SQL query to execute.
-     * @param array  $bindVars  Optional bindings for the query.
+     * @param string $query   The query to execute.
+     * @param array $bindVars Optional named parameter bindings for the query.
+     * Supports:
+     * - ['id' => 5]
+     * - ['id' => [5, PDO::PARAM_INT]]
+     * @param bool $throwable Whether to rethrow exceptions instead of handling them internally (default: false).
      *
-     * @return array            An array of results.
+     * @return array An array of results. Returns an empty array if the query fails and `$throwable` is false.
+     *
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
+     * @throws DependencyException
+     * @throws NotFoundException
+     * @throws ReflectionException
      */
-    public function fetchAll( string $query , array $bindVars = [] ) :array
+    public function fetchAll
+    (
+        string $query             ,
+        array  $bindVars  = []    ,
+        bool   $throwable = false
+    )
+    :array
     {
         $result = [] ;
         try
         {
             $statement = $this->pdo?->prepare( $query ) ;
-            if( $statement instanceof PDOStatement )
+
+            if ( !$statement instanceof PDOStatement )
             {
-                $this->bindValues( $statement , $bindVars ) ;
-                if( $statement->execute() )
-                {
-                    $this->initializeDefaultFetchMode( $statement ) ;
-                    $result = $statement->fetchAll() ;
-                    $statement->closeCursor() ;
-                    if( count( $result ) > 0 )
-                    {
-                        $result = $this->alter( $result ) ;
-                    }
-                }
+                return [] ;
             }
-            $statement = null ;
+
+            $this->bindValues( $statement , $bindVars ) ;
+
+            if ( !$statement->execute() )
+            {
+                return [] ;
+            }
+
+            $this->initializeDefaultFetchMode( $statement ) ;
+
+            $result = $statement->fetchAll() ;
+
+            if( count( $result ) > 0 )
+            {
+                $result = $this->alter( $result ) ;
+            }
+
         }
         catch ( Exception $exception )
         {
+            if( $throwable )
+            {
+                throw $exception ;
+            }
+
             $this->warning( __METHOD__ . ' failed, ' . $exception->getMessage() ) ;
         }
+        finally
+        {
+            if ( $statement instanceof PDOStatement )
+            {
+                $statement->closeCursor() ;
+            }
+            $statement = null ;
+        }
+
         return $result ;
     }
 
