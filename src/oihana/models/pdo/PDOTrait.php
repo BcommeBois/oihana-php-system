@@ -69,7 +69,6 @@ trait PDOTrait
      */
     public function bindValues( PDOStatement $statement , array $bindVars = [] ):void
     {
-        // $this->logger?->info( __METHOD__ . ' bindVars : ' . json_encode( $bindVars ) ) ;
         if( is_array( $bindVars ) && count( $bindVars ) > 0  )
         {
             foreach ( $bindVars as $key => $value )
