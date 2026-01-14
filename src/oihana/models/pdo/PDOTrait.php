@@ -226,7 +226,7 @@ trait PDOTrait
 
             $result = $statement->fetchAll() ;
 
-            if( count( $result ) > 0 )
+            if( !empty( $result ) )
             {
                 $result = $this->alter( $result ) ;
             }
@@ -316,64 +316,119 @@ trait PDOTrait
      * @param string $query     The SQL query to execute.
      * @param array  $bindVars  Optional bindings for the query.
      * @param int    $column    Column index (0-based) to return from the first row.
+     * @param bool   $throwable Whether to rethrow exceptions instead of handling them internally (default: false).
      *
-     * @return mixed            The column value or 0 if the query fails.
+     * @return mixed The column value or null if the query fails.
+     *
+     * @throws Exception
      */
-    public function fetchColumn( string $query , array $bindVars = [] , int $column = 0 ) :mixed
+    public function fetchColumn
+    (
+        string $query ,
+        array  $bindVars  = [] ,
+        int    $column    = 0 ,
+        bool   $throwable = false
+    )
+    :mixed
     {
-        $statement = $this->pdo?->prepare( $query ) ;
-        if( $statement instanceof PDOStatement )
+        $statement = null;
+
+        try
         {
-            try
+            $statement = $this->pdo?->prepare( $query ) ;
+
+            if ( !$statement instanceof PDOStatement )
             {
-                $this->bindValues( $statement , $bindVars ) ;
-                if( $statement->execute() )
-                {
-                    $result = $statement->fetchColumn( $column ) ;
-                    $statement->closeCursor() ;
-                    $statement = null ;
-                    return $result ;
-                }
+                return null ;
             }
-            catch ( Exception $exception )
+
+            $this->bindValues( $statement , $bindVars ) ;
+
+            if ( !$statement->execute() )
             {
-                $this->warning( __METHOD__ . ' failed, ' . $exception->getMessage() ) ;
+                return null  ;
             }
+
+            return $statement->fetchColumn( $column ) ;
         }
-        $statement = null ;
-        return 0 ;
+        catch ( Exception $exception )
+        {
+            if ($throwable)
+            {
+                throw $exception;
+            }
+
+            $this->warning(__METHOD__ . ' failed, ' . $exception->getMessage() ) ;
+
+            return null  ;
+        }
+        finally
+        {
+            if ( $statement instanceof PDOStatement )
+            {
+                $statement->closeCursor() ;
+            }
+            $statement = null ;
+        }
     }
 
     /**
      * Fetch a list of single-column results.
      *
-     * @param string $query   The SQL query to execute.
+     * @param string $query The SQL query to execute.
      * @param array $bindVars Optional bindings for the query.
+     * @param bool $throwable Whether to rethrow exceptions instead of handling them internally (default: false).
+     *
      * @return array<int, string>
+     *
+     * @throws Exception
      */
-    public function fetchColumnArray( string $query , array $bindVars = [] ): array
+    public function fetchColumnArray
+    (
+        string $query ,
+        array  $bindVars  = [] ,
+        bool   $throwable = false
+    )
+    : array
     {
-        $statement = $this->pdo?->prepare( $query ) ;
-        if( $statement instanceof PDOStatement )
-        {
-            try
-            {
-                $this->bindValues( $statement , $bindVars ) ;
-                if( $statement->execute() )
-                {
-                    $result = $statement->fetchAll( PDO::FETCH_COLUMN ) ;
-                    $statement->closeCursor() ;
-                    $statement = null ;
-                    return $result ;
-                }
-            }
-            catch ( Exception $exception )
-            {
-                $this->warning( __METHOD__ . ' failed, ' . $exception->getMessage() ) ;
-            }
-        }
         $statement = null ;
-        return [] ;
+
+        try
+        {
+            $statement = $this->pdo?->prepare( $query ) ;
+
+            if ( !$statement instanceof PDOStatement )
+            {
+                return [] ;
+            }
+
+            $this->bindValues( $statement, $bindVars ) ;
+
+            if ( !$statement->execute() )
+            {
+                return [] ;
+            }
+
+            return $statement->fetchAll( PDO::FETCH_COLUMN ) ;
+        }
+        catch ( Exception $exception )
+        {
+            if ($throwable)
+            {
+                throw $exception;
+            }
+
+            $this->warning(__METHOD__ . ' failed, ' . $exception->getMessage() );
+            return [] ;
+        }
+        finally
+        {
+            if ( $statement instanceof PDOStatement )
+            {
+                $statement->closeCursor() ;
+            }
+            $statement = null ;
+        }
     }
 
     /**
