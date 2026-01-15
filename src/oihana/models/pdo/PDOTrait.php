@@ -206,7 +206,8 @@ trait PDOTrait
     )
     :array
     {
-        $result = [] ;
+        $result    = [] ;
+        $statement = null ;
         try
         {
             $statement = $this->pdo?->prepare( $query ) ;
