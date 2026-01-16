@@ -44,9 +44,24 @@ trait ModelParamTrait
     public const string DEBUG = 'debug' ;
 
     /**
+     * The 'default' parameter.
+     */
+    public const string DEFAULT = 'default' ;
+
+    /**
      * The 'deferAssignment' parameter.
      */
     public const string DEFER_ASSIGNMENT = 'deferAssignment' ;
+
+    /**
+     * The 'enforce' parameter.
+     */
+    public const string ENFORCE = 'enforce' ;
+
+    /**
+     * The 'ensure' parameter.
+     */
+    public const string ENSURE = 'ensure' ;
 
     /**
      * The 'id' parameter.
