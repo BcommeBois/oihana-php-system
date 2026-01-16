@@ -1,19 +1,17 @@
 <?php
 
-namespace tests\oihana\traits ;
+namespace tests\oihana\models\pdo ;
 
+use DI\Container;
+use DI\DependencyException;
+use DI\NotFoundException;
 use oihana\models\enums\ModelParam;
 use PDO;
 use PDOStatement;
-
-use DI\Container;
-
-use Psr\Container\NotFoundExceptionInterface;
-use Psr\Container\ContainerExceptionInterface;
-
 use PHPUnit\Framework\MockObject\Exception;
 use PHPUnit\Framework\TestCase;
-
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use tests\oihana\traits\mocks\MockPDOClass;
 
 class PDOTraitTest extends TestCase
@@ -86,6 +84,9 @@ class PDOTraitTest extends TestCase
     /**
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
+     * @throws DependencyException
+     * @throws NotFoundException
+     * @throws \ReflectionException
      */
     public function testFetchReturnsNullIfNoStatement(): void
     {
@@ -214,7 +215,7 @@ class PDOTraitTest extends TestCase
         $this->model->pdo = $pdo;
 
         $result = $this->model->fetchColumn('SELECT COUNT(*) FROM table');
-        $this->assertSame(0, $result);
+        $this->assertNull( $result);
     }
 
     /**

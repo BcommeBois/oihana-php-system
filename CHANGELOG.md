@@ -29,6 +29,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
   - Interfaces
     - StreamModel interface with the `public function stream( array $init = [] ):Generator` signature.
   - Traits
+    - EnsureKeysTrait
     - PropertyTrait
 - Validations
   - Helpers:

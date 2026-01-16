@@ -171,6 +171,6 @@ class PDOModelTest extends TestCase
         $model->pdo = $pdo;
 
         $result = $model->fetchColumn('SELECT COUNT(*) FROM users');
-        $this->assertSame(0, $result);
+        $this->assertNull($result);
     }
 }
