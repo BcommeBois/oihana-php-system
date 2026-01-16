@@ -74,6 +74,11 @@ trait ModelParamTrait
     public const string KEY = 'key' ;
 
     /**
+     * The 'keys' parameter.
+     */
+    public const string KEYS = 'keys' ;
+
+    /**
      * The 'list' parameter.
      */
     public const string LIST = 'list' ;
