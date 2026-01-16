@@ -50,6 +50,12 @@ use function oihana\core\arrays\isIndexed;
 trait EnsureKeysTrait
 {
     /**
+     * The default array definition to ensure attributes in the documents of the model.
+     * @var ?array
+     */
+    public ?array $ensure = null ;
+
+    /**
      * Ensures that specific attributes (keys or properties) exist on a document or a collection of documents.
      *
      * It parses the configuration from $init[ModelParam::ENSURE] and applies it to $data.
@@ -62,15 +68,21 @@ trait EnsureKeysTrait
      */
     protected function ensureDocumentKeys( mixed &$data , array $init = [] ): void
     {
-        // 1. Guard Clauses
-        if ( empty( $data ) || !isset( $init[ ModelParam::ENSURE ] ) )
+        // 1. Guard Clause : No data
+        if ( empty( $data ) )
         {
-            return;
+            return ;
         }
 
-        $config = $init[ ModelParam::ENSURE ] ;
+        // 2. Resolve Configuration (Runtime vs Instance Property)
+        $config = $init[ ModelParam::ENSURE ] ?? $this->ensure ;
 
-        // 2. Configuration Parsing
+        if ( !isset( $config ) )
+        {
+            return ;
+        }
+
+        // 3. Guard Clause : No configuration found
         if ( isset( $config[ ModelParam::KEYS ] ) )
         {
             $keys    = $config[ ModelParam::KEYS    ] ;
@@ -84,7 +96,7 @@ trait EnsureKeysTrait
             $enforce = false   ;
         }
 
-        // 3. Application (Collection vs Single Document)
+        // 4. Application (Collection vs Single Document)
 
         if ( is_array( $data ) && isIndexed( $data ) )
         {
@@ -109,5 +121,18 @@ trait EnsureKeysTrait
                 enforce  : $enforce
             ) ;
         }
+    }
+
+    /**
+     * Initialize the `ensure` definition of the model.
+     *
+     * @param array<string, mixed> $init Optional initialization array.
+     *
+     * @return static Returns `$this` to allow method chaining.
+     */
+    public function initializeEnsure( array $init = [] ):static
+    {
+        $this->ensure = $init[ ModelParam::ENSURE ] ?? null ;
+        return $this ;
     }
 }
