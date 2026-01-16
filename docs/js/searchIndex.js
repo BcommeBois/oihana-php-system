@@ -2483,7 +2483,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\oihana\\models\\pdo\\PDOTrait\u003A\u003AfetchAll\u0028\u0029",
             "name": "fetchAll",
-            "summary": "Execute\u0020a\u0020SELECT\u0020query\u0020and\u0020fetch\u0020all\u0020results.",
+            "summary": "Execute\u0020a\u0020query\u0020and\u0020fetch\u0020all\u0020results.",
             "url": "classes/oihana-models-pdo-PDOTrait.html#method_fetchAll"
         },                {
             "fqsen": "\\oihana\\models\\pdo\\PDOTrait\u003A\u003AfetchAllAsGenerator\u0028\u0029",
@@ -2896,6 +2896,16 @@ Search.appendIndex(
             "summary": "Returns\u0020a\u0020Documents\u0020Model\u0020instance\u0020directly\u0020or\u0020with\u0020the\u0020DI\u0020container.",
             "url": "classes/oihana-models-traits-DocumentsTrait.html#method_getDocumentsModel"
         },                {
+            "fqsen": "\\oihana\\models\\traits\\EnsureKeysTrait",
+            "name": "EnsureKeysTrait",
+            "summary": "Provides\u0020functionality\u0020to\u0020guarantee\u0020the\u0020existence\u0020of\u0020specific\u0020keys\u0020or\u0020properties\nwithin\u0020document\u0020structures\u0020or\u0020collections.",
+            "url": "classes/oihana-models-traits-EnsureKeysTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\EnsureKeysTrait\u003A\u003AensureDocumentKeys\u0028\u0029",
+            "name": "ensureDocumentKeys",
+            "summary": "Ensures\u0020that\u0020specific\u0020attributes\u0020\u0028keys\u0020or\u0020properties\u0029\u0020exist\u0020on\u0020a\u0020document\u0020or\u0020a\u0020collection\u0020of\u0020documents.",
+            "url": "classes/oihana-models-traits-EnsureKeysTrait.html#method_ensureDocumentKeys"
+        },                {
             "fqsen": "\\oihana\\models\\traits\\ListModelTrait",
             "name": "ListModelTrait",
             "summary": "Defines\u0020a\u0020ListModel\u0020properties\u0020in\u0020your\u0020class.",
@@ -2960,6 +2970,16 @@ Search.appendIndex(
             "name": "SchemaTrait",
             "summary": "Provides\u0020methods\u0020for\u0020initialize\u0020a\u0020\u0027schema\u0027\u0020property.",
             "url": "classes/oihana-models-traits-SchemaTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\SchemaTrait\u003A\u003AhasSchema\u0028\u0029",
+            "name": "hasSchema",
+            "summary": "Check\u0020if\u0020schema\u0020is\u0020defined\u0020\u0028either\u0020as\u0020string\u0020or\u0020callable\u0029.",
+            "url": "classes/oihana-models-traits-SchemaTrait.html#method_hasSchema"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\SchemaTrait\u003A\u003AgetSchema\u0028\u0029",
+            "name": "getSchema",
+            "summary": "Get\u0020the\u0020resolved\u0020schema\u0020value.",
+            "url": "classes/oihana-models-traits-SchemaTrait.html#method_getSchema"
         },                {
             "fqsen": "\\oihana\\models\\traits\\SchemaTrait\u003A\u003AinitializeSchema\u0028\u0029",
             "name": "initializeSchema",
@@ -3120,6 +3140,21 @@ Search.appendIndex(
             "name": "beforeUpsert",
             "summary": "Signal\u0020emitted\u0020before\u0020a\u0020document\u0020is\u0020upserted.",
             "url": "classes/oihana-models-traits-signals-HasUpsertSignals.html#property_beforeUpsert"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\ThrowableTrait",
+            "name": "ThrowableTrait",
+            "summary": "Trait\u0020to\u0020provide\u0020a\u0020throwable\u0020behavior\u0020to\u0020models.",
+            "url": "classes/oihana-models-traits-ThrowableTrait.html"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\ThrowableTrait\u003A\u003AinitializeThrowable\u0028\u0029",
+            "name": "initializeThrowable",
+            "summary": "Initializes\u0020the\u0020throwable\u0020property\u0020from\u0020an\u0020array\u0020of\u0020options.",
+            "url": "classes/oihana-models-traits-ThrowableTrait.html#method_initializeThrowable"
+        },                {
+            "fqsen": "\\oihana\\models\\traits\\ThrowableTrait\u003A\u003A\u0024throwable",
+            "name": "throwable",
+            "summary": "Determines\u0020if\u0020methods\u0020should\u0020throw\u0020exceptions.",
+            "url": "classes/oihana-models-traits-ThrowableTrait.html#property_throwable"
         },                {
             "fqsen": "\\oihana\\mysql\\enums\\MysqlParam",
             "name": "MysqlParam",

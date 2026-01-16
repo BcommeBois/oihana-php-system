@@ -144,7 +144,7 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/SchemaTrait.php"><a href="files/src-oihana-models-traits-schematrait.html"><abbr title="src/oihana/models/traits/SchemaTrait.php">SchemaTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">14</span>
+    <span class="phpdocumentor-element-found-in__line">17</span>
 
     </aside>
 
@@ -203,7 +203,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a class="" href="classes/oihana-models-traits-SchemaTrait.html#property_schema">$schema</a>
     <span>
-                        &nbsp;: string|null            </span>
+                        &nbsp;: null|string|<abbr title="\Closure">Closure</abbr>|<abbr title="\org\schema\helpers\SchemaResolver">SchemaResolver</abbr>            </span>
 </dt>
 <dd>The internal schema to use to hydrate the resources.</dd>
 
@@ -215,6 +215,20 @@
 
 </h4>
 <dl class="phpdocumentor-table-of-contents">
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-models-traits-SchemaTrait.html#method_getSchema">getSchema()</a>
+    <span>
+                                &nbsp;: string|null    </span>
+</dt>
+<dd>Get the resolved schema value.</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a class="" href="classes/oihana-models-traits-SchemaTrait.html#method_hasSchema">hasSchema()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Check if schema is defined (either as string or callable).</dd>
+
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a class="" href="classes/oihana-models-traits-SchemaTrait.html#method_initializeSchema">initializeSchema()</a>
     <span>
@@ -253,7 +267,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/SchemaTrait.php"><a href="files/src-oihana-models-traits-schematrait.html"><abbr title="src/oihana/models/traits/SchemaTrait.php">SchemaTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">20</span>
+    <span class="phpdocumentor-element-found-in__line">23</span>
 
     </aside>
 
@@ -262,7 +276,7 @@
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
         <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__type">string|null</span>
+            <span class="phpdocumentor-signature__type">null|string|<abbr title="\Closure">Closure</abbr>|<abbr title="\org\schema\helpers\SchemaResolver">SchemaResolver</abbr></span>
     <span class="phpdocumentor-signature__name">$schema</span>
      = <span class="phpdocumentor-signature__default-value">null</span></code>
 
@@ -288,6 +302,96 @@
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_getSchema">
+        getSchema()
+        <a href="classes/oihana-models-traits-SchemaTrait.html#method_getSchema" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/SchemaTrait.php"><a href="files/src-oihana-models-traits-schematrait.html"><abbr title="src/oihana/models/traits/SchemaTrait.php">SchemaTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">41</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Get the resolved schema value.</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">getSchema</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$target</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-argument-list__argument__name">$target</span>
+                : <span class="phpdocumentor-argument-list__argument__type">mixed</span>
+                 = <span class="phpdocumentor-argument-list__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Optional target to pass if the schema is invokable (like SchemaResolver)</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+        
+    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string|null</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
+    <h4 class="phpdocumentor-element__name" id="method_hasSchema">
+        hasSchema()
+        <a href="classes/oihana-models-traits-SchemaTrait.html#method_hasSchema" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/SchemaTrait.php"><a href="files/src-oihana-models-traits-schematrait.html"><abbr title="src/oihana/models/traits/SchemaTrait.php">SchemaTrait.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">29</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Check if schema is defined (either as string or callable).</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">hasSchema</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+    
+
+        
+    
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_initializeSchema">
         initializeSchema()
         <a href="classes/oihana-models-traits-SchemaTrait.html#method_initializeSchema" class="headerlink"><i class="fas fa-link"></i></a>
@@ -296,7 +400,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/oihana/models/traits/SchemaTrait.php"><a href="files/src-oihana-models-traits-schematrait.html"><abbr title="src/oihana/models/traits/SchemaTrait.php">SchemaTrait.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">63</span>
 
     </aside>
 
@@ -451,6 +555,8 @@
                                     <li class="phpdocumentor-on-this-page-section__title">Methods</li>
             <li>
                 <ul class="phpdocumentor-list -clean">
+                                            <li class=""><a href="classes/oihana-models-traits-SchemaTrait.html#method_getSchema">getSchema()</a></li>
+                                            <li class=""><a href="classes/oihana-models-traits-SchemaTrait.html#method_hasSchema">hasSchema()</a></li>
                                             <li class=""><a href="classes/oihana-models-traits-SchemaTrait.html#method_initializeSchema">initializeSchema()</a></li>
                                     </ul>
             </li>
