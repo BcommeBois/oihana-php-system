@@ -77,6 +77,10 @@ trait EnsureKeysTrait
         // 2. Resolve Configuration (Runtime vs Instance Property)
         $config = $init[ ModelParam::ENSURE ] ?? $this->ensure ;
 
+        $this->info( '---------------- ensureDocumentKeys' ) ;
+
+        $this->info( "ensureDocumentKeys config: " . json_encode( $config ) ) ;
+
         if ( !isset( $config ) )
         {
             return ;
