@@ -130,6 +130,12 @@ trait ControllerParamTrait
     public const string INTERVAL_DEFAULT = 'intervalDefault' ;
 
     /**
+     * The 'jsonSerializeOptions' parameter.
+     * @see JsonOptionsTrait
+     */
+    public const string JSON_SERIALIZE_OPTIONS = 'jsonSerializeOptions' ;
+
+    /**
      * The 'jsonOptions' parameter.
      * @see JsonOptionsTrait
      */

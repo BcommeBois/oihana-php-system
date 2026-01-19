@@ -3,11 +3,13 @@
 namespace oihana\controllers\traits ;
 
 use oihana\controllers\enums\ControllerParam;
+use oihana\core\options\ArrayOption;
 use oihana\enums\http\HttpHeader;
 use oihana\enums\http\HttpStatusCode;
 use oihana\enums\JsonParam;
 use oihana\files\enums\FileMimeType;
 
+use oihana\reflect\utils\JsonSerializer;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -32,6 +34,13 @@ trait JsonTrait
     public int $jsonOptions = JsonParam::JSON_NONE ;
 
     /**
+     * Temporary serialization options passed to JsonSerializer.
+     * (ex: ArrayOption::REDUCE, custom schema flags, etc.)
+     * @var array
+     */
+    public array $jsonSerializeOptions = [ ArrayOption::REDUCE => true ] ;
+
+    /**
      * Initialize the internal $jsonOptions property.
      * @param array $init
      * @param ContainerInterface|null $container
@@ -41,6 +50,8 @@ trait JsonTrait
      */
     public function initializeJsonOptions( array $init = [] , ?ContainerInterface $container = null ):static
     {
+        // --- JSON encode flags ---
+
         $flags = $init[ ControllerParam::JSON_OPTIONS ] ?? JsonParam::JSON_NONE ;
 
         if( $flags == null && $container instanceof ContainerInterface && $container->has( ControllerParam::JSON_OPTIONS ) )
@@ -49,6 +60,22 @@ trait JsonTrait
         }
 
         $this->jsonOptions = isValidJsonEncodeFlags( $flags ) ? $flags : JsonParam::JSON_NONE ;
+
+        // --- JsonSerializer temporary options ---
+
+        $options = $init[ ControllerParam::JSON_SERIALIZE_OPTIONS ] ?? [] ;
+
+        if
+        (
+            empty( $options ) &&
+            $container instanceof ContainerInterface &&
+            $container->has( ControllerParam::JSON_SERIALIZE_OPTIONS )
+        )
+        {
+            $options = (array) $container->get( ControllerParam::JSON_SERIALIZE_OPTIONS ) ;
+        }
+
+        $this->jsonSerializeOptions = is_array( $options ) ? $options : [] ;
 
         return $this ;
     }
@@ -62,8 +89,15 @@ trait JsonTrait
      */
     public function jsonResponse( Response $response , mixed $data = null , int $status = HttpStatusCode::OK ): Response
     {
-        $response->getBody()->write( json_encode( $data , $this->jsonOptions ) ) ;
-        return $response->withStatus( $status )
-                        ->withHeader( HttpHeader::CONTENT_TYPE , FileMimeType::JSON ) ;
+        $response->getBody()->write( JsonSerializer::encode
+        (
+            $data,
+            $this->jsonOptions,
+            $this->jsonSerializeOptions
+        ) ) ;
+
+        return $response
+            ->withStatus( $status )
+            ->withHeader( HttpHeader::CONTENT_TYPE , FileMimeType::JSON ) ;
     }
 }
