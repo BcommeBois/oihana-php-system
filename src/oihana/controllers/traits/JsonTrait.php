@@ -75,7 +75,7 @@ trait JsonTrait
             $options = (array) $container->get( ControllerParam::JSON_SERIALIZE_OPTIONS ) ;
         }
 
-        $this->jsonSerializeOptions = is_array( $options ) ? $options : [] ;
+        $this->jsonSerializeOptions = is_array( $options ) ? $options : $this->jsonSerializeOptions ;
 
         return $this ;
     }
