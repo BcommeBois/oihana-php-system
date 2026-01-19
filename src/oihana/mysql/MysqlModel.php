@@ -64,13 +64,9 @@ class MysqlModel extends PDOModel
         MysqlUserTrait      ;
 
     /**
-     * Dumps current users and databases into a structured array.
-     *
-     * @return array<string, mixed>
-     * @throws ContainerExceptionInterface
-     * @throws NotFoundExceptionInterface
+     * @inheritdoc
      */
-    public function toArray(): array
+    public function toArray( array $options = [] ): array
     {
         return
         [
