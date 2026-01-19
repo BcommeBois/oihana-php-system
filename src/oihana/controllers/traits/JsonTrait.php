@@ -48,7 +48,12 @@ trait JsonTrait
      * @throws ContainerExceptionInterface
      * @throws NotFoundExceptionInterface
      */
-    public function initializeJsonOptions( array $init = [] , ?ContainerInterface $container = null ):static
+    public function initializeJsonOptions
+    (
+        array $init = [] ,
+        ?ContainerInterface $container = null
+    )
+    :static
     {
         // --- JSON encode flags ---
 
