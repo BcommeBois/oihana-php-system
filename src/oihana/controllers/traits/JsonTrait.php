@@ -87,10 +87,14 @@ trait JsonTrait
      * @param int $status
      * @return Response
      */
-    public function jsonResponse( Response $response , mixed $data = null , int $status = HttpStatusCode::OK ): Response
+    public function jsonResponse
+    (
+        Response $response                      ,
+        mixed    $data     = null               ,
+        int      $status   = HttpStatusCode::OK
+    )
+    : Response
     {
-        $this->info( json_encode( $this->jsonSerializeOptions ) ) ;
-
         $response->getBody()->write
         (
             JsonSerializer::encode
