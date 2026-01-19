@@ -63,7 +63,7 @@ trait JsonTrait
 
         // --- JsonSerializer temporary options ---
 
-        $options = $init[ ControllerParam::JSON_SERIALIZE_OPTIONS ] ?? [] ;
+        $options = $init[ ControllerParam::JSON_SERIALIZE_OPTIONS ] ?? $this->jsonSerializeOptions ;
 
         if
         (
