@@ -300,6 +300,8 @@ trait StatusTrait
 
             $acceptHeader = $accept ?? $request?->getHeaderLine(HttpHeader::ACCEPT ) ?? null ;
 
+            $this->info( 'acceptedHeader :: ' . $acceptHeader ) ;
+
             return $this->response( $response , $output , $status , $acceptHeader ) ;
         }
 
