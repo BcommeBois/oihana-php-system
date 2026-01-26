@@ -85,7 +85,7 @@ trait CborTrait
         ) ;
 
         try {
-            $data = cbor_decode($data);
+            $test = cbor_decode($data);
         } catch ( Exception $e)
         {
             $this->warning('CBOR invalide: ' . $e->getMessage() );
