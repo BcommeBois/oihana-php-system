@@ -84,14 +84,15 @@ trait CborTrait
             $this->cborSerializeOptions
         ) ;
 
-        try {
-            $test = cbor_decode($data);
-        } catch ( Exception $e)
-        {
-            $this->warning('CBOR invalide: ' . $e->getMessage() );
-            $response->getBody()->write('CBOR invalide: ' . $e->getMessage());
-            return $response->withStatus(400);
-        }
+        // try {
+        //     $test = cbor_decode($data);
+        // } catch ( Exception $e)
+        // {
+        //     C
+        //     $this->warning('CBOR invalide: ' . $e->getMessage() );
+        //     $response->getBody()->write('CBOR invalide: ' . $e->getMessage());
+        //     return $response->withStatus(400);
+        // }
 
         // $this->info( 'test cbor response -> ' . $data ) ;
 
