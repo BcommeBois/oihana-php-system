@@ -88,6 +88,7 @@ abstract class Controller
         $this->initializeApi            ( $init , $container )
              ->initializeApp            ( $init , $container )
              ->initializeBaseUrl        ( $init , $container )
+             ->initializeCborOptions    ( $init , $container )
              ->initializeConfig         ( $init , $container )
              ->initializeHttpCache      ( $init , $container )
              ->initializeJsonOptions    ( $init , $container )
