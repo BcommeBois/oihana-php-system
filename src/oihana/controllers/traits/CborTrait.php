@@ -8,6 +8,7 @@ use oihana\enums\http\HttpHeader;
 use oihana\enums\http\HttpStatusCode;
 use oihana\files\enums\FileMimeType;
 
+use oihana\reflect\utils\CborSerializer;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -77,7 +78,7 @@ trait CborTrait
     {
         $response->getBody()->write
         (
-            cbor_encode
+            CborSerializer::encode
             (
                 $data ,
                 $this->cborSerializeOptions
