@@ -4,6 +4,7 @@ namespace oihana\controllers\enums\traits;
 
 use oihana\controllers\traits\ApiTrait;
 use oihana\controllers\traits\AppTrait;
+use oihana\controllers\traits\CborTrait;
 use oihana\controllers\traits\PaginationTrait;
 use oihana\traits\JsonOptionsTrait;
 
@@ -48,6 +49,12 @@ trait ControllerParamTrait
      * The 'bench' parameter.
      */
     public const string BENCH = 'bench' ;
+
+    /**
+     * The 'cborSerializeOptions' parameter.
+     * @see CborTrait
+     */
+    public const string CBOR_SERIALIZE_OPTIONS = 'cborSerializeOptions' ;
 
     /**
      * The 'controller' parameter.

@@ -64,7 +64,6 @@ trait OutputDocumentsTrait
         return $this->getCurrentPath( $request , $params ) ;
     }
 
-
     /**
      * Outputs a list of documents, optionally wrapping them in a response object.
      *

@@ -3,8 +3,10 @@
 namespace oihana\controllers\traits ;
 
 use oihana\enums\Char;
+use oihana\enums\http\HttpHeader;
 use oihana\enums\http\HttpStatusCode;
 use oihana\enums\Output;
+use oihana\files\enums\FileMimeType;
 use oihana\logging\LoggerTrait;
 
 use Psr\Http\Message\ResponseInterface as Response;
@@ -33,6 +35,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 trait StatusTrait
 {
     use BaseUrlTrait ,
+        CborTrait    ,
         JsonTrait    ,
         LoggerTrait  ;
 
@@ -45,6 +48,7 @@ trait StatusTrait
      * @param int|string|null $code     The HTTP status code (default: 400).
      * @param ?string         $details  Optional detailed error message to override default description.
      * @param array           $options  Optional array of additional data to include (e.g., errors).
+     * @param ?string         $accept   The header accepted by the client : 'application/cbor' or by default 'application/json'
      *
      * @return ?Response Returns a PSR-7 Response object with JSON content or null if $response is not provided.
      *
@@ -61,7 +65,15 @@ trait StatusTrait
      * );
      * ```
      */
-    public function fail( ?Response $response , string|int|null $code = 400 , ?string $details = null , array $options = [] ) :?Response
+    public function fail
+    (
+        ?Response       $response ,
+        string|int|null $code    = 400  ,
+        ?string         $details = null ,
+        array           $options = []   ,
+        ?string         $accept  = null ,
+    )
+    :?Response
     {
         $code       = (int) ( HttpStatusCode::includes( (int) $code ) ? $code : HttpStatusCode::DEFAULT ) ;
         $message    = HttpStatusCode::getDescription( $code ) ;
@@ -82,7 +94,39 @@ trait StatusTrait
             $options[ Output::DETAILS ] = $details ;
         }
 
-        return $this->status( $response , $message , $code , count($options) > 0 ? $options : null ) ;
+        return $this->status( $response , $message , $code , count($options) > 0 ? $options : null , $accept ) ;
+    }
+
+    /**
+     * Return a response in the format accepted by the client : JSON by default or CBOR.
+     *
+     * Checks the `Accept` header in the request to determine the preferred format.
+     *
+     * @param  Response  $response  PSR-7 Response object to write to.
+     * @param  mixed     $data      Data to send in the response.
+     * @param  int       $status    HTTP status code (default: 200).
+     * @param ?string    $accept    The header accepted by the client : 'application/cbor' or by default 'application/json'
+     *
+     * @return Response
+     *
+     * @see FileMimeType::JSON
+     * @see FileMimeType::CBOR
+     * @see FileMimeType::CBOR_SEQ
+     */
+    public function response
+    (
+        Response  $response ,
+        mixed     $data     = null,
+        int       $status   = 200 ,
+        ?string   $accept   = null ,
+    )
+    : Response
+    {
+        return match( $accept )
+        {
+            FileMimeType::CBOR , FileMimeType::CBOR_SEQ => $this->cborResponse( $response , $data , $status ) ,
+            default                                     => $this->jsonResponse( $response , $data , $status )
+        };
     }
 
     /**
@@ -92,6 +136,7 @@ trait StatusTrait
      * @param mixed           $message  The message content.
      * @param int|string|null $code     The HTTP status code (default: 200).
      * @param ?array          $options  Optional array of additional output properties.
+     * @param ?string         $accept   The header accepted by the client : 'application/cbor' or by default 'application/json'
      *
      * @return ?Response Returns a PSR-7 Response object with JSON content or null if $response is not provided.
      *
@@ -100,7 +145,15 @@ trait StatusTrait
      * return $this->status($response, 'bad request', 405);
      * ```
      */
-    public function status( ?Response $response , mixed $message = Char::EMPTY , int|string|null $code = 200 , ?array $options = null ) :?Response
+    public function status
+    (
+        ?Response       $response ,
+        mixed           $message  = Char::EMPTY ,
+        int|string|null $code     = 200         ,
+        ?array          $options = null         ,
+        ?string         $accept  = null         ,
+    )
+    :?Response
     {
         if( isset( $response ) )
         {
@@ -124,7 +177,7 @@ trait StatusTrait
                 $output = [ ...$output , ...$options ] ;
             }
 
-            return $this->jsonResponse( $response , $output , $status ) ;
+            return $this->response( $response , $output , $status , $accept ) ;
         }
         return null ;
     }
@@ -150,6 +203,7 @@ trait StatusTrait
      *                            - owner (array|object): Owner reference
      *                            - options (array): Additional properties
      *                            - position (int): Optional position in list
+     * @param ?string   $accept   The header accepted by the client : 'application/cbor' or by default 'application/json'
      *
      * @return mixed Returns a PSR-7 Response object with JSON if $response is provided, otherwise returns $data directly.
      *
@@ -165,10 +219,11 @@ trait StatusTrait
      */
     public function success
     (
-        ?Request  $request ,
-        ?Response $response ,
-        mixed     $data = null ,
-        ?array    $init = null ,
+        ?Request  $request         ,
+        ?Response $response        ,
+        mixed     $data     = null ,
+        ?array    $init     = null ,
+        ?string   $accept   = null ,
     )
     :mixed
     {
@@ -229,7 +284,9 @@ trait StatusTrait
 
             $output[ Output::RESULT ] = $data ;
 
-            return $this->jsonResponse( $response , $output , $status ) ;
+            $acceptHeader = $accept ?? $request?->getHeaderLine(HttpHeader::ACCEPT ) ?? null ;
+
+            return $this->response( $response , $output , $status , $acceptHeader ) ;
         }
 
         return $data ;

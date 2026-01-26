@@ -1,0 +1,91 @@
+<?php
+
+namespace oihana\controllers\traits ;
+
+use oihana\controllers\enums\ControllerParam;
+use oihana\core\options\ArrayOption;
+use oihana\enums\http\HttpHeader;
+use oihana\enums\http\HttpStatusCode;
+use oihana\files\enums\FileMimeType;
+
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\ContainerInterface;
+use Psr\Container\NotFoundExceptionInterface;
+use Psr\Http\Message\ResponseInterface as Response;
+
+use function oihana\core\cbor\cbor_encode;
+
+/**
+ * Provides utility methods for managing Cbor encoding options and creating
+ * standardized JSON HTTP responses within controllers.
+ */
+trait CborTrait
+{
+    /**
+     * Temporary serialization options.
+     * (ex: ArrayOption::REDUCE, custom schema flags, etc.)
+     * @var array
+     */
+    public array $cborSerializeOptions = [ ArrayOption::REDUCE => true ] ;
+
+    /**
+     * Initialize the internal $cborSerializeOptions property.
+     * @param array $init
+     * @param ContainerInterface|null $container
+     * @return static
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     */
+    public function initializeCborOptions
+    (
+        array $init = [] ,
+        ?ContainerInterface $container = null
+    )
+    :static
+    {
+        $options = $init[ ControllerParam::CBOR_SERIALIZE_OPTIONS ] ?? $this->cborSerializeOptions ;
+
+        if
+        (
+            empty( $options ) &&
+            $container instanceof ContainerInterface &&
+            $container->has( ControllerParam::CBOR_SERIALIZE_OPTIONS )
+        )
+        {
+            $options = (array) $container->get( ControllerParam::CBOR_SERIALIZE_OPTIONS ) ;
+        }
+
+        $this->cborSerializeOptions = is_array( $options ) ? $options : $this->cborSerializeOptions ;
+
+        return $this ;
+    }
+
+    /**
+     * Return a cbor response
+     * @param Response $response
+     * @param mixed $data
+     * @param int $status
+     * @return Response
+     */
+    public function cborResponse
+    (
+        Response $response                      ,
+        mixed    $data     = null               ,
+        int      $status   = HttpStatusCode::OK
+    )
+    : Response
+    {
+        $response->getBody()->write
+        (
+            cbor_encode
+            (
+                $data ,
+                $this->cborSerializeOptions
+            )
+        ) ;
+
+        return $response
+            ->withStatus( $status )
+            ->withHeader( HttpHeader::CONTENT_TYPE , FileMimeType::CBOR ) ;
+    }
+}
