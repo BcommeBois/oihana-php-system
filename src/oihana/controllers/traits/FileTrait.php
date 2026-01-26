@@ -3,11 +3,12 @@
 namespace oihana\controllers\traits;
 
 use Exception;
-use oihana\enums\http\HttpHeader;
 use ZipArchive;
 
 use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
+use oihana\enums\http\HttpHeader;
 use oihana\files\enums\FileMimeType;
 
 trait FileTrait
@@ -18,12 +19,22 @@ trait FileTrait
 
     /**
      * Returns a file response
-     * @param Response $response
-     * @param string $file
-     * @param array $options
+     *
+     * @param ?Request  $request  Optional PSR-7 Request object.
+     * @param Response  $response The PSR-7 Response object.
+     * @param string    $file
+     * @param array     $options
+     *
      * @return Response
      */
-    public function fileResponse( Response $response , string $file , array $options = [] ): Response
+    public function fileResponse
+    (
+        ?Request $request ,
+        Response $response ,
+        string $file ,
+        array $options = []
+    )
+    : Response
     {
         try
         {
@@ -53,24 +64,33 @@ trait FileTrait
         }
         catch( Exception $e )
         {
-            return $this->fail( $response ,  500 , $e->getMessage() ) ;
+            return $this->fail( $request , $response ,  500 , $e->getMessage() ) ;
         }
     }
 
     /**
-     * @param Response $response
+     * @param ?Request $request Optional PSR-7 Request object.
+     * @param Response $response The PSR-7 Response object.
      * @param array $files
      * @param string $archive
      * @param string $path
      * @return Response|null
      */
-    public function zip( Response $response , array $files , string $archive , string $path ): ?Response
+    public function zip
+    (
+        ?Request $request ,
+        Response $response ,
+        array $files ,
+        string $archive ,
+        string $path
+    )
+    : ?Response
     {
         $zip = new ZipArchive();
 
         if ( $zip->open( $archive , ZIPARCHIVE::CREATE ) !== true  )
         {
-            return $this->fail( $response , 500 ,  'zip failed, cannot open the archive path : ' . $archive ) ;
+            return $this->fail( $request , $response , 500 ,  'zip failed, cannot open the archive path : ' . $archive ) ;
         }
 
         //add each files of $file_name array to archive

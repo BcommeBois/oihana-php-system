@@ -11,6 +11,7 @@ use oihana\enums\http\HttpHeader;
 use oihana\graphics\AspectRatio;
 
 use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Message\ServerRequestInterface as Request;
 
 trait ImageTrait
 {
@@ -73,12 +74,20 @@ trait ImageTrait
 
     /**
      * Returns an Image response
-     * @param Response $response
+     * @param ?Request $request Optional PSR-7 Request object.
+     * @param Response $response The PSR-7 Response object.
      * @param string $file
      * @param array $options
      * @return Response
      */
-    public function imageResponse( Response $response , string $file , array $options = [] ): Response
+    public function imageResponse
+    (
+        ?Request $request ,
+        Response $response ,
+        string $file ,
+        array $options = []
+    )
+    : Response
     {
         try
         {
@@ -110,7 +119,7 @@ trait ImageTrait
         }
         catch( Exception $e )
         {
-            return $this->fail( $response , 500 ,  $e->getMessage() ) ;
+            return $this->fail( $request , $response , 500 ,  $e->getMessage() ) ;
         }
     }
 
