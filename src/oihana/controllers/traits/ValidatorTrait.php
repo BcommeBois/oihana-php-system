@@ -78,7 +78,14 @@ trait ValidatorTrait
      * @param int|string $code
      * @return Response|null
      */
-    public function getValidatorError( ?Response $response , Validation $validation , array $errors = [] , int|string $code = 400 ) : ?Response
+    public function getValidatorError
+    (
+        ?Response  $response   ,
+        Validation $validation ,
+        array      $errors = [] ,
+        int|string $code = 400
+    )
+    : ?Response
     {
         if( $validation->fails() )
         {
