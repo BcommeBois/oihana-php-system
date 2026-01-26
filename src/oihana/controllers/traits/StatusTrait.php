@@ -44,6 +44,7 @@ trait StatusTrait
      *
      * Automatically logs the error if logging is enabled.
      *
+     * @param ?Request        $request  Optional PSR-7 Request object.
      * @param ?Response       $response The PSR-7 Response object.
      * @param int|string|null $code     The HTTP status code (default: 400).
      * @param ?string         $details  Optional detailed error message to override default description.
@@ -67,7 +68,8 @@ trait StatusTrait
      */
     public function fail
     (
-        ?Response       $response ,
+        ?Request        $request        ,
+        ?Response       $response       ,
         string|int|null $code    = 400  ,
         ?string         $details = null ,
         array           $options = []   ,
@@ -94,7 +96,15 @@ trait StatusTrait
             $options[ Output::DETAILS ] = $details ;
         }
 
-        return $this->status( $response , $message , $code , count($options) > 0 ? $options : null , $accept ) ;
+        return $this->status
+        (
+            $request  ,
+            $response ,
+            $message  ,
+            $code     ,
+            count($options) > 0 ? $options : null ,
+            $accept
+        ) ;
     }
 
     /**
@@ -132,6 +142,7 @@ trait StatusTrait
     /**
      * Outputs a generic HTTP status message in a JSON response.
      *
+     * @param ?Request        $request  Optional PSR-7 Request object.
      * @param ?Response       $response PSR-7 Response object to send output.
      * @param mixed           $message  The message content.
      * @param int|string|null $code     The HTTP status code (default: 200).
@@ -147,7 +158,8 @@ trait StatusTrait
      */
     public function status
     (
-        ?Response       $response ,
+        ?Request        $request                ,
+        ?Response       $response               ,
         mixed           $message  = Char::EMPTY ,
         int|string|null $code     = 200         ,
         ?array          $options = null         ,
@@ -177,7 +189,9 @@ trait StatusTrait
                 $output = [ ...$output , ...$options ] ;
             }
 
-            return $this->response( $response , $output , $status , $accept ) ;
+            $acceptHeader = $accept ?? $request?->getHeaderLine(HttpHeader::ACCEPT ) ?? null ;
+
+            return $this->response( $response , $output , $status , $acceptHeader ) ;
         }
         return null ;
     }

@@ -15,7 +15,7 @@ final class StatusTraitTest extends TestCase
 {
     private object $mock;
     private ResponseInterface $response;
-    private StreamInterface $stream;
+    private StreamInterface   $stream;
 
     protected function setUp(): void
     {
@@ -23,7 +23,12 @@ final class StatusTraitTest extends TestCase
         {
             use StatusTrait;
 
-            public function getCurrentPath(?ServerRequestInterface $request = null, array $params = []): string
+            public function getCurrentPath
+            (
+                ?ServerRequestInterface $request = null,
+                array                   $params = []
+            )
+            : string
             {
                 return '/current/path';
             }
@@ -40,14 +45,16 @@ final class StatusTraitTest extends TestCase
 
     public function testFailReturnsResponseWithDefaultStatus()
     {
-        $response = $this->mock->fail($this->response);
+        $response = $this->mock->fail(null , $this->response);
 
         $this->assertSame($this->response, $response);
     }
 
     public function testFailReturnsResponseWithCustomCodeAndDetails()
     {
-        $response = $this->mock->fail(
+        $response = $this->mock->fail
+        (
+            null ,
             $this->response,
             406,
             'Validation failed',
@@ -59,14 +66,14 @@ final class StatusTraitTest extends TestCase
 
     public function testStatusReturnsResponseWithMessageAndCode()
     {
-        $response = $this->mock->status($this->response, 'Bad request', 400);
+        $response = $this->mock->status( null , $this->response, 'Bad request', 400);
 
         $this->assertSame($this->response, $response);
     }
 
     public function testStatusReturnsNullWhenResponseIsNull()
     {
-        $result = $this->mock->status(null, 'Any message', 200);
+        $result = $this->mock->status(null , null, 'Any message', 200);
         $this->assertNull($result);
     }
 
@@ -74,7 +81,7 @@ final class StatusTraitTest extends TestCase
     {
         $data = ['foo' => 'bar'];
 
-        $response = $this->mock->success(null, $this->response, $data);
+        $response = $this->mock->success(null , null, $this->response, $data);
 
         $this->assertSame($this->response, $response);
     }
@@ -82,7 +89,7 @@ final class StatusTraitTest extends TestCase
     public function testSuccessReturnsDataDirectlyWhenResponseIsNull()
     {
         $data = ['foo' => 'bar'];
-        $result = $this->mock->success(null, null, $data);
+        $result = $this->mock->success(null , null,  $data);
 
         $this->assertSame($data, $result);
     }
@@ -104,7 +111,7 @@ final class StatusTraitTest extends TestCase
             Output::PARAMS   => ['a' => 1]
         ];
 
-        $response = $this->mock->success(null, $this->response, $data, $init);
+        $response = $this->mock->success(null , $this->response, $data, $init);
 
         $this->assertSame($this->response, $response);
     }
