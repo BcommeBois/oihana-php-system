@@ -57,19 +57,16 @@ trait OutputDocumentsTrait
      * @param ?array $options
      * @return array|object|null
      */
-    protected function outputDocuments( ?Request $request = null, ?Response $response = null , ?array $documents = null , array $params = [] , ?array $options = null ) : array|object|null
+    protected function outputDocuments
+    (
+        ?Request  $request   = null,
+        ?Response $response  = null ,
+        ?array    $documents = null ,
+        array     $params    = []   ,
+        ?array    $options   = null
+    )
+    : array|object|null
     {
-        $skin = null ;
-        $lang = null ;
-
-        if( $documents )
-        {
-            foreach( $documents as $key => $value )
-            {
-                $documents[ $key ] = $this->alter( $value , $lang , $skin , $params ) ; // TODO : use a trait to link the method with the current trait.. for the moment the method is declared in the Controller class...
-            }
-        }
-
         if( $response )
         {
             return $this->documentsResponse
@@ -81,7 +78,6 @@ trait OutputDocumentsTrait
                 $options
             ) ;
         }
-
         return $documents ;
     }
 }

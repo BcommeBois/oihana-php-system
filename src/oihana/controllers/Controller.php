@@ -141,20 +141,6 @@ abstract class Controller
     public ?string $ownerPath = Char::EMPTY ;
 
     /**
-     * Alter the specific thing.
-     * Overrides this method to customize the alter strategy.
-     * @param mixed $thing A generic object to alter.
-     * @param ?string $lang The lang optional lang iso code.
-     * @param ?string $skin The optional skin mode.
-     * @param ?array $params The optional params object.
-     * @return mixed The altered thing reference.
-     */
-    public function alter( mixed $thing = null , ?string $lang = null , ?string $skin = null , ?array $params = null ) :mixed
-    {
-        return $thing ;
-    }
-
-    /**
      * Returns allowed HTTP methods for the current route.
      *
      * @param ?Request $request Optional request.
