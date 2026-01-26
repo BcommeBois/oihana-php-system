@@ -12,6 +12,7 @@ use oihana\enums\Output;
 use oihana\enums\http\HttpMethod;
 use oihana\traits\ContainerTrait;
 
+use Psr\Http\Message\ServerRequestInterface as Request;
 use Somnambulist\Components\Validation\Factory as Validator;
 use Somnambulist\Components\Validation\Rule;
 use Somnambulist\Components\Validation\Validation;
@@ -72,7 +73,9 @@ trait ValidatorTrait
 
     /**
      * Returns an error if the validator fails.
-     * @param Response|null $response
+     *
+     * @param ?Request $request Optional PSR-7 Request object.
+     * @param ?Response $response The PSR-7 Response object.
      * @param Validation $validation
      * @param array $errors
      * @param int|string $code
@@ -80,8 +83,9 @@ trait ValidatorTrait
      */
     public function getValidatorError
     (
-        ?Response  $response   ,
-        Validation $validation ,
+        ?Request   $request     ,
+        ?Response  $response    ,
+        Validation $validation  ,
         array      $errors = [] ,
         int|string $code = 400
     )
@@ -91,7 +95,14 @@ trait ValidatorTrait
         {
             $errors = [ ...$errors , ...$validation->errors()->firstOfAll() ] ;
         }
-        return $this->fail( $response , $code , null , [ Output::ERRORS => $errors ] ) ;
+        return $this->fail
+        (
+            $request  ,
+            $response ,
+            $code     ,
+            null ,
+            [ Output::ERRORS => $errors ]
+        ) ;
     }
 
     /**
