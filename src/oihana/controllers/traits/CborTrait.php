@@ -76,14 +76,15 @@ trait CborTrait
     )
     : Response
     {
-        $response->getBody()->write
+        $data = CborSerializer::encode
         (
-            CborSerializer::encode
-            (
-                $data ,
-                $this->cborSerializeOptions
-            )
+            $data ,
+            $this->cborSerializeOptions
         ) ;
+
+        $this->info( 'test cbor response -> ' . $data ) ;
+
+        $response->getBody()->write( $data ) ;
 
         return $response
             ->withStatus( $status )
