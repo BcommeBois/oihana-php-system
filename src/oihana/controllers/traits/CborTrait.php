@@ -2,6 +2,7 @@
 
 namespace oihana\controllers\traits ;
 
+use Exception;
 use oihana\controllers\enums\ControllerParam;
 use oihana\core\options\ArrayOption;
 use oihana\enums\http\HttpHeader;
@@ -14,6 +15,7 @@ use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 
+use function oihana\core\cbor\cbor_decode;
 use function oihana\core\cbor\cbor_encode;
 
 /**
@@ -81,6 +83,14 @@ trait CborTrait
             $data ,
             $this->cborSerializeOptions
         ) ;
+
+        try {
+            $data = cbor_decode($data);
+        } catch ( Exception $e)
+        {
+            $response->getBody()->write('CBOR invalide: ' . $e->getMessage());
+            return $response->withStatus(400);
+        }
 
         // $this->info( 'test cbor response -> ' . $data ) ;
 
