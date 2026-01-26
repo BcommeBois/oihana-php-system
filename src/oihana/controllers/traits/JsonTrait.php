@@ -112,6 +112,6 @@ trait JsonTrait
 
         return $response
             ->withStatus( $status )
-            ->withHeader( HttpHeader::CONTENT_TYPE , FileMimeType::JSON ) ;
+            ->withHeader( HttpHeader::CONTENT_TYPE , FileMimeType::JSON );
     }
 }

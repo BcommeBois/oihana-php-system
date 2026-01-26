@@ -82,12 +82,12 @@ trait CborTrait
             $this->cborSerializeOptions
         ) ;
 
-        $this->info( 'test cbor response -> ' . $data ) ;
+        // $this->info( 'test cbor response -> ' . $data ) ;
 
         $response->getBody()->write( $data ) ;
 
         return $response
-            ->withStatus( $status )
-            ->withHeader( HttpHeader::CONTENT_TYPE , FileMimeType::CBOR ) ;
+            ->withHeader( HttpHeader::CONTENT_TYPE , FileMimeType::CBOR )
+            ->withStatus( $status ) ;
     }
 }
