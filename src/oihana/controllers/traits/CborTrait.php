@@ -2,7 +2,6 @@
 
 namespace oihana\controllers\traits ;
 
-use Exception;
 use oihana\controllers\enums\ControllerParam;
 use oihana\core\options\ArrayOption;
 use oihana\enums\http\HttpHeader;
@@ -16,8 +15,6 @@ use Psr\Container\NotFoundExceptionInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 
 use Slim\Psr7\Factory\StreamFactory;
-use function oihana\core\cbor\cbor_decode;
-use function oihana\core\cbor\cbor_encode;
 
 /**
  * Provides utility methods for managing Cbor encoding options and creating
@@ -84,6 +81,8 @@ trait CborTrait
             $data ,
             $this->cborSerializeOptions
         ) ;
+
+        $this->warning( bin2hex( $data ));
 
         // $response->getBody()->write( $data ) ;
         //
