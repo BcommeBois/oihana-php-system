@@ -91,13 +91,10 @@ trait CborTrait
         //     ->withHeader( HttpHeader::CONTENT_LENGTH , (string) strlen( $data ) )
         //     ->withStatus( $status ) ;
 
-        $streamFactory = new StreamFactory();
-        $body = $streamFactory->createStream( $data ) ;
-
-        $this->warning( $body );
+        $stream = new StreamFactory()->createStream( $data ) ;
 
         return $response
-            ->withBody($body)
+            ->withBody( $stream )
             ->withHeader( HttpHeader::CONTENT_TYPE   , FileMimeType::CBOR )
             ->withHeader( HttpHeader::CONTENT_LENGTH , (string) strlen( $data ) )
             ->withStatus( $status ) ;
