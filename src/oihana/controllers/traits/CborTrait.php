@@ -15,6 +15,7 @@ use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 
+use Slim\Psr7\Factory\StreamFactory;
 use function oihana\core\cbor\cbor_decode;
 use function oihana\core\cbor\cbor_encode;
 
@@ -84,22 +85,20 @@ trait CborTrait
             $this->cborSerializeOptions
         ) ;
 
-        // try {
-        //     $test = cbor_decode($data);
-        // } catch ( Exception $e)
-        // {
-        //     C
-        //     $this->warning('CBOR invalide: ' . $e->getMessage() );
-        //     $response->getBody()->write('CBOR invalide: ' . $e->getMessage());
-        //     return $response->withStatus(400);
-        // }
+        // $response->getBody()->write( $data ) ;
+        //
+        // return $response
+        //     ->withHeader( HttpHeader::CONTENT_TYPE   , FileMimeType::CBOR )
+        //     ->withHeader( HttpHeader::CONTENT_LENGTH , (string) strlen( $data ) )
+        //     ->withStatus( $status ) ;
 
-        // $this->info( 'test cbor response -> ' . $data ) ;
-
-        $response->getBody()->write( $data ) ;
+        $streamFactory = new StreamFactory();
+        $body = $streamFactory->createStream( $data ) ;
 
         return $response
-            ->withHeader( HttpHeader::CONTENT_TYPE , FileMimeType::CBOR )
+            ->withBody($body)
+            ->withHeader( HttpHeader::CONTENT_TYPE   , FileMimeType::CBOR )
+            ->withHeader( HttpHeader::CONTENT_LENGTH , (string) strlen( $data ) )
             ->withStatus( $status ) ;
     }
 }
