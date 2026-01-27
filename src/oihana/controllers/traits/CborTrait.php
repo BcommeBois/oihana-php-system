@@ -85,6 +85,8 @@ trait CborTrait
             $this->cborSerializeOptions
         ) ;
 
+        $this->info( '[' . $data . ']' ) ;
+
         // $response->getBody()->write( $data ) ;
         //
         // return $response
