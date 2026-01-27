@@ -94,6 +94,8 @@ trait CborTrait
         $streamFactory = new StreamFactory();
         $body = $streamFactory->createStream( $data ) ;
 
+        $this->warning( $body );
+
         return $response
             ->withBody($body)
             ->withHeader( HttpHeader::CONTENT_TYPE   , FileMimeType::CBOR )
