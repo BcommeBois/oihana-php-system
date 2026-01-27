@@ -82,19 +82,10 @@ trait CborTrait
             $this->cborSerializeOptions
         ) ;
 
-        $this->warning( bin2hex( $data ));
-
-        if (ob_get_length() > 0)
+        if ( ob_get_length() > 0 )
         {
             ob_clean();
         }
-
-        // $response->getBody()->write( $data ) ;
-        //
-        // return $response
-        //     ->withHeader( HttpHeader::CONTENT_TYPE   , FileMimeType::CBOR )
-        //     ->withHeader( HttpHeader::CONTENT_LENGTH , (string) strlen( $data ) )
-        //     ->withStatus( $status ) ;
 
         $stream = new StreamFactory()->createStream( $data ) ;
 
