@@ -84,6 +84,11 @@ trait CborTrait
 
         $this->warning( bin2hex( $data ));
 
+        if (ob_get_length() > 0)
+        {
+            ob_clean();
+        }
+
         // $response->getBody()->write( $data ) ;
         //
         // return $response
