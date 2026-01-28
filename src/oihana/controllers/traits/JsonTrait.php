@@ -100,6 +100,11 @@ trait JsonTrait
     )
     : Response
     {
+        if ( ob_get_length() > 0 )
+        {
+            ob_clean() ;
+        }
+
         $response->getBody()->write
         (
             JsonSerializer::encode

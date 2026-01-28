@@ -84,7 +84,7 @@ trait CborTrait
 
         if ( ob_get_length() > 0 )
         {
-            ob_clean() ; // Clean (erase) the output buffer
+            ob_clean() ;
         }
 
         $stream = new StreamFactory()->createStream( $data ) ;
