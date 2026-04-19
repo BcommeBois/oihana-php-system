@@ -51,6 +51,17 @@ trait ControllerParamTrait
     public const string BENCH = 'bench' ;
 
     /**
+     * Capabilities configuration block — maps param names (SKIN, FILTER, ...) to per-param capability declarations.
+     */
+    public const string CAPABILITIES = 'capabilities' ;
+
+    /**
+     * Optional kill-switch to disable the whole capability enforcement block without removing its declaration.
+     * Defaults to true when the CAPABILITIES block is present.
+     */
+    public const string CAPABILITIES_ENABLED = 'capabilitiesEnabled' ;
+
+    /**
      * The 'cborSerializeOptions' parameter.
      * @see CborTrait
      */
