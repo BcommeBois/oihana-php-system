@@ -24,17 +24,32 @@ trait SkinTrait
     public const string VIDEOS  = 'videos' ;
 
     /**
-     * Internal projection — exposes server-only fields that must never
-     * leak through the public HTTP surface (e.g. SHA-256 of the pending-email verification code on `User`).
+     * Internal projection — exposes server-only fields that must NEVER
+     * leak through the public HTTP surface (e.g. the SHA-256 of the
+     * pending-email verification code on `User`).
      *
-     * Aligned with the `?skin=offers.full` pattern : the skin value is
-     * accepted by the controller only when the caller holds the matching
-     * `<resource>:skin.internal` capability, gated through the
-     * `ControllerParam::CAPABILITIES` block. NO role is granted this
-     * capability by default — it exists so that server-side traits can
-     * call `model->get([SKIN => INTERNAL])` (capabilities live on the
-     * HTTP controller layer, not on the model layer) while remaining
-     * unreachable from outside the API.
+     * **Invariant — do NOT register `Skin::INTERNAL` in any controller's
+     * `Arango::SKINS` list.** Doing so would expose the underlying fields
+     * via `?skin=internal` on a public route. The controller's
+     * {@see \oihana\controllers\traits\prepare\PrepareSkin::isValidSkin()}
+     * filter rejects any skin not in that list and falls back to the
+     * default — so as long as `INTERNAL` stays out of the list, no HTTP
+     * caller can request it. This is the security guarantee.
+     *
+     * No matching Casbin permission exists, by design. Granting one
+     * (e.g. `users:skin.internal`) would let a superadmin attribute it
+     * to a user via `POST /users/{id}/permissions/{permKey}` and break
+     * the invariant. If a future use-case really needs HTTP access to
+     * an `internal`-projected document (admin debug tool, audit page),
+     * introduce a dedicated permission AND a `Capability::PARAMS` gate
+     * AND a hardcoded whitelist preventing the permission from being
+     * attributed in the first place — all three layers, not just one.
+     *
+     * Server-side traits call `model->get([SKIN => INTERNAL])` directly.
+     * The capability framework lives on the HTTP controller layer, not
+     * on the model — direct model calls are therefore not gated, by
+     * design. They remain trusted because they originate from server
+     * PHP code.
      */
-    public const string INTERNAL = 'internal'    ;
+    public const string INTERNAL = 'internal' ;
 }
