@@ -13,6 +13,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
     - ModelCallTrait : Provides a centralized lifecycle around model calls for controllers.
   - Enums
     - Add the ControllerParam::CAPABILITIES and ControllerParam::CAPABILITIES_ENABLED constants
+    - Add the Skin::INTERNAL special skin constant. 
   - Helpers
     - getBodyParam()
     - getBodyParams()
