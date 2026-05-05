@@ -8,20 +8,24 @@ namespace oihana\controllers\helpers ;
  * This helper transforms an input array/object from the client to prepare a multilingual (i18n) property.
  * It keeps only string or null values, allows optional transformation or sanitization via a callback.
  *
- * @param array<string, string>|object|null $fields    Input array or object of translations.
- * @param array<string>|null                $languages Optional array of languages to filter the i18n definitions.
- *                                                     If null, no filtering is applied.
- * @param callable|null                     $sanitize  Optional callback to transform or sanitize each value.
- *                                                     Signature: `fn(string|null $value, string $lang): string|null`
+ * Note: this helper is permissive on input shape — invalid inputs (string, scalar, etc.) silently return null
+ * rather than throwing. Callers that need to reject invalid shapes (e.g. to return a 422) must validate the
+ * raw input upstream before calling this helper.
+ *
+ * @param mixed              $fields    Input translations (array<string,string|null> or object). Any other shape (string, scalar, …) is treated as invalid and ignored — the function returns null. Type validation must be done upstream by callers.
+ * @param array<string>|null $languages Optional array of languages to filter the i18n definitions. If null, no filtering is applied.
+ * @param callable|null      $sanitize  Optional callback to transform or sanitize each value.  Signature: `fn(string|null $value, string $lang): string|null`
+ *
  * @return array<string, string|null>|null Filtered translations matching the languages, or null if input is empty.
  *
  * @example
  * ```php
- * $translations = [
- * 'fr' => 'Bonjour <span style="color:red">monde</span>',
- * 'en' => 'Hello <span style="color:red">world</span>',
- * 'de' => 42, // ignored because not string/null
- * 'es' => null
+ * $translations =
+ * [
+ *     'fr' => 'Bonjour <span style="color:red">monde</span>',
+ *     'en' => 'Hello <span style="color:red">world</span>',
+ *     'de' => 42, // ignored because not string/null
+ *     'es' => null
  * ];
  *
  * // Basic filtering for 'fr' and 'en'
@@ -57,9 +61,9 @@ namespace oihana\controllers\helpers ;
  */
 function filterLanguages
 (
-    array|object|null $fields ,
-    ?array            $languages = null ,
-    ?callable         $sanitize  = null ,
+    mixed     $fields ,
+    ?array    $languages = null ,
+    ?callable $sanitize  = null ,
 )
 :?array
 {

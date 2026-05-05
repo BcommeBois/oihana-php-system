@@ -48,6 +48,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
     - geo: LatitudeRule, LongitudeRule, ElevationRule
     - models: ExistModelRule, UniqueModelRule
 
+### Fixed
+
+Change filterLanguages signature to accept mixed and expand the docblock to clarify that non-array/object inputs are treated as invalid and return null (callers should validate upstream). 
+Adjust formatting in examples and sanitize callback type. 
+Add unit tests to assert the helper returns null for scalar inputs (string, int, bool). 
+These changes document and test the helper's permissive behavior for invalid input shapes.
+
 ### Removed
 
 Use now the oihana-php-signals library and remove : 

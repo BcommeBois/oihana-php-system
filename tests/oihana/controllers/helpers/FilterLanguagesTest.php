@@ -118,4 +118,19 @@ final class FilterLanguagesTest extends TestCase
             'fr' => 'Bonjour'
         ], $result);
     }
+
+    public function test_filterLanguages_returns_null_on_string_input() : void
+    {
+        $this->assertNull( filterLanguages( 'flat string' , [ 'fr' , 'en' ] ) ) ;
+    }
+
+    public function test_filterLanguages_returns_null_on_int_input() : void
+    {
+        $this->assertNull( filterLanguages( 42 , [ 'fr' , 'en' ] ) ) ;
+    }
+
+    public function test_filterLanguages_returns_null_on_bool_input() : void
+    {
+        $this->assertNull( filterLanguages( true , [ 'fr' , 'en' ] ) ) ;
+    }
 }
