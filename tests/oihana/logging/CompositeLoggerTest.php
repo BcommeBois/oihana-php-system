@@ -147,14 +147,14 @@ class CompositeLoggerTest extends TestCase
 
     public function testEmergencyBroadcastsToAllLoggers(): void
     {
-        $logger1 = $this->createStub(LoggerInterface::class);
-        $logger2 = $this->createStub(LoggerInterface::class);
+        $logger1 = $this->createMock(LoggerInterface::class);
+        $logger2 = $this->createMock(LoggerInterface::class);
 
         $message = 'Emergency message';
         $context = ['key' => 'value'];
 
-        $logger1->method('emergency')->with($message, $context);
-        $logger2->method('emergency')->with($message, $context);
+        $logger1->expects($this->once())->method('emergency')->with($message, $context);
+        $logger2->expects($this->once())->method('emergency')->with($message, $context);
 
         $this->composite->addLogger($logger1);
         $this->composite->addLogger($logger2);
@@ -163,14 +163,14 @@ class CompositeLoggerTest extends TestCase
 
     public function testAlertBroadcastsToAllLoggers(): void
     {
-        $logger1 = $this->createStub(LoggerInterface::class);
-        $logger2 = $this->createStub(LoggerInterface::class);
+        $logger1 = $this->createMock(LoggerInterface::class);
+        $logger2 = $this->createMock(LoggerInterface::class);
 
         $message = 'Alert message';
         $context = ['key' => 'value'];
 
-        $logger1->method('alert')->with($message, $context);
-        $logger2->method('alert')->with($message, $context);
+        $logger1->expects($this->once())->method('alert')->with($message, $context);
+        $logger2->expects($this->once())->method('alert')->with($message, $context);
 
         $this->composite->addLogger($logger1);
         $this->composite->addLogger($logger2);
@@ -179,14 +179,14 @@ class CompositeLoggerTest extends TestCase
 
     public function testCriticalBroadcastsToAllLoggers(): void
     {
-        $logger1 = $this->createStub(LoggerInterface::class);
-        $logger2 = $this->createStub(LoggerInterface::class);
+        $logger1 = $this->createMock(LoggerInterface::class);
+        $logger2 = $this->createMock(LoggerInterface::class);
 
         $message = 'Critical message';
         $context = ['key' => 'value'];
 
-        $logger1->method('critical')->with($message, $context);
-        $logger2->method('critical')->with($message, $context);
+        $logger1->expects($this->once())->method('critical')->with($message, $context);
+        $logger2->expects($this->once())->method('critical')->with($message, $context);
 
         $this->composite->addLogger($logger1);
         $this->composite->addLogger($logger2);
@@ -195,14 +195,14 @@ class CompositeLoggerTest extends TestCase
 
     public function testErrorBroadcastsToAllLoggers(): void
     {
-        $logger1 = $this->createStub(LoggerInterface::class);
-        $logger2 = $this->createStub(LoggerInterface::class);
+        $logger1 = $this->createMock(LoggerInterface::class);
+        $logger2 = $this->createMock(LoggerInterface::class);
 
         $message = 'Error message';
         $context = ['key' => 'value'];
 
-        $logger1->method('error')->with($message, $context);
-        $logger2->method('error')->with($message, $context);
+        $logger1->expects($this->once())->method('error')->with($message, $context);
+        $logger2->expects($this->once())->method('error')->with($message, $context);
 
         $this->composite->addLogger($logger1);
         $this->composite->addLogger($logger2);
@@ -211,14 +211,14 @@ class CompositeLoggerTest extends TestCase
 
     public function testWarningBroadcastsToAllLoggers(): void
     {
-        $logger1 = $this->createStub(LoggerInterface::class);
-        $logger2 = $this->createStub(LoggerInterface::class);
+        $logger1 = $this->createMock(LoggerInterface::class);
+        $logger2 = $this->createMock(LoggerInterface::class);
 
         $message = 'Warning message';
         $context = ['key' => 'value'];
 
-        $logger1->method('warning')->with($message, $context);
-        $logger2->method('warning')->with($message, $context);
+        $logger1->expects($this->once())->method('warning')->with($message, $context);
+        $logger2->expects($this->once())->method('warning')->with($message, $context);
 
         $this->composite->addLogger($logger1);
         $this->composite->addLogger($logger2);
@@ -227,14 +227,14 @@ class CompositeLoggerTest extends TestCase
 
     public function testNoticeBroadcastsToAllLoggers(): void
     {
-        $logger1 = $this->createStub(LoggerInterface::class);
-        $logger2 = $this->createStub(LoggerInterface::class);
+        $logger1 = $this->createMock(LoggerInterface::class);
+        $logger2 = $this->createMock(LoggerInterface::class);
 
         $message = 'Notice message';
         $context = ['key' => 'value'];
 
-        $logger1->method('notice')->with($message, $context);
-        $logger2->method('notice')->with($message, $context);
+        $logger1->expects($this->once())->method('notice')->with($message, $context);
+        $logger2->expects($this->once())->method('notice')->with($message, $context);
 
         $this->composite->addLogger($logger1);
         $this->composite->addLogger($logger2);
@@ -243,14 +243,14 @@ class CompositeLoggerTest extends TestCase
 
     public function testInfoBroadcastsToAllLoggers(): void
     {
-        $logger1 = $this->createStub(LoggerInterface::class);
-        $logger2 = $this->createStub(LoggerInterface::class);
+        $logger1 = $this->createMock(LoggerInterface::class);
+        $logger2 = $this->createMock(LoggerInterface::class);
 
         $message = 'Info message';
         $context = ['key' => 'value'];
 
-        $logger1->method('info')->with($message, $context);
-        $logger2->method('info')->with($message, $context);
+        $logger1->expects($this->once())->method('info')->with($message, $context);
+        $logger2->expects($this->once())->method('info')->with($message, $context);
 
         $this->composite->addLogger($logger1);
         $this->composite->addLogger($logger2);
@@ -259,14 +259,14 @@ class CompositeLoggerTest extends TestCase
 
     public function testDebugBroadcastsToAllLoggers(): void
     {
-        $logger1 = $this->createStub(LoggerInterface::class);
-        $logger2 = $this->createStub(LoggerInterface::class);
+        $logger1 = $this->createMock(LoggerInterface::class);
+        $logger2 = $this->createMock(LoggerInterface::class);
 
         $message = 'Debug message';
         $context = ['key' => 'value'];
 
-        $logger1->method('debug')->with($message, $context);
-        $logger2->method('debug')->with($message, $context);
+        $logger1->expects($this->once())->method('debug')->with($message, $context);
+        $logger2->expects($this->once())->method('debug')->with($message, $context);
 
         $this->composite->addLogger($logger1);
         $this->composite->addLogger($logger2);
@@ -275,15 +275,15 @@ class CompositeLoggerTest extends TestCase
 
     public function testLogBroadcastsToAllLoggers(): void
     {
-        $logger1 = $this->createStub(LoggerInterface::class);
-        $logger2 = $this->createStub(LoggerInterface::class);
+        $logger1 = $this->createMock(LoggerInterface::class);
+        $logger2 = $this->createMock(LoggerInterface::class);
 
         $level = 'info';
         $message = 'Log message';
         $context = ['key' => 'value'];
 
-        $logger1->method('log')->with($level, $message, $context);
-        $logger2->method('log')->with($level, $message, $context);
+        $logger1->expects($this->once())->method('log')->with($level, $message, $context);
+        $logger2->expects($this->once())->method('log')->with($level, $message, $context);
 
         $this->composite->addLogger($logger1);
         $this->composite->addLogger($logger2);
@@ -292,7 +292,7 @@ class CompositeLoggerTest extends TestCase
 
     public function testLoggingWithStringableMessage(): void
     {
-        $logger = $this->createStub(LoggerInterface::class);
+        $logger = $this->createMock(LoggerInterface::class);
         $stringable = new class implements Stringable
         {
             public function __toString(): string
@@ -301,7 +301,7 @@ class CompositeLoggerTest extends TestCase
             }
         };
 
-        $logger->method('info')->with($stringable, []);
+        $logger->expects($this->once())->method('info')->with($stringable, []);
 
         $this->composite->addLogger($logger);
         $this->composite->info($stringable);

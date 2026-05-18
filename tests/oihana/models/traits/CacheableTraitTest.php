@@ -32,7 +32,7 @@ final class CacheableTraitTest extends TestCase
     protected function setUp(): void
     {
         $this->object        = new MockCacheable();
-        $this->mockCache     = $this->createStub(CacheInterface::class ) ; // PSR-16 Mock
+        $this->mockCache     = $this->createStub(CacheInterface::class ) ; // PSR-16 Stub
         $this->object->cache = $this->mockCache ;
     }
 
@@ -53,7 +53,9 @@ final class CacheableTraitTest extends TestCase
      */
     public function testDeleteCacheCallsDelete(): void
     {
-        $this->mockCache->method('delete')->with('foo');
+        $this->mockCache = $this->createMock(CacheInterface::class);
+        $this->object->cache = $this->mockCache;
+        $this->mockCache->expects($this->once())->method('delete')->with('foo');
         $this->object->deleteCache('foo');
     }
 
@@ -62,7 +64,9 @@ final class CacheableTraitTest extends TestCase
      */
     public function testGetCacheReturnsValue(): void
     {
-        $this->mockCache->method('get')->with('key')->willReturn('value');
+        $this->mockCache = $this->createMock(CacheInterface::class);
+        $this->object->cache = $this->mockCache;
+        $this->mockCache->expects($this->once())->method('get')->with('key')->willReturn('value');
         $this->assertSame('value', $this->object->getCache('key'));
     }
 
@@ -80,7 +84,9 @@ final class CacheableTraitTest extends TestCase
      */
     public function testHasCacheReturnsTrue(): void
     {
-        $this->mockCache->method('has')->with('key')->willReturn(true);
+        $this->mockCache = $this->createMock(CacheInterface::class);
+        $this->object->cache = $this->mockCache;
+        $this->mockCache->expects($this->once())->method('has')->with('key')->willReturn(true);
         $this->assertTrue($this->object->hasCache('key'));
     }
 
@@ -106,7 +112,9 @@ final class CacheableTraitTest extends TestCase
      */
     public function testSetCacheStoresValueWhenCacheable(): void
     {
-        $this->mockCache->method('set')->with('foo', 'bar')->willReturn(true);
+        $this->mockCache = $this->createMock(CacheInterface::class);
+        $this->object->cache = $this->mockCache;
+        $this->mockCache->expects($this->once())->method('set')->with('foo', 'bar')->willReturn(true);
         $this->assertTrue($this->object->setCache('foo', 'bar'));
     }
 
@@ -125,7 +133,9 @@ final class CacheableTraitTest extends TestCase
      */
     public function testSetCacheMultipleStoresValues(): void
     {
-        $this->mockCache->method('setMultiple')->with(['a' => 1, 'b' => 2], null)->willReturn(true);
+        $this->mockCache = $this->createMock(CacheInterface::class);
+        $this->object->cache = $this->mockCache;
+        $this->mockCache->expects($this->once())->method('setMultiple')->with(['a' => 1, 'b' => 2], null)->willReturn(true);
         $this->assertTrue($this->object->setCacheMultiple(['a' => 1, 'b' => 2]));
     }
 

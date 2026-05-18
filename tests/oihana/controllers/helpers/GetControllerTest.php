@@ -98,6 +98,7 @@ final class GetControllerTest extends TestCase
      */
     public function testResolvesStringFromContainer(): void
     {
+        $this->container = $this->createMock(ContainerInterface::class);
         $this->container->method('has')->with('controller_id')->willReturn(true);
         $this->container->method('get')->with('controller_id')->willReturn($this->mockController);
 
@@ -113,6 +114,7 @@ final class GetControllerTest extends TestCase
      */
     public function testReturnsDefaultWhenStringNotInContainer(): void
     {
+        $this->container = $this->createMock(ContainerInterface::class);
         $defaultController = $this->createStub(Controller::class);
         $this->container->method('has')->with('controller_id')->willReturn(false);
 
@@ -135,6 +137,7 @@ final class GetControllerTest extends TestCase
      */
     public function testReturnsDefaultWhenContainerReturnsNonController(): void
     {
+        $this->container = $this->createMock(ContainerInterface::class);
         $defaultController = $this->createStub(Controller::class);
         $this->container->method('has')->with('controller_id')->willReturn(true);
         $this->container->method('get')->with('controller_id')->willReturn('not a controller');
@@ -148,6 +151,7 @@ final class GetControllerTest extends TestCase
      */
     public function testResolvesArrayExtractedValueFromContainer(): void
     {
+        $this->container = $this->createMock(ContainerInterface::class);
         $this->container->method('has')->with('controller_id')->willReturn(true);
         $this->container->method('get')->with('controller_id')->willReturn($this->mockController);
 
@@ -180,6 +184,7 @@ final class GetControllerTest extends TestCase
     {
         $this->expectException( ContainerExceptionInterface::class);
 
+        $this->container = $this->createMock(ContainerInterface::class);
         $this->container->method('has')->with('controller_id')->willReturn(true);
         $this->container->method('get')->willThrowException
         (

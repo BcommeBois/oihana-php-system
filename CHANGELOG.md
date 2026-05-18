@@ -36,6 +36,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
   - Traits
     - EnsureKeysTrait
     - PropertyTrait
+- Routes
+  - http
+    - ListRoute : GET route dispatching to the controller's `list()` method (collection read).
+    - DeleteAllRoute : DELETE route dispatching to the controller's `deleteAll()` method (collection delete).
+- Tests
+  - Routes
+    - http : full unit-test coverage for HttpMethodRoute, GetRoute, PostRoute, PutRoute, PatchRoute, DeleteRoute, ListRoute and DeleteAllRoute (route registration, default and overridden controller method, missing controller / missing method fallbacks).
 - Validations
   - Helpers:
     - after, before, between, date, different, digits, digitsBetween, endsWith, length, max, min, regex, same, startsWith, url
@@ -57,6 +64,8 @@ Change filterLanguages signature to accept mixed and expand the docblock to clar
 Adjust formatting in examples and sanitize callback type. 
 Add unit tests to assert the helper returns null for scalar inputs (string, int, bool). 
 These changes document and test the helper's permissive behavior for invalid input shapes.
+
+Resolve all PHPUnit 12 deprecations (`Using with*() on a test stub has no effect and is deprecated.`) across the test suite. Affected files: GetControllerTest, JsonTraitTest, CompositeLoggerTest, DocumentUrlTest, PDOTraitTest, CacheableTraitTest, MysqlModelTest. Tests that verify a call now use `createMock()` + `expects($this->once())->method(...)->with(...)`; tests that only need a return-value scaffold keep `createStub()` + `->method()->willReturn()`. As a side-effect, the CompositeLogger broadcast tests and several CacheableTrait tests now genuinely verify the calls instead of silently ignoring them.
 
 ### Removed
 

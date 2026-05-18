@@ -40,7 +40,7 @@ final class JsonTraitTest extends TestCase
     {
         $flags = JSON_NUMERIC_CHECK | JSON_FORCE_OBJECT;
 
-        $container = $this->createStub(ContainerInterface::class ) ;
+        $container = $this->createMock(ContainerInterface::class ) ;
         $container->method('has')->with(ControllerParam::JSON_OPTIONS)->willReturn(true);
         $container->method('get')->with(ControllerParam::JSON_OPTIONS)->willReturn($flags);
 
@@ -59,7 +59,7 @@ final class JsonTraitTest extends TestCase
 
     public function testInitializeJsonOptionsFallbackToNone()
     {
-        $container = $this->createStub(ContainerInterface::class);
+        $container = $this->createMock(ContainerInterface::class);
         $container->method('has')->with(ControllerParam::JSON_OPTIONS)->willReturn(false);
 
         $this->mock->initializeJsonOptions([], $container);
@@ -71,7 +71,7 @@ final class JsonTraitTest extends TestCase
     {
         $data = ['foo' => 'bar'];
 
-        $stream = $this->createStub(StreamInterface::class);
+        $stream = $this->createMock(StreamInterface::class);
         $stream->method('write')
             ->with(json_encode($data, $this->mock->jsonOptions));
 

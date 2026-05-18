@@ -35,9 +35,13 @@ class MysqlModelTest extends TestCase
 
     public function testCreateDatabaseReturnsTrueOnSuccess()
     {
-        $this->pdo->method('exec')
+        $pdo = $this->createMock(PDO::class);
+        $pdo->expects($this->once())
+            ->method('exec')
             ->with($this->stringContains('CREATE DATABASE'))
             ->willReturn(1); // exec retourne le nb de lignes affectées ou true
+
+        $this->model->pdo = $pdo;
 
         $result = $this->model->createDatabase('testdb');
         $this->assertTrue($result);

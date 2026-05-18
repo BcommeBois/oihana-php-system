@@ -31,7 +31,7 @@ class PDOTraitTest extends TestCase
      */
     public function testBindValuesWithSimpleBindings(): void
     {
-        $mock = $this->createStub(PDOStatement::class);
+        $mock = $this->createMock(PDOStatement::class);
 
         $expectedCalls =
         [
@@ -73,7 +73,7 @@ class PDOTraitTest extends TestCase
      */
     public function testBindValuesWithTypedBindings(): void
     {
-        $stmt = $this->createStub(PDOStatement::class);
+        $stmt = $this->createMock(PDOStatement::class);
 
         $stmt->method('bindValue')
              ->with(':count', 42, PDO::PARAM_INT);
@@ -187,7 +187,7 @@ class PDOTraitTest extends TestCase
      */
     public function testFetchColumnReturnsValue(): void
     {
-        $stmt = $this->createStub(PDOStatement::class);
+        $stmt = $this->createMock(PDOStatement::class);
         $stmt->method('execute')->willReturn(true);
         $stmt->method('fetchColumn')->with(0)->willReturn(42);
         $stmt->method('closeCursor')->willReturn(true);
@@ -241,7 +241,7 @@ class PDOTraitTest extends TestCase
      */
     public function testInitPdoReturnsPdoFromContainer(): void
     {
-        $container = $this->createStub(Container::class);
+        $container = $this->createMock(Container::class);
 
         $container->method('has')->with('my_pdo') ->willReturn(true);
 
@@ -261,7 +261,7 @@ class PDOTraitTest extends TestCase
      */
     public function testInitializeDefaultFetchModeWithSchema(): void
     {
-        $stmt = $this->createStub(PDOStatement::class);
+        $stmt = $this->createMock(PDOStatement::class);
 
         $this->model->schema = self::class;
         $this->model->deferAssignment = true;
@@ -280,7 +280,7 @@ class PDOTraitTest extends TestCase
      */
     public function testInitializeDefaultFetchModeWithoutSchema(): void
     {
-        $stmt = $this->createStub(PDOStatement::class);
+        $stmt = $this->createMock(PDOStatement::class);
 
         $this->model->schema = null;
 

@@ -74,7 +74,7 @@ class DocumentUrlTest extends TestCase
      */
     public function testCustomDefinitionKey()
     {
-        $container = $this->createStub(ContainerInterface::class);
+        $container = $this->createMock(ContainerInterface::class);
         $container->method('has')->with('customUrl')->willReturn(true);
         $container->method('get')->with('customUrl')->willReturn('https://cdn.example.com');
 
