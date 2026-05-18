@@ -40,8 +40,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
   - Helpers:
     - after, before, between, date, different, digits, digitsBetween, endsWith, length, max, min, regex, same, startsWith, url
     - rule() and rules() functions
+  - Enums
+    - Rules: ISO8601_DATE_TIME, ISO8601_DURATION, ISO8601_DATE_TIME_OR_DURATION
   - Rules: 
     - ConstantsRule, I18nRule
+    - ISO8601DateTimeRule, ISO8601DurationRule, ISO8601DateTimeOrDurationRule
     - auth: JWTAlgorithmRule, EffectRule
     - http: HttpMethodRule
     - numeric: EqualRule, GreaterThanOrEqualRule, GreaterThanRule, LessThan, LessThanOrEqualRule, RangeRule

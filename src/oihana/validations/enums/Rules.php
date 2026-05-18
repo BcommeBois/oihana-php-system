@@ -388,6 +388,25 @@ class Rules
     public const string IPV6 = 'ipv6' ;
 
     /**
+     * The field under this rule must be a valid ISO 8601 date-time expression.
+     * @see \oihana\validations\rules\ISO8601DateTimeRule
+     */
+    public const string ISO8601_DATE_TIME = 'iso8601_date_time' ;
+
+    /**
+     * The field under this rule must be either a valid ISO 8601 date-time
+     * expression or a valid ISO 8601 duration expression.
+     * @see \oihana\validations\rules\ISO8601DateTimeOrDurationRule
+     */
+    public const string ISO8601_DATE_TIME_OR_DURATION = 'iso8601_date_time_or_duration' ;
+
+    /**
+     * The field under this rule must be a valid ISO 8601 duration expression.
+     * @see \oihana\validations\rules\ISO8601DurationRule
+     */
+    public const string ISO8601_DURATION = 'iso8601_duration' ;
+
+    /**
      * The field under this validation must be a valid JSON string.
      */
     public const string JSON = 'json' ;
