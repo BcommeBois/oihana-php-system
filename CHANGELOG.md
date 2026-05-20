@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-05-20
+
 ### Added
 
 - Controllers
@@ -88,6 +90,20 @@ Use now the oihana-php-signals library and remove :
 - src\oihana\signal\SignalEntry
 - src\oihana\signal\Signaler
 
+Move the `oihana\mysql` package to the standalone [`oihana/php-mysql`](https://github.com/BcommeBois/oihana-php-mysql) library and remove:
+- src\oihana\mysql\enums\MysqlParam
+- src\oihana\mysql\enums\MysqlParamTrait
+- src\oihana\mysql\enums\MysqlPrivileges
+- src\oihana\mysql\traits\MysqlAssertionsTrait
+- src\oihana\mysql\traits\MysqlDatabaseTrait
+- src\oihana\mysql\traits\MysqlPrivilegeTrait
+- src\oihana\mysql\traits\MysqlRootTrait
+- src\oihana\mysql\traits\MysqlTableTrait
+- src\oihana\mysql\traits\MysqlUserTrait
+- src\oihana\mysql\MysqlDSN
+- src\oihana\mysql\MysqlModel
+- src\oihana\mysql\MysqlPDOBuilder
+
 ## [0.0.2] - 2025-10-29 (alpha)
 
 ### Added
@@ -116,19 +132,6 @@ Use now the oihana-php-signals library and remove :
 - oihana\models\notices\BeforeUpsert
 - oihana\models\traits\alters\AlterNotPropertyTrait
 
-- oihana\mysql\enums\traits\MysqlParamTrait
-- oihana\mysql\enums\MysqlParam
-- oihana\mysql\enums\MysqlPrivileges
-- oihana\mysql\traits\MysqlAssertionsTrait
-- oihana\mysql\traits\MysqlDatabaseTrait
-- oihana\mysql\traits\MysqlPrivilegeTrait
-- oihana\mysql\traits\MysqlRootTrait
-- oihana\mysql\traits\MysqlTableTrait
-- oihana\mysql\traits\MysqlUserTrait
-- oihana\mysql\MysqlDSN
-- oihana\mysql\MysqlModel
-- oihana\mysql\MysqlPDOBuilder
-
 - oihana\signal\Message
 - oihana\signal\Notice
 - oihana\signal\Payload
@@ -149,10 +152,6 @@ Use now the oihana-php-signals library and remove :
 - Move oihana\traits\AlterTrait (+dependencies) -> oihana\models\traits\AlterTrait
 - Move oihana\traits\BindTrait -> oihana\models\traits\BindTrait
 - oihana\traits\SortTrait
-
-### TODO
-
-  - Move oihana\mysql package to a standalone library.
 
 ## [0.0.0] - 2025-08-13 (alpha)
 

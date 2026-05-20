@@ -28,7 +28,6 @@ Install via Composer:
 - Dependency Injection: convenience functions for building a PHP-DI container and loading definitions
 - Logging: PSR-3 compatible lightweight file logger, plus Monolog config enums
 - HTTP helpers: constants for methods, headers and parameter strategies
-- MySQL utilities: DSN builder and a robust `PDO` connection builder with safe defaults
 - Date utilities: `TimeInterval` to parse, format and convert durations
 
 ## 🚀 Quick start
@@ -38,7 +37,6 @@ require __DIR__ . '/vendor/autoload.php';
 
 use function oihana\init\{ initDefaultTimezone, initMemoryLimit, initErrors, initConfig, initDefinitions, initContainer };
 use oihana\logging\Logger;
-use oihana\db\mysql\MysqlPDOBuilder;
 
 // Bootstrap
 initDefaultTimezone('UTC');
@@ -56,14 +54,6 @@ $container    = initContainer($definitions, ['config' => $config]);
 // Logger
 $logger = new Logger(__DIR__ . '/var/logs', Logger::DEBUG);
 $logger->info('Application started');
-
-// MySQL PDO
-$pdo = (new MysqlPDOBuilder([
-    'host'     => '127.0.0.1',
-    'dbname'   => 'demo',
-    'username' => 'root',
-    'password' => 'secret',
-]))();
 ```
 
 ## 🧰 Usage
@@ -107,21 +97,6 @@ $logger->error('An error occurred: {error}', ['error' => 'boom']);
 // Optional helpers
 $logger->clear();             // remove all log files in log directory
 $files = $logger->getLogFiles();
-```
-
-### MySQL PDO builder
-
-```php
-use oihana\db\mysql\MysqlPDOBuilder;
-
-$pdo = (new MysqlPDOBuilder([
-    'host'     => 'localhost',
-    'dbname'   => 'test_db',
-    'username' => 'user',
-    'password' => 'secret',
-    // 'validate'   => false, // disable validation if needed
-    // 'skipDbName' => true,  // build DSN without dbname
-]))();
 ```
 
 ### HTTP helpers
@@ -193,3 +168,4 @@ composer doc
 - `oihana/php-reflect` – reflection and hydration utilities: `https://github.com/BcommeBois/oihana-php-reflect`
 - `oihana/php-enums` – a collection of strongly-typed constant enumerations for PHP: `https://github.com/BcommeBois/oihana-php-enums`
 - `oihana/php-files` – a versatile PHP library for seamless and portable file and path handling: `https://github.com/BcommeBois/oihana-php-files`
+- `oihana/php-mysql` – MySQL utilities (DSN builder, PDO connection builder, admin model): `https://github.com/BcommeBois/oihana-php-mysql`
