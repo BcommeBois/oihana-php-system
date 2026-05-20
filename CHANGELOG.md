@@ -28,6 +28,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
       - getParamIntRange()
       - getParamNumberRange()
       - getParamString()
+  - `StatusTrait::successWithNewBody()` — variant of `success()` that swaps
+    the PSR-7 body for a fresh stream before writing the envelope. Use when
+    an upstream actor (typically a sub-controller sharing the response chain)
+    may have already written into the body. Prevents the `}{` double-envelope
+    bug that breaks strict JSON parsers (NextJS RSC, modern fetch).
+  - `StatusTrait::withFreshBody()` — returns the response with a fresh,
+    empty PSR-7 body stream. Composable helper: chain before any other
+    response helper (`fail`, `status`, `success`, `response`) when an
+    upstream actor may have written into the shared body. Backs
+    `successWithNewBody()` internally.
 - Logging
   - Adds the CompositeLogger class
 - Models

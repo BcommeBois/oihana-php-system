@@ -15,7 +15,6 @@ final class StatusTraitTest extends TestCase
 {
     private object $mock;
     private ResponseInterface $response;
-    private StreamInterface   $stream;
 
     protected function setUp(): void
     {
@@ -34,11 +33,11 @@ final class StatusTraitTest extends TestCase
             }
         };
 
-        $this->stream = $this->createStub(StreamInterface::class);
-        $this->stream->method('write')->willReturnCallback(fn($data) => strlen((string)$data));
+        $stream = $this->createStub(StreamInterface::class);
+        $stream->method('write')->willReturnCallback(fn( $data) => strlen((string)$data));
 
         $this->response = $this->createStub(ResponseInterface::class);
-        $this->response->method('getBody')->willReturn($this->stream);
+        $this->response->method('getBody')->willReturn( $stream );
         $this->response->method('withStatus')->willReturnSelf();
         $this->response->method('withHeader')->willReturnSelf();
     }
@@ -73,7 +72,7 @@ final class StatusTraitTest extends TestCase
 
     public function testStatusReturnsNullWhenResponseIsNull()
     {
-        $result = $this->mock->status(null , null, 'Any message', 200);
+        $result = $this->mock->status(null , null, 'Any message' );
         $this->assertNull($result);
     }
 
@@ -81,7 +80,7 @@ final class StatusTraitTest extends TestCase
     {
         $data = ['foo' => 'bar'];
 
-        $response = $this->mock->success(null , null, $this->response, $data);
+        $response = $this->mock->success(null , $this->response, $data);
 
         $this->assertSame($this->response, $response);
     }
@@ -89,7 +88,7 @@ final class StatusTraitTest extends TestCase
     public function testSuccessReturnsDataDirectlyWhenResponseIsNull()
     {
         $data = ['foo' => 'bar'];
-        $result = $this->mock->success(null , null,  $data);
+        $result = $this->mock->success(null , null, $data);
 
         $this->assertSame($data, $result);
     }
@@ -114,5 +113,90 @@ final class StatusTraitTest extends TestCase
         $response = $this->mock->success(null , $this->response, $data, $init);
 
         $this->assertSame($this->response, $response);
+    }
+
+    public function testSuccessWithNewBodyResetsBodyBeforeWriting()
+    {
+        // Stream that records its write history so we can assert
+        // it received only ONE envelope after the helper runs.
+        $writes = [] ;
+
+        $freshStream = $this->createStub( StreamInterface::class ) ;
+        $freshStream->method('write')->willReturnCallback
+        (
+            function( $data ) use ( &$writes )
+            {
+                $writes[] = (string) $data ;
+                return strlen( (string) $data ) ;
+            }
+        ) ;
+
+        $response = $this->createStub( ResponseInterface::class ) ;
+        $response->method('getBody')->willReturn( $freshStream ) ;
+        $response->method('withBody')->willReturnSelf() ;
+        $response->method('withStatus')->willReturnSelf() ;
+        $response->method('withHeader')->willReturnSelf() ;
+
+        $result = $this->mock->successWithNewBody( null , $response , [ 'foo' => 'bar' ] ) ;
+
+        $this->assertSame( $response , $result ) ;
+        $this->assertCount( 1 , $writes , 'body must contain exactly one JSON envelope' ) ;
+        $this->assertJson( $writes[0] ) ;
+        $this->assertStringNotContainsString( '}{' , $writes[0] ) ;
+    }
+
+    public function testSuccessWithNewBodyReturnsDataWhenResponseIsNull()
+    {
+        $data = [ 'k' => 'v' ] ;
+        $this->assertSame( $data , $this->mock->successWithNewBody( null , null , $data ) ) ;
+    }
+
+    public function testWithFreshBodyReturnsNullWhenResponseIsNull()
+    {
+        $this->assertNull( $this->mock->withFreshBody( null ) ) ;
+    }
+
+    public function testWithFreshBodyCallsWithBodyOnResponse()
+    {
+        $passedStream = null ;
+
+        $response = $this->createStub( ResponseInterface::class ) ;
+        $response->method('withBody')->willReturnCallback
+        (
+            function( $stream ) use ( &$passedStream , $response )
+            {
+                $passedStream = $stream ;
+                return $response ;
+            }
+        ) ;
+
+        $result = $this->mock->withFreshBody( $response ) ;
+
+        $this->assertSame( $response , $result ) ;
+        $this->assertInstanceOf( StreamInterface::class , $passedStream ) ;
+        $this->assertSame( '' , (string) $passedStream , 'stream passed to withBody must be empty' ) ;
+    }
+
+    public function testWithFreshBodyComposesWithFail()
+    {
+        // Verifies the documented composition pattern:
+        //   $this->fail( $req , $this->withFreshBody( $resp ) , 502 , ... )
+        // i.e. withFreshBody can sit transparently between request and any
+        // other StatusTrait helper.
+        $response = $this->createStub( ResponseInterface::class ) ;
+        $response->method('getBody')->willReturn( $this->createStub( StreamInterface::class ) ) ;
+        $response->method('withBody')->willReturnSelf() ;
+        $response->method('withStatus')->willReturnSelf() ;
+        $response->method('withHeader')->willReturnSelf() ;
+
+        $result = $this->mock->fail
+        (
+            null ,
+            $this->mock->withFreshBody( $response ) ,
+            502 ,
+            'zitadel_sync_failed'
+        ) ;
+
+        $this->assertSame( $response , $result ) ;
     }
 }

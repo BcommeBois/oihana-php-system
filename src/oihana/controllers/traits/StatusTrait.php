@@ -9,6 +9,8 @@ use oihana\enums\Output;
 use oihana\files\enums\FileMimeType;
 use oihana\logging\LoggerTrait;
 
+use Slim\Psr7\Factory\StreamFactory;
+
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
@@ -304,5 +306,87 @@ trait StatusTrait
         }
 
         return $data ;
+    }
+
+    /**
+     * Same as {@see self::success()} but guarantees a fresh response body
+     * stream before writing the envelope.
+     *
+     * Use this **only** when an upstream actor (typically a sub-controller
+     * called from the current controller method) may have already written
+     * into the shared PSR-7 body stream. Calling the plain {@see success()}
+     * in that case would concatenate two JSON envelopes — invalid JSON for
+     * any strict parser (NextJS RSC, modern fetch, etc.).
+     *
+     * Implementation: swaps the response body for an empty stream via
+     * {@see self::withFreshBody()}, then delegates to {@see success()}.
+     * Whatever was previously written is discarded; the resulting body
+     * contains exactly one envelope.
+     *
+     * @param ?Request  $request  Optional PSR-7 Request object.
+     * @param ?Response $response Optional PSR-7 Response object.
+     * @param mixed     $data     The main payload or data to return.
+     * @param ?array    $init     Same keys as {@see success()}.
+     * @param ?string   $accept   The header accepted by the client.
+     *
+     * @return mixed Same return contract as {@see success()}.
+     *
+     * @example
+     * ```php
+     * // POST /users where dispatchAutoInvitation() writes into the shared body
+     * public function post( ?Request $request , ?Response $response , array $args , array $init ) :mixed
+     * {
+     *     $result = parent::post( $request , $response , $args , $init ) ;
+     *     $this->dispatchAutoInvitation( $request , $response , $userKey ) ;
+     *
+     *     return $this->successWithNewBody
+     *     (
+     *         $request ,
+     *         $result  ,
+     *         $this->refetchHydratedUser( $userKey )
+     *     ) ;
+     * }
+     * ```
+     *
+     * @see success() Plain variant when the body has not been touched.
+     */
+    public function successWithNewBody
+    (
+        ?Request  $request         ,
+        ?Response $response        ,
+        mixed     $data     = null ,
+        ?array    $init     = null ,
+        ?string   $accept   = null ,
+    )
+    :mixed
+    {
+        return $this->success
+        (
+            $request                          ,
+            $this->withFreshBody( $response ) ,
+            $data                             ,
+            $init                             ,
+            $accept
+        ) ;
+    }
+
+    /**
+     * Returns the same response with a fresh, empty body stream.
+     * Use to discard whatever an upstream actor (sub-controller, middleware)
+     * may have already written, then chain into any other response helper.
+     *
+     * @param ?Response $response Optional PSR-7 Response object.
+     *
+     * @return ?Response The same response with a fresh empty body,
+     *                   or null if `$response` was null.
+     *
+     * @example
+     * ```php
+     * return $this->fail( $request , $this->withFreshBody( $response ) , 502 , 'zitadel_sync_failed' ) ;
+     * ```
+     */
+    public function withFreshBody( ?Response $response ) :?Response
+    {
+        return $response?->withBody( new StreamFactory()->createStream( Char::EMPTY ) ) ;
     }
 }
