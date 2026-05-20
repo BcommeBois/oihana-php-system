@@ -79,6 +79,13 @@ These changes document and test the helper's permissive behavior for invalid inp
 
 Resolve all PHPUnit 12 deprecations (`Using with*() on a test stub has no effect and is deprecated.`) across the test suite. Affected files: GetControllerTest, JsonTraitTest, CompositeLoggerTest, DocumentUrlTest, PDOTraitTest, CacheableTraitTest, MysqlModelTest. Tests that verify a call now use `createMock()` + `expects($this->once())->method(...)->with(...)`; tests that only need a return-value scaffold keep `createStub()` + `->method()->willReturn()`. As a side-effect, the CompositeLogger broadcast tests and several CacheableTrait tests now genuinely verify the calls instead of silently ignoring them.
 
+Fix the `DateTrait` docblock (was incorrectly copy-pasted from an ArangoDB command) and reuse the trait's own `DEFAULT_*` constants as defaults for `$dateFormat` / `$timezone` instead of duplicated string literals.
+
+### Changed
+
+- `oihana\date\TimeInterval`: replace the tautological `get` hooks on `$days`, `$hours`, `$hoursPerDay`, `$minutes`, `$seconds` with the PHP 8.4 `public private(set)` notation. Public read access is unchanged; external writes are now disallowed (they were already not exposed via a setter). Method signatures and runtime behavior are untouched.
+- `oihana\date\TimeInterval`: complete and tighten the docblocks across the class — note the side-effect of the optional `$duration` parameter on `formatted()` / `humanize()` / `toSeconds()` / `toMinutes()` (re-`parse()` mutates the instance), clarify the `parse()` contract, document the regex properties and the private `numberBreakdown()` shape. Remove the misleading `@access private` tag from the public `reset()` method.
+
 ### Removed
 
 Use now the oihana-php-signals library and remove : 

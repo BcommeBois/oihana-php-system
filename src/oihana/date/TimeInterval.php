@@ -79,27 +79,55 @@ class TimeInterval
         }
     }
 
-    public int|float|null $days { get { return $this->days; } }
-
-    public int|float|null $hours { get { return $this->hours; } }
-
-    public int|null $hoursPerDay { get { return $this->hoursPerDay; } }
-
-    public int|float|null $minutes { get { return $this->minutes; } }
-
-    public int|float|null $seconds { get { return $this->seconds; } }
+    /**
+     * The whole-day component of the parsed duration.
+     * Readable from outside, but only mutable from within the class.
+     * @var int|float|null
+     */
+    public private(set) int|float|null $days = 0 ;
 
     /**
-     * Returns the duration as a colon formatted string
+     * The whole-hour component of the parsed duration (after days).
+     * Readable from outside, but only mutable from within the class.
+     * @var int|float|null
+     */
+    public private(set) int|float|null $hours = 0 ;
+
+    /**
+     * The number of hours in a single day, used for day↔hour conversions.
+     * Readable from outside, but only mutable from within the class.
+     * @var int|null
+     */
+    public private(set) int|null $hoursPerDay = 24 ;
+
+    /**
+     * The whole-minute component of the parsed duration (after hours).
+     * Readable from outside, but only mutable from within the class.
+     * @var int|float|null
+     */
+    public private(set) int|float|null $minutes = 0 ;
+
+    /**
+     * The seconds component of the parsed duration (may carry a fractional part).
+     * Readable from outside, but only mutable from within the class.
+     * @var int|float|null
+     */
+    public private(set) int|float|null $seconds = 0.0 ;
+
+    /**
+     * Returns the duration as a colon-formatted string.
      *
-     * For example, one hour and 42 minutes would be "1:43"
-     * With $zeroFill to true :
-     *   - 42 minutes would be "0:42:00"
-     *   - 28 seconds would be "0:00:28"
+     * For example, one hour and 42 minutes returns `"1:42"`.
+     * With `$zeroFill` set to `true`:
+     *   - 42 minutes returns `"0:42:00"`
+     *   - 28 seconds returns `"0:00:28"`
      *
-     * @param  int|float|string|null $duration A string or number, representing a duration
-     * @param  bool $zeroFill A boolean, to force zero-fill result or not (see example)
-     * @return string
+     * Note: when `$duration` is not `null`, the instance is re-parsed via
+     * {@see self::parse()} — its internal state is mutated as a side-effect.
+     *
+     * @param  int|float|string|null $duration Optional duration to parse before formatting.
+     * @param  bool $zeroFill Force zero-fill of the hour and minute components.
+     * @return string The colon-formatted duration string.
      */
     public function formatted( int|float|string|null $duration = null, bool $zeroFill = false ) :string
     {
@@ -151,9 +179,14 @@ class TimeInterval
 
     /**
      * Returns the duration as a human-readable string.
-     * For example, one hour and 42 minutes would be "1h 42m"
-     * @param  int|float|string|null $duration A string or number, representing a duration
-     * @return string
+     *
+     * For example, one hour and 42 minutes returns `"1h 42m"`.
+     *
+     * Note: when `$duration` is not `null`, the instance is re-parsed via
+     * {@see self::parse()} — its internal state is mutated as a side-effect.
+     *
+     * @param  int|float|string|null $duration Optional duration to parse before formatting.
+     * @return string The human-readable duration string (e.g. `"1d 2h 3m 4s"`).
      */
     public function humanize( int|float|string|null $duration = null ) :string
     {
@@ -188,10 +221,20 @@ class TimeInterval
     }
 
     /**
-     * Attempt to parse one of the forms of duration.
+     * Parses one of the supported duration forms and updates the instance.
      *
-     * @param  int|float|string|null $duration A string or number, representing a duration
-     * @return self|bool returns the TimeInterval object if successful, otherwise false
+     * Supported forms:
+     * - `null` → returns `false` (no-op other than {@see self::reset()}).
+     * - Numeric (int|float) → interpreted as a total number of seconds.
+     * - Colon-separated string `"MM:SS"` or `"HH:MM:SS"`.
+     * - Unit-suffixed string `"1.5d 3h 15m 12.5s"` (any subset, any order).
+     *
+     * The instance is {@see self::reset()} before being populated. On success
+     * the instance itself is returned (fluent style); on failure `false` is
+     * returned and the instance is left in its reset state.
+     *
+     * @param  int|float|string|null $duration The duration to parse.
+     * @return self|bool The instance on success, or `false` if the input cannot be parsed.
      */
     public function parse( int|float|string|null $duration ) :self|bool
     {
@@ -294,8 +337,10 @@ class TimeInterval
     }
 
     /**
-     * Resets the Duration object by clearing the output and values.
-     * @access private
+     * Resets the duration components to zero.
+     *
+     * The {@see self::$hoursPerDay} setting is preserved.
+     *
      * @return void
      */
     public function reset() :void
@@ -307,11 +352,17 @@ class TimeInterval
     }
 
     /**
-     * Returns the duration as an amount of minutes.
-     * For example, one hour and 42 minutes would be "102" minutes
-     * @param  int|float|string|null $duration A string or number, representing a duration
-     * @param  int|bool $precision Number of decimal digits to round to. If set to false, the number is not rounded.
-     * @return int|float
+     * Returns the duration as a total number of minutes.
+     *
+     * For example, one hour and 42 minutes returns `102`.
+     *
+     * Note: when `$duration` is not `null`, the instance is re-parsed via
+     * {@see self::parse()} — its internal state is mutated as a side-effect.
+     *
+     * @param  int|float|string|null $duration Optional duration to parse before computing.
+     * @param  int|bool $precision Number of decimal digits to round to; `false` to skip rounding,
+     *                             `true` is equivalent to `0`.
+     * @return int|float The total number of minutes (rounded according to `$precision`).
      */
     public function toMinutes( int|float|string|null $duration = null, int|bool $precision = false ) :int|float
     {
@@ -332,11 +383,16 @@ class TimeInterval
     }
 
     /**
-     * Returns the duration as an amount of seconds.
-     * For example, one hour and 42 minutes would be "6120"
-     * @param int|float|string|null $duration A string or number, representing a duration
-     * @param int|bool $precision Number of decimal digits to round to. If set to false, the number is not rounded.
-     * @return int|float
+     * Returns the duration as a total number of seconds.
+     *
+     * For example, one hour and 42 minutes returns `6120`.
+     *
+     * Note: when `$duration` is not `null`, the instance is re-parsed via
+     * {@see self::parse()} — its internal state is mutated as a side-effect.
+     *
+     * @param  int|float|string|null $duration Optional duration to parse before computing.
+     * @param  int|bool $precision Number of decimal digits to round to; `false` to skip rounding.
+     * @return int|float The total number of seconds (rounded according to `$precision`).
      */
     public function toSeconds( int|float|string|null $duration = null , int|bool $precision = false ) :int|float
     {
@@ -349,28 +405,34 @@ class TimeInterval
     }
 
     /**
+     * Regex matching the days component (e.g. `"1.5d"`).
      * @var string
      */
     private string $daysRegex = '/(\d+(?:\.\d+)?)\s*d/i' ;
 
     /**
+     * Regex matching the hours component (e.g. `"3h"`, `"3.5h"`).
      * @var string
      */
     private string $hoursRegex = '/(\d+(?:\.\d+)?)\s*h/i' ;
 
     /**
+     * Regex matching the minutes component (e.g. `"15m"`).
      * @var string
      */
     private string $minutesRegex = '/(\d+)\s*m/i' ;
 
     /**
+     * Regex matching the seconds component (e.g. `"12s"`, `"12.5s"`).
      * @var string
      */
     private string $secondsRegex = '/(\d+(?:\.\d+)?)\s*s/i' ;
 
     /**
-     * @param float $number
-     * @return array
+     * Splits a number into its integer part and its fractional part, preserving sign.
+     *
+     * @param  float $number The number to split.
+     * @return array{0:float,1:float} A two-element array: `[integerPart, fractionalPart]`.
      */
     private function numberBreakdown( float $number ) : array
     {
