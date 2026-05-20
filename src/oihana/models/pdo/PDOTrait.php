@@ -522,7 +522,7 @@ trait PDOTrait
         {
             return $this->pdo->getAttribute(PDO::ATTR_CONNECTION_STATUS ) !== null ;
         }
-        catch ( PDOException $e )
+        catch ( PDOException )
         {
             return false;
         }
