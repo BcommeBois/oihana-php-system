@@ -6,6 +6,37 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ## [Unreleased]
 
+### Added
+
+- Graphics
+  - `AspectRatio` exposes simplified components as read-only properties: `aspectWidth`, `aspectHeight`, `locked`.
+  - `AspectRatio::ratio()` returns the simplified ratio as a string (e.g. `16:9`).
+  - `AspectRatio::toArray()` returns the dimensions and ratio as an associative array.
+  - `AspectRatio::__toString()` formats the instance as `WxH (W:H)`.
+  - `AspectRatio::fromRatio()` static factory builds an instance from a simplified ratio plus a target width.
+  - `AspectRatio::setWidth()` / `setHeight()` public setters (mirroring the property assignments).
+  - Field-name constants on `AspectRatio` (`WIDTH`, `HEIGHT`, `ASPECT_WIDTH`, `ASPECT_HEIGHT`, `RATIO`, `LOCKED`) to avoid magic strings.
+- Tests
+  - Comprehensive `AspectRatioTest` coverage (32 tests, 84 assertions) including validation, factory, fluent API and locked-mode rounding.
+
+### Changed
+
+- Graphics
+  - `AspectRatio` width and height are now `int` (previously `float|int`); negative values throw `InvalidArgumentException`.
+  - `AspectRatio::lock()` and `AspectRatio::unlock()` now return `$this` (fluent API).
+  - `AspectRatio` class members reordered per project convention.
+
+### Fixed
+
+- Graphics
+  - `AspectRatio` locked mode no longer drifts on rounded values: `setWidth()` / `setHeight()` skip `recalculateRatio()` when locked, preserving the snapshot aspect ratio.
+  - `AspectRatio::fromRatio()` now validates that `$width > 0`.
+
+### Removed
+
+- Graphics
+  - `AspectRatio::isLocked()` (replaced by the read-only `$locked` property).
+
 ## [0.1.0] - 2026-05-20
 
 ### Added
