@@ -1,10 +1,11 @@
 <?php
 
-namespace oihana\controllers\traits;
+namespace tests\oihana\controllers\traits;
 
 use PHPUnit\Framework\TestCase;
 
 use oihana\controllers\enums\ControllerParam;
+use oihana\controllers\traits\BaseUrlTrait;
 use oihana\enums\Char;
 use oihana\enums\ServerParam;
 

@@ -2,9 +2,8 @@
 
 namespace tests\oihana\controllers\traits;
 
-use PHPUnit\Framework\TestCase;
-
 use oihana\controllers\traits\LimitTrait;
+use PHPUnit\Framework\TestCase;
 
 use xyz\oihana\schema\Pagination;
 

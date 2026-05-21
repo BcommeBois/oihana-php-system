@@ -2,13 +2,13 @@
 
 namespace tests\oihana\controllers\traits;
 
+use oihana\controllers\traits\StatusTrait;
 use PHPUnit\Framework\TestCase;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\StreamInterface;
 
-use oihana\controllers\traits\StatusTrait;
 use oihana\enums\Output;
 
 final class StatusTraitTest extends TestCase

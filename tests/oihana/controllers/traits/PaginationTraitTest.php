@@ -3,13 +3,17 @@
 namespace tests\oihana\controllers\traits;
 
 use DI\Container;
-use oihana\controllers\traits\PaginationTrait;
+
 use PHPUnit\Framework\TestCase;
 
 use oihana\controllers\enums\ControllerParam;
+use oihana\controllers\traits\PaginationTrait;
+
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
+
 use ReflectionException;
+
 use xyz\oihana\schema\Pagination;
 
 class MockPaginationController

@@ -1,7 +1,8 @@
 <?php
 
-namespace oihana\controllers\traits;
+namespace tests\oihana\controllers\traits;
 
+use oihana\controllers\traits\JsonTrait;
 use oihana\enums\JsonParam;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -19,7 +20,8 @@ final class JsonTraitTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->mock = new class {
+        $this->mock = new class
+        {
             use JsonTrait;
         };
     }

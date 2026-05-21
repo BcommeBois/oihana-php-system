@@ -1,10 +1,11 @@
 <?php
 
-namespace oihana\controllers\traits;
+namespace tests\oihana\controllers\traits;
 
 use DI\Container;
 use DI\DependencyException;
 use DI\NotFoundException;
+use oihana\controllers\traits\CheckOwnerArgumentsTrait;
 use oihana\exceptions\http\Error404;
 use oihana\exceptions\http\Error500;
 use PHPUnit\Framework\TestCase;
@@ -149,12 +150,12 @@ final class CheckOwnerArgumentsTraitTest extends TestCase
 
 class MockCheckOwnerArgumentsController
 {
-    use CheckOwnerArgumentsTrait;
-
-    public Container $container ;
-
     public function __construct( ?Container $container = null )
     {
         $this->container = $container ?? new Container() ;
     }
+
+    use CheckOwnerArgumentsTrait;
+
+    public Container $container ;
 }

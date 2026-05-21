@@ -4,13 +4,13 @@ namespace tests\oihana\controllers\traits;
 
 use DI\DependencyException;
 use DI\NotFoundException;
+use oihana\controllers\traits\ValidatorTrait;
 use PHPUnit\Framework\MockObject\Exception;
 use PHPUnit\Framework\TestCase;
 
 use DI\Container;
 
 use oihana\controllers\enums\ControllerParam;
-use oihana\controllers\traits\ValidatorTrait;
 use oihana\enums\http\HttpMethod;
 
 use Somnambulist\Components\Validation\Factory as Validator;

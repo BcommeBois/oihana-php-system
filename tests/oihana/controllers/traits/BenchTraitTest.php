@@ -2,12 +2,12 @@
 
 namespace tests\oihana\controllers\traits;
 
-use oihana\controllers\traits\BenchTrait;
 use PHPUnit\Framework\TestCase;
 
 use Psr\Http\Message\ServerRequestInterface;
 
 use oihana\controllers\enums\ControllerParam;
+use oihana\controllers\traits\BenchTrait;
 use oihana\enums\Output;
 
 final class BenchTraitTest extends TestCase
