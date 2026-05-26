@@ -37,6 +37,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Graphics
   - `AspectRatio::isLocked()` (replaced by the read-only `$locked` property).
 
+### Security
+
+- Init
+  - `initDefinitions()` now passes `$basePath` as the `allowedBase` argument to `requireAndMergeArrays()`, enforcing that every discovered `.php` file resolves inside the base directory. Defense in depth against arbitrary file inclusion via symlinks or path traversal in the definitions tree.
+
 ## [0.1.0] - 2026-05-20
 
 ### Added

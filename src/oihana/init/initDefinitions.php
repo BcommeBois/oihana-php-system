@@ -46,5 +46,9 @@ use function oihana\files\requireAndMergeArrays;
  */
 function initDefinitions( string $basePath ) : array
 {
-    return requireAndMergeArrays( recursiveFilePaths( $basePath , [ RecursiveFilePathsOption::EXTENSIONS => [ 'php' ] ] ) ) ;
+    return requireAndMergeArrays
+    (
+        filePaths   : recursiveFilePaths( $basePath , [ RecursiveFilePathsOption::EXTENSIONS => [ 'php' ] ] ) ,
+        allowedBase : $basePath
+    ) ;
 };
