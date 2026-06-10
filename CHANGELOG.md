@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Added
 
+- Traits
+  - `LazyTrait` : Provides a configurable `lazy` mode resolved from the DI container, an initialization array or the property default (`initializeLazy()`, `isLazy()`, `LAZY` constant).
 - Graphics
   - `AspectRatio` exposes simplified components as read-only properties: `aspectWidth`, `aspectHeight`, `locked`.
   - `AspectRatio::ratio()` returns the simplified ratio as a string (e.g. `16:9`).
@@ -18,6 +20,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
   - Field-name constants on `AspectRatio` (`WIDTH`, `HEIGHT`, `ASPECT_WIDTH`, `ASPECT_HEIGHT`, `RATIO`, `LOCKED`) to avoid magic strings.
 - Tests
   - Comprehensive `AspectRatioTest` coverage (32 tests, 84 assertions) including validation, factory, fluent API and locked-mode rounding.
+  - `LazyTraitTest` coverage (11 tests, 17 assertions) including init casting, container precedence and fallback.
 
 ### Changed
 
