@@ -28,16 +28,7 @@ class EmojiProcessor
     {
         $logLevelValue = $record['level'] ?? Level::Debug->value;
 
-        if( isset( $this->emojiMap[ $logLevelValue ] ) )
-        {
-            $emoji = $this->emojiMap[ $logLevelValue ] ;
-        }
-        else
-        {
-            $emoji = $this->emojiMap[ $logLevelValue ] ?? $record['level_name'] ?? '' ;
-        }
-
-        $record['extra']['level_emoji'] = $emoji;
+        $record['extra']['level_emoji'] = $this->emojiMap[ $logLevelValue ] ?? $record['level_name'] ?? '' ;
 
         return $record;
     }

@@ -28,6 +28,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
   - `TimeInterval` now delegates the integral/fractional split of day and hour values to `oihana\core\numbers\modf()` (php-core); the private `numberBreakdown()` helper is removed (its negative-number branch was unreachable from the `(\d+...)` regex captures).
 - Logging
   - `Logger` I/O calls (`mkdir`, `fopen`, `chmod`, `fwrite`) are now error-suppressed so a failed syscall returns cleanly instead of leaking an `E_WARNING` (harmonizes with `LoggerManager::ensureDirectory()`); behavior on the success path is unchanged. The duplicated `0664` literal is extracted into the private `DEFAULT_FILE_PERMISSIONS` constant, and `$_defaultPermissions` becomes the typed `DEFAULT_PERMISSIONS` constant.
+  - `EmojiProcessor::__invoke()` simplified to a single lookup (mirroring `SymbolProcessor`); the previous `if/else` had an unreachable branch (all Monolog levels are mapped). Behavior is unchanged.
 - Graphics
   - `AspectRatio` width and height are now `int` (previously `float|int`); negative values throw `InvalidArgumentException`.
   - `AspectRatio::lock()` and `AspectRatio::unlock()` now return `$this` (fluent API).
