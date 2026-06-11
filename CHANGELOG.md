@@ -24,6 +24,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Changed
 
+- Date
+  - `TimeInterval` now delegates the integral/fractional split of day and hour values to `oihana\core\numbers\modf()` (php-core); the private `numberBreakdown()` helper is removed (its negative-number branch was unreachable from the `(\d+...)` regex captures).
 - Graphics
   - `AspectRatio` width and height are now `int` (previously `float|int`); negative values throw `InvalidArgumentException`.
   - `AspectRatio::lock()` and `AspectRatio::unlock()` now return `$this` (fluent API).

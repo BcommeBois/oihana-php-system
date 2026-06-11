@@ -4,6 +4,8 @@ namespace oihana\date;
 
 use oihana\enums\Char;
 
+use function oihana\core\numbers\modf;
+
 /**
  * Helper class to manipulate and format time intervals (durations).
  *
@@ -308,16 +310,16 @@ class TimeInterval
         {
             if (preg_match($this->daysRegex, $duration, $matches))
             {
-                $num = $this->numberBreakdown((float) $matches[1]);
-                $this->days += (int)$num[0];
-                $this->hours += $num[1] * $this->hoursPerDay;
+                [ $days , $fraction ] = modf( (float) $matches[1] ) ;
+                $this->days  += (int) $days ;
+                $this->hours += $fraction * $this->hoursPerDay ;
             }
 
             if (preg_match($this->hoursRegex, $duration, $matches))
             {
-                $num = $this->numberBreakdown((float) $matches[1]);
-                $this->hours += (int)$num[0];
-                $this->minutes += $num[1] * 60;
+                [ $hours , $fraction ] = modf( (float) $matches[1] ) ;
+                $this->hours   += (int) $hours ;
+                $this->minutes += $fraction * 60 ;
             }
 
             if (preg_match($this->minutesRegex, $duration, $matches))
@@ -427,21 +429,4 @@ class TimeInterval
      * @var string
      */
     private string $secondsRegex = '/(\d+(?:\.\d+)?)\s*s/i' ;
-
-    /**
-     * Splits a number into its integer part and its fractional part, preserving sign.
-     *
-     * @param  float $number The number to split.
-     * @return array{0:float,1:float} A two-element array: `[integerPart, fractionalPart]`.
-     */
-    private function numberBreakdown( float $number ) : array
-    {
-        $negative = 1 ;
-        if ( $number < 0 )
-        {
-            $negative = -1 ;
-            $number  *= -1 ;
-        }
-        return [ floor($number) * $negative , ( $number - floor( $number ) ) * $negative ] ;
-    }
 }
