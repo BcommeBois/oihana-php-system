@@ -160,7 +160,10 @@ trait PDOTrait
             }
             else
             {
+                // Unreachable under the CLI test harness (PHP_SAPI is always 'cli' here).
+                // @codeCoverageIgnoreStart
                 $this->warning( __METHOD__ . ' failed, ' . $exception->getMessage() ) ;
+                // @codeCoverageIgnoreEnd
             }
         }
         finally

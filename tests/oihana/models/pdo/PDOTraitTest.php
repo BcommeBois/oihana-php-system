@@ -288,4 +288,314 @@ class PDOTraitTest extends TestCase
 
         $this->model->initializeDefaultFetchMode($stmt);
     }
+
+    /**
+     * A PDOTrait host that also composes LoggerTrait so the catch branches'
+     * $this->warning() calls resolve (no-op without a logger).
+     */
+    private function loggerHost(): object
+    {
+        return new class
+        {
+            use \oihana\models\pdo\PDOTrait ;
+            use \oihana\logging\LoggerTrait ;
+
+            public function alter( mixed $document ): mixed { return $document ; }
+        } ;
+    }
+
+    private function pdoWithThrowingExecute(): PDO
+    {
+        $stmt = $this->createStub( PDOStatement::class ) ;
+        $stmt->method( 'execute' )->willThrowException( new \PDOException( 'boom' ) ) ;
+
+        $pdo = $this->createStub( PDO::class ) ;
+        $pdo->method( 'prepare' )->willReturn( $stmt ) ;
+        return $pdo ;
+    }
+
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws NotFoundException
+     * @throws NotFoundExceptionInterface
+     * @throws \ReflectionException
+     */
+    public function testFetchPrintsDebugBlockOnCliFailure(): void
+    {
+        $this->model->pdo = $this->pdoWithThrowingExecute() ;
+
+        $this->expectOutputRegex( '/PDOTrait::fetch failed/' ) ;
+        $result = $this->model->fetch( 'SELECT 1' , [ 'id' => 1 ] ) ;
+        $this->assertNull( $result ) ;
+    }
+
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws NotFoundException
+     * @throws NotFoundExceptionInterface
+     * @throws \ReflectionException
+     */
+    public function testFetchRethrowsWhenThrowable(): void
+    {
+        $this->model->pdo = $this->pdoWithThrowingExecute() ;
+
+        $this->expectException( \PDOException::class ) ;
+        $this->model->fetch( 'SELECT 1' , [] , true ) ;
+    }
+
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     * @throws DependencyException
+     * @throws NotFoundException
+     * @throws \ReflectionException
+     */
+    public function testFetchAllReturnsEmptyWhenExecuteFails(): void
+    {
+        $stmt = $this->createStub( PDOStatement::class ) ;
+        $stmt->method( 'execute' )->willReturn( false ) ;
+
+        $pdo = $this->createStub( PDO::class ) ;
+        $pdo->method( 'prepare' )->willReturn( $stmt ) ;
+
+        $this->model->pdo = $pdo ;
+        $this->assertSame( [] , $this->model->fetchAll( 'SELECT 1' ) ) ;
+    }
+
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     * @throws DependencyException
+     * @throws NotFoundException
+     * @throws \ReflectionException
+     */
+    public function testFetchAllWarnsAndReturnsEmptyOnFailure(): void
+    {
+        $host = $this->loggerHost() ;
+        $host->pdo = $this->pdoWithThrowingExecute() ;
+
+        $this->assertSame( [] , $host->fetchAll( 'SELECT 1' ) ) ;
+    }
+
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     * @throws DependencyException
+     * @throws NotFoundException
+     * @throws \ReflectionException
+     */
+    public function testFetchAllRethrowsWhenThrowable(): void
+    {
+        $host = $this->loggerHost() ;
+        $host->pdo = $this->pdoWithThrowingExecute() ;
+
+        $this->expectException( \PDOException::class ) ;
+        $host->fetchAll( 'SELECT 1' , [] , true ) ;
+    }
+
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws NotFoundException
+     * @throws NotFoundExceptionInterface
+     * @throws \ReflectionException
+     */
+    public function testFetchAllAsGeneratorYieldsAlteredRows(): void
+    {
+        $stmt = $this->createStub( PDOStatement::class ) ;
+        $stmt->method( 'execute' )->willReturn( true ) ;
+        $stmt->method( 'fetch' )->willReturnOnConsecutiveCalls( [ 'id' => 1 ] , [ 'id' => 2 ] , false ) ;
+
+        $pdo = $this->createStub( PDO::class ) ;
+        $pdo->method( 'prepare' )->willReturn( $stmt ) ;
+
+        $this->model->pdo = $pdo ;
+
+        $rows = iterator_to_array( $this->model->fetchAllAsGenerator( 'SELECT 1' ) ) ;
+
+        $this->assertCount( 2 , $rows ) ;
+        $this->assertSame( 1 , $rows[0]->id ) ;
+        $this->assertSame( 2 , $rows[1]->id ) ;
+    }
+
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws NotFoundException
+     * @throws NotFoundExceptionInterface
+     * @throws \ReflectionException
+     */
+    public function testFetchAllAsGeneratorIsEmptyWhenNoStatement(): void
+    {
+        $this->model->pdo = null ;
+        $this->assertSame( [] , iterator_to_array( $this->model->fetchAllAsGenerator( 'SELECT 1' ) ) ) ;
+    }
+
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws NotFoundException
+     * @throws NotFoundExceptionInterface
+     * @throws \ReflectionException
+     */
+    public function testFetchAllAsGeneratorWarnsOnFailure(): void
+    {
+        $host = $this->loggerHost() ;
+        $host->pdo = $this->pdoWithThrowingExecute() ;
+
+        $this->assertSame( [] , iterator_to_array( $host->fetchAllAsGenerator( 'SELECT 1' ) ) ) ;
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function testFetchColumnReturnsNullWhenNoStatement(): void
+    {
+        $this->model->pdo = null ;
+        $this->assertNull( $this->model->fetchColumn( 'SELECT 1' ) ) ;
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function testFetchColumnWarnsAndReturnsNullOnFailure(): void
+    {
+        $host = $this->loggerHost() ;
+        $host->pdo = $this->pdoWithThrowingExecute() ;
+
+        $this->assertNull( $host->fetchColumn( 'SELECT 1' ) ) ;
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function testFetchColumnArrayReturnsValues(): void
+    {
+        $stmt = $this->createStub( PDOStatement::class ) ;
+        $stmt->method( 'execute' )->willReturn( true ) ;
+        $stmt->method( 'fetchAll' )->willReturn( [ 'a' , 'b' ] ) ;
+
+        $pdo = $this->createStub( PDO::class ) ;
+        $pdo->method( 'prepare' )->willReturn( $stmt ) ;
+
+        $this->model->pdo = $pdo ;
+        $this->assertSame( [ 'a' , 'b' ] , $this->model->fetchColumnArray( 'SELECT 1' ) ) ;
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function testFetchColumnArrayReturnsEmptyWhenNoStatement(): void
+    {
+        $this->model->pdo = null ;
+        $this->assertSame( [] , $this->model->fetchColumnArray( 'SELECT 1' ) ) ;
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function testFetchColumnArrayReturnsEmptyWhenExecuteFails(): void
+    {
+        $stmt = $this->createStub( PDOStatement::class ) ;
+        $stmt->method( 'execute' )->willReturn( false ) ;
+
+        $pdo = $this->createStub( PDO::class ) ;
+        $pdo->method( 'prepare' )->willReturn( $stmt ) ;
+
+        $this->model->pdo = $pdo ;
+        $this->assertSame( [] , $this->model->fetchColumnArray( 'SELECT 1' ) ) ;
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function testFetchColumnArrayWarnsOnFailure(): void
+    {
+        $host = $this->loggerHost() ;
+        $host->pdo = $this->pdoWithThrowingExecute() ;
+
+        $this->assertSame( [] , $host->fetchColumnArray( 'SELECT 1' ) ) ;
+    }
+
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws NotFoundException
+     * @throws NotFoundExceptionInterface
+     * @throws \ReflectionException
+     */
+    public function testFetchAllAsGeneratorIsEmptyWhenExecuteFails(): void
+    {
+        $stmt = $this->createStub( PDOStatement::class ) ;
+        $stmt->method( 'execute' )->willReturn( false ) ;
+
+        $pdo = $this->createStub( PDO::class ) ;
+        $pdo->method( 'prepare' )->willReturn( $stmt ) ;
+
+        $this->model->pdo = $pdo ;
+        $this->assertSame( [] , iterator_to_array( $this->model->fetchAllAsGenerator( 'SELECT 1' ) ) ) ;
+    }
+
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws NotFoundException
+     * @throws NotFoundExceptionInterface
+     * @throws \ReflectionException
+     */
+    public function testFetchAllAsGeneratorRethrowsWhenThrowable(): void
+    {
+        $this->model->pdo = $this->pdoWithThrowingExecute() ;
+
+        $this->expectException( \PDOException::class ) ;
+        iterator_to_array( $this->model->fetchAllAsGenerator( 'SELECT 1' , [] , true ) ) ;
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function testFetchColumnRethrowsWhenThrowable(): void
+    {
+        $this->model->pdo = $this->pdoWithThrowingExecute() ;
+
+        $this->expectException( \PDOException::class ) ;
+        $this->model->fetchColumn( 'SELECT 1' , [] , 0 , true ) ;
+    }
+
+    /**
+     * @throws \Exception
+     */
+    public function testFetchColumnArrayRethrowsWhenThrowable(): void
+    {
+        $this->model->pdo = $this->pdoWithThrowingExecute() ;
+
+        $this->expectException( \PDOException::class ) ;
+        $this->model->fetchColumnArray( 'SELECT 1' , [] , true ) ;
+    }
+
+    public function testIsConnectedReturnsFalseWithoutPdo(): void
+    {
+        $this->model->pdo = null ;
+        $this->assertFalse( $this->model->isConnected() ) ;
+    }
+
+    public function testIsConnectedReturnsTrueWhenConnected(): void
+    {
+        $pdo = $this->createStub( PDO::class ) ;
+        $pdo->method( 'getAttribute' )->willReturn( 'Connection OK' ) ;
+
+        $this->model->pdo = $pdo ;
+        $this->assertTrue( $this->model->isConnected() ) ;
+    }
+
+    public function testIsConnectedReturnsFalseOnPdoException(): void
+    {
+        $pdo = $this->createStub( PDO::class ) ;
+        $pdo->method( 'getAttribute' )->willThrowException( new \PDOException( 'gone' ) ) ;
+
+        $this->model->pdo = $pdo ;
+        $this->assertFalse( $this->model->isConnected() ) ;
+    }
 }
