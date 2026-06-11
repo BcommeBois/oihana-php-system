@@ -2,7 +2,7 @@
 
 namespace oihana\models;
 
-use oihana\traits\DebugTrait;
+use oihana\logging\DebugTrait;
 use oihana\traits\ToStringTrait;
 
 use Psr\Container\ContainerExceptionInterface;
