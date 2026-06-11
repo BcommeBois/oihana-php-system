@@ -23,7 +23,24 @@ class EnsureKeysTraitTest extends TestCase
             {
                 $this->ensureDocumentKeys($data, $init);
             }
+
+            public function callInitializeEnsure(array $init = []): static
+            {
+                return $this->initializeEnsure($init);
+            }
         };
+    }
+
+    public function testInitializeEnsureSetsAndDefaultsTheProperty(): void
+    {
+        $definition = [ 'status' => 'active' ] ;
+        $result = $this->traitConsumer->callInitializeEnsure([ ModelParam::ENSURE => $definition ]) ;
+
+        $this->assertSame( $this->traitConsumer , $result ) ;
+        $this->assertSame( $definition , $this->traitConsumer->ensure ) ;
+
+        $this->traitConsumer->callInitializeEnsure() ;
+        $this->assertNull( $this->traitConsumer->ensure ) ;
     }
 
     // --- 1. Tests des Guard Clauses (Sorties anticipées) ---

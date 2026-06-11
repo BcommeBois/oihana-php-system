@@ -171,4 +171,14 @@ class SchemaTraitTest extends TestCase
         $this->assertSame('org\\schema\\Item_2', $result2, 'Second call should return Item_2.');
         $this->assertSame(2, $counter, 'Closure should be executed twice.');
     }
+
+    public function testGetSchemaResolvesViaSchemaResolver(): void
+    {
+        $this->object->schema = new \org\schema\helpers\SchemaResolver(
+            'type',
+            [ 'article' => 'org\\schema\\Thing' ],
+        );
+
+        $this->assertSame( 'org\\schema\\Thing' , $this->object->getSchema([ 'type' => 'article' ]) );
+    }
 }

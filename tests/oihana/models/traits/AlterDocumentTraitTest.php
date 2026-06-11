@@ -844,4 +844,20 @@ class AlterDocumentTraitTest extends TestCase
 
         $this->assertSame('none', $output['tags']);
     }
+
+    /**
+     * @throws ReflectionException
+     */
+    public function testIsChainedDefinitionReturnsFalseWhenFirstIsNotAnAlter(): void
+    {
+        $processor = new MockAlterDocument() ;
+
+        $method = new \ReflectionMethod( $processor , 'isChainedDefinition' ) ;
+
+        // 2+ elements but the first is not an Alter -> early false (line covered).
+        $this->assertFalse( $method->invoke( $processor , [ 'notAnAlter' , Alter::INT ] ) ) ;
+
+        // Fewer than 2 elements -> false.
+        $this->assertFalse( $method->invoke( $processor , [ Alter::INT ] ) ) ;
+    }
 }
