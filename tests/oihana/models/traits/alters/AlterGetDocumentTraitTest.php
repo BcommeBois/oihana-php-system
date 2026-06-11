@@ -657,4 +657,25 @@ class AlterGetDocumentTraitTest extends TestCase
         $this->assertSame(42, $output['views']);
         $this->assertSame('John', $output['author']['name']);
     }
+
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws NotFoundException
+     * @throws NotFoundExceptionInterface
+     * @throws ReflectionException
+     */
+    public function testGetDocumentReturnsNullWhenModelGetThrows(): void
+    {
+        $throwing = $this->createStub( \oihana\models\interfaces\DocumentsModel::class ) ;
+        $throwing->method( 'get' )->willThrowException( new \RuntimeException( 'boom' ) ) ;
+
+        $host = new class { use \oihana\models\traits\alters\AlterGetDocumentPropertyTrait; } ;
+
+        $modified = false ;
+        $result   = $host->alterGetDocument( 123 , [ $throwing , 'id' ] , null , $modified ) ;
+
+        $this->assertNull( $result ) ;
+        $this->assertFalse( $modified ) ;
+    }
 }
