@@ -152,6 +152,11 @@ trait AlterBindVarsTrait
     )
     :?array
     {
+        if ( $bindVars === null )
+        {
+            return null ;
+        }
+
         if ( empty( $bindVars ) || !isAssociative( $bindVars )  )
         {
             return clean( $bindVars , $flags ) ;
