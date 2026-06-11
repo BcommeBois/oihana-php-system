@@ -87,4 +87,12 @@ class TimeIntervalTest extends TestCase
         $ti = new TimeInterval('invalid string');
         $this->assertSame('0', $ti->formatted());
     }
+
+    public function testFractionalSecondsArePreservedOverOneMinute()
+    {
+        $ti = new TimeInterval( 90.25 ) ;
+        $this->assertSame( 1 , $ti->minutes ) ;
+        $this->assertEqualsWithDelta( 30.25 , $ti->seconds , 0.0001 ) ;
+        $this->assertEqualsWithDelta( 90.25 , $ti->toSeconds() , 0.0001 ) ;
+    }
 }

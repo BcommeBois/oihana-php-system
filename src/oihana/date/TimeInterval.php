@@ -255,9 +255,9 @@ class TimeInterval
             {
                 $this->minutes = (int) floor($this->seconds / 60 ) ;
 
-                // count current precision
+                // count current decimal precision
                 $precision = 0;
-                if ( ($delimiterPos = strpos((string)$this->seconds, Char::SPACE ) ) !== false)
+                if ( ($delimiterPos = strpos((string)$this->seconds, Char::DOT ) ) !== false)
                 {
                     $precision = strlen(substr((string)$this->seconds, $delimiterPos + 1));
                 }
