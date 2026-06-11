@@ -78,4 +78,17 @@ class HasUpdateSignalsTest extends TestCase
 
         $this->assertEquals(1, $counter, 'Auto-disconnect should remove the listener after first emit');
     }
+
+    public function testReleaseUpdateSignalsNullifiesSignals()
+    {
+        $doc = new DummyUpdateDocument();
+        $doc->initializeUpdateSignals();
+        $doc->beforeUpdate?->connect(fn() => null);
+
+        $result = $doc->releaseUpdateSignals();
+
+        $this->assertSame($doc, $result);
+        $this->assertNull($doc->beforeUpdate);
+        $this->assertNull($doc->afterUpdate);
+    }
 }

@@ -78,4 +78,17 @@ class HasInsertSignalsTest extends TestCase
 
         $this->assertEquals(1, $counter, 'Auto-disconnect should remove the listener after first emit');
     }
+
+    public function testReleaseInsertSignalsNullifiesSignals()
+    {
+        $doc = new DummyInsertDocument();
+        $doc->initializeInsertSignals();
+        $doc->beforeInsert?->connect(fn() => null);
+
+        $result = $doc->releaseInsertSignals();
+
+        $this->assertSame($doc, $result);
+        $this->assertNull($doc->beforeInsert);
+        $this->assertNull($doc->afterInsert);
+    }
 }

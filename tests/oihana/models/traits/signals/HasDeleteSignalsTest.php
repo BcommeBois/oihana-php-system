@@ -76,4 +76,17 @@ class HasDeleteSignalsTest extends TestCase
 
         $this->assertEquals(1, $counter, 'Auto-disconnect should remove the listener after first emit');
     }
+
+    public function testReleaseDeleteSignalsNullifiesSignals()
+    {
+        $doc = new DummyDeleteDocument();
+        $doc->initializeDeleteSignals();
+        $doc->beforeDelete?->connect(fn() => null);
+
+        $result = $doc->releaseDeleteSignals();
+
+        $this->assertSame($doc, $result);
+        $this->assertNull($doc->beforeDelete);
+        $this->assertNull($doc->afterDelete);
+    }
 }
