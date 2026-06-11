@@ -162,4 +162,12 @@ class I18nRuleTest extends TestCase
         $this->assertFalse($validation->passes());
         $this->assertTrue($validation->fails());
     }
+
+    public function testCheckReturnsFalseForNonArrayNonObjectValue(): void
+    {
+        $rule = new I18nRule(['fr', 'en']);
+
+        $this->assertFalse($rule->check('hello'));
+        $this->assertFalse($rule->check(42));
+    }
 }

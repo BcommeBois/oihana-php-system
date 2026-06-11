@@ -82,4 +82,16 @@ final class PostalCodeRuleTest extends TestCase
         $this->assertTrue($rule->check('12345-6789'));
         $this->assertFalse($rule->check('ABCDE'));
     }
+
+    /**
+     * @throws ParameterException
+     */
+    public function testCheckReturnsFalseForNonStringValue()
+    {
+        $rule = new PostalCodeRule('FR');
+
+        $this->assertFalse($rule->check(75015));
+        $this->assertFalse($rule->check(null));
+        $this->assertFalse($rule->check(['75015']));
+    }
 }

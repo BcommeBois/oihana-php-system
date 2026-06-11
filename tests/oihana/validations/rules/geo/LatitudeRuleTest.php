@@ -35,4 +35,12 @@ final class LatitudeRuleTest extends TestCase
             sprintf('Failed asserting that %s is %svalid latitude.', var_export($value, true), $expected ? '' : 'not ')
         );
     }
+
+    public function testGetMinAndGetMaxExposeTheBounds(): void
+    {
+        $rule = new LatitudeRule();
+
+        $this->assertSame(-90, $rule->getMin());
+        $this->assertSame(90, $rule->getMax());
+    }
 }

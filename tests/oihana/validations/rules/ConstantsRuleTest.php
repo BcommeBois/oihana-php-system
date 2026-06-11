@@ -61,6 +61,13 @@ final class ConstantsRuleTest extends TestCase
         $this->assertEquals(['foo'], $rule->parameter(ConstantsRule::CASES));
     }
 
+    public function testCasesWithoutArgumentRecomputesFromClassName(): void
+    {
+        $rule = new ConstantsRule(ConstantsRuleDummyEnum::class, ['foo']);
+        $rule->cases();
+        $this->assertEquals(['bar', 'baz', 'foo'], $rule->parameter(ConstantsRule::CASES));
+    }
+
     /**
      * @throws ParameterException
      */

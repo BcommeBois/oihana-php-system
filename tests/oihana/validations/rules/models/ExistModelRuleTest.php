@@ -71,4 +71,50 @@ final class ExistModelRuleTest extends TestCase
         $this->assertFalse( $rule->check( 'hello' ) ) ;
     }
 
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     * @throws ParameterException
+     */
+    public function testStringInitShortcutDefinesTheModel(): void
+    {
+        $model = new MockDocumentsModel() ;
+
+        $model->addDocument( [ 'id' => 1 , 'name' => 'John' ] );
+
+        $container = new Container() ;
+        $container->set( 'model' , $model ) ;
+
+        $rule = new ExistModelRule( $container , 'model' , 'name' ) ;
+
+        $this->assertTrue ( $rule->check( 'John'  ) ) ;
+        $this->assertFalse( $rule->check( 'hello' ) ) ;
+    }
+
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     * @throws ParameterException
+     */
+    public function testCheckReturnsFalseWhenContainerEntryIsNotAnExistModel(): void
+    {
+        $container = new Container() ;
+        $container->set( 'model' , new \stdClass() ) ;
+
+        $rule = new ExistModelRule( $container , 'model' ) ;
+
+        $this->assertFalse( $rule->check( 1 ) ) ;
+    }
+
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
+     * @throws ParameterException
+     */
+    public function testCheckReturnsFalseWhenModelIsNotInTheContainer(): void
+    {
+        $rule = new ExistModelRule( new Container() , 'missing' ) ;
+
+        $this->assertFalse( $rule->check( 1 ) ) ;
+    }
 }
