@@ -37,6 +37,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 - Date
   - `TimeInterval::parse()` no longer drops the fractional part of seconds on durations >= 60s: the decimal-precision detection searched for a space instead of the decimal point, so `parse(90.25)` returned `30.0` seconds instead of `30.25` (fractions were preserved below 60s only).
+- Logging
+  - `MonoLogManager` no longer coerces the default `Level::Debug` enum through `intval()`: building the manager without an explicit `level` emitted an `E_WARNING` and silently set the level to `1` instead of `Debug`. A `Level` instance is now preserved as-is; only non-enum values are cast to `int`.
 - Graphics
   - `AspectRatio` locked mode no longer drifts on rounded values: `setWidth()` / `setHeight()` skip `recalculateRatio()` when locked, preserving the snapshot aspect ratio.
   - `AspectRatio::fromRatio()` now validates that `$width > 0`.

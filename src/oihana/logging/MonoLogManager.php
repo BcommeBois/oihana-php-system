@@ -71,6 +71,9 @@ class MonoLogManager extends LoggerManager
     public function __construct( array $init = [] , ?string $name = null )
     {
         parent::__construct( $init , $name ) ;
+
+        $level = $init[ MonoLogParam::LEVEL ] ?? $this->level ;
+
         $this->allowInlineLineBreaks      = boolval( $init[ MonoLogParam::ALLOW_INLINE_LINE_BREAKS  ] ?? $this->allowInlineLineBreaks ) ;
         $this->bubbles                    = boolval( $init[ MonoLogParam::BUBBLES  ] ?? $this->bubbles ) ;
         $this->dateFormat                 = $init[ MonoLogParam::DATE_FORMAT ] ?? $this->dateFormat ;
@@ -78,7 +81,7 @@ class MonoLogManager extends LoggerManager
         $this->format                     = $init[ MonoLogParam::FORMAT ] ?? $this->format ;
         $this->includeStackTraces         = $init[ MonoLogParam::INCLUDE_STACK_TRACES ] ?? $this->includeStackTraces ;
         $this->ignoreEmptyContextAndExtra = $init[ MonoLogParam::IGNORE_EMPTY_CONTEXT_AND_EXTRA ] ?? $this->ignoreEmptyContextAndExtra ;
-        $this->level                      = intval( $init[ MonoLogParam::LEVEL ] ?? $this->level ) ;
+        $this->level                      = $level instanceof Level ? $level : intval( $level ) ;
         $this->maxFiles                   = intval( $init[ MonoLogParam::MAX_FILES ] ?? $this->maxFiles ) ;
     }
 
