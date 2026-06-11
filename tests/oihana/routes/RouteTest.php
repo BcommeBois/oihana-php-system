@@ -221,4 +221,24 @@ class RouteTest extends TestCase
         $this->expectNotToPerformAssertions();
         $route();
     }
+
+    /**
+     * @throws ContainerExceptionInterface
+     * @throws DependencyException
+     * @throws NotFoundException
+     * @throws NotFoundExceptionInterface
+     */
+    public function testInvokeRunsNestedRoutes(): void
+    {
+        $child = new class( $this->container ) extends Route
+        {
+            public bool $invoked = false ;
+            public function __invoke(): void { $this->invoked = true ; }
+        };
+
+        $parent = new Route( $this->container , [ 'routes' => [ $child ] ] ) ;
+        $parent() ;
+
+        $this->assertTrue( $child->invoked ) ;
+    }
 }
