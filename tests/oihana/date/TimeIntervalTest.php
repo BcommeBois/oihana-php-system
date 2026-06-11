@@ -95,4 +95,42 @@ class TimeIntervalTest extends TestCase
         $this->assertEqualsWithDelta( 30.25 , $ti->seconds , 0.0001 ) ;
         $this->assertEqualsWithDelta( 90.25 , $ti->toSeconds() , 0.0001 ) ;
     }
+
+    public function testFormattedWithDurationArgumentReparses()
+    {
+        $ti = new TimeInterval( '1h' ) ;
+        $this->assertSame( '1:31' , $ti->formatted( 91 ) ) ;
+    }
+
+    public function testHumanizeWithDurationArgumentReparses()
+    {
+        $ti = new TimeInterval( '1h' ) ;
+        $this->assertSame( '1m 31s' , $ti->humanize( 91 ) ) ;
+    }
+
+    public function testParseNullReturnsFalse()
+    {
+        $ti = new TimeInterval() ;
+        $this->assertFalse( $ti->parse( null ) ) ;
+    }
+
+    public function testNumericSecondsOverflowIntoDays()
+    {
+        $ti = new TimeInterval( 90000 ) ; // 25h
+        $this->assertSame( 1 , $ti->days ) ;
+        $this->assertSame( 1 , $ti->hours ) ;
+        $this->assertEquals( 90000 , $ti->toSeconds() ) ;
+    }
+
+    public function testToMinutesWithDurationArgumentAndTruePrecision()
+    {
+        $ti = new TimeInterval() ;
+        $this->assertEquals( 2 , $ti->toMinutes( '1m 30s' , true ) ) ;
+    }
+
+    public function testToSecondsWithDurationArgument()
+    {
+        $ti = new TimeInterval() ;
+        $this->assertEquals( 90 , $ti->toSeconds( '1m 30s' ) ) ;
+    }
 }

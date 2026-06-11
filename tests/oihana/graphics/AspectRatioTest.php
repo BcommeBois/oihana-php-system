@@ -315,4 +315,22 @@ class AspectRatioTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $ratio->height = -1;
     }
+
+    public function testLockedZeroRatioSkipsHeightSynchronization()
+    {
+        $ratio = new AspectRatio(0, 0, true);
+
+        $this->assertSame(0, $ratio->width);
+        $this->assertSame(0, $ratio->height);
+    }
+
+    public function testLockedZeroRatioSkipsWidthSynchronization()
+    {
+        $ratio = new AspectRatio(0, 0, true);
+
+        $ratio->setHeight(10);
+
+        $this->assertSame(0, $ratio->width);
+        $this->assertSame(10, $ratio->height);
+    }
 }
