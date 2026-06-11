@@ -3,6 +3,8 @@
 namespace oihana\controllers\traits ;
 
 use InvalidArgumentException;
+use oihana\enums\http\HttpHeader;
+use oihana\enums\http\MediaType;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -127,8 +129,25 @@ trait TwigTrait
      */
     public function render( ?Response $response , string $template , array $args = [] ) : ?Response
     {
-        return isset( $response )
-             ? $this->twig->render( $response , $template , $args )
-             : null ;
+        if ( !isset( $response ) )
+        {
+            return null ;
+        }
+
+        $response = $this->twig->render( $response , $template , $args ) ;
+
+        // Default to text/html when the caller did not declare a content type, so
+        // the response is nosniff-compatible and downstream middlewares can detect
+        // HTML. Renders that produce XML / SVG / text set their own type and keep it.
+        if ( !$response->hasHeader( HttpHeader::CONTENT_TYPE ) )
+        {
+            $response = $response->withHeader
+            (
+                HttpHeader::CONTENT_TYPE ,
+                MediaType::withCharset( MediaType::HTML )
+            ) ;
+        }
+
+        return $response ;
     }
 }
