@@ -32,7 +32,7 @@ use Psr\Container\NotFoundExceptionInterface;
  * Requires the following traits:
  * - AlterDocumentTrait
  * - BindsTrait
- * - DebugTrait
+ * - oihana\logging\DebugTrait
  * - ToStringTrait
  *
  * @package oihana\traits
