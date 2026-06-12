@@ -11,8 +11,10 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 use oihana\controllers\enums\FileResponseOption;
 use oihana\enums\http\HttpHeader;
+use oihana\files\enums\CompressionType;
 use oihana\files\enums\FileMimeType;
 
+use function oihana\files\archive\tar\tar;
 use function oihana\files\assertFile;
 
 trait FileTrait
@@ -77,6 +79,80 @@ trait FileTrait
         catch( Exception $e )
         {
             return $this->fail( $request , $response ,  500 , $e->getMessage() ) ;
+        }
+    }
+
+    /**
+     * Bundles files and/or directories into a tar archive (optionally compressed) and
+     * streams it as a download response.
+     *
+     * Delegates the archive creation to `oihana\files\archive\tar\tar()`, then streams
+     * the produced file into the response body and removes the temporary archive.
+     * Only `GZIP`, `BZIP2` and `NONE` compressions are supported; any other value
+     * raises an `UnsupportedCompressionException`, reported as a `500` response.
+     *
+     * @param ?Request     $request     Optional PSR-7 Request object (used to build the failure response).
+     * @param Response     $response    The PSR-7 Response object to write the archive into.
+     * @param string|array $paths       File and/or directory path(s) to add to the archive.
+     * @param string       $archive     Absolute path of the tar archive to create.
+     * @param ?string      $compression One of {@see CompressionType}: `GZIP` (default), `BZIP2` or `NONE`.
+     * @param array        $options     Optional header switches (see {@see FileResponseOption}).
+     *
+     * @return Response The response carrying the archive, or a `500` failure response on error.
+     */
+    public function tarResponse
+    (
+        ?Request     $request ,
+        Response     $response ,
+        string|array $paths ,
+        string       $archive ,
+        ?string      $compression = CompressionType::GZIP ,
+        array        $options = []
+    )
+    : Response
+    {
+        try
+        {
+            $produced = tar( $paths , $archive , $compression ) ;
+
+            $contentDisposition    = $options[ FileResponseOption::CONTENT_DISPOSITION     ] ?? 'attachment; filename=' . basename( $produced ) ;
+            $useContentDisposition = $options[ FileResponseOption::USE_CONTENT_DISPOSITION ] ?? true ;
+            $useContentLength      = $options[ FileResponseOption::USE_CONTENT_LENGTH      ] ?? true ;
+            $useContentType        = $options[ FileResponseOption::USE_CONTENT_TYPE        ] ?? true ;
+
+            if( $useContentType )
+            {
+                $contentType = match( $compression )
+                {
+                    CompressionType::BZIP2 => FileMimeType::TAR_BZ2 ,  // application/x-bzip2
+                    CompressionType::NONE  => FileMimeType::TAR[ 1 ] , // application/x-tar
+                    default                => FileMimeType::TAR_GZ ,   // application/gzip (GZIP)
+                } ;
+                $response = $response->withHeader( HttpHeader::CONTENT_TYPE , $contentType ) ;
+            }
+
+            if( $useContentLength )
+            {
+                $response = $response->withHeader( HttpHeader::CONTENT_LENGTH , (string) filesize( $produced ) ) ;
+            }
+
+            if( $useContentDisposition )
+            {
+                $response = $response->withHeader( HttpHeader::CONTENT_DISPOSITION , $contentDisposition ) ;
+            }
+
+            $response = $response->withHeader( HttpHeader::PRAGMA  , CacheControlDirective::NO_CACHE )
+                                 ->withHeader( HttpHeader::EXPIRES , '0' ) ;
+
+            $response->getBody()->write( file_get_contents( $produced ) ) ;
+
+            @unlink( $produced ) ; // the archive content is already in the response body; drop the temp file
+
+            return $response ;
+        }
+        catch( Exception $e )
+        {
+            return $this->fail( $request , $response , 500 , $e->getMessage() ) ;
         }
     }
 

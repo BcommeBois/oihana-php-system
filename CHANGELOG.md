@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Added
 
 - Controllers
+  - `FileTrait::tarResponse()` streams a tar archive (GZIP / BZIP2 / NONE) as a download response, delegating archive creation to `oihana\files\archive\tar\tar()`. Content headers are toggled through `FileResponseOption`; the temporary archive is removed once streamed. (CI now enables the `bz2` extension so bzip2 archives are exercised.)
   - `FileResponseOption` enum (`oihana\controllers\enums`) centralizing the file/image response option keys (`useContentType`, `useContentLength`, `useContentDisposition`, `contentDisposition`, `format`) to avoid magic strings.
   - `ImagickResponseOption` enum (`compression`, `quality`, `gray`, `strip`) and `ResizeOption` enum (`width`, `height`, `maxWidth`, `maxHeight`) backing `ImageTrait`'s Imagick transform and resize options.
   - `ImageTrait::initializeImagePath()` with a public `$imagePath` property, the `IMAGE_PATH` init key and `DEFAULT_COMPRESSION`/`DEFAULT_FORMAT`/`DEFAULT_MAX_HEIGHT`/`DEFAULT_MAX_WIDTH`/`DEFAULT_QUALITY` constants. The init accepts either a path string or an array keyed by `IMAGE_PATH` (mirrors `MockTrait::initializeMock()`).
