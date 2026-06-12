@@ -1,6 +1,6 @@
 <?php
 
-namespace oihana\models\helpers;
+namespace tests\oihana\controllers\helpers;
 
 use DI\Container;
 

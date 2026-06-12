@@ -48,7 +48,10 @@
             "src/oihana/controllers/helpers/getParamNumberRange.php",
             "src/oihana/controllers/helpers/getParamString.php",
             "src/oihana/controllers/helpers/getQueryParam.php",
-            
+            "src/oihana/controllers/helpers/getDocumentsModel.php" ,
+            "src/oihana/controllers/helpers/getModel.php" ,
+            "src/oihana/controllers/helpers/resolveDependency.php" ,
+
             "src/oihana/init/initConfig.php",
             "src/oihana/init/initContainer.php",
             "src/oihana/init/initDefaultTimezone.php",
@@ -59,10 +62,7 @@
             
             "src/oihana/models/helpers/cacheCollection.php",
             "src/oihana/models/helpers/documentUrl.php",
-            "src/oihana/models/helpers/getDocumentsModel.php" ,
-            "src/oihana/models/helpers/getModel.php" ,
-            "src/oihana/models/helpers/resolveDependency.php" ,
-            
+
             "src/oihana/routes/helpers/responsePassthrough.php",
             "src/oihana/routes/helpers/withPlaceholder.php",
             
