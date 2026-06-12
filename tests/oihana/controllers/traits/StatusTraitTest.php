@@ -8,6 +8,7 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\StreamInterface;
+use Psr\Log\LoggerInterface;
 
 use oihana\enums\Output;
 
@@ -175,6 +176,42 @@ final class StatusTraitTest extends TestCase
         $this->assertSame( $response , $result ) ;
         $this->assertInstanceOf( StreamInterface::class , $passedStream ) ;
         $this->assertSame( '' , (string) $passedStream , 'stream passed to withBody must be empty' ) ;
+    }
+
+    public function testFailLogsErrorWithDetailsWhenLoggable()
+    {
+        $logged = null ;
+
+        $logger = $this->createMock( LoggerInterface::class ) ;
+        $logger->expects( $this->once() )
+               ->method('error')
+               ->willReturnCallback( function( $message ) use ( &$logged ) { $logged = (string) $message ; } ) ;
+
+        $this->mock->loggable = true ;
+        $this->mock->setLogger( $logger ) ;
+
+        $this->mock->fail( null , $this->response , 404 , 'Resource missing' ) ;
+
+        $this->assertStringContainsString( '404'              , $logged ) ;
+        $this->assertStringContainsString( 'Resource missing' , $logged ) ;
+    }
+
+    public function testFailLogsErrorWithoutDetailsWhenLoggable()
+    {
+        $logged = null ;
+
+        $logger = $this->createMock( LoggerInterface::class ) ;
+        $logger->expects( $this->once() )
+               ->method('error')
+               ->willReturnCallback( function( $message ) use ( &$logged ) { $logged = (string) $message ; } ) ;
+
+        $this->mock->loggable = true ;
+        $this->mock->setLogger( $logger ) ;
+
+        $this->mock->fail( null , $this->response , 500 ) ;
+
+        // exercises the hasDetails === false branch: still logs the status line
+        $this->assertStringContainsString( '500' , $logged ) ;
     }
 
     public function testWithFreshBodyComposesWithFail()

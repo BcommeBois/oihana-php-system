@@ -69,6 +69,27 @@ final class JsonTraitTest extends TestCase
         $this->assertSame(JsonParam::JSON_NONE, $this->mock->jsonOptions);
     }
 
+    public function testInitializeJsonSerializeOptionsFromContainer()
+    {
+        $options = [ 'reduce' => false , 'custom' => 1 ];
+
+        $container = $this->createStub(ContainerInterface::class);
+        $container->method('has')->willReturnCallback
+        (
+            fn( $key ) => $key === ControllerParam::JSON_SERIALIZE_OPTIONS
+        );
+        $container->method('get')->willReturn($options);
+
+        // Passing an empty array forces the "empty($options)" container lookup branch.
+        $this->mock->initializeJsonOptions
+        (
+            [ ControllerParam::JSON_SERIALIZE_OPTIONS => [] ],
+            $container
+        );
+
+        $this->assertSame($options, $this->mock->jsonSerializeOptions);
+    }
+
     public function testJsonResponseWritesJsonAndSetsHeaders()
     {
         $data = ['foo' => 'bar'];

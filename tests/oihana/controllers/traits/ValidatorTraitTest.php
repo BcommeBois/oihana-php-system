@@ -13,8 +13,13 @@ use DI\Container;
 use oihana\controllers\enums\ControllerParam;
 use oihana\enums\http\HttpMethod;
 
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\StreamInterface;
+
+use Somnambulist\Components\Validation\ErrorBag;
 use Somnambulist\Components\Validation\Factory as Validator;
 use Somnambulist\Components\Validation\Rule;
+use Somnambulist\Components\Validation\Validation;
 
 class MockValidatorController
 {
@@ -267,5 +272,56 @@ final class ValidatorTraitTest extends TestCase
         $result = $this->controller->prepareRules(HttpMethod::POST);
 
         $this->assertEquals([], $result);
+    }
+
+    /**
+     * A passive Response stub accepting the fail() write/builder chain.
+     */
+    private function response(): ResponseInterface
+    {
+        $stream = $this->createStub(StreamInterface::class);
+        $stream->method('write')->willReturnCallback(fn($data) => strlen((string) $data));
+
+        $response = $this->createStub(ResponseInterface::class);
+        $response->method('getBody')->willReturn($stream);
+        $response->method('withStatus')->willReturnSelf();
+        $response->method('withHeader')->willReturnSelf();
+
+        return $response;
+    }
+
+    /**
+     * getValidatorError merges validation errors into the failure response.
+     */
+    public function testGetValidatorErrorWhenValidationFails(): void
+    {
+        $errorBag = $this->createStub(ErrorBag::class);
+        $errorBag->method('firstOfAll')->willReturn(['name' => 'name is required']);
+
+        $validation = $this->createStub(Validation::class);
+        $validation->method('fails')->willReturn(true);
+        $validation->method('errors')->willReturn($errorBag);
+
+        $response = $this->response();
+
+        $result = $this->controller->getValidatorError(null, $response, $validation, ['extra' => 'err'], 422);
+
+        $this->assertSame($response, $result);
+    }
+
+    /**
+     * getValidatorError still returns a fail response when the validation passes
+     * (the merge branch is skipped).
+     */
+    public function testGetValidatorErrorWhenValidationPasses(): void
+    {
+        $validation = $this->createStub(Validation::class);
+        $validation->method('fails')->willReturn(false);
+
+        $response = $this->response();
+
+        $result = $this->controller->getValidatorError(null, $response, $validation);
+
+        $this->assertSame($response, $result);
     }
 }
