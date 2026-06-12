@@ -205,7 +205,7 @@ trait ImageTrait
         }
         catch( Exception $e )
         {
-            return $this->fail( $response ,  500 , $e->getMessage() ) ;
+            return $this->fail( null , $response , 500 , $e->getMessage() ) ;
         }
     }
 

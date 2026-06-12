@@ -36,6 +36,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Fixed
 
+- Controllers
+  - `ImageTrait::imagickResponse()` no longer raises a `TypeError` from its error handler: the `catch` called `fail( $response , 500 , $e->getMessage() )`, passing the `Response` into the `?Request` slot and `500` into the `?Response` slot. It now calls `fail( null , $response , 500 , ... )` (the method has no request parameter), so an Imagick failure returns a proper `500` response instead of crashing.
 - Date
   - `TimeInterval::parse()` no longer drops the fractional part of seconds on durations >= 60s: the decimal-precision detection searched for a space instead of the decimal point, so `parse(90.25)` returned `30.0` seconds instead of `30.25` (fractions were preserved below 60s only).
 - Logging
