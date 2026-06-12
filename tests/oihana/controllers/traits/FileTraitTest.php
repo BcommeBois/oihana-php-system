@@ -6,6 +6,8 @@ use oihana\controllers\enums\FileResponseOption;
 use oihana\controllers\traits\FileTrait;
 use oihana\enums\http\CacheControlDirective;
 use oihana\enums\http\HttpHeader;
+use oihana\files\enums\CompressionType;
+use oihana\files\enums\FileMimeType;
 
 use PHPUnit\Framework\TestCase;
 
@@ -53,6 +55,30 @@ final class FileTraitTest extends TestCase
         $response->method('getBody')->willReturn( $stream );
         $response->method('withStatus')->willReturnSelf();
         $response->method('withHeader')->willReturnSelf();
+
+        return $response;
+    }
+
+    /**
+     * A Response stub whose body is writable and whose withHeader() records the
+     * headers into $captured (so tests can assert what was emitted).
+     */
+    private function capturingResponse( array &$captured ): ResponseInterface
+    {
+        $stream = $this->createStub( StreamInterface::class );
+        $stream->method('write')->willReturnCallback( fn( $data ) => strlen( (string) $data ) );
+
+        $response = $this->createStub( ResponseInterface::class );
+        $response->method('getBody')->willReturn( $stream );
+        $response->method('withStatus')->willReturnSelf();
+        $response->method('withHeader')->willReturnCallback
+        (
+            function( $name , $value ) use ( &$captured , $response )
+            {
+                $captured[ $name ] = $value ;
+                return $response ;
+            }
+        );
 
         return $response;
     }
@@ -142,6 +168,85 @@ final class FileTraitTest extends TestCase
             [ 'hello.txt' ] ,
             $this->file . '/bundle.zip' ,
             $this->dir . '/'
+        );
+
+        $this->assertSame( $response , $result );
+    }
+
+    // ----------------------------------------------------------- tarResponse
+
+    public function testTarResponseGzipByDefault(): void
+    {
+        $captured = [] ;
+        $response = $this->capturingResponse( $captured );
+        $archive  = $this->dir . '/bundle.tar.gz';
+
+        $result = $this->mock->tarResponse( null , $response , [ $this->file ] , $archive );
+
+        $this->assertSame( $response , $result );
+        $this->assertSame( FileMimeType::TAR_GZ , $captured[ HttpHeader::CONTENT_TYPE ] );
+        $this->assertArrayHasKey( HttpHeader::CONTENT_LENGTH , $captured );
+        $this->assertStringStartsWith( 'attachment;' , $captured[ HttpHeader::CONTENT_DISPOSITION ] );
+        $this->assertSame( CacheControlDirective::NO_CACHE , $captured[ HttpHeader::PRAGMA ] );
+        $this->assertFileDoesNotExist( $archive ); // temp archive removed after streaming
+    }
+
+    public function testTarResponseNone(): void
+    {
+        $captured = [] ;
+        $response = $this->capturingResponse( $captured );
+
+        $this->mock->tarResponse( null , $response , [ $this->file ] , $this->dir . '/plain.tar' , CompressionType::NONE );
+
+        $this->assertSame( FileMimeType::TAR[ 1 ] , $captured[ HttpHeader::CONTENT_TYPE ] ); // application/x-tar
+    }
+
+    public function testTarResponseBzip2(): void
+    {
+        $captured = [] ;
+        $response = $this->capturingResponse( $captured );
+
+        $this->mock->tarResponse( null , $response , [ $this->file ] , $this->dir . '/bundle.tar.bz2' , CompressionType::BZIP2 );
+
+        $this->assertSame( FileMimeType::TAR_BZ2 , $captured[ HttpHeader::CONTENT_TYPE ] ); // application/x-bzip2
+    }
+
+    public function testTarResponseWithDisabledHeadersAndCustomDisposition(): void
+    {
+        $captured = [] ;
+        $response = $this->capturingResponse( $captured );
+
+        $this->mock->tarResponse
+        (
+            null ,
+            $response ,
+            [ $this->file ] ,
+            $this->dir . '/custom.tar.gz' ,
+            CompressionType::GZIP ,
+            [
+                FileResponseOption::USE_CONTENT_TYPE   => false ,
+                FileResponseOption::USE_CONTENT_LENGTH => false ,
+                FileResponseOption::CONTENT_DISPOSITION => 'inline; filename=custom.tar.gz' ,
+            ]
+        );
+
+        $this->assertArrayNotHasKey( HttpHeader::CONTENT_TYPE   , $captured );
+        $this->assertArrayNotHasKey( HttpHeader::CONTENT_LENGTH , $captured );
+        $this->assertSame( 'inline; filename=custom.tar.gz' , $captured[ HttpHeader::CONTENT_DISPOSITION ] );
+    }
+
+    public function testTarResponseUnsupportedCompressionFails(): void
+    {
+        $response = $this->response();
+
+        // ZIP is not a tar() compression -> UnsupportedCompressionException -> fail(500)
+        $result = $this->mock->tarResponse
+        (
+            null ,
+            $response ,
+            [ $this->file ] ,
+            $this->dir . '/bad.tar.zip' ,
+            CompressionType::ZIP
         );
 
         $this->assertSame( $response , $result );
