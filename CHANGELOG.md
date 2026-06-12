@@ -38,6 +38,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 - Controllers
   - `ImageTrait::imagickResponse()` no longer raises a `TypeError` from its error handler: the `catch` called `fail( $response , 500 , $e->getMessage() )`, passing the `Response` into the `?Request` slot and `500` into the `?Response` slot. It now calls `fail( null , $response , 500 , ... )` (the method has no request parameter), so an Imagick failure returns a proper `500` response instead of crashing.
+  - `HttpCacheTrait::initializeHttpCache()` now reads the `CacheProvider` from the `$container` argument it just probed with `has()`, instead of from `$this->container`. The trait declares no `container` property (it does not use `ContainerTrait`), so resolving the provider from the DI container raised an uninitialized-property error in standalone use; it only worked inside `Controller` by accident. Now consistent with the sibling traits (`ApiTrait`, `RouterTrait`, `TwigTrait`, `BaseUrlTrait`).
 - Date
   - `TimeInterval::parse()` no longer drops the fractional part of seconds on durations >= 60s: the decimal-precision detection searched for a space instead of the decimal point, so `parse(90.25)` returned `30.0` seconds instead of `30.25` (fractions were preserved below 60s only).
 - Logging

@@ -2,10 +2,8 @@
 
 namespace oihana\controllers\traits;
 
-use RuntimeException;
-
-use DI\DependencyException;
-use DI\NotFoundException;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 use oihana\controllers\enums\ControllerParam;
 
@@ -90,9 +88,8 @@ trait HttpCacheTrait
      *
      * @return static Returns the current instance for method chaining
      *
-     * @throws DependencyException If container dependency cannot be resolved
-     * @throws NotFoundException If container entry is not found
-     * @throws RuntimeException If no valid `CacheProvider` could be assigned.
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     public function initializeHttpCache( array $init = [] , ?ContainerInterface $container = null ):static
     {
@@ -100,7 +97,7 @@ trait HttpCacheTrait
 
         if( $httpCache === null && $container instanceof ContainerInterface && $container->has( CacheProvider::class ) )
         {
-            $httpCache = $this->container->get( CacheProvider::class  ) ;
+            $httpCache = $container->get( CacheProvider::class ) ;
         }
 
         if ( $httpCache instanceof CacheProvider )
