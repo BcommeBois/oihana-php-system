@@ -68,18 +68,7 @@ function getParamBool
         return $defaultValue ;
     }
 
-    try
-    {
-        $value = getParam($request, $name, $args, $strategy, $throwable);
-    }
-    catch ( NotFoundException $e )
-    {
-        if ( $throwable )
-        {
-            throw $e ;
-        }
-        return $defaultValue ;
-    }
+    $value = getParam( $request , $name , $args , $strategy , $throwable ) ;
 
     if ( $value === null )
     {
