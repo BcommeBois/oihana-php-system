@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Added
 
+- Controllers
+  - `FileResponseOption` enum (`oihana\controllers\enums`) centralizing the `FileTrait::fileResponse()` option keys (`useContentType`, `useContentLength`, `useContentDisposition`, `contentDisposition`) to avoid magic strings.
 - Traits
   - `LazyTrait` : Provides a configurable `lazy` mode resolved from the DI container, an initialization array or the property default (`initializeLazy()`, `isLazy()`, `LAZY` constant).
 - Graphics
@@ -24,6 +26,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Changed
 
+- Controllers
+  - `FileTrait::fileResponse()` now validates the target with `oihana\files\assertFile()` before reading it: a missing or unreadable file raises a `FileException` caught by the existing handler (clean `500` response) instead of leaking `E_WARNING`s from `mime_content_type()`/`filesize()`/`file_get_contents()`. The `Content-Length` header value is now cast to a string (PSR-7 compliant).
+  - `FileTrait::zip()` suppresses the redundant `E_WARNING` from `ZipArchive::open()` on failure (the error is already surfaced as a `500` response) and removes the temporary archive once its content has been streamed into the response body. The `Pragma` header uses the `CacheControlDirective::NO_CACHE` constant instead of a literal.
 - Date
   - `TimeInterval` now delegates the integral/fractional split of day and hour values to `oihana\core\numbers\modf()` (php-core); the private `numberBreakdown()` helper is removed (its negative-number branch was unreachable from the `(\d+...)` regex captures).
 - Logging
@@ -51,6 +56,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 ### Removed
 
+- Controllers
+  - `FileTrait`: removed the unused public `$tmpPath` property (dead code — never read or written).
 - Logging
   - `Logger`: removed the unused private `$_defaultSeverity` static property (dead code — never referenced).
 - Graphics
