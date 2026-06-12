@@ -110,6 +110,7 @@
         "php": ">=8.4",
         "ext-fileinfo" : "*",
         "ext-imagick" : "*" ,
+        "ext-openssl" : "*",
         "ext-pdo": "*",
         "ext-zip" : "*",
         

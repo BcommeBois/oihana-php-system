@@ -23,7 +23,7 @@ jobs:
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
-          extensions: bz2, fileinfo, imagick, pdo, zip
+          extensions: bz2, fileinfo, imagick, openssl, pdo, zip
           coverage: none
           tools: composer:v2
 
