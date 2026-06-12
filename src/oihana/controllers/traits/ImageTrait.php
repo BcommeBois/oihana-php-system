@@ -7,27 +7,63 @@ use Imagick;
 use ImagickException;
 use ImagickPixel;
 
+use oihana\controllers\enums\FileResponseOption;
+use oihana\controllers\enums\ImagickResponseOption;
+use oihana\controllers\enums\ResizeOption;
 use oihana\enums\http\HttpHeader;
 use oihana\graphics\AspectRatio;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
+use function oihana\files\assertFile;
+
 trait ImageTrait
 {
     use StatusTrait ;
 
     /**
-     * The default image compression of the output image.
+     * The default Imagick compression of the output image.
      */
-    public int $compression = Imagick::COMPRESSION_JPEG ;
-
-    public function getImagesRoot():string
-    {
-        return $this->config['images']['root'] ?? '' ; // FIXME use a property to initialize the default image root path.
-    }
+    public const int DEFAULT_COMPRESSION = Imagick::COMPRESSION_JPEG ;
 
     /**
+     * The default output image format.
+     */
+    public const string DEFAULT_FORMAT = 'jpg' ;
+
+    /**
+     * The default maximum height used by {@see self::resize()}.
+     */
+    public const int DEFAULT_MAX_HEIGHT = 1200 ;
+
+    /**
+     * The default maximum width used by {@see self::resize()}.
+     */
+    public const int DEFAULT_MAX_WIDTH = 1920 ;
+
+    /**
+     * The default Imagick compression quality (0-100).
+     */
+    public const int DEFAULT_QUALITY = 70 ;
+
+    /**
+     * The key used to initialize the images root path from an array.
+     */
+    public const string IMAGE_PATH = 'imagePath' ;
+
+    /**
+     * The root path where the images are stored on the server.
+     */
+    public string $imagePath = '' ;
+
+    /**
+     * Returns the dimensions (width and height) of an image.
+     *
+     * @param Imagick|string $image The Imagick instance or the path of the image file.
+     *
+     * @return ?array An associative array with `width` and `height` keys.
+     *
      * @throws ImagickException
      */
     public function getImageDimensions( Imagick|string $image ) :?array
@@ -36,10 +72,16 @@ trait ImageTrait
         {
             $image = new Imagick( $image ) ;
         }
-        return [ 'width' => $image->getImageWidth() , 'height' => $image->getImageHeight() ] ;
+        return [ ResizeOption::WIDTH => $image->getImageWidth() , ResizeOption::HEIGHT => $image->getImageHeight() ] ;
     }
 
     /**
+     * Returns the height of an image.
+     *
+     * @param Imagick|string $image The Imagick instance or the path of the image file.
+     *
+     * @return int The image height in pixels.
+     *
      * @throws ImagickException
      */
     public function getImageHeight( Imagick|string $image ) :int
@@ -52,6 +94,22 @@ trait ImageTrait
     }
 
     /**
+     * Returns the root path where the images are stored on the server.
+     *
+     * @return string The images root path.
+     */
+    public function getImagePath() :string
+    {
+        return $this->imagePath ;
+    }
+
+    /**
+     * Returns the width of an image.
+     *
+     * @param Imagick|string $image The Imagick instance or the path of the image file.
+     *
+     * @return int The image width in pixels.
+     *
      * @throws ImagickException
      */
     public function getImageWidth( Imagick|string $image ) :int
@@ -63,22 +121,19 @@ trait ImageTrait
         return $image->getImageWidth() ;
     }
 
-    protected array $image_response_default_options =
-    [
-        'contentDisposition'    => null ,
-        'format'                => 'jpg' ,
-        'useContentDisposition' => false ,
-        'useContentLength'      => true ,
-        'useContentType'        => true
-    ];
-
     /**
-     * Returns an Image response
-     * @param ?Request $request Optional PSR-7 Request object.
-     * @param Response $response The PSR-7 Response object.
-     * @param string $file
-     * @param array $options
-     * @return Response
+     * Streams an image file as a PSR-7 response.
+     *
+     * The file is validated with {@see assertFile()} first; a missing or unreadable
+     * file is reported as a `500` response (see the `catch` below). Optional content
+     * headers are toggled via `$options`, keyed by {@see FileResponseOption}.
+     *
+     * @param ?Request $request  Optional PSR-7 Request object (used to build the failure response).
+     * @param Response $response The PSR-7 Response object to write the image into.
+     * @param string   $file     Absolute path of the image file to send.
+     * @param array    $options  Optional header switches (see {@see FileResponseOption}).
+     *
+     * @return Response The response carrying the image body, or a `500` failure response on error.
      */
     public function imageResponse
     (
@@ -91,11 +146,13 @@ trait ImageTrait
     {
         try
         {
-            $contentDisposition    = $options[ 'contentDisposition'    ] ?? null  ;
-            $format                = $options[ 'format'                ] ?? 'jpg' ;
-            $useContentDisposition = $options[ 'useContentDisposition' ] ?? false ;
-            $useContentLength      = $options[ 'useContentLength'      ] ?? true  ;
-            $useContentType        = $options[ 'useContentType'        ] ?? true  ;
+            assertFile( $file ) ; // throws FileException (extends Exception) on a missing/unreadable file
+
+            $contentDisposition    = $options[ FileResponseOption::CONTENT_DISPOSITION     ] ?? null ;
+            $format                = $options[ FileResponseOption::FORMAT                  ] ?? self::DEFAULT_FORMAT ;
+            $useContentDisposition = $options[ FileResponseOption::USE_CONTENT_DISPOSITION ] ?? false ;
+            $useContentLength      = $options[ FileResponseOption::USE_CONTENT_LENGTH      ] ?? true ;
+            $useContentType        = $options[ FileResponseOption::USE_CONTENT_TYPE        ] ?? true ;
 
             if( $useContentType )
             {
@@ -105,7 +162,7 @@ trait ImageTrait
 
             if( $useContentLength )
             {
-                $response = $response->withHeader( HttpHeader::CONTENT_LENGTH , filesize( $file ) ) ;
+                $response = $response->withHeader( HttpHeader::CONTENT_LENGTH , (string) filesize( $file ) ) ;
             }
 
             if( $useContentDisposition )
@@ -123,41 +180,28 @@ trait ImageTrait
         }
     }
 
-    protected array $imagick_response_default_options =
-    [
-        'compression' => Imagick::COMPRESSION_JPEG ,
-        'quality'     => 70    ,
-        'gray'        => false ,
-        'strip'       => false ,
-    ];
-
     /**
-     * Returns an Image response with options to transform the image before.
-     * @param Response $response
-     * @param mixed $image
-     * @param array $options
-     * @return Response
+     * Returns an image response, applying optional Imagick transforms beforehand.
+     *
+     * @param Response       $response The PSR-7 Response object to write the image into.
+     * @param string|Imagick $image    The Imagick instance or the path of the image file.
+     * @param array          $options  Optional transform/header switches (see {@see ImagickResponseOption} and {@see FileResponseOption}).
+     *
+     * @return Response The response carrying the transformed image, or a `500` failure response on error.
      */
     public function imagickResponse( Response $response , string|Imagick $image , array $options = [] ): Response
     {
         try
         {
-            [
-                'compression'           => $compression ,
-                'contentDisposition'    => $contentDisposition ,
-                'quality'               => $quality ,
-                'gray'                  => $gray ,
-                'format'                => $format ,
-                'strip'                 => $strip ,
-                'useContentDisposition' => $useContentDisposition ,
-                'useContentLength'      => $useContentLength ,
-                'useContentType'        => $useContentType
-            ]
-            = [
-                ...$this->image_response_default_options ,
-                ...$this->imagick_response_default_options ,
-                ...$options
-            ] ;
+            $compression           = $options[ ImagickResponseOption::COMPRESSION          ] ?? self::DEFAULT_COMPRESSION ;
+            $contentDisposition    = $options[ FileResponseOption::CONTENT_DISPOSITION      ] ?? null ;
+            $quality               = $options[ ImagickResponseOption::QUALITY               ] ?? self::DEFAULT_QUALITY ;
+            $gray                  = $options[ ImagickResponseOption::GRAY                  ] ?? false ;
+            $format                = $options[ FileResponseOption::FORMAT                   ] ?? self::DEFAULT_FORMAT ;
+            $strip                 = $options[ ImagickResponseOption::STRIP                 ] ?? false ;
+            $useContentDisposition = $options[ FileResponseOption::USE_CONTENT_DISPOSITION  ] ?? false ;
+            $useContentLength      = $options[ FileResponseOption::USE_CONTENT_LENGTH       ] ?? true ;
+            $useContentType        = $options[ FileResponseOption::USE_CONTENT_TYPE         ] ?? true ;
 
             if( is_string( $image ) )
             {
@@ -189,7 +233,7 @@ trait ImageTrait
 
             if( $useContentLength )
             {
-                $response = $response->withHeader( HttpHeader::CONTENT_LENGTH , strlen( $image->__toString() ) ) ;
+                $response = $response->withHeader( HttpHeader::CONTENT_LENGTH , (string) strlen( $image->__toString() ) ) ;
             }
 
             if( $useContentDisposition )
@@ -209,20 +253,31 @@ trait ImageTrait
         }
     }
 
-    protected array $resize_options_default =
-    [
-        'maxHeight' => 1200 ,
-        'maxWidth'  => 1920
-    ];
+    /**
+     * Initializes the images root path.
+     *
+     * @param string|array $init Either the path string directly, or an array
+     *                           carrying it under the {@see self::IMAGE_PATH} key.
+     *
+     * @return static Returns the current instance for method chaining.
+     */
+    public function initializeImagePath( string|array $init = [] ) :static
+    {
+        $this->imagePath = is_string( $init ) ? $init : ( $init[ self::IMAGE_PATH ] ?? '' ) ;
+        return $this ;
+    }
 
     /**
      * Resize an image.
      * Ex: ../image?resize=true&w=50&h=50
-     * @param Imagick|string|null $image The url of the image file or the Imagick object reference to transform.
-     * @param ?int $w
-     * @param ?int $h
-     * @param array $options
+     *
+     * @param Imagick|string|null $image   The url of the image file or the Imagick object reference to transform.
+     * @param ?int                $w       Optional explicit target width.
+     * @param ?int                $h       Optional explicit target height.
+     * @param array               $options Optional overrides (see {@see ResizeOption}).
+     *
      * @return string|Imagick|null
+     *
      * @throws ImagickException
      */
     public function resize( Imagick|string|null $image , ?int $w = null , ?int $h = null , array $options = [] ):string|Imagick|null
@@ -234,13 +289,11 @@ trait ImageTrait
                 $image = new Imagick( $image ) ;
             }
 
-            [
-                'height'    => $height ,
-                'maxHeight' => $maxHeight ,
-                'maxWidth'  => $maxWidth ,
-                'width'     => $width
-            ]
-            = [ ...$image->getImageGeometry() , ...$this->resize_options_default , ...$options ] ;
+            $geometry  = $image->getImageGeometry() ;
+            $width     = $options[ ResizeOption::WIDTH      ] ?? $geometry[ ResizeOption::WIDTH  ] ;
+            $height    = $options[ ResizeOption::HEIGHT     ] ?? $geometry[ ResizeOption::HEIGHT ] ;
+            $maxWidth  = $options[ ResizeOption::MAX_WIDTH  ] ?? self::DEFAULT_MAX_WIDTH ;
+            $maxHeight = $options[ ResizeOption::MAX_HEIGHT ] ?? self::DEFAULT_MAX_HEIGHT ;
 
             if( ( $width > $maxWidth ) || ( $height > $maxHeight ) )
             {
@@ -261,11 +314,11 @@ trait ImageTrait
             {
                 $ratio = new AspectRatio( $width , $height , true ) ;
 
-                if( $hasW > 0 )
+                if( $hasW )
                 {
                     $ratio->width = $w ;
                 }
-                elseif( $hasH > 0 )
+                elseif( $hasH )
                 {
                     $ratio->height = $h ;
                 }
@@ -282,9 +335,12 @@ trait ImageTrait
      * Apply a shadow over an image.
      * Ex: ../image?shadow=true
      * Ex: ../image?shadow=60,4,10,20
+     *
      * @param Imagick|string|null $image The url of the image file or the Imagick object reference to transform.
-     * @param ?string $value
+     * @param ?string             $value The shadow definition: `opacity,sigma,x,y`.
+     *
      * @return string|Imagick|null
+     *
      * @throws ImagickException
      */
     public function shadow( Imagick|string|null $image , null|string $value = null  ):string|Imagick|null

@@ -9,7 +9,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ### Added
 
 - Controllers
-  - `FileResponseOption` enum (`oihana\controllers\enums`) centralizing the `FileTrait::fileResponse()` option keys (`useContentType`, `useContentLength`, `useContentDisposition`, `contentDisposition`) to avoid magic strings.
+  - `FileResponseOption` enum (`oihana\controllers\enums`) centralizing the file/image response option keys (`useContentType`, `useContentLength`, `useContentDisposition`, `contentDisposition`, `format`) to avoid magic strings.
+  - `ImagickResponseOption` enum (`compression`, `quality`, `gray`, `strip`) and `ResizeOption` enum (`width`, `height`, `maxWidth`, `maxHeight`) backing `ImageTrait`'s Imagick transform and resize options.
+  - `ImageTrait::initializeImagePath()` with a public `$imagePath` property, the `IMAGE_PATH` init key and `DEFAULT_COMPRESSION`/`DEFAULT_FORMAT`/`DEFAULT_MAX_HEIGHT`/`DEFAULT_MAX_WIDTH`/`DEFAULT_QUALITY` constants. The init accepts either a path string or an array keyed by `IMAGE_PATH` (mirrors `MockTrait::initializeMock()`).
 - Traits
   - `LazyTrait` : Provides a configurable `lazy` mode resolved from the DI container, an initialization array or the property default (`initializeLazy()`, `isLazy()`, `LAZY` constant).
 - Graphics
@@ -29,6 +31,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 - Controllers
   - `FileTrait::fileResponse()` now validates the target with `oihana\files\assertFile()` before reading it: a missing or unreadable file raises a `FileException` caught by the existing handler (clean `500` response) instead of leaking `E_WARNING`s from `mime_content_type()`/`filesize()`/`file_get_contents()`. The `Content-Length` header value is now cast to a string (PSR-7 compliant).
   - `FileTrait::zip()` suppresses the redundant `E_WARNING` from `ZipArchive::open()` on failure (the error is already surfaced as a `500` response) and removes the temporary archive once its content has been streamed into the response body. The `Pragma` header uses the `CacheControlDirective::NO_CACHE` constant instead of a literal.
+  - `ImageTrait::imageResponse()` now validates the file with `oihana\files\assertFile()` first (missing/unreadable file → clean `500` instead of leaked warnings), mirroring `FileTrait::fileResponse()`. The response/Imagick/resize option keys are extracted into the `FileResponseOption`, `ImagickResponseOption` and `ResizeOption` enums, the default values become trait constants, and the option arrays are read directly (`$options[KEY] ?? self::DEFAULT_X`) instead of the previous list-destructuring with spread defaults. `Content-Length` values are cast to strings (PSR-7).
+  - `ImageTrait::getImagesRoot()` is renamed to `getImagePath()` and now returns the new `$imagePath` property instead of reading `$this->config['images']['root']` (the trait no longer depends on a `config` property).
 - Date
   - `TimeInterval` now delegates the integral/fractional split of day and hour values to `oihana\core\numbers\modf()` (php-core); the private `numberBreakdown()` helper is removed (its negative-number branch was unreachable from the `(\d+...)` regex captures).
 - Logging
@@ -58,6 +62,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 
 - Controllers
   - `FileTrait`: removed the unused public `$tmpPath` property (dead code — never read or written).
+  - `ImageTrait`: removed the unused public `$compression` property (dead code — never read; the default is now the `DEFAULT_COMPRESSION` constant) and the `$image_response_default_options`/`$imagick_response_default_options`/`$resize_options_default` array properties (replaced by `DEFAULT_*` constants).
 - Logging
   - `Logger`: removed the unused private `$_defaultSeverity` static property (dead code — never referenced).
 - Graphics

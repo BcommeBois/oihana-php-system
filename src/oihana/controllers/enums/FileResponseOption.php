@@ -24,6 +24,11 @@ class FileResponseOption
     public const string CONTENT_DISPOSITION = 'contentDisposition' ;
 
     /**
+     * The output format (e.g. `jpg`) used to build the `image/<format>` content type. Default: `jpg`.
+     */
+    public const string FORMAT = 'format' ;
+
+    /**
      * Whether to add a `Content-Disposition` header to the response. Default: false.
      */
     public const string USE_CONTENT_DISPOSITION = 'useContentDisposition' ;
