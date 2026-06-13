@@ -69,6 +69,7 @@ final class ImageTraitTest extends TestCase
         $response->method('getBody')->willReturn( $stream );
         $response->method('withStatus')->willReturnSelf();
         $response->method('withHeader')->willReturnSelf();
+        $response->method('withBody')->willReturnSelf();
 
         return $response;
     }

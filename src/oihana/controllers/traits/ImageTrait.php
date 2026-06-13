@@ -16,6 +16,8 @@ use oihana\graphics\AspectRatio;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
+use Slim\Psr7\Factory\StreamFactory;
+
 use function oihana\files\assertFile;
 
 trait ImageTrait
@@ -170,9 +172,8 @@ trait ImageTrait
                 $response = $response->withHeader( HttpHeader::CONTENT_DISPOSITION , $contentDisposition ) ;
             }
 
-            $response->getBody()->write( file_get_contents( $file ) );
-
-            return $response ;
+            // streamed (lazy read at emit time) so large images are not loaded into memory
+            return $response->withBody( new StreamFactory()->createStreamFromFile( $file ) ) ;
         }
         catch( Exception $e )
         {

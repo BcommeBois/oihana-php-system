@@ -7,6 +7,8 @@ use Exception;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
+use Slim\Psr7\Factory\StreamFactory;
+
 use oihana\controllers\enums\FileResponseOption;
 use oihana\enums\http\HttpHeader;
 
@@ -67,9 +69,8 @@ trait FileTrait
                 $response = $response->withHeader( HttpHeader::CONTENT_DISPOSITION , $contentDisposition ) ;
             }
 
-            $response->getBody()->write( file_get_contents( $file ) );
-
-            return $response ;
+            // streamed (lazy read at emit time) so large files are not loaded into memory
+            return $response->withBody( new StreamFactory()->createStreamFromFile( $file ) ) ;
         }
         catch( Exception $e )
         {

@@ -51,8 +51,19 @@ final class FileTraitTest extends TestCase
         $response->method('getBody')->willReturn( $stream );
         $response->method('withStatus')->willReturnSelf();
         $response->method('withHeader')->willReturnSelf();
+        $response->method('withBody')->willReturnSelf();
 
         return $response;
+    }
+
+    public function testFileResponseStreamsFileContent(): void
+    {
+        // a real PSR-7 response proves the body is streamed from the file
+        $response = new \Slim\Psr7\Factory\ResponseFactory()->createResponse();
+
+        $result = $this->mock->fileResponse( null , $response , $this->file );
+
+        $this->assertSame( 'hello world' , (string) $result->getBody() );
     }
 
     public function testFileResponseWithAllHeaders(): void
