@@ -3,12 +3,10 @@
 namespace oihana\controllers\traits;
 
 use Exception;
-use ZipArchive;
 
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-use oihana\controllers\enums\ExtractOption;
 use oihana\controllers\enums\FileResponseOption;
 use oihana\enums\http\CacheControlDirective;
 use oihana\enums\http\HttpHeader;
@@ -20,17 +18,17 @@ use oihana\files\exceptions\FileException;
 use function oihana\controllers\helpers\applyContentHeaders;
 use function oihana\files\archive\tar\tar;
 use function oihana\files\archive\tar\untar;
-use function oihana\files\path\canonicalizePath;
-use function oihana\files\path\isBasePath;
-use function oihana\files\path\joinPaths;
+use function oihana\files\archive\zip\unzip;
+use function oihana\files\archive\zip\zip;
 
 /**
  * Provides helpers to bundle files into an archive (tar/zip) and stream it as a
  * PSR-7 download response, and to extract incoming archives back to disk.
  *
- * The download helpers build the archive then delegate header emission, streaming and
- * temporary-file cleanup to the shared {@see self::archiveDownload()} method. The
- * extraction helpers guard against path traversal (Zip Slip) and decompression bombs.
+ * The download helpers build the archive (delegating creation to the `oihana\files\archive`
+ * tar/zip helpers) then delegate header emission, streaming and temporary-file cleanup to the
+ * shared {@see self::archiveDownload()} method. The extraction helpers delegate to the same
+ * package, which guards against path traversal (Zip Slip) and decompression bombs.
  *
  * @package oihana\controllers\traits
  */
@@ -59,96 +57,26 @@ trait ArchiveTrait
     }
 
     /**
-     * Extracts a ZIP archive into a destination directory, guarding against path traversal
-     * (Zip Slip) and decompression bombs.
+     * Extracts a ZIP archive into a destination directory.
+     *
+     * Thin wrapper around `oihana\files\archive\zip\unzip()`, which guards against path
+     * traversal (Zip Slip) and decompression bombs, and supports a dry run and overwrite
+     * control (see {@see ZipOption}).
      *
      * @param string $archive Path of the ZIP archive to extract.
      * @param string $destDir Directory where the archive is extracted.
-     * @param array  $options Optional flags, keyed by {@see ExtractOption}:
-     *                        - `maxEntries` (int)  reject archives with more entries.
-     *                        - `maxSize`    (int)  reject archives whose total uncompressed size exceeds it.
-     *                        - `overwrite`  (bool) allow overwriting existing files (default false).
+     * @param array  $options Optional flags, keyed by {@see ZipOption} (`dryRun`, `overwrite`,
+     *                        `maxEntries`, `maxSize`, `keepPermissions`).
      *
-     * @return string[] The list of extracted entry names (relative to the archive root).
+     * @return true|array `true` on success, or the list of entries when `dryRun` is enabled.
      *
-     * @throws FileException      If the archive cannot be opened, an entry escapes the destination,
-     *                            a bomb guard trips, or a target exists without `overwrite`.
+     * @throws FileException      If the archive is invalid/inaccessible, an entry escapes the
+     *                            destination, a bomb guard trips, or a target exists without `overwrite`.
      * @throws DirectoryException If the destination directory cannot be created.
      */
-    public function extractZip( string $archive , string $destDir , array $options = [] ) : array
+    public function extractZip( string $archive , string $destDir , array $options = [] ) : true|array
     {
-        $maxEntries = $options[ ExtractOption::MAX_ENTRIES ] ?? null ;
-        $maxSize    = $options[ ExtractOption::MAX_SIZE    ] ?? null ;
-        $overwrite  = $options[ ExtractOption::OVERWRITE   ] ?? false ;
-
-        $zip = new ZipArchive() ;
-
-        // @-suppressed: open() emits an E_WARNING on a bad archive; the error is surfaced below.
-        if( @$zip->open( $archive ) !== true )
-        {
-            throw new FileException( sprintf( 'Cannot open the zip archive "%s".' , $archive ) ) ;
-        }
-
-        if( is_int( $maxEntries ) && $zip->numFiles > $maxEntries )
-        {
-            $zip->close() ;
-            throw new FileException( sprintf( 'The zip archive has too many entries (%d > %d).' , $zip->numFiles , $maxEntries ) ) ;
-        }
-
-        if( is_int( $maxSize ) )
-        {
-            $total = 0 ;
-            for( $i = 0 ; $i < $zip->numFiles ; $i++ )
-            {
-                $total += (int) ( $zip->statIndex( $i )[ 'size' ] ?? 0 ) ;
-            }
-            if( $total > $maxSize )
-            {
-                $zip->close() ;
-                throw new FileException( sprintf( 'The zip archive exceeds the maximum extracted size (%d > %d bytes).' , $total , $maxSize ) ) ;
-            }
-        }
-
-        if( !is_dir( $destDir ) && !@mkdir( $destDir , 0o775 , true ) )
-        {
-            $zip->close() ;
-            throw new DirectoryException( sprintf( 'The destination directory "%s" cannot be created.' , $destDir ) ) ;
-        }
-
-        $base      = canonicalizePath( $destDir ) ;
-        $extracted = [] ;
-
-        for( $i = 0 ; $i < $zip->numFiles ; $i++ )
-        {
-            $name   = $zip->getNameIndex( $i ) ;
-            $target = canonicalizePath( joinPaths( $destDir , $name ) ) ;
-
-            if( !isBasePath( $base , $target ) )
-            {
-                $zip->close() ;
-                throw new FileException( sprintf( 'Zip Slip detected: the entry "%s" escapes the destination directory.' , $name ) ) ;
-            }
-
-            if( str_ends_with( $name , '/' ) ) // directory entry
-            {
-                @mkdir( $target , 0o775 , true ) ;
-                continue ;
-            }
-
-            if( !$overwrite && file_exists( $target ) )
-            {
-                $zip->close() ;
-                throw new FileException( sprintf( 'The target file "%s" already exists.' , $target ) ) ;
-            }
-
-            @mkdir( dirname( $target ) , 0o775 , true ) ;
-            file_put_contents( $target , $zip->getFromIndex( $i ) ) ;
-            $extracted[] = $name ;
-        }
-
-        $zip->close() ;
-
-        return $extracted ;
+        return unzip( $archive , $destDir , $options ) ;
     }
 
     /**
@@ -201,17 +129,18 @@ trait ArchiveTrait
     /**
      * Bundles a set of files into a ZIP archive and streams it as a download response.
      *
-     * Each entry is added from `$path . $name`. If the archive cannot be created, a
-     * `500` response is returned.
+     * Delegates the archive creation to `oihana\files\archive\zip\zip()`, with `$path` used as
+     * the preserved root so each entry keeps its name relative to `$path` (i.e. `$path . $name`).
+     * If the archive cannot be created, a `500` response is returned.
      *
      * @param ?Request $request  Optional PSR-7 Request object (used to build the failure response).
      * @param Response $response The PSR-7 Response object to write the archive into.
      * @param array    $files    List of file names (relative to `$path`) to add to the archive.
      * @param string   $archive  Absolute path of the ZIP archive to create.
-     * @param string   $path     Base directory prepended to each entry in `$files`.
+     * @param string   $path     Base directory prepended to each entry in `$files` (preserved root).
      * @param array    $options  Optional header switches (see {@see FileResponseOption}).
      *
-     * @return Response The response carrying the archive, or a `500` failure response if it could not be opened.
+     * @return Response The response carrying the archive, or a `500` failure response on error.
      */
     public function zipResponse
     (
@@ -224,23 +153,16 @@ trait ArchiveTrait
     )
     : Response
     {
-        $zip = new ZipArchive();
-
-        // @-suppressed: open() emits an E_WARNING when the path cannot be opened,
-        // but the failure is already surfaced as a 500 response below.
-        if ( @$zip->open( $archive , ZIPARCHIVE::CREATE ) !== true )
+        try
         {
-            return $this->fail( $request , $response , 500 , 'zip failed, cannot open the archive path : ' . $archive ) ;
-        }
+            $produced = zip( array_map( fn( string $name ) => $path . $name , $files ) , $archive , CompressionType::ZIP , $path ) ;
 
-        foreach( $files as $name )
+            return $this->archiveDownload( $response , $produced , FileMimeType::ZIP , $options ) ;
+        }
+        catch( Exception $e )
         {
-            $zip->addFile( $path . $name , $name );
+            return $this->fail( $request , $response , 500 , $e->getMessage() ) ;
         }
-
-        $zip->close();
-
-        return $this->archiveDownload( $response , $archive , FileMimeType::ZIP , $options ) ;
     }
 
     /**

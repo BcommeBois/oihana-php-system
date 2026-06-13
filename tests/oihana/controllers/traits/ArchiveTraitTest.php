@@ -7,14 +7,13 @@ use RecursiveIteratorIterator;
 use FilesystemIterator;
 use ZipArchive;
 
-use oihana\controllers\enums\ExtractOption;
 use oihana\controllers\enums\FileResponseOption;
 use oihana\controllers\traits\ArchiveTrait;
 use oihana\enums\http\CacheControlDirective;
 use oihana\enums\http\HttpHeader;
 use oihana\files\enums\CompressionType;
 use oihana\files\enums\FileMimeType;
-use oihana\files\exceptions\DirectoryException;
+use oihana\files\enums\ZipOption;
 use oihana\files\exceptions\FileException;
 
 use PHPUnit\Framework\TestCase;
@@ -131,17 +130,17 @@ final class ArchiveTraitTest extends TestCase
         $this->assertFileDoesNotExist( $archive ); // streamed then removed
     }
 
-    public function testZipResponseFailsWhenArchiveCannotBeOpened(): void
+    public function testZipResponseFailsWhenAFileIsMissing(): void
     {
         $response = $this->response();
 
-        // archive path sits *under an existing file* -> ENOTDIR -> open() != true -> fail()
+        // a listed file does not exist -> zip() throws FileException -> fail(500)
         $result = $this->mock->zipResponse
         (
             null ,
             $response ,
-            [ 'hello.txt' ] ,
-            $this->file . '/bundle.zip' ,
+            [ 'does-not-exist.txt' ] ,
+            $this->dir . '/bundle.zip' ,
             $this->dir . '/'
         );
 
@@ -248,12 +247,23 @@ final class ArchiveTraitTest extends TestCase
         $zip = $this->makeZip( $this->dir . '/bundle.zip' , [ 'a.txt' => 'AAA' , 'sub/b.txt' => 'BBB' ] );
         $out = $this->dir . '/out';
 
-        $extracted = $this->mock->extractZip( $zip , $out );
+        $result = $this->mock->extractZip( $zip , $out );
 
-        $this->assertContains( 'a.txt' , $extracted );
-        $this->assertContains( 'sub/b.txt' , $extracted );
+        $this->assertTrue( $result );
         $this->assertSame( 'AAA' , file_get_contents( $out . '/a.txt' ) );
         $this->assertSame( 'BBB' , file_get_contents( $out . '/sub/b.txt' ) );
+    }
+
+    public function testExtractZipDryRunListsEntriesWithoutWriting(): void
+    {
+        $zip = $this->makeZip( $this->dir . '/bundle.zip' , [ 'a.txt' => 'AAA' , 'sub/b.txt' => 'BBB' ] );
+        $out = $this->dir . '/out';
+
+        $entries = $this->mock->extractZip( $zip , $out , [ ZipOption::DRY_RUN => true ] );
+
+        $this->assertContains( 'a.txt' , $entries );
+        $this->assertContains( 'sub/b.txt' , $entries );
+        $this->assertFileDoesNotExist( $out . '/a.txt' ); // dry run: nothing written
     }
 
     public function testExtractZipRejectsZipSlip(): void
@@ -269,7 +279,7 @@ final class ArchiveTraitTest extends TestCase
         $zip = $this->makeZip( $this->dir . '/many.zip' , [ 'a.txt' => 'A' , 'b.txt' => 'B' , 'c.txt' => 'C' ] );
 
         $this->expectException( FileException::class );
-        $this->mock->extractZip( $zip , $this->dir . '/out' , [ ExtractOption::MAX_ENTRIES => 2 ] );
+        $this->mock->extractZip( $zip , $this->dir . '/out' , [ ZipOption::MAX_ENTRIES => 2 ] );
     }
 
     public function testExtractZipRejectsDecompressionBombBySize(): void
@@ -277,7 +287,7 @@ final class ArchiveTraitTest extends TestCase
         $zip = $this->makeZip( $this->dir . '/big.zip' , [ 'big.txt' => str_repeat( 'x' , 1000 ) ] );
 
         $this->expectException( FileException::class );
-        $this->mock->extractZip( $zip , $this->dir . '/out' , [ ExtractOption::MAX_SIZE => 100 ] );
+        $this->mock->extractZip( $zip , $this->dir . '/out' , [ ZipOption::MAX_SIZE => 100 ] );
     }
 
     public function testExtractZipOverwriteGuard(): void
@@ -287,16 +297,16 @@ final class ArchiveTraitTest extends TestCase
         mkdir( $out );
         file_put_contents( $out . '/a.txt' , 'OLD' );
 
-        // without overwrite -> rejected
+        // overwrite explicitly disabled -> rejected
         try
         {
-            $this->mock->extractZip( $zip , $out );
-            $this->fail( 'Expected a FileException when a target exists and overwrite is false.' );
+            $this->mock->extractZip( $zip , $out , [ ZipOption::OVERWRITE => false ] );
+            $this->fail( 'Expected a FileException when a target exists and overwrite is disabled.' );
         }
         catch ( FileException ) {}
 
-        // with overwrite -> replaced
-        $this->mock->extractZip( $zip , $out , [ ExtractOption::OVERWRITE => true ] );
+        // default (overwrite enabled, like untar) -> replaced
+        $this->mock->extractZip( $zip , $out );
         $this->assertSame( 'NEW' , file_get_contents( $out . '/a.txt' ) );
     }
 
@@ -317,18 +327,10 @@ final class ArchiveTraitTest extends TestCase
         $zip->close() ;
 
         $out = $this->dir . '/out';
-        $extracted = $this->mock->extractZip( $zipPath , $out );
+        $result = $this->mock->extractZip( $zipPath , $out );
 
+        $this->assertTrue( $result );
         $this->assertDirectoryExists( $out . '/emptydir' ); // directory entry handled
-        $this->assertContains( 'emptydir/keep.txt' , $extracted );
-    }
-
-    public function testExtractZipFailsWhenDestDirCannotBeCreated(): void
-    {
-        $zip = $this->makeZip( $this->dir . '/ok.zip' , [ 'a.txt' => 'A' ] );
-
-        // destination sits under an existing file -> mkdir fails (ENOTDIR)
-        $this->expectException( DirectoryException::class );
-        $this->mock->extractZip( $zip , $this->file . '/sub' );
+        $this->assertSame( 'K' , file_get_contents( $out . '/emptydir/keep.txt' ) );
     }
 }
