@@ -33,6 +33,7 @@
         "files":
         [
             "src/oihana/controllers/helpers/applyContentHeaders.php",
+            "src/oihana/controllers/helpers/parseRangeHeader.php",
             "src/oihana/controllers/helpers/filterLanguages.php",
             "src/oihana/controllers/helpers/translate.php",
             "src/oihana/controllers/helpers/getBodyParam.php",
