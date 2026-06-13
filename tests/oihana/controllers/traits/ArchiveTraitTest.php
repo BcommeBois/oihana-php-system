@@ -2,12 +2,20 @@
 
 namespace tests\oihana\controllers\traits;
 
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+use FilesystemIterator;
+use ZipArchive;
+
+use oihana\controllers\enums\ExtractOption;
 use oihana\controllers\enums\FileResponseOption;
 use oihana\controllers\traits\ArchiveTrait;
 use oihana\enums\http\CacheControlDirective;
 use oihana\enums\http\HttpHeader;
 use oihana\files\enums\CompressionType;
 use oihana\files\enums\FileMimeType;
+use oihana\files\exceptions\DirectoryException;
+use oihana\files\exceptions\FileException;
 
 use PHPUnit\Framework\TestCase;
 
@@ -36,11 +44,35 @@ final class ArchiveTraitTest extends TestCase
 
     protected function tearDown(): void
     {
-        foreach ( glob( $this->dir . '/*' ) ?: [] as $f )
+        if ( !is_dir( $this->dir ) )
         {
-            @unlink( $f );
+            return ;
+        }
+        $it = new RecursiveIteratorIterator
+        (
+            new RecursiveDirectoryIterator( $this->dir , FilesystemIterator::SKIP_DOTS ) ,
+            RecursiveIteratorIterator::CHILD_FIRST
+        ) ;
+        foreach ( $it as $entry )
+        {
+            $entry->isDir() ? @rmdir( $entry->getPathname() ) : @unlink( $entry->getPathname() ) ;
         }
         @rmdir( $this->dir );
+    }
+
+    /**
+     * Builds a zip archive at $path from a [name => content] map.
+     */
+    private function makeZip( string $path , array $entries ): string
+    {
+        $zip = new ZipArchive() ;
+        $zip->open( $path , ZipArchive::CREATE ) ;
+        foreach ( $entries as $name => $content )
+        {
+            $zip->addFromString( $name , $content ) ;
+        }
+        $zip->close() ;
+        return $path ;
     }
 
     /**
@@ -193,5 +225,110 @@ final class ArchiveTraitTest extends TestCase
         );
 
         $this->assertSame( $response , $result );
+    }
+
+    // ----------------------------------------------------------- extractTar
+
+    public function testExtractTarRestoresFiles(): void
+    {
+        $archive = $this->dir . '/bundle.tar.gz';
+        \oihana\files\archive\tar\tar( [ $this->file ] , $archive , CompressionType::GZIP );
+
+        $out = $this->dir . '/out';
+        $result = $this->mock->extractTar( $archive , $out );
+
+        $this->assertTrue( $result );
+        $this->assertSame( 'hello world' , file_get_contents( $out . '/hello.txt' ) );
+    }
+
+    // ----------------------------------------------------------- extractZip
+
+    public function testExtractZipRestoresFiles(): void
+    {
+        $zip = $this->makeZip( $this->dir . '/bundle.zip' , [ 'a.txt' => 'AAA' , 'sub/b.txt' => 'BBB' ] );
+        $out = $this->dir . '/out';
+
+        $extracted = $this->mock->extractZip( $zip , $out );
+
+        $this->assertContains( 'a.txt' , $extracted );
+        $this->assertContains( 'sub/b.txt' , $extracted );
+        $this->assertSame( 'AAA' , file_get_contents( $out . '/a.txt' ) );
+        $this->assertSame( 'BBB' , file_get_contents( $out . '/sub/b.txt' ) );
+    }
+
+    public function testExtractZipRejectsZipSlip(): void
+    {
+        $zip = $this->makeZip( $this->dir . '/evil.zip' , [ '../evil.txt' => 'PWNED' , 'ok.txt' => 'OK' ] );
+
+        $this->expectException( FileException::class );
+        $this->mock->extractZip( $zip , $this->dir . '/out' );
+    }
+
+    public function testExtractZipRejectsTooManyEntries(): void
+    {
+        $zip = $this->makeZip( $this->dir . '/many.zip' , [ 'a.txt' => 'A' , 'b.txt' => 'B' , 'c.txt' => 'C' ] );
+
+        $this->expectException( FileException::class );
+        $this->mock->extractZip( $zip , $this->dir . '/out' , [ ExtractOption::MAX_ENTRIES => 2 ] );
+    }
+
+    public function testExtractZipRejectsDecompressionBombBySize(): void
+    {
+        $zip = $this->makeZip( $this->dir . '/big.zip' , [ 'big.txt' => str_repeat( 'x' , 1000 ) ] );
+
+        $this->expectException( FileException::class );
+        $this->mock->extractZip( $zip , $this->dir . '/out' , [ ExtractOption::MAX_SIZE => 100 ] );
+    }
+
+    public function testExtractZipOverwriteGuard(): void
+    {
+        $zip = $this->makeZip( $this->dir . '/b.zip' , [ 'a.txt' => 'NEW' ] );
+        $out = $this->dir . '/out';
+        mkdir( $out );
+        file_put_contents( $out . '/a.txt' , 'OLD' );
+
+        // without overwrite -> rejected
+        try
+        {
+            $this->mock->extractZip( $zip , $out );
+            $this->fail( 'Expected a FileException when a target exists and overwrite is false.' );
+        }
+        catch ( FileException ) {}
+
+        // with overwrite -> replaced
+        $this->mock->extractZip( $zip , $out , [ ExtractOption::OVERWRITE => true ] );
+        $this->assertSame( 'NEW' , file_get_contents( $out . '/a.txt' ) );
+    }
+
+    public function testExtractZipInvalidArchiveThrows(): void
+    {
+        // $this->file is plain text, not a zip
+        $this->expectException( FileException::class );
+        $this->mock->extractZip( $this->file , $this->dir . '/out' );
+    }
+
+    public function testExtractZipCreatesDirectoryEntries(): void
+    {
+        $zipPath = $this->dir . '/dirs.zip';
+        $zip = new ZipArchive() ;
+        $zip->open( $zipPath , ZipArchive::CREATE ) ;
+        $zip->addEmptyDir( 'emptydir' ) ;
+        $zip->addFromString( 'emptydir/keep.txt' , 'K' ) ;
+        $zip->close() ;
+
+        $out = $this->dir . '/out';
+        $extracted = $this->mock->extractZip( $zipPath , $out );
+
+        $this->assertDirectoryExists( $out . '/emptydir' ); // directory entry handled
+        $this->assertContains( 'emptydir/keep.txt' , $extracted );
+    }
+
+    public function testExtractZipFailsWhenDestDirCannotBeCreated(): void
+    {
+        $zip = $this->makeZip( $this->dir . '/ok.zip' , [ 'a.txt' => 'A' ] );
+
+        // destination sits under an existing file -> mkdir fails (ENOTDIR)
+        $this->expectException( DirectoryException::class );
+        $this->mock->extractZip( $zip , $this->file . '/sub' );
     }
 }
