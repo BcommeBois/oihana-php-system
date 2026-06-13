@@ -5,7 +5,7 @@ namespace oihana\controllers\enums ;
 use oihana\reflect\traits\ConstantsTrait;
 
 /**
- * Enumeration of the option keys accepted by {@see oihana\controllers\traits\ArchiveTrait::extractZip()}.
+ * Enumeration of the option keys accepted by {@see ArchiveTrait::extractZip()}.
  *
  * @package oihana\controllers\enums
  * @author  Marc Alcaraz (ekameleon)
