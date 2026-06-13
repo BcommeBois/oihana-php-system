@@ -10,8 +10,8 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Psr7\Factory\StreamFactory;
 
 use oihana\controllers\enums\FileResponseOption;
-use oihana\enums\http\HttpHeader;
 
+use function oihana\controllers\helpers\applyContentHeaders;
 use function oihana\files\assertFile;
 
 trait FileTrait
@@ -49,25 +49,8 @@ trait FileTrait
         {
             assertFile( $file ) ; // throws FileException (extends Exception) on a missing/unreadable file
 
-            $contentDisposition    = $options[ FileResponseOption::CONTENT_DISPOSITION     ] ?? null ;
-            $useContentDisposition = $options[ FileResponseOption::USE_CONTENT_DISPOSITION ] ?? null ;
-            $useContentLength      = $options[ FileResponseOption::USE_CONTENT_LENGTH      ] ?? null ;
-            $useContentType        = $options[ FileResponseOption::USE_CONTENT_TYPE        ] ?? null ;
-
-            if( $useContentType )
-            {
-                $response = $response->withHeader( HttpHeader::CONTENT_TYPE , mime_content_type( $file ) ) ;
-            }
-
-            if( $useContentLength )
-            {
-                $response = $response->withHeader( HttpHeader::CONTENT_LENGTH , (string) filesize( $file ) ) ;
-            }
-
-            if( $useContentDisposition )
-            {
-                $response = $response->withHeader( HttpHeader::CONTENT_DISPOSITION , $contentDisposition ) ;
-            }
+            // headers off by default here: the caller opts in via $options
+            $response = applyContentHeaders( $response , $file , null , $options , defaultOn: false ) ;
 
             // streamed (lazy read at emit time) so large files are not loaded into memory
             return $response->withBody( new StreamFactory()->createStreamFromFile( $file ) ) ;

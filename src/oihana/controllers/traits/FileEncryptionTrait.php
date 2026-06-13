@@ -10,12 +10,13 @@ use Psr\Container\NotFoundExceptionInterface;
 use RuntimeException;
 
 use oihana\controllers\enums\FileResponseOption;
-use oihana\enums\http\HttpHeader;
 use oihana\files\openssl\OpenSSLFileEncryption;
 
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
+
+use function oihana\controllers\helpers\applyContentHeaders;
 
 /**
  * Provides helpers to encrypt/decrypt files and stream them as PSR-7 download responses,
@@ -182,25 +183,7 @@ trait FileEncryptionTrait
      */
     private function streamProducedFile( Response $response , string $produced , array $options = [] ) : Response
     {
-        $contentDisposition    = $options[ FileResponseOption::CONTENT_DISPOSITION     ] ?? 'attachment; filename=' . basename( $produced ) ;
-        $useContentDisposition = $options[ FileResponseOption::USE_CONTENT_DISPOSITION ] ?? true ;
-        $useContentLength      = $options[ FileResponseOption::USE_CONTENT_LENGTH      ] ?? true ;
-        $useContentType        = $options[ FileResponseOption::USE_CONTENT_TYPE        ] ?? true ;
-
-        if( $useContentType )
-        {
-            $response = $response->withHeader( HttpHeader::CONTENT_TYPE , mime_content_type( $produced ) ) ;
-        }
-
-        if( $useContentLength )
-        {
-            $response = $response->withHeader( HttpHeader::CONTENT_LENGTH , (string) filesize( $produced ) ) ;
-        }
-
-        if( $useContentDisposition )
-        {
-            $response = $response->withHeader( HttpHeader::CONTENT_DISPOSITION , $contentDisposition ) ;
-        }
+        $response = applyContentHeaders( $response , $produced , null , $options , defaultOn: true ) ;
 
         $response->getBody()->write( file_get_contents( $produced ) ) ;
 

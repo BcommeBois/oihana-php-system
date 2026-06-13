@@ -17,6 +17,7 @@ use oihana\files\enums\FileMimeType;
 use oihana\files\exceptions\DirectoryException;
 use oihana\files\exceptions\FileException;
 
+use function oihana\controllers\helpers\applyContentHeaders;
 use function oihana\files\archive\tar\tar;
 use function oihana\files\archive\tar\untar;
 use function oihana\files\path\canonicalizePath;
@@ -255,28 +256,9 @@ trait ArchiveTrait
      */
     private function archiveDownload( Response $response , string $produced , string $contentType , array $options = [] ) : Response
     {
-        $contentDisposition    = $options[ FileResponseOption::CONTENT_DISPOSITION     ] ?? 'attachment; filename=' . basename( $produced ) ;
-        $useContentDisposition = $options[ FileResponseOption::USE_CONTENT_DISPOSITION ] ?? true ;
-        $useContentLength      = $options[ FileResponseOption::USE_CONTENT_LENGTH      ] ?? true ;
-        $useContentType        = $options[ FileResponseOption::USE_CONTENT_TYPE        ] ?? true ;
-
-        if( $useContentType )
-        {
-            $response = $response->withHeader( HttpHeader::CONTENT_TYPE , $contentType ) ;
-        }
-
-        if( $useContentLength )
-        {
-            $response = $response->withHeader( HttpHeader::CONTENT_LENGTH , (string) filesize( $produced ) ) ;
-        }
-
-        if( $useContentDisposition )
-        {
-            $response = $response->withHeader( HttpHeader::CONTENT_DISPOSITION , $contentDisposition ) ;
-        }
-
-        $response = $response->withHeader( HttpHeader::PRAGMA  , CacheControlDirective::NO_CACHE )
-                             ->withHeader( HttpHeader::EXPIRES , '0' ) ;
+        $response = applyContentHeaders( $response , $produced , $contentType , $options )
+                    ->withHeader( HttpHeader::PRAGMA  , CacheControlDirective::NO_CACHE )
+                    ->withHeader( HttpHeader::EXPIRES , '0' ) ;
 
         $response->getBody()->write( file_get_contents( $produced ) ) ;
 
